@@ -1,4 +1,3 @@
 COSTUMER DRIVEN PROJECT
 =======================
-### TDT4290, Autumn 2011, NTNU
-### Group 4
+### TDT4290, Group 4, Autumn 2011, NTNU
