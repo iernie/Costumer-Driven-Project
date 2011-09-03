@@ -1,9 +1,11 @@
 class dummy {
-    public static void main(String[] args) {
+    public static void test(){
+    	System.out.println("Test");
+    }
+	
+	public static void main(String[] args) {
         System.out.println("Hello World!"); // Display the string.
+        test();
     }
     
-    public void hallaVerden(){
-    	System.out.println("Halla!");
-    }
 }
