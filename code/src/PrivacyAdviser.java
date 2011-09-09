@@ -6,7 +6,7 @@
  */
 
 import java.util.Properties;	//for configuration file functionality
-
+import java.util.logging.*;		//for logger functionality 
 
 
 /**
@@ -25,7 +25,7 @@ public class PrivacyAdviser {
 	static Gio theIO;									//interface to outside world
 	private static Properties configFile;		//configuration file with location of other things, logger
 	private static Properties weightsConfig;	//configuration file for weights
-	Logger logger;								//logger
+	static Logger logger;								//logger
 	
 	
 	
@@ -63,7 +63,7 @@ public class PrivacyAdviser {
 	 */
 	public static void init(String[] args)
 	{
-		//TODO check fo
+		//TODO check for right args
 		
 		//enable IO
 		theIO = new Gio(); 
@@ -80,7 +80,9 @@ public class PrivacyAdviser {
 		}
 		
 		//start the logger
-		logger = theIO.startLogger();
+		String loglevel = configFile.getProperty("loglevel","INFO").toUpperCase();
+		String logloc = configFile.getProperty("logloc","./log.txt").toUpperCase();
+		logger = theIO.startLogger(logloc,loglevel);
 		
 		//load the weights configuration file
 		weightsConfig = new Properties();
