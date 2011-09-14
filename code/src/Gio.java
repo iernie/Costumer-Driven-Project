@@ -34,11 +34,21 @@ public class Gio {
 
 
 		CommandLineParser parser = new PosixParser();
-		CommandLine cmd = parser.parse( options, args);
+		CommandLine cmd = null;
+		try
+		{
+			cmd = parser.parse( options, args);
+		}
+		catch (ParseException e)
+		{
+			System.out.println("Error parsing commandline arguements.");
+			e.printStackTrace();
+			System.exit(3);
+		}
 
 
 		genConfig = cmd.getOptionValue("c");
-		if genConfig == null
+		if (genConfig == null)
 		{
 			genConfig = "./PrivacyAdviser.cfg";
 		}
