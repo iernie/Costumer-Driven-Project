@@ -6,8 +6,6 @@ public class P3PParser
 	private PolicyObject policy;
 	private String tempKey;
 
-	//7654321
-	//1234567
 		
 	class XMLParserHandler extends DefaultHandler
 	{
