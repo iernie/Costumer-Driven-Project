@@ -66,7 +66,7 @@ public class PrivacyAdviser {
 		//TODO check for right args
 		
 		//enable IO
-		theIO = new Gio(); 
+		theIO = new Gio(args); 
 
 		//load general configuration file
 		configFile = new Properties();

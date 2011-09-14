@@ -7,30 +7,55 @@ import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
 import java.util.Properties;	//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
+import org.apache.commons.cli.*;	//for command line options
 
 public class Gio {
 
 	
 	private static Logger logger = Logger.getLogger("");		//create logger object
     	private FileHandler fh; ;					//creates filehandler for logging
-	
+	private String genConfig;					//location of general configuration file
+	private String wConfig;						//location of weights configuration file, if specified.
+
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
+	 * Constructs and parses command line arguements as well.
 	 * 
 	 *  @author ngerstle
 	 */
-	public Gio() {
+	public Gio(String[] args) 
+	{
+		// create Options object
+		Options options = new Options();
+	
+		// add t option
+		options.addOption("c", true, "general configuration file location");
+		options.addOption("w", true, "weights configuration file location");
+
+
+		CommandLineParser parser = new PosixParser();
+		CommandLine cmd = parser.parse( options, args);
+
+
+		genConfig = cmd.getOptionValue("c");
+		if genConfig == null
+		{
+			genConfig = "./PrivacyAdviser.cfg";
+		}
+		wConfig = cmd.getOptionValue("w"); //don't need to check for null as it is assumed to be in the general config file loaded later
+
+
 	}
 
 	/**
-	 * Loads the general config from default location, "./PrivacyAdviser.cfg"
+	 * Loads the general config file from either commandline location or default of './PrivacyAdviser.cfg'
 	 * 
 	 * @author ngerstle
 	 * @return properties object corresponding to given configuration file
 	 */
 	public Properties loadGeneral()
 	{
-		return loadGeneral("./PivacyAdviser.cfg");
+		return loadGeneral(genConfig);
 	}
 	
 	/**
@@ -77,6 +102,10 @@ public class Gio {
 	
 	Properties loadWeights(String fileLoc)
 	{
+		if(wConfig != null)
+		{
+			fileLoc = wConfig;
+		}
 		Properties configFile = new Properties();
 
 		try 
