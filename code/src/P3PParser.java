@@ -3,7 +3,6 @@ import org.xml.sax.helpers.*;
 
 public class P3PParser
 {
-	//testcomment
 	private PolicyObject policy;
 	private String tempKey;
 
