@@ -3,8 +3,11 @@ import org.xml.sax.helpers.*;
 
 public class P3PParser
 {
+<<<<<<< HEAD
 	//testcomment
 	//testcooment by Nesha
+=======
+>>>>>>> branch 'master' of git@github.com:iernie/Costumer-Driven-Project.git
 	private PolicyObject policy;
 	private String tempKey;
 
