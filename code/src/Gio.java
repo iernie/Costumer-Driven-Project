@@ -20,6 +20,7 @@ public class Gio {
     	private FileHandler fh; ;					//creates filehandler for logging
 	private String genConfig;					//location of general configuration file
 	private String wConfig;						//location of weights configuration file, if specified.
+	private String dLocation;
 
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
@@ -35,6 +36,7 @@ public class Gio {
 		// add t option
 		options.addOption("c", true, "general configuration file location");
 		options.addOption("w", true, "weights configuration file location");
+		options.addOption("d", true, "database file location");
 
 
 		CommandLineParser parser = new PosixParser();
@@ -57,7 +59,7 @@ public class Gio {
 			genConfig = "./PrivacyAdviser.cfg";
 		}
 		wConfig = cmd.getOptionValue("w"); //don't need to check for null as it is assumed to be in the general config file loaded later
-
+		dLocation= cmd.getOptionValue("d"); //don't need to check for null as it is assumbed to be in the general config file loaded later
 
 	}
 
@@ -185,25 +187,44 @@ public class Gio {
 	 * @author ngerstle
 	 * 
 	 */
-	void loadDB()
+	void loadDB(String dLoc)
 	{
 		
-		PolicyObject policyObject = new PolicyObject();// Creating new policy object
-		//adding values to poilicy object.
-		
-		policyObject.addEntityData("1", "Nicholas");
-		policyObject.addEntityData("2", "policy1");
-		policyObject.addEntityData("3", "anyValue");
+		if(dLocation != null)
+		{
+			dLoc = wConfig;
+		}
 		
 
-		FileOutputStream fos = new FileOutputStream("serial1");// creating an output stream to save the object
-		ObjectOutputStream oos = new ObjectOutputStream(fos); // initializing output stream to write policyObject
-		oos.writeObject(policyObject); // writing to output stream policyObject
-		/**
-		 * in similar way depending on number of objects(policies to be created) can be created either by providing
-		 * values hard coded in this class or an interface could be created and this class could be used to take 
-		 * values from the interface and save the data received for the policy
-		 */
+		//load database from "dLoc"
+
+
+
+
+
+
+
+
+
+//		//WRONG!! place for this code. This is for pulling the database into the program, not putting it on disk at the end.
+//
+//
+//		PolicyObject policyObject = new PolicyObject();// Creating new policy object
+//		//adding values to poilicy object.
+//		
+//		policyObject.addEntityData("1", "Nicholas");
+//		policyObject.addEntityData("2", "policy1");
+//		policyObject.addEntityData("3", "anyValue");
+//		
+//
+//		FileOutputStream fos = new FileOutputStream("serial1");// creating an output stream to save the object
+//		ObjectOutputStream oos = new ObjectOutputStream(fos); // initializing output stream to write policyObject
+//		oos.writeObject(policyObject); // writing to output stream policyObject
+//		/**
+//		 * in similar way depending on number of objects(policies to be created) can be created either by providing
+//		 * values hard coded in this class or an interface could be created and this class could be used to take 
+//		 * values from the interface and save the data received for the policy
+//		 */
 
 	}
 }
