@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
 *	This singleton class will store all past P3P/contexts instances in a hashmap.
 *
@@ -8,7 +10,7 @@
 class PDatabase
 {
 	private static final PDatabase i = new PDatabase(); //singleton instance of this class
-	private  Hashmap<PolicyObject> idb; //internal database
+	private  ArrayList<PolicyObject> idb; //internal database
 	
 
 
