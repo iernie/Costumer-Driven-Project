@@ -1,6 +1,3 @@
-package src;
-
-
 import java.io.BufferedReader;	//for configuration file functionality
 import java.io.File;			//for configuration file functionality
 import java.io.FileInputStream;	//for configuration file functionality
@@ -17,7 +14,7 @@ public class Gio {
 
 
 	private static Logger logger = Logger.getLogger("");		//create logger object
-    	private FileHandler fh; ;					//creates filehandler for logging
+    private FileHandler fh; ;					//creates filehandler for logging
 	private String genConfig;					//location of general configuration file
 	private String wConfig;						//location of weights configuration file, if specified.
 	private String dLocation;
