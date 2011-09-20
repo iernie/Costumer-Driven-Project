@@ -7,21 +7,34 @@ import java.util.ArrayList;
 /**
 *	This singleton class will store all past P3P/contexts instances in a hashmap.
 *
-*	@author Nicholas Gerstle, Henrik Knutsen
+*	@author Nicholas Gerstle, Henrik Knutsen, Aman Kaur
 *	@version 1.0
 */
-
-/* WARNING: There is ALOT of redundancy with and within the database classes at the moment.
- * I'll try to clean it up, and also add proper commenting.
- * 
- * Added readPolicy and writePolicy for now, which is using the dummy object in PolicyLight.java
- */
 
 class PDatabase
 {
 	private static final PDatabase i = new PDatabase(); //singleton instance of this class
 	private  ArrayList<PolicyObject> idb; //internal database
 	
+	/**
+	*	Dummy main to test reading and writing.
+	*	
+	*	@param String args[]
+	*	@authors Henrik Knutsen
+	*/
+	/*
+	public void main(String args[]) {
+		/* Initializing testing policies 
+		PolicyLight WritePolicy = new PolicyLight("Henrik", "Admin", 7.5, 20);
+		PolicyLight ReadPolicy = null;
+		
+		/* Writing Policy to disk 
+		writePolicy(WritePolicy);
+		/* Reading data in "Policy.name" to TempPolicy 
+		ReadPolicy = readPolicy(WritePolicy.name);
+		
+		System.out.println(TempPolicy);
+	}*/
 
 
 	/**
@@ -45,62 +58,66 @@ class PDatabase
 		return i;
 	}
 	
-	/**
-	*	public method to write an object to the database
-	*	
-	*	@param Policy is the PolicyLight (dummy object) to be written
-	*	@author Henrik Knutsen
-	*/
 	
+	/**
+	*	Public method to write an object to disk
+	*	
+	*	@param The object of type PolicyLight (dummy object) to be written
+	*	@authors Henrik Knutsen, Aman Kaur
+	*/
 	public void writePolicy(PolicyLight Policy) {
 		try {
-			FileOutputStream fos = new FileOutputStream(Policy.name);// creating an output stream to save the object 
-			
-			ObjectOutputStream oos = new ObjectOutputStream(fos); // initializing output stream to write obj1
-			
-			oos.writeObject(Policy); // writing to output stream obj1
-			
+			/* Creating a stream to create the file "Policy.name" and write bytes to it
+			 * Name of the file can be changed to whatever is wanted */
+			FileOutputStream fos = new FileOutputStream(Policy.name);
+			/* Creating a stream convering object to byte data */
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			/* Writing datastream of object to file */
+			oos.writeObject(Policy);
+			/* Closing streams */
+			fos.close();
 			oos.flush(); 
 			oos.close();
 		} 
-		catch(Exception e) { 
+		catch(Exception e) {
+			/* Simple error handling, show error and shut down */
 			System.out.println("Exception during serialization: " + e); 
 			System.exit(0); 
-		} 
+		}
 	} 
 	
-	/**
-	*	public method to read an object to the database
-	*	
-	*	@param  Filename as a string is the name of the file to be read
-	*	@return PolicyLight (dummy object), object that is read from the saved file
-	*	@author Henrik Knutsen
-	*/
 	
+	/**
+	*	Public method to read an object from disk
+	*	
+	*	@param  Name of the file to be read
+	*	@return Object of type PolicyLight (dummy object), that is read from the file
+	*	@authors Henrik Knutsen, Aman Kaur
+	*/
 	public PolicyLight readPolicy(String filename) {
+		/* Initializing the object to be returned */
 		PolicyLight TempPolicy = null;
-		// Object deserialization 
-		try { 			
-			FileInputStream fis = new FileInputStream(filename); // creating a stream to read obj1
-			//FileInputStream fis1 = new FileInputStream("serial2");// creating a stream to read obj2
-			
+		try { 		
+			/* Creating a stream to read bytes from file "filename" */
+			FileInputStream fis = new FileInputStream(filename);
+			/* Converting bytedata from FileInputStream to an object */
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			
-			TempPolicy = (PolicyLight)ois.readObject();  // reading and casting the saved obj1
-			
-			//ois = new ObjectInputStream(fis1);
-			//obj2 = (MyClass)ois.readObject();// reading and casting the saved obj2
-			
+			/* Casting the read object and storing it in return variable */
+			TempPolicy = (PolicyLight)ois.readObject(); 
+			/* Closing the streams */
+			fis.close();
 			ois.close();
 		}
-			//System.out.println("Object1: " + Policy1);
-			//System.out.println("object2: " + obj2);
-		catch(Exception e) { 
+		catch(Exception e) {
+			/* Simple error handling, show error and shut down */
 			System.out.println("Exception during deserialization: " + e); 
 			System.exit(0); 
 		} 
+		
 		return TempPolicy;
 	}
 
+	
+	
 	//TODO add interator, distance finder, etc, accessors here
 }
