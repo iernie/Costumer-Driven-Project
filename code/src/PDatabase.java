@@ -60,11 +60,12 @@ class PDatabase
 	
 	
 	/**
-	*	Public method to write an object to disk
+	*	Public method to write an POLICYLIGHT object to disk
 	*	
 	*	@param The object of type PolicyLight (dummy object) to be written
 	*	@authors Henrik Knutsen, Aman Kaur
 	*/
+	//TODO unless there's a more efficient way, we don't write individual policies to disk, so remove this method, or change PolicyLight to Policy
 	public void writePolicy(PolicyLight Policy) {
 		try {
 			/* Creating a stream to create the file "Policy.name" and write bytes to it
@@ -88,12 +89,13 @@ class PDatabase
 	
 	
 	/**
-	*	Public method to read an object from disk
+	*	Public method to read POLICY object from disk
 	*	
 	*	@param  Name of the file to be read
 	*	@return Object of type PolicyLight (dummy object), that is read from the file
 	*	@authors Henrik Knutsen, Aman Kaur
 	*/
+	//TODO unless there's a more efficient way, we don't write individual policies to disk, so remove this method, or change PolicyLight to Policy
 	public PolicyLight readPolicy(String filename) {
 		/* Initializing the object to be returned */
 		PolicyLight TempPolicy = null;
