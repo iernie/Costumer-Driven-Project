@@ -1,11 +1,8 @@
-import java.io.FileInputStream;		//to read serialized objects from file
-import java.io.FileOutputStream;	//to read serialized objects from file
-import java.io.ObjectInputStream;	//to read serialized objects from file
-import java.io.ObjectOutputStream;	//to read serialized objects from file
-import java.io.Serializable;		//to serialize this class
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-
-
 
 /**
 *	This singleton class will store all past P3P/contexts instances in a hashmap.
@@ -14,7 +11,7 @@ import java.util.ArrayList;
 *	@version 1.0
 */
 
-class PDatabase	implements Serializable
+class PDatabase
 {
 	private static final PDatabase i = new PDatabase(); //singleton instance of this class
 	private  ArrayList<PolicyObject> idb; //internal database
@@ -99,29 +96,29 @@ class PDatabase	implements Serializable
 	*	@authors Henrik Knutsen, Aman Kaur
 	*/
 	//TODO unless there's a more efficient way, we don't write individual policies to disk, so remove this method, or change PolicyLight to Policy
-/*	public PolicyLight readPolicy(String filename) {
-		// Initializing the object to be returned 
+	public PolicyLight readPolicy(String filename) {
+		/* Initializing the object to be returned */
 		PolicyLight TempPolicy = null;
 		try { 		
-			// Creating a stream to read bytes from file "filename" 
+			/* Creating a stream to read bytes from file "filename" */
 			FileInputStream fis = new FileInputStream(filename);
-			// Converting bytedata from FileInputStream to an object 
+			/* Converting bytedata from FileInputStream to an object */
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			// Casting the read object and storing it in return variable 
+			/* Casting the read object and storing it in return variable */
 			TempPolicy = (PolicyLight)ois.readObject(); 
-			// Closing the streams 
+			/* Closing the streams */
 			fis.close();
 			ois.close();
 		}
 		catch(Exception e) {
-			// Simple error handling, show error and shut down
+			/* Simple error handling, show error and shut down */
 			System.out.println("Exception during deserialization: " + e); 
 			System.exit(0); 
 		} 
 		
 		return TempPolicy;
 	}
-*/
+
 	
 	
 	//TODO add interator, distance finder, etc, accessors here

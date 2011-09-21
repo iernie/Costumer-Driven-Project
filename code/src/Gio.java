@@ -1,17 +1,14 @@
-import java.io.BufferedReader;		//for configuration file functionality
+import java.io.BufferedReader;	//for configuration file functionality
 import java.io.File;			//for configuration file functionality
-import java.io.FileInputStream;		//for configuration file functionality and reading serialized objects
-import java.io.FileOutputStream;	//to write serialized objects to file
+import java.io.FileInputStream;	//for configuration file functionality
+import java.io.FileOutputStream;
 import java.io.FileReader;		//for configuration file functionality
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
-import java.util.Properties;		//for configuration file functionality
+import java.io.ObjectOutputStream;
+import java.util.Properties;	//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
-import java.io.ObjectInputStream;       //to read serialized objects from file
-import java.io.ObjectOutputStream;      //to read serialized objects from file
-
-
 
 public class Gio {
 
