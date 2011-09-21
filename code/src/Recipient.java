@@ -1,4 +1,9 @@
 
 public enum Recipient {
-	ours, delivery, same, other_recipient, unrelated, publ;
+	OURS,
+	DELIVERY,
+	SAME,
+	OTHER_RECIPIENT,
+	UNRELATED,
+	PUBLIC;
 }
