@@ -124,5 +124,30 @@ class PDatabase	implements Serializable
 */
 	
 	
-	//TODO add interator, distance finder, etc, accessors here
+
+
+	/**
+	*	returns an iterator over the arraylist of policies.
+	*	@return iterator over policy arraylist
+	*	@author ngerstle	*
+	*/
+	public Iterator getDBIt()
+	{
+		return idb.iterator();
+	}
+
+
+	/**
+	*	add a new policy object to the database
+	*
+	*	@param n the new policy object
+	*	@author ngerstle
+	*/
+	public void addPolicy(Policy n)
+	{
+		idb.add(n);
+	}
+	
+
+	//TODO return any Policies matching a domain
 }
