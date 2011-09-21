@@ -90,7 +90,6 @@ public class PrivacyAdviser {
 		
 		
 		//load the past history
-		theIO.loadDB(configFile.getProperty("databaseLocation"));	
 		
 	}
 	

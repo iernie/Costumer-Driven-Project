@@ -26,17 +26,17 @@ public class distanceMetricTest implements DistanceMetric{
 	@Override
 	public double getWeigth(Recipient r) {
 		switch(r){
-		case OURS:
+		case ours:
 			return 1;
-		case DELIVERY:
+		case delivery:
 			return 2;
-		case SAME:
+		case same:
 			return 3;
-		case OTHER_RECIPIENT:
+		case other_recipient:
 			return 4;
-		case UNRELATED:
+		case unrelated:
 			return 5;
-		case PUBLIC:
+		case publ:
 			return 6;
 			
 		}

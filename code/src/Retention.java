@@ -1,8 +1,4 @@
 
 public enum Retention {
-	NO_RETENTION,
-	STATED_PURPOSE,
-	LEGAL_REQUIREMENT,
-	BUSINESS_PRACTICES,
-	INDEFINITELY;
+	no_retention, stated_purpose, leagal_req, business_prac, indefinitely;
 }
