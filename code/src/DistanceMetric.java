@@ -23,7 +23,7 @@ public interface DistanceMetric {
 	 * @return double 0 if cases are similar and positive integer if they are not
 	 */
 	
-	public double getDistResip(Case a, Case b);
+	public double getDistRecip(Case a, Case b);
 	
 	/**
 	 * Calculates distance between case a and case b focusing on retention field only
