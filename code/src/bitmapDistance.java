@@ -1,6 +1,19 @@
+/**
+ * A distance metric that calculates distance based on 
+ * weighed union of a bit map interception
+ *
+ * @author Dimitry Kongevold(dimitryk)
+ * 
+ */
+
 import java.util.ArrayList;
 
-
+/**
+ * A distance metric that calculates distance based on 
+ * weighed union of a bit map interception
+ * @version 240911.01 
+ * @author dimitryk
+ */
 public class bitmapDistance implements DistanceMetric{
 	//private int[] purpMap;
 	//private int[] recipMap;
@@ -11,6 +24,16 @@ public class bitmapDistance implements DistanceMetric{
 	//	recipMap = new int[6];
 	//	retMap = new int[5];
 	}
+	
+	/**
+	 * internal method that makes a bit map of 6 ints
+	 * each place in an array corresponds to a spesfic value
+	 * of a Recipient field
+	 *  
+	 * @author dimitryk
+	 * @param list input arraylist of ReciPients for method...
+	 * @return Map as bitmap
+	 */
 	
 	private int[] MakeRecipMap(ArrayList<Recipient> list){
 		int[] Map = new int[6];
@@ -39,6 +62,16 @@ public class bitmapDistance implements DistanceMetric{
 		}
 		return Map;
 	}
+	
+	/**
+	 * internal method that makes a bit map of 12 ints
+	 * each place in an array corresponds to a spesfic value
+	 * of a Purpose Enum
+	 * @author dimitryk
+	 * @param list input arraylist of Purpose for method...
+	 * @return Map as bitmap
+	 */
+	
 	private int[] MakePurposeMap(ArrayList<Purpose> list){
 		int[] Map = new int[12];
 		for(int i=0;i<list.size();i++){
@@ -85,6 +118,15 @@ public class bitmapDistance implements DistanceMetric{
 		return Map;
 	}
 	
+	/**
+	 * internal method that makes a bit map of 5 ints
+	 * each place in an array corresponds to a spesfic value
+	 * of a Retention Enum
+	 * @author dimitryk
+	 * @param list input arraylist of Purpose for method...
+	 * @return Map as bitmap
+	 */
+	
 	private int[] MakeRetentionMap(ArrayList<Retention> list){
 		int[] Map = new int[5];
 		for(int i=0;i<list.size();i++){
@@ -110,7 +152,15 @@ public class bitmapDistance implements DistanceMetric{
 		return Map;
 	}
 	
-	@Override
+	/**
+	 * Calculates distance in the Recipien field from case a to case b
+	 * using bit map distance = a interseption b * weight
+	 * @author dimitryk
+	 * @param a input case.
+	 * @param b input case.
+	 * @return dis double for the distance between to.
+	 */
+	
 	public double getDistRecip(Case a, Case b) {
 		int[] MapA, MapB;
 		MapA = MakeRecipMap(a.getRecip());
@@ -118,7 +168,7 @@ public class bitmapDistance implements DistanceMetric{
 		double dis=0;
 		
 		for(int i=0;i<6;i++){
-			if(MapA!=MapB){
+			if(MapA[i]!=MapB[i]){
 				dis=dis+1; //for now... weights are jet not operational.
 			}
 		}
@@ -127,15 +177,23 @@ public class bitmapDistance implements DistanceMetric{
 		return dis;// dis*weight later
 	}
 
-	@Override
+	/**
+	 * Calculates distance in the Retention field from case a to case b
+	 * using bit map distance = a interseption b * weight
+	 * @author dimitryk
+	 * @param a input case.
+	 * @param b input case.
+	 * @return dis double for the distance between to.
+	 */
+
 	public double getDistReten(Case a, Case b) {
 		int[] MapA, MapB;
 		MapA = MakeRetentionMap(a.getRet());
 		MapB = MakeRetentionMap(b.getRet());
 		double dis=0;
 		
-		for(int i=0;i<12;i++){
-			if(MapA!=MapB){
+		for(int i=0;i<5;i++){
+			if(MapA[i]!=MapB[i]){
 				dis=dis+1; //for now... weights are jet not operational.
 			}
 		}
@@ -144,7 +202,15 @@ public class bitmapDistance implements DistanceMetric{
 		return dis;// dis*weight later
 	}
 
-	@Override
+	/**
+	 * Calculates distance in the Purpose field from case a to case b
+	 * using bit map distance = a interseption b * weight
+	 * @author dimitryk
+	 * @param a input case.
+	 * @param b input case.
+	 * @return dis double for the distance between to.
+	 */
+	
 	public double getDistPurpose(Case a, Case b) {
 		int[] MapA, MapB;
 		MapA = MakePurposeMap(a.getPurp());
@@ -152,31 +218,13 @@ public class bitmapDistance implements DistanceMetric{
 		double dis=0;
 		
 		for(int i=0;i<12;i++){
-			if(MapA!=MapB){
+			if(MapA[i]!=MapB[i]){
 				dis=dis+1; //for now... weights are jet not operational.
 			}
 		}
 		
 		
 		return dis;// dis*weight later
-	}
-
-	@Override
-	public double getWeigth(Recipient r) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double getWeigth(Retention r) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double getWeigth(Purpose r) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 }

@@ -46,35 +46,5 @@ public interface DistanceMetric {
 	 */
 	
 	public double getDistPurpose(Case a, Case b);
-	
-	/**
-	 * Returns the weight of a recipient
-	 * Used by the getDistResip() method
-	 * 
-	 * @author Nesha
-	 * @param r input Recipient
-	 * @return double value >0
-	 */
-	public double getWeigth(Recipient r);
-	
-	/**
-	 * Returns the weight of a retention
-	 * Used by the getDistReten() method
-	 * 
-	 * @author Nesha
-	 * @param r input Retention
-	 * @return double value >0
-	 */
-	public double getWeigth(Retention r);
-	
-	/**
-	 * Returns the weight of a purpose
-	 * Used by the getDistPurpose() method
-	 * 
-	 * @author Nesha
-	 * @param r input Retention
-	 * @return double value >0
-	 */
-	public double getWeigth(Purpose r);
-	
+
 }
