@@ -169,6 +169,7 @@ public class bitmapDistance implements DistanceMetric{
 		
 		for(int i=0;i<6;i++){
 			if(MapA[i]!=MapB[i]){
+				//dis=dis+(Math.max(MapA[i], MapB[i])-Math.min(MapA[i], MapB[i]));
 				dis=dis+1; //for now... weights are jet not operational.
 			}
 		}
