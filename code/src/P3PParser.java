@@ -44,6 +44,7 @@ public class P3PParser
 	    	System.out.println("TAG: " + tagName + ", ATTRS: " + attributes.getValue(0));
 	    	String formattedTagName = tagName.replace('-', '_').toUpperCase();
 	    	
+	    	
 	    	// IF TAG HAS ALREADY BEEN FOUND, ADD SUBTAG
 	    	
 	    	if(statement)
@@ -59,7 +60,7 @@ public class P3PParser
 	    		if(retention)
 	    		{
 	    			policy.addRetention(Retention.valueOf(formattedTagName));
-	    		}	
+	    		}
 	    		if(categories)
 	    		{
 	    			policy.addCategory(Category.valueOf(formattedTagName));
@@ -110,9 +111,14 @@ public class P3PParser
 	     */
 	    public void characters(char ch[], int start, int length) throws SAXException
 	    {
-	    	if(entity && dataTag)
+	    	if(dataTag && entity)
 	    	{
 	    		policy.addEntityData(tempKey, new String(ch, start, length));
+	    	}
+	    	if(statement)
+	    	{
+	    		System.out.println(tempKey + " added!");
+	    		policy.addDataType(tempKey);
 	    	}
 		}
 	    
