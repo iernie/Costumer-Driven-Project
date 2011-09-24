@@ -227,4 +227,10 @@ public class bitmapDistance implements DistanceMetric{
 		return dis;// dis*weight later
 	}
 
+	@Override
+	public double getTotalDistance(Case a, Case b) {
+		
+		return getDistPurpose(a,b)+getDistRecip(a,b)+getDistReten(a,b);
+	}
+
 }

@@ -46,5 +46,16 @@ public interface DistanceMetric {
 	 */
 	
 	public double getDistPurpose(Case a, Case b);
+	
+	/**
+	 * Calculates total tistance between allfields
+	 * 
+	 * @author dimitryk
+	 * @param a input Case
+	 * @param b input Case
+	 * @return double 0 if cases are similar and positive integer if they are not
+	 */
+	
+	public double getTotalDistance(Case a, Case b);
 
 }
