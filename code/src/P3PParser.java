@@ -20,6 +20,7 @@ public class P3PParser
 		
 	class XMLParserHandler extends DefaultHandler
 	{
+		Case policyCase;
 		Boolean statement = false,
 				categories = false,
 				dataTag = false,
@@ -51,19 +52,19 @@ public class P3PParser
 	    	{
 	    		if(purpose)
 	    		{
-	    			policy.addPurpose(Purpose.valueOf(formattedTagName));
+	    			policyCase.addPurpose(Purpose.valueOf(formattedTagName));
 	    		}
 	    		if(recipient)
 	    		{
-	    			policy.addRecipient(Recipient.valueOf(formattedTagName));
+	    			policyCase.addRecipient(Recipient.valueOf(formattedTagName));
 	    		}
 	    		if(retention)
 	    		{
-	    			policy.addRetention(Retention.valueOf(formattedTagName));
+	    			policyCase.addRetention(Retention.valueOf(formattedTagName));
 	    		}
 	    		if(categories)
 	    		{
-	    			policy.addCategory(Category.valueOf(formattedTagName));
+	    			policyCase.addCategory(Category.valueOf(formattedTagName));
 	    		}
 	    	}
 	    	
@@ -72,6 +73,12 @@ public class P3PParser
 	    	if(tagName.equalsIgnoreCase("entity"))
 	    	{
 	    		entity = true;
+	    	}
+	    	if(tagName.equalsIgnoreCase("statement"))
+	    	{
+	    		statement = true;
+	    		policyCase = new Case();
+	    		System.out.println("New Case");
 	    	}
 	    	if(tagName.equalsIgnoreCase("data"))
 	    	{
@@ -94,10 +101,6 @@ public class P3PParser
 	    	{
 	    		retention = true;
 	    	}
-	    	if(tagName.equalsIgnoreCase("statement"))
-	    	{
-	    		statement = true;
-	    	}
 	    }
 	    
 	    /**
@@ -117,8 +120,7 @@ public class P3PParser
 	    	}
 	    	if(statement)
 	    	{
-	    		System.out.println(tempKey + " added!");
-	    		policy.addDataType(tempKey);
+	    		policyCase.addDataType(tempKey);
 	    	}
 		}
 	    
@@ -162,6 +164,7 @@ public class P3PParser
 	    	if(tagName.equalsIgnoreCase("statement"))
 	    	{
 	    		statement = false;
+	    		policy.addCase(policyCase);
 	    	}
 	    }
 	}

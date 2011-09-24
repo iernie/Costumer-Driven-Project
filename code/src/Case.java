@@ -7,7 +7,6 @@ import java.util.Set;
 
 class Case {
 	
-	private HashMap<String, String> entity;
 	private ArrayList<Purpose> purpose;
 	private ArrayList<Retention> retention;
 	private ArrayList<Recipient> recipient;
@@ -16,7 +15,6 @@ class Case {
 	
 	public Case()
 	{
-		entity = new HashMap<String, String>();
 		purpose = new ArrayList<Purpose>();
 		retention = new ArrayList<Retention>();
 		recipient = new ArrayList<Recipient>();
@@ -49,11 +47,6 @@ class Case {
 	public void addDataType(String s)
 	{
 		datatypes.add(s);
-	}
-	
-	public void addEntityData(String key, String value)
-	{
-		entity.put(key, value);
 	}
 	
 	// GET
@@ -103,29 +96,10 @@ class Case {
 		return datatypes;
 	}
 	
-	public HashMap<String, String> getEntities()
-	{
-		return entity;
-	}
-	
-	public String getEntity(String key)
-	{
-		return entity.get(key);
-	}
-	
 	// DEBUG
 	
 	public void debug_print()
-	{
-		System.out.println("ENTITY");
-		Set set = entity.entrySet();
-		Iterator it = set.iterator();
-		while(it.hasNext())
-		{
-			Map.Entry me = (Map.Entry)it.next();
-			System.out.println("KEY: " + me.getKey() + ", VAL: " + me.getValue() );
-		}
-		
+	{	
 		for(int i=0; i < purpose.size(); i++)
 		{
 			System.out.println("PURPOSE: " + purpose.get(i));

@@ -1,4 +1,9 @@
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * 
@@ -23,45 +28,51 @@ import java.io.Serializable;
 
 public class PolicyObject implements Serializable
 {
-	private Case policyCase;
+	private HashMap<String, String> entity;
+	private ArrayList<Case> statements;
 
 	public PolicyObject()
 	{
-		policyCase = new Case();
+		statements = new ArrayList<Case>();
+		entity = new HashMap<String, String>();
 	}
 	
-	public void addPurpose(Purpose p)
+	public void addCase(Case c)
 	{
-		policyCase.addPurpose(p);
-	}
-	
-	public void addRetention(Retention t)
-	{
-		policyCase.addRetention(t);
-	}
-	
-	public void addRecipient(Recipient r)
-	{
-		policyCase.addRecipient(r);
-	}
-	
-	public void addCategory(Category c)
-	{
-		policyCase.addCategory(c);
-	}
-	
-	public void addDataType(String s)
-	{
-		policyCase.addDataType(s);
+		statements.add(c);
 	}
 	
 	public void addEntityData(String key, String value)
 	{
-		policyCase.addEntityData(key, value);
+		entity.put(key, value);
+	}
+	
+	public HashMap<String, String> getEntities()
+	{
+		return entity;
+	}
+	
+	public String getEntity(String key)
+	{
+		return entity.get(key);
 	}
 	
 	public void debug_print()
 	{
-		policyCase.debug_print();
+		System.out.println("\nPOLICY OBJECT DEBUG PRINT");
+		System.out.println("\nENTITY");
+		Set set = entity.entrySet();
+		Iterator it = set.iterator();
+		while(it.hasNext())
+		{
+			Map.Entry me = (Map.Entry)it.next();
+			System.out.println("KEY: " + me.getKey() + ", VAL: " + me.getValue() );
+		}
+		
+		for(int i=0; i<statements.size(); i++)
+		{
+			System.out.println("\nSTATEMENT " + i);
+			statements.get(i).debug_print();
+		}
 	}
 }

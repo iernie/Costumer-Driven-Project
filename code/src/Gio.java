@@ -1,14 +1,17 @@
-import java.io.BufferedReader;	//for configuration file functionality
+import java.io.BufferedReader;		//for configuration file functionality
 import java.io.File;			//for configuration file functionality
-import java.io.FileInputStream;	//for configuration file functionality
-import java.io.FileOutputStream;
+import java.io.FileInputStream;		//for configuration file functionality and reading serialized objects
+import java.io.FileOutputStream;	//to write serialized objects to file
 import java.io.FileReader;		//for configuration file functionality
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
-import java.io.ObjectOutputStream;
-import java.util.Properties;	//for configuration file functionality
+import java.util.Properties;		//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
+import java.io.ObjectInputStream;       //to read serialized objects from file
+import java.io.ObjectOutputStream;      //to read serialized objects from file
+
+
 
 public class Gio {
 
@@ -18,6 +21,7 @@ public class Gio {
 	private String genConfig;					//location of general configuration file
 	private String wConfig;						//location of weights configuration file, if specified.
 	private String dLocation;
+	private PDatabase pdb = null;				//Policy database object
 
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
@@ -195,7 +199,21 @@ public class Gio {
 
 		//load database from "dLoc"
 
-
+		PDatabase pdb = null;
+		try
+		{
+			FileInputStream fis = new FileInputStream(dLoc);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			pdb = (PDatabase)ois.readObject();
+			ois.close();
+			fis.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception deserializing PDatabase at " + dloc +" .\n");
+			e.printStackTrace();
+			System.exit(3);
+		}
 
 
 
