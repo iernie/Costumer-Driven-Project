@@ -91,6 +91,9 @@ public class PrivacyAdviser {
 		
 		//load the past history && commandline policies 
 		theIO.loadDB(configFile.getProperty("databaseLocation"));	
+	
+		//find nearest neighbor
+		
 		
 	}
 	
