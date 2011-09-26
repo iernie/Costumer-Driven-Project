@@ -1,6 +1,4 @@
 import java.io.BufferedReader;		//for configuration file functionality
-import java.nio.*;					//to read p3p to parse
-import java.nio.charset.Charset;
 import java.io.File;			//for configuration file functionality
 import java.io.FileInputStream;		//for configuration file functionality and reading serialized objects
 import java.io.FileNotFoundException;
@@ -245,19 +243,21 @@ public class Gio {
 	}
 
 	
-	/**
+	/** 
 	 * loads policies from commandline (either -p or -f)
 	 * 
 	 * @author ngerstle
 	 */
 	private void loadCLPolicies() {
 		//we already checked to make sure we have one of the options avaliable
+		File pLoc = null;
+		BufferedReader reader = null;
+		
+		
 		if(p3pLocation != null)
 		{
-			File pLoc = new File(p3pLocation);
+			pLoc = new File(p3pLocation);
 			//todo add the current time
-			Charset charset = Charset.forName("US-ASCII");
-			BufferedReader reader = null;
 			try {
 				reader = new BufferedReader(new FileReader(p3pLocation));
 			} catch (FileNotFoundException e1) {
@@ -278,7 +278,31 @@ public class Gio {
 		}
 		else 
 		{
-			
+			pLoc = new File(p3pDirLocation);
+			String[] pfiles = pLoc.list();
+			for(int i=0;i<pfiles.length;i++)
+			{
+				pLoc = new File(pfiles[i]);
+				//todo add the current time
+				try {
+					reader = new BufferedReader(new FileReader(pfiles[i]));
+				} catch (FileNotFoundException e1) {
+					//file would need to disappear between list and this
+					e1.printStackTrace();
+					System.out.println("no file found at p3p policy location specified by the -d option");
+					System.exit(1);
+				}
+				char[] xml = new char[(int) pLoc.length()];
+				try {
+					reader.read(xml, 0, (int) pLoc.length());
+				} catch (IOException e) {
+					e.printStackTrace();
+					System.out.println("error reading file at location specified by the -d option");
+					System.exit(1);
+				}
+				String policyx  = new String(xml);
+				pdb.addPolicy((new P3PParser()).parse(policyx));	
+			}
 			
 		}
 	}
