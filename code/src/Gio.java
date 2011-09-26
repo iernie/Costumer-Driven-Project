@@ -242,8 +242,6 @@ public class Gio {
 		loadCLPolicies();
 	}
 
-	for i in list:
-		map[i]=wconfig.getProperties(list[i],default);
 	/** 
 	 * loads policies from commandline (either -p or -f)
 	 * 
