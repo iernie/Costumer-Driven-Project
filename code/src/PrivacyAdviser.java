@@ -89,8 +89,11 @@ public class PrivacyAdviser {
 		weightsConfig = theIO.loadWeights(configFile.getProperty("weights.cfg","./weights.cfg"));
 		
 		
-		//load the past history
+		//load the past history && commandline policies 
 		theIO.loadDB(configFile.getProperty("databaseLocation"));	
+	
+		//find nearest neighbor
+		
 		
 	}
 	

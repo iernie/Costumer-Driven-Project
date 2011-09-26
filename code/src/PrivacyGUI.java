@@ -1,129 +1,124 @@
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.awt.EventQueue;
 
-import javax.swing.ButtonGroup;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import java.awt.BorderLayout;
+
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
- * 
- * A GUI for loading P3P policies from a local file
- * and testing the classifier algorithm.
- * 
+ * The Privacy Advisor GUI
  * @author ulfnore
  *
  */
-public class PrivacyGUI extends JPanel{
-	
-	private JList policies; // list of policies to be displayed
-	private DefaultListModel policyModel;
-	
-	private JButton loadDataButton; // load database
-	private JButton runButton; // run the classifier algo
-	private JTextArea outputArea; // output from algorithm
-	
-	private String path;
-	private FlowLayout layout;
-	private ArrayList<PolicyObject> database; 
-	
-	
-	
-	/**
-	 * Default no-arg constructor
-	 * @author ulfnore
-	 */
-	public PrivacyGUI()
-	{
-		policyModel = new DefaultListModel();
-		policies = new JList(policyModel);
+public class PrivacyGUI {
 
-		runButton = new JButton("Run");
-		loadDataButton = new JButton("Load data");
-		runButton.addActionListener(new RunButtonListener());
-		loadDataButton.addActionListener(new LoadDataButtonListener());
-		
-		
-		outputArea = new JTextArea(40,40);
-		outputArea.setText("Nothing here yet..");
-				
-		JScrollPane policyScrollPane = new JScrollPane(policies);
-		policyScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		
-				
-		layout = new FlowLayout();
-		add(policyScrollPane);
-		
-		add(loadDataButton);
-		add(runButton);
-		add(outputArea);
+	private JFrame frame;
 
-	}
-	
 	/**
-	 * System call to load database from disk
-	 * @author ulfnore 
+	 * Launch the application.
 	 */
-	public void loadDatabase()
-	{
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PrivacyGUI window = new PrivacyGUI();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public PrivacyGUI() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 718, 484);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		frame.setTitle("Privacy Advisor");
 		
+		JPanel panel = new JPanel();
+		panel.setBounds(6, 6, 706, 450);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JButton btnNewButton = new JButton("Load Policies");
+		btnNewButton.addActionListener(new LoadActionListener());
+		btnNewButton.setBounds(6, 6, 117, 29);
+		panel.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Run Model");
+		btnNewButton_1.addActionListener(new RunActionListener());
+		btnNewButton_1.setBounds(6, 38, 117, 29);
+		panel.add(btnNewButton_1);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(314, 6, 386, 438);
+		panel.add(textArea);
+		
+		JList list = new JList();
+		list.setBounds(6, 66, 296, 378);
+		panel.add(list);
+		
+		JButton btnConfigureWeights = new JButton("Configure Weights");
+		btnConfigureWeights.addActionListener(new configWeightsListener());
+		btnConfigureWeights.setBounds(135, 6, 153, 29);
+		panel.add(btnConfigureWeights);
+		
+		JButton btnConfigureMetrics = new JButton("Configure Metrics");
+		btnConfigureMetrics.addActionListener(new configMetricsListener());
+		btnConfigureMetrics.setBounds(135, 38, 153, 29);
+		panel.add(btnConfigureMetrics);
 	}
 	
-	/**
-	 * Populate the "policies" list once a dataset is loaded.
-	 * @author ulfnore
-	 */
-	public void populateList()
-	{
-		for(PolicyObject po : database)
-			policyModel.addElement(po);		
-	}
 	
-	/**
-	 * Run the algo on the dataset
-	 * @author ulfnore
-	 */
-	public void run()
-	{
-		// TODO call run on the data added
-	}
-	
-	public static void main(String[] args) 
-	{
-		JFrame frame = new JFrame();
-		frame.add(new PrivacyGUI());
-		frame.setTitle("Privacy Advisor - Testing Framework");
-		frame.setSize(1024,960);
-		frame.setLocation(30,30);
-		frame.setVisible(true);
-	}
-	
-	
-	class RunButtonListener implements ActionListener
-	{
+	class RunActionListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog(null, "Running.");
-			run();
-		}
-	}
-	class LoadDataButtonListener implements ActionListener
-	{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog(null, "Loading.");
-			loadDatabase();
-			populateList();
+			JOptionPane.showMessageDialog(null, "Run successful.");
+			
 		}
 	}
 	
+	class LoadActionListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JOptionPane.showMessageDialog(null,"Load successful.");
+		}
+	}
+	class configMetricsListener implements ActionListener{
 
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			JOptionPane.showMessageDialog(null,"Metrics configured.");
+			
+		}
+		
+	}
+	class configWeightsListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JOptionPane.showMessageDialog(null,"Weights configured.");
+		}
+		
+	}
 }

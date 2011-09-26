@@ -4,6 +4,7 @@ import java.io.ObjectInputStream;	//to read serialized objects from file
 import java.io.ObjectOutputStream;	//to read serialized objects from file
 import java.io.Serializable;		//to serialize this class
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 *	@version 1.0
 */
 
-class PDatabase	implements Serializable
+class PDatabase	implements Serializable, Iterable<PolicyObject>
 {
 	private static final PDatabase i = new PDatabase(); //singleton instance of this class
 	private  ArrayList<PolicyObject> idb; //internal database
@@ -143,9 +144,15 @@ class PDatabase	implements Serializable
 	*	@param n the new policy object
 	*	@author ngerstle
 	*/
-	public void addPolicy(Policy n)
+	public void addPolicy(PolicyObject n)
 	{
 		idb.add(n);
+	}
+
+
+	@Override
+	public Iterator<PolicyObject> iterator() {
+		return idb.iterator();
 	}
 	
 

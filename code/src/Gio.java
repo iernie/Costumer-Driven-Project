@@ -1,6 +1,7 @@
 import java.io.BufferedReader;		//for configuration file functionality
 import java.io.File;			//for configuration file functionality
 import java.io.FileInputStream;		//for configuration file functionality and reading serialized objects
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;	//to write serialized objects to file
 import java.io.FileReader;		//for configuration file functionality
 import java.io.IOException;		//for configuration file functionality
@@ -17,11 +18,15 @@ public class Gio {
 
 
 	private static Logger logger = Logger.getLogger("");		//create logger object
-    private FileHandler fh; ;					//creates filehandler for logging
+	private FileHandler fh; ;					//creates filehandler for logging
 	private String genConfig;					//location of general configuration file
 	private String wConfig;						//location of weights configuration file, if specified.
 	private String dLocation;
+	private String p3pDirLocation;					//location of p3p objects (a folder containing only those objects
+	private String p3pLocation;				//location of a single p3p to be parsed
 	private PDatabase pdb = null;				//Policy database object
+	private Boolean newDB = false;				//overwrite/create new database at specified file location
+
 
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
@@ -34,10 +39,13 @@ public class Gio {
 		// create Options object
 		Options options = new Options();
 
-		// add t option
+		// add the options
 		options.addOption("c", true, "general configuration file location");
 		options.addOption("w", true, "weights configuration file location");
 		options.addOption("d", true, "database file location");
+		options.addOption("p", true, "single policy file location");
+		options.addOption("f", true, "multiple policy directory location");
+		options.addOption("n", true, "create new database in place of old one (doesn't check for existence of old one");
 
 
 		CommandLineParser parser = new PosixParser();
@@ -61,7 +69,14 @@ public class Gio {
 		}
 		wConfig = cmd.getOptionValue("w"); //don't need to check for null as it is assumed to be in the general config file loaded later
 		dLocation= cmd.getOptionValue("d"); //don't need to check for null as it is assumbed to be in the general config file loaded later
+		p3pDirLocation = cmd.getOptionValue("f");
+		p3pLocation = cmd.getOptionValue("p");
 
+		if((p3pDirLocation == null) && (p3pLocation == null))
+		{
+			System.out.println("no p3p parse option passed");
+			System.exit(0);
+		}
 	}
 
 	/**
@@ -190,56 +205,105 @@ public class Gio {
 	 */
 	void loadDB(String dLoc)
 	{
-		
+
 		if(dLocation != null)
 		{
 			dLoc = wConfig;
 		}
-		
+
 
 		//load database from "dLoc"
 
 		PDatabase pdb = null;
-		try
+		if(newDB)
 		{
-			FileInputStream fis = new FileInputStream(dLoc);
-			ObjectInputStream ois = new ObjectInputStream(fis);
-			pdb = (PDatabase)ois.readObject();
-			ois.close();
-			fis.close();
+			//create new db
+			pdb = PDatabase.getInstance();
 		}
-		catch(Exception e)
+		else
 		{
-			System.out.println("Exception deserializing PDatabase at " + dloc +" .\n");
-			e.printStackTrace();
-			System.exit(3);
+			try
+			{
+				FileInputStream fis = new FileInputStream(dLoc);
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				pdb = (PDatabase)ois.readObject();
+				ois.close();
+				fis.close();
+			}
+			catch(Exception e)
+			{
+				System.out.println("Exception deserializing PDatabase at " + dLoc +" .\n");
+				e.printStackTrace();
+				System.exit(3);
+			}
 		}
+	
+		
+		loadCLPolicies();
+	}
 
-
-
-
-
-
-
-//		//WRONG!! place for this code. This is for pulling the database into the program, not putting it on disk at the end.
-//
-//
-//		PolicyObject policyObject = new PolicyObject();// Creating new policy object
-//		//adding values to poilicy object.
-//		
-//		policyObject.addEntityData("1", "Nicholas");
-//		policyObject.addEntityData("2", "policy1");
-//		policyObject.addEntityData("3", "anyValue");
-//		
-//
-//		FileOutputStream fos = new FileOutputStream("serial1");// creating an output stream to save the object
-//		ObjectOutputStream oos = new ObjectOutputStream(fos); // initializing output stream to write policyObject
-//		oos.writeObject(policyObject); // writing to output stream policyObject
-//		/**
-//		 * in similar way depending on number of objects(policies to be created) can be created either by providing
-//		 * values hard coded in this class or an interface could be created and this class could be used to take 
-//		 * values from the interface and save the data received for the policy
-//		 */
-
+	
+	/** 
+	 * loads policies from commandline (either -p or -f)
+	 * 
+	 * @author ngerstle
+	 */
+	private void loadCLPolicies() {
+		//we already checked to make sure we have one of the options avaliable
+		File pLoc = null;
+		BufferedReader reader = null;
+		
+		
+		if(p3pLocation != null)
+		{
+			pLoc = new File(p3pLocation);
+			//todo add the current time
+			try {
+				reader = new BufferedReader(new FileReader(p3pLocation));
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+				System.out.println("no file found at p3p policy location specified by the -p option");
+				System.exit(1);
+			}
+			char[] xml = new char[(int) pLoc.length()];
+			try {
+				reader.read(xml, 0, (int) pLoc.length());
+			} catch (IOException e) {
+				e.printStackTrace();
+				System.out.println("error reading file at location specified by the -p option");
+				System.exit(1);
+			}
+			String policyx  = new String(xml);
+			pdb.addPolicy((new P3PParser()).parse(policyx));
+		}
+		else 
+		{
+			pLoc = new File(p3pDirLocation);
+			String[] pfiles = pLoc.list();
+			for(int i=0;i<pfiles.length;i++)
+			{
+				pLoc = new File(pfiles[i]);
+				//todo add the current time
+				try {
+					reader = new BufferedReader(new FileReader(pfiles[i]));
+				} catch (FileNotFoundException e1) {
+					//file would need to disappear between list and this
+					e1.printStackTrace();
+					System.out.println("no file found at p3p policy location specified by the -d option");
+					System.exit(1);
+				}
+				char[] xml = new char[(int) pLoc.length()];
+				try {
+					reader.read(xml, 0, (int) pLoc.length());
+				} catch (IOException e) {
+					e.printStackTrace();
+					System.out.println("error reading file at location specified by the -d option");
+					System.exit(1);
+				}
+				String policyx  = new String(xml);
+				pdb.addPolicy((new P3PParser()).parse(policyx));	
+			}
+			
+		}
 	}
 }
