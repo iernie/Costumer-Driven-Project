@@ -1,6 +1,6 @@
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -28,41 +28,18 @@ import java.util.Set;
 
 public class PolicyObject implements Serializable
 {
-	// INFORMATION ABOUT THE COMPANY
-	HashMap<String, String> entity;
-	
-	// CASE
-	private ArrayList<Purpose> purpose;
-	private ArrayList<Retention> retention;
-	private ArrayList<Recipient> recipient;
-	private ArrayList<Category> categories;
+	private HashMap<String, String> entity;
+	private ArrayList<Case> statements;
 
 	public PolicyObject()
 	{
+		statements = new ArrayList<Case>();
 		entity = new HashMap<String, String>();
-		purpose = new ArrayList<Purpose>();
-		retention = new ArrayList<Retention>();
-		recipient = new ArrayList<Recipient>();
-		categories = new ArrayList<Category>();
 	}
 	
-	public void addPurpose(Purpose p)
+	public void addCase(Case c)
 	{
-		purpose.add(p);
-	}
-	
-	public void addRetention(Retention t)
-	{
-		retention.add(t);
-	}
-	
-	public void addRecipient(Recipient r)
-	{
-		recipient.add(r);
-	}
-	public void addCategory(Category c)
-	{
-		categories.add(c);
+		statements.add(c);
 	}
 	
 	public void addEntityData(String key, String value)
@@ -70,9 +47,20 @@ public class PolicyObject implements Serializable
 		entity.put(key, value);
 	}
 	
-	public void print_all()
+	public HashMap<String, String> getEntities()
 	{
-		System.out.println("ENTITY");
+		return entity;
+	}
+	
+	public String getEntity(String key)
+	{
+		return entity.get(key);
+	}
+	
+	public void debug_print()
+	{
+		System.out.println("\nPOLICY OBJECT DEBUG PRINT");
+		System.out.println("\nENTITY");
 		Set set = entity.entrySet();
 		Iterator it = set.iterator();
 		while(it.hasNext())
@@ -81,24 +69,10 @@ public class PolicyObject implements Serializable
 			System.out.println("KEY: " + me.getKey() + ", VAL: " + me.getValue() );
 		}
 		
-		for(int i=0; i < purpose.size(); i++)
+		for(int i=0; i<statements.size(); i++)
 		{
-			System.out.println("PURPOSE: " + purpose.get(i));
-		}
-		
-		for(int i=0; i < recipient.size(); i++)
-		{
-			System.out.println("RECIPIENT: " + recipient.get(i));
-		}
-		
-		for(int i=0; i < retention.size(); i++)
-		{
-			System.out.println("RETENTION: " + retention.get(i));
-		}
-		
-		for(int i=0; i < categories.size(); i++)
-		{
-			System.out.println("CATEGORIES: " + categories.get(i));
+			System.out.println("\nSTATEMENT " + i);
+			statements.get(i).debug_print();
 		}
 	}
 }
