@@ -177,7 +177,7 @@ public class bitmapDistance implements DistanceMetric{
 		}
 		
 		
-		return dis;// dis*weight later
+		return dis * Double.parseDouble(weightsConfig.getProperty("recipient"));// dis*weight later
 	}
 
 	/**
@@ -202,7 +202,7 @@ public class bitmapDistance implements DistanceMetric{
 		}
 		
 		
-		return dis;// dis*weight later
+		return dis * Double.parseDouble(weightsConfig.getProperty("retention"));// dis*weight later
 	}
 
 	/**
@@ -227,7 +227,7 @@ public class bitmapDistance implements DistanceMetric{
 		}
 		
 		
-		return dis;// dis*weight later
+		return dis*Double.parseDouble(weightsConfig.getProperty("purpose"));// dis*weight later
 	}
 
 	private double getSumDistance(Case a, Case b) {
