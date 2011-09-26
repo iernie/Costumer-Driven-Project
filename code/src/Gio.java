@@ -5,7 +5,6 @@ import java.io.FileOutputStream;	//to write serialized objects to file
 import java.io.FileReader;		//for configuration file functionality
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
-import java.util.Map;
 import java.util.Properties;		//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
@@ -22,7 +21,6 @@ public class Gio {
 	private String genConfig;					//location of general configuration file
 	private String wConfig;						//location of weights configuration file, if specified.
 	private String dLocation;
-	private Map inputP3Ps; 			//commandline input of 'filelocations=time' for p3ps
 	private PDatabase pdb = null;				//Policy database object
 
 	/**
@@ -35,16 +33,11 @@ public class Gio {
 	{
 		// create Options object
 		Options options = new Options();
-		Option p3ps  = OptionBuilder.withArgName( "p3pLocation=time" )
-        .hasArgs(2)
-        .withValueSeparator()
-        .withDescription( "accept a p3p policy location and the time of access" )
-        .create( "p" );
+
 		// add t option
 		options.addOption("c", true, "general configuration file location");
 		options.addOption("w", true, "weights configuration file location");
 		options.addOption("d", true, "database file location");
-		options.addOption("p",true,"");
 
 
 		CommandLineParser parser = new PosixParser();
@@ -68,8 +61,7 @@ public class Gio {
 		}
 		wConfig = cmd.getOptionValue("w"); //don't need to check for null as it is assumed to be in the general config file loaded later
 		dLocation= cmd.getOptionValue("d"); //don't need to check for null as it is assumbed to be in the general config file loaded later
-		inputP3Ps = cmd.getOptionProperties("p"); //only act if non-null.
-		
+
 	}
 
 	/**
@@ -218,7 +210,7 @@ public class Gio {
 		}
 		catch(Exception e)
 		{
-			System.out.println("Exception deserializing PDatabase at " + dLoc +" .\n");
+			System.out.println("Exception deserializing PDatabase at " + dloc +" .\n");
 			e.printStackTrace();
 			System.exit(3);
 		}
