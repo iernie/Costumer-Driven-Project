@@ -242,7 +242,8 @@ public class Gio {
 		loadCLPolicies();
 	}
 
-	
+	for i in list:
+		map[i]=wconfig.getProperties(list[i],default);
 	/** 
 	 * loads policies from commandline (either -p or -f)
 	 * 
@@ -250,31 +251,16 @@ public class Gio {
 	 */
 	private void loadCLPolicies() {
 		//we already checked to make sure we have one of the options avaliable
-		File pLoc = null;
-		BufferedReader reader = null;
-		
-		
+		File pLoc = null;		
 		if(p3pLocation != null)
 		{
 			pLoc = new File(p3pLocation);
 			//todo add the current time
-			try {
-				reader = new BufferedReader(new FileReader(p3pLocation));
-			} catch (FileNotFoundException e1) {
-				e1.printStackTrace();
+			if(!pLoc.exists()){
 				System.out.println("no file found at p3p policy location specified by the -p option");
 				System.exit(1);
 			}
-			char[] xml = new char[(int) pLoc.length()];
-			try {
-				reader.read(xml, 0, (int) pLoc.length());
-			} catch (IOException e) {
-				e.printStackTrace();
-				System.out.println("error reading file at location specified by the -p option");
-				System.exit(1);
-			}
-			String policyx  = new String(xml);
-			pdb.addPolicy((new P3PParser()).parse(policyx));
+			pdb.addPolicy((new P3PParser()).parse(pLoc.getAbsolutePath()));
 		}
 		else 
 		{
@@ -284,26 +270,14 @@ public class Gio {
 			{
 				pLoc = new File(pfiles[i]);
 				//todo add the current time
-				try {
-					reader = new BufferedReader(new FileReader(pfiles[i]));
-				} catch (FileNotFoundException e1) {
-					//file would need to disappear between list and this
-					e1.printStackTrace();
-					System.out.println("no file found at p3p policy location specified by the -d option");
+				if(!pLoc.exists()){
+					System.out.println("no file found at p3p policy location specified by the -p option");
 					System.exit(1);
 				}
-				char[] xml = new char[(int) pLoc.length()];
-				try {
-					reader.read(xml, 0, (int) pLoc.length());
-				} catch (IOException e) {
-					e.printStackTrace();
-					System.out.println("error reading file at location specified by the -d option");
-					System.exit(1);
-				}
-				String policyx  = new String(xml);
-				pdb.addPolicy((new P3PParser()).parse(policyx));	
+				pdb.addPolicy((new P3PParser()).parse(pLoc.getAbsolutePath()));
 			}
 			
 		}
 	}
+	//TODO save DB
 }
