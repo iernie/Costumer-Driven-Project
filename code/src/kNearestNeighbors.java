@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * 
@@ -37,34 +38,62 @@ public class kNearestNeighbors {
 		
 		for(PolicyObject po : database)
 		{
+			ArrayList farthestList = new ArrayList();
 			if (kNearest.size()<k)
 			{
 				kNearest.add(po);
-				findFarthest(kNearest, policyObject);
-			} else{
-				if(distanceMetric.getTotalDistance(po, policyObject) < farthestDistance)
-					
+				// this is a hack.. updates the object farthest away 
+				farthestList = findFarthest(kNearest, policyObject);
+				farthest = (PolicyObject)farthestList.get(0);
+				farthestDistance = (Double)farthestList.get(1);
+			} else if(distanceMetric.getTotalDistance(po, policyObject) < farthestDistance)
+			{
+				kNearest.remove(farthest);
+				// this is a hack.. updates the object farthest away 
+				farthestList = findFarthest(kNearest, policyObject);
+				farthest = (PolicyObject)farthestList.get(0);
+				farthestDistance = (Double)farthestList.get(1);
 			}
 		}
 		
 		return kNearest;
 	}
-	private Pair<> findFarthest(ArrayList<PolicyObject> policyObjectsList, thePolicyObject)
-	{
-		
-		
-	}
-	
+
+
 	/**
-	 * For returning a pair
-	 * @author ulfnore
-	 *
-	 * @param <T>
-	 * @param <S>
+	 * Helper function to find the policy object 
+	 * in the policyObjectsList farthest away from  
+	 * "thePolicyObject". 
+	 * 
+	 * Returns untyped arraylist.
+	 * 
+	 * @param policyObjectsList
+	 * @param thePolicyObject
+	 * @return ArrayList [UNTYPED!]
 	 */
-	class Pair<T,S>{
-		T first;
-		S second;
+	private ArrayList findFarthest(ArrayList<PolicyObject> policyObjectsList,
+								   PolicyObject thePolicyObject)
+	{
+		double farthestDistance = distanceMetric.getTotalDistance(thePolicyObject, policyObjectsList.get(0));
+		PolicyObject farthest = policyObjectsList.get(0);;
+		
+		for(PolicyObject p : policyObjectsList)
+		{	
+			double thisDist = distanceMetric.getTotalDistance(thePolicyObject, p);  
+			if(thisDist > farthestDistance)
+			{
+				farthestDistance = thisDist;
+				farthest = p;
+			}
+		}
+		
+		
+		ArrayList farthestList = new ArrayList();
+		farthestList.add(farthest);
+		farthestList.add(farthestDistance);
+		return farthestList;
 	}
+
+
 	
 }
