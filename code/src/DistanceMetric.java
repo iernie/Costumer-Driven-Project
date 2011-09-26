@@ -56,6 +56,6 @@ public interface DistanceMetric {
 	 * @return double 0 if cases are similar and positive integer if they are not
 	 */
 	
-	public double getTotalDistance(Case a, Case b);
+	public double getTotalDistance(PolicyObject a, PolicyObject b);
 
 }

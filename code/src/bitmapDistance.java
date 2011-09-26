@@ -1,8 +1,8 @@
 /**
  * A distance metric that calculates distance based on 
- * weighted union of a bit map interception
+ * weighed union of a bit map interception
  *
- * @author Diameter Kongevold(dimitryk)
+ * @author Dimitry Kongevold(dimitryk)
  * 
  */
 
@@ -163,8 +163,8 @@ public class bitmapDistance implements DistanceMetric{
 	
 	public double getDistRecip(Case a, Case b) {
 		int[] MapA, MapB;
-		MapA = MakeRecipMap(a.getRecipients());
-		MapB = MakeRecipMap(b.getRecipients());
+		MapA = MakeRecipMap(a.getRecip());
+		MapB = MakeRecipMap(b.getRecip());
 		double dis=0;
 		
 		for(int i=0;i<6;i++){
@@ -178,7 +178,7 @@ public class bitmapDistance implements DistanceMetric{
 		return dis;// dis*weight later
 	}
 
-	/*
+	/**
 	 * Calculates distance in the Retention field from case a to case b
 	 * using bit map distance = a interseption b * weight
 	 * @author dimitryk
@@ -186,12 +186,11 @@ public class bitmapDistance implements DistanceMetric{
 	 * @param b input case.
 	 * @return dis double for the distance between to.
 	 */
-	//TODO getRententions returns an arraylist- compare elements in union, please fix
-	//TODO assign default weight; current logic would give a pair of cases A & B, with fields f= {(a,b)(b,c)} further spacing than if the f was ={(a,b)(c,d)} even though they have more in common (in the second case)
+
 	public double getDistReten(Case a, Case b) {
 		int[] MapA, MapB;
-		MapA = MakeRetentionMap(a.getRetentions());
-		MapB = MakeRetentionMap(b.getRetentions());
+		MapA = MakeRetentionMap(a.getRet());
+		MapB = MakeRetentionMap(b.getRet());
 		double dis=0;
 		
 		for(int i=0;i<5;i++){
@@ -215,8 +214,8 @@ public class bitmapDistance implements DistanceMetric{
 	
 	public double getDistPurpose(Case a, Case b) {
 		int[] MapA, MapB;
-		MapA = MakePurposeMap(a.getPurposes());
-		MapB = MakePurposeMap(b.getPurposes());
+		MapA = MakePurposeMap(a.getPurp());
+		MapB = MakePurposeMap(b.getPurp());
 		double dis=0;
 		
 		for(int i=0;i<12;i++){
