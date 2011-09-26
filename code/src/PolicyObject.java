@@ -47,6 +47,14 @@ public class PolicyObject implements Serializable
 		entity.put(key, value);
 	}
 	
+	public Case getCase(int i){
+		return statements.get(i);
+	}
+	
+	public ArrayList<Case> getCase(){
+		return statements;
+	}
+	
 	public HashMap<String, String> getEntities()
 	{
 		return entity;

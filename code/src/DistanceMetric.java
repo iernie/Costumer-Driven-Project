@@ -15,40 +15,7 @@
 public interface DistanceMetric {
 	
 	/**
-	 * Calculates distance between case a and case b focusing on recipient field only
-	 * 
-	 * @author dimitryk
-	 * @param a input Case
-	 * @param b input Case
-	 * @return double 0 if cases are similar and positive integer if they are not
-	 */
-	
-	public double getDistRecip(Case a, Case b);
-	
-	/**
-	 * Calculates distance between case a and case b focusing on retention field only
-	 * 
-	 * @author dimitryk
-	 * @param a input Case
-	 * @param b input Case
-	 * @return double 0 if cases are similar and positive integer if they are not
-	 */
-	
-	public double getDistReten(Case a, Case b);
-	
-	/**
-	 * Calculates distance between case a and case b focusing on urpose field only
-	 * 
-	 * @author dimitryk
-	 * @param a input Case
-	 * @param b input Case
-	 * @return double 0 if cases are similar and positive integer if they are not
-	 */
-	
-	public double getDistPurpose(Case a, Case b);
-	
-	/**
-	 * Calculates total tistance between allfields
+	 * Calculates total distance between all fields
 	 * 
 	 * @author dimitryk
 	 * @param a input Case
