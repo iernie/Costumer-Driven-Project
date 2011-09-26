@@ -210,7 +210,7 @@ public class Gio {
 		}
 		catch(Exception e)
 		{
-			System.out.println("Exception deserializing PDatabase at " + dloc +" .\n");
+			System.out.println("Exception deserializing PDatabase at " + dLoc +" .\n");
 			e.printStackTrace();
 			System.exit(3);
 		}
