@@ -66,6 +66,7 @@ public class PrivacyGUI extends JPanel{
 		add(runButton);
 		add(outputArea);
 
+
 	}
 	
 	/**
