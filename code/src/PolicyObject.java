@@ -1,9 +1,6 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * 
@@ -28,6 +25,10 @@ import java.util.Set;
 
 public class PolicyObject implements Serializable
 {
+	/**
+	 * added generated serial id from warning on implementing serializable
+	 */
+	private static final long serialVersionUID = 5489334832912646160L;
 	private HashMap<String, String> entity;
 	private ArrayList<Case> statements;
 
@@ -69,13 +70,20 @@ public class PolicyObject implements Serializable
 	{
 		System.out.println("\nPOLICY OBJECT DEBUG PRINT");
 		System.out.println("\nENTITY");
-		Set set = entity.entrySet();
+		/*Set set = entity.entrySet();
 		Iterator it = set.iterator();
 		while(it.hasNext())
 		{
 			Map.Entry me = (Map.Entry)it.next();
 			System.out.println("KEY: " + me.getKey() + ", VAL: " + me.getValue() );
 		}
+		*/
+		
+		for(String key : entity.keySet())
+		{
+			System.out.println("KEY: " + key + ", VAL: " + entity.get(key) );
+		}
+		
 		
 		for(int i=0; i<statements.size(); i++)
 		{

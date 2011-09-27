@@ -1,9 +1,6 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 
 class Case {
 	
@@ -120,7 +117,7 @@ class Case {
 			System.out.println("CATEGORIES: " + categories.get(i));
 		}
 		
-		Iterator it1 = datatypes.iterator();
+		Iterator<String> it1 = datatypes.iterator();
 	    System.out.println("DATATYPES");
 	    while(it1.hasNext())
 	    {

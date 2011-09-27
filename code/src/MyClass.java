@@ -9,6 +9,10 @@ import java.io.Serializable;
  */
 
 class MyClass implements Serializable { 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	String name; 
 	int age; 
 	double kuchV; 

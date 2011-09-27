@@ -2,14 +2,14 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
+//import java.awt.BorderLayout;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JList;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
+//import javax.swing.JScrollPane;
+//import javax.swing.JSplitPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 

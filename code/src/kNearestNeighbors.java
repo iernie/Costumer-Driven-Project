@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * 
@@ -38,7 +37,7 @@ public class kNearestNeighbors {
 		
 		for(PolicyObject po : database)
 		{
-			ArrayList farthestList = new ArrayList();
+			ArrayList<Object> farthestList = new ArrayList<Object>();
 			if (kNearest.size()<k)
 			{
 				kNearest.add(po);
@@ -71,7 +70,7 @@ public class kNearestNeighbors {
 	 * @param thePolicyObject
 	 * @return ArrayList [UNTYPED!]
 	 */
-	private ArrayList findFarthest(ArrayList<PolicyObject> policyObjectsList,
+	private ArrayList<Object> findFarthest(ArrayList<PolicyObject> policyObjectsList,
 								   PolicyObject thePolicyObject)
 	{
 		double farthestDistance = distanceMetric.getTotalDistance(thePolicyObject, policyObjectsList.get(0));
@@ -88,8 +87,8 @@ public class kNearestNeighbors {
 		}
 		
 		
-		ArrayList farthestList = new ArrayList();
-		farthestList.add(farthest);
+		ArrayList<Object> farthestList = new ArrayList<Object>();
+		farthestList.add(farthest); 
 		farthestList.add(farthestDistance);
 		return farthestList;
 	}

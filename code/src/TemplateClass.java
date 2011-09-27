@@ -10,7 +10,7 @@
 
 
 //NB- all imports above class definition
-import java.math.*; //purpose of import
+import java.util.ArrayList; //purpose of import
 
 
 /**
@@ -28,7 +28,7 @@ public class TemplateClass {
 	private int internalStatus; //internal status tracker, 1 unless error
 	
 	private String name; //input name
-
+	private ArrayList<String>  a;
 	
 	//NB all constructors here
 	
@@ -46,7 +46,7 @@ public class TemplateClass {
 	public TemplateClass(int status, int internalStatus, String name) {
 		super();
 		this.status = status;
-		this.internalStatus = internalStatus;
+		this.setInternalStatus(internalStatus);
 		this.name = name;
 	}
 	
@@ -63,7 +63,7 @@ public class TemplateClass {
 	 */
 	public String getResult(int a)
 	{
-		internalStatus = 1;
+		setInternalStatus(1);
 		status = 1;
 		String temp = name.replace((char)a, (char)status);
 		status = 0;
@@ -71,6 +71,41 @@ public class TemplateClass {
 		
 	}
 	//NB Just about all methods aren't that big.
+
+
+	/**
+	 * description of method
+	 * 
+	 * @author author1
+	 * @param a input int for method...
+	 * @return void
+	 */
+	public void setInternalStatus(int internalStatus) {
+		this.internalStatus = internalStatus;
+	}
+
+
+	/**
+	 * description of method
+	 * 
+	 * @param a input int for method...
+	 * @return absolute value of the internal status times pi
+	 */
+	public int getInternalStatus() {
+		return (int)Math.abs(internalStatus*Math.PI);
+	}
+
+
+
+	public void setA(ArrayList<String> a) {
+		this.a = a;
+	}
+
+
+
+	public ArrayList<String> getA() {
+		return a;
+	}
 	
 	
 	

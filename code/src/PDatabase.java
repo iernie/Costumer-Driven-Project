@@ -1,7 +1,3 @@
-import java.io.FileInputStream;		//to read serialized objects from file
-import java.io.FileOutputStream;	//to read serialized objects from file
-import java.io.ObjectInputStream;	//to read serialized objects from file
-import java.io.ObjectOutputStream;	//to read serialized objects from file
 import java.io.Serializable;		//to serialize this class
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,6 +13,10 @@ import java.util.Iterator;
 
 class PDatabase	implements Serializable, Iterable<PolicyObject>
 {
+	/**
+	 * generated serial id based on warning on implementing Serializable
+	 */
+	private static final long serialVersionUID = -8940764926428061908L;
 	private static final PDatabase i = new PDatabase(); //singleton instance of this class
 	private  ArrayList<PolicyObject> idb; //internal database
 	
@@ -69,28 +69,29 @@ class PDatabase	implements Serializable, Iterable<PolicyObject>
 	*	@param The object of type PolicyLight (dummy object) to be written
 	*	@authors Henrik Knutsen, Aman Kaur
 	*/
-	//TODO unless there's a more efficient way, we don't write individual policies to disk, so remove this method, or change PolicyLight to Policy
-	public void writePolicy(PolicyLight Policy) {
+	//TO DO unless there's a more efficient way, we don't write individual policies to disk, so remove this method, or change PolicyLight to Policy
+/*	public void writePolicy(PolicyLight Policy) {
 		try {
-			/* Creating a stream to create the file "Policy.name" and write bytes to it
-			 * Name of the file can be changed to whatever is wanted */
+			// Creating a stream to create the file "Policy.name" and write bytes to it
+			// Name of the file can be changed to whatever is wanted
 			FileOutputStream fos = new FileOutputStream(Policy.name);
-			/* Creating a stream convering object to byte data */
+			// Creating a stream convering object to byte data 
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			/* Writing datastream of object to file */
+			// Writing datastream of object to file 
 			oos.writeObject(Policy);
-			/* Closing streams */
+			// Closing streams 
 			fos.close();
 			oos.flush(); 
 			oos.close();
 		} 
 		catch(Exception e) {
-			/* Simple error handling, show error and shut down */
+			// Simple error handling, show error and shut down 
 			System.out.println("Exception during serialization: " + e); 
 			System.exit(0); 
 		}
 	} 
-	
+*/
+
 	
 	/**
 	*	Public method to read POLICY object from disk
@@ -99,7 +100,7 @@ class PDatabase	implements Serializable, Iterable<PolicyObject>
 	*	@return Object of type PolicyLight (dummy object), that is read from the file
 	*	@authors Henrik Knutsen, Aman Kaur
 	*/
-	//TODO unless there's a more efficient way, we don't write individual policies to disk, so remove this method, or change PolicyLight to Policy
+	//TO DO unless there's a more efficient way, we don't write individual policies to disk, so remove this method, or change PolicyLight to Policy
 /*	public PolicyLight readPolicy(String filename) {
 		// Initializing the object to be returned 
 		PolicyLight TempPolicy = null;
@@ -132,7 +133,7 @@ class PDatabase	implements Serializable, Iterable<PolicyObject>
 	*	@return iterator over policy arraylist
 	*	@author ngerstle	*
 	*/
-	public Iterator getDBIt()
+	public Iterator<PolicyObject> getDBIt()
 	{
 		return idb.iterator();
 	}

@@ -9,8 +9,6 @@
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.sun.security.auth.login.ConfigFile;
-
 /**
  * A distance metric that calculates distance based on 
  * weighed union of a bit map interception

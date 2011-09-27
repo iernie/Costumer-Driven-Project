@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -29,7 +28,7 @@ public class readWeightConfig {
 	 * @return an array of the weights of the recipients
 	 */
 	public int[] recipientWeight(){
-		fileLocation= " ";// the location of the file as a String
+		String fileLocation= " ";// the location of the file as a String
 		file = new File(fileLocation, "weights.cfg");
 		//System.out.println(file.exists());
 		int c;
@@ -67,7 +66,7 @@ public class readWeightConfig {
 	 * @return an array of the weights of the retentions
 	 */
 	public int[] retentionWeight(){
-		fileLocation= " ";// the location of the file as a String
+		String fileLocation= " ";// the location of the file as a String
 		file = new File(fileLocation, "weights.cfg");
 		//System.out.println(file.exists());
 		int c;
@@ -105,7 +104,7 @@ public class readWeightConfig {
 	 * @return an array of the weights of the purposes
 	 */
 	public int[] purposeWeight(){
-		fileLocation= " ";// the location of the file as a String
+		String fileLocation= " ";// the location of the file as a String
 		file = new File(fileLocation, "weights.cfg");
 		//System.out.println(file.exists());
 		int c;
