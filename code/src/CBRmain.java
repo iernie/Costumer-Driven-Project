@@ -43,8 +43,10 @@ public class CBRmain {
 	/**
 	 * Run the CBR on a given PolicyObject
 	 */
-	public void run(PolicyObject policyObj){
+	public CBRresult run(PolicyObject policyObj){
+		CBRresult result = null;
 		
+		return result;
 	}
 	
 	
