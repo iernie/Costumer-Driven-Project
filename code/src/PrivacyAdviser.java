@@ -19,7 +19,8 @@ import java.util.logging.*;		//for logger functionality
 
 
 public class PrivacyAdviser {
-
+//TODO actually use logging
+//TODO provide junit tests for generic algorithms
 
 
 	static Gio theIO;									//interface to outside world

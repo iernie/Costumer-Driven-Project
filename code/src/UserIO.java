@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 public abstract class UserIO {
 
@@ -7,12 +9,41 @@ public abstract class UserIO {
 	
 	
 	/**
-	 * A super simple, static user display of the result on command line. does not wait for user response
+	 * returns a new String[] args to use init on.
+	 * @return
+	 */
+	//TODO add default values from ealier args[]
+	public abstract String[] user_init(String[] args);
+	
+	/**
+	 * display the contents of the database
+	 * 
+	 * @param pdb the database to display
+	 * @author ngerstle
+	 */
+	public abstract void showDatabase(PolicyDatabase pdb);
+
+	/**
+	 * gets any policies not already provided for the history
+	 * 
+	 * @return an arraylist of policy objects to be added to history prior to the CBR run.
+	 * @author ngerstle
+	 */
+	public abstract ArrayList<PolicyObject> loadHistory();
+	
+	/**
+	 * Displays recommended action for policyObject, and returns used accept verion-
+	 * same thing if no change, or altered if user disagrees.
+	 * 
 	 * @param n the policy display
 	 * @return the policy given
+	 * @author ngerstle
 	 */
 	public abstract PolicyObject userResponse(PolicyObject n);
 	
-	
+	/**
+	 * closes all resources used by UserIO - windows, files, streams, etc
+	 */
+	public abstract void closeResources();
 
 }

@@ -24,7 +24,8 @@ public class Gio {
 	private boolean building = false;			//if true, the program should load pdb as normal, add any given policies with p/f options, save the DB, and exit
 	private String newPol;						//the location of the new policy that goes through knn, given by the -T option
 	private Properties newWeights;				//the revised weights, following LearnAlgorithm. written to disk by shutdown(). also used in loading weights during init()
-
+	private UserIO userInterface;				//means of interacting with the user
+	
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
 	 * Constructs and parses command line arguements as well.
@@ -46,6 +47,7 @@ public class Gio {
 		options.addOption("b", false, "no policy comparison, only build a database");
 		options.addOption("T", true, "the policy object to process");
 		
+		//TODO -in and -out for database, weights files; preprepared response option; user_init option; userInterface option
 		
 		/*
 		 *to load a new database from a folder, but not use cbr on a new object. overwrites old db (-n option)
@@ -92,6 +94,9 @@ public class Gio {
 			System.err.println("no p3p parse option passed");
 			System.exit(0);
 		}
+		
+		//TODO change base on commandline/conf-file options
+		userInterface = new UserIO_Simple();
 	}
 
 	/**
@@ -297,7 +302,7 @@ public class Gio {
 	public void shutdown() {
 		pdb.closeDB(); //save the db
 		writePropertyFile(newWeights,wConfig);//TODO change write location to allow for read from a, write to b
-		//TODO close all user IO (any graphical displays)
+		userInterface.closeResources(); 
 		
 	}
 	
@@ -329,26 +334,8 @@ public class Gio {
 	 * @return the policyObjected as accepted by user (potentially modified
 	 * @author ngerstle
 	 */
-	//TODO change this to use a class set up by the config file
-	//TODO change this to work with both cli & gui options, and accept different reponses to suggestion
 	public PolicyObject userResponse(PolicyObject n) {
-		return simpleUserResponse(n);
-	}
-
-	
-	
-	/**
-	 * A super simple, static user display of the result on command line. does not wait for user response
-	 * 
-	 * @param n the policy display
-	 * @return the policy given
-	 * @author ngerstle
-	 */
-	//TODO change this to a class
-	private PolicyObject simpleUserResponse(PolicyObject n)
-	{
-		System.out.println("Privacy Advisor recommends:"+n.getAction().getAccptS() + "\n\t based on these criteria:"+n.getAction().getReasonS());
-		return n;
+		return userInterface.userResponse(n);
 	}
 	
 	/**
