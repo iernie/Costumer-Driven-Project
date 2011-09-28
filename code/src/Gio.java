@@ -22,8 +22,9 @@ public class Gio {
 	private String p3pDirLocation;					//location of p3p objects (a folder containing only those objects
 	private String p3pLocation;				//location of a single p3p to be parsed
 	private PDatabase pdb = null;				//Policy database object
-	private Boolean newDB = false;				//overwrite/create new database at specified file location
-
+	private boolean newDB = false;				//overwrite/create new database at specified file location
+	private boolean building = false;			//if true, the program should load pdb as normal, add any given policies with p/f options, save the DB, and exit
+	private String newPol;						//the location of the new policy that goes through knn, given by the -T option
 
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
@@ -40,10 +41,11 @@ public class Gio {
 		options.addOption("c", true, "general configuration file location");
 		options.addOption("w", true, "weights configuration file location");
 		options.addOption("d", true, "database file location");
-		options.addOption("p", true, "single policy file location");
-		options.addOption("f", true, "multiple policy directory location");
+		options.addOption("p", true, "adding to DB: single policy file location");
+		options.addOption("f", true, "adding to DB: multiple policy directory location");
 		options.addOption("n", true, "create new database in place of old one (doesn't check for existence of old one");
-
+		options.addOption("b", false, "no policy comparison, only build a database");
+		options.addOption("T", true, "the policy object to process");
 
 		CommandLineParser parser = new PosixParser();
 		CommandLine cmd = null;
@@ -68,7 +70,12 @@ public class Gio {
 		dLocation= cmd.getOptionValue("d"); //don't need to check for null as it is assumbed to be in the general config file loaded later
 		p3pDirLocation = cmd.getOptionValue("f");
 		p3pLocation = cmd.getOptionValue("p");
-
+		
+		
+		if(!(building=(cmd.hasOption("b")))) //only build, nothing else
+		{
+			newPol = cmd.getOptionValue("t");
+		}
 		if((p3pDirLocation == null) && (p3pLocation == null))
 		{
 			System.out.println("no p3p parse option passed");
@@ -256,7 +263,7 @@ public class Gio {
 		if(p3pLocation != null)
 		{
 			pLoc = new File(p3pLocation);
-			//todo add the current time
+			//TODO add the current time
 			if(!pLoc.exists()){
 				System.out.println("no file found at p3p policy location specified by the -p option");
 				System.exit(1);
@@ -272,7 +279,7 @@ public class Gio {
 			for(int i=0;i<pfiles.length;i++)
 			{
 				pLoc = new File(pfiles[i]);
-				//todo add the current time
+				//TODO add the current time
 				if(!pLoc.exists()){
 					System.out.println("no file found at p3p policy location specified by the -p option");
 					System.exit(1);
@@ -312,11 +319,51 @@ public class Gio {
 		//TODO close all user IO (any graphical displays)
 		
 	}
-
+	
+	/**
+	 * Generates handles response. This is were we would pass stuff to cli or gui, etc
+	 * @param n the processed policy object
+	 * @return the policyObjected as accepted by user (potentially modified
+	 */
+	//TODO change this to use a class set up by the config file
+	//TODO change this to work with both cli & gui options, and accept different reponses to suggestion
 	public PolicyObject userResponse(PolicyObject n) {
-		// TODO change this to work with both cli & gui options, and accept different reponses to suggestion
+		return simpleUserResponse(n);
+	}
+
+	/**
+	 * A super simple, static user display of the result on command line. does not wait for user response
+	 * @param n the policy display
+	 * @return the policy given
+	 */
+	//TODO change this to a class
+	private PolicyObject simpleUserResponse(PolicyObject n)
+	{
 		System.out.println("Privacy Advisor recommends:"+n.getAction().getAccptS() + "\n\t based on these criteria:"+n.getAction().getReasonS());
 		return n;
+	}
+	
+	/**
+	 * returns the policy object from the T option
+	 * @return the policy object to be processed
+	 */
+	public PolicyObject getPO() {
+
+		PolicyObject p = null;
+		File pLoc = new File(newPol);
+		//TODO add the current time
+		if(!pLoc.exists()){
+			System.out.println("no file found at p3p policy location specified by the -T option");
+			System.exit(1);
+		}
+
+		p = (new P3PParser()).parse(pLoc.getAbsolutePath());
+		p.setContext(new Context(null,null,p3pLocation));
+		return p;
+	}
+
+	public boolean isBuilding() {
+		return building;
 	}
 	
 	
