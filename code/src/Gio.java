@@ -22,6 +22,7 @@ public class Gio {
 	private boolean newDB = false;				//overwrite/create new database at specified file location
 	private boolean building = false;			//if true, the program should load pdb as normal, add any given policies with p/f options, save the DB, and exit
 	private String newPol;						//the location of the new policy that goes through knn, given by the -T option
+	private Properties newWeights;				//the revised weights, following LearnAlgorithm. written to disk by shutdown()
 
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
@@ -295,6 +296,7 @@ public class Gio {
 
 	public void shutdown() {
 		pdb.closeDB();
+		//TODO write properties to file
 		//TODO close all user IO (any graphical displays)
 		
 	}
@@ -343,6 +345,11 @@ public class Gio {
 
 	public boolean isBuilding() {
 		return building;
+	}
+
+	public void writeWeights(Properties applyML) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

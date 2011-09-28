@@ -46,12 +46,11 @@ public class PrivacyAdviser {
 		//TODO change null to actual policy object
 		if(!theIO.isBuilding()) //actually process an object
 		{
-			
-			po = process(po);
-			//get user response
-			po = theIO.userResponse(po);
-			//save to database
-			theIO.getPDB().addPolicy(po);
+			int k = 1; //size for k in knn algorithm
+			DistanceMetric dm = new distanceMetricTest(weightsConfig);
+			PolicyDatabase pdb = theIO.getPDB();
+			CBR machinelearn = new CBR(theIO, weightsConfig, new knnReduction(dm,pdb,k), new simpleConclusion(dm), new constantLearn(weightsConfig));
+			machinelearn.run(po);
 		}
 		//close down
 		theIO.shutdown();

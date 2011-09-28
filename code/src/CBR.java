@@ -9,13 +9,15 @@ public class CBR {
 
 	protected ReductionAlgorithm reduceAlg;
 	protected ConclusionAlgorithm conclusAlg;
-
+	protected LearnAlgorithm learnAlg;
+	
 	public CBR(Gio theIO, Properties weightsConfig,
-			ReductionAlgorithm reduceAlg, ConclusionAlgorithm conclusAlg) {
+			ReductionAlgorithm reduceAlg, ConclusionAlgorithm conclusAlg, LearnAlgorithm learnAlg) {
 		this.theIO = theIO;
 		this.weightsConfig = weightsConfig;
 		this.reduceAlg = reduceAlg;
 		this.conclusAlg = conclusAlg;
+		this.learnAlg = learnAlg;
 	}
 
 
@@ -38,16 +40,12 @@ public class CBR {
 	}
 
 
-	public void run() {
-		newpol =  process(newpol); //knn & conclusion
+	public void run(PolicyObject newPolicy) {
+		newpol =  process(newPolicy); //knn & conclusion
 		newpol = theIO.userResponse(newpol); //user response
 		theIO.getPDB().addPolicy(newpol); //save to database
-		reweigh();
+		learnAlg.learn(theIO);
 	}
 
-	private void reweigh() {
-		// TODO implement weights adjustment
-
-	}
 
 }
