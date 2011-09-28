@@ -9,7 +9,7 @@ public abstract class LearnAlgorithm {
 	}
 	public void learn(Gio theIO)
 	{
-		theIO.writeWeights(applyML(theIO));
+		theIO.saveWeights(applyML(theIO));
 		
 	}
 	

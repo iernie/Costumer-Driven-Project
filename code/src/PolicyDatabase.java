@@ -14,7 +14,7 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 
 	
 	protected static PolicyDatabase i;
-	private Collection<PolicyObject> idb;
+	protected Collection<PolicyObject> idb;
 	public static String location;
 
 
@@ -43,7 +43,6 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	}	
 	
 	
-	
 	/**
 	 * Loads database from a file dLoc
 	 * 
@@ -51,7 +50,22 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	 * 
 	 * @author ngerstle
 	 */
-	public abstract PolicyDatabase loadDB(String dLoc);
+	public void loadDB()
+	{
+		loadDB(location);
+	}
+	
+	
+	/**
+	 * Loads database from a file dLoc
+	 * we have this public just in case we want to be able to load
+	 * a db from a file other than where we plan to store it.
+	 * 
+	 * @param dLoc the location of the database file on disk
+	 * 
+	 * @author ngerstle
+	 */
+	public abstract void loadDB(String dLoc);
 
 	/**
 	*	Public method to read POLICY object from disk
@@ -72,7 +86,12 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 		return idb.iterator();
 	}
 
-	public abstract void closeDB();
+	public void closeDB()
+	{
+		closeDB(location);
+	}
+	
+	public abstract void closeDB(String dLoc);
 
 	protected PolicyDatabase() {
 		super();

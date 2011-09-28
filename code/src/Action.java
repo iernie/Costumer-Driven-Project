@@ -8,7 +8,7 @@ public class Action
 	private boolean accept; //accept the policy
 	private ArrayList<PolicyObject> reason; //basis for result. set by knn
 	private boolean override= false; //the generated results was overriden by the user
-	private double confidence =0; 
+	private double confidence =0; //the confidence in the final value- should be between 0 and 1
 	//TODO add exceptions to rule, override, etc
 	
 	
@@ -16,7 +16,7 @@ public class Action
 			boolean override) {
 		this.accept = accept;
 		this.reason = reason;
-		this.confidence = confidence;
+		this.setConfidence(confidence);
 		this.override = override;
 	}
 	
@@ -69,6 +69,19 @@ public class Action
 			}
 			return s;
 		}
+	}
+
+
+	public void setConfidence(double confidence) {
+		if((0<= confidence)&&(confidence <=1))
+			this.confidence = confidence;
+		else
+			this.confidence = -confidence;
+	}
+
+
+	public double getConfidence() {
+		return confidence;
 	}
 	
 }

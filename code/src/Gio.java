@@ -1,5 +1,6 @@
 import java.io.File;			//for configuration file functionality
 import java.io.FileInputStream;		//for configuration file functionality and reading serialized objects
+import java.io.FileOutputStream;
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
 import java.util.Properties;		//for configuration file functionality
@@ -65,7 +66,7 @@ public class Gio {
 		}
 		catch (ParseException e)
 		{
-			System.out.println("Error parsing commandline arguements.");
+			System.err.println("Error parsing commandline arguements.");
 			e.printStackTrace();
 			System.exit(3);
 		}
@@ -88,7 +89,7 @@ public class Gio {
 		}
 		if((p3pDirLocation == null) && (p3pLocation == null))
 		{
-			System.out.println("no p3p parse option passed");
+			System.err.println("no p3p parse option passed");
 			System.exit(0);
 		}
 	}
@@ -124,7 +125,7 @@ public class Gio {
 			}
 			else
 			{
-				System.out.println("No configuration file at "+fileLoc+ ". Please place one in the working directory.");
+				System.err.println("No configuration file at "+fileLoc+ ". Please place one in the working directory.");
 				System.exit(3);
 			}
 			configFile.load(is);
@@ -132,16 +133,13 @@ public class Gio {
 		catch (IOException e) 
 		{
 			e.printStackTrace();
-			System.out.println("IOException reading first configuration file. Exiting...\n");
+			System.err.println("IOException reading first configuration file. Exiting...\n");
 			System.exit(1);
 		}	
 		return configFile;
 	}
 
-	
-	
-	
-	
+		
 	/**
 	 * Loads the weights configuration file, from the provided location
 	 * 
@@ -149,7 +147,6 @@ public class Gio {
 	 * @param location of configuration file
 	 * @return properties object corresponding to given configuration file
 	 */
-
 	public Properties loadWeights(String fileLoc)
 	{
 		if(wConfig != null)
@@ -168,7 +165,7 @@ public class Gio {
 			}
 			else
 			{
-				System.out.println("No weights file is available at "+fileLoc+" . Please place one in the working directory.");
+				System.err.println("No weights file is available at "+fileLoc+" . Please place one in the working directory.");
 				System.exit(3);
 			}
 			wconfigFile.load(is);
@@ -176,7 +173,7 @@ public class Gio {
 		catch (IOException e) 
 		{
 			e.printStackTrace();
-			System.out.println("IOException reading the weights configuration file. Exiting...\n");
+			System.err.println("IOException reading the weights configuration file. Exiting...\n");
 			System.exit(1);
 		}	
 		return wconfigFile;
@@ -189,7 +186,6 @@ public class Gio {
 	 * @param logLevel	logging level (is parsed by level.parse())
 	 * @return	Logger object to log to.
 	 */
-
 	public Logger startLogger(String logLoc, String logLevel)
 	{
 		try 
@@ -199,13 +195,13 @@ public class Gio {
 		catch (SecurityException e) 
 		{
 			e.printStackTrace();
-			System.out.println("SecurityException establishing logger. Exiting...\n");
+			System.err.println("SecurityException establishing logger. Exiting...\n");
 			System.exit(1);
 		} 
 		catch (IOException e) 
 		{
 			e.printStackTrace();
-			System.out.println("IOException establishing logger. Exiting...\n");
+			System.err.println("IOException establishing logger. Exiting...\n");
 			System.exit(1);
 		}			
 		fh.setFormatter(new SimpleFormatter()); 	//format of log is 'human-readable' simpleformat
@@ -232,15 +228,10 @@ public class Gio {
 
 
 		//load database from "dLoc"
-
-		if(newDB)
+		pdb = PDatabase.getInstance(dLoc); 
+		if(!newDB)
 		{
-			//create new db
-			pdb = PDatabase.getInstance(dLoc);
-		}
-		else
-		{
-			pdb = PDatabase.loadDB(dLoc);
+			pdb.loadDB();
 		}
 	
 		
@@ -262,7 +253,7 @@ public class Gio {
 			pLoc = new File(p3pLocation);
 			//TODO add the current time
 			if(!pLoc.exists()){
-				System.out.println("no file found at p3p policy location specified by the -p option");
+				System.err.println("no file found at p3p policy location specified by the -p option");
 				System.exit(1);
 			}
 			p = (new P3PParser()).parse(pLoc.getAbsolutePath());
@@ -278,7 +269,7 @@ public class Gio {
 				pLoc = new File(pfiles[i]);
 				//TODO add the current time
 				if(!pLoc.exists()){
-					System.out.println("no file found at p3p policy location specified by the -p option");
+					System.err.println("no file found at p3p policy location specified by the -p option");
 					System.exit(1);
 				}
 				p = (new P3PParser()).parse(pLoc.getAbsolutePath());
@@ -295,10 +286,25 @@ public class Gio {
 	}
 
 	public void shutdown() {
-		pdb.closeDB();
-		//TODO write properties to file
+		pdb.closeDB(); //save the db
+		writeWeights(newWeights,wConfig);//TODO change write location to allow for read from a, write to b
 		//TODO close all user IO (any graphical displays)
 		
+	}
+	
+	
+	private void writeWeights(Properties wprops, String wloc)
+	{
+		try 
+		{
+		    wprops.store(new FileOutputStream(wloc), null);
+		} 
+		catch (IOException e) 
+		{
+			System.err.println("Error writing weights to file.");
+			e.printStackTrace();
+			System.exit(3);
+		}
 	}
 	
 	/**
@@ -312,6 +318,8 @@ public class Gio {
 		return simpleUserResponse(n);
 	}
 
+	
+	
 	/**
 	 * A super simple, static user display of the result on command line. does not wait for user response
 	 * @param n the policy display
@@ -334,7 +342,7 @@ public class Gio {
 		File pLoc = new File(newPol);
 		//TODO add the current time
 		if(!pLoc.exists()){
-			System.out.println("no file found at p3p policy location specified by the -T option");
+			System.err.println("no file found at p3p policy location specified by the -T option");
 			System.exit(1);
 		}
 
@@ -347,8 +355,8 @@ public class Gio {
 		return building;
 	}
 
-	public void writeWeights(Properties applyML) {
-		// TODO Auto-generated method stub
+	public void saveWeights(Properties newWeightP) {
+		 newWeights = newWeightP;
 		
 	}
 	

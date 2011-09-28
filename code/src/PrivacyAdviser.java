@@ -5,7 +5,6 @@
  * @author Nicholas Gerstle (ngerstle)
  */
 
-import java.util.ArrayList;
 import java.util.Properties;	//for configuration file functionality
 import java.util.logging.*;		//for logger functionality 
 

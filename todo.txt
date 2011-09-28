@@ -1,29 +1,36 @@
 ToDo:
 
-5 abstract/interfaces:
-	CBR
-	Conclusion
+6 abstract/interfaces:
+	CBR (should be extended)
+	ReduceAlgorithm
+	ConclusionAlgorithm
+	LearningAlgorithm
 	DistanceMetric
-	Interface
-	DB
+	User Interface
+	PolicyDb
 	
+
 	
-			fix policydatabase.java
-				- static on loadDB
-
-			create CBR interface/class
-				should cover everything from post init to save (add LEARN)
-
 			create userinterface class
 				make generic interface
 					- supports almost all cli options
 					- display db pols?
 					- response
 				make privAdvis constructor
+					is effectively CBR+init
+			
+			CL options
 				make response option for cli
 				make user_init option (for gui/cli input)
+				change -d to -i(n) and -o(o) for db in and out locations
+				change -d to -i(n) and -o(o) for weights in and out locations
+				
+	
+	
+	Logging
 	
 	
 distanceMetric is		MAP
-knearest is				REDUCE
-conclusions is			REREDUCE
+reduce is				REDUCE
+conclusion is			REREDUCE
+learn ->updates map

@@ -3,6 +3,9 @@ package sample_code;
 
 class dummy {
 	
+/*
+ * to eliminate annoying, irrelevant errors when compiling the main project
+ * 
 	public static void main(String[] args) {
 		
 		P3PParser parser = new P3PParser();
@@ -12,6 +15,6 @@ class dummy {
 		policy = parser.parse("http://www.microsoft.com/w3c/p3policy.xml");
         policy.debug_print();
     }
-    
+*/    
 }
 //

@@ -4,7 +4,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;		//to serialize this class
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
 
@@ -22,7 +21,6 @@ class PDatabase extends PolicyDatabase implements Serializable
 	 */
 	private static final long serialVersionUID = -8940764926428061908L;
 	private static PolicyDatabase i = new PDatabase(); //singleton instance of this class
-	private  ArrayList<PolicyObject> idb; //internal database
 	public static String location;
 	
 
@@ -66,33 +64,6 @@ class PDatabase extends PolicyDatabase implements Serializable
 
 
 	
-	/**
-	 * See PolicyDatabase.java. implements loading/closing the db via a serialize PDatabase object.
-	 * @see PolicyDatabase#closeDB()
-	 */
-	public void closeDB()
-	{
-		try {
-			// Creating a stream to create the file "Policy.name" and write bytes to it
-			// Name of the file can be changed to whatever is wanted
-			FileOutputStream fos = new FileOutputStream(PDatabase.location);
-			// Creating a stream convering object to byte data 
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			// Writing datastream of object to file 
-			oos.writeObject(this);
-			// Closing streams 
-			fos.close();
-			oos.flush(); 
-			oos.close();
-		} 
-		catch(Exception e) {
-			// Simple error handling, show error and shut down 
-			System.out.println("Exception during serialization of policy database: " + e); 
-			System.exit(0); 
-		}
-	}
-	
-	
 	 /**
 	 * See PolicyDatabase.java. implements loading/closing the db via a serialize PDatabase object.
 	 * @see PolicyDatabase#closeDB()
@@ -100,8 +71,9 @@ class PDatabase extends PolicyDatabase implements Serializable
 	 * @param dLoc the location of the database file on disk
 	 * 
 	 * @author ngerstle
+	 * @return 
 	 */
-	public static PolicyDatabase loadDB(String dLoc)
+	public void loadDB(String dLoc)
 	{
 		//TODO add check & warning for overwriting existing database-> exception?
 		try
@@ -119,8 +91,36 @@ class PDatabase extends PolicyDatabase implements Serializable
 			e.printStackTrace();
 			System.exit(3);
 		}
-		return  i;
+		
 	}
+
+
+	/**
+	 * See PolicyDatabase.java. implements loading/closing the db via a serialize PDatabase object.
+	 * @see PolicyDatabase#closeDB()
+	 */
+	public void closeDB(String dLoc) 
+	{
+		try {
+			// Creating a stream to create the file "Policy.name" and write bytes to it
+			// Name of the file can be changed to whatever is wanted
+			FileOutputStream fos = new FileOutputStream(dLoc);
+			// Creating a stream convering object to byte data 
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			// Writing datastream of object to file 
+			oos.writeObject(this);
+			// Closing streams 
+			fos.close();
+			oos.flush(); 
+			oos.close();
+		} 
+		catch(Exception e) {
+			// Simple error handling, show error and shut down 
+			System.out.println("Exception during serialization of policy database: " + e); 
+			System.exit(0); 
+		}
+	}
+	
 	
 	
 	
