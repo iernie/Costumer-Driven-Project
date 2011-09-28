@@ -1,5 +1,5 @@
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.Collection; //for storing policies
+import java.util.Iterator; //for interating over the collection
 
 /**
  * This is abstract class for databases. All policy 
@@ -8,14 +8,16 @@ import java.util.Iterator;
  * Does enforce singleton-ness here. need to do it in each subclass.
  * 
  * @author ngerstle
+ * @version 29.09.11.1
  */
+//TODO check for correct singleton-ness
 
 public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 
 	
-	protected static PolicyDatabase i;
-	protected Collection<PolicyObject> idb;
-	public static String location;
+	protected static PolicyDatabase i; //the only reference to this (for singleton)
+	protected Collection<PolicyObject> idb; //the collection of objects
+	public static String location;	//where the database is located
 
 
 	/**
@@ -26,7 +28,6 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	*/
 	public static PolicyDatabase getInstance()
 	{
-		
 		return i;
 	}
 	/**
@@ -34,7 +35,7 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	*
 	*	@param loc the location of the serialized db on file
 	*	@return reference to PDatabase
-	*	@author Nicholas Gerstle
+	*	@author ngerstle
 	*/
 	public static PolicyDatabase getInstance(String loc)
 	{
@@ -67,30 +68,40 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	 */
 	public abstract void loadDB(String dLoc);
 
-	/**
-	*	Public method to read POLICY object from disk
-	*	
-	*	@param  Name of the file to be read
-	*	@return Object of type PolicyLight (dummy object), that is read from the file
-	*	@authors Henrik Knutsen, Aman Kaur
-	*/
-	public Iterator<PolicyObject> getDBIt() {
-		return idb.iterator();
-	}
-
 	public void addPolicy(PolicyObject n) {
 		idb.add(n);
 	}
 
+	/**
+	 * @return an iterator over the internal collection
+	 */
 	public Iterator<PolicyObject> iterator() {
 		return idb.iterator();
 	}
 
+	/**
+	 * shouldn't be needed, but implement for faster access in Reduction_KNN
+	 * @return
+	 */
+	public Collection<PolicyObject> getCollection()
+	{
+		return idb;
+	}
+	
+	/**
+	 * calls closeDB(PolicyDatabase.location)
+	 */
 	public void closeDB()
 	{
 		closeDB(location);
 	}
 	
+	
+	/**
+	 * should implement writing the information contained by the PolicyDatabase to a file/disk
+	 * @param dLoc the location to save the data
+	 * @author ngerstle
+	 */
 	public abstract void closeDB(String dLoc);
 
 	protected PolicyDatabase() {

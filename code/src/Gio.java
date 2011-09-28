@@ -1,6 +1,6 @@
 import java.io.File;			//for configuration file functionality
 import java.io.FileInputStream;		//for configuration file functionality and reading serialized objects
-import java.io.FileOutputStream;
+import java.io.FileOutputStream;	//for writing the new weights config file
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
 import java.util.Properties;		//for configuration file functionality
@@ -16,14 +16,14 @@ public class Gio {
 	private FileHandler fh; ;					//creates filehandler for logging
 	public String genConfig;					//location of general configuration file
 	public String wConfig;						//location of weights configuration file, if specified.
-	private String dLocation;
+	private String dLocation;					//location of the database
 	private String p3pDirLocation;					//location of p3p objects (a folder containing only those objects
 	private String p3pLocation;				//location of a single p3p to be parsed
 	private PolicyDatabase pdb = null;				//Policy database object
 	private boolean newDB = false;				//overwrite/create new database at specified file location
 	private boolean building = false;			//if true, the program should load pdb as normal, add any given policies with p/f options, save the DB, and exit
 	private String newPol;						//the location of the new policy that goes through knn, given by the -T option
-	private Properties newWeights;				//the revised weights, following LearnAlgorithm. written to disk by shutdown()
+	private Properties newWeights;				//the revised weights, following LearnAlgorithm. written to disk by shutdown(). also used in loading weights during init()
 
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
@@ -96,9 +96,9 @@ public class Gio {
 
 	/**
 	 * Loads the general config file from either commandline location or default of './PrivacyAdviser.cfg'
-	 * 
-	 * @author ngerstle
+	 *  
 	 * @return properties object corresponding to given configuration file
+	 * @author ngerstle
 	 */
 	public Properties loadGeneral()
 	{
@@ -107,10 +107,10 @@ public class Gio {
 
 	/**
 	 * Loads the general config, either from provided string, or default location (./PrivacyAdviser.cfg)
-	 * 
-	 * @author ngerstle
+	 *  
 	 * @param location of configuration file
 	 * @return properties object corresponding to given configuration file
+	 * @author ngerstle
 	 */
 	public Properties loadGeneral(String fileLoc)
 	{
@@ -143,9 +143,9 @@ public class Gio {
 	/**
 	 * Loads the weights configuration file, from the provided location
 	 * 
-	 * @author ngerstle
 	 * @param location of configuration file
 	 * @return properties object corresponding to given configuration file
+	 * @author ngerstle
 	 */
 	public Properties loadWeights(String fileLoc)
 	{
@@ -153,7 +153,6 @@ public class Gio {
 		{
 			fileLoc = wConfig;
 		}
-		Properties wconfigFile = new Properties();
 
 		try 
 		{
@@ -168,23 +167,25 @@ public class Gio {
 				System.err.println("No weights file is available at "+fileLoc+" . Please place one in the working directory.");
 				System.exit(3);
 			}
-			wconfigFile.load(is);
+			newWeights.load(is);
 		} 
 		catch (IOException e) 
 		{
 			e.printStackTrace();
 			System.err.println("IOException reading the weights configuration file. Exiting...\n");
 			System.exit(1);
-		}	
-		return wconfigFile;
+		}
+		return newWeights;
 	}
 
 
 	/**
-	 * startLogger initializes and returns a file at logLoc with the results of logging at level logLevel. 
+	 * startLogger initializes and returns a file at logLoc with the results of logging at level logLevel.
+	 *  
 	 * @param logLoc	location of the output log file- a string
 	 * @param logLevel	logging level (is parsed by level.parse())
 	 * @return	Logger object to log to.
+	 * @author ngerstle
 	 */
 	public Logger startLogger(String logLoc, String logLevel)
 	{
@@ -215,6 +216,7 @@ public class Gio {
 	 * Loads the case history into cache. 
 	 * This is where the background database chosen.
 	 * 
+	 * @param dLoc the location of the database
 	 * @author ngerstle
 	 * 
 	 */
@@ -228,6 +230,7 @@ public class Gio {
 
 
 		//load database from "dLoc"
+		//TODO change to pick which kind of PolicyDatabase here
 		pdb = PDatabase.getInstance(dLoc); 
 		if(!newDB)
 		{
@@ -285,15 +288,27 @@ public class Gio {
 		return pdb;
 	}
 
+	
+	/**
+	 * closes resources and write everything to file
+	 * 
+	 * @author ngerstle
+	 */
 	public void shutdown() {
 		pdb.closeDB(); //save the db
-		writeWeights(newWeights,wConfig);//TODO change write location to allow for read from a, write to b
+		writePropertyFile(newWeights,wConfig);//TODO change write location to allow for read from a, write to b
 		//TODO close all user IO (any graphical displays)
 		
 	}
 	
-	
-	private void writeWeights(Properties wprops, String wloc)
+	/**
+	 * writes a property file to disk
+	 * 
+	 * @param wprops the property file to write
+	 * @param wloc	where to write to
+	 * @author ngerstle
+	 */
+	private void writePropertyFile(Properties wprops, String wloc)
 	{
 		try 
 		{
@@ -309,8 +324,10 @@ public class Gio {
 	
 	/**
 	 * Generates handles response. This is were we would pass stuff to cli or gui, etc
+	 * 
 	 * @param n the processed policy object
 	 * @return the policyObjected as accepted by user (potentially modified
+	 * @author ngerstle
 	 */
 	//TODO change this to use a class set up by the config file
 	//TODO change this to work with both cli & gui options, and accept different reponses to suggestion
@@ -322,8 +339,10 @@ public class Gio {
 	
 	/**
 	 * A super simple, static user display of the result on command line. does not wait for user response
+	 * 
 	 * @param n the policy display
 	 * @return the policy given
+	 * @author ngerstle
 	 */
 	//TODO change this to a class
 	private PolicyObject simpleUserResponse(PolicyObject n)
@@ -334,7 +353,9 @@ public class Gio {
 	
 	/**
 	 * returns the policy object from the T option
+	 * 
 	 * @return the policy object to be processed
+	 * @author ngerstle
 	 */
 	public PolicyObject getPO() {
 
@@ -351,11 +372,17 @@ public class Gio {
 		return p;
 	}
 
+	/**
+	 * returns the -b option if present- whether or not to solely build a database, or build and call CBR.run()
+	 *  
+	 * @return true if a CBR should NOT be run
+	 * @author ngerstle
+	 */
 	public boolean isBuilding() {
 		return building;
 	}
 
-	public void saveWeights(Properties newWeightP) {
+	public void setWeights(Properties newWeightP) {
 		 newWeights = newWeightP;
 		
 	}

@@ -1,9 +1,9 @@
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.FileInputStream;		//for reading/writing serialized databases
+import java.io.FileOutputStream;	//for reading/writing serialized databases
+import java.io.ObjectInputStream;	//for reading/writing serialized databases
+import java.io.ObjectOutputStream;	//for reading/writing serialized databases
 import java.io.Serializable;		//to serialize this class
-import java.util.ArrayList;
+import java.util.ArrayList;			//internal collection for policies
 
 
 
@@ -21,7 +21,7 @@ class PDatabase extends PolicyDatabase implements Serializable
 	 */
 	private static final long serialVersionUID = -8940764926428061908L;
 	private static PolicyDatabase i = new PDatabase(); //singleton instance of this class
-	public static String location;
+	public static String location; //where is the database stored on disk/as a file?
 	
 
 	/**
@@ -58,12 +58,7 @@ class PDatabase extends PolicyDatabase implements Serializable
 		location = loc;
 		return i;
 	}	
-	
 
-	
-
-
-	
 	 /**
 	 * See PolicyDatabase.java. implements loading/closing the db via a serialize PDatabase object.
 	 * @see PolicyDatabase#closeDB()

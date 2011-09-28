@@ -1,16 +1,34 @@
-import java.util.ArrayList;
-import java.util.Properties;
+import java.util.ArrayList; //for moving between reduction and conclusion algorithms 
+import java.util.Properties;	//for handling weights
 
+/**
+ * Case based reason. This is a working CBR class that handles process flow between init and shutdown.
+ * Should be easy to extend and overload various features, but should work for most cases as is.
+ * 
+ * @author ngerstle
+ * @version 29.09.11.1
+ */
 public class CBR {
 
-	protected PolicyObject newpol;
-	protected Gio theIO;
-	protected Properties weightsConfig;
+	protected PolicyObject newpol; 			//the new policy to look at
+	protected Gio theIO;					//interacting with the outside world
+	protected Properties weightsConfig; 	//the weights for distance metric and learning
 
-	protected ReductionAlgorithm reduceAlg;
-	protected ConclusionAlgorithm conclusAlg;
-	protected LearnAlgorithm learnAlg;
+	protected ReductionAlgorithm reduceAlg;		//the reduction algorithm to use
+	protected ConclusionAlgorithm conclusAlg;	//the conclusion algorithm to use
+	protected LearnAlgorithm learnAlg;			//the learning algorithm to use
 	
+	
+	/**
+	 * Our generic constructor.
+	 * 
+	 * @param theIO
+	 * @param weightsConfig
+	 * @param reduceAlg
+	 * @param conclusAlg
+	 * @param learnAlg
+	 * @author ngerstle
+	 */
 	public CBR(Gio theIO, Properties weightsConfig,
 			ReductionAlgorithm reduceAlg, ConclusionAlgorithm conclusAlg, LearnAlgorithm learnAlg) {
 		this.theIO = theIO;
@@ -24,13 +42,13 @@ public class CBR {
 
 
 	/**
-	 * Accepts a parsed PolicyObject that needs a action attached to it
-	 * 
-	 * 
-	 * @author ngerstle
-	 * 
+	 * Accepts a parsed PolicyObject that needs a action attached to it, and returns
+	 * with the same object with an action in it.
+	 *
 	 * @param newPO the new policy to be processed
 	 * @return the same policy object with an action
+	 * 
+	 * @author ngerstle
 	 */
 	private PolicyObject process(PolicyObject newPO) {
 		ArrayList<PolicyObject> reducedSet = reduceAlg.reduce(newPO);
@@ -39,7 +57,12 @@ public class CBR {
 		return newPO;
 	}
 
-
+	/**
+	 * runs through CBR with selected algorithms
+	 * 
+	 * @param newPolicy
+	 * @author ngerstle
+	 */
 	public void run(PolicyObject newPolicy) {
 		newpol =  process(newPolicy); //knn & conclusion
 		newpol = theIO.userResponse(newpol); //user response

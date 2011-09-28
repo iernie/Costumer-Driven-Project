@@ -12,7 +12,7 @@ import java.util.logging.*;		//for logger functionality
 /**
  * Main class.
  * 
- * @version 060911.1
+ * @version 29.09.11.1
  * @author ngerstle
  *
  */
@@ -31,7 +31,10 @@ public class PrivacyAdviser {
 
 
 	/**
-	 * Program in following sequence- init, load db, load new instance, classify instance, confirm, close.
+	 * Program in following sequence- init, load stuff for cbr, run cbr, shutdown.
+	 * should alter for more flexible cbr options (different algorithms, selected by switch
+	 * statement on ReduceChoice, ConclusionChoice, LearnChoice, etc, once those are in the
+	 * config file/cli
 	 * 
 	 * 
 	 * @author ngerstle
@@ -42,20 +45,18 @@ public class PrivacyAdviser {
 		//all initialization
 		init(args);
 		//process the given case
-		//TODO change null to actual policy object
 		if(!theIO.isBuilding()) //actually process an object
 		{
+			po = theIO.getPO();
 			int k = 1; //size for k in knn algorithm
 			DistanceMetric dm = new distanceMetricTest(weightsConfig);
 			PolicyDatabase pdb = theIO.getPDB();
-			CBR machinelearn = new CBR(theIO, weightsConfig, new knnReduction(dm,pdb,k), new simpleConclusion(dm), new constantLearn(weightsConfig));
+			CBR machinelearn = new CBR(theIO, weightsConfig, new Reduction_KNN(dm,pdb,k), new Conclusion_Simple(dm), new Learn_Constant(weightsConfig));
 			machinelearn.run(po);
 		}
 		//close down
 		theIO.shutdown();
 	}
-
-
 
 
 
@@ -73,11 +74,8 @@ public class PrivacyAdviser {
 		//enable IO (and parse args
 		theIO = new Gio(args); 
 
-		
-		
 		//load general configuration file
 		configFile = theIO.loadGeneral();
-
 
 		//start the logger
 		String loglevel = configFile.getProperty("loglevel","INFO").toUpperCase();
@@ -87,7 +85,6 @@ public class PrivacyAdviser {
 		//load the weights configuration file
 		weightsConfig = new Properties();
 		weightsConfig = theIO.loadWeights(configFile.getProperty("weights.cfg","./weights.cfg"));
-
 
 		//load the past history && commandline policies 
 		theIO.loadDB(configFile.getProperty("databaseLocation"));
@@ -100,6 +97,7 @@ public class PrivacyAdviser {
 			prompt from user, but load default values
 			UI.prompt for -c, -w, -p, -d, -f, -n, -b, -Te
 		}*/
+		
 		//done initializing
 	}
 
