@@ -111,12 +111,22 @@ public class PrivacyAdviser {
 		return newPO;
 	}	
 	
+	/**
+	 * draws a conclusion from the knearest neighbors of what the resultant action should be
+	 * @param knearestns
+	 * @return the action to take
+	 */
 	private static Action conclusion(ArrayList<PolicyObject> knearestns)
 	{
 		//TODO make this take a 'conclusion' class or something for more generic evaluations of results
 		return simpleConclusion(knearestns);
 	}
 	
+	/**
+	 * a simple conclusion that just bases the result on the closest policy, copying action, and citing it as the reason
+	 * @param knearestns
+	 * @return the action to take
+	 */
 	private static Action simpleConclusion(ArrayList<PolicyObject> knearestns)
 	{
 		PolicyObject nearestPO = knearestns.get(0);
