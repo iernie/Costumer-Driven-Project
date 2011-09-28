@@ -1,3 +1,5 @@
+package sample_code;
+
 import java.io.Serializable;
 
 /**
@@ -8,27 +10,28 @@ import java.io.Serializable;
  *
  */
 
-@SuppressWarnings("serial")
-class PolicyLight implements Serializable { 
-	String name;
-	String recipient;
-	double value;
-	int retention;
+class MyClass implements Serializable { 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	String name; 
+	int age; 
+	double kuchV; 
 	
 	/**
 	 * This is the constructor used to initialize object values.
 	 */
-	public PolicyLight(String n, String r, double v, int re) { 
-		this.name = n;
-		this.recipient = r;
-		this.value = v;
-		this.retention = re; 
+	public MyClass(String s, int i, double d) { 
+		this.name = s; 
+		this.age = i; 
+		this.kuchV = d; 
 	} 
 	
 	/**
 	 * This is the over-ridden method to display object variables value as a String. 
 	 */
 	public String toString() { 
-		return "Name = " + name + ", recipient = " + recipient + ", value = " + value + ", retention = " + retention;
+		return "s=" + name + "; i=" + age + "; d=" + kuchV; 
 	}
 }
