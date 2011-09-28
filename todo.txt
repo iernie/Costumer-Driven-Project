@@ -1,0 +1,29 @@
+ToDo:
+
+5 abstract/interfaces:
+	CBR
+	Conclusion
+	DistanceMetric
+	Interface
+	DB
+	
+	
+			fix policydatabase.java
+				- static on loadDB
+
+			create CBR interface/class
+				should cover everything from post init to save (add LEARN)
+
+			create userinterface class
+				make generic interface
+					- supports almost all cli options
+					- display db pols?
+					- response
+				make privAdvis constructor
+				make response option for cli
+				make user_init option (for gui/cli input)
+	
+	
+distanceMetric is		MAP
+knearest is				REDUCE
+conclusions is			REREDUCE

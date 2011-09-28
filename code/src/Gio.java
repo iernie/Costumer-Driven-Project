@@ -43,6 +43,18 @@ public class Gio {
 		options.addOption("n", true, "create new database in place of old one (doesn't check for existence of old one");
 		options.addOption("b", false, "no policy comparison, only build a database");
 		options.addOption("T", true, "the policy object to process");
+		
+		
+		/*
+		 *to load a new database from a folder, but not use cbr on a new object. overwrites old db (-n option)
+		 *
+		 *./PrivacyAdvisor -b -f -n ./new_policy_history [-c config_file_location][-w weight_config_file_loc][-d db_file_location]
+		 *
+		 *
+		 *to compare policy stored in p.txt, assuming config in default location is valid and used
+		 *
+		 *./PrivacyAdvisor -T p.txt
+		 */
 
 		CommandLineParser parser = new PosixParser();
 		CommandLine cmd = null;
