@@ -236,8 +236,8 @@ public class bitmapDistance implements DistanceMetric{
 	@Override
 	public double getTotalDistance(PolicyObject a, PolicyObject b) {
 		ArrayList<Case> CasesA, CasesB;
-		CasesA=a.getCase();
-		CasesB=b.getCase();
+		CasesA=a.getCases();
+		CasesB=b.getCases();
 		double minDist;
 		double Distance = 0;
 		for(int i=0;i<CasesA.size();i++){

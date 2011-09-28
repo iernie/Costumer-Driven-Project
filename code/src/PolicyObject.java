@@ -23,6 +23,11 @@ import java.util.HashMap;
  * 		
  */
 
+/**
+ * This is where the class begins
+ * 
+ * @author ernie
+ */
 public class PolicyObject implements Serializable
 {
 	/**
@@ -31,61 +36,114 @@ public class PolicyObject implements Serializable
 	private static final long serialVersionUID = 5489334832912646160L;
 	private HashMap<String, String> entity;
 	private ArrayList<Case> statements;
-	private Action theRes;	//the action taken (includes acc/reject, reason, etc)
-	private Context theCon; //the context for the p3p policy- see context.java
+	private Action actionTaken; //the action taken (includes acc/reject, reason, etc)
+	private Context context; //the context for the p3p policy- see context.java
 	
-	
+	/**
+	 * This is the constructor
+	 * The constructor initializes the variables within the class when you make a new instance of it
+	 * 
+	 * @author ernie
+	 */
 	public PolicyObject()
 	{
 		statements = new ArrayList<Case>();
 		entity = new HashMap<String, String>();
-		theCon = new Context(null,null,null);
+		context = new Context(null,null,null);
 	}
-	
+
 	public Context getContext() {
-		return this.theCon;
+		return this.context;
 	}
 	
 	public void setContext(Context theCon) {
-		this.theCon = theCon;
+		this.context = theCon;
 	}
 	
 	public Action getAction() {
-		return this.theRes;
+		return this.actionTaken;
 	}
 
 	public void setAction(Action theRes) {
-		this.theRes = theRes;
+		this.actionTaken = theRes;
 	}
 	
+	/**
+	 * Adds a case to the policy
+	 * 
+	 * @author ernie
+	 * @param c input Case
+	 */
 	public void addCase(Case c)
 	{
 		statements.add(c);
 	}
 	
+	/**
+	 * Adds a data to the entity hashmap of the policy
+	 * 
+	 * @author ernie
+	 * @param key input String
+	 * @param value input String
+	 */
 	public void addEntityData(String key, String value)
 	{
 		entity.put(key, value);
 	}
 	
+	/**
+	 * Returns a specific case for the policy
+	 * 
+	 * @author ernie
+	 * @param i input int
+	 * @return Case
+	 */
 	public Case getCase(int i){
 		return statements.get(i);
 	}
 	
-	public ArrayList<Case> getCase(){
+	/**
+	 * Returns all cases for the policy
+	 * 
+	 * @author ernie
+	 * @return ArrayList<Case>
+	 */
+	public ArrayList<Case> getCases(){
 		return statements;
 	}
 	
+	/**
+	 * Returns the entity for the policy
+	 * 
+	 * @author ernie
+	 * @return HashMap<String, String>
+	 */
 	public HashMap<String, String> getEntities()
 	{
 		return entity;
 	}
 	
+	/**
+	 * Returns the entity data for a specific key
+	 * 
+	 * @author ernie
+	 * @param key input String
+	 * @param String
+	 */
 	public String getEntity(String key)
 	{
 		return entity.get(key);
 	}
 	
+	public String getName() {
+		return context.getDomain();
+	}
+	
+	/**
+	 * this is a debug method and should NOT BE TAKEN SERIOUSLY
+	 * 
+	 * @author ernie
+	 */
 	public void debug_print()
 	{
 		System.out.println("\nPOLICY OBJECT DEBUG PRINT");
@@ -110,9 +168,5 @@ public class PolicyObject implements Serializable
 			System.out.println("\nSTATEMENT " + i);
 			statements.get(i).debug_print();
 		}
-	}
-
-	public String getName() {
-		return theCon.getDomain();
 	}
 }
