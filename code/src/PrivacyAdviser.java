@@ -28,6 +28,7 @@ public class PrivacyAdviser {
 	private static Properties weightsConfig;	//configuration file for weights
 	static Logger logger;								//logger
 	private static PolicyObject po;				//the new policyObject to accept/reject/etc
+	
 
 
 	/**
@@ -45,11 +46,11 @@ public class PrivacyAdviser {
 		//TODO change null to actual policy object
 		if(!theIO.isBuilding()) //actually process an object
 		{
-			po = process(po);
-			//get user response
-			po = theIO.userResponse(po);
-			//save to database
-			theIO.getPDB().addPolicy(po);
+			int k = 1; //size for k in knn algorithm
+			DistanceMetric dm = new distanceMetricTest(weightsConfig);
+			PolicyDatabase pdb = theIO.getPDB();
+			CBR machinelearn = new CBR(theIO, weightsConfig, new knnReduction(dm,pdb,k), new simpleConclusion(dm), new constantLearn(weightsConfig));
+			machinelearn.run(po);
 		}
 		//close down
 		theIO.shutdown();
@@ -73,6 +74,8 @@ public class PrivacyAdviser {
 		//enable IO (and parse args
 		theIO = new Gio(args); 
 
+		
+		
 		//load general configuration file
 		configFile = theIO.loadGeneral();
 
@@ -88,53 +91,24 @@ public class PrivacyAdviser {
 
 
 		//load the past history && commandline policies 
-		theIO.loadDB(configFile.getProperty("databaseLocation"));	
-
-		//load the policyObject
-		po = theIO.getPO();
+		theIO.loadDB(configFile.getProperty("databaseLocation"));
+		
+		
+		//TODO
+		/*where user_init = (-u flag) || (no -b and no -T)
+		if(theIO.user_init())
+		{
+			prompt from user, but load default values
+			UI.prompt for -c, -w, -p, -d, -f, -n, -b, -Te
+		}*/
 		//done initializing
 	}
 
-	/**
-	 * Accepts a parsed PolicyObject that needs a action attached to it
-	 * 
-	 * 
-	 * @author ngerstle
-	 * 
-	 * @param newPO the new policy to be processed
-	 * @return the same policy object with an action
-	 */
-	private static PolicyObject process(PolicyObject newPO) {
-		kNearestNeighbors knn = new kNearestNeighbors(new distanceMetricTest(weightsConfig),theIO.getPDB(), 1);
-		ArrayList<PolicyObject> nearestPOs = knn.run(newPO);
-		newPO.setAction(conclusion(nearestPOs));
-		return newPO;
-	}	
+		
 	
-	/**
-	 * draws a conclusion from the knearest neighbors of what the resultant action should be
-	 * @param knearestns
-	 * @return the action to take
-	 */
-	private static Action conclusion(ArrayList<PolicyObject> knearestns)
-	{
-		//TODO make this take a 'conclusion' class or something for more generic evaluations of results
-		return simpleConclusion(knearestns);
-	}
 	
-	/**
-	 * a simple conclusion that just bases the result on the closest policy, copying action, and citing it as the reason
-	 * @param knearestns
-	 * @return the action to take
-	 */
-	private static Action simpleConclusion(ArrayList<PolicyObject> knearestns)
-	{
-		PolicyObject nearestPO = knearestns.get(0);
-		ArrayList<PolicyObject> reasons = new ArrayList<PolicyObject>();
-		reasons.add(nearestPO);
-		Action a = new Action(nearestPO.getAction().isAccept(), reasons, false);
-		return a;
-	}
+	
+	
 
 
 

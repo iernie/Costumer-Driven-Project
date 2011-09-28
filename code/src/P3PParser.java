@@ -185,14 +185,13 @@ public class P3PParser
 			parser.setContentHandler(new XMLParserHandler( ));
 			parser.parse(p3p);
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
     	return policy;
 	}
  
+		//TODO make for loop for cases
 }
