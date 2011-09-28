@@ -1,7 +1,9 @@
 import java.io.File;			//for configuration file functionality
 import java.io.FileInputStream;		//for configuration file functionality and reading serialized objects
+import java.io.FileOutputStream;
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
+import java.io.ObjectOutputStream;
 import java.util.Properties;		//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
@@ -14,8 +16,8 @@ public class Gio {
 
 	private static Logger logger = Logger.getLogger("");		//create logger object
 	private FileHandler fh; ;					//creates filehandler for logging
-	private String genConfig;					//location of general configuration file
-	private String wConfig;						//location of weights configuration file, if specified.
+	public String genConfig;					//location of general configuration file
+	public String wConfig;						//location of weights configuration file, if specified.
 	private String dLocation;
 	private String p3pDirLocation;					//location of p3p objects (a folder containing only those objects
 	private String p3pLocation;				//location of a single p3p to be parsed
@@ -119,6 +121,10 @@ public class Gio {
 		return configFile;
 	}
 
+	
+	
+	
+	
 	/**
 	 * Loads the weights configuration file, from the provided location
 	 * 
@@ -127,13 +133,13 @@ public class Gio {
 	 * @return properties object corresponding to given configuration file
 	 */
 
-	Properties loadWeights(String fileLoc)
+	public Properties loadWeights(String fileLoc)
 	{
 		if(wConfig != null)
 		{
 			fileLoc = wConfig;
 		}
-		Properties configFile = new Properties();
+		Properties wconfigFile = new Properties();
 
 		try 
 		{
@@ -148,7 +154,7 @@ public class Gio {
 				System.out.println("No weights file is available at "+fileLoc+" . Please place one in the working directory.");
 				System.exit(3);
 			}
-			configFile.load(is);
+			wconfigFile.load(is);
 		} 
 		catch (IOException e) 
 		{
@@ -156,7 +162,7 @@ public class Gio {
 			System.out.println("IOException reading the weights configuration file. Exiting...\n");
 			System.exit(1);
 		}	
-		return configFile;
+		return wconfigFile;
 	}
 
 
@@ -167,7 +173,7 @@ public class Gio {
 	 * @return	Logger object to log to.
 	 */
 
-	Logger startLogger(String logLoc, String logLevel)
+	public Logger startLogger(String logLoc, String logLevel)
 	{
 		try 
 		{
@@ -198,7 +204,7 @@ public class Gio {
 	 * @author ngerstle
 	 * 
 	 */
-	void loadDB(String dLoc)
+	public void loadDB(String dLoc)
 	{
 
 		if(dLocation != null)
@@ -212,7 +218,7 @@ public class Gio {
 		if(newDB)
 		{
 			//create new db
-			pdb = PDatabase.getInstance();
+			pdb = PDatabase.getInstance(dLoc);
 		}
 		else
 		{
@@ -221,6 +227,7 @@ public class Gio {
 				FileInputStream fis = new FileInputStream(dLoc);
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				pdb = (PDatabase)ois.readObject();
+				PDatabase.location = dLoc;
 				ois.close();
 				fis.close();
 			}
@@ -243,7 +250,9 @@ public class Gio {
 	 */
 	private void loadCLPolicies() {
 		//we already checked to make sure we have one of the options avaliable
-		File pLoc = null;		
+		File pLoc = null;
+		PolicyObject p = null;
+		
 		if(p3pLocation != null)
 		{
 			pLoc = new File(p3pLocation);
@@ -252,7 +261,9 @@ public class Gio {
 				System.out.println("no file found at p3p policy location specified by the -p option");
 				System.exit(1);
 			}
-			pdb.addPolicy((new P3PParser()).parse(pLoc.getAbsolutePath()));
+			p = (new P3PParser()).parse(pLoc.getAbsolutePath());
+			p.setContext(new Context(null,null,p3pLocation));
+			pdb.addPolicy(p);
 		}
 		else 
 		{
@@ -266,7 +277,9 @@ public class Gio {
 					System.out.println("no file found at p3p policy location specified by the -p option");
 					System.exit(1);
 				}
-				pdb.addPolicy((new P3PParser()).parse(pLoc.getAbsolutePath()));
+				p = (new P3PParser()).parse(pLoc.getAbsolutePath());
+				p.setContext(new Context(null,null,pfiles[i]));
+				pdb.addPolicy(p);
 			}
 			
 		}
@@ -276,6 +289,35 @@ public class Gio {
 	{
 		return pdb;
 	}
+
+	public void shutdown() {
+		try {
+			// Creating a stream to create the file "Policy.name" and write bytes to it
+			// Name of the file can be changed to whatever is wanted
+			FileOutputStream fos = new FileOutputStream(PDatabase.location);
+			// Creating a stream convering object to byte data 
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			// Writing datastream of object to file 
+			oos.writeObject(pdb);
+			// Closing streams 
+			fos.close();
+			oos.flush(); 
+			oos.close();
+		} 
+		catch(Exception e) {
+			// Simple error handling, show error and shut down 
+			System.out.println("Exception during serialization of policy database: " + e); 
+			System.exit(0); 
+		}
+		//TODO close all user IO (any graphical displays)
+		
+	}
+
+	public PolicyObject userResponse(PolicyObject n) {
+		// TODO change this to work with both cli & gui options, and accept different reponses to suggestion
+		System.out.println("Privacy Advisor recommends:"+n.getAction().getAccptS() + "\n\t based on these criteria:"+n.getAction().getReasonS());
+		return n;
+	}
 	
-	//TODO save DB
+	
 }

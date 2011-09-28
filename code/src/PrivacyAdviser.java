@@ -48,10 +48,21 @@ public class PrivacyAdviser {
 	public static void main(String[] args) {
 		//all initialization
 		init(args);
-		
+		//process the given case
+		//TODOchange null to actual policy object
+		PolicyObject n = process(null);
+		//get user response
+		n = theIO.userResponse(n);
+		//save to database
+		theIO.getPDB().addPolicy(n);
+		//close down
+		theIO.shutdown();
 	}
 	
 	
+	
+
+
 	/**
 	 * Initializes the program- loads general configuration, starts logger, loads weights, loads database
 	 * 
@@ -63,21 +74,12 @@ public class PrivacyAdviser {
 	 */
 	public static void init(String[] args)
 	{
-		//TODO check for right args
-		
-		//enable IO
+		//enable IO (and parse args
 		theIO = new Gio(args); 
 
 		//load general configuration file
-		configFile = new Properties();
-		if(args.length > 0) //if commandline arguement
-		{
-			configFile = theIO.loadGeneral(args[0]);
-		}
-		else
-		{
-			configFile = theIO.loadGeneral();
-		}
+		configFile = theIO.loadGeneral();
+		
 		
 		//start the logger
 		String loglevel = configFile.getProperty("loglevel","INFO").toUpperCase();
@@ -91,12 +93,24 @@ public class PrivacyAdviser {
 		
 		//load the past history && commandline policies 
 		theIO.loadDB(configFile.getProperty("databaseLocation"));	
-	
-		//find nearest neighbor
-		
-		
+			
+		//done initializing
 	}
 	
-	
+	/**
+	 * Accepts a parsed PolicyObject that needs a action attached to it
+	 * 
+	 * 
+	 * @author ngerstle
+	 * 
+	 * @param newPO the new policy to be processed
+	 * @return the same policy object with an action
+	 */
+	private static PolicyObject process(PolicyObject newPO) {
+		// TODO fill this with the KNN junk
+		return null;
+	}	
 
+	
+	
 }

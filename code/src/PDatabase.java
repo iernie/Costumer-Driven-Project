@@ -19,6 +19,7 @@ class PDatabase	implements Serializable, Iterable<PolicyObject>
 	private static final long serialVersionUID = -8940764926428061908L;
 	private static final PDatabase i = new PDatabase(); //singleton instance of this class
 	private  ArrayList<PolicyObject> idb; //internal database
+	public static String location;
 	
 	/**
 	*	Dummy main to test reading and writing.
@@ -61,7 +62,18 @@ class PDatabase	implements Serializable, Iterable<PolicyObject>
 	{
 		return i;
 	}
-	
+	/**
+	*	public constructor method to ensure singleton-ness
+	*
+	*	@param loc the location of the serialized db on file
+	*	@return reference to PDatabase
+	*	@author Nicholas Gerstle
+	*/
+	public static PDatabase getInstance(String loc)
+	{
+		location = loc;
+		return i;
+	}	
 	
 	/**
 	*	Public method to write an POLICYLIGHT object to disk

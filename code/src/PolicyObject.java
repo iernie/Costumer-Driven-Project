@@ -31,11 +31,31 @@ public class PolicyObject implements Serializable
 	private static final long serialVersionUID = 5489334832912646160L;
 	private HashMap<String, String> entity;
 	private ArrayList<Case> statements;
-
+	private Action theRes;	//the action taken (includes acc/reject, reason, etc)
+	private Context theCon; //the context for the p3p policy- see context.java
+	
+	
 	public PolicyObject()
 	{
 		statements = new ArrayList<Case>();
 		entity = new HashMap<String, String>();
+		theCon = new Context(null,null,null);
+	}
+	
+	public Context getContext() {
+		return this.theCon;
+	}
+	
+	public void setContext(Context theCon) {
+		this.theCon = theCon;
+	}
+	
+	public Action getAction() {
+		return this.theRes;
+	}
+
+	public void setAction(Action theRes) {
+		this.theRes = theRes;
 	}
 	
 	public void addCase(Case c)
@@ -90,5 +110,9 @@ public class PolicyObject implements Serializable
 			System.out.println("\nSTATEMENT " + i);
 			statements.get(i).debug_print();
 		}
+	}
+
+	public String getName() {
+		return theCon.getDomain();
 	}
 }
