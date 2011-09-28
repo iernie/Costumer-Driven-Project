@@ -15,7 +15,7 @@ import java.util.Iterator;
 *	@version 1.0
 */
 
-class PDatabase	implements Serializable, Iterable<PolicyObject>, PolicyDatabase
+class PDatabase extends PolicyDatabase implements Serializable 
 {
 	/**
 	 * generated serial id based on warning on implementing Serializable

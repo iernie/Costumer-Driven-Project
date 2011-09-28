@@ -203,7 +203,8 @@ public class Gio {
 
 
 	/**
-	 * Loads the case history into cache.
+	 * Loads the case history into cache. 
+	 * This is where the background database chosen.
 	 * 
 	 * @author ngerstle
 	 * 
