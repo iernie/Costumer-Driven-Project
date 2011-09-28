@@ -1,5 +1,11 @@
+import java.util.Properties;
+
 
 public class distanceMetricTest implements DistanceMetric{
+
+	public distanceMetricTest(Properties weightsConfig) {
+		// ignore the weights in this metric
+	}
 
 	public double getDistResip(Case a, Case b) {
 

@@ -105,7 +105,7 @@ public class PrivacyAdviser {
 	 * @return the same policy object with an action
 	 */
 	private static PolicyObject process(PolicyObject newPO) {
-		kNearestNeighbors knn = new kNearestNeighbors(new distanceMetricTest(),theIO.getPDB(), 1);
+		kNearestNeighbors knn = new kNearestNeighbors(new distanceMetricTest(weightsConfig),theIO.getPDB(), 1);
 		ArrayList<PolicyObject> nearestPOs = knn.run(newPO);
 		newPO.setAction(conclusion(nearestPOs));
 		return newPO;
