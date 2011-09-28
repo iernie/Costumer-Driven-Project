@@ -10,9 +10,19 @@ public class Action
 	private boolean override= false; //the generated results was overriden by the user
 	//TODO add exceptions to rule, override, etc
 	
+	
+	public Action(boolean accept, ArrayList<PolicyObject> reason,
+			boolean override) {
+		this.accept = accept;
+		this.reason = reason;
+		this.override = override;
+	}
+	
+		
 	public boolean isAccept() {
 		return accept;
 	}
+	
 	public void setAccept(boolean accept) {
 		this.accept = accept;
 	}

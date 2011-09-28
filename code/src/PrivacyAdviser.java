@@ -5,6 +5,7 @@
  * @author Nicholas Gerstle (ngerstle)
  */
 
+import java.util.ArrayList;
 import java.util.Properties;	//for configuration file functionality
 import java.util.logging.*;		//for logger functionality 
 
@@ -27,14 +28,6 @@ public class PrivacyAdviser {
 	private static Properties weightsConfig;	//configuration file for weights
 	static Logger logger;								//logger
 	private static PolicyObject po;				//the new policyObject to accept/reject/etc
-
-
-
-
-
-
-
-
 
 
 	/**
@@ -112,11 +105,26 @@ public class PrivacyAdviser {
 	 * @return the same policy object with an action
 	 */
 	private static PolicyObject process(PolicyObject newPO) {
-		// TODO fill this with the KNN junk
-		//Action a = knn...
-		//newPO.setAction(a);
+		kNearestNeighbors knn = new kNearestNeighbors(new distanceMetricTest(),theIO.getPDB(), 1);
+		ArrayList<PolicyObject> nearestPOs = knn.run(newPO);
+		newPO.setAction(conclusion(nearestPOs));
 		return newPO;
 	}	
+	
+	private static Action conclusion(ArrayList<PolicyObject> knearestns)
+	{
+		//TODO make this take a 'conclusion' class or something for more generic evaluations of results
+		return simpleConclusion(knearestns);
+	}
+	
+	private static Action simpleConclusion(ArrayList<PolicyObject> knearestns)
+	{
+		PolicyObject nearestPO = knearestns.get(0);
+		ArrayList<PolicyObject> reasons = new ArrayList<PolicyObject>();
+		reasons.add(nearestPO);
+		Action a = new Action(nearestPO.getAction().isAccept(), reasons, false);
+		return a;
+	}
 
 
 
