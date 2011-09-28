@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 \usepackage{epstopdf}
 \usepackage{tabularx}
+\usepackage{minitoc}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 \usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, 
@@ -43,7 +44,12 @@
 \frontmatter
 \maketitle
 
+\dominitoc
 \tableofcontents
+
+\chapter{Introduction}
+
+Bla. blabla
 
 \include{ProjectDirective/ProjectDirective}
 \include{PlanReport/PlanReport}

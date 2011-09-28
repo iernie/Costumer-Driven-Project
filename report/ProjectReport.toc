@@ -1,43 +1,46 @@
-\contentsline {chapter}{Project Directive}{v}{chapter*.2}
-\contentsline {section}{\numberline {0.1}Mandate}{v}{section.0.1}
-\contentsline {subsection}{\numberline {0.1.1}Background}{v}{subsection.0.1.1}
-\contentsline {section}{\numberline {0.2}Objectives}{vi}{section.0.2}
-\contentsline {section}{\numberline {0.3}Resources and Duration}{vi}{section.0.3}
-\contentsline {section}{\numberline {0.4}Organization}{vii}{section.0.4}
-\contentsline {section}{\numberline {0.5}Planning}{vii}{section.0.5}
-\contentsline {section}{\numberline {0.6}Limitations and Scope}{vii}{section.0.6}
-\contentsline {chapter}{Planning Phase}{ix}{chapter*.3}
-\contentsline {section}{\numberline {0.7}Introduction}{ix}{section.0.7}
-\contentsline {chapter}{Short Title}{xi}{chapter*.4}
+\contentsline {chapter}{Introduction}{v}{chapter*.2}
+\contentsline {chapter}{Project Directive}{vii}{chapter*.3}
+\contentsline {section}{\numberline {0.1}Purpose}{vii}{section.0.1}
+\contentsline {section}{\numberline {0.2}Mandate}{vii}{section.0.2}
+\contentsline {subsection}{\numberline {0.2.1}Background}{vii}{subsection.0.2.1}
+\contentsline {section}{\numberline {0.3}Objectives}{viii}{section.0.3}
+\contentsline {section}{\numberline {0.4}Resources and Duration}{ix}{section.0.4}
+\contentsline {section}{\numberline {0.5}Organization}{ix}{section.0.5}
+\contentsline {section}{\numberline {0.6}Planning}{ix}{section.0.6}
+\contentsline {section}{\numberline {0.7}Limitations and Scope}{ix}{section.0.7}
+\contentsline {chapter}{Planning Phase}{xi}{chapter*.4}
 \contentsline {section}{\numberline {0.8}Introduction}{xi}{section.0.8}
-\contentsline {chapter}{Requirements Specification}{xiii}{chapter*.5}
-\contentsline {section}{\numberline {0.9}Purpose}{xiii}{section.0.9}
-\contentsline {section}{\numberline {0.10}Introduction}{xiii}{section.0.10}
-\contentsline {subsection}{\numberline {0.10.1}Background and Similar Software}{xiii}{subsection.0.10.1}
-\contentsline {subsection}{\numberline {0.10.2}Scope}{xiv}{subsection.0.10.2}
-\contentsline {subsection}{\numberline {0.10.3}Overview}{xiv}{subsection.0.10.3}
-\contentsline {section}{\numberline {0.11}Overall Description}{xv}{section.0.11}
-\contentsline {subsection}{\numberline {0.11.1}System Description}{xv}{subsection.0.11.1}
-\contentsline {subsection}{\numberline {0.11.2}User Interface}{xv}{subsection.0.11.2}
-\contentsline {subsection}{\numberline {0.11.3}Hardware and Software Interface}{xv}{subsection.0.11.3}
-\contentsline {subsection}{\numberline {0.11.4}User Characteristic}{xv}{subsection.0.11.4}
-\contentsline {subsubsection}{Developers/Researchers}{xvi}{section*.6}
-\contentsline {subsubsection}{End Users}{xvi}{section*.7}
-\contentsline {section}{\numberline {0.12}Use Cases}{xvi}{section.0.12}
-\contentsline {section}{\numberline {0.13}Specific Requirements}{xvii}{section.0.13}
-\contentsline {subsection}{\numberline {0.13.1}Product perspective}{xvii}{subsection.0.13.1}
-\contentsline {subsection}{\numberline {0.13.2}Functional Requirements}{xvii}{subsection.0.13.2}
-\contentsline {subsection}{\numberline {0.13.3}Non-Functional Requirements}{xviii}{subsection.0.13.3}
-\contentsline {chapter}{Design}{xxi}{chapter*.12}
-\contentsline {section}{\numberline {0.14}Development Tools and Technologies}{xxi}{section.0.14}
-\contentsline {subsection}{\numberline {0.14.1}Documents and Source Code Repositories}{xxi}{subsection.0.14.1}
-\contentsline {subsection}{\numberline {0.14.2}Programming Languages}{xxii}{subsection.0.14.2}
-\contentsline {subsection}{\numberline {0.14.3}Databases}{xxii}{subsection.0.14.3}
-\contentsline {subsection}{\numberline {0.14.4}Third Party Libraries}{xxii}{subsection.0.14.4}
-\contentsline {subsubsection}{Third Party CBR System}{xxii}{section*.13}
-\contentsline {subsubsection}{Third Party k Nearest Neighbors Implementations}{xxiii}{section*.14}
-\contentsline {subsubsection}{XML Parser}{xxiii}{section*.15}
-\contentsline {section}{\numberline {0.15}Standards}{xxiii}{section.0.15}
-\contentsline {section}{\numberline {0.16}Architecture}{xxiii}{section.0.16}
-\contentsline {chapter}{Short Title}{xxv}{chapter*.16}
-\contentsline {section}{\numberline {0.17}Introduction}{xxv}{section.0.17}
+\contentsline {chapter}{Preliminary Study}{xiii}{chapter*.5}
+\contentsline {section}{\numberline {0.9}Introduction}{xiii}{section.0.9}
+\contentsline {chapter}{Requirements Specification}{xv}{chapter*.6}
+\contentsline {section}{\numberline {0.10}Purpose}{xv}{section.0.10}
+\contentsline {section}{\numberline {0.11}Introduction}{xvi}{section.0.11}
+\contentsline {subsection}{\numberline {0.11.1}Background and Similar Software}{xvi}{subsection.0.11.1}
+\contentsline {subsection}{\numberline {0.11.2}Scope}{xvi}{subsection.0.11.2}
+\contentsline {subsection}{\numberline {0.11.3}Overview}{xvii}{subsection.0.11.3}
+\contentsline {section}{\numberline {0.12}Overall Description}{xvii}{section.0.12}
+\contentsline {subsection}{\numberline {0.12.1}System Description}{xvii}{subsection.0.12.1}
+\contentsline {subsection}{\numberline {0.12.2}User Interface}{xvii}{subsection.0.12.2}
+\contentsline {subsection}{\numberline {0.12.3}Hardware and Software Interface}{xvii}{subsection.0.12.3}
+\contentsline {subsection}{\numberline {0.12.4}User Characteristic}{xviii}{subsection.0.12.4}
+\contentsline {subsubsection}{Developers/Researchers}{xviii}{section*.7}
+\contentsline {subsubsection}{End Users}{xviii}{section*.8}
+\contentsline {section}{\numberline {0.13}Use Cases}{xviii}{section.0.13}
+\contentsline {section}{\numberline {0.14}Specific Requirements}{xx}{section.0.14}
+\contentsline {subsection}{\numberline {0.14.1}Product perspective}{xx}{subsection.0.14.1}
+\contentsline {subsection}{\numberline {0.14.2}Functional Requirements}{xx}{subsection.0.14.2}
+\contentsline {subsection}{\numberline {0.14.3}Non-Functional Requirements}{xx}{subsection.0.14.3}
+\contentsline {chapter}{Design}{xxiii}{chapter*.13}
+\contentsline {section}{\numberline {0.15}Purpose}{xxiii}{section.0.15}
+\contentsline {section}{\numberline {0.16}Development Tools and Technologies}{xxiii}{section.0.16}
+\contentsline {subsection}{\numberline {0.16.1}Documents and Source Code Repositories}{xxiii}{subsection.0.16.1}
+\contentsline {subsection}{\numberline {0.16.2}Programming Languages}{xxiv}{subsection.0.16.2}
+\contentsline {subsection}{\numberline {0.16.3}Databases}{xxiv}{subsection.0.16.3}
+\contentsline {subsection}{\numberline {0.16.4}Third Party Libraries}{xxiv}{subsection.0.16.4}
+\contentsline {subsubsection}{Third Party CBR System}{xxiv}{section*.14}
+\contentsline {subsubsection}{Third Party k Nearest Neighbors Implementations}{xxv}{section*.15}
+\contentsline {subsubsection}{XML Parser}{xxv}{section*.16}
+\contentsline {section}{\numberline {0.17}Standards}{xxv}{section.0.17}
+\contentsline {section}{\numberline {0.18}Architecture}{xxv}{section.0.18}
+\contentsline {chapter}{Short Title}{xxvii}{chapter*.17}
+\contentsline {section}{\numberline {0.19}Introduction}{xxvii}{section.0.19}
