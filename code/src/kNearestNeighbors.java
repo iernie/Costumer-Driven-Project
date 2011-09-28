@@ -11,7 +11,7 @@ import java.util.Comparator;
 public class kNearestNeighbors {
 	
 	private DistanceMetric distanceMetric; // distance metric
-	private PDatabase database; // privacy object database
+	private PolicyDatabase database; // privacy object database
 	private int k; // number of neighbors 
 	
 	// Constructors
@@ -28,7 +28,7 @@ public class kNearestNeighbors {
 	 * @param k the size of k
 	 * @author ngerstle, ulfnore
 	 */
-	public kNearestNeighbors(DistanceMetric distanceMetric, PDatabase database,int k) {
+	public kNearestNeighbors(DistanceMetric distanceMetric, PolicyDatabase database,int k) {
 		super();
 		this.distanceMetric = distanceMetric;
 		this.k=k;
@@ -43,11 +43,11 @@ public class kNearestNeighbors {
 		this.distanceMetric = distanceMetric; 
 	}
 
-	public PDatabase getDatabase() {
+	public PolicyDatabase getDatabase() {
 		return database;
 	}
 
-	public void setDatabase(PDatabase database) {
+	public void setDatabase(PolicyDatabase database) {
 		this.database = database;
 	}
 

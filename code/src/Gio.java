@@ -1,13 +1,10 @@
 import java.io.File;			//for configuration file functionality
 import java.io.FileInputStream;		//for configuration file functionality and reading serialized objects
-import java.io.FileOutputStream;
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
-import java.io.ObjectOutputStream;
 import java.util.Properties;		//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
-import java.io.ObjectInputStream;       //to read serialized objects from file
 
 
 
@@ -21,7 +18,7 @@ public class Gio {
 	private String dLocation;
 	private String p3pDirLocation;					//location of p3p objects (a folder containing only those objects
 	private String p3pLocation;				//location of a single p3p to be parsed
-	private PDatabase pdb = null;				//Policy database object
+	private PolicyDatabase pdb = null;				//Policy database object
 	private boolean newDB = false;				//overwrite/create new database at specified file location
 	private boolean building = false;			//if true, the program should load pdb as normal, add any given policies with p/f options, save the DB, and exit
 	private String newPol;						//the location of the new policy that goes through knn, given by the -T option
@@ -229,21 +226,7 @@ public class Gio {
 		}
 		else
 		{
-			try
-			{
-				FileInputStream fis = new FileInputStream(dLoc);
-				ObjectInputStream ois = new ObjectInputStream(fis);
-				pdb = (PDatabase)ois.readObject();
-				PDatabase.location = dLoc;
-				ois.close();
-				fis.close();
-			}
-			catch(Exception e)
-			{
-				System.out.println("Exception deserializing PDatabase at " + dLoc +" .\n");
-				e.printStackTrace();
-				System.exit(3);
-			}
+			pdb = PDatabase.loadDB(dLoc);
 		}
 	
 		
@@ -251,7 +234,7 @@ public class Gio {
 	}
 
 	/** 
-	 * loads policies from commandline (either -p or -f)
+	 * loads [additional] policies from commandline (either -p or -f)
 	 * 
 	 * @author ngerstle
 	 */
@@ -292,30 +275,13 @@ public class Gio {
 		}
 	}
 	
-	public PDatabase getPDB()
+	public PolicyDatabase getPDB()
 	{
 		return pdb;
 	}
 
 	public void shutdown() {
-		try {
-			// Creating a stream to create the file "Policy.name" and write bytes to it
-			// Name of the file can be changed to whatever is wanted
-			FileOutputStream fos = new FileOutputStream(PDatabase.location);
-			// Creating a stream convering object to byte data 
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			// Writing datastream of object to file 
-			oos.writeObject(pdb);
-			// Closing streams 
-			fos.close();
-			oos.flush(); 
-			oos.close();
-		} 
-		catch(Exception e) {
-			// Simple error handling, show error and shut down 
-			System.out.println("Exception during serialization of policy database: " + e); 
-			System.exit(0); 
-		}
+		pdb.closeDB();
 		//TODO close all user IO (any graphical displays)
 		
 	}

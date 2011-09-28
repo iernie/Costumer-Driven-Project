@@ -1,3 +1,7 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;		//to serialize this class
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,13 +15,13 @@ import java.util.Iterator;
 *	@version 1.0
 */
 
-class PDatabase	implements Serializable, Iterable<PolicyObject>
+class PDatabase	implements Serializable, Iterable<PolicyObject>, PolicyDatabase
 {
 	/**
 	 * generated serial id based on warning on implementing Serializable
 	 */
 	private static final long serialVersionUID = -8940764926428061908L;
-	private static final PDatabase i = new PDatabase(); //singleton instance of this class
+	private static PolicyDatabase i = new PDatabase(); //singleton instance of this class
 	private  ArrayList<PolicyObject> idb; //internal database
 	public static String location;
 	
@@ -58,7 +62,7 @@ class PDatabase	implements Serializable, Iterable<PolicyObject>
 	*	@return reference to PDatabase
 	*	@author Nicholas Gerstle
 	*/
-	public static PDatabase getInstance()
+	public static PolicyDatabase getInstance()
 	{
 		return i;
 	}
@@ -69,7 +73,7 @@ class PDatabase	implements Serializable, Iterable<PolicyObject>
 	*	@return reference to PDatabase
 	*	@author Nicholas Gerstle
 	*/
-	public static PDatabase getInstance(String loc)
+	public static PolicyDatabase getInstance(String loc)
 	{
 		location = loc;
 		return i;
@@ -140,33 +144,88 @@ class PDatabase	implements Serializable, Iterable<PolicyObject>
 	
 
 
-	/**
-	*	returns an iterator over the arraylist of policies.
-	*	@return iterator over policy arraylist
-	*	@author ngerstle	*
-	*/
+	/* (non-Javadoc)
+	 * @see PolicyDatabase#getDBIt()
+	 */
+	@Override
 	public Iterator<PolicyObject> getDBIt()
 	{
 		return idb.iterator();
 	}
 
 
-	/**
-	*	add a new policy object to the database
-	*
-	*	@param n the new policy object
-	*	@author ngerstle
-	*/
+	/* (non-Javadoc)
+	 * @see PolicyDatabase#addPolicy(PolicyObject)
+	 */
+	@Override
 	public void addPolicy(PolicyObject n)
 	{
 		idb.add(n);
 	}
 
-
+	/* (non-Javadoc)
+	 * @see PolicyDatabase#iterator()
+	 */
 	@Override
 	public Iterator<PolicyObject> iterator() {
 		return idb.iterator();
 	}
+	
+	/* (non-Javadoc)
+	 * @see PolicyDatabase#closeDB()
+	 */
+	@Override
+	public void closeDB()
+	{
+		try {
+			// Creating a stream to create the file "Policy.name" and write bytes to it
+			// Name of the file can be changed to whatever is wanted
+			FileOutputStream fos = new FileOutputStream(PDatabase.location);
+			// Creating a stream convering object to byte data 
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			// Writing datastream of object to file 
+			oos.writeObject(this);
+			// Closing streams 
+			fos.close();
+			oos.flush(); 
+			oos.close();
+		} 
+		catch(Exception e) {
+			// Simple error handling, show error and shut down 
+			System.out.println("Exception during serialization of policy database: " + e); 
+			System.exit(0); 
+		}
+	}
+	
+	/**
+	 * Loads database from a file dLoc
+	 * 
+	 * @param dLoc the location of the database file on disk
+	 * 
+	 * @author ngerstle
+	 */
+	public static PolicyDatabase loadDB(String dLoc)
+	{
+		//TODO add check & warning for overwriting existing database-> exception?
+		try
+		{
+			FileInputStream fis = new FileInputStream(dLoc);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			i = (PolicyDatabase)ois.readObject();
+			PDatabase.location = dLoc;
+			ois.close();
+			fis.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception deserializing PDatabase at " + dLoc +" .\n");
+			e.printStackTrace();
+			System.exit(3);
+		}
+		return  i;
+	}
+	
+	
 	
 
 	//TODO return any Policies matching a domain
