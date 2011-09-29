@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  28 SEP 2011 23:08
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  29 SEP 2011 08:56
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -483,87 +483,96 @@ Package minitoc Info: I0033
 (minitoc)             Writing ProjectReport.mtc6.
 \openout3 = `ProjectReport.mtc6'.
 
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc7.
+\openout3 = `ProjectReport.mtc7'.
+
  [2
 
 ]
 (./ProjectReport.toc
-Overfull \hbox (0.66916pt too wide) detected at line 19
+Overfull \hbox (0.66916pt too wide) detected at line 25
  []\OT1/cmr/m/n/10.95 xvii
- []
-
-
-Overfull \hbox (0.66916pt too wide) detected at line 20
- []\OT1/cmr/m/n/10.95 xvii
- []
-
-
-Overfull \hbox (0.66916pt too wide) detected at line 21
- []\OT1/cmr/m/n/10.95 xvii
- []
-
-
-Overfull \hbox (0.66916pt too wide) detected at line 22
- []\OT1/cmr/m/n/10.95 xvii
- []
-
-
-Overfull \hbox (3.71083pt too wide) detected at line 23
- []\OT1/cmr/m/n/10.95 xviii
- []
-
-
-Overfull \hbox (3.71083pt too wide) detected at line 24
- []\OT1/cmr/m/n/10.95 xviii
- []
-
-
-Overfull \hbox (3.71083pt too wide) detected at line 27
- []\OT1/cmr/m/n/10.95 xviii
  []
 
 [3]
-Overfull \hbox (3.71083pt too wide) detected at line 33
- []\OT1/cmr/m/n/10.95 xxiii
+Overfull \hbox (0.66916pt too wide) detected at line 35
+ []\OT1/cmr/m/n/10.95 xxii
  []
 
 
-Overfull \hbox (3.71083pt too wide) detected at line 34
- []\OT1/cmr/m/n/10.95 xxiii
+Overfull \hbox (0.66916pt too wide) detected at line 36
+ []\OT1/cmr/m/n/10.95 xxii
  []
 
 
-Overfull \hbox (3.40668pt too wide) detected at line 35
+Overfull \hbox (0.66916pt too wide) detected at line 39
+ []\OT1/cmr/m/n/10.95 xxii
+ []
+
+
+Overfull \hbox (3.40668pt too wide) detected at line 40
  []\OT1/cmr/m/n/10.95 xxiv
  []
 
 
-Overfull \hbox (3.40668pt too wide) detected at line 36
+Overfull \hbox (3.40668pt too wide) detected at line 41
  []\OT1/cmr/m/n/10.95 xxiv
  []
 
 
-Overfull \hbox (3.40668pt too wide) detected at line 37
+Overfull \hbox (3.40668pt too wide) detected at line 42
  []\OT1/cmr/m/n/10.95 xxiv
  []
 
 
-Overfull \hbox (3.40668pt too wide) detected at line 38
- []\OT1/cmr/m/n/10.95 xxiv
- []
-
-
-Overfull \hbox (0.365pt too wide) detected at line 42
+Overfull \hbox (0.365pt too wide) detected at line 43
  []\OT1/cmr/m/n/10.95 xxv
- []
-
-
-Overfull \hbox (3.40668pt too wide) detected at line 43
- []\OT1/cmr/m/n/10.95 xxvi
  []
 
 
 Overfull \hbox (6.44835pt too wide) detected at line 45
  []\OT1/cmr/m/n/10.95 xxvii
+ []
+
+
+Overfull \hbox (6.44835pt too wide) detected at line 46
+ []\OT1/cmr/m/n/10.95 xxvii
+ []
+
+
+Overfull \hbox (9.49002pt too wide) detected at line 47
+ []\OT1/cmr/m/n/10.95 xxviii
+ []
+
+
+Overfull \hbox (9.49002pt too wide) detected at line 48
+ []\OT1/cmr/m/n/10.95 xxviii
+ []
+
+
+Overfull \hbox (9.49002pt too wide) detected at line 49
+ []\OT1/cmr/m/n/10.95 xxviii
+ []
+
+
+Overfull \hbox (9.49002pt too wide) detected at line 50
+ []\OT1/cmr/m/n/10.95 xxviii
+ []
+
+
+Overfull \hbox (3.40668pt too wide) detected at line 54
+ []\OT1/cmr/m/n/10.95 xxix
+ []
+
+
+Overfull \hbox (0.365pt too wide) detected at line 55
+ []\OT1/cmr/m/n/10.95 xxx
+ []
+
+
+Overfull \hbox (3.40668pt too wide) detected at line 57
+ []\OT1/cmr/m/n/10.95 xxxi
  []
 
 )
@@ -599,10 +608,10 @@ Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no Õ in font cmr10!
+[7]
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
-[7]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 22.
  (/usr/local/texlive/2010/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -611,9 +620,6 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
 Missing character: There is no Õ in font cmr10!
 Missing character: There is no ¿ in font cmr10!
-
-Underfull \vbox (badness 4846) has occurred while \output is active []
-
  [8]
 Underfull \hbox (badness 6063) in paragraph at lines 85--85
 []|\OT1/cmr/m/n/10.95 CBR - Al-go-rithms and
@@ -626,10 +632,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--85
 
 Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
-) [9] [10]
+) [9] [10] [11]
 \openout2 = `PlanReport/PlanReport.aux'.
 
- (./PlanReport/PlanReport.tex
+ (./PlanReport/PlanReport.tex [12
+
+
+
+]
 \openout3 = `ProjectReport.mtc'.
 
 \openout3 = `ProjectReport.mtc'.
@@ -644,14 +654,12 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 [][]  
  []
 
-) [11
-
-
-
-]
+[13] [14]
+Missing character: There is no Õ in font cmr10!
+) [15]
 \openout2 = `PrelimStudy/PrelimReport.aux'.
 
- (./PrelimStudy/PrelimReport.tex [12
+ (./PrelimStudy/PrelimReport.tex [16
 
 
 
@@ -666,38 +674,8 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
  []
 
 (./ProjectReport.mtc4
-Overfull \hbox (0.61113pt too wide) detected at line 5
- []\OT1/cmr/m/n/10 xvii
- []
-
-
-Overfull \hbox (0.70274pt too wide) detected at line 6
+Overfull \hbox (0.70274pt too wide) detected at line 1
  []\OT1/cmr/bx/n/10 xvii
- []
-
-
-Overfull \hbox (0.61113pt too wide) detected at line 7
- []\OT1/cmr/m/n/10 xvii
- []
-
-
-Overfull \hbox (0.61113pt too wide) detected at line 8
- []\OT1/cmr/m/n/10 xvii
- []
-
-
-Overfull \hbox (3.38892pt too wide) detected at line 9
- []\OT1/cmr/m/n/10 xviii
- []
-
-
-Overfull \hbox (3.38892pt too wide) detected at line 10
- []\OT1/cmr/m/n/10 xviii
- []
-
-
-Overfull \hbox (3.89717pt too wide) detected at line 13
- []\OT1/cmr/bx/n/10 xviii
  []
 
 )
@@ -705,10 +683,10 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 [][]  
  []
 
-) [13]
+) [17]
 \openout2 = `ReqSpec/ReqSpec.aux'.
 
- (./ReqSpec/ReqSpec.tex [14
+ (./ReqSpec/ReqSpec.tex [18
 
 
 
@@ -723,43 +701,38 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 8--8
  []
 
 (./ProjectReport.mtc5
-Overfull \hbox (3.89717pt too wide) detected at line 1
- []\OT1/cmr/bx/n/10 xxiii
+Overfull \hbox (0.61113pt too wide) detected at line 9
+ []\OT1/cmr/m/n/10 xxii
  []
 
 
-Overfull \hbox (3.89717pt too wide) detected at line 2
- []\OT1/cmr/bx/n/10 xxiii
+Overfull \hbox (0.61113pt too wide) detected at line 10
+ []\OT1/cmr/m/n/10 xxii
  []
 
 
-Overfull \hbox (3.11115pt too wide) detected at line 3
+Overfull \hbox (0.70274pt too wide) detected at line 13
+ []\OT1/cmr/bx/n/10 xxii
+ []
+
+
+Overfull \hbox (3.57773pt too wide) detected at line 14
+ []\OT1/cmr/bx/n/10 xxiv
+ []
+
+
+Overfull \hbox (3.11115pt too wide) detected at line 15
  []\OT1/cmr/m/n/10 xxiv
  []
 
 
-Overfull \hbox (3.11115pt too wide) detected at line 4
+Overfull \hbox (3.11115pt too wide) detected at line 16
  []\OT1/cmr/m/n/10 xxiv
  []
 
 
-Overfull \hbox (3.11115pt too wide) detected at line 5
- []\OT1/cmr/m/n/10 xxiv
- []
-
-
-Overfull \hbox (3.11115pt too wide) detected at line 6
- []\OT1/cmr/m/n/10 xxiv
- []
-
-
-Overfull \hbox (0.3833pt too wide) detected at line 10
- []\OT1/cmr/bx/n/10 xxv
- []
-
-
-Overfull \hbox (3.57773pt too wide) detected at line 11
- []\OT1/cmr/bx/n/10 xxvi
+Overfull \hbox (0.33336pt too wide) detected at line 17
+ []\OT1/cmr/m/n/10 xxv
  []
 
 )
@@ -767,11 +740,8 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 8--8
 [][]  
  []
 
+[19]
 Missing character: There is no ¿ in font cmr10!
-
-Underfull \vbox (badness 2285) has occurred while \output is active []
-
- [15]
 Missing character: There is no Õ in font cmr10!
 Missing character: There is no Õ in font cmr10!
 Missing character: There is no Ò in font cmr10!
@@ -780,13 +750,12 @@ Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
 Missing character: There is no Õ in font cmr10!
 Missing character: There is no ¿ in font cmr10!
-
-[16]
+ [20]
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¿ in font cmr10!
- [17] [18]
+ [21] [22]
 Missing character: There is no Ð in font cmbx12!
 
 Overfull \hbox (2.8675pt too wide) in paragraph at lines 74--74
@@ -797,7 +766,11 @@ ed, site re-jected
 Missing character: There is no Ð in font cmbx12!
 Missing character: There is no Õ in font cmr10!
 Missing character: There is no Ð in font cmbx12!
-[19]
+
+Underfull \vbox (badness 1331) has occurred while \output is active []
+
+ [23]
+[24]
 Missing character: There is no Õ in font cmr10!
 
 Overfull \hbox (192.95865pt too wide) in paragraph at lines 110--111
@@ -805,10 +778,10 @@ Overfull \hbox (192.95865pt too wide) in paragraph at lines 110--111
 n-ven-tions (http://www.oracle.com/technetwork/java/codeconvtoc-
  []
 
-[20]) [21]
+) [25]
 \openout2 = `DesignReport/DesignReport.aux'.
 
- (./DesignReport/DesignReport.tex [22
+ (./DesignReport/DesignReport.tex [26
 
 
 
@@ -827,21 +800,57 @@ Overfull \hbox (6.77216pt too wide) detected at line 1
  []\OT1/cmr/bx/n/10 xxvii
  []
 
+
+Overfull \hbox (6.77216pt too wide) detected at line 2
+ []\OT1/cmr/bx/n/10 xxvii
+ []
+
+
+Overfull \hbox (8.66672pt too wide) detected at line 3
+ []\OT1/cmr/m/n/10 xxviii
+ []
+
+
+Overfull \hbox (8.66672pt too wide) detected at line 4
+ []\OT1/cmr/m/n/10 xxviii
+ []
+
+
+Overfull \hbox (8.66672pt too wide) detected at line 5
+ []\OT1/cmr/m/n/10 xxviii
+ []
+
+
+Overfull \hbox (8.66672pt too wide) detected at line 6
+ []\OT1/cmr/m/n/10 xxviii
+ []
+
+
+Overfull \hbox (3.57773pt too wide) detected at line 10
+ []\OT1/cmr/bx/n/10 xxix
+ []
+
+
+Overfull \hbox (0.3833pt too wide) detected at line 11
+ []\OT1/cmr/bx/n/10 xxx
+ []
+
 )
 Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 [][]  
  []
 
-[23] [24]
+[27] [28]
 Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
 Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
+ [29]
 Missing character: There is no ¿ in font cmr10!
-) [25] [26]
+) [30]
 \openout2 = `Testing/TestPlan.aux'.
 
- (./Testing/TestPlan.tex) [27
+ (./Testing/TestPlan.tex) [31
 
 
 
@@ -864,48 +873,32 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 66.
 (./ReqSpec/ReqSpec.aux) (./DesignReport/DesignReport.aux)
 (./Testing/TestPlan.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 66.
-
-
-Package rerunfilecheck Warning: File `ProjectReport.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `ProjectReport.out':
-(rerunfilecheck)             Before: 053ACCF9ADD220FD0913ABA1939A0DE4;2618
-(rerunfilecheck)             After:  D204C020691E6F05075EE97CD510251F;2667.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+Package rerunfilecheck Info: File `ProjectReport.out' has not changed.
+(rerunfilecheck)             Checksum: 95DF6999973804D09E319D3F5E3D741A;3308.
  ) 
 Here is how much of TeX's memory you used:
- 7367 strings out of 493747
- 107445 string characters out of 3143546
+ 7390 strings out of 493747
+ 107798 string characters out of 3143546
  212809 words of memory out of 3000000
- 10182 multiletter control sequences out of 15000+200000
+ 10192 multiletter control sequences out of 15000+200000
  16031 words of font info for 62 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,10n,30p,904b,408s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{chapter*.16} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.12} has been referenced but does not exist
-, replaced by a fixed one
-
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
-usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/lo
-cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
-/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
-xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texli
-ve/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texliv
-e/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
-/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ProjectReport.pdf (27 pages, 179246 bytes).
+ 41i,10n,30p,904b,400s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
+local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loc
+al/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
+texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/tex
+live/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texl
+ive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on ProjectReport.pdf (31 pages, 186409 bytes).
 PDF statistics:
- 430 PDF objects out of 1000 (max. 8388607)
- 386 compressed objects within 4 object streams
- 84 named destinations out of 1000 (max. 500000)
- 321 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 516 PDF objects out of 1000 (max. 8388607)
+ 467 compressed objects within 5 object streams
+ 97 named destinations out of 1000 (max. 500000)
+ 401 words of extra memory for PDF output out of 10000 (max. 10000000)
 
