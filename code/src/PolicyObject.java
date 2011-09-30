@@ -64,8 +64,9 @@ public class PolicyObject implements Serializable
 		return this.actionTaken;
 	}
 
-	public void setAction(Action theRes) {
+	public PolicyObject setAction(Action theRes) {
 		this.actionTaken = theRes;
+		return this;
 	}
 	
 	/**
@@ -135,6 +136,12 @@ public class PolicyObject implements Serializable
 		return entity.get(key);
 	}
 	
+	/**
+	 * returns domain of policy (URL) as string.
+	 * 
+	 * @return the domain/url from which the policy came.
+	 * @author ngerstle
+	 */
 	public String getName() {
 		return context.getDomain();
 	}

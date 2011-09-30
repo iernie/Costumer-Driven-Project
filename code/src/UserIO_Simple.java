@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class UserIO_Simple extends UserIO {
 
-	/* (non-Javadoc)
+	/** generic constructor- returns input
 	 * @see UserIO#user_init()
 	 */
 	@Override
@@ -15,21 +15,18 @@ public class UserIO_Simple extends UserIO {
 		return args;
 	}
 
-	/* (non-Javadoc)
+	
+	/** does nothing
 	 * @see UserIO#showDatabase(PolicyDatabase)
 	 */
-	@Override
 	public void showDatabase(PolicyDatabase pdb) {
-		// TODO Auto-generated method stub
-
 	}
 
-	/* (non-Javadoc)
+	/** does nothing
 	 * @see UserIO#loadHistory()
 	 */
 	@Override
 	public ArrayList<PolicyObject> loadHistory() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

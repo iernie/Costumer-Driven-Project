@@ -14,12 +14,10 @@ public class distanceMetricTest implements DistanceMetric{
 	}
 
 	public double getDistReten(Case a, Case b) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public double getDistPurpose(Case a, Case b) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -46,18 +44,15 @@ public class distanceMetricTest implements DistanceMetric{
 	}
 
 	public double getWeigth(Retention r) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	public double getWeigth(Purpose r) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public double getTotalDistance(PolicyObject a, PolicyObject b) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

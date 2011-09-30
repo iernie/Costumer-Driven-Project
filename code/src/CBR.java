@@ -37,6 +37,17 @@ public class CBR {
 		this.conclusAlg = conclusAlg;
 		this.learnAlg = learnAlg;
 	}
+	
+	/**
+	 * constructor that so we can call cbr.parse(string)
+	 * 
+	 * @param the io class/object/mess
+	 * @author ngerstle
+	 */
+	public CBR(Gio theIO)
+	{
+		this.theIO =theIO;
+	}
 
 
 
@@ -69,6 +80,19 @@ public class CBR {
 		theIO.getPDB().addPolicy(newpol); //save to database
 		learnAlg.learn(theIO);
 	}
+
+
+
+
+	public CBR parse(String string) {
+		// TODO parse nicely, make new cbr.
+		Properties weightsConfig = theIO.loadWeights();
+		int k = 1; //size for k in knn algorithm
+		DistanceMetric dm = new distanceMetricTest(weightsConfig);
+		PolicyDatabase pdb = theIO.getPDB();
+		CBR machinelearn = new CBR(theIO,weightsConfig , new Reduction_KNN(dm,pdb,k), new Conclusion_Simple(dm), new Learn_Constant(weightsConfig));
+		return machinelearn;
+		}
 
 
 }

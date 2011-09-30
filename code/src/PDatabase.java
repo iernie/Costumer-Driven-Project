@@ -20,7 +20,7 @@ class PDatabase extends PolicyDatabase implements Serializable
 	 * generated serial id based on warning on implementing Serializable
 	 */
 	private static final long serialVersionUID = -8940764926428061908L;
-	private static PolicyDatabase i = new PDatabase(); //singleton instance of this class
+	//private static PolicyDatabase i = new PDatabase(); //singleton instance of this class
 	public static String location; //where is the database stored on disk/as a file?
 	
 
@@ -36,41 +36,18 @@ class PDatabase extends PolicyDatabase implements Serializable
 	}
 	
 	
-	/**
-	*	public constructor method to ensure singleton-ness
-	*
-	*	@return reference to PDatabase
-	*	@author Nicholas Gerstle
-	*/
-	public static PolicyDatabase getInstance()
-	{
-		return i;
-	}
-	/**
-	*	public constructor method to ensure singleton-ness
-	*
-	*	@param loc the location of the serialized db on file
-	*	@return reference to PDatabase
-	*	@author Nicholas Gerstle
-	*/
-	public static PolicyDatabase getInstance(String loc)
-	{
-		location = loc;
-		return i;
-	}	
+
 
 	 /**
 	 * See PolicyDatabase.java. implements loading/closing the db via a serialize PDatabase object.
-	 * @see PolicyDatabase#closeDB()
+	 * WILL overwrite existing database if called more than once.
 	 *
 	 * @param dLoc the location of the database file on disk
-	 * 
 	 * @author ngerstle
-	 * @return 
+	 * @see PolicyDatabase#closeDB()
 	 */
 	public void loadDB(String dLoc)
 	{
-		//TODO add check & warning for overwriting existing database-> exception?
 		try
 		{
 			FileInputStream fis = new FileInputStream(dLoc);
@@ -115,10 +92,32 @@ class PDatabase extends PolicyDatabase implements Serializable
 			System.exit(0); 
 		}
 	}
-	
-	
+
+
+	/**
+	 * returns a list of all policies from a given domain.
+	 * 
+	 * @param the domain to check
+	 * @return an arraylist of policies from given domain
+	 * @author ngerstle
+	 * @see  PolicyDatabase#getDomain()
+	 */
+	public ArrayList<PolicyObject> getDomain(String domain) {
+		ArrayList<PolicyObject> results = new ArrayList<PolicyObject>();
+		for(PolicyObject i : idb)
+		{
+			if( domain.compareToIgnoreCase(i.getName()) == 0)
+			{
+				results.add(i);
+			}
+		}
+		return results;
+	}
 	
 	
 
-	//TODO return any Policies matching a domain
+	
+	
+
+
 }

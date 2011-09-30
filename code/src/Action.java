@@ -12,6 +12,10 @@ public class Action
 	//TODO add exceptions to rule, override, etc
 	
 	
+	public Action()
+	{
+	}
+	
 	public Action(boolean accept, ArrayList<PolicyObject> reason, double confidence,
 			boolean override) {
 		this.accept = accept;
@@ -82,6 +86,17 @@ public class Action
 
 	public double getConfidence() {
 		return confidence;
+	}
+
+
+	public Action parse(String optionValue) {
+		// TODO make this actually parse, rather than return a generic no
+		return new Action(false, null, 1, true);
+	}
+
+	public Action setOverride(boolean b) {
+		override = b;
+		return this;
 	}
 	
 }

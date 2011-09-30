@@ -3,28 +3,41 @@ import java.io.FileInputStream;		//for configuration file functionality and read
 import java.io.FileOutputStream;	//for writing the new weights config file
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
+import java.util.Date;
 import java.util.Properties;		//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
 
 
+/*  to load a new database from a folder, but not use cbr on a new object. overwrites old db (-n option)
+ *  ./PrivacyAdvisor -b -f -n ./new_policy_history [-c config_file_location][-w weight_config_file_loc][-d db_file_location]
+ *  to compare policy stored in p.txt, assuming config in default location is valid and used
+ *  ./PrivacyAdvisor -T p.txt
+ */
 
 public class Gio {
 
 
 	private static Logger logger = Logger.getLogger("");		//create logger object
-	private FileHandler fh; ;					//creates filehandler for logging
-	public String genConfig;					//location of general configuration file
-	public String wConfig;						//location of weights configuration file, if specified.
-	private String dLocation;					//location of the database
-	private String p3pDirLocation;					//location of p3p objects (a folder containing only those objects
-	private String p3pLocation;				//location of a single p3p to be parsed
+	private FileHandler fh = null;					//creates filehandler for logging
+	private String genConfig = null;					//location of general configuration file
+	private String inWeightsLoc = null;						//location of input weights configuration file, if specified.
+	private String outWeightsLoc = null;						//location of output weights configuration file, if specified.
+	private String inDBLoc = null;					//input location of the database
+	private String outDBLoc = null;					//output location of the database
+	private String p3pDirLocation = null;					//location of p3p objects (a folder containing only those objects
+	private String p3pLocation = null;				//location of a single p3p to be parsed
 	private PolicyDatabase pdb = null;				//Policy database object
 	private boolean newDB = false;				//overwrite/create new database at specified file location
 	private boolean building = false;			//if true, the program should load pdb as normal, add any given policies with p/f options, save the DB, and exit
-	private String newPol;						//the location of the new policy that goes through knn, given by the -T option
-	private Properties newWeights;				//the revised weights, following LearnAlgorithm. written to disk by shutdown(). also used in loading weights during init()
-	private UserIO userInterface;				//means of interacting with the user
+	private String newPolLoc = null;						//the location of the new policy that goes through knn, given by the -T option
+	private Properties newWeights = null;				//the revised weights, following LearnAlgorithm. written to disk by shutdown(). also used in loading weights during init()
+	private UserIO userInterface = null;				//means of interacting with the user
+	private Action userResponse = null;					//preset response to recomendation
+	private boolean userInitializes;			//override initialization via userInterface.user_init(args);
+	private CBR cbr = null;							//the CBR to use-> with algorithms!!
+	private boolean blanketAccept = false;			//provide an automatic yes to suggested action
+	
 	
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
@@ -38,27 +51,23 @@ public class Gio {
 		Options options = new Options();
 
 		// add the options
-		options.addOption("c", true, "general configuration file location");
-		options.addOption("w", true, "weights configuration file location");
-		options.addOption("d", true, "database file location");
-		options.addOption("p", true, "adding to DB: single policy file location");
-		options.addOption("f", true, "adding to DB: multiple policy directory location");
-		options.addOption("n", true, "create new database in place of old one (doesn't check for existence of old one");
-		options.addOption("b", false, "no policy comparison, only build a database");
-		options.addOption("T", true, "the policy object to process");
+		options.addOption("config", true, "general configuration file location");
+		options.addOption("inWeight", true, "input weights configuration file location");
+		options.addOption("inDB", true, "input database file location");
+		options.addOption("outWeight", true, "output weights configuration file location");
+		options.addOption("outDB", true, "output database file location");
+		options.addOption("histPolicy", true, "adding to DB: single policy file location");
+		options.addOption("histPolicyDir", true, "adding to DB: multiple policy directory location");
+		options.addOption("newDB", true, "create new database in place of old one (doesn't check for existence of old one");
+		options.addOption("p", true, "the policy object to process");
+		options.addOption("r", true,"response to specified policy"); 
+		options.addOption("userIO",true,"user interface");
+		options.addOption("userInit",false,"initialization via user interface");	//TODO user_init option
+		options.addOption("policyDB",true,"PolicyDatabase backend");
+		options.addOption("cbrV",true,"CBR to use"); 
+		options.addOption("acceptSug",true,"automatically accept the user suggestion"); 
 		
-		//TODO -in and -out for database, weights files; preprepared response option; user_init option; userInterface option
 		
-		/*
-		 *to load a new database from a folder, but not use cbr on a new object. overwrites old db (-n option)
-		 *
-		 *./PrivacyAdvisor -b -f -n ./new_policy_history [-c config_file_location][-w weight_config_file_loc][-d db_file_location]
-		 *
-		 *
-		 *to compare policy stored in p.txt, assuming config in default location is valid and used
-		 *
-		 *./PrivacyAdvisor -T p.txt
-		 */
 
 		CommandLineParser parser = new PosixParser();
 		CommandLine cmd = null;
@@ -74,29 +83,73 @@ public class Gio {
 		}
 
 
-		genConfig = cmd.getOptionValue("c");
+		genConfig = cmd.getOptionValue("config");
 		if (genConfig == null)
 		{
 			genConfig = "./PrivacyAdviser.cfg";
 		}
-		wConfig = cmd.getOptionValue("w"); //don't need to check for null as it is assumed to be in the general config file loaded later
-		dLocation= cmd.getOptionValue("d"); //don't need to check for null as it is assumbed to be in the general config file loaded later
-		p3pDirLocation = cmd.getOptionValue("f");
-		p3pLocation = cmd.getOptionValue("p");
+		inWeightsLoc = cmd.getOptionValue("inWeight"); //don't need to check for null as it is assumed to be in the general config file loaded later
+		outWeightsLoc = cmd.getOptionValue("outWeight");
+		if(outWeightsLoc == null)
+		{
+			outWeightsLoc = inWeightsLoc;
+		}
+		inDBLoc= cmd.getOptionValue("inDB"); //don't need to check for null as it is assumbed to be in the general config file loaded later
+		outDBLoc= cmd.getOptionValue("inDB");
+		if (outDBLoc == null)
+		{
+			outDBLoc = inDBLoc;
+		}
+		newDB= cmd.hasOption("newDB");
+		p3pDirLocation = cmd.getOptionValue("histPolicyDir");
+		p3pLocation = cmd.getOptionValue("histPolicy");
+		newPolLoc = cmd.getOptionValue("p");
+		if(cmd.hasOption("r"))
+		{
+			userResponse = parseAct(cmd.getOptionValue("r"));
+		}
+		userInterface = selectUI(cmd.getOptionValue("userIO"));
+		pdb = selectPDB(cmd.getOptionValue("policyDB"));
+		cbr = parseCBR(cmd.getOptionValue("cbrV"));
 		
+		
+		blanketAccept = cmd.hasOption("acceptSug");
+		
+				
 		
 		if(!(building=(cmd.hasOption("b")))) //only build, nothing else
 		{
-			newPol = cmd.getOptionValue("t");
+			newPolLoc = cmd.getOptionValue("t");
 		}
-		if((p3pDirLocation == null) && (p3pLocation == null))
+		if(!cmd.hasOption("p"))
 		{
-			System.err.println("no p3p parse option passed");
-			System.exit(0);
+			building = true;
+		}
+		else
+		{
+			building = false;
 		}
 		
-		//TODO change base on commandline/conf-file options
-		userInterface = new UserIO_Simple();
+	}
+
+	private CBR parseCBR(String string) {
+		return (new CBR(this)).parse(string);
+		
+	}
+
+	private PolicyDatabase selectPDB(String optionValue) {
+		// TODO Add other PolicyDatabase classes, when other classes are made
+		return PDatabase.getInstance(inDBLoc, outDBLoc);
+	}
+
+	private UserIO selectUI(String optionValue) {
+		// TODO Add other UserIO classes, when other classes are made
+		return new UserIO_Simple();
+	}
+
+	private Action parseAct(String optionValue) {
+		// TODO remove this later
+		return new Action().parse(optionValue);
 	}
 
 	/**
@@ -107,17 +160,19 @@ public class Gio {
 	 */
 	public Properties loadGeneral()
 	{
-		return loadGeneral(genConfig);
+		return loadFromConfig(genConfig);
 	}
 
 	/**
-	 * Loads the general config, either from provided string, or default location (./PrivacyAdviser.cfg)
+	 * Loads the general configuration file, either from provided string, or default location (./PrivacyAdviser.cfg)
+	 *
 	 *  
 	 * @param location of configuration file
 	 * @return properties object corresponding to given configuration file
 	 * @author ngerstle
 	 */
-	public Properties loadGeneral(String fileLoc)
+	//TODO MUST BE CALLED AFTER loadCLO
+	public Properties loadFromConfig(String fileLoc)
 	{
 		Properties configFile = new Properties();
 
@@ -141,6 +196,63 @@ public class Gio {
 			System.err.println("IOException reading first configuration file. Exiting...\n");
 			System.exit(1);
 		}	
+		if(cbr == null)
+		{
+			cbr = parseCBR(configFile.getProperty("cbrV"));
+		}
+		if(inWeightsLoc == null)
+		{
+			inWeightsLoc = configFile.getProperty("inweights.cfg","./weights.cfg");
+		}
+		if(outWeightsLoc == null)
+		{
+			outWeightsLoc = configFile.getProperty("outweights.cfg","./weights.cfg");
+		}
+		if(inDBLoc == null)
+		{
+			inDBLoc = configFile.getProperty("inDBLocation");
+		}
+		if(outDBLoc == null)
+		{
+			outDBLoc = configFile.getProperty("outDBLocation");
+		}
+		if(p3pDirLocation == null)
+		{
+			p3pDirLocation = configFile.getProperty("");
+		}
+		if(p3pLocation == null)
+		{
+			p3pLocation = configFile.getProperty("");;
+		}
+		if(pdb == null)
+		{
+			pdb = selectPDB(configFile.getProperty("PolicyDB"));
+		}
+		if(newDB == false)
+		{
+			newDB = Boolean.parseBoolean(configFile.getProperty("newDB"));;
+		}
+		if(newPolLoc == null)
+		{
+			newPolLoc = configFile.getProperty("newPolicyLocation");
+		}
+		if(userInterface == null)
+		{
+			userInterface = selectUI(configFile.getProperty("UserInterface"));
+		}
+		if(userResponse == null)
+		{
+			userResponse = parseAct(configFile.getProperty("userResponse"));
+		}
+		if(userInitializes == false)
+		{
+			userInitializes = Boolean.parseBoolean(configFile.getProperty("userInitializes"));
+		}
+		if(cbr == null)
+		{
+			cbr = parseCBR(configFile.getProperty("cbrV"));
+		}
+		
 		return configFile;
 	}
 
@@ -152,16 +264,12 @@ public class Gio {
 	 * @return properties object corresponding to given configuration file
 	 * @author ngerstle
 	 */
-	public Properties loadWeights(String fileLoc)
+	public Properties loadWeights()
 	{
-		if(wConfig != null)
-		{
-			fileLoc = wConfig;
-		}
 
 		try 
 		{
-			File localConfig = new File(fileLoc);
+			File localConfig = new File(inWeightsLoc);
 			InputStream is = null;
 			if(localConfig.exists())
 			{
@@ -169,7 +277,7 @@ public class Gio {
 			}
 			else
 			{
-				System.err.println("No weights file is available at "+fileLoc+" . Please place one in the working directory.");
+				System.err.println("No weights file is available at "+inWeightsLoc+" . Please place one in the working directory.");
 				System.exit(3);
 			}
 			newWeights.load(is);
@@ -225,24 +333,12 @@ public class Gio {
 	 * @author ngerstle
 	 * 
 	 */
-	public void loadDB(String dLoc)
+	public void loadDB()
 	{
-
-		if(dLocation != null)
-		{
-			dLoc = wConfig;
-		}
-
-
-		//load database from "dLoc"
-		//TODO change to pick which kind of PolicyDatabase here
-		pdb = PDatabase.getInstance(dLoc); 
 		if(!newDB)
 		{
 			pdb.loadDB();
 		}
-	
-		
 		loadCLPolicies();
 	}
 
@@ -259,13 +355,12 @@ public class Gio {
 		if(p3pLocation != null)
 		{
 			pLoc = new File(p3pLocation);
-			//TODO add the current time
 			if(!pLoc.exists()){
 				System.err.println("no file found at p3p policy location specified by the -p option");
 				System.exit(1);
 			}
 			p = (new P3PParser()).parse(pLoc.getAbsolutePath());
-			p.setContext(new Context(null,null,p3pLocation));
+			p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),p3pLocation));
 			pdb.addPolicy(p);
 		}
 		else 
@@ -275,13 +370,12 @@ public class Gio {
 			for(int i=0;i<pfiles.length;i++)
 			{
 				pLoc = new File(pfiles[i]);
-				//TODO add the current time
 				if(!pLoc.exists()){
 					System.err.println("no file found at p3p policy location specified by the -p option");
 					System.exit(1);
 				}
 				p = (new P3PParser()).parse(pLoc.getAbsolutePath());
-				p.setContext(new Context(null,null,pfiles[i]));
+				p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),pfiles[i]));
 				pdb.addPolicy(p);
 			}
 			
@@ -301,7 +395,7 @@ public class Gio {
 	 */
 	public void shutdown() {
 		pdb.closeDB(); //save the db
-		writePropertyFile(newWeights,wConfig);//TODO change write location to allow for read from a, write to b
+		writePropertyFile(newWeights,outWeightsLoc);
 		userInterface.closeResources(); 
 		
 	}
@@ -335,8 +429,24 @@ public class Gio {
 	 * @author ngerstle
 	 */
 	public PolicyObject userResponse(PolicyObject n) {
-		return userInterface.userResponse(n);
+		if(userResponse == null)
+		{
+			return userInterface.userResponse(n);
+		}
+		else
+		{
+			if(blanketAccept)
+			{
+				return n.setAction(n.getAction().setOverride(true));
+			}
+			else
+			{
+				return n.setAction(userResponse);
+			}
+		}
 	}
+	
+	
 	
 	/**
 	 * returns the policy object from the T option
@@ -347,15 +457,14 @@ public class Gio {
 	public PolicyObject getPO() {
 
 		PolicyObject p = null;
-		File pLoc = new File(newPol);
-		//TODO add the current time
+		File pLoc = new File(newPolLoc);
 		if(!pLoc.exists()){
 			System.err.println("no file found at p3p policy location specified by the -T option");
 			System.exit(1);
 		}
 
 		p = (new P3PParser()).parse(pLoc.getAbsolutePath());
-		p.setContext(new Context(null,null,p3pLocation));
+		p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),p3pLocation));
 		return p;
 	}
 
@@ -372,6 +481,11 @@ public class Gio {
 	public void setWeights(Properties newWeightP) {
 		 newWeights = newWeightP;
 		
+	}
+
+	
+	public CBR getCBR() {
+		return cbr;
 	}
 	
 	

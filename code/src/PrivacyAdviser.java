@@ -25,7 +25,7 @@ public class PrivacyAdviser {
 
 	static Gio theIO;									//interface to outside world
 	private static Properties configFile;		//configuration file with location of other things, logger
-	private static Properties weightsConfig;	//configuration file for weights
+	//private static Properties weightsConfig;	//configuration file for weights
 	static Logger logger;								//logger
 	private static PolicyObject po;				//the new policyObject to accept/reject/etc
 	
@@ -49,11 +49,12 @@ public class PrivacyAdviser {
 		if(!theIO.isBuilding()) //actually process an object
 		{
 			po = theIO.getPO();
-			int k = 1; //size for k in knn algorithm
+			/*int k = 1; //size for k in knn algorithm
 			DistanceMetric dm = new distanceMetricTest(weightsConfig);
 			PolicyDatabase pdb = theIO.getPDB();
-			CBR machinelearn = new CBR(theIO, weightsConfig, new Reduction_KNN(dm,pdb,k), new Conclusion_Simple(dm), new Learn_Constant(weightsConfig));
-			machinelearn.run(po);
+			CBR machinelearn = new CBR(theIO, weightsConfig, new Reduction_KNN(dm,pdb,k), new Conclusion_Simple(dm), new Learn_Constant(weightsConfig));*/
+			
+			theIO.getCBR().run(po);
 		}
 		//close down
 		theIO.shutdown();
@@ -84,14 +85,14 @@ public class PrivacyAdviser {
 		logger = theIO.startLogger(logloc,loglevel);
 
 		//load the weights configuration file
-		weightsConfig = new Properties();
-		weightsConfig = theIO.loadWeights(configFile.getProperty("weights.cfg","./weights.cfg"));
+		//weightsConfig = new Properties();
+		//weightsConfig = theIO.loadWeights();
 
 		//load the past history && commandline policies 
-		theIO.loadDB(configFile.getProperty("databaseLocation"));
+		theIO.loadDB();//configFile.getProperty("databaseLocation"));
 		
 		
-		//TODO
+		//TODO place for user_init code?? should have 4 user interfaces- commandline interactive, commandline options only, gui, config file 
 		/*where user_init = (-u flag) || (no -b and no -T)
 		if(theIO.user_init())
 		{

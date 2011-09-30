@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Collection; //for storing policies
 import java.util.Iterator; //for interating over the collection
 
@@ -17,29 +18,21 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	
 	protected static PolicyDatabase i; //the only reference to this (for singleton)
 	protected Collection<PolicyObject> idb; //the collection of objects
-	public static String location;	//where the database is located
+	private static String inLocation;	//where the database is loaded from
+	private static String outLocation;	//where the database is to be written to
 
 
 	/**
 	*	public constructor method to ensure singleton-ness
 	*
-	*	@return reference to PDatabase
-	*	@author Nicholas Gerstle
-	*/
-	public static PolicyDatabase getInstance()
-	{
-		return i;
-	}
-	/**
-	*	public constructor method to ensure singleton-ness
-	*
-	*	@param loc the location of the serialized db on file
+	*	@param loc the inlocation of the serialized db on file
 	*	@return reference to PDatabase
 	*	@author ngerstle
 	*/
-	public static PolicyDatabase getInstance(String loc)
+	public static PolicyDatabase getInstance(String inloc, String outloc)
 	{
-		location = loc;
+		inLocation = inloc;
+		outLocation = outloc;
 		return i;
 	}	
 	
@@ -47,13 +40,13 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	/**
 	 * Loads database from a file dLoc
 	 * 
-	 * @param dLoc the location of the database file on disk
+	 * @param dLoc the inlocation of the database file on disk
 	 * 
 	 * @author ngerstle
 	 */
 	public void loadDB()
 	{
-		loadDB(location);
+		loadDB(inLocation);
 	}
 	
 	
@@ -62,7 +55,7 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	 * we have this public just in case we want to be able to load
 	 * a db from a file other than where we plan to store it.
 	 * 
-	 * @param dLoc the location of the database file on disk
+	 * @param dLoc the inlocation of the database file on disk
 	 * 
 	 * @author ngerstle
 	 */
@@ -89,17 +82,18 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	}
 	
 	/**
-	 * calls closeDB(PolicyDatabase.location)
+	 * calls closeDB(PolicyDatabase.inlocation)
 	 */
 	public void closeDB()
 	{
-		closeDB(location);
+		closeDB(outLocation);
 	}
 	
 	
 	/**
 	 * should implement writing the information contained by the PolicyDatabase to a file/disk
-	 * @param dLoc the location to save the data
+	 * 
+	 * @param dLoc the inlocation to save the data
 	 * @author ngerstle
 	 */
 	public abstract void closeDB(String dLoc);
@@ -107,5 +101,12 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	protected PolicyDatabase() {
 		super();
 	}
-
+	
+	/**
+	 * This class should return all policys for the given domain.
+	 * 
+	 * @param domain the domain to look for
+	 * @author ngerstle
+	 */
+	public abstract ArrayList<PolicyObject> getDomain(String domain);
 }

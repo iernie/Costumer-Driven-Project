@@ -10,9 +10,10 @@ public abstract class UserIO {
 	
 	/**
 	 * returns a new String[] args to use init on.
-	 * @return
+	 * 
+	 * @param args the default values for all commandline arguments
+	 * @return the values to initialize the program with- same as usual args from main
 	 */
-	//TODO add default values from ealier args[]
 	public abstract String[] user_init(String[] args);
 	
 	/**
