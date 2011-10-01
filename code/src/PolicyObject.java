@@ -3,27 +3,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * 
- * NOTE TO SELF
- * 
- * Object
- * 	hashmap - what we use to compare
- * 		case - from xml
- * 			datatype
- * 			purpose
- * 			recipients
- * 			retention
- * 			distance
- * 		context - object has compare function
- * 			distance
- * 			time
- * 			etc
- *	Action - object
- * 	
- * 		
- */
-
-/**
  * This is where the class begins
  * 
  * @author ernie
@@ -35,7 +14,7 @@ public class PolicyObject implements Serializable
 	 */
 	private static final long serialVersionUID = 5489334832912646160L;
 	private HashMap<String, String> entity;
-	private ArrayList<Case> statements;
+	private ArrayList<Case> cases;
 	private Action actionTaken; //the action taken (includes acc/reject, reason, etc)
 	private Context context; //the context for the p3p policy- see context.java
 	
@@ -47,7 +26,7 @@ public class PolicyObject implements Serializable
 	 */
 	public PolicyObject()
 	{
-		statements = new ArrayList<Case>();
+		cases = new ArrayList<Case>();
 		entity = new HashMap<String, String>();
 		context = new Context(null,null,null);
 	}
@@ -77,7 +56,7 @@ public class PolicyObject implements Serializable
 	 */
 	public void addCase(Case c)
 	{
-		statements.add(c);
+		cases.add(c);
 	}
 	
 	/**
@@ -100,7 +79,7 @@ public class PolicyObject implements Serializable
 	 * @return Case
 	 */
 	public Case getCase(int i){
-		return statements.get(i);
+		return cases.get(i);
 	}
 	
 	/**
@@ -110,7 +89,7 @@ public class PolicyObject implements Serializable
 	 * @return ArrayList<Case>
 	 */
 	public ArrayList<Case> getCases(){
-		return statements;
+		return cases;
 	}
 	
 	/**
@@ -155,14 +134,6 @@ public class PolicyObject implements Serializable
 	{
 		System.out.println("\nPOLICY OBJECT DEBUG PRINT");
 		System.out.println("\nENTITY");
-		/*Set set = entity.entrySet();
-		Iterator it = set.iterator();
-		while(it.hasNext())
-		{
-			Map.Entry me = (Map.Entry)it.next();
-			System.out.println("KEY: " + me.getKey() + ", VAL: " + me.getValue() );
-		}
-		*/
 		
 		for(String key : entity.keySet())
 		{
@@ -170,10 +141,10 @@ public class PolicyObject implements Serializable
 		}
 		
 		
-		for(int i=0; i<statements.size(); i++)
+		for(int i=0; i<cases.size(); i++)
 		{
-			System.out.println("\nSTATEMENT " + i);
-			statements.get(i).debug_print();
+			System.out.println("\nCASE " + i);
+			cases.get(i).debug_print();
 		}
 	}
 }

@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
 
 class Case {
 	
@@ -8,7 +6,7 @@ class Case {
 	private ArrayList<Retention> retention;
 	private ArrayList<Recipient> recipient;
 	private ArrayList<Category> categories;
-	private HashSet<String> datatypes;
+	private String datatype;
 	
 	public Case()
 	{
@@ -16,7 +14,16 @@ class Case {
 		retention = new ArrayList<Retention>();
 		recipient = new ArrayList<Recipient>();
 		categories = new ArrayList<Category>();
-		datatypes = new HashSet<String>();
+		datatype = "#";
+	}
+	
+	public Case(ArrayList<Purpose> purpose, ArrayList<Retention> retention, ArrayList<Recipient> recipients, ArrayList<Category> categories, String datatype)
+	{
+		this.purpose = purpose;
+		this.retention = retention;
+		this.recipient = recipients;
+		this.categories = categories;
+		this.datatype = datatype;
 	}
 	
 	// ADD
@@ -41,9 +48,9 @@ class Case {
 		categories.add(c);
 	}
 	
-	public void addDataType(String s)
+	public void setDataType(String s)
 	{
-		datatypes.add(s);
+		datatype = s;
 	}
 	
 	// GET
@@ -88,40 +95,38 @@ class Case {
 		return categories.get(i);
 	}
 	
-	public HashSet<String> getDataTypes()
+	public String getDataTypes()
 	{
-		return datatypes;
+		return datatype;
 	}
 	
 	// DEBUG
 	
 	public void debug_print()
 	{	
-		for(int i=0; i < purpose.size(); i++)
+		System.out.println("DATATYPE: " + datatype);
+		
+		for(Purpose p: purpose)
 		{
-			System.out.println("PURPOSE: " + purpose.get(i));
+			System.out.println("PURPOSE: " + p);
 		}
 		
-		for(int i=0; i < recipient.size(); i++)
+		for(Recipient r: recipient)
 		{
-			System.out.println("RECIPIENT: " + recipient.get(i));
+			System.out.println("RECIPIENT: " + r);
 		}
 		
-		for(int i=0; i < retention.size(); i++)
+		for(Retention r: retention)
 		{
-			System.out.println("RETENTION: " + retention.get(i));
+			System.out.println("RETENTION: " + r);
 		}
 		
-		for(int i=0; i < categories.size(); i++)
+		if(datatype.equalsIgnoreCase("#dynamic.miscdata"))
 		{
-			System.out.println("CATEGORIES: " + categories.get(i));
+			for(Category c: categories)
+			{
+				System.out.println("CATEGORY: " + c);
+			}	
 		}
-		
-		Iterator<String> it1 = datatypes.iterator();
-	    System.out.println("DATATYPES");
-	    while(it1.hasNext())
-	    {
-	    	System.out.println(it1.next());	    	
-	    }
 	}
 }
