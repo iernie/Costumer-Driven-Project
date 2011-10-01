@@ -7,6 +7,7 @@
  */
 
 import java.util.ArrayList;
+import java.util.Properties;
 
 /**
  * A distance metric that calculates distance based on 
@@ -15,14 +16,10 @@ import java.util.ArrayList;
  * @author dimitryk
  */
 public class bitmapDistance implements DistanceMetric{
-	//private int[] purpMap;
-	//private int[] recipMap;
-	//private int[] retMap;
+	private static Properties weightsConfig;
 	
-	bitmapDistance(){
-	//	purpMap = new int[12];
-	//	recipMap = new int[6];
-	//	retMap = new int[5];
+	bitmapDistance(Properties weights){
+		weightsConfig = weights;
 	}
 	
 	/**
@@ -35,27 +32,28 @@ public class bitmapDistance implements DistanceMetric{
 	 * @return Map as bitmap
 	 */
 	
-	private int[] MakeRecipMap(ArrayList<Recipient> list){
-		int[] Map = new int[6];
+	private double[] MakeRecipMap(ArrayList<Recipient> list){
+		double[] Map = new double[6];
+		for(int d=0;d<6;d++)Map[d]=0;
 		for(int i=0;i<list.size();i++){
 			switch (list.get(i)){
 			case OURS: //weights can come in here 2
-				Map[0]=1;
+				Map[0]= Double.parseDouble(weightsConfig.getProperty("ours"));
 				break;
-			case DELIVERY:
-				Map[1]=1;
+			case DELIVERY:			
+				Map[1]=Double.parseDouble(weightsConfig.getProperty("delivery"));
 				break;
 			case SAME:
-				Map[2]=1;
+				Map[2]=Double.parseDouble(weightsConfig.getProperty("same"));
 				break;
 			case OTHER_RECIPIENT:
-				Map[3]=1;
+				Map[3]=Double.parseDouble(weightsConfig.getProperty("other_recipient"));
 				break;
 			case UNRELATED:
-				Map[4]=1;
+				Map[4]=Double.parseDouble(weightsConfig.getProperty("unrelated"));
 				break;
 			case PUBLIC:
-				Map[5]=1;
+				Map[5]=Double.parseDouble(weightsConfig.getProperty("public"));
 				break;
 			default:break;
 			}
@@ -64,7 +62,7 @@ public class bitmapDistance implements DistanceMetric{
 	}
 	
 	/**
-	 * internal method that makes a bit map of 12 ints
+	 * internal method that makes a bit map of 12 doubles
 	 * each place in an array corresponds to a spesfic value
 	 * of a Purpose Enum
 	 * @author dimitryk
@@ -72,45 +70,46 @@ public class bitmapDistance implements DistanceMetric{
 	 * @return Map as bitmap
 	 */
 	
-	private int[] MakePurposeMap(ArrayList<Purpose> list){
-		int[] Map = new int[12];
+	private double[] MakePurposeMap(ArrayList<Purpose> list){
+		double[] Map = new double[12];
+		for(int d=0;d<12;d++)Map[d]=0;
 		for(int i=0;i<list.size();i++){
 			switch (list.get(i)){
 			case CURRENT:
-				Map[0]=1;//weights can come in here 2
+				Map[0]=Double.parseDouble(weightsConfig.getProperty("current"));
 				break;
 			case ADMIN:
-				Map[1]=1;
+				Map[1]=Double.parseDouble(weightsConfig.getProperty("admin"));
 				break;
 			case DEVELOP:
-				Map[2]=1;
+				Map[2]=Double.parseDouble(weightsConfig.getProperty("develop"));
 				break;
 			case TAILORING:
-				Map[3]=1;
+				Map[3]=Double.parseDouble(weightsConfig.getProperty("tailoring"));
 				break;
 			case PSEUDO_ANALYSIS:
-				Map[4]=1;
+				Map[4]=Double.parseDouble(weightsConfig.getProperty("pseudo_analysys"));
 				break;
 			case PSEUDO_DECISION:
-				Map[5]=1;
+				Map[5]=Double.parseDouble(weightsConfig.getProperty("pseudo_decision"));
 				break;
 			case INDIVIDUAL_ANALYSIS:
-				Map[6]=1;
+				Map[6]=Double.parseDouble(weightsConfig.getProperty("individual_analysis"));
 				break;
 			case INDIVIDUAL_DECISION:
-				Map[7]=1;
+				Map[7]=Double.parseDouble(weightsConfig.getProperty("individual_decision"));
 				break;
 			case CONTACT:
-				Map[8]=1;
+				Map[8]=Double.parseDouble(weightsConfig.getProperty("contact"));
 				break;
 			case HISTORICAL:
-				Map[9]=1;
+				Map[9]=Double.parseDouble(weightsConfig.getProperty("historical"));
 				break;
 			case TELEMARKETING:
-				Map[10]=1;
+				Map[10]=Double.parseDouble(weightsConfig.getProperty("telemarketing"));
 				break;
 			case OTHER_PURPOSE:
-				Map[11]=1;
+				Map[11]=Double.parseDouble(weightsConfig.getProperty("other_purpose"));
 				break;
 			default:break;
 			}
@@ -127,24 +126,25 @@ public class bitmapDistance implements DistanceMetric{
 	 * @return Map as bitmap
 	 */
 	
-	private int[] MakeRetentionMap(ArrayList<Retention> list){
-		int[] Map = new int[5];
+	private double[] MakeRetentionMap(ArrayList<Retention> list){
+		double[] Map = new double[5];
+		for(int d=0;d<5;d++)Map[d]=0;
 		for(int i=0;i<list.size();i++){
 			switch (list.get(i)){
 			case NO_RETENTION: //weights can come in here 2
-				Map[0]=1;
+				Map[0]=Double.parseDouble(weightsConfig.getProperty("no_retention"));
 				break;
 			case STATED_PURPOSE:
-				Map[1]=1;
+				Map[1]=Double.parseDouble(weightsConfig.getProperty("stated_purpose"));
 				break;
 			case LEGAL_REQUIREMENT:
-				Map[2]=1;
+				Map[2]=Double.parseDouble(weightsConfig.getProperty("legal_requirement"));
 				break;
 			case BUSINESS_PRACTICES:
-				Map[3]=1;
+				Map[3]=Double.parseDouble(weightsConfig.getProperty("business_practices"));
 				break;
 			case INDEFINITELY:
-				Map[4]=1;
+				Map[4]=Double.parseDouble(weightsConfig.getProperty("idefinitely"));
 				break;
 			default:break;
 			}
@@ -161,21 +161,21 @@ public class bitmapDistance implements DistanceMetric{
 	 * @return dis double for the distance between to.
 	 */
 	
-	public double getDistRecip(Case a, Case b) {
-		int[] MapA, MapB;
-		MapA = MakeRecipMap(a.getRecip());
-		MapB = MakeRecipMap(b.getRecip());
+	private double getDistRecip(Case a, Case b) {
+		double[] MapA, MapB;
+		MapA = MakeRecipMap(a.getRecipients());
+		MapB = MakeRecipMap(b.getRecipients());
 		double dis=0;
 		
 		for(int i=0;i<6;i++){
 			if(MapA[i]!=MapB[i]){
-				//dis=dis+(Math.max(MapA[i], MapB[i])-Math.min(MapA[i], MapB[i]));
-				dis=dis+1; //for now... weights are jet not operational.
+				dis=dis+Math.max(MapA[i], MapB[i]);
+				//dis=dis+1; //for now... weights are jet not operational.
 			}
 		}
 		
 		
-		return dis;// dis*weight later
+		return dis * Double.parseDouble(weightsConfig.getProperty("recipient"));// dis*weight later
 	}
 
 	/**
@@ -187,20 +187,20 @@ public class bitmapDistance implements DistanceMetric{
 	 * @return dis double for the distance between to.
 	 */
 
-	public double getDistReten(Case a, Case b) {
-		int[] MapA, MapB;
-		MapA = MakeRetentionMap(a.getRet());
-		MapB = MakeRetentionMap(b.getRet());
+	private double getDistReten(Case a, Case b) {
+		double[] MapA, MapB;
+		MapA = MakeRetentionMap(a.getRetentions());
+		MapB = MakeRetentionMap(b.getRetentions());
 		double dis=0;
 		
 		for(int i=0;i<5;i++){
 			if(MapA[i]!=MapB[i]){
-				dis=dis+1; //for now... weights are jet not operational.
+				dis=dis+Math.max(MapA[i], MapB[i]);
 			}
 		}
 		
 		
-		return dis;// dis*weight later
+		return dis * Double.parseDouble(weightsConfig.getProperty("retention"));// dis*weight later
 	}
 
 	/**
@@ -212,26 +212,43 @@ public class bitmapDistance implements DistanceMetric{
 	 * @return dis double for the distance between to.
 	 */
 	
-	public double getDistPurpose(Case a, Case b) {
-		int[] MapA, MapB;
-		MapA = MakePurposeMap(a.getPurp());
-		MapB = MakePurposeMap(b.getPurp());
+	private double getDistPurpose(Case a, Case b) {
+		double[] MapA, MapB;
+		MapA = MakePurposeMap(a.getPurposes());
+		MapB = MakePurposeMap(b.getPurposes());
 		double dis=0;
 		
 		for(int i=0;i<12;i++){
 			if(MapA[i]!=MapB[i]){
-				dis=dis+1; //for now... weights are jet not operational.
+				dis=dis+Math.max(MapA[i], MapB[i]);
 			}
 		}
 		
 		
-		return dis;// dis*weight later
+		return dis*Double.parseDouble(weightsConfig.getProperty("purpose"));// dis*weight later
+	}
+
+	private double getSumDistance(Case a, Case b) {
+		
+		return getDistPurpose(a,b)+getDistRecip(a,b)+getDistReten(a,b);
 	}
 
 	@Override
-	public double getTotalDistance(Case a, Case b) {
+	public double getTotalDistance(PolicyObject a, PolicyObject b) {
+		ArrayList<Case> CasesA, CasesB;
+		CasesA=a.getCases();
+		CasesB=b.getCases();
+		double minDist;
+		double Distance = 0;
+		for(int i=0;i<CasesA.size();i++){
+			minDist=Double.MAX_VALUE;
+			for(int d=0;d<CasesB.size();d++){
+				minDist=Math.min(getSumDistance(CasesA.get(i), CasesB.get(d)),minDist);
+			}
+			Distance += minDist;
+		}
 		
-		return getDistPurpose(a,b)+getDistRecip(a,b)+getDistReten(a,b);
+		return Distance;
 	}
 
 }

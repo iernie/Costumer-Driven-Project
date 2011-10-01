@@ -1,0 +1,38 @@
+import java.util.Properties;
+
+/**
+ * The simplest implementation of learnAlgorithm, this literally
+ * does nothing, and thus doesn't actually learn.
+ * 
+ * @author ngerstle
+ * @version 29.09.11.1
+ */
+
+public class Learn_Constant extends LearnAlgorithm {
+
+	/**
+	 * constructor
+	 *
+	 * @param weightsConfig the weights configuration file
+	 * @author ngerstle
+	 */
+	public Learn_Constant(Properties weightsConfig) {
+		super(weightsConfig);
+	}
+
+
+	/**
+	 * the code that reviews and alters the properties file.
+	 * In this case, we make no changes.
+	 * 
+	 * 
+	 * @param theIO   an indirect reference to the policy history
+	 * @return a modified properties file
+	 * @author ngerstle
+	 * 
+	 */
+	protected Properties applyML(Gio theIO) {
+		return weightsConfig;
+	}
+
+}

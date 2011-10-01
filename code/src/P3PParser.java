@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
@@ -20,14 +21,18 @@ public class P3PParser
 		
 	class XMLParserHandler extends DefaultHandler
 	{
-		Case policyCase;
+		private ArrayList<Purpose> purpose;
+		private ArrayList<Retention> retention;
+		private ArrayList<Recipient> recipients;
+		private ArrayList<Category> categories;
+		
 		Boolean statement = false,
-				categories = false,
+				categoriesTag = false,
 				dataTag = false,
 				entity = false,
-				purpose = false,
-				recipient = false,
-				retention = false;
+				purposeTag = false,
+				recipientTag = false,
+				retentionTag = false;
 		
 		/**
 		 * Function that parses all of first instances of a tag
@@ -50,21 +55,21 @@ public class P3PParser
 	    	
 	    	if(statement)
 	    	{
-	    		if(purpose)
+	    		if(purposeTag)
 	    		{
-	    			policyCase.addPurpose(Purpose.valueOf(formattedTagName));
+	    			purpose.add(Purpose.valueOf(formattedTagName));
 	    		}
-	    		if(recipient)
+	    		if(recipientTag)
 	    		{
-	    			policyCase.addRecipient(Recipient.valueOf(formattedTagName));
+	    			recipients.add(Recipient.valueOf(formattedTagName));
 	    		}
-	    		if(retention)
+	    		if(retentionTag)
 	    		{
-	    			policyCase.addRetention(Retention.valueOf(formattedTagName));
+	    			retention.add(Retention.valueOf(formattedTagName));
 	    		}
-	    		if(categories)
+	    		if(categoriesTag)
 	    		{
-	    			policyCase.addCategory(Category.valueOf(formattedTagName));
+	    			categories.add(Category.valueOf(formattedTagName));
 	    		}
 	    	}
 	    	
@@ -77,8 +82,6 @@ public class P3PParser
 	    	if(tagName.equalsIgnoreCase("statement"))
 	    	{
 	    		statement = true;
-	    		policyCase = new Case();
-	    		System.out.println("New Case");
 	    	}
 	    	if(tagName.equalsIgnoreCase("data"))
 	    	{
@@ -87,19 +90,23 @@ public class P3PParser
 	    	}
 	    	if(tagName.equalsIgnoreCase("categories"))
 	    	{
-	    		categories = true;
+	    		categoriesTag = true;
+	    		categories = new ArrayList<Category>();
 	    	}
 	    	if(tagName.equalsIgnoreCase("purpose"))
 	    	{
-	    		purpose = true;
+	    		purposeTag = true;
+	    		purpose = new ArrayList<Purpose>();
 	    	}
 	    	if(tagName.equalsIgnoreCase("recipient"))
 	    	{
-	    		recipient = true;
+	    		recipientTag = true;
+	    		recipients = new ArrayList<Recipient>();
 	    	}
 	    	if(tagName.equalsIgnoreCase("retention"))
 	    	{
-	    		retention = true;
+	    		retentionTag = true;
+	    		retention = new ArrayList<Retention>();
 	    	}
 	    }
 	    
@@ -117,10 +124,6 @@ public class P3PParser
 	    	if(dataTag && entity)
 	    	{
 	    		policy.addEntityData(tempKey, new String(ch, start, length));
-	    	}
-	    	if(statement)
-	    	{
-	    		policyCase.addDataType(tempKey);
 	    	}
 		}
 	    
@@ -144,27 +147,31 @@ public class P3PParser
 	    	if(tagName.equalsIgnoreCase("data"))
 	    	{
 	    		dataTag = false;
+	    		if(statement)
+	    		{
+	    			Case policyCase = new Case(purpose, retention, recipients, categories, tempKey);
+		    		policy.addCase(policyCase);
+	    		}
 	    	}
 	    	if(tagName.equalsIgnoreCase("categories"))
 	    	{
-	    		categories = false;
+	    		categoriesTag = false;
 	    	}
 	    	if(tagName.equalsIgnoreCase("purpose"))
 	    	{
-	    		purpose = false;
+	    		purposeTag = false;
 	    	}
 	    	if(tagName.equalsIgnoreCase("recipient"))
 	    	{
-	    		recipient = false;
+	    		recipientTag = false;
 	    	}
 	    	if(tagName.equalsIgnoreCase("retention"))
 	    	{
-	    		retention = false;
+	    		retentionTag = false;
 	    	}
 	    	if(tagName.equalsIgnoreCase("statement"))
 	    	{
 	    		statement = false;
-	    		policy.addCase(policyCase);
 	    	}
 	    }
 	}
@@ -185,14 +192,24 @@ public class P3PParser
 			parser.setContentHandler(new XMLParserHandler( ));
 			parser.parse(p3p);
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
     	return policy;
 	}
  
+	/*
+	public static void main(String[] args) {
+		
+		P3PParser parser = new P3PParser();
+		PolicyObject policy = new PolicyObject();
+		
+        //policy = parser.parse("http://info.yahoo.com/privacy/w3c/p3p_policy.xml");
+        policy = parser.parse("http://pages.ebay.com/w3c/p3p-policy.xml#policy");
+		//policy = parser.parse("http://www.microsoft.com/w3c/p3policy.xml");
+        policy.debug_print();
+    }
+    */
 }
