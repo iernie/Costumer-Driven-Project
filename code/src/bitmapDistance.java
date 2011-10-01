@@ -27,13 +27,14 @@ public class bitmapDistance implements DistanceMetric{
 		}
 	
 	private void setWeights(){
+		//recipients
 		ours=Double.parseDouble(weightsConfig.getProperty("ours"));
 		delivery=Double.parseDouble(weightsConfig.getProperty("delivery"));
 		same=Double.parseDouble(weightsConfig.getProperty("same"));
 		other_recipient=Double.parseDouble(weightsConfig.getProperty("other_recipient"));
 		unrelated=Double.parseDouble(weightsConfig.getProperty("unrelated"));
 		pub=Double.parseDouble(weightsConfig.getProperty("public"));
-		
+		//purpose
 		current=Double.parseDouble(weightsConfig.getProperty("current"));
 		admin=Double.parseDouble(weightsConfig.getProperty("admin"));
 		develop= Double.parseDouble(weightsConfig.getProperty("develop"));
@@ -46,7 +47,7 @@ public class bitmapDistance implements DistanceMetric{
 		historical=Double.parseDouble(weightsConfig.getProperty("historical"));
 		telemarketing=Double.parseDouble(weightsConfig.getProperty("telemarketing"));
 		other_purpose=Double.parseDouble(weightsConfig.getProperty("other_purpose"));
-	
+		//retention
 		no_retention=Double.parseDouble(weightsConfig.getProperty("no_retention"));
 		stated_purpose=Double.parseDouble(weightsConfig.getProperty("stated_purpose"));
 		legal_requirement=Double.parseDouble(weightsConfig.getProperty("legal_requirement"));
