@@ -1,0 +1,312 @@
+% Activate the following line by filling in the right side. If for example the name of the root file is Main.tex, write
+% "...root = Main.tex" if the chapter file is in the same directory, and "...root = ../Main.tex" if the chapter is in a subdirectory.
+ 
+%!TEX root =  
+
+\chapter{Planning Phase}
+
+\minitoc 
+
+\section{Purpose}
+This document details the different phases in the development process. It presents the development model that has been chosen, relating the choice of model to the particular challenges faced by the nature of the project. It also describes the set of activities included in each phase and a set of activities that are ongoing throughout the lifetime of the project.
+
+\section{Development Model}
+As the project is an early implementation phase of a larger research project, there is an inherent uncertainty as to several details regarding both the implementation and the appropriateness of the underlying model. This has several implications for the development process. 
+
+Following the above discussion, a hybrid waterfall model is settled upon. Here the design, implementation and testing phases follow a cyclical pattern. In concrete terms, this means that a first prototype will be developed and then put through some tests, and depending on the results of these tests, there may be revisions in the software design.
+
+Furthermore, there are clearly overlaps between these three phases. A key part of the documentation work consists of documenting the source code, which is basically commenting during development. Furthermore, as implementation is underway, it may turn out that the design needs adjustments, due to unforeseen factors.
+
+
+\section{Phases}\label{phases}
+
+\subsection{Planning}
+
+\subsection{Prestudy and Research}
+In this phase the aim is for each project member to acquire a certain level domain knowledge in the field of Internet privacy and to learn the necessary technology and tools required to implement the model as proposed by the customer. This entails having a working knowledge of the Java programming language, version control using Git and the CBR framework.
+
+\subsection{Requirement Specification}
+The requirements specification is a document listing the functional and non-functional requirements of the software to be developed, which is a standard that the results is to be measured against, thus serving as not only a contract between the customer and the project team, but as a basis for developing testing methods.
+
+\subsection{Design/Architecture}
+This phase consists of a broad structuring and specification of the overall system. It defines the program structure in terms of program flow, modules, classes and interfaces as well as coding standards and other conventions that will serve as guidelines for the implementation phase.
+
+\subsection{Implementation}
+In this phase the design is realized as a working Java program according to the models developed in the Design phase. 
+
+\subsection{Evaluation and Documentation}
+This phase consists of testing the system and documenting the structure of the system and how it is operated. From a software engineering perspective, the primary testing grounds are against the standards prescribed by the requirements specification rather than applicability of the underlying model’s performance. As mentioned, among the primary objectives of the project is to provide a testing framework to verify the applicability of the given system in making privacy decisions.
+
+\subsection{Ongoing Activities}
+
+\subsubsection{Reporting and Administrative Tasks}
+Under this heading are more project management related activities, such as routine organizational work (ie. arranging meetings and writing status updates), more refined distribution of tasks as the project is underway, and preparation of the project report (this document).
+
+\subsubsection{Study and Lectures}
+To solve several of the problems posed by this project, most group members have had to learn new tools and technologies. This includes, but is not limited to Case Based Reasoning, version control (Git), certain features of Java and so on. Lectures on project management  and software development are also subsumed under this heading.
+
+\section{Risk Report}
+The term 'risk' is usually defined defined as the possibility of an undesirable outcome (loss) as a consequence of a choice or an action made. 
+
+In this section we have identified some risk factors that can impact the project. Every project does risk management at some level, wether explicit stated or not. By identifying and quantifying the \emph{likelihood} and \emph{consequence} of undesirable events, the project plan can be adapted so as to allow for certain contingencies. In table \ref{riskTable} below is a description of how the risks would look like and what they mean. Beneath that the actual risk follows.
+
+\begin{table}[htdp]
+\caption{Risks explained}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & An arbitrary number identifying the risk factor. \\
+\hline
+\textbf{Activity} & The activity affected by this risk. \\
+\hline
+\textbf{Risk Factor} & A short textual description of the risk factor. \\
+\hline
+\textbf{Probability} & The probability of the event occurring. \\
+\hline
+\textbf{Consequence} & What the consequences the event occurring. \\
+\hline
+\textbf{Action taken} & Actions that can be taken to avoid this\\ & event occurring. \\
+\hline
+\textbf{Deadline} & An optional date set for taking precautions to deal with the risk. \\
+\hline
+\textbf{Responsible} & The group member responsible for the risk. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{riskTable}
+\end{table}
+
+The actual risks:
+
+\begin{table}[htdp]
+\caption{Changes in requirments}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 1 \\
+\hline
+\textbf{Activity} & All. \\
+\hline
+\textbf{Risk Factor} & The requirements might change. \\
+\hline
+\textbf{Probability} & 2. \\
+\hline
+\textbf{Consequence} & 4. \\
+\hline
+\textbf{Action taken} & Clarify the requirements and agree on deadlines for any changes that could happen.\\
+\hline
+\textbf{Deadline} & By acceptance of requirements specification. \\
+\hline
+\textbf{Responsible} & Ulf Nore, Customer. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_1}
+\end{table}
+
+
+\begin{table}[htdp]
+\caption{Poorly choosen algorithms}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 2 \\
+\hline
+\textbf{Activity} & Design, implementation.  \\
+\hline
+\textbf{Risk Factor} & The implemented algorithms may not work as intended.\\
+\hline
+\textbf{Probability} & 3. \\
+\hline
+\textbf{Consequence} & 5. \\
+\hline
+\textbf{Action taken} & Research on similar algorithms and projects. \\
+\hline
+\textbf{Deadline} & N/A \\
+\hline
+\textbf{Responsible} & Dimitry Kongevold. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_2}
+\end{table}
+
+\begin{table}[htdp]
+\caption{Problems with policy retrieving}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 3 \\
+\hline
+\textbf{Activity} & Implementation.  \\
+\hline
+\textbf{Risk Factor} & Problems with retrieving data from P3P policies. \\
+\hline
+\textbf{Probability} & 3. \\
+\hline
+\textbf{Consequence} & 5. \\
+\hline
+\textbf{Action taken} & Research into P3P, and cooperate with \newline customer. \\
+\hline
+\textbf{Deadline} & Implementation deadline. \\
+\hline
+\textbf{Responsible} & Einar Afiouni. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_3}
+\end{table}
+
+\begin{table}[htdp]
+\caption{Problems with external storage}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 4 \\
+\hline
+\textbf{Activity} & Implementation. \\
+\hline
+\textbf{Risk Factor} & Problems with storing and/or retrieving data. \\
+\hline
+\textbf{Probability} & 2. \\
+\hline
+\textbf{Consequence} & 3. \\
+\hline
+\textbf{Action taken} & Look into several alternative knowledge base alternatives.  \\
+\hline
+\textbf{Deadline} & End of design phase. \\
+\hline
+\textbf{Responsible} & Amanpreet Kaur. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_4}
+\end{table}
+
+\begin{table}[htdp]
+\caption{Remote server problems}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 5 \\
+\hline
+\textbf{Activity} & Implementation.  \\
+\hline
+\textbf{Risk Factor} & Obtaining remote server space. \\
+\hline
+\textbf{Probability} & 1 \\
+\hline
+\textbf{Consequence} & 3 \\
+\hline
+\textbf{Action taken} & Ask IDI for virtual server. \\
+\hline
+\textbf{Deadline} & End of design phase. \\
+\hline
+\textbf{Responsible} & Nicholas. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_5}
+\end{table}
+
+
+\begin{table}[htdp]
+\caption{Sickness}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 6 \\
+\hline
+\textbf{Activity} & All. \\
+\hline
+\textbf{Risk Factor} & Unable to work due to sickness. \\
+\hline
+\textbf{Probability} & 2. \\
+\hline
+\textbf{Consequence} & 4. \\
+\hline
+\textbf{Action taken} & Plan with some degree of slack. \newline Properly document work so that other members may take over. \\
+\hline
+\textbf{Deadline} & N/A \\
+\hline
+\textbf{Responsible} & Everyone in the group.\\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_6}
+\end{table}
+
+\begin{table}[htdp]
+\caption{3rd party library problems}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 7 \\
+\hline
+\textbf{Activity} & Implementation, testing.  \\
+\hline
+\textbf{Risk Factor} & 3rd party code may be harmful or not work as intended. \\
+\hline
+\textbf{Probability} & 1. \\
+\hline
+\textbf{Consequence} & 3. \\
+\hline
+\textbf{Action taken} & Proper selection criteria and testing routines for selecting 3rd party code. \\
+\hline
+\textbf{Deadline} & End of design phase. \\
+\hline
+\textbf{Responsible} & The responsible for the functionality using 3rd party libraries. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_7}
+\end{table}
+
+\begin{table}[htdp]
+\caption{Risks 8}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 8 \\
+\hline
+\textbf{Activity} & All  \\
+\hline
+\textbf{Risk Factor} & Misunderstandings between customer and the group. \\
+\hline
+\textbf{Probability} & 3 \\
+\hline
+\textbf{Consequence} & 3 \\
+\hline
+\textbf{Action taken} & Proper reporting and documentation. \\
+\hline
+\textbf{Deadline} & N/A. \\
+\hline
+\textbf{Responsible} & Ulf Nore, Customer. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_8}
+\end{table}
+\newpage
+
+\section{Measurement of project effects}
+The minimal goal of the project is to develop the core functionality for a system that gives users advise when visiting a web-page. The functional requirments The advise is based on: 
+
+\begin{itemize}
+\item the userís previous actions
+\item community actions or what similar users have done
+\item context of use
+\end{itemize}
+   
+
+\section{Project Plan}
+As discussed in Section~\ref{phases}, the sequential part of the project is separated into six phases; pre-implementation research, requirement specification, design, implementation and documentation, evaluation, and report writing. The reporting started at the first day of the project and is going to continue until we are finished with the project. We are intending to be finished with the implementation at the end of week 42, which marks a shifting of focus to testing and evaluation. A Gantt diagram is given in Figure~\ref{gantt}.
+
+
+\begin{center}
+\begin{figure}
+\label{gantt}
+\caption{Gantt Diagram.}
+\includegraphics[width=\linewidth]{PlanReport/gantt.jpg}
+\end{figure}
+\end{center}
