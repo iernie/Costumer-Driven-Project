@@ -19,32 +19,35 @@
 \BOOKMARK [2][-]{subsection.0.10.5}{Implementation}{section.0.10}% 19
 \BOOKMARK [2][-]{subsection.0.10.6}{Evaluation and Documentation}{section.0.10}% 20
 \BOOKMARK [2][-]{subsection.0.10.7}{Ongoing Activities}{section.0.10}% 21
-\BOOKMARK [0][-]{chapter*.7}{Preliminary Study}{}% 22
-\BOOKMARK [1][-]{section.0.11}{Introduction}{chapter*.7}% 23
-\BOOKMARK [0][-]{chapter*.8}{Requirements Specification}{}% 24
-\BOOKMARK [1][-]{section.0.12}{Purpose}{chapter*.8}% 25
-\BOOKMARK [1][-]{section.0.13}{Introduction}{chapter*.8}% 26
-\BOOKMARK [2][-]{subsection.0.13.1}{Background and Similar Software}{section.0.13}% 27
-\BOOKMARK [2][-]{subsection.0.13.2}{Scope}{section.0.13}% 28
-\BOOKMARK [2][-]{subsection.0.13.3}{Overview}{section.0.13}% 29
-\BOOKMARK [1][-]{section.0.14}{Overall Description}{chapter*.8}% 30
-\BOOKMARK [2][-]{subsection.0.14.1}{System Description}{section.0.14}% 31
-\BOOKMARK [2][-]{subsection.0.14.2}{User Interface}{section.0.14}% 32
-\BOOKMARK [2][-]{subsection.0.14.3}{Hardware and Software Interface}{section.0.14}% 33
-\BOOKMARK [2][-]{subsection.0.14.4}{User Characteristic}{section.0.14}% 34
-\BOOKMARK [1][-]{section.0.15}{Use Cases}{chapter*.8}% 35
-\BOOKMARK [1][-]{section.0.16}{Specific Requirements}{chapter*.8}% 36
-\BOOKMARK [2][-]{subsection.0.16.1}{Product perspective}{section.0.16}% 37
-\BOOKMARK [2][-]{subsection.0.16.2}{Functional Requirements}{section.0.16}% 38
-\BOOKMARK [2][-]{subsection.0.16.3}{Non-Functional Requirements}{section.0.16}% 39
-\BOOKMARK [0][-]{chapter*.15}{Design}{}% 40
-\BOOKMARK [1][-]{section.0.17}{Purpose}{chapter*.15}% 41
-\BOOKMARK [1][-]{section.0.18}{Development Tools and Technologies}{chapter*.15}% 42
-\BOOKMARK [2][-]{subsection.0.18.1}{Documents and Source Code Repositories}{section.0.18}% 43
-\BOOKMARK [2][-]{subsection.0.18.2}{Programming Languages}{section.0.18}% 44
-\BOOKMARK [2][-]{subsection.0.18.3}{Databases}{section.0.18}% 45
-\BOOKMARK [2][-]{subsection.0.18.4}{Third Party Libraries}{section.0.18}% 46
-\BOOKMARK [1][-]{section.0.19}{Standards}{chapter*.15}% 47
-\BOOKMARK [1][-]{section.0.20}{Architecture}{chapter*.15}% 48
-\BOOKMARK [0][-]{chapter*.19}{Short Title}{}% 49
-\BOOKMARK [1][-]{section.0.21}{Introduction}{chapter*.19}% 50
+\BOOKMARK [1][-]{section.0.11}{Measurement of project effects}{chapter*.4}% 22
+\BOOKMARK [1][-]{section.0.12}{Risk Report}{chapter*.4}% 23
+\BOOKMARK [1][-]{section.0.13}{Workplan}{chapter*.4}% 24
+\BOOKMARK [0][-]{chapter*.7}{Preliminary Study}{}% 25
+\BOOKMARK [1][-]{section.0.14}{Introduction}{chapter*.7}% 26
+\BOOKMARK [0][-]{chapter*.8}{Requirements Specification}{}% 27
+\BOOKMARK [1][-]{section.0.15}{Purpose}{chapter*.8}% 28
+\BOOKMARK [1][-]{section.0.16}{Introduction}{chapter*.8}% 29
+\BOOKMARK [2][-]{subsection.0.16.1}{Background and Similar Software}{section.0.16}% 30
+\BOOKMARK [2][-]{subsection.0.16.2}{Scope}{section.0.16}% 31
+\BOOKMARK [2][-]{subsection.0.16.3}{Overview}{section.0.16}% 32
+\BOOKMARK [1][-]{section.0.17}{Overall Description}{chapter*.8}% 33
+\BOOKMARK [2][-]{subsection.0.17.1}{System Description}{section.0.17}% 34
+\BOOKMARK [2][-]{subsection.0.17.2}{User Interface}{section.0.17}% 35
+\BOOKMARK [2][-]{subsection.0.17.3}{Hardware and Software Interface}{section.0.17}% 36
+\BOOKMARK [2][-]{subsection.0.17.4}{User Characteristic}{section.0.17}% 37
+\BOOKMARK [1][-]{section.0.18}{Use Cases}{chapter*.8}% 38
+\BOOKMARK [1][-]{section.0.19}{Specific Requirements}{chapter*.8}% 39
+\BOOKMARK [2][-]{subsection.0.19.1}{Product perspective}{section.0.19}% 40
+\BOOKMARK [2][-]{subsection.0.19.2}{Functional Requirements}{section.0.19}% 41
+\BOOKMARK [2][-]{subsection.0.19.3}{Non-Functional Requirements}{section.0.19}% 42
+\BOOKMARK [0][-]{chapter*.15}{Design}{}% 43
+\BOOKMARK [1][-]{section.0.20}{Purpose}{chapter*.15}% 44
+\BOOKMARK [1][-]{section.0.21}{Development Tools and Technologies}{chapter*.15}% 45
+\BOOKMARK [2][-]{subsection.0.21.1}{Documents and Source Code Repositories}{section.0.21}% 46
+\BOOKMARK [2][-]{subsection.0.21.2}{Programming Languages}{section.0.21}% 47
+\BOOKMARK [2][-]{subsection.0.21.3}{Databases}{section.0.21}% 48
+\BOOKMARK [2][-]{subsection.0.21.4}{Third Party Libraries}{section.0.21}% 49
+\BOOKMARK [1][-]{section.0.22}{Standards}{chapter*.15}% 50
+\BOOKMARK [1][-]{section.0.23}{Architecture}{chapter*.15}% 51
+\BOOKMARK [0][-]{chapter*.19}{Short Title}{}% 52
+\BOOKMARK [1][-]{section.0.24}{Introduction}{chapter*.19}% 53
