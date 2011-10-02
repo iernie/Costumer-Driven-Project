@@ -18,7 +18,7 @@ Following the above discussion, a hybrid waterfall model is settled upon. Here t
 Furthermore, there are clearly overlaps between these three phases. A key part of the documentation work consists of documenting the source code, which is basically commenting during development. Furthermore, as implementation is underway, it may turn out that the design needs adjustments, due to unforeseen factors.
 
 
-\section{Phases}
+\section{Phases}\label{phases}
 
 \subsection{Planning}
 
@@ -45,5 +45,268 @@ Under this heading are more project management related activities, such as routi
 \subsubsection{Study and Lectures}
 To solve several of the problems posed by this project, most group members have had to learn new tools and technologies. This includes, but is not limited to Case Based Reasoning, version control (Git), certain features of Java and so on. Lectures on project management  and software development are also subsumed under this heading.
 
+\section{Risk Report}
+The term 'risk' is usually defined defined as the possibility of an undesirable outcome (loss) as a consequence of a choice or an action made. 
+
+In this section we have identified some risk factors that can impact the project. Every project does risk management at some level, wether explicit stated or not. By identifying and quantifying the \emph{likelihood} and \emph{consequence} of undesirable events, the project plan can be adapted so as to allow for certain contingencies. In table \ref{riskTable} below is a description of how the risks would look like and what they mean. Beneath that the actual risk follows.
+
+\begin{table}[htdp]
+\caption{Risks explained}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & An arbitrary number identifying the risk factor. \\
+\hline
+\textbf{Activity} & The activity affected by this risk. \\
+\hline
+\textbf{Risk Factor} & A short textual description of the risk factor. \\
+\hline
+\textbf{Probability} & The probability of the event occurring. \\
+\hline
+\textbf{Consequence} & What the consequences the event occurring. \\
+\hline
+\textbf{Action taken} & Actions that can be taken to avoid this\\ & event occurring. \\
+\hline
+\textbf{Deadline} & An optional date set for taking precautions to deal with the risk. \\
+\hline
+\textbf{Responsible} & The group member responsible for the risk. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{riskTable}
+\end{table}
+
+The actual risks:
+
+\begin{table}[htdp]
+\caption{Changes in requirments}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 1 \\
+\hline
+\textbf{Activity} & All. \\
+\hline
+\textbf{Risk Factor} & The requirements might change. \\
+\hline
+\textbf{Probability} & 2. \\
+\hline
+\textbf{Consequence} & 4. \\
+\hline
+\textbf{Action taken} & Clarify the requirements and agree on deadlines for any changes that could happen.\\
+\hline
+\textbf{Deadline} & By acceptance of requirements specification. \\
+\hline
+\textbf{Responsible} & Ulf Nore, Customer. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_1}
+\end{table}
 
 
+\begin{table}[htdp]
+\caption{Poorly choosen algorithms}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 2 \\
+\hline
+\textbf{Activity} & Design, implementation.  \\
+\hline
+\textbf{Risk Factor} & The implemented algorithms may not work as intended.\\
+\hline
+\textbf{Probability} & 3. \\
+\hline
+\textbf{Consequence} & 5. \\
+\hline
+\textbf{Action taken} & Research on similar algorithms and projects. \\
+\hline
+\textbf{Deadline} & N/A \\
+\hline
+\textbf{Responsible} & Dimitry Kongevold. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_2}
+\end{table}
+
+\begin{table}[htdp]
+\caption{Problems with policy retrieving}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 3 \\
+\hline
+\textbf{Activity} & Implementation.  \\
+\hline
+\textbf{Risk Factor} & Problems with retrieving data from P3P policies. \\
+\hline
+\textbf{Probability} & 3. \\
+\hline
+\textbf{Consequence} & 5. \\
+\hline
+\textbf{Action taken} & Research into P3P, and cooperate with \newline customer. \\
+\hline
+\textbf{Deadline} & Implementation deadline. \\
+\hline
+\textbf{Responsible} & Einar Afiouni. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_3}
+\end{table}
+
+\begin{table}[htdp]
+\caption{Problems with external storage}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 4 \\
+\hline
+\textbf{Activity} & Implementation. \\
+\hline
+\textbf{Risk Factor} & Problems with storing and/or retrieving data. \\
+\hline
+\textbf{Probability} & 2. \\
+\hline
+\textbf{Consequence} & 3. \\
+\hline
+\textbf{Action taken} & Look into several alternative knowledge base alternatives.  \\
+\hline
+\textbf{Deadline} & End of design phase. \\
+\hline
+\textbf{Responsible} & Amanpreet Kaur. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_4}
+\end{table}
+
+\begin{table}[htdp]
+\caption{Remote server problems}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 5 \\
+\hline
+\textbf{Activity} & Implementation.  \\
+\hline
+\textbf{Risk Factor} & Obtaining remote server space. \\
+\hline
+\textbf{Probability} & 1 \\
+\hline
+\textbf{Consequence} & 3 \\
+\hline
+\textbf{Action taken} & Ask IDI for virtual server. \\
+\hline
+\textbf{Deadline} & End of design phase. \\
+\hline
+\textbf{Responsible} & Nicholas. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_5}
+\end{table}
+
+
+\begin{table}[htdp]
+\caption{Sickness}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 6 \\
+\hline
+\textbf{Activity} & All. \\
+\hline
+\textbf{Risk Factor} & Unable to work due to sickness. \\
+\hline
+\textbf{Probability} & 2. \\
+\hline
+\textbf{Consequence} & 4. \\
+\hline
+\textbf{Action taken} & Plan with some degree of slack. \newline Properly document work so that other members may take over. \\
+\hline
+\textbf{Deadline} & N/A \\
+\hline
+\textbf{Responsible} & Everyone in the group.\\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_6}
+\end{table}
+
+\begin{table}[htdp]
+\caption{3rd party library problems}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 7 \\
+\hline
+\textbf{Activity} & Implementation, testing.  \\
+\hline
+\textbf{Risk Factor} & 3rd party code may be harmful or not work as intended. \\
+\hline
+\textbf{Probability} & 1. \\
+\hline
+\textbf{Consequence} & 3. \\
+\hline
+\textbf{Action taken} & Proper selection criteria and testing routines for selecting 3rd party code. \\
+\hline
+\textbf{Deadline} & End of design phase. \\
+\hline
+\textbf{Responsible} & The responsible for the functionality using 3rd party libraries. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_7}
+\end{table}
+
+\begin{table}[htdp]
+\caption{Risks 8}
+\begin{center}
+\begin{tabularx}{\textwidth}{| X | X |}
+\hline
+\textbf{Risk item} & 8 \\
+\hline
+\textbf{Activity} & All  \\
+\hline
+\textbf{Risk Factor} & Misunderstandings between customer and the group. \\
+\hline
+\textbf{Probability} & 3 \\
+\hline
+\textbf{Consequence} & 3 \\
+\hline
+\textbf{Action taken} & Proper reporting and documentation. \\
+\hline
+\textbf{Deadline} & N/A. \\
+\hline
+\textbf{Responsible} & Ulf Nore, Customer. \\
+\hline
+\end{tabularx}
+\end{center}
+\label{risk_8}
+\end{table}
+\newpage
+
+\section{Measurement of project effects}
+The minimal goal of the project is to develop the core functionality for a system that gives users advise when visiting a web-page. The functional requirments The advise is based on: 
+
+\begin{itemize}
+\item the user’s previous actions
+\item community actions or what similar users have done
+\item context of use
+\end{itemize}
+   
+
+\section{Project Plan}
+As discussed in Section~\ref{phases}, the sequential part of the project is separated into six phases; pre-implementation research, requirement specification, design, implementation and documentation, evaluation, and report writing. The reporting started at the first day of the project and is going to continue until we are finished with the project. We are intending to be finished with the implementation at the end of week 42, which marks a shifting of focus to testing and evaluation. A Gantt diagram is given in Figure~\ref{gantt}.
+
+
+\begin{center}
+\begin{figure}
+\label{gantt}
+\caption{Gantt Diagram.}
+\includegraphics[width=\linewidth]{PlanReport/gantt.jpg}
+\end{figure}
+\end{center}

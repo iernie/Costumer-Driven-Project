@@ -1,50 +1,53 @@
 \BOOKMARK [0][-]{chapter*.2}{Introduction}{}% 1
 \BOOKMARK [0][-]{chapter*.3}{Project Directive}{}% 2
-\BOOKMARK [1][-]{section.0.1}{Purpose}{chapter*.3}% 3
-\BOOKMARK [1][-]{section.0.2}{Mandate}{chapter*.3}% 4
-\BOOKMARK [2][-]{subsection.0.2.1}{Background}{section.0.2}% 5
-\BOOKMARK [1][-]{section.0.3}{Objectives}{chapter*.3}% 6
-\BOOKMARK [1][-]{section.0.4}{Resources and Duration}{chapter*.3}% 7
-\BOOKMARK [1][-]{section.0.5}{Organization}{chapter*.3}% 8
-\BOOKMARK [1][-]{section.0.6}{Planning}{chapter*.3}% 9
-\BOOKMARK [1][-]{section.0.7}{Limitations and Scope}{chapter*.3}% 10
+\BOOKMARK [1][-]{section.1.1}{Purpose}{chapter*.3}% 3
+\BOOKMARK [1][-]{section.1.2}{Mandate}{chapter*.3}% 4
+\BOOKMARK [2][-]{subsection.1.2.1}{Background}{section.1.2}% 5
+\BOOKMARK [1][-]{section.1.3}{Objectives}{chapter*.3}% 6
+\BOOKMARK [1][-]{section.1.4}{Resources and Duration}{chapter*.3}% 7
+\BOOKMARK [1][-]{section.1.5}{Organization}{chapter*.3}% 8
+\BOOKMARK [1][-]{section.1.6}{Planning}{chapter*.3}% 9
+\BOOKMARK [1][-]{section.1.7}{Limitations and Scope}{chapter*.3}% 10
 \BOOKMARK [0][-]{chapter*.4}{Planning Phase}{}% 11
-\BOOKMARK [1][-]{section.0.8}{Purpose}{chapter*.4}% 12
-\BOOKMARK [1][-]{section.0.9}{Development Model}{chapter*.4}% 13
-\BOOKMARK [1][-]{section.0.10}{Phases}{chapter*.4}% 14
-\BOOKMARK [2][-]{subsection.0.10.1}{Planning}{section.0.10}% 15
-\BOOKMARK [2][-]{subsection.0.10.2}{Prestudy and Research}{section.0.10}% 16
-\BOOKMARK [2][-]{subsection.0.10.3}{Requirement Specification}{section.0.10}% 17
-\BOOKMARK [2][-]{subsection.0.10.4}{Design/Architecture}{section.0.10}% 18
-\BOOKMARK [2][-]{subsection.0.10.5}{Implementation}{section.0.10}% 19
-\BOOKMARK [2][-]{subsection.0.10.6}{Evaluation and Documentation}{section.0.10}% 20
-\BOOKMARK [2][-]{subsection.0.10.7}{Ongoing Activities}{section.0.10}% 21
-\BOOKMARK [0][-]{chapter*.7}{Preliminary Study}{}% 22
-\BOOKMARK [1][-]{section.0.11}{Introduction}{chapter*.7}% 23
-\BOOKMARK [0][-]{chapter*.8}{Requirements Specification}{}% 24
-\BOOKMARK [1][-]{section.0.12}{Purpose}{chapter*.8}% 25
-\BOOKMARK [1][-]{section.0.13}{Introduction}{chapter*.8}% 26
-\BOOKMARK [2][-]{subsection.0.13.1}{Background and Similar Software}{section.0.13}% 27
-\BOOKMARK [2][-]{subsection.0.13.2}{Scope}{section.0.13}% 28
-\BOOKMARK [2][-]{subsection.0.13.3}{Overview}{section.0.13}% 29
-\BOOKMARK [1][-]{section.0.14}{Overall Description}{chapter*.8}% 30
-\BOOKMARK [2][-]{subsection.0.14.1}{System Description}{section.0.14}% 31
-\BOOKMARK [2][-]{subsection.0.14.2}{User Interface}{section.0.14}% 32
-\BOOKMARK [2][-]{subsection.0.14.3}{Hardware and Software Interface}{section.0.14}% 33
-\BOOKMARK [2][-]{subsection.0.14.4}{User Characteristic}{section.0.14}% 34
-\BOOKMARK [1][-]{section.0.15}{Use Cases}{chapter*.8}% 35
-\BOOKMARK [1][-]{section.0.16}{Specific Requirements}{chapter*.8}% 36
-\BOOKMARK [2][-]{subsection.0.16.1}{Product perspective}{section.0.16}% 37
-\BOOKMARK [2][-]{subsection.0.16.2}{Functional Requirements}{section.0.16}% 38
-\BOOKMARK [2][-]{subsection.0.16.3}{Non-Functional Requirements}{section.0.16}% 39
-\BOOKMARK [0][-]{chapter*.15}{Design}{}% 40
-\BOOKMARK [1][-]{section.0.17}{Purpose}{chapter*.15}% 41
-\BOOKMARK [1][-]{section.0.18}{Development Tools and Technologies}{chapter*.15}% 42
-\BOOKMARK [2][-]{subsection.0.18.1}{Documents and Source Code Repositories}{section.0.18}% 43
-\BOOKMARK [2][-]{subsection.0.18.2}{Programming Languages}{section.0.18}% 44
-\BOOKMARK [2][-]{subsection.0.18.3}{Databases}{section.0.18}% 45
-\BOOKMARK [2][-]{subsection.0.18.4}{Third Party Libraries}{section.0.18}% 46
-\BOOKMARK [1][-]{section.0.19}{Standards}{chapter*.15}% 47
-\BOOKMARK [1][-]{section.0.20}{Architecture}{chapter*.15}% 48
-\BOOKMARK [0][-]{chapter*.19}{Short Title}{}% 49
-\BOOKMARK [1][-]{section.0.21}{Introduction}{chapter*.19}% 50
+\BOOKMARK [1][-]{section.2.1}{Purpose}{chapter*.4}% 12
+\BOOKMARK [1][-]{section.2.2}{Development Model}{chapter*.4}% 13
+\BOOKMARK [1][-]{section.2.3}{Phases}{chapter*.4}% 14
+\BOOKMARK [2][-]{subsection.2.3.1}{Planning}{section.2.3}% 15
+\BOOKMARK [2][-]{subsection.2.3.2}{Prestudy and Research}{section.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.3.3}{Requirement Specification}{section.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.3.4}{Design/Architecture}{section.2.3}% 18
+\BOOKMARK [2][-]{subsection.2.3.5}{Implementation}{section.2.3}% 19
+\BOOKMARK [2][-]{subsection.2.3.6}{Evaluation and Documentation}{section.2.3}% 20
+\BOOKMARK [2][-]{subsection.2.3.7}{Ongoing Activities}{section.2.3}% 21
+\BOOKMARK [1][-]{section.2.4}{Risk Report}{chapter*.4}% 22
+\BOOKMARK [1][-]{section.2.5}{Measurement of project effects}{chapter*.4}% 23
+\BOOKMARK [1][-]{section.2.6}{Project Plan}{chapter*.4}% 24
+\BOOKMARK [0][-]{chapter*.7}{Preliminary Study}{}% 25
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter*.7}% 26
+\BOOKMARK [0][-]{chapter*.8}{Requirements Specification}{}% 27
+\BOOKMARK [1][-]{section.4.1}{Purpose}{chapter*.8}% 28
+\BOOKMARK [1][-]{section.4.2}{Introduction}{chapter*.8}% 29
+\BOOKMARK [2][-]{subsection.4.2.1}{Background and Similar Software}{section.4.2}% 30
+\BOOKMARK [2][-]{subsection.4.2.2}{Scope}{section.4.2}% 31
+\BOOKMARK [2][-]{subsection.4.2.3}{Overview}{section.4.2}% 32
+\BOOKMARK [1][-]{section.4.3}{Overall Description}{chapter*.8}% 33
+\BOOKMARK [2][-]{subsection.4.3.1}{System Description}{section.4.3}% 34
+\BOOKMARK [2][-]{subsection.4.3.2}{User Interface}{section.4.3}% 35
+\BOOKMARK [2][-]{subsection.4.3.3}{Hardware and Software Interface}{section.4.3}% 36
+\BOOKMARK [2][-]{subsection.4.3.4}{User Characteristic}{section.4.3}% 37
+\BOOKMARK [1][-]{section.4.4}{Use Cases}{chapter*.8}% 38
+\BOOKMARK [1][-]{section.4.5}{Specific Requirements}{chapter*.8}% 39
+\BOOKMARK [2][-]{subsection.4.5.1}{Product perspective}{section.4.5}% 40
+\BOOKMARK [2][-]{subsection.4.5.2}{Functional Requirements}{section.4.5}% 41
+\BOOKMARK [2][-]{subsection.4.5.3}{Non-Functional Requirements}{section.4.5}% 42
+\BOOKMARK [0][-]{chapter*.15}{Design}{}% 43
+\BOOKMARK [1][-]{section.5.1}{Purpose}{chapter*.15}% 44
+\BOOKMARK [1][-]{section.5.2}{Development Tools and Technologies}{chapter*.15}% 45
+\BOOKMARK [2][-]{subsection.5.2.1}{Documents and Source Code Repositories}{section.5.2}% 46
+\BOOKMARK [2][-]{subsection.5.2.2}{Programming Languages}{section.5.2}% 47
+\BOOKMARK [2][-]{subsection.5.2.3}{Databases}{section.5.2}% 48
+\BOOKMARK [2][-]{subsection.5.2.4}{Third Party Libraries}{section.5.2}% 49
+\BOOKMARK [1][-]{section.5.3}{Standards}{chapter*.15}% 50
+\BOOKMARK [1][-]{section.5.4}{Architecture}{chapter*.15}% 51
+\BOOKMARK [0][-]{chapter*.19}{Evaluation}{}% 52
+\BOOKMARK [1][-]{section.6.1}{Purpose}{chapter*.19}% 53
