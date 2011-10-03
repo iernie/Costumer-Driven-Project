@@ -44,6 +44,11 @@
 \frontmatter
 \maketitle
 
+\chapter*{\centering Abstract}
+Here goes the abstract..
+
+
+
 \dominitoc
 
 \listoftables
@@ -52,10 +57,12 @@
 
 \pagenumbering{arabic}
 
+
 \chapter{Introduction}
 
 Bla. blabla
 
+\part{Project Directive and Planning}
 \addtocounter{chapter}{1}
 \setcounter{section}{0}
 \include{ProjectDirective/ProjectDirective}
@@ -72,6 +79,7 @@ Bla. blabla
 \addtocounter{chapter}{1}
 \include{ReqSpec/ReqSpec}
 
+\part{Design and Evaluation}
 \setcounter{section}{0}
 \addtocounter{chapter}{1}
 \include{DesignReport/DesignReport}
@@ -81,7 +89,7 @@ Bla. blabla
 \include{Evaluation/Evaluation}
 
 % Appendices
-
+\part{Appendices}
 \appendix
 \Alph{chapter}
 \setcounter{chapter}{1}
