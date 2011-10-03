@@ -95,7 +95,7 @@ class Case {
 		return categories.get(i);
 	}
 	
-	public String getDataTypes()
+	public String getDataType()
 	{
 		return datatype;
 	}
