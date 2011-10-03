@@ -9,7 +9,8 @@ import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
 
 
-/*  to load a new database from a folder, but not use cbr on a new object. overwrites old db (-n option)
+/*  OLD-> see descriptors for correct actions. 
+ * to load a new database from a folder, but not use cbr on a new object. overwrites old db (-n option)
  *  ./PrivacyAdvisor -b -f -n ./new_policy_history [-c config_file_location][-w weight_config_file_loc][-d db_file_location]
  *  to compare policy stored in p.txt, assuming config in default location is valid and used
  *  ./PrivacyAdvisor -T p.txt
@@ -58,7 +59,7 @@ public class Gio {
 		options.addOption("outDB", true, "output database file location");
 		options.addOption("histPolicy", true, "adding to DB: single policy file location");
 		options.addOption("histPolicyDir", true, "adding to DB: multiple policy directory location");
-		options.addOption("newDB", true, "create new database in place of old one (doesn't check for existence of old one");
+		options.addOption("newDB", false, "create new database in place of old one (doesn't check for existence of old one");
 		options.addOption("p", true, "the policy object to process");
 		options.addOption("r", true,"response to specified policy"); 
 		options.addOption("userIO",true,"user interface");
@@ -103,11 +104,22 @@ public class Gio {
 		newDB= cmd.hasOption("newDB");
 		p3pDirLocation = cmd.getOptionValue("histPolicyDir");
 		p3pLocation = cmd.getOptionValue("histPolicy");
-		newPolLoc = cmd.getOptionValue("p");
+		if(cmd.hasOption("p"))
+		{
+			newPolLoc = cmd.getOptionValue("p");
+			building = false;
+		}
+		else
+		{
+			building = true;
+		}
 		if(cmd.hasOption("r"))
 		{
 			userResponse = parseAct(cmd.getOptionValue("r"));
 		}
+	
+		
+		
 		userInterface = selectUI(cmd.getOptionValue("userIO"));
 		pdb = selectPDB(cmd.getOptionValue("policyDB"));
 		cbr = parseCBR(cmd.getOptionValue("cbrV"));
@@ -120,14 +132,6 @@ public class Gio {
 		if(!(building=(cmd.hasOption("b")))) //only build, nothing else
 		{
 			newPolLoc = cmd.getOptionValue("t");
-		}
-		if(!cmd.hasOption("p"))
-		{
-			building = true;
-		}
-		else
-		{
-			building = false;
 		}
 		
 	}
@@ -189,6 +193,7 @@ public class Gio {
 				System.exit(3);
 			}
 			configFile.load(is);
+			is.close();
 		}
 		catch (IOException e) 
 		{
@@ -222,11 +227,15 @@ public class Gio {
 		}
 		if(p3pLocation == null)
 		{
-			p3pLocation = configFile.getProperty("");;
+			p3pLocation = configFile.getProperty("newP3P");;
 		}
 		if(pdb == null)
 		{
 			pdb = selectPDB(configFile.getProperty("PolicyDB"));
+		}
+		else
+		{
+			pdb = selectPDB("default");
 		}
 		if(newDB == false)
 		{
@@ -269,6 +278,7 @@ public class Gio {
 
 		try 
 		{
+			newWeights = new Properties();
 			File localConfig = new File(inWeightsLoc);
 			InputStream is = null;
 			if(localConfig.exists())
@@ -277,10 +287,13 @@ public class Gio {
 			}
 			else
 			{
-				System.err.println("No weights file is available at "+inWeightsLoc+" . Please place one in the working directory.");
+				System.err.println("No weights file is available at "+System.getProperty("user.dir")+inWeightsLoc+" . Please place one in the working directory.");
 				System.exit(3);
 			}
 			newWeights.load(is);
+			is.close();
+
+			
 		} 
 		catch (IOException e) 
 		{
@@ -338,6 +351,10 @@ public class Gio {
 		if(!newDB)
 		{
 			pdb.loadDB();
+		}
+		else
+		{
+			pdb = PDatabase.getInstance(inDBLoc, outDBLoc);
 		}
 		loadCLPolicies();
 	}

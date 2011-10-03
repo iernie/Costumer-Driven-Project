@@ -44,23 +44,60 @@
 \frontmatter
 \maketitle
 
+\chapter*{\centering Abstract}
+Here goes the abstract..
+
+
+
 \dominitoc
+
+\listoftables
+\listoffigures
 \tableofcontents
+
+\pagenumbering{arabic}
+
 
 \chapter{Introduction}
 
 Bla. blabla
 
+\part{Project Directive and Planning}
+\addtocounter{chapter}{1}
+\setcounter{section}{0}
 \include{ProjectDirective/ProjectDirective}
+
+\setcounter{section}{0}
+\addtocounter{chapter}{1}
 \include{PlanReport/PlanReport}
+
+\setcounter{section}{0}
+\addtocounter{chapter}{1}
 \include{PrelimStudy/PrelimReport}
+
+\setcounter{section}{0}
+\addtocounter{chapter}{1}
 \include{ReqSpec/ReqSpec}
+
+\part{Design and Evaluation}
+\setcounter{section}{0}
+\addtocounter{chapter}{1}
 \include{DesignReport/DesignReport}
-\include{Testing/TestPlan}
 
+\setcounter{section}{0}
+\addtocounter{chapter}{1}
+\include{Evaluation/Evaluation}
 
-\bibliographystyle{plain-annote}
-\bibliography{mybibliography}
+% Appendices
+\part{Appendices}
+\appendix
+\Alph{chapter}
+\setcounter{chapter}{1}
+\include{Appendix/TestPlan}
+\include{Appendix/Templates}
+
+%\bibliographystyle{plain-annote}
+%\bibliography{mybibliography}
 
 
 \end{document}

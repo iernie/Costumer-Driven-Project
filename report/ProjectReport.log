@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  29 SEP 2011 08:56
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  3 OCT 2011 12:21
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -323,7 +323,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (./ProjectReport.aux (./ProjectDirective/ProjectDirective.aux)
 (./PlanReport/PlanReport.aux) (./PrelimStudy/PrelimReport.aux)
 (./ReqSpec/ReqSpec.aux) (./DesignReport/DesignReport.aux)
-(./Testing/TestPlan.aux))
+(./Evaluation/Evaluation.aux) (./Appendix/TestPlan.aux)
+(./Appendix/Templates.aux))
 \openout1 = `ProjectReport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
@@ -455,10 +456,12 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 
 
-{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+]
 Package minitoc Info: I0024
-(minitoc)             PREPARING MINITOCS FROM ProjectReport.toc on input line 4
-8.
+(minitoc)             PREPARING MINITOCS FROM ProjectReport.toc on input line 5
+3.
 Package minitoc Info: I0033
 (minitoc)             Writing ProjectReport.mtc1.
 \openout3 = `ProjectReport.mtc1'.
@@ -487,118 +490,54 @@ Package minitoc Info: I0033
 (minitoc)             Writing ProjectReport.mtc7.
 \openout3 = `ProjectReport.mtc7'.
 
- [2
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc8.
+\openout3 = `ProjectReport.mtc8'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc9.
+\openout3 = `ProjectReport.mtc9'.
+
+ [3] [4
 
 ]
-(./ProjectReport.toc
-Overfull \hbox (0.66916pt too wide) detected at line 25
- []\OT1/cmr/m/n/10.95 xvii
- []
+(./ProjectReport.lot)
+\tf@lot=\write5
+\openout5 = `ProjectReport.lot'.
 
-[3]
-Overfull \hbox (0.66916pt too wide) detected at line 35
- []\OT1/cmr/m/n/10.95 xxii
- []
+ [5] [6
 
+] (./ProjectReport.lof)
+\tf@lof=\write6
+\openout6 = `ProjectReport.lof'.
 
-Overfull \hbox (0.66916pt too wide) detected at line 36
- []\OT1/cmr/m/n/10.95 xxii
- []
-
-
-Overfull \hbox (0.66916pt too wide) detected at line 39
- []\OT1/cmr/m/n/10.95 xxii
- []
-
-
-Overfull \hbox (3.40668pt too wide) detected at line 40
- []\OT1/cmr/m/n/10.95 xxiv
- []
-
-
-Overfull \hbox (3.40668pt too wide) detected at line 41
- []\OT1/cmr/m/n/10.95 xxiv
- []
-
-
-Overfull \hbox (3.40668pt too wide) detected at line 42
- []\OT1/cmr/m/n/10.95 xxiv
- []
-
-
-Overfull \hbox (0.365pt too wide) detected at line 43
- []\OT1/cmr/m/n/10.95 xxv
- []
-
-
-Overfull \hbox (6.44835pt too wide) detected at line 45
- []\OT1/cmr/m/n/10.95 xxvii
- []
-
-
-Overfull \hbox (6.44835pt too wide) detected at line 46
- []\OT1/cmr/m/n/10.95 xxvii
- []
-
-
-Overfull \hbox (9.49002pt too wide) detected at line 47
- []\OT1/cmr/m/n/10.95 xxviii
- []
-
-
-Overfull \hbox (9.49002pt too wide) detected at line 48
- []\OT1/cmr/m/n/10.95 xxviii
- []
-
-
-Overfull \hbox (9.49002pt too wide) detected at line 49
- []\OT1/cmr/m/n/10.95 xxviii
- []
-
-
-Overfull \hbox (9.49002pt too wide) detected at line 50
- []\OT1/cmr/m/n/10.95 xxviii
- []
-
-
-Overfull \hbox (3.40668pt too wide) detected at line 54
- []\OT1/cmr/m/n/10.95 xxix
- []
-
-
-Overfull \hbox (0.365pt too wide) detected at line 55
- []\OT1/cmr/m/n/10.95 xxx
- []
-
-
-Overfull \hbox (3.40668pt too wide) detected at line 57
- []\OT1/cmr/m/n/10.95 xxxi
- []
-
-)
-\tf@toc=\write5
-\openout5 = `ProjectReport.toc'.
-
- [4] [5
+ [7] [8
 
 ]
+(./ProjectReport.toc [9] [10])
+\tf@toc=\write7
+\openout7 = `ProjectReport.toc'.
+
+ [1] [2
+
+] [3] [4
+
+] [5] [6]
 \openout2 = `ProjectDirective/ProjectDirective.aux'.
 
- (./ProjectDirective/ProjectDirective.tex [6
 
-
-]
+(./ProjectDirective/ProjectDirective.tex
 \openout3 = `ProjectReport.mtc'.
 
 \openout3 = `ProjectReport.mtc'.
 
 
-Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
+Overfull \hbox (30.0pt too wide) in paragraph at lines 8--8
 [][][]  
  []
 
 (./ProjectReport.mtc2)
-Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
+Overfull \hbox (30.0pt too wide) in paragraph at lines 8--8
 [][]  
  []
 
@@ -608,38 +547,41 @@ Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no Õ in font cmr10!
-[7]
+[7
+
+
+]
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 22.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 20.
  (/usr/local/texlive/2010/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 20.
 Missing character: There is no Õ in font cmr10!
 Missing character: There is no ¿ in font cmr10!
  [8]
-Underfull \hbox (badness 6063) in paragraph at lines 85--85
+<ProjectDirective/Org.png, id=476, 722.7pt x 542.025pt>
+File: ProjectDirective/Org.png Graphic file (type png)
+
+<use ProjectDirective/Org.png>
+Underfull \hbox (badness 6063) in paragraph at lines 97--97
 []|\OT1/cmr/m/n/10.95 CBR - Al-go-rithms and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--85
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
 []|\OT1/cmr/m/n/10.95 Criteria/methodology for
  []
 
 Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
-) [9] [10] [11]
+) [9] [10 <./ProjectDirective/Org.png>] [11] [12]
 \openout2 = `PlanReport/PlanReport.aux'.
 
- (./PlanReport/PlanReport.tex [12
-
-
-
-]
+ (./PlanReport/PlanReport.tex
 \openout3 = `ProjectReport.mtc'.
 
 \openout3 = `ProjectReport.mtc'.
@@ -654,16 +596,32 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 [][]  
  []
 
-[13] [14]
+[13
+
+
+
+] [14]
 Missing character: There is no Õ in font cmr10!
-) [15]
+ [15]
+Underfull \hbox (badness 1102) in paragraph at lines 102--102
+[]|\OT1/cmr/m/n/10.95 Clarify the re-quire-ments and agree on
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+[]|\OT1/cmr/m/n/10.95 Research on sim-i-lar al-go-rithms and
+ []
+
+[16] [17] [18]
+Missing character: There is no ’ in font cmr10!
+ <PlanReport/gantt.jpg, id=542, 1475.5125pt x 1102.1175pt>
+File: PlanReport/gantt.jpg Graphic file (type jpg)
+
+<use PlanReport/gantt.jpg>) [19] [20 <./PlanReport/gantt.jpg>]
 \openout2 = `PrelimStudy/PrelimReport.aux'.
 
- (./PrelimStudy/PrelimReport.tex [16
 
-
-
-]
+(./PrelimStudy/PrelimReport.tex
 \openout3 = `ProjectReport.mtc'.
 
 \openout3 = `ProjectReport.mtc'.
@@ -673,20 +631,25 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 [][][]  
  []
 
-(./ProjectReport.mtc4
-Overfull \hbox (0.70274pt too wide) detected at line 1
- []\OT1/cmr/bx/n/10 xvii
- []
-
-)
+(./ProjectReport.mtc4)
 Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 [][]  
  []
 
-) [17]
+Missing character: There is no ¿ in font cmr10!
+Missing character: There is no ¿ in font cmr10!
+[21
+
+
+
+] [22] <PrelimStudy/workflow.png, id=565, 722.7pt x 542.025pt>
+File: PrelimStudy/workflow.png Graphic file (type png)
+
+<use PrelimStudy/workflow.png>) [23 <./PrelimStudy/workflow.png>]
 \openout2 = `ReqSpec/ReqSpec.aux'.
 
- (./ReqSpec/ReqSpec.tex [18
+
+(./ReqSpec/ReqSpec.tex [24
 
 
 
@@ -700,47 +663,12 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 8--8
 [][][]  
  []
 
-(./ProjectReport.mtc5
-Overfull \hbox (0.61113pt too wide) detected at line 9
- []\OT1/cmr/m/n/10 xxii
- []
-
-
-Overfull \hbox (0.61113pt too wide) detected at line 10
- []\OT1/cmr/m/n/10 xxii
- []
-
-
-Overfull \hbox (0.70274pt too wide) detected at line 13
- []\OT1/cmr/bx/n/10 xxii
- []
-
-
-Overfull \hbox (3.57773pt too wide) detected at line 14
- []\OT1/cmr/bx/n/10 xxiv
- []
-
-
-Overfull \hbox (3.11115pt too wide) detected at line 15
- []\OT1/cmr/m/n/10 xxiv
- []
-
-
-Overfull \hbox (3.11115pt too wide) detected at line 16
- []\OT1/cmr/m/n/10 xxiv
- []
-
-
-Overfull \hbox (0.33336pt too wide) detected at line 17
- []\OT1/cmr/m/n/10 xxv
- []
-
-)
+(./ProjectReport.mtc5)
 Overfull \hbox (30.0pt too wide) in paragraph at lines 8--8
 [][]  
  []
 
-[19]
+[25]
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no Õ in font cmr10!
 Missing character: There is no Õ in font cmr10!
@@ -750,12 +678,12 @@ Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
 Missing character: There is no Õ in font cmr10!
 Missing character: There is no ¿ in font cmr10!
- [20]
+ [26]
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¿ in font cmr10!
- [21] [22]
+ [27] [28]
 Missing character: There is no Ð in font cmbx12!
 
 Overfull \hbox (2.8675pt too wide) in paragraph at lines 74--74
@@ -769,8 +697,8 @@ Missing character: There is no Ð in font cmbx12!
 
 Underfull \vbox (badness 1331) has occurred while \output is active []
 
- [23]
-[24]
+ [29]
+[30]
 Missing character: There is no Õ in font cmr10!
 
 Overfull \hbox (192.95865pt too wide) in paragraph at lines 110--111
@@ -778,14 +706,13 @@ Overfull \hbox (192.95865pt too wide) in paragraph at lines 110--111
 n-ven-tions (http://www.oracle.com/technetwork/java/codeconvtoc-
  []
 
-) [25]
+) [31] [32
+
+
+] [33] [34]
 \openout2 = `DesignReport/DesignReport.aux'.
 
- (./DesignReport/DesignReport.tex [26
-
-
-
-]
+ (./DesignReport/DesignReport.tex
 \openout3 = `ProjectReport.mtc'.
 
 \openout3 = `ProjectReport.mtc'.
@@ -795,110 +722,110 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 [][][]  
  []
 
-(./ProjectReport.mtc6
-Overfull \hbox (6.77216pt too wide) detected at line 1
- []\OT1/cmr/bx/n/10 xxvii
- []
-
-
-Overfull \hbox (6.77216pt too wide) detected at line 2
- []\OT1/cmr/bx/n/10 xxvii
- []
-
-
-Overfull \hbox (8.66672pt too wide) detected at line 3
- []\OT1/cmr/m/n/10 xxviii
- []
-
-
-Overfull \hbox (8.66672pt too wide) detected at line 4
- []\OT1/cmr/m/n/10 xxviii
- []
-
-
-Overfull \hbox (8.66672pt too wide) detected at line 5
- []\OT1/cmr/m/n/10 xxviii
- []
-
-
-Overfull \hbox (8.66672pt too wide) detected at line 6
- []\OT1/cmr/m/n/10 xxviii
- []
-
-
-Overfull \hbox (3.57773pt too wide) detected at line 10
- []\OT1/cmr/bx/n/10 xxix
- []
-
-
-Overfull \hbox (0.3833pt too wide) detected at line 11
- []\OT1/cmr/bx/n/10 xxx
- []
-
-)
+(./ProjectReport.mtc6)
 Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 [][]  
  []
 
-[27] [28]
+[35
+
+
+] [36]
 Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
 Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
- [29]
+ [37]
 Missing character: There is no ¿ in font cmr10!
-) [30]
-\openout2 = `Testing/TestPlan.aux'.
+) [38]
+\openout2 = `Evaluation/Evaluation.aux'.
 
- (./Testing/TestPlan.tex) [31
+ (./Evaluation/Evaluation.tex) [39
 
 
 
-]
-No file ProjectReport.bbl.
+] [40
+
+
+] [41] [42]
+\openout2 = `Appendix/TestPlan.aux'.
+
+
+(./Appendix/TestPlan.tex
+Missing character: There is no Ç in font cmr10!
+Missing character: There is no È in font cmr10!
+Missing character: There is no Ð in font cmr10!
+ [43
+
+
+] [44]) [45]
+\openout2 = `Appendix/Templates.aux'.
+
+ (./Appendix/Templates.tex [46
+
+
+
+])
+[47]
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the ProjectReport.maf file.
 \openout3 = `ProjectReport.maf'.
 
 
+
 Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the ProjectReport.log file.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 66.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 66.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 103.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 103.
 (./ProjectReport.aux (./ProjectDirective/ProjectDirective.aux)
 (./PlanReport/PlanReport.aux) (./PrelimStudy/PrelimReport.aux)
 (./ReqSpec/ReqSpec.aux) (./DesignReport/DesignReport.aux)
-(./Testing/TestPlan.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 66.
-Package rerunfilecheck Info: File `ProjectReport.out' has not changed.
-(rerunfilecheck)             Checksum: 95DF6999973804D09E319D3F5E3D741A;3308.
+(./Evaluation/Evaluation.aux) (./Appendix/TestPlan.aux)
+(./Appendix/Templates.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 103.
+
+
+Package rerunfilecheck Warning: File `ProjectReport.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `ProjectReport.out':
+(rerunfilecheck)             Before: D8226A40A6723A761E9AFC0826FC3E11;4571
+(rerunfilecheck)             After:  7430E585F7FFED069A40101B3068E110;4683.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 7390 strings out of 493747
- 107798 string characters out of 3143546
- 212809 words of memory out of 3000000
- 10192 multiletter control sequences out of 15000+200000
- 16031 words of font info for 62 fonts, out of 3000000 for 9000
+ 7545 strings out of 493747
+ 109630 string characters out of 3143546
+ 226389 words of memory out of 3000000
+ 10243 multiletter control sequences out of 15000+200000
+ 16983 words of font info for 65 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,10n,30p,904b,400s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
-local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loc
-al/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
-texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/tex
-live/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texl
-ive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ProjectReport.pdf (31 pages, 186409 bytes).
+ 41i,10n,30p,1064b,400s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{section.6.1} has been referenced but does not exi
+st, replaced by a fixed one
+
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
+/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
+usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/lo
+cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
+/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
+xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texli
+ve/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texliv
+e/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
+/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
+2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on ProjectReport.pdf (57 pages, 566777 bytes).
 PDF statistics:
- 516 PDF objects out of 1000 (max. 8388607)
- 467 compressed objects within 5 object streams
- 97 named destinations out of 1000 (max. 500000)
- 401 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 791 PDF objects out of 1000 (max. 8388607)
+ 707 compressed objects within 8 object streams
+ 160 named destinations out of 1000 (max. 500000)
+ 576 words of extra memory for PDF output out of 10000 (max. 10000000)
 

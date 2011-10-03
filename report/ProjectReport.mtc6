@@ -1,11 +1,11 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {0.17}Purpose}{\reset@font\mtcSfont xxvii}{section.0.17}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {0.18}Development Tools and Technologies}{\reset@font\mtcSfont xxvii}{section.0.18}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {0.18.1}Documents and Source Code Repositories}{\reset@font\mtcSSfont xxviii}{subsection.0.18.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {0.18.2}Programming Languages}{\reset@font\mtcSSfont xxviii}{subsection.0.18.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {0.18.3}Databases}{\reset@font\mtcSSfont xxviii}{subsection.0.18.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {0.18.4}Third Party Libraries}{\reset@font\mtcSSfont xxviii}{subsection.0.18.4}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Third Party CBR System}{\reset@font\mtcSSSfont xxix}{section*.16}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Third Party k Nearest Neighbors Implementations}{\reset@font\mtcSSSfont xxix}{section*.17}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode XML Parser}{\reset@font\mtcSSSfont xxix}{section*.18}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {0.19}Standards}{\reset@font\mtcSfont xxix}{section.0.19}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {0.20}Architecture}{\reset@font\mtcSfont xxx}{section.0.20}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.1}Purpose}{\reset@font\mtcSfont 31}{section.5.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.2}Development Tools and Technologies}{\reset@font\mtcSfont 31}{section.5.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.1}Documents and Source Code Repositories}{\reset@font\mtcSSfont 32}{subsection.5.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.2}Programming Languages}{\reset@font\mtcSSfont 32}{subsection.5.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.3}Databases}{\reset@font\mtcSSfont 32}{subsection.5.2.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.4}Third Party Libraries}{\reset@font\mtcSSfont 32}{subsection.5.2.4}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Third Party CBR System}{\reset@font\mtcSSSfont 33}{section*.19}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Third Party k Nearest Neighbors Implementations}{\reset@font\mtcSSSfont 33}{section*.20}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode P3P/XML Parser}{\reset@font\mtcSSSfont 33}{section*.21}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.3}Standards}{\reset@font\mtcSfont 34}{section.5.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.4}Architecture}{\reset@font\mtcSfont 34}{section.5.4}}

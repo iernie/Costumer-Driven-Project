@@ -29,7 +29,6 @@ For testing purposes, it has been decided on using flat file storage of privacy 
  
 For developing the CBR as well as P3P parsing components of the Privacy Advisor, a decision had to be made regarding the usage of third party libraries, either for components or for the entire CBR system. We basically considered two options with respect to the CBR system, the first was to use a full third party CBR system (jColibri) and the second was to use a third party system for the retrieval component of the CBR system (i.e. a k Nearest Neighbors (kNN) implementation).
 
-
 \subsubsection{Third Party CBR System}
 The customer (SINTEF ICT) suggested looking into an open source CBR library developed at the Universidad Complutense de Madrid.
  
@@ -42,8 +41,10 @@ Since kNN is a standard classification algorithm, there are several open source 
  
 The problem with this library relates to the nature of distance metrics used in classifying privacy policies which is compositional in a way that is non-trivial to handle in JavaML. Furthermore, JavaML seems to operate only on arrays of floating point numbers, which means the distance metric must be defined in two stages; first mapping from “policy domain” to real numbers, then in terms of a metric on real vectors.
 
-\subsubsection{XML Parser}
-???
+\subsubsection{P3P/XML Parser}
+Looking for XML parsers on the Java platform, we found out that there are two different types of XML parsers we could use, the first being a DOM Parsers and the second one being a sequential access parser. The difference being that DOM parsers operate on the document as a whole, while sequential access parsers operates on each piece of the XML document sequentually.
+
+We ended up using SAXParser, an internal sequential access parsers in Java. The task from here was to implement it, making the policy as an object with the fields of our choosing. It works by sequentially going through all elements of the XML document, and with easy string comparison, checking if the element is of the wanted ones.
 
 \section{Standards}
 To achieve clean and reusable code, the project has adopted Oracle's Coding Conventions for the Java Programming Language\footnote{http://www.oracle.com/technetwork/java/codeconvtoc-136057.html}. This is mentioned in the requirements specification due to the high likelihood of the customer having to change the source code for later adaptations.

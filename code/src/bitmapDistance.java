@@ -17,9 +17,43 @@ import java.util.Properties;
  */
 public class bitmapDistance implements DistanceMetric{
 	private static Properties weightsConfig;
+	private double ours, delivery, same, other_recipient, unrelated, pub;
+	private double current, admin, develop, tailoring, pseudo_analysis, pseudo_decision;
+	private double individual_analysis, individual_decision, contact, historical, telemarketing, other_purpose;
+	private double no_retention, stated_purpose, legal_requirement, business_practices, indefinitely;
 	
 	bitmapDistance(Properties weights){
 		weightsConfig = weights;
+		}
+	
+	private void setWeights(){
+		//recipients
+		ours=Double.parseDouble(weightsConfig.getProperty("ours"));
+		delivery=Double.parseDouble(weightsConfig.getProperty("delivery"));
+		same=Double.parseDouble(weightsConfig.getProperty("same"));
+		other_recipient=Double.parseDouble(weightsConfig.getProperty("other_recipient"));
+		unrelated=Double.parseDouble(weightsConfig.getProperty("unrelated"));
+		pub=Double.parseDouble(weightsConfig.getProperty("public"));
+		//purpose
+		current=Double.parseDouble(weightsConfig.getProperty("current"));
+		admin=Double.parseDouble(weightsConfig.getProperty("admin"));
+		develop= Double.parseDouble(weightsConfig.getProperty("develop"));
+		tailoring=Double.parseDouble(weightsConfig.getProperty("tailoring"));
+		pseudo_analysis=Double.parseDouble(weightsConfig.getProperty("pseudo_analysis"));
+		pseudo_decision=Double.parseDouble(weightsConfig.getProperty("pseudo_decision"));
+		individual_analysis=Double.parseDouble(weightsConfig.getProperty("individual_analysis"));
+		individual_decision=Double.parseDouble(weightsConfig.getProperty("individual_decision"));
+		contact=Double.parseDouble(weightsConfig.getProperty("contact"));
+		historical=Double.parseDouble(weightsConfig.getProperty("historical"));
+		telemarketing=Double.parseDouble(weightsConfig.getProperty("telemarketing"));
+		other_purpose=Double.parseDouble(weightsConfig.getProperty("other_purpose"));
+		//retention
+		no_retention=Double.parseDouble(weightsConfig.getProperty("no_retention"));
+		stated_purpose=Double.parseDouble(weightsConfig.getProperty("stated_purpose"));
+		legal_requirement=Double.parseDouble(weightsConfig.getProperty("legal_requirement"));
+		business_practices=Double.parseDouble(weightsConfig.getProperty("business_practices"));
+		indefinitely=Double.parseDouble(weightsConfig.getProperty("indefinitely"));
+		
 	}
 	
 	/**
@@ -32,28 +66,29 @@ public class bitmapDistance implements DistanceMetric{
 	 * @return Map as bitmap
 	 */
 	
+	
 	private double[] MakeRecipMap(ArrayList<Recipient> list){
 		double[] Map = new double[6];
 		for(int d=0;d<6;d++)Map[d]=0;
 		for(int i=0;i<list.size();i++){
 			switch (list.get(i)){
 			case OURS: //weights can come in here 2
-				Map[0]= Double.parseDouble(weightsConfig.getProperty("ours"));
+				Map[0]= ours;
 				break;
 			case DELIVERY:			
-				Map[1]=Double.parseDouble(weightsConfig.getProperty("delivery"));
+				Map[1]=delivery;
 				break;
 			case SAME:
-				Map[2]=Double.parseDouble(weightsConfig.getProperty("same"));
+				Map[2]=same;
 				break;
 			case OTHER_RECIPIENT:
-				Map[3]=Double.parseDouble(weightsConfig.getProperty("other_recipient"));
+				Map[3]=other_recipient;
 				break;
 			case UNRELATED:
-				Map[4]=Double.parseDouble(weightsConfig.getProperty("unrelated"));
+				Map[4]=unrelated;
 				break;
 			case PUBLIC:
-				Map[5]=Double.parseDouble(weightsConfig.getProperty("public"));
+				Map[5]=pub;
 				break;
 			default:break;
 			}
@@ -76,40 +111,40 @@ public class bitmapDistance implements DistanceMetric{
 		for(int i=0;i<list.size();i++){
 			switch (list.get(i)){
 			case CURRENT:
-				Map[0]=Double.parseDouble(weightsConfig.getProperty("current"));
+				Map[0]=current;
 				break;
 			case ADMIN:
-				Map[1]=Double.parseDouble(weightsConfig.getProperty("admin"));
+				Map[1]=admin;
 				break;
 			case DEVELOP:
-				Map[2]=Double.parseDouble(weightsConfig.getProperty("develop"));
+				Map[2]=develop;
 				break;
 			case TAILORING:
-				Map[3]=Double.parseDouble(weightsConfig.getProperty("tailoring"));
+				Map[3]=tailoring;
 				break;
 			case PSEUDO_ANALYSIS:
-				Map[4]=Double.parseDouble(weightsConfig.getProperty("pseudo_analysys"));
+				Map[4]=pseudo_analysis;
 				break;
 			case PSEUDO_DECISION:
-				Map[5]=Double.parseDouble(weightsConfig.getProperty("pseudo_decision"));
+				Map[5]=pseudo_decision;
 				break;
 			case INDIVIDUAL_ANALYSIS:
-				Map[6]=Double.parseDouble(weightsConfig.getProperty("individual_analysis"));
+				Map[6]=individual_analysis;
 				break;
 			case INDIVIDUAL_DECISION:
-				Map[7]=Double.parseDouble(weightsConfig.getProperty("individual_decision"));
+				Map[7]=individual_decision;
 				break;
 			case CONTACT:
-				Map[8]=Double.parseDouble(weightsConfig.getProperty("contact"));
+				Map[8]=contact;
 				break;
 			case HISTORICAL:
-				Map[9]=Double.parseDouble(weightsConfig.getProperty("historical"));
+				Map[9]=historical;
 				break;
 			case TELEMARKETING:
-				Map[10]=Double.parseDouble(weightsConfig.getProperty("telemarketing"));
+				Map[10]=telemarketing;
 				break;
 			case OTHER_PURPOSE:
-				Map[11]=Double.parseDouble(weightsConfig.getProperty("other_purpose"));
+				Map[11]=other_purpose;
 				break;
 			default:break;
 			}
@@ -132,19 +167,19 @@ public class bitmapDistance implements DistanceMetric{
 		for(int i=0;i<list.size();i++){
 			switch (list.get(i)){
 			case NO_RETENTION: //weights can come in here 2
-				Map[0]=Double.parseDouble(weightsConfig.getProperty("no_retention"));
+				Map[0]=no_retention;
 				break;
 			case STATED_PURPOSE:
-				Map[1]=Double.parseDouble(weightsConfig.getProperty("stated_purpose"));
+				Map[1]=stated_purpose;
 				break;
 			case LEGAL_REQUIREMENT:
-				Map[2]=Double.parseDouble(weightsConfig.getProperty("legal_requirement"));
+				Map[2]=legal_requirement;
 				break;
 			case BUSINESS_PRACTICES:
-				Map[3]=Double.parseDouble(weightsConfig.getProperty("business_practices"));
+				Map[3]=business_practices;
 				break;
 			case INDEFINITELY:
-				Map[4]=Double.parseDouble(weightsConfig.getProperty("idefinitely"));
+				Map[4]=indefinitely;
 				break;
 			default:break;
 			}
@@ -235,9 +270,11 @@ public class bitmapDistance implements DistanceMetric{
 
 	@Override
 	public double getTotalDistance(PolicyObject a, PolicyObject b) {
+		setWeights();
 		ArrayList<Case> CasesA, CasesB;
 		CasesA=a.getCases();
 		CasesB=b.getCases();
+		if(CasesA.size()<CasesB.size())return getTotalDistance(b, a);  //little magic to get symetry
 		double minDist;
 		double Distance = 0;
 		for(int i=0;i<CasesA.size();i++){

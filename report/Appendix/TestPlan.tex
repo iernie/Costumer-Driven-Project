@@ -1,0 +1,70 @@
+% Activate the following line by filling in the right side. If for example the name of the root file is Main.tex, write
+% "...root = Main.tex" if the chapter file is in the same directory, and "...root = ../Main.tex" if the chapter is in a subdirectory.
+ 
+%!TEX root =  
+
+\chapter{Test Plan}
+
+\section{Overview}
+
+
+This is the test plan for the «Privacy protection for information control» application requested by SINTEF ICT.
+This test plan will be based on IEEE829-1998, the IEEE standard for software test documentation, with some adaptions to fit this project better. The purpose of testing is to find bugs and errors and correct them. The purpose of this test plan is to make sure the tests will be executed as planned, and that they are well documented.
+
+
+\section{Test methods}
+
+There is two types of software testing, black-box testing and white-box testing and grey-box testing which is a mix of the other two.
+
+\subsection{Black-box testing}
+This is a method that test functionality of an application. For this type of testing knowledge about the application's code and structure is not required. The test cases are built around specifications and requirements – what the application is supposed to do. The test cases are based on external descriptions of the software, e.g. specifications, requirements or designs. Black-box tests are usually functional, but they can also be non-functional. This type of testing can be applied to all levels of software testing.
+
+
+\subsection{White-box testing}
+This method is used for testing internal structures or working of an application. For white-box testing it is require to have both knowledge about the code and structure of the application, as well as knowledge about programming to design the test cases. This type of testing is normally done at unit level where it tests paths within a unit or paths between units, but it can also be used at integration and system levels of testing. This method can uncover many errors and problems, but it is not a good test method for finding missing parts of the requirements.
+
+
+\section{Testing approach}
+We will be doing both white-box testing and black-box testing, but the focus will mainly be on white-box testing. This is an application used in research, which means that black-box testing will not be very useful as it is up to the customer to decide wether what is good enough. Our main task is to deliver a good framework with the necessary tools, and a working, learning algorithm so that further testing can be done with ease.
+
+
+\subsection{What will be tested}
+Unit testing: This will be used for testing the functionality of the modules, so that 	we can ensure that they are working as intended. 	
+Learning of our algorithm: As our algorithm is based on case-based reasoning (CBR), it will be important to test that it can learn from new cases. to make sure that it is not static.
+
+\subsection{What will not be tested}
+Usability testing: As 	mentioned this is an application intended for further research. As 	our goal is not to deliver an application ready for users, there is no gain from performing end-user tests to see how users interact with the program, and wether the product is accepted by users or not.
+Graphical user interface (GUI) testing: For the same reasons we will not perform any tests on the quality of the GUI. The GUI that will be delivered is there to make testing easier, not to provide the best possible interaction with the user.
+
+	
+
+\section{Test cases}
+
+Test case template for the unit tests. Test identifier is UNIT-XX, where XX is the number of the test case.
+
+
+\section{Test case overview}
+
+This is the overview over all the test cases, and their test case identifier
+
+
+\subsection{Unit tests}
+	
+\begin{itemize}
+\item UNIT-01	P3P parsing
+\item UNIT-02	Writing to database
+\item UNIT-03	Reading from database
+\item UNIT-04	Graphical user interface interaction
+\item UNIT-05	Command line interface functionality
+\item UNIT-06	Algorithm learning
+\item UNIT-07	Algorithm classification
+\end{itemize}
+
+
+
+\section{Item pass / fail criteria}
+
+A test is successful if the given input produces the expected result in the case case, if it does not the test is failed.
+
+
+\section{Test schedule}
