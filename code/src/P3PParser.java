@@ -47,7 +47,7 @@ public class P3PParser
 	    public void startElement(String nsURI, String strippedName, String tagName, Attributes attributes) throws SAXException
 	    {
 	    	
-	    	//System.out.println("TAG: " + tagName + ", ATTRS: " + attributes.getValue(0));
+	    	System.out.println("TAG: " + tagName + ", ATTRS: " + attributes.getValue(0));
 	    	String formattedTagName = tagName.replace('-', '_').toUpperCase();
 	    	
 	    	
