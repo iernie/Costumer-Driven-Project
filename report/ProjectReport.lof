@@ -1,21 +1,24 @@
 \addvspace {10\p@ }
-\contentsline {xchapter}{Introduction}{3}{chapter*.4}
+\contentsline {xchapter}{Introduction}{3}{chapter*.5}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Project Directive}{5}{chapter*.5}
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Project Organization}}{8}{figure.1.1}
+\contentsline {xchapter}{Project Directive}{7}{chapter*.6}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Project Organization}}{10}{figure.1.1}
+\contentsline {xpart}{Project Directive and Planning}{7}{part.1}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Planning Phase}{11}{chapter*.6}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Gantt Diagram.}}{18}{figure.2.2}
+\contentsline {xchapter}{Planning Phase}{13}{chapter*.7}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Gantt Diagram.}}{20}{figure.2.2}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Preliminary Study}{19}{chapter*.9}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Development Model}}{21}{figure.3.3}
+\contentsline {xchapter}{Preliminary Study}{21}{chapter*.10}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Development Model}}{23}{figure.3.3}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Requirements Specification}{23}{chapter*.10}
+\contentsline {xchapter}{Requirements Specification}{25}{chapter*.11}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Design}{31}{chapter*.17}
+\contentsline {xchapter}{Design}{35}{chapter*.18}
+\contentsline {xpart}{Design and Evaluation}{35}{part.2}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Short Title}{35}{chapter*.21}
+\contentsline {xchapter}{Evaluation and Testing}{39}{chapter*.22}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Test Plan}{37}{appendix*.22}
+\contentsline {xchapter}{Test Plan}{43}{appendix*.23}
+\contentsline {xpart}{Appendices}{43}{part.3}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Templates}{41}{appendix*.23}
+\contentsline {xchapter}{Templates}{47}{appendix*.24}
