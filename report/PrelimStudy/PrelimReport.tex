@@ -3,7 +3,8 @@
  
 %!TEX root =  
 
-\chapter{Preliminary Study}
+\chapter{Preliminary Study\label{prelim}}
+
 
 \minitoc
 
@@ -16,20 +17,22 @@ As discussed in T¿ndel and Nyre (2010), there is a disproportion between the ave
 
 The AT\&T \emph{Privacy Bird} is mentioned in T¿ndel and Nyre (2010) as an example of current Internet privacy software. Privacy Bird can parse P3P documents and match a site's privacy policy with the user's preferences. The problem with this however, is that the user has to explicitly state his preferences, which is a rather time-consuming endeavor. The novel feature of this project is to introduce an intelligent system that \emph{learns} the user's preferences, seeking to limit the amount of user interference. This is to be acheived by the use of CBR agent, that can look at previous examples of user choices in similar situations. A particular advantage of the CBR approach is the feedback loop where the system can actually \emph{explain} its choice in terms of similar cases which sets CBR apart from alternative reasoning models such as artificial neural networks. It also allows for better tuning to user response in those cases that the user disagrees with the recommendation.
 
-\section{Project Scope and Evaluation}
-The research nature of this project makes it a very open-ended one. In particular, the direction of the project depends in a large extent on how well preliminary testing goes; that is, how well does the CBR system actually predict user preferences. Depending on the results of these tests, several possible directions are possible:
+\section{Project Scope}
+The research nature of this project makes it a very open-ended one. The clearly most important part of the system envisioned by the customer is the CBR engine, that classifies websites based on the user's previous decisions. Implementing this is clearly necessary, regardless of which direction is followed and what limitations are made.
 
-\begin{itemize}
-\item Given test failture, making improvements to the algorithm, hereunder, the retrieval methods, the amount of data stored per case, the distance metric used to compare cases, and the weighting of the different features of a case/policy.
+However, once the local CBR engine and auxiliary modules such as parsing P3P documents and so forth are in place, there are several directions that the project can take, and pursuing all of them is an unlikely scenario given the resource limitations. To some extent, the direction of the project also depends in a large extent on how well preliminary testing goes; that is, how well does the CBR system actually predict user preferences. Depending on the results of these tests, several possible directions were deemed possible:
+
+\begin{enumerate}
+\item Given test failure, making improvements to the algorithm, hereunder, the retrieval methods, the amount of data stored per case, the distance metric used to compare cases, and the weighting of the different features of a case/policy.
 \item Extending the system by implementing the community portion/collaborative filtering part of the proposed system.
 \item Given a test success, implementing a working browser plugin.
 \item Closely related to the previous point, extending the system to work with other privacy policy standards.
-\end{itemize}
+\end{enumerate}
 
-Thus, two phases in the implementation process have been identified; first the implementation of the core CBR system along with a testing interface. This is a certain activity. The second phase will be to pursue one or more of the possible extensions mentioned above. The initial design phase will concentrate on the core system, but it will be important to have in mind that the design should allow for any of these extensions. This means that while the actual decision will be made at a later stage, the design will outline (in brevity, at least) what a full-blown system would like.
+Direction 1 above takes the project from a system engineering direction more over to a scientific and statistical analysis type project, and while placing some emphasis on tuning the algorithms, this is not our primary focus\footnote{This would require gathering a dataset of some size as well as setting up testing scenarios, which not only requires a sophisticated statistics background, but also likely group of test users. It was decided that this should not be prioritized in a software engineering project of limited scope such as this.}. Item 3 relies heavily on the effectiveness of the algorithm and may require exactly the type of statistical analysis discussed. We therefore ended up pursuing the implementation of the community portion of the system. 
 
-\section{Development Method}
-Having briefly identified the project "flow", a devlopment method or model should be chosen. We settled on a hybrid model, which is basically a waterfall where the design-implementation-testing phase is repeated two times allowing for some flexibility with respect to the uncertainties discussed in Section~\ref{privTech}. The workflow is illustrated in Figure~\ref{workflow}.
+\section{Choice of Development Method}
+Having briefly identified the project "flow", a development method or model should be chosen. We settled on a hybrid model, which is basically a waterfall where the design-implementation-testing phase is repeated two times allowing for some flexibility with respect to the uncertainties discussed in Section~\ref{privTech}. The workflow is illustrated in Figure~\ref{workflow}.
 
 \begin{figure}[htbp]
 \begin{center}
