@@ -26,13 +26,13 @@ public class P3PParser
 		private ArrayList<Recipient> recipients;
 		private ArrayList<Category> categories;
 		
-		Boolean statement = false,
-				categoriesTag = false,
-				dataTag = false,
-				entity = false,
-				purposeTag = false,
-				recipientTag = false,
-				retentionTag = false;
+		private Boolean statementTag = false,
+						categoriesTag = false,
+						dataTag = false,
+						entityTag = false,
+						purposeTag = false,
+						recipientTag = false,
+						retentionTag = false;
 		
 		/**
 		 * Function that parses all of first instances of a tag
@@ -53,7 +53,7 @@ public class P3PParser
 	    	
 	    	// IF TAG HAS ALREADY BEEN FOUND, ADD SUBTAG
 	    	
-	    	if(statement)
+	    	if(statementTag)
 	    	{
 	    		if(purposeTag)
 	    		{
@@ -77,11 +77,11 @@ public class P3PParser
 
 	    	if(tagName.equalsIgnoreCase("entity"))
 	    	{
-	    		entity = true;
+	    		entityTag = true;
 	    	}
 	    	if(tagName.equalsIgnoreCase("statement"))
 	    	{
-	    		statement = true;
+	    		statementTag = true;
 	    	}
 	    	if(tagName.equalsIgnoreCase("data"))
 	    	{
@@ -121,7 +121,7 @@ public class P3PParser
 	     */
 	    public void characters(char ch[], int start, int length) throws SAXException
 	    {
-	    	if(dataTag && entity)
+	    	if(dataTag && entityTag)
 	    	{
 	    		policy.addEntityData(tempKey, new String(ch, start, length));
 	    	}
@@ -142,12 +142,12 @@ public class P3PParser
 	    	
 	    	if(tagName.equalsIgnoreCase("entity"))
 	    	{
-	    		entity = false;
+	    		entityTag = false;
 	    	}
 	    	if(tagName.equalsIgnoreCase("data"))
 	    	{
 	    		dataTag = false;
-	    		if(statement)
+	    		if(statementTag)
 	    		{
 	    			Case policyCase = new Case(purpose, retention, recipients, categories, tempKey);
 		    		policy.addCase(policyCase);
@@ -171,7 +171,7 @@ public class P3PParser
 	    	}
 	    	if(tagName.equalsIgnoreCase("statement"))
 	    	{
-	    		statement = false;
+	    		statementTag = false;
 	    	}
 	    }
 	}
