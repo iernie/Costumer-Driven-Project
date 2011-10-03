@@ -46,6 +46,8 @@
 
 \dominitoc
 
+\listoftables
+\listoffigures
 \tableofcontents
 
 \pagenumbering{arabic}
@@ -81,7 +83,10 @@ Bla. blabla
 % Appendices
 
 \appendix
+\Alph{chapter}
+\setcounter{chapter}{1}
 \include{Appendix/TestPlan}
+\include{Appendix/Templates}
 
 %\bibliographystyle{plain-annote}
 %\bibliography{mybibliography}

@@ -1,5 +1,5 @@
-\contentsline {chapter}{Introduction}{3}{chapter*.2}
-\contentsline {chapter}{Project Directive}{5}{chapter*.3}
+\contentsline {chapter}{Introduction}{3}{chapter*.4}
+\contentsline {chapter}{Project Directive}{5}{chapter*.5}
 \contentsline {section}{\numberline {1.1}Purpose}{5}{section.1.1}
 \contentsline {section}{\numberline {1.2}Mandate}{5}{section.1.2}
 \contentsline {subsection}{\numberline {1.2.1}Background}{5}{subsection.1.2.1}
@@ -8,7 +8,7 @@
 \contentsline {section}{\numberline {1.5}Organization}{7}{section.1.5}
 \contentsline {section}{\numberline {1.6}Planning}{7}{section.1.6}
 \contentsline {section}{\numberline {1.7}Limitations and Scope}{10}{section.1.7}
-\contentsline {chapter}{Planning Phase}{11}{chapter*.4}
+\contentsline {chapter}{Planning Phase}{11}{chapter*.6}
 \contentsline {section}{\numberline {2.1}Purpose}{11}{section.2.1}
 \contentsline {section}{\numberline {2.2}Development Model}{12}{section.2.2}
 \contentsline {section}{\numberline {2.3}Phases}{12}{section.2.3}
@@ -19,42 +19,58 @@
 \contentsline {subsection}{\numberline {2.3.5}Implementation}{13}{subsection.2.3.5}
 \contentsline {subsection}{\numberline {2.3.6}Evaluation and Documentation}{13}{subsection.2.3.6}
 \contentsline {subsection}{\numberline {2.3.7}Ongoing Activities}{13}{subsection.2.3.7}
-\contentsline {subsubsection}{Reporting and Administrative Tasks}{13}{section*.5}
-\contentsline {subsubsection}{Study and Lectures}{13}{section*.6}
+\contentsline {subsubsection}{Reporting and Administrative Tasks}{13}{section*.7}
+\contentsline {subsubsection}{Study and Lectures}{13}{section*.8}
 \contentsline {section}{\numberline {2.4}Risk Report}{14}{section.2.4}
 \contentsline {section}{\numberline {2.5}Measurement of project effects}{17}{section.2.5}
 \contentsline {section}{\numberline {2.6}Project Plan}{17}{section.2.6}
-\contentsline {chapter}{Preliminary Study}{19}{chapter*.7}
-\contentsline {section}{\numberline {3.1}Introduction}{19}{section.3.1}
-\contentsline {chapter}{Requirements Specification}{21}{chapter*.8}
-\contentsline {section}{\numberline {4.1}Purpose}{21}{section.4.1}
-\contentsline {section}{\numberline {4.2}Introduction}{22}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Background and Similar Software}{22}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Scope}{22}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Overview}{23}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Overall Description}{23}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}System Description}{23}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}User Interface}{23}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Hardware and Software Interface}{24}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}User Characteristic}{24}{subsection.4.3.4}
-\contentsline {subsubsection}{Developers/Researchers}{24}{section*.9}
-\contentsline {subsubsection}{End Users}{24}{section*.10}
-\contentsline {section}{\numberline {4.4}Use Cases}{24}{section.4.4}
-\contentsline {section}{\numberline {4.5}Specific Requirements}{26}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Product perspective}{26}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Functional Requirements}{26}{subsection.4.5.2}
-\contentsline {subsection}{\numberline {4.5.3}Non-Functional Requirements}{27}{subsection.4.5.3}
-\contentsline {chapter}{Design}{29}{chapter*.15}
-\contentsline {section}{\numberline {5.1}Purpose}{29}{section.5.1}
-\contentsline {section}{\numberline {5.2}Development Tools and Technologies}{29}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Documents and Source Code Repositories}{30}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Programming Languages}{30}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Databases}{30}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Third Party Libraries}{30}{subsection.5.2.4}
-\contentsline {subsubsection}{Third Party CBR System}{31}{section*.16}
-\contentsline {subsubsection}{Third Party k Nearest Neighbors Implementations}{31}{section*.17}
-\contentsline {subsubsection}{P3P/XML Parser}{31}{section*.18}
-\contentsline {section}{\numberline {5.3}Standards}{32}{section.5.3}
-\contentsline {section}{\numberline {5.4}Architecture}{32}{section.5.4}
-\contentsline {chapter}{Evaluation}{33}{chapter*.19}
-\contentsline {section}{\numberline {6.1}Purpose}{33}{section.6.1}
+\contentsline {chapter}{Preliminary Study}{19}{chapter*.9}
+\contentsline {section}{\numberline {3.1}Privacy Technology}{19}{section.3.1}
+\contentsline {section}{\numberline {3.2}Project Scope and Evaluation}{20}{section.3.2}
+\contentsline {section}{\numberline {3.3}Development Method}{20}{section.3.3}
+\contentsline {chapter}{Requirements Specification}{23}{chapter*.10}
+\contentsline {section}{\numberline {4.1}Purpose}{23}{section.4.1}
+\contentsline {section}{\numberline {4.2}Introduction}{24}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Background and Similar Software}{24}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Scope}{24}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Overview}{25}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Overall Description}{25}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}System Description}{25}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}User Interface}{25}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Hardware and Software Interface}{26}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}User Characteristic}{26}{subsection.4.3.4}
+\contentsline {subsubsection}{Developers/Researchers}{26}{section*.11}
+\contentsline {subsubsection}{End Users}{26}{section*.12}
+\contentsline {section}{\numberline {4.4}Use Cases}{26}{section.4.4}
+\contentsline {section}{\numberline {4.5}Specific Requirements}{28}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Product perspective}{28}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Functional Requirements}{28}{subsection.4.5.2}
+\contentsline {subsection}{\numberline {4.5.3}Non-Functional Requirements}{29}{subsection.4.5.3}
+\contentsline {chapter}{Design}{31}{chapter*.17}
+\contentsline {section}{\numberline {5.1}Purpose}{31}{section.5.1}
+\contentsline {section}{\numberline {5.2}Development Tools and Technologies}{31}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Documents and Source Code Repositories}{32}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Programming Languages}{32}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Databases}{32}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Third Party Libraries}{32}{subsection.5.2.4}
+\contentsline {subsubsection}{Third Party CBR System}{33}{section*.18}
+\contentsline {subsubsection}{Third Party k Nearest Neighbors Implementations}{33}{section*.19}
+\contentsline {subsubsection}{P3P/XML Parser}{33}{section*.20}
+\contentsline {section}{\numberline {5.3}Standards}{34}{section.5.3}
+\contentsline {section}{\numberline {5.4}Architecture}{34}{section.5.4}
+\contentsline {chapter}{Short Title}{35}{chapter*.21}
+\contentsline {section}{\numberline {6.1}Introduction}{35}{section.6.1}
+\contentsline {chapter}{Test Plan}{37}{appendix*.22}
+\contentsline {section}{\numberline {A.1}Overview}{37}{section.A.1}
+\contentsline {section}{\numberline {A.2}Test methods}{37}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}Black-box testing}{37}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}White-box testing}{37}{subsection.A.2.2}
+\contentsline {section}{\numberline {A.3}Testing approach}{38}{section.A.3}
+\contentsline {subsection}{\numberline {A.3.1}What will be tested}{38}{subsection.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}What will not be tested}{38}{subsection.A.3.2}
+\contentsline {section}{\numberline {A.4}Test cases}{38}{section.A.4}
+\contentsline {section}{\numberline {A.5}Test case overview}{39}{section.A.5}
+\contentsline {subsection}{\numberline {A.5.1}Unit tests}{39}{subsection.A.5.1}
+\contentsline {section}{\numberline {A.6}Item pass / fail criteria}{39}{section.A.6}
+\contentsline {section}{\numberline {A.7}Test schedule}{39}{section.A.7}
+\contentsline {chapter}{Templates}{41}{appendix*.23}

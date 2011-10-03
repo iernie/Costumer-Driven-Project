@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  2 OCT 2011 18:30
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  3 OCT 2011 10:53
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -323,7 +323,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (./ProjectReport.aux (./ProjectDirective/ProjectDirective.aux)
 (./PlanReport/PlanReport.aux) (./PrelimStudy/PrelimReport.aux)
 (./ReqSpec/ReqSpec.aux) (./DesignReport/DesignReport.aux)
-(./Testing/TestPlan.aux))
+(./Evaluation/Evaluation.aux) (./Appendix/TestPlan.aux)
+(./Appendix/Templates.aux))
 \openout1 = `ProjectReport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
@@ -487,20 +488,41 @@ Package minitoc Info: I0033
 (minitoc)             Writing ProjectReport.mtc7.
 \openout3 = `ProjectReport.mtc7'.
 
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc8.
+\openout3 = `ProjectReport.mtc8'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc9.
+\openout3 = `ProjectReport.mtc9'.
+
  [2
 
 ]
-(./ProjectReport.toc [3])
-\tf@toc=\write5
-\openout5 = `ProjectReport.toc'.
+(./ProjectReport.lot)
+\tf@lot=\write5
+\openout5 = `ProjectReport.lot'.
+
+ [3] [4
+
+] (./ProjectReport.lof)
+\tf@lof=\write6
+\openout6 = `ProjectReport.lof'.
+
+ [5] [6
+
+]
+(./ProjectReport.toc [7] [8])
+\tf@toc=\write7
+\openout7 = `ProjectReport.toc'.
 
  [1] [2
 
 ] [3]
 \openout2 = `ProjectDirective/ProjectDirective.aux'.
 
- (./ProjectDirective/ProjectDirective.tex
-[4
+
+(./ProjectDirective/ProjectDirective.tex [4
 
 
 ]
@@ -537,18 +559,10 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 Missing character: There is no Õ in font cmr10!
 Missing character: There is no ¿ in font cmr10!
  [6]
-<ProjectDirective/Org.png, id=325, 722.7pt x 542.025pt>
+<ProjectDirective/Org.png, id=454, 722.7pt x 542.025pt>
 File: ProjectDirective/Org.png Graphic file (type png)
 
 <use ProjectDirective/Org.png>
-Overfull \hbox (292.6936pt too wide) in paragraph at lines 48--50
- [] 
- []
-
-
-LaTeX Warning: Float too large for page by 31.2296pt on input line 51.
-
-
 Underfull \hbox (badness 6063) in paragraph at lines 97--97
 []|\OT1/cmr/m/n/10.95 CBR - Al-go-rithms and
  []
@@ -596,7 +610,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--129
 
 [14] [15] [16]
 Missing character: There is no ’ in font cmr10!
- <PlanReport/gantt.jpg, id=400, 1475.5125pt x 1102.1175pt>
+ <PlanReport/gantt.jpg, id=519, 1475.5125pt x 1102.1175pt>
 File: PlanReport/gantt.jpg Graphic file (type jpg)
 
 <use PlanReport/gantt.jpg>) [17] [18 <./PlanReport/gantt.jpg>]
@@ -618,14 +632,20 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 [][]  
  []
 
-) [19
+Missing character: There is no ¿ in font cmr10!
+Missing character: There is no ¿ in font cmr10!
+[19
 
 
 
-]
+] [20] <PrelimStudy/workflow.png, id=542, 722.7pt x 542.025pt>
+File: PrelimStudy/workflow.png Graphic file (type png)
+
+<use PrelimStudy/workflow.png>) [21 <./PrelimStudy/workflow.png>]
 \openout2 = `ReqSpec/ReqSpec.aux'.
 
- (./ReqSpec/ReqSpec.tex [20
+
+(./ReqSpec/ReqSpec.tex [22
 
 
 
@@ -644,7 +664,7 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 8--8
 [][]  
  []
 
-[21]
+[23]
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no Õ in font cmr10!
 Missing character: There is no Õ in font cmr10!
@@ -654,12 +674,12 @@ Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
 Missing character: There is no Õ in font cmr10!
 Missing character: There is no ¿ in font cmr10!
- [22]
+ [24]
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¿ in font cmr10!
- [23] [24]
+ [25] [26]
 Missing character: There is no Ð in font cmbx12!
 
 Overfull \hbox (2.8675pt too wide) in paragraph at lines 74--74
@@ -673,8 +693,8 @@ Missing character: There is no Ð in font cmbx12!
 
 Underfull \vbox (badness 1331) has occurred while \output is active []
 
- [25]
-[26]
+ [27]
+[28]
 Missing character: There is no Õ in font cmr10!
 
 Overfull \hbox (192.95865pt too wide) in paragraph at lines 110--111
@@ -682,10 +702,10 @@ Overfull \hbox (192.95865pt too wide) in paragraph at lines 110--111
 n-ven-tions (http://www.oracle.com/technetwork/java/codeconvtoc-
  []
 
-) [27]
+) [29]
 \openout2 = `DesignReport/DesignReport.aux'.
 
- (./DesignReport/DesignReport.tex [28
+ (./DesignReport/DesignReport.tex [30
 
 
 
@@ -704,21 +724,41 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 [][]  
  []
 
-[29] [30]
+[31] [32]
 Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
 Missing character: There is no Ò in font cmr10!
 Missing character: There is no Ó in font cmr10!
- [31]
+ [33]
 Missing character: There is no ¿ in font cmr10!
-) [32]
-\openout2 = `Testing/TestPlan.aux'.
+) [34]
+\openout2 = `Evaluation/Evaluation.aux'.
 
- (./Testing/TestPlan.tex) [33
+ (./Evaluation/Evaluation.tex) [35
 
 
 
 ]
+\openout2 = `Appendix/TestPlan.aux'.
+
+
+(./Appendix/TestPlan.tex [36
+
+
+
+]
+Missing character: There is no Ç in font cmr10!
+Missing character: There is no È in font cmr10!
+Missing character: There is no Ð in font cmr10!
+ [37] [38]) [39]
+\openout2 = `Appendix/Templates.aux'.
+
+ (./Appendix/Templates.tex
+[40
+
+
+
+]) [41]
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the ProjectReport.maf file.
@@ -730,28 +770,25 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the ProjectReport.log file.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 89.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 89.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 95.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 95.
 (./ProjectReport.aux (./ProjectDirective/ProjectDirective.aux)
 (./PlanReport/PlanReport.aux) (./PrelimStudy/PrelimReport.aux)
 (./ReqSpec/ReqSpec.aux) (./DesignReport/DesignReport.aux)
-(./Testing/TestPlan.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 89.
+(./Evaluation/Evaluation.aux) (./Appendix/TestPlan.aux)
+(./Appendix/Templates.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 95.
 Package rerunfilecheck Info: File `ProjectReport.out' has not changed.
-(rerunfilecheck)             Checksum: A32B85831BF017AF0946ACBCE5287D40;3445.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+(rerunfilecheck)             Checksum: 4C3940A12C83E7EA79A62D958F173A81;4509.
  ) 
 Here is how much of TeX's memory you used:
- 7437 strings out of 493747
- 108259 string characters out of 3143546
- 225318 words of memory out of 3000000
- 10216 multiletter control sequences out of 15000+200000
+ 7521 strings out of 493747
+ 109457 string characters out of 3143546
+ 226389 words of memory out of 3000000
+ 10240 multiletter control sequences out of 15000+200000
  16377 words of font info for 63 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 41i,10n,30p,904b,400s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,10n,30p,1064b,400s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
@@ -764,10 +801,10 @@ live/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texl
 ive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
 ve/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on ProjectReport.pdf (36 pages, 533301 bytes).
+Output written on ProjectReport.pdf (49 pages, 565185 bytes).
 PDF statistics:
- 581 PDF objects out of 1000 (max. 8388607)
- 522 compressed objects within 6 object streams
- 116 named destinations out of 1000 (max. 500000)
- 435 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 747 PDF objects out of 1000 (max. 8388607)
+ 672 compressed objects within 7 object streams
+ 148 named destinations out of 1000 (max. 500000)
+ 568 words of extra memory for PDF output out of 10000 (max. 10000000)
 
