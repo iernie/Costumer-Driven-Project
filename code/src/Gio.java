@@ -15,12 +15,24 @@ import org.apache.commons.cli.*;	//for command line options
  *  ./PrivacyAdvisor -T p.txt
  */
 
+
+/* Thinking:
+ * 
+ * user init > commandline > config file
+ * 
+ * so assume config at general location (load with loadgen(defaultloc))
+ * check to see if commandline config (load with loadgen(newloc))
+ * handle other commandline options
+ * handle userinit
+ * 
+ */
+
 public class Gio {
 
 
 	private static Logger logger = Logger.getLogger("");		//create logger object
 	private FileHandler fh = null;					//creates filehandler for logging
-	private String genConfig = null;					//location of general configuration file
+	private String genConfig = "./PrivacyAdviser.cfg";					//location of general configuration file
 	private String inWeightsLoc = null;						//location of input weights configuration file, if specified.
 	private String outWeightsLoc = null;						//location of output weights configuration file, if specified.
 	private String inDBLoc = null;					//input location of the database
@@ -37,8 +49,8 @@ public class Gio {
 	private boolean userInitializes;			//override initialization via userInterface.user_init(args);
 	private CBR cbr = null;							//the CBR to use-> with algorithms!!
 	private boolean blanketAccept = false;			//provide an automatic yes to suggested action
-	
-	
+
+
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
 	 * Constructs and parses command line arguements as well.
@@ -46,6 +58,27 @@ public class Gio {
 	 *  @author ngerstle
 	 */
 	public Gio(String[] args) 
+	{
+		loadGeneral();
+		loadCLO(args);
+		if(genConfig!="./PrivacyAdvisor.cfg")
+		{
+			loadFromConfig(genConfig);
+			loadCLO(args);
+		}
+		if(userInitializes)
+		{
+			//TODO pass the current program init values elegantly (both genConfig, config, and CLO)
+			userInterface.user_init(null);
+		}
+	}
+
+	/**
+	 * accepts the direct commanline options, then parses & implements them.
+	 * @param args
+	 */
+	//TODO refactor a 'tad'
+	private void loadCLO(String[] args) 
 	{
 		// create Options object
 		Options options = new Options();
@@ -58,7 +91,7 @@ public class Gio {
 		options.addOption("outDB", true, "output database file location");
 		options.addOption("histPolicy", true, "adding to DB: single policy file location");
 		options.addOption("histPolicyDir", true, "adding to DB: multiple policy directory location");
-		options.addOption("newDB", true, "create new database in place of old one (doesn't check for existence of old one");
+		options.addOption("newDB", false, "create new database in place of old one (doesn't check for existence of old one");
 		options.addOption("p", true, "the policy object to process");
 		options.addOption("r", true,"response to specified policy"); 
 		options.addOption("userIO",true,"user interface");
@@ -66,8 +99,8 @@ public class Gio {
 		options.addOption("policyDB",true,"PolicyDatabase backend");
 		options.addOption("cbrV",true,"CBR to use"); 
 		options.addOption("acceptSug",true,"automatically accept the user suggestion"); 
-		
-		
+
+
 
 		CommandLineParser parser = new PosixParser();
 		CommandLine cmd = null;
@@ -82,71 +115,128 @@ public class Gio {
 			System.exit(3);
 		}
 
-
-		genConfig = cmd.getOptionValue("config");
-		if (genConfig == null)
+		if(cmd.hasOption("config"))
 		{
-			genConfig = "./PrivacyAdviser.cfg";
+			genConfig = cmd.getOptionValue("config");
 		}
-		inWeightsLoc = cmd.getOptionValue("inWeight"); //don't need to check for null as it is assumed to be in the general config file loaded later
-		outWeightsLoc = cmd.getOptionValue("outWeight");
-		if(outWeightsLoc == null)
+		if(cmd.hasOption("inWeight"))
+		{
+			inWeightsLoc = cmd.getOptionValue("inWeight");
+		}
+		if(cmd.hasOption("outWeight"))
+		{
+			outWeightsLoc = cmd.getOptionValue("outWeight");
+		}
+		else
 		{
 			outWeightsLoc = inWeightsLoc;
 		}
-		inDBLoc= cmd.getOptionValue("inDB"); //don't need to check for null as it is assumbed to be in the general config file loaded later
-		outDBLoc= cmd.getOptionValue("inDB");
-		if (outDBLoc == null)
+		
+		if(cmd.hasOption("inDB"))
+		{
+			inDBLoc= cmd.getOptionValue("inDB");
+		}
+		if(cmd.hasOption("outDB"))
+		{
+			outDBLoc= cmd.getOptionValue("outDB");
+		}
+		else
 		{
 			outDBLoc = inDBLoc;
 		}
 		newDB= cmd.hasOption("newDB");
-		p3pDirLocation = cmd.getOptionValue("histPolicyDir");
-		p3pLocation = cmd.getOptionValue("histPolicy");
+		
+		if(cmd.hasOption("histPolicyDir"))
+		{
+			p3pDirLocation = cmd.getOptionValue("histPolicyDir");
+		}
+		else if (cmd.hasOption("histPolicy"))
+		{
+			p3pLocation = cmd.getOptionValue("histPolicy");
+		}
+		
+		if (cmd.hasOption("p"))
+		{
 		newPolLoc = cmd.getOptionValue("p");
+		}
 		if(cmd.hasOption("r"))
 		{
 			userResponse = parseAct(cmd.getOptionValue("r"));
 		}
+		if(cmd.hasOption("userIO"))
+		{
 		userInterface = selectUI(cmd.getOptionValue("userIO"));
+		}
+		if(cmd.hasOption("policyDB"))
+		{
 		pdb = selectPDB(cmd.getOptionValue("policyDB"));
+		}
+		if (cmd.hasOption("cbrV"))
+		{
 		cbr = parseCBR(cmd.getOptionValue("cbrV"));
-		
-		
+		}
+
 		blanketAccept = cmd.hasOption("acceptSug");
-		
-				
-		
+
 		if(!(building=(cmd.hasOption("b")))) //only build, nothing else
 		{
 			newPolLoc = cmd.getOptionValue("t");
 		}
+		/*
 		if(!cmd.hasOption("p"))
+
 		{
 			building = true;
 		}
 		else
 		{
 			building = false;
-		}
-		
+		}*/
 	}
-
+	
+	/**
+	 * converts a string into a valid CBR
+	 * 
+	 * @param string the string to parse
+	 * @return the CBR to use
+	 * @author ngerstle
+	 */
 	private CBR parseCBR(String string) {
 		return (new CBR(this)).parse(string);
-		
+
 	}
 
+	/**
+	 * Should parse a string to select, initialize, and return one of the policy databases coded
+	 * 
+	 * @param optionValue the string to parse
+	 * @return the policy database being used
+	 * @author ngerstle
+	 */
 	private PolicyDatabase selectPDB(String optionValue) {
 		// TODO Add other PolicyDatabase classes, when other classes are made
 		return PDatabase.getInstance(inDBLoc, outDBLoc);
 	}
 
+	/**
+	 * Should parse a string to select, initialize, and return the user interface selected
+	 * 
+	 * @param optionValue the string to parse
+	 * @return the user interface to use
+	 * @author ngerstle
+	 */
 	private UserIO selectUI(String optionValue) {
 		// TODO Add other UserIO classes, when other classes are made
 		return new UserIO_Simple();
 	}
 
+	/**
+	 * Should parse a string to select, initialize, and return one of the actions (result of checking an object) coded.
+	 * 
+	 * @param optionValue the string to parse
+	 * @return the action to apply to the new policy
+	 * @author ngerstle
+	 */
 	private Action parseAct(String optionValue) {
 		// TODO remove this later
 		return new Action().parse(optionValue);
@@ -252,11 +342,11 @@ public class Gio {
 		{
 			cbr = parseCBR(configFile.getProperty("cbrV"));
 		}
-		
+
 		return configFile;
 	}
 
-		
+
 	/**
 	 * Loads the weights configuration file, from the provided location
 	 * 
@@ -291,7 +381,6 @@ public class Gio {
 		return newWeights;
 	}
 
-
 	/**
 	 * startLogger initializes and returns a file at logLoc with the results of logging at level logLevel.
 	 *  
@@ -324,7 +413,6 @@ public class Gio {
 		return logger;
 	}
 
-
 	/**
 	 * Loads the case history into cache. 
 	 * This is where the background database chosen.
@@ -351,7 +439,7 @@ public class Gio {
 		//we already checked to make sure we have one of the options avaliable
 		File pLoc = null;
 		PolicyObject p = null;
-		
+
 		if(p3pLocation != null)
 		{
 			pLoc = new File(p3pLocation);
@@ -378,16 +466,19 @@ public class Gio {
 				p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),pfiles[i]));
 				pdb.addPolicy(p);
 			}
-			
+
 		}
 	}
-	
+
+	/**
+	 * returns the only policy database
+	 * @return the policy database
+	 */
 	public PolicyDatabase getPDB()
 	{
 		return pdb;
 	}
 
-	
 	/**
 	 * closes resources and write everything to file
 	 * 
@@ -397,9 +488,9 @@ public class Gio {
 		pdb.closeDB(); //save the db
 		writePropertyFile(newWeights,outWeightsLoc);
 		userInterface.closeResources(); 
-		
+
 	}
-	
+
 	/**
 	 * writes a property file to disk
 	 * 
@@ -411,7 +502,7 @@ public class Gio {
 	{
 		try 
 		{
-		    wprops.store(new FileOutputStream(wloc), null);
+			wprops.store(new FileOutputStream(wloc), null);
 		} 
 		catch (IOException e) 
 		{
@@ -420,7 +511,7 @@ public class Gio {
 			System.exit(3);
 		}
 	}
-	
+
 	/**
 	 * Generates handles response. This is were we would pass stuff to cli or gui, etc
 	 * 
@@ -445,9 +536,7 @@ public class Gio {
 			}
 		}
 	}
-	
-	
-	
+
 	/**
 	 * returns the policy object from the T option
 	 * 
@@ -478,15 +567,26 @@ public class Gio {
 		return building;
 	}
 
+	/**
+	 * saves the new weights to a buffer variable before writing in the shutdown call
+	 * 
+	 * @param newWeightP the new weights file to save
+	 * @author ngerstle
+	 */
 	public void setWeights(Properties newWeightP) {
-		 newWeights = newWeightP;
-		
+		newWeights = newWeightP;
+
 	}
 
-	
+	/**
+	 * returns the CBR to use
+	 * 
+	 * @return the cbr to use
+	 * @author ngerstle
+	 */
 	public CBR getCBR() {
 		return cbr;
 	}
-	
-	
+
+
 }
