@@ -78,10 +78,6 @@ class PDatabase extends PolicyDatabase implements Serializable
 			{
 				dLoc = outLocation;
 			}
-			else if (dLoc == null)
-			{
-				dLoc = inLocation;
-			}
 			FileOutputStream fos = new FileOutputStream(dLoc);
 			// Creating a stream convering object to byte data 
 			ObjectOutputStream oos = new ObjectOutputStream(fos);

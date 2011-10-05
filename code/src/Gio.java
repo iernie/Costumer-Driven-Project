@@ -82,15 +82,15 @@ public class Gio {
 			//TODO pass the current program init values elegantly (both genConfig, config, and CLO), and store return
 			userInterface.user_init(null);
 		}
-
 		
-		
+		if(cbr==null)
+			System.err.println("cbr==null in gio:gio");
 
 		//load the weights configuration file
 		origWeights = new Properties();
 		origWeights = loadWeights();
 		
-		
+
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class Gio {
 		options.addOption("userInit",false,"initialization via user interface");	//TODO user_init option
 		options.addOption("policyDB",true,"PolicyDatabase backend");
 		options.addOption("cbrV",true,"CBR to use"); 
-		options.addOption("acceptSug",true,"automatically accept the user suggestion"); 
+		options.addOption("acceptSug",false,"automatically accept the user suggestion"); 
 
 		
 
@@ -199,10 +199,20 @@ public class Gio {
 
 		blanketAccept = cmd.hasOption("acceptSug");
 
-		if(!(building=(!cmd.hasOption("p")))) //only build, nothing else
+		if(cmd.hasOption("p"))
+		{
+			building = false;
+			newPolLoc=cmd.getOptionValue("p");
+		}
+		else
+		{
+			building=true;
+		}
+		
+		/*if(!(building=(!cmd.hasOption("p")))) //only build, nothing else
 		{
 			newPolLoc = cmd.getOptionValue("t");
-		}
+		}*/
 	}
 	
 	/*
@@ -568,7 +578,7 @@ public class Gio {
 	 * @author ngerstle
 	 */
 	public PolicyObject userResponse(PolicyObject n) {
-		if(userResponse == null)
+		if((userResponse == null) && !blanketAccept)
 		{
 			return userInterface.userResponse(n);
 		}
@@ -595,6 +605,8 @@ public class Gio {
 	public PolicyObject getPO() {
 
 		PolicyObject p = null;
+		if(newPolLoc == null)
+			System.err.println("newPolLoc == null in gio:getPO");
 		File pLoc = new File(newPolLoc);
 		if(!pLoc.exists()){
 			System.err.println("no file found at p3p policy location specified by the -T option");

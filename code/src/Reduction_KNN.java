@@ -56,7 +56,11 @@ public class Reduction_KNN  extends ReductionAlgorithm{
 					}
 				}
 		);
-		return (ArrayList<PolicyObject>) all_pos.subList(0, k);
+		//TODO ugly hack here
+		ArrayList<PolicyObject> results = new ArrayList<PolicyObject>();
+		for(PolicyObject i : all_pos.subList(0, k))
+			results.add(i);
+		return results;
 	}
 
 
