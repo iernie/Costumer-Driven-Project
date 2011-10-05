@@ -320,6 +320,10 @@ public class Gio {
 		{
 			outWeightsLoc = configFile.getProperty("outweights","./weights.cfg");
 		}
+		else
+		{			
+			outWeightsLoc=inWeightsLoc;
+		}
 		if(configFile.containsKey("inDBLocation"))
 		{
 			inDBLoc = configFile.getProperty("inDBLocation");
@@ -384,7 +388,12 @@ public class Gio {
 
 		try 
 		{
+			if(inWeightsLoc == null)
+			{
+				System.err.println("inWeightsLoc in Gio/LoadWeights is null");
+			}
 			File localConfig = new File(inWeightsLoc);
+			
 			InputStream is = null;
 			if(localConfig.exists())
 			{
@@ -407,6 +416,7 @@ public class Gio {
 		return origWeights;
 	}
 
+	
 	/**
 	 * startLogger initializes and returns a file at logLoc with the results of logging at level logLevel.
 	 *  
@@ -453,8 +463,6 @@ public class Gio {
 		{
 			pdb.loadDB();
 		}
-		if (pdb==null)
-			System.err.println("pdb null in gio/loaddb:1");
 		loadCLPolicies();
 	}
 
@@ -478,8 +486,6 @@ public class Gio {
 			}
 			p = (new P3PParser()).parse(pLoc.getAbsolutePath());
 			p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),p3pLocation));
-			if (pdb==null)
-				System.err.println("pdb is null in gio/loadclpol");
 			pdb.addPolicy(p);
 		}
 		else 
@@ -503,7 +509,9 @@ public class Gio {
 
 	/**
 	 * returns the only policy database
+	 * 
 	 * @return the policy database
+	 * @author ngerstle
 	 */
 	public PolicyDatabase getPDB()
 	{
@@ -523,8 +531,8 @@ public class Gio {
 		}
 		writePropertyFile(newWeights,outWeightsLoc);
 		//TODO userInterface.closeResources(); 
-
 	}
+	
 
 	/**
 	 * writes a property file to disk
@@ -551,6 +559,7 @@ public class Gio {
 		}
 	}
 
+
 	/**
 	 * Generates handles response. This is were we would pass stuff to cli or gui, etc
 	 * 
@@ -575,6 +584,7 @@ public class Gio {
 			}
 		}
 	}
+	
 
 	/**
 	 * returns the policy object from the T option
@@ -617,6 +627,7 @@ public class Gio {
 
 	}
 
+	
 	/**
 	 * returns the CBR to use
 	 * 
