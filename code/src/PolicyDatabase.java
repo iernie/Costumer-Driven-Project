@@ -18,8 +18,8 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	
 	protected static PolicyDatabase i; //the only reference to this (for singleton)
 	protected Collection<PolicyObject> idb; //the collection of objects
-	private static String inLocation;	//where the database is loaded from
-	private static String outLocation;	//where the database is to be written to
+	protected static String inLocation;	//where the database is loaded from
+	protected static String outLocation;	//where the database is to be written to
 
 
 	/**
@@ -29,12 +29,13 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	*	@return reference to PDatabase
 	*	@author ngerstle
 	*/
-	public static PolicyDatabase getInstance(String inloc, String outloc)
-	{
+	//public abstract PolicyDatabase getInstance(String inloc, String outloc);
+	/*{
+	 * /TODO force implmentation of getInstance in subclasses (static) 
 		inLocation = inloc;
 		outLocation = outloc;
 		return i;
-	}	
+	}*/	
 	
 	
 	/**
@@ -82,7 +83,7 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	}
 	
 	/**
-	 * calls closeDB(PolicyDatabase.inlocation)
+	 * calls closeDB(PolicyDatabase.outlocation)
 	 */
 	public void closeDB()
 	{

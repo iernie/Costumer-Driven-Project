@@ -5,7 +5,6 @@
  * @author Nicholas Gerstle (ngerstle)
  */
 
-import java.util.Properties;	//for configuration file functionality
 import java.util.logging.*;		//for logger functionality 
 
 
@@ -46,6 +45,7 @@ public class PrivacyAdviser {
 		//process the given case
 		if(!theIO.isBuilding()) //actually process an object
 		{
+			System.out.println("not building");
 			po = theIO.getPO();
 			/*int k = 1; //size for k in knn algorithm
 			DistanceMetric dm = new distanceMetricTest(weightsConfig);
@@ -53,6 +53,10 @@ public class PrivacyAdviser {
 			CBR machinelearn = new CBR(theIO, weightsConfig, new Reduction_KNN(dm,pdb,k), new Conclusion_Simple(dm), new Learn_Constant(weightsConfig));*/
 			
 			theIO.getCBR().run(po);
+		}
+		else
+		{
+			System.out.println("building only");
 		}
 		//close down
 		theIO.shutdown();
