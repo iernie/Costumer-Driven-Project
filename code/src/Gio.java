@@ -3,9 +3,7 @@ import java.io.FileInputStream;		//for configuration file functionality and read
 import java.io.FileOutputStream;	//for writing the new weights config file
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
-import java.lang.reflect.Field;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.Properties;		//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
@@ -382,6 +380,11 @@ public class Gio {
 			{
 				System.err.println("No weights file is available at "+inWeightsLoc+" . Please place one in the working directory.");
 				System.exit(3);
+			}
+			if(is == null)
+			{
+				System.err.println("No configuration file at+ . Please place one in the working directory.");
+				
 			}
 			newWeights.load(is);
 		} 
