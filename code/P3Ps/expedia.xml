@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<POLICY xmlns="http://www.w3.org/2000/12/P3Pv1" discuri="http://www.expedia.com/daily/service/privacy.asp" opturi="http://www.expedia.com/daily/service/default.asp">
+  <ENTITY>
+    <DATA-GROUP>
+      <DATA ref="#business.name">Expedia.com</DATA>
+      <DATA ref="#business.contact-info.postal.street">13810 SE Eastgate Way, Suite 400</DATA>
+      <DATA ref="#business.contact-info.postal.city">Bellevue</DATA>
+      <DATA ref="#business.contact-info.postal.stateprov">WA</DATA>
+      <DATA ref="#business.contact-info.postal.postalcode">98005</DATA>
+      <DATA ref="#business.contact-info.postal.country">United States</DATA>
+      <DATA ref="#business.contact-info.online.email">privacy@expedia.com</DATA>
+      <DATA ref="#business.contact-info.telecom.telephone.loccode">404</DATA>
+      <DATA ref="#business.contact-info.telecom.telephone.number">728-8787</DATA>
+      <DATA ref="#business.contact-info.online.uri">http://www.expedia.com/daily/service/contact.asp</DATA>
+    </DATA-GROUP>
+  </ENTITY>
+  <ACCESS>
+    <contact-and-other/>
+  </ACCESS>
+  <DISPUTES-GROUP>
+    <DISPUTES resolution-type="independent" service="http://www.truste.org" short-description="TRUSTe" verification="www.truste.org/validate/9531">
+      <LONG-DESCRIPTION>Complete TRUST Watchdog webform at http://www.truste.org/watchdog.html</LONG-DESCRIPTION>
+      <IMG src="http://www.expedia.com/daily/service/images/truste.gif" alt="TRUSTe: Click to Verify"/>
+      <REMEDIES>
+        <correct/>
+      </REMEDIES>
+    </DISPUTES>
+    <DISPUTES resolution-type="service" service="http://www.expedia.com/daily/service/privacy.asp" short-description="Expedia Privacy Officer">
+      <LONG-DESCRIPTION>Questions regarding the privacy statement should be emailed to privacy@expedia.com. or call (425) 564-7592. Expedia.com customer service travel agents are ready to help with your Expedia.com travel concerns 24 hours a day, seven days a week. Use our feedback form. You may also call 1 (800) EXPEDIA [1 (800) 397-3342] or 1 (404) 728-8787 around the clock to speak to a representative personally. Agents will address any questions or concerns you may have about your travel planning or purchases.</LONG-DESCRIPTION>
+      <REMEDIES>
+        <correct/>
+      </REMEDIES>
+    </DISPUTES>
+    <DISPUTES resolution-type="independent" service="http://www.bbbonline.org" short-description="BBB Online" verification="http://www.bbbonline.org/cks.asp?id=200111410491211725">
+      <LONG-DESCRIPTION>BBBOnline Privacy Program</LONG-DESCRIPTION>
+      <IMG src="http://www.expedia.com/daily/service/images/bbseal.gif" alt="BBBOnLine Privacy Seal"/>
+      <REMEDIES>
+        <correct/>
+      </REMEDIES>
+    </DISPUTES>
+  </DISPUTES-GROUP>
+  <STATEMENT>
+    <EXTENSION optional="yes">
+      <GROUP-INFO name="Purchasing from Expedia.com"/>
+    </EXTENSION>
+    <PURPOSE>
+      <pseudo-decision/>
+      <pseudo-analysis/>
+      <customization required="opt-in"/>
+      <develop/>
+      <admin/>
+      <current/>
+      <contact required="opt-out"/>
+    </PURPOSE>
+    <RECIPIENT>
+      <delivery required="opt-in"/>
+      <ours/>
+    </RECIPIENT>
+    <RETENTION>
+      <indefinitely/>
+    </RETENTION>
+    <DATA-GROUP>
+      <DATA ref="#user.name.given"/>
+      <DATA ref="#user.name.middle" optional="yes"/>
+      <DATA ref="#user.name.family"/>
+      <DATA ref="#user.home-info.postal.street"/>
+      <DATA ref="#user.home-info.postal.city"/>
+      <DATA ref="#user.home-info.postal.stateprov"/>
+      <DATA ref="#user.home-info.postal.postalcode"/>
+      <DATA ref="#user.home-info.postal.country"/>
+      <DATA ref="#user.home-info.postal.organization" optional="yes"/>
+      <DATA ref="#user.home-info.telecom.telephone.loccode"/>
+      <DATA ref="#user.home-info.telecom.telephone.number"/>
+      <DATA ref="#user.home-info.online.email"/>
+      <DATA ref="#user.business-info.telecom.telephone.loccode"/>
+      <DATA ref="#user.business-info.telecom.telephone.number"/>
+      <DATA ref="#user.business-info.telecom.telephone.ext"/>
+      <DATA ref="#dynamic.clickstream"/>
+      <DATA ref="#dynamic.cookies"/>
+      <DATA ref="#dynamic.http"/>
+      <DATA ref="#dynamic.http.useragent"/>
+      <DATA ref="#dynamic.http.referer"/>
+      <DATA ref="#thirdparty.name.given"/>
+      <DATA ref="#thirdparty.name.middle" optional="yes"/>
+      <DATA ref="#thirdparty.name.family"/>
+      <DATA ref="#thirdparty.home-info.postal.street"/>
+      <DATA ref="#thirdparty.home-info.postal.city"/>
+      <DATA ref="#thirdparty.home-info.postal.stateprov"/>
+      <DATA ref="#thirdparty.home-info.postal.postalcode"/>
+      <DATA ref="#thirdparty.home-info.postal.country"/>
+      <DATA ref="#thirdparty.home-info.postal.organization" optional="yes"/>
+      <DATA ref="#thirdparty.home-info.telecom.telephone.intcode"/>
+      <DATA ref="#thirdparty.home-info.telecom.telephone.loccode"/>
+      <DATA ref="#thirdparty.home-info.telecom.telephone.number"/>
+      <DATA ref="#thirdparty.home-info.telecom.telephone.ext"/>
+      <DATA ref="#thirdparty.home-info.online.email"/>
+      <DATA ref="#thirdparty.business-info.telecom.telephone.intcode"/>
+      <DATA ref="#thirdparty.business-info.telecom.telephone.loccode"/>
+      <DATA ref="#thirdparty.business-info.telecom.telephone.number"/>
+      <DATA ref="#thirdparty.business-info.telecom.telephone.ext"/>
+      <DATA ref="#thirdparty.business-info.telecom.telephone.comment"/>
+    </DATA-GROUP>
+  </STATEMENT>
+  <STATEMENT>
+    <EXTENSION optional="yes">
+      <GROUP-INFO name="Registered Expedia.com Customer"/>
+    </EXTENSION>
+    <PURPOSE>
+      <pseudo-decision/>
+      <pseudo-analysis/>
+      <customization required="opt-in"/>
+      <develop/>
+      <admin/>
+      <current/>
+      <contact required="opt-out"/>
+    </PURPOSE>
+    <RECIPIENT>
+      <ours/>
+    </RECIPIENT>
+    <RETENTION>
+      <indefinitely/>
+    </RETENTION>
+    <DATA-GROUP>
+      <DATA ref="#user.home-info.online.email"/>
+      <DATA ref="#dynamic.clickstream"/>
+      <DATA ref="#dynamic.cookies"/>
+      <DATA ref="#dynamic.http"/>
+      <DATA ref="#dynamic.http.useragent"/>
+      <DATA ref="#dynamic.http.referer"/>
+    </DATA-GROUP>
+  </STATEMENT>
+  <STATEMENT>
+    <EXTENSION optional="yes">
+      <GROUP-INFO name="Viewing Expedia.com"/>
+    </EXTENSION>
+    <PURPOSE>
+      <pseudo-decision/>
+      <pseudo-analysis/>
+      <customization required="opt-in"/>
+      <develop/>
+      <admin/>
+    </PURPOSE>
+    <RECIPIENT>
+      <ours/>
+    </RECIPIENT>
+    <RETENTION>
+      <indefinitely/>
+    </RETENTION>
+    <DATA-GROUP>
+      <DATA ref="#dynamic.clickstream"/>
+      <DATA ref="#dynamic.cookies"/>
+      <DATA ref="#dynamic.http"/>
+      <DATA ref="#dynamic.http.useragent"/>
+      <DATA ref="#dynamic.http.referer"/>
+    </DATA-GROUP>
+  </STATEMENT>
+</POLICY>

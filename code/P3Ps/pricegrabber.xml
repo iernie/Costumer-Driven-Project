@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- Created with P3PEdit on 28-Oct-2002 02:39:46 PM - http://p3pedit.com -->
+<META xmlns="http://www.w3.org/2002/01/P3Pv1">
+	<POLICY-REFERENCES>
+		<EXPIRY max-age="31536000" />
+		<POLICY-REF about="/w3c/p3p.xml#WebsitePolicy">
+			<INCLUDE>/*</INCLUDE>
+		</POLICY-REF>
+	</POLICY-REFERENCES>
+	<POLICIES xmlns="http://www.w3.org/2002/01/P3Pv1">
+		<POLICY name="WebsitePolicy" discuri="http://www.pricegrabber.com/info_disclaimer.php" opturi="http://www.pricegrabber.com/info_disclaimer.php">
+			<ENTITY>
+				<DATA-GROUP>
+					<DATA ref="#business.name">PriceGrabber.com, Inc.</DATA>
+					<DATA ref="#business.contact-info.postal.street">4859 W. Slauson Ave. #259</DATA>
+					<DATA ref="#business.contact-info.postal.city">Los Angeles</DATA>
+					<DATA ref="#business.contact-info.postal.stateprov">California</DATA>
+					<DATA ref="#business.contact-info.postal.postalcode">90056</DATA>
+					<DATA ref="#business.contact-info.postal.country">USA</DATA>
+					<DATA ref="#business.contact-info.telecom.telephone">323-601-1200</DATA>
+					<DATA ref="#business.contact-info.online.email">info@pricegrabber.com</DATA>
+				</DATA-GROUP>
+			</ENTITY>
+			<ACCESS>
+				<contact-and-other/>
+			</ACCESS>
+			<DISPUTES-GROUP>
+				<DISPUTES resolution-type="service" service="http://www.pricegrabber.com/info_disclaimer.php" short-description="info@pricegrabber.com">
+					<LONG-DESCRIPTION>Our organization processes all disputes through email. The address to send comments to is: info@pricegrabber.com. Please allow 12-24 hours to receive a reply.
+</LONG-DESCRIPTION>
+					<IMG src="http://images.pricegrabber.com/images/bglogonb.gif" height="46" width="234" alt=""/>
+					<REMEDIES><correct/><law/></REMEDIES>
+				</DISPUTES>
+			</DISPUTES-GROUP>
+			<STATEMENT>
+				<CONSEQUENCE>Our website collects information from its visitors for the purpose of completing or supporting an activity it was provided.</CONSEQUENCE>
+				<PURPOSE>
+					<current/>
+					<admin/>
+					<tailoring required="opt-in"/>
+				</PURPOSE>
+				<RECIPIENT>
+					<ours><recipient-description>Information is only shared with outside party for completion of transactions initiated by the individuals.</recipient-description></ours>
+					<delivery required="opt-in"><recipient-description>Information is only shared with outside party for completion of transactions initiated by the individuals.</recipient-description></delivery>
+				</RECIPIENT>
+				<RETENTION><business-practices/></RETENTION>
+				<DATA-GROUP>
+					<DATA ref="#user.name" optional="yes"/>
+					<DATA ref="#user.bdate" optional="yes"/>
+					<DATA ref="#user.home-info" optional="yes"/>
+					<DATA ref="#user.business-info" optional="yes"/>
+					<DATA ref="#dynamic.clickstream"/>
+					<DATA ref="#dynamic.http"/>
+					<DATA ref="#dynamic.searchtext"/>
+					<DATA ref="#dynamic.interactionrecord"/>
+					<DATA ref="#dynamic.cookies">
+						<CATEGORIES>
+						<uniqueid/>
+						<navigation/>
+						<interactive/>
+						<preference/>
+						</CATEGORIES>
+					</DATA>
+					<DATA ref="#dynamic.miscdata">
+						<CATEGORIES>
+							<uniqueid/>
+							<navigation/>
+						</CATEGORIES>
+					</DATA>
+				</DATA-GROUP>
+			</STATEMENT>
+		</POLICY>
+	</POLICIES>
+</META>

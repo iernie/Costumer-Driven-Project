@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <POLICIES xmlns="http://www.w3.org/2002/01/P3Pv1">
+      <EXPIRY max-age="604800" />
+      <POLICY discuri="http://www.nps.gov/privacy.htm" opturi="http://www.nps.gov/privacy.htm" name="global">
+        <ENTITY>
+          <DATA-GROUP>
+            <DATA ref="#business.contact-info.online.email">
+tim_cash@nps.gov
+            </DATA>
+            <DATA ref="#business.contact-info.online.uri">
+http://www.nps.gov/
+            </DATA>
+            <DATA ref="#business.contact-info.postal.organization">
+Communications and Training Coordinator
+            </DATA>
+            <DATA ref="#business.contact-info.postal.street">
+1201 I Street, NW
+            </DATA>
+            <DATA ref="#business.contact-info.postal.city">
+Washington
+            </DATA>
+            <DATA ref="#business.contact-info.postal.stateprov">
+DC
+            </DATA>
+            <DATA ref="#business.contact-info.postal.postalcode">
+20005
+            </DATA>
+            <DATA ref="#business.contact-info.postal.country">
+USA
+            </DATA>
+            <DATA ref="#business.name">
+National Park Service
+            </DATA>
+          </DATA-GROUP>
+        </ENTITY>
+        <ACCESS>
+          <nonident/>
+        </ACCESS>
+        <DISPUTES-GROUP>
+          <DISPUTES resolution-type="service" service="http://www.nps.gov/privacy.htm" short-description="nps.gov Privacy Statement">
+            <LONG-DESCRIPTION>
+This is the URL for the nps.gov Privacy Statement. You can send email with comments about the site from this page to the Portal Manager.
+            </LONG-DESCRIPTION>
+            <REMEDIES><correct /></REMEDIES>
+          </DISPUTES>
+        </DISPUTES-GROUP>
+        <STATEMENT>
+          <CONSEQUENCE>
+Data collected from all Web users: access logs and search strings (if entered).
+          </CONSEQUENCE>
+          <PURPOSE>
+            <current/>
+            <develop />
+            <pseudo-analysis />
+          </PURPOSE>
+          <RECIPIENT>
+            <ours/>
+          </RECIPIENT>
+          <RETENTION>
+            <business-practices />
+          </RETENTION>
+          <DATA-GROUP>
+            <DATA ref="#dynamic.clickstream"/>
+            <DATA ref="#dynamic.http.referer" />
+            <DATA ref="#dynamic.cookies" optional="yes">
+              <CATEGORIES>
+                <navigation />
+              </CATEGORIES>
+            </DATA>
+          </DATA-GROUP>
+        </STATEMENT>
+      </POLICY>
+    </POLICIES>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<POLICIES xmlns="http://www.w3.org/2002/01/P3Pv1">
+    
+
+    
+    <EXPIRY max-age="604800"/>
+
+<POLICY discuri="http://honda.com/site/site_privacy.asp" name="Privacy">
+    
+    <ENTITY>
+    <DATA-GROUP>
+<DATA ref="#business.contact-info.online.uri">http://www.honda.com</DATA>
+<DATA ref="#business.contact-info.postal.organization">American Honda Motor Company Inc.</DATA>
+<DATA ref="#business.contact-info.postal.street">1919 Torrance Blvd.</DATA>
+<DATA ref="#business.contact-info.postal.city">Torrance</DATA>
+<DATA ref="#business.contact-info.postal.stateprov">CA</DATA>
+<DATA ref="#business.contact-info.postal.postalcode">90503</DATA>
+<DATA ref="#business.contact-info.postal.country">US</DATA>
+<DATA ref="#business.name">American Honda Motor Company Inc.</DATA>
+    </DATA-GROUP>
+    </ENTITY>
+
+    
+    <ACCESS>
+            <nonident/>
+        </ACCESS>
+
+    
+
+    
+    <STATEMENT>
+        <EXTENSION optional="yes">
+            <GROUP-INFO xmlns="http://www.software.ibm.com/P3P/editor/extension-1.0.html" name="Access log information"/>
+        </EXTENSION>
+
+    
+    <CONSEQUENCE>
+Our Web server collects access logs
+containing this information.</CONSEQUENCE>
+
+    
+    <PURPOSE>
+                <admin/>
+                <current/>
+                <develop/>
+            </PURPOSE>
+
+    
+    <RECIPIENT>
+                <ours/>
+            </RECIPIENT>
+
+    
+    <RETENTION>
+                <indefinitely/>
+            </RETENTION>
+
+    
+    <DATA-GROUP>
+    <DATA ref="#dynamic.clickstream"/>
+    <DATA ref="#dynamic.http"/>
+    </DATA-GROUP>
+</STATEMENT>
+
+    
+    <STATEMENT>
+        <EXTENSION optional="yes">
+            <GROUP-INFO xmlns="http://www.software.ibm.com/P3P/editor/extension-1.0.html" name="Cookies"/>
+        </EXTENSION>
+
+    
+    <CONSEQUENCE>
+Cookies are used to track visitors to
+our site, so we can better understand
+what portions of our site best serve
+you. We also use cookies to allow 
+our server to maintain information 
+about the contents of your shopping
+cart.</CONSEQUENCE>
+
+    
+    <PURPOSE>
+                <develop/>
+                <tailoring/>
+            </PURPOSE>
+
+    
+    <RECIPIENT>
+                <ours/>
+            </RECIPIENT>
+
+    
+    <RETENTION>
+                <business-practices/>
+            </RETENTION>
+
+    
+    <DATA-GROUP>
+    <DATA ref="#dynamic.cookies">
+                    <CATEGORIES>
+                        <state/>
+                        <uniqueid/>
+                    </CATEGORIES>
+                </DATA>
+    </DATA-GROUP>
+</STATEMENT>
+
+    
+    <STATEMENT>
+        <EXTENSION optional="yes">
+            <GROUP-INFO xmlns="http://www.software.ibm.com/P3P/editor/extension-1.0.html" name="Transaction info (required)"/>
+        </EXTENSION>
+
+    
+    <CONSEQUENCE>
+Information we collect in order to process your purchase.</CONSEQUENCE>
+
+    
+    <PURPOSE>
+                <current/>
+                <develop/>
+            </PURPOSE>
+
+    
+    <RECIPIENT>
+                <ours/>
+                <delivery/>
+            </RECIPIENT>
+
+    
+    <RETENTION>
+                <business-practices/>
+            </RETENTION>
+
+    
+    <DATA-GROUP>
+    <DATA ref="#dynamic.miscdata">
+                    <CATEGORIES>
+                        <physical/>
+                    </CATEGORIES>
+                </DATA>
+    <DATA ref="#dynamic.miscdata">
+                    <CATEGORIES>
+                        <online/>
+                    </CATEGORIES>
+                </DATA>
+    <DATA ref="#dynamic.miscdata">
+                    <CATEGORIES>
+                        <demographic/>
+                    </CATEGORIES>
+                </DATA>
+    <DATA ref="#dynamic.miscdata">
+                    <CATEGORIES>
+                        <purchase/>
+                    </CATEGORIES>
+                </DATA>
+    </DATA-GROUP>
+</STATEMENT>
+
+    
+    <STATEMENT>
+        <EXTENSION optional="yes">
+            <GROUP-INFO xmlns="http://www.software.ibm.com/P3P/editor/extension-1.0.html" name="Transaction info (optional)"/>
+        </EXTENSION>
+
+    
+    <CONSEQUENCE>
+Information we collect in order to process your purchase.</CONSEQUENCE>
+
+    
+    <PURPOSE>
+                <contact/>
+            </PURPOSE>
+
+    
+    <RECIPIENT>
+                <ours/>
+                <delivery/>
+            </RECIPIENT>
+
+    
+    <RETENTION>
+                <business-practices/>
+            </RETENTION>
+
+    
+    <DATA-GROUP>
+    <DATA optional="yes" ref="#dynamic.miscdata">
+                    <CATEGORIES>
+                        <physical/>
+                    </CATEGORIES>
+                </DATA>
+    <DATA optional="yes" ref="#dynamic.miscdata">
+                    <CATEGORIES>
+                        <online/>
+                    </CATEGORIES>
+                </DATA>
+    <DATA optional="yes" ref="#dynamic.miscdata">
+                    <CATEGORIES>
+                        <demographic/>
+                    </CATEGORIES>
+                </DATA>
+    <DATA optional="yes" ref="#dynamic.miscdata">
+                    <CATEGORIES>
+                        <purchase/>
+                    </CATEGORIES>
+                </DATA>
+    </DATA-GROUP>
+</STATEMENT>
+
+
+</POLICY>
+</POLICIES>

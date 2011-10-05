@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- Created with P3PEdit on 5-Aug-2004 11:33:45 AM - http://p3pedit.com -->
+<META xmlns="http://www.w3.org/2002/01/P3Pv1">
+	<POLICY-REFERENCES>
+		<EXPIRY max-age="86400" />
+		<POLICY-REF about="#WebsitePolicy">
+			<INCLUDE>/*</INCLUDE>
+		</POLICY-REF>
+	</POLICY-REFERENCES>
+	<POLICIES xmlns="http://www.w3.org/2002/01/P3Pv1">
+		<POLICY name="WebsitePolicy" discuri="http://www.barnesandnoble.com/help/nc_privacy_policy.asp?" opturi="http://www.barnesandnoble.com/help/nc_privacy_policy.asp?">
+			<ENTITY>
+				<DATA-GROUP>
+					<DATA ref="#business.name">Barnes &amp; Noble.Com</DATA>
+					<DATA ref="#business.contact-info.postal.street">76 Ninth Avenue</DATA>
+					<DATA ref="#business.contact-info.postal.city">New York</DATA>
+					<DATA ref="#business.contact-info.postal.stateprov">NY</DATA>
+					<DATA ref="#business.contact-info.postal.postalcode">10011</DATA>
+					<DATA ref="#business.contact-info.postal.country">US</DATA>
+					<DATA ref="#business.contact-info.telecom.telephone">800-843-2665</DATA>
+					<DATA ref="#business.contact-info.online.email">privacy@barnesandnoble.com</DATA>
+				</DATA-GROUP>
+			</ENTITY>
+			<ACCESS>
+				<contact-and-other/>
+			</ACCESS>
+			<DISPUTES-GROUP>
+				<DISPUTES resolution-type="service" service="http://www.barnesandnoble.com/help/nc_privacy_policy.asp?">
+					<LONG-DESCRIPTION>Cutomer Service may be reached at service@barnesandnoble.com.
+
+In lieu of customer service, a customer may seek resolution through confidential arbitration in New York, NY administered by the AAA under its commercial arbitration rules (including without limitation the supplementary procedures for consumers related disputes).</LONG-DESCRIPTION>
+					<REMEDIES><correct/></REMEDIES>
+				</DISPUTES>
+			</DISPUTES-GROUP>
+			<STATEMENT>
+				<CONSEQUENCE>Additional information on the consequence of collecting information may be obtained:
+
+http://www.barnesandnoble.com/help/nc_privacy_policy.asp?
+</CONSEQUENCE>
+				<PURPOSE>
+					<current/>
+					<admin/>
+					<develop/>
+					<tailoring/>
+					<pseudo-analysis/>
+					<individual-decision required="opt-out"/>
+					<contact required="opt-out"/>
+					<historical/>
+					<telemarketing required="opt-out"/>
+				</PURPOSE>
+				<RECIPIENT>
+					<delivery><recipient-description>http://www.barnesandnoble.com/help/nc_privacy_policy.asp</recipient-description></delivery>
+					<same required="opt-out"><recipient-description>http://www.barnesandnoble.com/help/nc_privacy_policy.asp?</recipient-description></same>
+					<unrelated required="opt-out"><recipient-description>http://www.barnesandnoble.com/help/nc_privacy_policy.asp</recipient-description></unrelated>
+				</RECIPIENT>
+				<RETENTION><legal-requirement/></RETENTION>
+				<DATA-GROUP>
+					<DATA ref="#user.name" optional="yes"/>
+					<DATA ref="#user.home-info" optional="yes"/>
+					<DATA ref="#thirdparty.name"/>
+					<DATA ref="#dynamic.clickstream"/>
+					<DATA ref="#dynamic.http"/>
+					<DATA ref="#dynamic.searchtext"/>
+					<DATA ref="#dynamic.interactionrecord"/>
+					<DATA ref="#dynamic.cookies">
+						<CATEGORIES>
+							<physical/>
+							<online/>
+							<uniqueid/>
+							<computer/>
+							<navigation/>
+							<state/>
+							<preference/>
+						</CATEGORIES>
+					</DATA>
+				</DATA-GROUP>
+			</STATEMENT>
+		</POLICY>
+	</POLICIES>
+</META>

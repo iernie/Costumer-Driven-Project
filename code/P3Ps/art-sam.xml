@@ -1,0 +1,45 @@
+<META xmlns="http://www.w3.org/2002/01/P3Pv1">
+<POLICY-REFERENCES>
+    <POLICY-REF about="/privacy/policy.p3p#general">
+      <INCLUDE>/*</INCLUDE>
+	  <EXCLUDE>/shop/index.php?main_page=subscribe</EXCLUDE>
+	  <EXCLUDE>/shop/index.php?main_page=contact_us</EXCLUDE>
+	  <EXCLUDE>/shop/index.php?main_page=ask_a_question*</EXCLUDE>
+	  <EXCLUDE>/shop/index.php?main_page=login*</EXCLUDE>
+	  <EXCLUDE>/shop/index.php?main_page=create_account</EXCLUDE>
+	  <EXCLUDE>/shop/index.php?main_page=no_account</EXCLUDE>
+	  <EXCLUDE>/shop/index.php?main_page=account</EXCLUDE>
+	  <EXCLUDE>/shop/index.php?main_page=account_edit</EXCLUDE>
+	  <EXCLUDE>/shop/index.php?main_page=address_book</EXCLUDE>
+	  <EXCLUDE>/shop/index.php?main_page=checkout_shipping</EXCLUDE>
+	  <EXCLUDE>/shop/index.php?main_page=tell_a_friend*</EXCLUDE>
+	  <EXCLUDE>/services/resellers/*</EXCLUDE>
+      <COOKIE-INCLUDE/>
+    </POLICY-REF>
+	
+    <POLICY-REF about="/privacy/policy.p3p#newsletters_only">
+      <INCLUDE>/shop/index.php?main_page=subscribe</INCLUDE>
+      <COOKIE-INCLUDE/>
+    </POLICY-REF>
+	
+	<POLICY-REF about="/privacy/policy.p3p#contact">
+      <INCLUDE>/shop/index.php?main_page=contact_us</INCLUDE>
+      <INCLUDE>/shop/index.php?main_page=ask_a_question*</INCLUDE>
+      <COOKIE-INCLUDE/>
+    </POLICY-REF>
+	
+	<POLICY-REF about="/privacy/policy.p3p#account">
+      <INCLUDE>/shop/index.php?main_page=create_account</INCLUDE>
+      <INCLUDE>/shop/index.php?main_page=no_account</INCLUDE>
+      <INCLUDE>/shop/index.php?main_page=login*</INCLUDE>
+      <INCLUDE>/shop/index.php?main_page=account</INCLUDE>
+      <INCLUDE>/shop/index.php?main_page=account_edit</INCLUDE>
+      <INCLUDE>/shop/index.php?main_page=address_book</INCLUDE>
+      <INCLUDE>/shop/index.php?main_page=checkout_shipping</INCLUDE>
+      <INCLUDE>/shop/index.php?main_page=tell_a_friend*</INCLUDE>
+      <INCLUDE>/services/resellers/*</INCLUDE>
+      <COOKIE-INCLUDE/>
+    </POLICY-REF>
+
+</POLICY-REFERENCES>
+</META>

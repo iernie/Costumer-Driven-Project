@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<POLICIES xmlns="http://www.w3.org/2002/01/P3Pv1">
+	<POLICY name="forBrowsers" discuri="http://www.fool.com/community/register/privacystatement.htm" opturi="http://www.fool.com/account/freemailsubscribe.aspx">
+
+		<!-- Description of the entity making this policy statement. -->
+		<ENTITY>
+			<DATA-GROUP>
+				<DATA ref="#business.name">The Motley Fool, Inc</DATA>
+				<DATA ref="#business.contact-info.online.email">privacypete@fool.com</DATA>
+				<DATA ref="#business.contact-info.online.uri">http://www.fool.com</DATA>
+
+				<DATA ref="#business.contact-info.telecom.telephone.intcode">1</DATA>
+				<DATA ref="#business.contact-info.telecom.telephone.loccode">703</DATA>
+				<DATA ref="#business.contact-info.telecom.telephone.number">838-3665</DATA>
+
+				<DATA ref="#business.contact-info.postal.street">123 N. Pitt Str.</DATA>
+				<DATA ref="#business.contact-info.postal.city">Alexandria</DATA>
+				<DATA ref="#business.contact-info.postal.stateprov">VA</DATA>
+				<DATA ref="#business.contact-info.postal.postalcode">22314</DATA>
+				<DATA ref="#business.contact-info.postal.country">USA</DATA>
+			</DATA-GROUP>
+		</ENTITY>
+
+		<!-- Disclosure -->
+		<ACCESS><ident-contact/></ACCESS>
+
+		<!-- Disputes -->
+		<DISPUTES-GROUP>
+			<DISPUTES resolution-type="service" service="http://www.fool.com/community/register/privacystatement.htm" short-description="Customer Service">
+				<LONG-DESCRIPTION>For questions please call 703-838-3665 or e-mail PrivacyPete@Fool.com.</LONG-DESCRIPTION>
+				<REMEDIES><correct/></REMEDIES>
+			</DISPUTES>
+		</DISPUTES-GROUP>
+
+		<!-- Statement -->
+		<STATEMENT>
+
+			<!-- Consequence -->
+			<CONSEQUENCE>This is the normal information logged in standard web server access logs. Contact data provided when customer affirmatively asks for more information or registers for a service.</CONSEQUENCE>
+
+			<!-- Use (purpose) -->
+			<PURPOSE><current/><admin/><develop/><tailoring/><pseudo-analysis/><pseudo-decision/><individual-analysis/><individual-decision/><contact required="opt-out"/><historical/><telemarketing required="opt-out"/></PURPOSE>
+
+			<!-- Recipients -->
+			<RECIPIENT><ours/></RECIPIENT>
+
+			<!-- Retention -->
+			<RETENTION><indefinitely/></RETENTION>
+
+			<!-- Base dataschema elements -->
+			<DATA-GROUP>
+				<DATA ref="#user.name" optional="yes"/>
+				<DATA ref="#user.bdate" optional="yes"/>
+				<DATA ref="#user.login" optional="yes"/>
+				<DATA ref="#user.home-info" optional="yes"/>
+				<DATA ref="#user.business-info" optional="yes"/>
+				<DATA ref="#dynamic.clickstream.uri" optional="no"/>
+				<DATA ref="#dynamic.clickstream.timestamp" optional="no"/>
+				<DATA ref="#dynamic.clickstream.clientip" optional="no"/>
+				<DATA ref="#dynamic.http.useragent" optional="no"/>
+				<DATA ref="#dynamic.clientevents" optional="no"/>
+				<DATA ref="#dynamic.searchtext" optional="no"/>
+				<DATA ref="#dynamic.interactionrecord" optional="no"/>
+				<DATA ref="#dynamic.cookies" optional="no"><CATEGORIES><physical/><online/><uniqueid/><purchase/><financial/><computer/><navigation/><interactive/><demographic/><content/><state/><preference/><location/></CATEGORIES></DATA>
+				<DATA ref="#dynamic.miscdata" optional="no"><CATEGORIES><physical/><online/><uniqueid/><purchase/><financial/><computer/><navigation/><interactive/><demographic/><preference/><location/></CATEGORIES></DATA>
+			</DATA-GROUP>
+		</STATEMENT>
+		<!-- End of policy -->
+	</POLICY>
+</POLICIES>
