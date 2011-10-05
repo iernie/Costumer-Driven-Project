@@ -39,7 +39,7 @@ public class Gio {
 	private String outDBLoc = null;					//output location of the database
 	private String p3pDirLocation = null;					//location of p3p objects (a folder containing only those objects
 	private String p3pLocation = null;				//location of a single p3p to be parsed
-	private PolicyDatabase pdb = null;				//Policy database object
+	private PolicyDatabase pdb;				//Policy database object
 	private boolean newDB = false;				//overwrite/create new database at specified file location
 	private boolean building = false;			//if true, the program should load pdb as normal, add any given policies with p/f options, save the DB, and exit
 	private String newPolLoc = null;						//the location of the new policy that goes through knn, given by the -T option
@@ -62,8 +62,9 @@ public class Gio {
 	 */
 	public Gio(String[] args) 
 	{
-		
+			
 		loadFromConfig(genConfig);
+		
 		loadCLO(args);
 		
 		if(genConfig!="./PrivacyAdvisor.cfg")
@@ -71,8 +72,10 @@ public class Gio {
 			loadFromConfig(genConfig);
 			loadCLO(args);
 		}
+		
 		//start the logger
 		logger = startLogger(logloc,loglevel);
+		
 		
 		if(userInitializes)
 		{
@@ -86,6 +89,8 @@ public class Gio {
 		//load the weights configuration file
 		origWeights = new Properties();
 		origWeights = loadWeights();
+		
+		
 	}
 
 	/**
@@ -212,6 +217,7 @@ public class Gio {
 	}
 	*/
 	
+	
 	/**
 	 * converts a string into a valid CBR
 	 * 
@@ -232,9 +238,10 @@ public class Gio {
 	 * @author ngerstle
 	 */
 	private void selectPDB(String optionValue) {
+		//TODO this should only be called once, 
 		// TODO Add other PolicyDatabase classes, when other classes are made
-		System.err.println("inDBLoc = "+inDBLoc);
-		System.err.println("outDBLoc = "+outDBLoc);
+		//System.err.println("inDBLoc = "+inDBLoc);
+		//System.err.println("outDBLoc = "+outDBLoc);
 	
 		
 		pdb = PDatabase.getInstance(inDBLoc, outDBLoc);
@@ -260,6 +267,7 @@ public class Gio {
 		userInterface = new UserIO_Simple();
 	}
 
+	
 	/**
 	 * Should parse a string to select, initialize, and return one of the actions (result of checking an object) coded.
 	 * 
@@ -331,6 +339,7 @@ public class Gio {
 		if(configFile.containsKey("PolicyDB"))
 		{
 			selectPDB(configFile.getProperty("PolicyDB"));
+			
 		}
 		if(configFile.containsKey("newDB"))
 		{
@@ -444,6 +453,8 @@ public class Gio {
 		{
 			pdb.loadDB();
 		}
+		if (pdb==null)
+			System.err.println("pdb null in gio/loaddb:1");
 		loadCLPolicies();
 	}
 
@@ -467,9 +478,7 @@ public class Gio {
 			}
 			p = (new P3PParser()).parse(pLoc.getAbsolutePath());
 			p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),p3pLocation));
-			if(p==null)
-				System.err.println("p is null in gio/loadclpol");
-			else if (pdb==null)
+			if (pdb==null)
 				System.err.println("pdb is null in gio/loadclpol");
 			pdb.addPolicy(p);
 		}
@@ -507,10 +516,13 @@ public class Gio {
 	 * @author ngerstle
 	 */
 	public void shutdown() {
-		System.err.println("closeDB");
 		pdb.closeDB(); //save the db
+		if(newWeights == null)
+		{
+			newWeights = origWeights;
+		}
 		writePropertyFile(newWeights,outWeightsLoc);
-		userInterface.closeResources(); 
+		//TODO userInterface.closeResources(); 
 
 	}
 
@@ -523,6 +535,10 @@ public class Gio {
 	 */
 	private void writePropertyFile(Properties wprops, String wloc)
 	{
+		if(wprops==null)
+			System.out.println("wrops null in gio/writepropertyfile");
+		if(wloc ==null)
+			System.out.println("wloc null in gio/writepropertyfile");
 		try 
 		{
 			wprops.store(new FileOutputStream(wloc), null);

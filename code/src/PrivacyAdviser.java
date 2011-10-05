@@ -54,10 +54,6 @@ public class PrivacyAdviser {
 			
 			theIO.getCBR().run(po);
 		}
-		else
-		{
-			System.out.println("building only");
-		}
 		//close down
 		theIO.shutdown();
 	}
@@ -78,7 +74,9 @@ public class PrivacyAdviser {
 		//enable IO (and parse args
 		theIO = new Gio(args); 
 
-
+		if (theIO.getPDB()==null)
+			System.err.println("pdb null in PA/init");
+		
 
 
 		//load the past history && commandline policies 
