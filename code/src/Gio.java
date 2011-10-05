@@ -3,7 +3,9 @@ import java.io.FileInputStream;		//for configuration file functionality and read
 import java.io.FileOutputStream;	//for writing the new weights config file
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
+import java.lang.reflect.Field;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Properties;		//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
@@ -43,13 +45,16 @@ public class Gio {
 	private boolean newDB = false;				//overwrite/create new database at specified file location
 	private boolean building = false;			//if true, the program should load pdb as normal, add any given policies with p/f options, save the DB, and exit
 	private String newPolLoc = null;						//the location of the new policy that goes through knn, given by the -T option
+	private Properties origWeights = null;				//the loaded weights file.
 	private Properties newWeights = null;				//the revised weights, following LearnAlgorithm. written to disk by shutdown(). also used in loading weights during init()
 	private UserIO userInterface = null;				//means of interacting with the user
 	private Action userResponse = null;					//preset response to recomendation
 	private boolean userInitializes;			//override initialization via userInterface.user_init(args);
 	private CBR cbr = null;							//the CBR to use-> with algorithms!!
 	private boolean blanketAccept = false;			//provide an automatic yes to suggested action
-
+	private String loglevel;			//what level to log at: INFO, SEVERE, etc, etc	
+	private String logloc ;				//where the log should go
+	
 
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
@@ -59,18 +64,28 @@ public class Gio {
 	 */
 	public Gio(String[] args) 
 	{
-		loadGeneral();
+		loadFromConfig(genConfig);
 		loadCLO(args);
 		if(genConfig!="./PrivacyAdvisor.cfg")
 		{
 			loadFromConfig(genConfig);
 			loadCLO(args);
 		}
+		//start the logger
+		logger = startLogger(logloc,loglevel);
+		
 		if(userInitializes)
 		{
-			//TODO pass the current program init values elegantly (both genConfig, config, and CLO)
+			//TODO pass the current program init values elegantly (both genConfig, config, and CLO), and store return
 			userInterface.user_init(null);
 		}
+
+		
+		
+
+		//load the weights configuration file
+		origWeights = new Properties();
+		origWeights = loadWeights();
 	}
 
 	/**
@@ -100,7 +115,7 @@ public class Gio {
 		options.addOption("cbrV",true,"CBR to use"); 
 		options.addOption("acceptSug",true,"automatically accept the user suggestion"); 
 
-
+		
 
 		CommandLineParser parser = new PosixParser();
 		CommandLine cmd = null;
@@ -115,6 +130,7 @@ public class Gio {
 			System.exit(3);
 		}
 
+		
 		if(cmd.hasOption("config"))
 		{
 			genConfig = cmd.getOptionValue("config");
@@ -194,6 +210,17 @@ public class Gio {
 		}*/
 	}
 	
+	/*
+	private void loadInitClassVars(Iterator<?> k)
+	{
+//TODO load based on class field names, rather than stupid long if/else lists
+			for(Field i : new Class().getFields())
+			{
+				i.getName();
+			}
+		
+	}
+	*/
 	/**
 	 * converts a string into a valid CBR
 	 * 
@@ -243,17 +270,6 @@ public class Gio {
 	}
 
 	/**
-	 * Loads the general config file from either commandline location or default of './PrivacyAdviser.cfg'
-	 *  
-	 * @return properties object corresponding to given configuration file
-	 * @author ngerstle
-	 */
-	public Properties loadGeneral()
-	{
-		return loadFromConfig(genConfig);
-	}
-
-	/**
 	 * Loads the general configuration file, either from provided string, or default location (./PrivacyAdviser.cfg)
 	 *
 	 *  
@@ -261,7 +277,6 @@ public class Gio {
 	 * @return properties object corresponding to given configuration file
 	 * @author ngerstle
 	 */
-	//TODO MUST BE CALLED AFTER loadCLO
 	public Properties loadFromConfig(String fileLoc)
 	{
 		Properties configFile = new Properties();
@@ -286,63 +301,61 @@ public class Gio {
 			System.err.println("IOException reading first configuration file. Exiting...\n");
 			System.exit(1);
 		}	
-		if(cbr == null)
+		if(configFile.containsKey("inweights"))
 		{
-			cbr = parseCBR(configFile.getProperty("cbrV"));
+			inWeightsLoc = configFile.getProperty("inweights","./weights.cfg");
 		}
-		if(inWeightsLoc == null)
+		if(configFile.containsKey("outweights"))
 		{
-			inWeightsLoc = configFile.getProperty("inweights.cfg","./weights.cfg");
+			outWeightsLoc = configFile.getProperty("outweights","./weights.cfg");
 		}
-		if(outWeightsLoc == null)
-		{
-			outWeightsLoc = configFile.getProperty("outweights.cfg","./weights.cfg");
-		}
-		if(inDBLoc == null)
+		if(configFile.containsKey("inDBLocation"))
 		{
 			inDBLoc = configFile.getProperty("inDBLocation");
 		}
-		if(outDBLoc == null)
+		if(configFile.containsKey("outDBLocation"))
 		{
 			outDBLoc = configFile.getProperty("outDBLocation");
 		}
-		if(p3pDirLocation == null)
+		if(configFile.containsKey("p3pHistDirectory"))
 		{
-			p3pDirLocation = configFile.getProperty("");
+			p3pDirLocation = configFile.getProperty("p3pHistDirectory");
 		}
-		if(p3pLocation == null)
+		if(configFile.containsKey("p3pHistFile"))
 		{
-			p3pLocation = configFile.getProperty("");;
+			p3pLocation = configFile.getProperty("p3pHistFile");;
 		}
-		if(pdb == null)
+		if(configFile.containsKey("PolicyDB"))
 		{
 			pdb = selectPDB(configFile.getProperty("PolicyDB"));
 		}
-		if(newDB == false)
+		if(configFile.containsKey("newDB"))
 		{
 			newDB = Boolean.parseBoolean(configFile.getProperty("newDB"));;
 		}
-		if(newPolLoc == null)
+		if(configFile.containsKey("newPolicyLocation"))
 		{
 			newPolLoc = configFile.getProperty("newPolicyLocation");
 		}
-		if(userInterface == null)
+		if(configFile.containsKey("UserInterface"))
 		{
 			userInterface = selectUI(configFile.getProperty("UserInterface"));
 		}
-		if(userResponse == null)
+		if(configFile.containsKey("userResponse"))
 		{
 			userResponse = parseAct(configFile.getProperty("userResponse"));
 		}
-		if(userInitializes == false)
+		if(configFile.containsKey("userInitializes"))
 		{
 			userInitializes = Boolean.parseBoolean(configFile.getProperty("userInitializes"));
 		}
-		if(cbr == null)
+		if(configFile.containsKey("cbrV"))
 		{
 			cbr = parseCBR(configFile.getProperty("cbrV"));
 		}
-
+		loglevel = configFile.getProperty("loglevel","INFO").toUpperCase();
+		logloc = configFile.getProperty("logloc","./log.txt").toUpperCase();
+		
 		return configFile;
 	}
 
@@ -444,7 +457,7 @@ public class Gio {
 		{
 			pLoc = new File(p3pLocation);
 			if(!pLoc.exists()){
-				System.err.println("no file found at p3p policy location specified by the -p option");
+				System.err.println("no file found at p3p policy location specified by the -p3p option");
 				System.exit(1);
 			}
 			p = (new P3PParser()).parse(pLoc.getAbsolutePath());
@@ -459,7 +472,7 @@ public class Gio {
 			{
 				pLoc = new File(pfiles[i]);
 				if(!pLoc.exists()){
-					System.err.println("no file found at p3p policy location specified by the -p option");
+					System.err.println("no file found at p3p policy location specified by the -histPolicyDir option");
 					System.exit(1);
 				}
 				p = (new P3PParser()).parse(pLoc.getAbsolutePath());
