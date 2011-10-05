@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created on Thu, 03 Apr 2008 09:40:49 -0500 with P3PEdit - http://p3pedit.com -->
+<META xmlns="http://www.w3.org/2002/01/P3Pv1">
+  <POLICY-REFERENCES>
+    <EXPIRY max-age="86400"/>
+    <POLICY-REF about="#WebsitePolicy">
+      <INCLUDE>/*</INCLUDE>
+      <COOKIE-INCLUDE name="*" value="*" domain="*" path="*"/>
+    </POLICY-REF>
+  </POLICY-REFERENCES>
+  <POLICIES>
+    <POLICY name="WebsitePolicy" discuri="http://www.discovercard.com/customer-service/privacy-policies/?gcmpgn=p3p" opturi="http://www.discovercard.com/customer-service/privacy-policies/?gcmpgn=p3p">
+      <ENTITY>
+        <DATA-GROUP>
+          <DATA ref="#business.name">Discover Financial Services</DATA>
+          <DATA ref="#business.contact-info.postal.street">2500 Lake Cook Road</DATA>
+          <DATA ref="#business.contact-info.postal.city">Riverwoods</DATA>
+          <DATA ref="#business.contact-info.postal.stateprov">IL</DATA>
+          <DATA ref="#business.contact-info.postal.postalcode">60015</DATA>
+          <DATA ref="#business.contact-info.postal.country">US</DATA>
+          <DATA ref="#business.contact-info.telecom.telephone">1-800-347-2683</DATA>
+        </DATA-GROUP>
+      </ENTITY>
+      <ACCESS>
+        <contact-and-other/>
+      </ACCESS>
+      <DISPUTES-GROUP>
+        <DISPUTES resolution-type="service" service="http://www.discovercard.com/customer-service/privacy-policies/?gcmpgn=p3p">
+          <LONG-DESCRIPTION>Please note that this P3P Policy is superseded by the Privacy Policies and their terms found on the Discover Card web site at http://www.discovercard.com/customer-service/privacy-policies/?gcmpgn=p3p</LONG-DESCRIPTION>
+          <REMEDIES>
+            <correct/>
+          </REMEDIES>
+        </DISPUTES>
+      </DISPUTES-GROUP>
+      <STATEMENT>
+        <PURPOSE>
+          <current/>
+          <admin required="always"/>
+          <develop required="always"/>
+          <tailoring required="always"/>
+          <pseudo-analysis required="always"/>
+          <pseudo-decision required="always"/>
+          <individual-analysis required="always"/>
+          <individual-decision required="always"/>
+          <contact required="opt-out"/>
+          <historical required="always"/>
+          <telemarketing required="opt-out"/>
+        </PURPOSE>
+        <RECIPIENT>
+          <ours/>
+          <delivery required="opt-out"/>
+          <same required="always"/>
+        </RECIPIENT>
+        <RETENTION>
+          <indefinitely/>
+        </RETENTION>
+        <DATA-GROUP>
+          <DATA ref="#user.name"/>
+          <DATA ref="#user.bdate"/>
+          <DATA ref="#user.gender"/>
+          <DATA ref="#user.employer"/>
+          <DATA ref="#user.department"/>
+          <DATA ref="#user.jobtitle"/>
+          <DATA ref="#user.home-info"/>
+          <DATA ref="#user.business-info"/>
+          <DATA ref="#thirdparty.name"/>
+          <DATA ref="#thirdparty.bdate"/>
+          <DATA ref="#thirdparty.gender"/>
+          <DATA ref="#thirdparty.employer"/>
+          <DATA ref="#thirdparty.department" optional="yes"/>
+          <DATA ref="#thirdparty.jobtitle" optional="yes"/>
+          <DATA ref="#thirdparty.home-info"/>
+          <DATA ref="#thirdparty.business-info"/>
+          <DATA ref="#dynamic.clickstream"/>
+          <DATA ref="#dynamic.http"/>
+          <DATA ref="#dynamic.clientevents"/>
+          <DATA ref="#dynamic.searchtext"/>
+          <DATA ref="#dynamic.interactionrecord"/>
+          <DATA ref="#dynamic.cookies">
+            <CATEGORIES>
+              <uniqueid/>
+              <navigation/>
+              <interactive/>
+              <content/>
+              <preference/>
+            </CATEGORIES>
+          </DATA>
+          <DATA ref="#dynamic.miscdata">
+            <CATEGORIES>
+              <physical/>
+              <online/>
+              <purchase/>
+              <financial/>
+              <computer/>
+              <navigation/>
+              <interactive/>
+              <demographic/>
+              <content/>
+              <preference/>
+              <location/>
+              <government/>
+            </CATEGORIES>
+          </DATA>
+        </DATA-GROUP>
+      </STATEMENT>
+    </POLICY>
+  </POLICIES>
+</META>

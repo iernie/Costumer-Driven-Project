@@ -1,0 +1,177 @@
+<?xml version="1.0" ?>
+<POLICIES xmlns="http://www.w3.org/2002/01/P3Pv1">
+<POLICY name="policy" 
+	discuri="http://www.netquote.com/about/privacy-policy.aspx">
+	<ENTITY>
+		<DATA-GROUP>
+			<DATA ref="#business.name">NetQuote, Inc.</DATA>
+			<DATA ref="#business.contact-info.online.email">webmaster@netquote.com</DATA>
+			<DATA ref="#business.contact-info.postal.street">1860 Blake St, Suite 900</DATA>
+			<DATA ref="#business.contact-info.postal.city">Denver</DATA>
+			<DATA ref="#business.contact-info.postal.stateprov">CO</DATA>
+			<DATA ref="#business.contact-info.postal.postalcode">80202</DATA>
+			<DATA ref="#business.contact-info.postal.country">US</DATA>
+		</DATA-GROUP>
+	</ENTITY>
+	<ACCESS>
+		<contact-and-other />
+	</ACCESS>
+	<DISPUTES-GROUP>
+		<DISPUTES resolution-type="service" service="http://www.netquote.com/Information.aspx?View=ContactUs&amp;Inquiry=PrivacyAssurance|webmaster" short-description="NetQuote Dispute Resolution">
+			<LONG-DESCRIPTION>Please contact us with questions or complaints.</LONG-DESCRIPTION>
+			<REMEDIES>
+				<correct />
+			</REMEDIES>
+		</DISPUTES>
+	</DISPUTES-GROUP>
+	<STATEMENT>
+		<PURPOSE>
+			<current />
+		</PURPOSE>
+		<RECIPIENT>
+			<ours />
+		</RECIPIENT>
+		<RETENTION>
+			<business-practices />
+		</RETENTION>
+		<DATA-GROUP>
+			<DATA ref="#dynamic.miscdata">
+				<CATEGORIES>
+					<physical />
+				</CATEGORIES>
+			</DATA>
+		</DATA-GROUP>
+	</STATEMENT>
+	<STATEMENT>
+		<PURPOSE>
+			<current />
+			<admin />
+		</PURPOSE>
+		<RECIPIENT>
+			<ours />
+		</RECIPIENT>
+		<RETENTION>
+			<business-practices />
+		</RETENTION>
+		<DATA-GROUP>
+			<DATA ref="#dynamic.miscdata">
+				<CATEGORIES>
+					<online />
+				</CATEGORIES>
+			</DATA>
+		</DATA-GROUP>
+	</STATEMENT>
+	<STATEMENT>
+		<PURPOSE>
+			<current />
+		</PURPOSE>
+		<RECIPIENT>
+			<ours />
+		</RECIPIENT>
+		<RETENTION>
+			<business-practices />
+		</RETENTION>
+		<DATA-GROUP>
+			<DATA ref="#dynamic.miscdata">
+				<CATEGORIES>
+					<government />
+				</CATEGORIES>
+			</DATA>
+		</DATA-GROUP>
+	</STATEMENT>
+	<STATEMENT>
+		<PURPOSE>
+			<admin />
+			<develop />
+			<pseudo-analysis />
+		</PURPOSE>
+		<RECIPIENT>
+			<ours />
+		</RECIPIENT>
+		<RETENTION>
+			<business-practices />
+		</RETENTION>
+		<DATA-GROUP>
+			<DATA ref="#dynamic.miscdata">
+				<CATEGORIES>
+					<navigation />
+				</CATEGORIES>
+			</DATA>
+		</DATA-GROUP>
+	</STATEMENT>
+	<STATEMENT>
+		<PURPOSE>
+			<admin />
+			<develop />
+			<pseudo-analysis />
+		</PURPOSE>
+		<RECIPIENT>
+			<ours />
+		</RECIPIENT>
+		<RETENTION>
+			<business-practices />
+		</RETENTION>
+		<DATA-GROUP>
+			<DATA ref="#dynamic.miscdata">
+				<CATEGORIES>
+					<interactive />
+				</CATEGORIES>
+			</DATA>
+		</DATA-GROUP>
+	</STATEMENT>
+	<STATEMENT>
+		<PURPOSE>
+			<current />
+		</PURPOSE>
+		<RECIPIENT>
+			<ours />
+		</RECIPIENT>
+		<RETENTION>
+			<business-practices />
+		</RETENTION>
+		<DATA-GROUP>
+			<DATA ref="#dynamic.miscdata">
+				<CATEGORIES>
+					<demographic />
+				</CATEGORIES>
+			</DATA>
+		</DATA-GROUP>
+	</STATEMENT>
+	<STATEMENT>
+		<PURPOSE>
+			<current />
+		</PURPOSE>
+		<RECIPIENT>
+			<ours />
+		</RECIPIENT>
+		<RETENTION>
+			<business-practices />
+		</RETENTION>
+		<DATA-GROUP>
+			<DATA ref="#dynamic.miscdata">
+				<CATEGORIES>
+					<health />
+				</CATEGORIES>
+			</DATA>
+		</DATA-GROUP>
+	</STATEMENT>
+	<STATEMENT>
+		<PURPOSE>
+			<pseudo-analysis />
+		</PURPOSE>
+		<RECIPIENT>
+			<ours />
+		</RECIPIENT>
+		<RETENTION>
+			<business-practices />
+		</RETENTION>
+		<DATA-GROUP>
+			<DATA ref="#dynamic.cookies">
+				<CATEGORIES>
+					<state />
+				</CATEGORIES>
+			</DATA>
+		</DATA-GROUP>
+	</STATEMENT>
+</POLICY>
+</POLICIES>

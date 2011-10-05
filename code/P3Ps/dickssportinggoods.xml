@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<POLICIES xmlns="http://www.w3.org/2001/09/P3Pv1">
+<EXPIRY max-age="604800"/>
+<POLICY name="policy" discuri="http://www.dickssportinggoods.com/helpdesk/index.jsp?display=safety&amp;subdisplay=privacy">
+<ENTITY>
+<DATA-GROUP>
+<DATA ref="#business.name">Global Sports</DATA>
+<DATA ref="#business.contact-info.online.email">customersupport@dickssportinggoods.com</DATA>
+<DATA ref="#business.contact-info.online.uri">http://www.dickssportinggoods.com/home/index.jsp</DATA>
+<DATA ref="#business.contact-info.telecom.telephone.number">1-877-846-9997</DATA>
+</DATA-GROUP>
+</ENTITY>
+<ACCESS><contact-and-other/></ACCESS>
+<STATEMENT>
+<EXTENSION optional="yes">
+<GROUP-INFO xmlns="http://www.software.ibm.com/P3P/editor/extension-1.0.html" name="Browsing the site"/>
+</EXTENSION>
+<PURPOSE><admin/><current/><develop/><pseudo-analysis/><pseudo-decision/><individual-analysis/><individual-decision/><tailoring/><historical/><other-purpose></other-purpose></PURPOSE>
+<RECIPIENT><ours/></RECIPIENT>
+<RETENTION><stated-purpose/></RETENTION>
+<DATA-GROUP>
+    <DATA ref="#dynamic.clickstream"/>
+    <DATA ref="#dynamic.http"/>
+    <DATA ref="#dynamic.cookies" optional="yes"><CATEGORIES><uniqueid/></CATEGORIES></DATA>
+    <DATA ref="#dynamic.searchtext"/>
+    </DATA-GROUP>
+</STATEMENT>
+<STATEMENT>
+<EXTENSION optional="yes">
+<GROUP-INFO xmlns="http://www.software.ibm.com/P3P/editor/extension-1.0.html" name="Placing Orders"/>
+</EXTENSION>
+<PURPOSE><admin/><contact/><current/><develop/><individual-analysis/><individual-decision/><historical/><telemarketing/><other-purpose></other-purpose></PURPOSE>
+<RECIPIENT><ours/><delivery/></RECIPIENT>
+<RETENTION><business-practices/></RETENTION>
+<DATA-GROUP>
+    <DATA ref="#dynamic.cookies" optional="yes"><CATEGORIES><other-category></other-category><uniqueid/></CATEGORIES></DATA>
+    <DATA ref="#dynamic.clickstream"/>
+    <DATA ref="#dynamic.http"/>
+    <DATA ref="#user.home-info"/>
+    <DATA ref="#user.name"/>
+    <DATA ref="#thirdparty.home-info" optional="yes"/>
+    <DATA ref="#thirdparty.name" optional="yes"/>
+    </DATA-GROUP>
+</STATEMENT>
+</POLICY>
+</POLICIES>

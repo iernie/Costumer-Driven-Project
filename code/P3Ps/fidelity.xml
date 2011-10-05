@@ -1,0 +1,151 @@
+<POLICIES xmlns="http://www.w3.org/2002/01/P3Pv1"> 
+ <POLICY discuri="http://www.fidelity.com/goto/trkp3p/" name="FidelityWebsites">
+
+<ENTITY>
+
+<DATA-GROUP>
+  <DATA ref="#business.name">Fidelity Investments</DATA> 
+  <DATA ref="#business.contact-info.postal.street">82 Devonshire Street</DATA> 
+  <DATA ref="#business.contact-info.postal.city">Boston</DATA> 
+  <DATA ref="#business.contact-info.postal.stateprov">MA</DATA> 
+  <DATA ref="#business.contact-info.postal.postalcode">02109</DATA> 
+  <DATA ref="#business.contact-info.postal.country">USA</DATA> 
+  </DATA-GROUP>
+  </ENTITY>
+<ACCESS>
+  <contact-and-other /> 
+  </ACCESS>
+
+<STATEMENT>
+
+<PURPOSE>
+  <admin /> 
+  <current /> 
+  <pseudo-decision /> 
+  <pseudo-analysis /> 
+  <tailoring /> 
+  <develop /> 
+  <individual-decision /> 
+  <individual-analysis /> 
+  <contact /> 
+  <telemarketing /> 
+  </PURPOSE>
+
+<RECIPIENT>
+  <ours /> 
+  <other-recipient /> 
+  </RECIPIENT>
+
+<RETENTION>
+  <indefinitely /> 
+  </RETENTION>
+
+<DATA-GROUP>
+  <DATA ref="#user.login.id" /> 
+  <DATA ref="#user.login.password" /> 
+  <DATA ref="#dynamic.interactionrecord" /> 
+  <DATA ref="#user.home-info.postal.postalcode" /> 
+  <DATA ref="#dynamic.clickstream" /> 
+  <DATA ref="#dynamic.http.useragent" />  
+
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <online /> 
+  </CATEGORIES>
+  </DATA>
+
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <uniqueid /> 
+  </CATEGORIES>
+  </DATA>
+
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <purchase /> 
+  </CATEGORIES>
+  </DATA>
+
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <financial /> 
+  </CATEGORIES>
+  </DATA>
+
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <interactive /> 
+  </CATEGORIES>
+  </DATA>
+
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <state /> 
+  </CATEGORIES>
+  </DATA>
+
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <government /> 
+  </CATEGORIES>
+  </DATA>
+
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <computer /> 
+  </CATEGORIES>
+  </DATA>
+ 
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <navigation /> 
+  </CATEGORIES>
+  </DATA>
+
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <preference /> 
+  </CATEGORIES>
+  </DATA>
+
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <physical /> 
+  </CATEGORIES>
+  </DATA>
+
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <demographic /> 
+  </CATEGORIES>
+  </DATA>
+ 
+<DATA ref="#dynamic.miscdata">
+ 
+<CATEGORIES>
+  <content /> 
+  </CATEGORIES>
+  </DATA>
+
+<DATA ref="#dynamic.miscdata">
+
+<CATEGORIES>
+  <health /> 
+  </CATEGORIES>
+  </DATA>
+  </DATA-GROUP>
+  </STATEMENT>
+  </POLICY>
+</POLICIES>
