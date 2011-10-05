@@ -83,8 +83,6 @@ public class Gio {
 			userInterface.user_init(null);
 		}
 		
-		if(cbr==null)
-			System.err.println("cbr==null in gio:gio");
 
 		//load the weights configuration file
 		origWeights = new Properties();

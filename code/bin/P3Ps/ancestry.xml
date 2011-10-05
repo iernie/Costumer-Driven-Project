@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<POLICY xmlns="http://www.w3.org/2000/12/P3Pv1" discuri="http://www.myfamilyinc.com/about_us/ancestry_privacy.htm">
+	<!-- Description of the entity making this policy statement. -->
+	<ENTITY>
+		<DATA-GROUP>
+			<DATA ref="#business.contact-info.telecom.telephone.number">1-800-262-3787</DATA>
+			<DATA ref="#business.contact-info.online.email">support@ancestry.com</DATA>
+			<DATA ref="#business.contact-info.online.uri">http://www.myfamilyinc.com</DATA>
+			<DATA ref="#business.contact-info.postal.organization">MyFamily.com Support Services</DATA>
+			<DATA ref="#business.contact-info.postal.street">360 West 4800 North</DATA>
+			<DATA ref="#business.contact-info.postal.city">Provo</DATA>
+			<DATA ref="#business.contact-info.postal.stateprov">Utah</DATA>
+			<DATA ref="#business.contact-info.postal.postalcode">84604</DATA>
+			<DATA ref="#business.contact-info.postal.country">USA</DATA>
+			<DATA ref="#business.name">MyFamily.com, Inc.</DATA>
+		</DATA-GROUP>
+	</ENTITY>
+
+	<!-- Disclosure -->
+	<ACCESS><contact-and-other/></ACCESS>
+
+	<!-- Disputes -->
+	<DISPUTES-GROUP>
+		<DISPUTES resolution-type="service" service="mailto:support@ancestry-inc.com" short-description="Contact Support Services">
+			<LONG-DESCRIPTION>Privacy policy disputes should be directed to the address above.</LONG-DESCRIPTION>
+			<REMEDIES><correct/></REMEDIES>
+		</DISPUTES>
+	</DISPUTES-GROUP>
+
+	<!-- Statement for group "Basic information" -->
+	<STATEMENT>
+		<EXTENSION optional="yes">
+			<GROUP-INFO xmlns="http://www.software.ibm.com/P3P/editor/extension-1.0.html" name="Basic information"/>
+		</EXTENSION>
+
+		<!-- Consequence -->
+		<CONSEQUENCE>
+			Data collected from all Web users: access logs, and search strings (if entered).
+		</CONSEQUENCE>
+
+		<!-- Use (purpose) -->
+		<PURPOSE><admin/><current/><develop/></PURPOSE>
+
+		<!-- Recipients -->
+		<RECIPIENT><ours/></RECIPIENT>
+
+		<!-- Retention -->
+		<RETENTION><indefinitely/></RETENTION>
+
+		<!-- Base dataschema elements. -->
+		<DATA-GROUP>
+			<DATA ref="#dynamic.clickstream"/>
+			<DATA ref="#dynamic.http"/>
+			<DATA ref="#dynamic.searchtext"/>
+		</DATA-GROUP>
+	</STATEMENT>
+
+	<!-- Statement for group "Cookies" -->
+	<STATEMENT>
+		<EXTENSION optional="yes">
+			<GROUP-INFO xmlns="http://www.software.ibm.com/P3P/editor/extension-1.0.html" name="Cookies"/>
+		</EXTENSION>
+
+		<!-- Consequence -->
+		<CONSEQUENCE>
+			Cookies are used to track visitors to our site, so we can better understand what portions of our site best serve you.
+		</CONSEQUENCE>
+
+		<!-- Use (purpose) -->
+		<PURPOSE><develop/><tailoring/></PURPOSE>
+
+		<!-- Recipients -->
+		<RECIPIENT><ours/></RECIPIENT>
+
+		<!-- Retention -->
+		<RETENTION><business-practices/></RETENTION>
+
+		<!-- Base dataschema elements. -->
+		<DATA-GROUP>
+			<DATA ref="#dynamic.cookies"><CATEGORIES><interactive/><navigation/><preference/><uniqueid/></CATEGORIES></DATA>
+		</DATA-GROUP>
+	</STATEMENT>
+
+<!-- End of policy -->
+</POLICY>
+

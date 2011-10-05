@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<POLICY discuri="http://www.singlesnet.com/" xmlns="http://www.w3.org/2000/12/P3Pv1">
+	<ENTITY>
+	<DATA-GROUP>
+	<DATA ref="#business.name">Singlesnet.com</DATA>
+	<DATA ref="#business.contact-info.online.email">privacy@singlesnet.com</DATA>
+	<DATA ref="#business.contact-info.online.uri">http://www.singlesnet.com</DATA>
+    </DATA-GROUP>
+    </ENTITY>
+    <ACCESS><nonident/></ACCESS>
+    <DISPUTES-GROUP>
+        <DISPUTES resolution-type="independent" service="http://www.singlesnet.com/" short-description="Singlesnet.com">
+                   <LONG-DESCRIPTION>Singlesnet.com - Online dating made easy</LONG-DESCRIPTION>
+                   <REMEDIES><law/></REMEDIES>
+        </DISPUTES>
+    </DISPUTES-GROUP>
+<STATEMENT>
+       <EXTENSION optional="yes">
+	       <GROUP-INFO name="singlesnet.com"/>
+       </EXTENSION>
+	   
+	   <PURPOSE><pseudo-analysis/></PURPOSE>
+	   <RECIPIENT><ours/></RECIPIENT>
+	   <RETENTION><indefinitely/></RETENTION>
+
+	   <DATA-GROUP>
+		   <DATA ref="#dynamic.cookies">
+		   	<CATEGORIES><state/><navigation/><computer/></CATEGORIES>
+		   </DATA>
+	   </DATA-GROUP>
+   </STATEMENT>
+</POLICY>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<POLICIES xmlns="http://www.w3.org/2002/01/P3Pv1">
+	<POLICY name="global" discuri="http://www.surveymonkey.com/privacypolicy.aspx" xml:lang="en">
+
+		<ENTITY>
+			<DATA-GROUP>
+				<DATA ref="#business.name">SurveyMonkey.com</DATA>
+				<DATA ref="#business.contact-info.postal.organization">SurveyMonkey.com</DATA>
+				<DATA ref="#business.contact-info.postal.street">1331 NW Lovejoy St., Suite 720</DATA>
+				<DATA ref="#business.contact-info.postal.city">Portland</DATA>
+				<DATA ref="#business.contact-info.postal.stateprov">OR</DATA>
+				<DATA ref="#business.contact-info.postal.postalcode">97209</DATA>
+				<DATA ref="#business.contact-info.postal.country">USA</DATA>
+				<DATA ref="#business.contact-info.telecom.fax.intcode">1</DATA>
+				<DATA ref="#business.contact-info.telecom.fax.loccode">503</DATA>
+				<DATA ref="#business.contact-info.telecom.fax.number">2251200</DATA>
+				<DATA ref="#business.contact-info.online.email">support@surveymonkey.com</DATA>
+				<DATA ref="#business.contact-info.online.uri">http://www.surveymonkey.com/</DATA>
+			</DATA-GROUP>
+		</ENTITY>
+
+		<ACCESS>
+			<contact-and-other/>
+		</ACCESS>
+
+		<DISPUTES-GROUP>
+			<DISPUTES resolution-type="service" service="http://help.surveymonkey.com/app/ask" short-description="SurveyMonkey.com Help Center">
+				<LONG-DESCRIPTION>If you have comments, questions, or suggestions regarding SurveyMonkey.com, please contact our support staff and we'll get your question answered quickly.</LONG-DESCRIPTION>
+				<REMEDIES>
+					<correct/>
+				</REMEDIES>
+			</DISPUTES>
+		</DISPUTES-GROUP>
+
+
+		<STATEMENT>
+			<CONSEQUENCE>
+				For the purposes of maintaining an account, we use this information.
+			</CONSEQUENCE>
+
+			<PURPOSE>
+				<current/>
+				<admin/>
+				<contact/>
+			</PURPOSE>
+
+			<RECIPIENT>
+				<ours/>
+			</RECIPIENT>
+
+			<RETENTION>
+				<indefinitely/>
+			</RETENTION>
+
+			<DATA-GROUP>
+				<DATA ref="#user.login.id"/>
+				<DATA ref="#user.login.password"/>
+				<DATA ref="#user.home-info.online.email"/>
+				<DATA ref="#dynamic.miscdata">
+					<CATEGORIES>
+						<preference/>
+					</CATEGORIES>
+				</DATA>
+				<DATA ref="#dynamic.cookies">
+					<CATEGORIES>
+						<uniqueid/>
+						<preference/>
+					</CATEGORIES>
+				</DATA>
+			</DATA-GROUP>
+		</STATEMENT>
+
+		<STATEMENT>
+			<CONSEQUENCE>
+				For the purposes of maintaining a professional account, we use this information.
+			</CONSEQUENCE>
+
+			<PURPOSE>
+				<current/>
+				<admin/>
+				<contact/>
+			</PURPOSE>
+
+			<RECIPIENT>
+				<ours/>
+			</RECIPIENT>
+
+			<RETENTION>
+				<indefinitely/>
+			</RETENTION>
+
+			<DATA-GROUP>
+				<DATA ref="#user.name.given"/>
+				<DATA ref="#user.name.family"/>
+				<DATA ref="#user.home-info.online.email"/>
+				<DATA ref="#user.home-info.telecom.telephone"/>
+				<DATA ref="#user.home-info.postal"/>
+				<DATA ref="#user.business-info.online.email"/>
+				<DATA ref="#user.business-info.telecom.telephone"/>
+				<DATA ref="#user.business-info.postal"/>
+				<DATA ref="#dynamic.miscdata">
+					<CATEGORIES>
+						<purchase/>
+					</CATEGORIES>
+				</DATA>
+				<DATA ref="#dynamic.cookies">
+					<CATEGORIES>
+						<uniqueid/>
+						<preference/>
+					</CATEGORIES>
+				</DATA>
+			</DATA-GROUP>
+		</STATEMENT>
+
+		<STATEMENT>
+			<CONSEQUENCE>
+				In addition to recording anonymous use logs on the Web servers, we also use this information for making improvements to our website.
+			</CONSEQUENCE>
+
+			<PURPOSE>
+				<current/>
+				<admin/>
+				<develop/>
+				<tailoring/>
+				<pseudo-analysis/>
+				<pseudo-decision/>
+			</PURPOSE>
+
+			<RECIPIENT>
+				<ours/>
+			</RECIPIENT>
+
+			<RETENTION>
+				<indefinitely/>
+			</RETENTION>
+
+			<DATA-GROUP>
+				<DATA ref="#dynamic.clickstream"/>
+				<DATA ref="#dynamic.http"/>
+				<DATA ref="#dynamic.clientevents"/>
+				<DATA ref="#dynamic.cookies">
+					<CATEGORIES>
+						<uniqueid/>
+						<preference/>
+					</CATEGORIES>
+				</DATA>
+				<DATA ref="#dynamic.interactionrecord"/>
+				<DATA ref="#dynamic.miscdata">
+					<CATEGORIES>
+						<uniqueid/>
+						<computer/>
+						<navigation/>
+						<interactive/>
+						<content/>
+						<state/>
+					</CATEGORIES>
+				</DATA>
+			</DATA-GROUP>
+		</STATEMENT>
+
+	</POLICY>
+</POLICIES>

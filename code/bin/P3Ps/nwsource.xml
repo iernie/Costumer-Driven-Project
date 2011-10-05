@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<POLICIES xmlns="http://www.w3.org/2002/01/P3Pv1">
+    <EXPIRY max-age="86400"/>
+
+<POLICY
+    name="policy1"
+    discuri="http://seattletimes.nwsource.com/contactus/privacy/"
+    opturi="https://secure.nwsource.com/account/scr/"
+    xml:lang="en">
+    <ENTITY>
+    <DATA-GROUP>
+<DATA ref="#business.contact-info.online.email">webmaster@seattletimes.com</DATA>
+<DATA ref="#business.contact-info.online.uri">http://www.nwsource.com</DATA>
+<DATA ref="#business.contact-info.postal.organization">The Seattle Times Company</DATA>
+<DATA ref="#business.contact-info.postal.street">Attn: Webmaster
+133 Minor Ave N
+</DATA>
+<DATA ref="#business.contact-info.postal.city">Seattle</DATA>
+<DATA ref="#business.contact-info.postal.stateprov">WA</DATA>
+<DATA ref="#business.contact-info.postal.postalcode">98109</DATA>
+<DATA ref="#business.contact-info.postal.country">United States</DATA>
+<DATA ref="#business.name">The Seattle Times Company</DATA>
+    </DATA-GROUP>
+    </ENTITY>
+
+    <ACCESS><contact-and-other/></ACCESS>
+
+
+    <DISPUTES-GROUP>
+        <DISPUTES resolution-type="service" service="http://seattletimes.nwsource.com/contactus/privacy/" short-description="Dispute">
+            <LONG-DESCRIPTION>E-mail: webmaster@seattletimes.com
+Mail: The Seattle Times Comany
+      Attn: Webmaster
+      133 Minor Ave N
+      Seattle, WA 98019
+</LONG-DESCRIPTION>
+        </DISPUTES>
+    </DISPUTES-GROUP>
+
+    <STATEMENT>
+        <EXTENSION optional="yes">
+            <GROUP-INFO xmlns="http://www.software.ibm.com/P3P/editor/extension-1.0.html" name="Basic information"/>
+        </EXTENSION>
+
+    <CONSEQUENCE>
+Data collected from all Web users: access logs, and search strings (if entered).</CONSEQUENCE>
+
+    <PURPOSE><admin/><current/><develop/><pseudo-analysis/><pseudo-decision/><individual-analysis/><individual-decision/><tailoring/></PURPOSE>
+
+    <RECIPIENT><ours/></RECIPIENT>
+
+    <RETENTION><indefinitely/></RETENTION>
+
+    <DATA-GROUP>
+    <DATA ref="#dynamic.clickstream"/>
+    <DATA ref="#dynamic.http"/>
+    <DATA ref="#dynamic.searchtext" optional="yes"/>
+    <DATA ref="#dynamic.clientevents" optional="yes"/>
+    </DATA-GROUP>
+</STATEMENT>
+
+    <STATEMENT>
+        <EXTENSION optional="yes">
+            <GROUP-INFO xmlns="http://www.software.ibm.com/P3P/editor/extension-1.0.html" name="Cookies"/>
+        </EXTENSION>
+
+    <CONSEQUENCE>
+We use cookies to provide personalized services such as saving your favorite automobile ads on NWclassifieds.com.  We also use cookies to provide a more useful online experience -- such as allowing a user to quickly enter a sweepstakes if they're already logged on.  And it can allow us to limit users to only one entry for an online poll.</CONSEQUENCE>
+
+    <PURPOSE><develop/><individual-analysis/><individual-decision/><tailoring/></PURPOSE>
+
+    <RECIPIENT><ours/></RECIPIENT>
+
+    <RETENTION><indefinitely/></RETENTION>
+
+    <DATA-GROUP>
+    <DATA ref="#dynamic.cookies" optional="yes"><CATEGORIES><demographic/><preference/><state/><uniqueid/></CATEGORIES></DATA>
+    </DATA-GROUP>
+</STATEMENT>
+
+    <STATEMENT>
+        <EXTENSION optional="yes">
+            <GROUP-INFO xmlns="http://www.software.ibm.com/P3P/editor/extension-1.0.html" name="User information"/>
+        </EXTENSION>
+
+    <CONSEQUENCE>
+The information collected for services will vary, but can include your name, address, zip code, gender, user name, password, e-mail address, birth date and phone number.  When purchasing something, credit card information is also collected.  Wherever we collect personal information, we will make an effort to link to our privacy policy.  </CONSEQUENCE>
+
+    <PURPOSE><admin/><current/><develop/><individual-analysis/><individual-decision/><tailoring/></PURPOSE>
+
+    <RECIPIENT><ours/><delivery required="opt-in"/></RECIPIENT>
+
+    <RETENTION><indefinitely/></RETENTION>
+
+    <DATA-GROUP>
+    <DATA ref="#user.name"/>
+    <DATA ref="#user.bdate"/>
+    <DATA ref="#user.gender"/>
+    <DATA ref="#user.home-info.postal.street" optional="yes"/>
+    <DATA ref="#user.home-info.postal.city" optional="yes"/>
+    <DATA ref="#user.home-info.postal.stateprov" optional="yes"/>
+    <DATA ref="#user.home-info.postal.postalcode"/>
+    <DATA ref="#user.home-info.telecom.telephone" optional="yes"/>
+    <DATA ref="#user.home-info.online.email"/>
+    <DATA ref="#dynamic.interactionrecord"/>
+    </DATA-GROUP>
+</STATEMENT>
+
+</POLICY>
+</POLICIES>
+
