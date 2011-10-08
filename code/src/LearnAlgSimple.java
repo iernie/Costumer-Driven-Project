@@ -11,6 +11,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 	@Override
 	protected Properties applyML(Gio theIO) {
 		double sum = 0; 
+		double weights[] = new double[23]; 
 		for (int i = 0; i < 23; i++) {
 			int total = 0;
 			int yes = 0;
@@ -230,9 +231,12 @@ public class LearnAlgSimple extends LearnAlgorithm{
 							}
 					}
 				}
-				
 			}
-			
+			weights[i] = value(yes/total);
+			sum += weights[i];
+		}
+		for(int i = 0; i<23; i++){
+			weights[i] = weights[i]/sum;
 		}
 		
 		return null;
