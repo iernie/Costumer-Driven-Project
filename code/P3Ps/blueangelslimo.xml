@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+ <POLICY xmlns="http://www.w3.org/2002/01/P3Pv1"
+         discuri="http://www.blueangelslimo.com/privacy-policy.php"
+         opturi="http://www.blueangelslimo.com/privacy-policy.php"
+         name="privacy-policy-statement">
+  <ENTITY>
+   <DATA-GROUP>
+   <DATA ref="#business.name">Blue Angels Limo Service</DATA>
+   <DATA ref="#business.contact-info.postal.city">Los Angeles</DATA>
+   <DATA ref="#business.contact-info.postal.stateprov">CA</DATA>
+   <DATA ref="#business.contact-info.postal.country">USA</DATA>
+   <DATA ref="#business.contact-info.online.email">info@blueangelslimo.com</DATA>
+   <DATA ref="#business.contact-info.telecom.telephone.intcode">1</DATA>
+   <DATA ref="#business.contact-info.telecom.telephone.loccode">310</DATA>
+   <DATA ref="#business.contact-info.telecom.telephone.number">6666289</DATA>
+   </DATA-GROUP>
+   </ENTITY>
+  <ACCESS><nonident/></ACCESS>
+  <DISPUTES-GROUP>
+   <DISPUTES resolution-type="service"
+             service="http://www.blueangelslimo.com/privacy-policy.php"
+             short-description="Privacy Policy Statement">
+    <REMEDIES>
+     <correct/>
+    </REMEDIES>
+   <LONG-DESCRIPTION>We Respect Your Privacy.</LONG-DESCRIPTION>
+   <IMG alt="Trusted Site Seal" src="http://seals.webentrust.com/seals/privacy/blueangelslimo.com.png"/>
+   </DISPUTES>
+  </DISPUTES-GROUP>
+  <STATEMENT>
+   <CONSEQUENCE>We keep standard web server logs.</CONSEQUENCE>
+   <PURPOSE><admin/><current/><develop/></PURPOSE>
+   <RECIPIENT><ours/></RECIPIENT>
+   <RETENTION><indefinitely /></RETENTION>
+   <DATA-GROUP>
+    <DATA ref="#dynamic.clickstream"/>
+    <DATA ref="#dynamic.http"/>
+   </DATA-GROUP>
+  </STATEMENT>
+ </POLICY>

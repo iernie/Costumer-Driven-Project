@@ -1,0 +1,14 @@
+<POLICY name="vprtPolicy" discuri="/customer-care/privacy-and-security.aspx?xnav=p3p">
+<ENTITY>
+    <DATA-GROUP>
+		<DATA ref="#business.name">VistaPrint USA Inc.</DATA>
+		<DATA ref="#business.contact-info.postal.street">95 Hayden Avenue</DATA>
+		<DATA ref="#business.contact-info.postal.city">Lexington</DATA>
+		<DATA ref="#business.contact-info.postal.stateprov">MA</DATA>
+		<DATA ref="#business.contact-info.postal.country">USA</DATA>
+		<DATA ref="#business.contact-info.postal.postalcode">02421-7942</DATA>
+		<DATA ref="#business.contact-info.online.email">customercare@vistaprint.com</DATA>
+		<DATA ref="#business.contact-info.online.uri">http://www.vistaprint.com</DATA>
+    </DATA-GROUP>
+</ENTITY>
+</POLICY> 

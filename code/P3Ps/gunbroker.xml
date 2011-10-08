@@ -1,0 +1,48 @@
+<POLICY xmlns="http://www.w3.org/2000/P3Pv1" discuri="http://www.gunbroker.com/User/PrivacyPolicy.aspx">
+
+    <!-- Description of the entity making this policy statement. -->
+    <ENTITY>
+    <DATA-GROUP>
+	<DATA ref="#business.name">GunBroker.com, LLC.</DATA>
+	<DATA ref="#business.contact-info.online.email">p3p@gunbroker.com</DATA>
+	<DATA ref="#business.contact-info.online.uri">http://www.gunbroker.com</DATA>
+	<DATA ref="#business.contact-info.telecom.telephone">770-234-4174</DATA>
+	<DATA ref="#business.contact-info.postal.formatted">GunBroker.com, LLC., PO Box 2511, Kennesaw, GA 30156</DATA>
+    </DATA-GROUP>
+    </ENTITY>
+
+    <!-- Disclosure -->
+    <ACCESS><nonident/></ACCESS>
+
+    <!-- Disputes -->
+    <DISPUTES-GROUP>
+        <DISPUTES resolution-type="service" service="http://www.gunbroker.com/Support/" short-description="Service">
+            <REMEDIES><correct/></REMEDIES>
+        </DISPUTES>
+    </DISPUTES-GROUP>
+    <!-- Statement for group "Everyone" -->
+    <STATEMENT>
+        <EXTENSION optional="true">
+            <GROUP-INFO xmlns="http://www.software.ibm.com/P3P/editor/extension-1.0.html" name="Everyone"/>
+        </EXTENSION>
+
+    <!-- Use (purpose) -->
+    <PURPOSE><admin/><current/><develop/></PURPOSE>
+
+    <!-- Recipients -->
+    <RECIPIENT><ours/></RECIPIENT>
+
+    <!-- Retention -->
+    <RETENTION><indefinitely/></RETENTION>
+
+    <!-- Base dataschema elements. -->
+    <DATA-GROUP>
+    <DATA ref="#dynamic.clickstream.client"/>
+    <DATA ref="#dynamic.clickstream.server"/>
+    <DATA ref="#dynamic.http.useragent"/>
+    <DATA ref="#dynamic.http.referrer"/>
+    </DATA-GROUP>
+</STATEMENT>
+
+<!-- End of policy -->
+</POLICY>

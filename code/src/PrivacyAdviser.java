@@ -5,7 +5,6 @@
  * @author Nicholas Gerstle (ngerstle)
  */
 
-import java.util.Properties;	//for configuration file functionality
 import java.util.logging.*;		//for logger functionality 
 
 
@@ -24,8 +23,6 @@ public class PrivacyAdviser {
 
 
 	static Gio theIO;									//interface to outside world
-	private static Properties configFile;		//configuration file with location of other things, logger
-	//private static Properties weightsConfig;	//configuration file for weights
 	static Logger logger;								//logger
 	private static PolicyObject po;				//the new policyObject to accept/reject/etc
 	
@@ -53,7 +50,6 @@ public class PrivacyAdviser {
 			DistanceMetric dm = new distanceMetricTest(weightsConfig);
 			PolicyDatabase pdb = theIO.getPDB();
 			CBR machinelearn = new CBR(theIO, weightsConfig, new Reduction_KNN(dm,pdb,k), new Conclusion_Simple(dm), new Learn_Constant(weightsConfig));*/
-			
 			theIO.getCBR().run(po);
 		}
 		//close down
@@ -76,17 +72,10 @@ public class PrivacyAdviser {
 		//enable IO (and parse args
 		theIO = new Gio(args); 
 
-		//load general configuration file
-		configFile = theIO.loadGeneral();
+		if (theIO.getPDB()==null)
+			System.err.println("pdb null in PA/init");
+		
 
-		//start the logger
-		String loglevel = configFile.getProperty("loglevel","INFO").toUpperCase();
-		String logloc = configFile.getProperty("logloc","./log.txt").toUpperCase();
-		logger = theIO.startLogger(logloc,loglevel);
-
-		//load the weights configuration file
-		//weightsConfig = new Properties();
-		//weightsConfig = theIO.loadWeights();
 
 		//load the past history && commandline policies 
 		theIO.loadDB();//configFile.getProperty("databaseLocation"));

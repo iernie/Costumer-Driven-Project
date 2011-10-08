@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<POLICIES xmlns="http://www.w3.org/2002/01/P3Pv1">
+<POLICY name="global" discuri="http://info.yahoo.com/privacy/">
+  <ENTITY>
+	<DATA-GROUP>
+		<DATA ref="#business.name">Yahoo! Inc.</DATA>
+		<DATA ref="#business.contact-info.postal.street">701 First Avenue</DATA>
+		<DATA ref="#business.contact-info.postal.city">Sunnvale</DATA>
+		<DATA ref="#business.contact-info.postal.stateprov">CA</DATA>
+		<DATA ref="#business.contact-info.postal.postalcode">94089</DATA>
+		<DATA ref="#business.contact-info.postal.country">USA</DATA>
+		<DATA ref="#business.contact-info.online.uri">http://help.yahoo.com/l/us/yahoo/privacy/</DATA>
+	</DATA-GROUP>
+  </ENTITY>
+  <ACCESS>
+	<contact-and-other/>
+  </ACCESS>
+  <DISPUTES-GROUP>
+	<DISPUTES resolution-type="service" service="http://help.yahoo.com/l/us/yahoo/privacy/general.html" short-description="Yahoo! Customer Care">
+		<LONG-DESCRIPTION>
+			If you have comments, questions or suggestions regarding the Yahoo! Privacy Policy, please fill out our feedback form to contact Yahoo! Customer Care.
+		</LONG-DESCRIPTION>
+		<REMEDIES>
+			<correct/>
+		</REMEDIES>
+	</DISPUTES>
+	<DISPUTES resolution-type="independent" service="https://www.truste.org/ivalidate.php?url=www.yahoo.com%26sealid%3D101" verification="https://www.truste.org/ivalidate.php?url=www.yahoo.com%26sealid%3D101" short-description="TRUSTe">
+		<LONG-DESCRIPTION>
+			This certification applies to all English-language sites under the Yahoo.com domain. If you feel that your inquiry has not been satisfactorily addressed, you should contact TRUSTe, an independent privacy organization. 
+		</LONG-DESCRIPTION>
+			<IMG src="http://us.i1.yimg.com/us.yimg.com/i/verify.gif" alt="TRUSTe: Click to Verify"/>
+		<REMEDIES>
+			<correct/>
+		</REMEDIES>
+	</DISPUTES>
+  </DISPUTES-GROUP>
+  <STATEMENT>
+	<PURPOSE>
+		<current/>
+		<admin/>
+		<develop/>
+		<tailoring/>
+		<pseudo-analysis/>
+		<pseudo-decision/>
+		<individual-analysis/>
+		<individual-decision/>
+		<contact/>
+		<telemarketing/>
+		<other-purpose/>
+	</PURPOSE>
+	<RECIPIENT>
+		<ours/>
+		<delivery/>
+		<same/>
+		<other-recipient/>
+		<unrelated/>
+		<public/>
+	</RECIPIENT>
+	<RETENTION>
+		<indefinitely/>
+	</RETENTION>
+	<DATA-GROUP>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<physical/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<online/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<uniqueid/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<purchase/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<financial/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<computer/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<navigation/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<interactive/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<demographic/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<content/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<state/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<political/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<health/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<preference/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<location/>
+			</CATEGORIES>
+		</DATA>
+		<DATA ref="#dynamic.miscdata">
+			<CATEGORIES>
+				<government/>
+			</CATEGORIES>
+		</DATA>
+	</DATA-GROUP>
+  </STATEMENT>
+</POLICY>
+</POLICIES><!-- w3.help.bf1.yahoo.com compressed/chunked Fri Sep  9 13:07:03 UTC 2011 -->

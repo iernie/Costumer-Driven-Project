@@ -5,7 +5,7 @@
       <details xmi:id="_mVO6gesFEeCUEfUHwKzTMg" key="codegenDirectory" value="/Costumer-Driven-Project/src"/>
     </eAnnotations>
     <eAnnotations xmi:id="_rGhfQOsFEeCUEfUHwKzTMg" source="com.yattasolutions.codegen.RoundTripInformation">
-      <details xmi:id="_rGiGUOsFEeCUEfUHwKzTMg" key="AssociatedSourceCode" value="/Costumer-Driven-Project/src/Action.java;1244692831/1;/Costumer-Driven-Project/src/CBR.java;897707817/1;/Costumer-Driven-Project/src/Case.java;1172310776/1;/Costumer-Driven-Project/src/Category.java;1444152788/1;/Costumer-Driven-Project/src/ConclusionAlgorithm.java;881830444/1;/Costumer-Driven-Project/src/Conclusion_Simple.java;942134503/1;/Costumer-Driven-Project/src/Context.java;3478076889/1;/Costumer-Driven-Project/src/DistanceClass.java;2246538646/1;/Costumer-Driven-Project/src/DistanceMetric.java;1879139598/1;/Costumer-Driven-Project/src/Gio.java;3625620381/1;/Costumer-Driven-Project/src/LearnAlgorithm.java;1143903217/1;/Costumer-Driven-Project/src/Learn_Constant.java;3291257008/1;/Costumer-Driven-Project/src/P3PParser.java;1416147507/1;/Costumer-Driven-Project/src/PDatabase.java;1787978875/1;/Costumer-Driven-Project/src/PolicyDatabase.java;3663583331/1;/Costumer-Driven-Project/src/PolicyObject.java;842654800/1;/Costumer-Driven-Project/src/PrivacyAdviser.java;3202734460/1;/Costumer-Driven-Project/src/PrivacyGUI.java;3110214900/1;/Costumer-Driven-Project/src/Purpose.java;1801828595/1;/Costumer-Driven-Project/src/Recipient.java;4163011729/1;/Costumer-Driven-Project/src/ReductionAlgorithm.java;4059002008/1;/Costumer-Driven-Project/src/Reduction_KNN.java;3479490812/1;/Costumer-Driven-Project/src/Retention.java;705161173/1;/Costumer-Driven-Project/src/TemplateClass.java;1837964637/1;/Costumer-Driven-Project/src/UserIO.java;2283582783/1;/Costumer-Driven-Project/src/UserIO_Simple.java;4051023322/1;/Costumer-Driven-Project/src/bitmapDistance.java;1803622215/1;/Costumer-Driven-Project/src/distanceMetricTest.java;2748231474/1;"/>
+      <details xmi:id="_rGiGUOsFEeCUEfUHwKzTMg" key="AssociatedSourceCode" value="/Costumer-Driven-Project/src/Action.java;1244692831/1;/Costumer-Driven-Project/src/CBR.java;897707817/1;/Costumer-Driven-Project/src/Case.java;1343812881/1;/Costumer-Driven-Project/src/Category.java;1444152788/1;/Costumer-Driven-Project/src/ConclusionAlgorithm.java;881830444/1;/Costumer-Driven-Project/src/Conclusion_Simple.java;942134503/1;/Costumer-Driven-Project/src/Context.java;3478076889/1;/Costumer-Driven-Project/src/DistanceClass.java;2246538646/1;/Costumer-Driven-Project/src/DistanceMetric.java;1879139598/1;/Costumer-Driven-Project/src/Gio.java;3625620381/1;/Costumer-Driven-Project/src/LearnAlgorithm.java;1143903217/1;/Costumer-Driven-Project/src/Learn_Constant.java;3291257008/1;/Costumer-Driven-Project/src/P3PParser.java;1383596689/1;/Costumer-Driven-Project/src/PDatabase.java;1787978875/1;/Costumer-Driven-Project/src/PolicyDatabase.java;3663583331/1;/Costumer-Driven-Project/src/PolicyObject.java;608830158/1;/Costumer-Driven-Project/src/PrivacyAdviser.java;3202734460/1;/Costumer-Driven-Project/src/PrivacyGUI.java;3110214900/1;/Costumer-Driven-Project/src/Purpose.java;1801828595/1;/Costumer-Driven-Project/src/Recipient.java;4163011729/1;/Costumer-Driven-Project/src/ReductionAlgorithm.java;4059002008/1;/Costumer-Driven-Project/src/Reduction_KNN.java;3479490812/1;/Costumer-Driven-Project/src/Retention.java;705161173/1;/Costumer-Driven-Project/src/TemplateClass.java;1837964637/1;/Costumer-Driven-Project/src/UserIO.java;2283582783/1;/Costumer-Driven-Project/src/UserIO_Simple.java;4051023322/1;/Costumer-Driven-Project/src/bitmapDistance.java;1258578641/1;/Costumer-Driven-Project/src/distanceMetricTest.java;2748231474/1;"/>
     </eAnnotations>
     <elementImport xmi:id="_qpT-0OsFEeCUEfUHwKzTMg">
       <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
@@ -365,19 +365,15 @@ Should be easy to extend and overload various features, but should work for most
       <ownedAttribute xmi:id="_rCt9UesFEeCUEfUHwKzTMg" name="retention" visibility="private" type="_q-uOIOsFEeCUEfUHwKzTMg" association="_rFasAesFEeCUEfUHwKzTMg"/>
       <ownedAttribute xmi:id="_rCvygesFEeCUEfUHwKzTMg" name="recipient" visibility="private" type="_q-uOIOsFEeCUEfUHwKzTMg" association="_rFbTEesFEeCUEfUHwKzTMg"/>
       <ownedAttribute xmi:id="_rCxnsesFEeCUEfUHwKzTMg" name="categories" type="_q-uOIOsFEeCUEfUHwKzTMg" isReadOnly="true" association="_rFchMesFEeCUEfUHwKzTMg"/>
-      <ownedAttribute xmi:id="_rCy10esFEeCUEfUHwKzTMg" name="datatype" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
+      <ownedAttribute xmi:id="_rCy10esFEeCUEfUHwKzTMg" name="datatypes" visibility="private" type="_q-7pgOsFEeCUEfUHwKzTMg" association="_rFdvUesFEeCUEfUHwKzTMg"/>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rD3z4OsFEeCUEfUHwKzTMg" name="Case" specification="_qqK6cOsFEeCUEfUHwKzTMg">
-        <ownedParameter xmi:id="_rD3z4esFEeCUEfUHwKzTMg" type="_qqH3IOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rD3z4esFEeCUEfUHwKzTMg" type="_qqH3IOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>purpose = new ArrayList&lt;Purpose>();
 		retention = new ArrayList&lt;Retention>();
 		recipient = new ArrayList&lt;Recipient>();
 		categories = new ArrayList&lt;Category>();
-		datatype = &quot;#&quot;;
+		datatypes = new HashSet&lt;String>();
 	</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rD3z4usFEeCUEfUHwKzTMg" name="addPurpose" specification="_q--s0OsFEeCUEfUHwKzTMg">
@@ -404,18 +400,16 @@ Should be easy to extend and overload various features, but should work for most
         <body>categories.add(c);
 	</body>
       </ownedBehavior>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rD5CAusFEeCUEfUHwKzTMg" name="setDataType" specification="_qqMvoOsFEeCUEfUHwKzTMg">
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rD5CAusFEeCUEfUHwKzTMg" name="addDataType" specification="_qqMvoOsFEeCUEfUHwKzTMg">
         <ownedParameter xmi:id="_rD5CA-sFEeCUEfUHwKzTMg" name="s">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
         <language>java</language>
-        <body>datatype = s;
+        <body>datatypes.add(s);
 	</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rD5pEOsFEeCUEfUHwKzTMg" name="getPurposes" specification="_qqNWsOsFEeCUEfUHwKzTMg">
-        <ownedParameter xmi:id="_rD5pEesFEeCUEfUHwKzTMg" type="_q-uOIOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rD5pEesFEeCUEfUHwKzTMg" type="_q-uOIOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>return purpose;
 	</body>
@@ -424,17 +418,13 @@ Should be easy to extend and overload various features, but should work for most
         <ownedParameter xmi:id="_rD5pE-sFEeCUEfUHwKzTMg" name="i">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
-        <ownedParameter xmi:id="_rD5pFOsFEeCUEfUHwKzTMg" type="_qtIH0OsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rD5pFOsFEeCUEfUHwKzTMg" type="_qtIH0OsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>return purpose.get(i);
 	</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rD6QIOsFEeCUEfUHwKzTMg" name="getRetentions" specification="_qqRBEOsFEeCUEfUHwKzTMg">
-        <ownedParameter xmi:id="_rD6QIesFEeCUEfUHwKzTMg" type="_q-uOIOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rD6QIesFEeCUEfUHwKzTMg" type="_q-uOIOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>return retention;
 	</body>
@@ -443,17 +433,13 @@ Should be easy to extend and overload various features, but should work for most
         <ownedParameter xmi:id="_rD6QI-sFEeCUEfUHwKzTMg" name="i">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
-        <ownedParameter xmi:id="_rD6QJOsFEeCUEfUHwKzTMg" type="_qtU8IOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rD6QJOsFEeCUEfUHwKzTMg" type="_qtU8IOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>return retention.get(i);
 	</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rD63MOsFEeCUEfUHwKzTMg" name="getRecipients" specification="_qqUrcOsFEeCUEfUHwKzTMg">
-        <ownedParameter xmi:id="_rD63MesFEeCUEfUHwKzTMg" type="_q-uOIOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rD63MesFEeCUEfUHwKzTMg" type="_q-uOIOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>return recipient;
 	</body>
@@ -462,9 +448,7 @@ Should be easy to extend and overload various features, but should work for most
         <ownedParameter xmi:id="_rD63M-sFEeCUEfUHwKzTMg" name="i">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
-        <ownedParameter xmi:id="_rD63NOsFEeCUEfUHwKzTMg" type="_qtLLIOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rD63NOsFEeCUEfUHwKzTMg" type="_qtLLIOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>return recipient.get(i);
 	</body>
@@ -473,64 +457,45 @@ Should be easy to extend and overload various features, but should work for most
         <ownedParameter xmi:id="_rD7eQesFEeCUEfUHwKzTMg" name="i">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
-        <ownedParameter xmi:id="_rD7eQusFEeCUEfUHwKzTMg" type="_qqqCoOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rD7eQusFEeCUEfUHwKzTMg" type="_qqqCoOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>return categories.get(i);
 	</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rD8FUOsFEeCUEfUHwKzTMg" name="getDataTypes" specification="_qqaLAOsFEeCUEfUHwKzTMg">
-        <ownedParameter xmi:id="_3ojJsO2oEeCSgPwwJiGwCw" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rD8FUesFEeCUEfUHwKzTMg" type="_q-7pgOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
-        <body>return datatype;
+        <body>return datatypes;
 	</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rD9TcOsFEeCUEfUHwKzTMg" name="debug_print" specification="_qqcnQOsFEeCUEfUHwKzTMg">
         <language>java</language>
-        <body>System.out.println(&quot;DATATYPE: &quot; + datatype);
-		
-		for(Purpose p: purpose)
+        <body>for(int i=0; i &lt; purpose.size(); i++)
 		{
-			System.out.println(&quot;PURPOSE: &quot; + p);
+			System.out.println(&quot;PURPOSE: &quot; + purpose.get(i));
 		}
 		
-		for(Recipient r: recipient)
+		for(int i=0; i &lt; recipient.size(); i++)
 		{
-			System.out.println(&quot;RECIPIENT: &quot; + r);
+			System.out.println(&quot;RECIPIENT: &quot; + recipient.get(i));
 		}
 		
-		for(Retention r: retention)
+		for(int i=0; i &lt; retention.size(); i++)
 		{
-			System.out.println(&quot;RETENTION: &quot; + r);
+			System.out.println(&quot;RETENTION: &quot; + retention.get(i));
 		}
 		
-		if(datatype.equalsIgnoreCase(&quot;#dynamic.miscdata&quot;))
+		for(int i=0; i &lt; categories.size(); i++)
 		{
-			for(Category c: categories)
-			{
-				System.out.println(&quot;CATEGORY: &quot; + c);
-			}	
+			System.out.println(&quot;CATEGORIES: &quot; + categories.get(i));
 		}
-	</body>
-      </ownedBehavior>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rERcgOsFEeCUEfUHwKzTMg" name="Case" specification="_qsnxgOsFEeCUEfUHwKzTMg">
-        <ownedParameter xmi:id="_3ogtcO2oEeCSgPwwJiGwCw" type="_qqH3IOsFEeCUEfUHwKzTMg" direction="return"/>
-        <ownedParameter xmi:id="_3ogtce2oEeCSgPwwJiGwCw" name="purpose" type="_q-uOIOsFEeCUEfUHwKzTMg"/>
-        <ownedParameter xmi:id="_3ogtcu2oEeCSgPwwJiGwCw" name="retention" type="_q-uOIOsFEeCUEfUHwKzTMg"/>
-        <ownedParameter xmi:id="_3ogtc-2oEeCSgPwwJiGwCw" name="recipients" type="_q-uOIOsFEeCUEfUHwKzTMg"/>
-        <ownedParameter xmi:id="_3ogtdO2oEeCSgPwwJiGwCw" name="categories" type="_q-uOIOsFEeCUEfUHwKzTMg"/>
-        <ownedParameter xmi:id="_3ogtde2oEeCSgPwwJiGwCw" name="datatype">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
-        <language>java</language>
-        <body>this.purpose = purpose;
-		this.retention = retention;
-		this.recipient = recipients;
-		this.categories = categories;
-		this.datatype = datatype;
+		
+		Iterator&lt;String> it1 = datatypes.iterator();
+	    System.out.println(&quot;DATATYPES&quot;);
+	    while(it1.hasNext())
+	    {
+	    	System.out.println(it1.next());	    	
+	    }
 	</body>
       </ownedBehavior>
       <ownedOperation xmi:id="_qqK6cOsFEeCUEfUHwKzTMg" name="Case" method="_rD3z4OsFEeCUEfUHwKzTMg">
@@ -539,8 +504,8 @@ Should be easy to extend and overload various features, but should work for most
         </eAnnotations>
         <ownedParameter xmi:id="_qqLhgOsFEeCUEfUHwKzTMg" type="_qqH3IOsFEeCUEfUHwKzTMg" direction="return"/>
       </ownedOperation>
-      <ownedOperation xmi:id="_qqMvoOsFEeCUEfUHwKzTMg" name="setDataType" method="_rD5CAusFEeCUEfUHwKzTMg">
-        <ownedParameter xmi:id="_3oDacO2oEeCSgPwwJiGwCw" name="s">
+      <ownedOperation xmi:id="_qqMvoOsFEeCUEfUHwKzTMg" name="addDataType" method="_rD5CAusFEeCUEfUHwKzTMg">
+        <ownedParameter xmi:id="_qqMvoesFEeCUEfUHwKzTMg" name="s">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
       </ownedOperation>
@@ -578,9 +543,7 @@ Should be easy to extend and overload various features, but should work for most
         <ownedParameter xmi:id="_q_CXMOsFEeCUEfUHwKzTMg" type="_qqqCoOsFEeCUEfUHwKzTMg" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:id="_qqaLAOsFEeCUEfUHwKzTMg" name="getDataTypes" method="_rD8FUOsFEeCUEfUHwKzTMg">
-        <ownedParameter xmi:id="_rBP9sOsFEeCUEfUHwKzTMg" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rBP9sOsFEeCUEfUHwKzTMg" type="_q-7pgOsFEeCUEfUHwKzTMg" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:id="_qqcnQOsFEeCUEfUHwKzTMg" name="debug_print" method="_rD9TcOsFEeCUEfUHwKzTMg"/>
       <ownedOperation xmi:id="_q--s0OsFEeCUEfUHwKzTMg" name="addPurpose" method="_rD3z4usFEeCUEfUHwKzTMg">
@@ -594,19 +557,6 @@ Should be easy to extend and overload various features, but should work for most
       </ownedOperation>
       <ownedOperation xmi:id="_q_BJEOsFEeCUEfUHwKzTMg" name="addCategory" method="_rD5CAOsFEeCUEfUHwKzTMg">
         <ownedParameter xmi:id="_q_BJEesFEeCUEfUHwKzTMg" name="c" type="_qqqCoOsFEeCUEfUHwKzTMg"/>
-      </ownedOperation>
-      <ownedOperation xmi:id="_qsnxgOsFEeCUEfUHwKzTMg" name="Case" method="_rERcgOsFEeCUEfUHwKzTMg">
-        <eAnnotations xmi:id="_3m_DcO2oEeCSgPwwJiGwCw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-          <details xmi:id="_3m_Dce2oEeCSgPwwJiGwCw" key="create"/>
-        </eAnnotations>
-        <ownedParameter xmi:id="_3m_qgO2oEeCSgPwwJiGwCw" type="_qqH3IOsFEeCUEfUHwKzTMg" direction="return"/>
-        <ownedParameter xmi:id="_3nARkO2oEeCSgPwwJiGwCw" name="purpose" type="_q-uOIOsFEeCUEfUHwKzTMg"/>
-        <ownedParameter xmi:id="_3nBfse2oEeCSgPwwJiGwCw" name="retention" type="_q-uOIOsFEeCUEfUHwKzTMg"/>
-        <ownedParameter xmi:id="_3nCt0e2oEeCSgPwwJiGwCw" name="recipients" type="_q-uOIOsFEeCUEfUHwKzTMg"/>
-        <ownedParameter xmi:id="_3nD78e2oEeCSgPwwJiGwCw" name="categories" type="_q-uOIOsFEeCUEfUHwKzTMg"/>
-        <ownedParameter xmi:id="_3oCMUO2oEeCSgPwwJiGwCw" name="datatype">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_qqqCoOsFEeCUEfUHwKzTMg" name="Category">
@@ -1500,9 +1450,7 @@ does nothing, and thus doesn't actually learn.&#xD;
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rEISkusFEeCUEfUHwKzTMg" name="P3PParser" specification="_qr28gOsFEeCUEfUHwKzTMg">
-        <ownedParameter xmi:id="_rEISk-sFEeCUEfUHwKzTMg" type="_qr1uYOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rEISk-sFEeCUEfUHwKzTMg" type="_qr1uYOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>policy = new PolicyObject();&#xD;
 	</body>
@@ -1511,9 +1459,7 @@ does nothing, and thus doesn't actually learn.&#xD;
         <ownedParameter xmi:id="_rEKu0esFEeCUEfUHwKzTMg" name="p3p">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
-        <ownedParameter xmi:id="_rEKu0usFEeCUEfUHwKzTMg" type="_qshq4OsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rEKu0usFEeCUEfUHwKzTMg" type="_qshq4OsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>XMLReader parser;&#xD;
 		try {&#xD;
@@ -1531,45 +1477,34 @@ does nothing, and thus doesn't actually learn.&#xD;
       </ownedBehavior>
       <nestedClassifier xmi:type="uml:Class" xmi:id="_qr4KoOsFEeCUEfUHwKzTMg" name="XMLParserHandler" visibility="package">
         <generalization xmi:id="_rBvs8OsFEeCUEfUHwKzTMg" general="_rBo_QOsFEeCUEfUHwKzTMg"/>
+        <ownedAttribute xmi:id="_rDKCMOsFEeCUEfUHwKzTMg" name="policyCase" visibility="package" type="_qqH3IOsFEeCUEfUHwKzTMg" association="_rFoHYesFEeCUEfUHwKzTMg"/>
         <ownedAttribute xmi:id="_rDKpQesFEeCUEfUHwKzTMg" name="statement" visibility="package">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
           <defaultValue xmi:type="uml:LiteralString" xmi:id="_rDKpQusFEeCUEfUHwKzTMg" value="false"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_rEsTQOsFEeCUEfUHwKzTMg" name="categories" visibility="private" type="_q-uOIOsFEeCUEfUHwKzTMg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_rEs6UesFEeCUEfUHwKzTMg">
-            <value xsi:nil="true"/>
-          </defaultValue>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_rEuvgusFEeCUEfUHwKzTMg" name="purpose" visibility="private" type="_q-uOIOsFEeCUEfUHwKzTMg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_rEvWkesFEeCUEfUHwKzTMg">
-            <value xsi:nil="true"/>
-          </defaultValue>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_rEvWkusFEeCUEfUHwKzTMg" name="recipients" visibility="private" type="_q-uOIOsFEeCUEfUHwKzTMg"/>
-        <ownedAttribute xmi:id="_rEwksOsFEeCUEfUHwKzTMg" name="retention" visibility="private" type="_q-uOIOsFEeCUEfUHwKzTMg">
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_rEwks-sFEeCUEfUHwKzTMg">
-            <value xsi:nil="true"/>
-          </defaultValue>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_3ovW8O2oEeCSgPwwJiGwCw" name="categoriesTag" visibility="package">
+        <ownedAttribute xmi:id="_rEsTQOsFEeCUEfUHwKzTMg" name="categories" visibility="package">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_3ov-Au2oEeCSgPwwJiGwCw" value="false"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_rEs6UesFEeCUEfUHwKzTMg" value="false"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_3owlEO2oEeCSgPwwJiGwCw" name="dataTag" visibility="package">
+        <ownedAttribute xmi:id="_rEs6UusFEeCUEfUHwKzTMg" name="dataTag" visibility="package">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_3oxMIe2oEeCSgPwwJiGwCw" value="false"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_rEthYusFEeCUEfUHwKzTMg" value="false"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_3oxMIu2oEeCSgPwwJiGwCw" name="purposeTag" visibility="package">
+        <ownedAttribute xmi:id="_rEuIcOsFEeCUEfUHwKzTMg" name="entity" visibility="package">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_3oxzMu2oEeCSgPwwJiGwCw" value="false"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_rEuvgesFEeCUEfUHwKzTMg" value="false"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_3oyaQO2oEeCSgPwwJiGwCw" name="recipientTag" visibility="package">
+        <ownedAttribute xmi:id="_rEuvgusFEeCUEfUHwKzTMg" name="purpose" visibility="package">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_3oyaQ-2oEeCSgPwwJiGwCw" value="false"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_rEvWkesFEeCUEfUHwKzTMg" value="false"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_3ozBUO2oEeCSgPwwJiGwCw" name="retentionTag" visibility="package">
+        <ownedAttribute xmi:id="_rEvWkusFEeCUEfUHwKzTMg" name="recipient" visibility="package">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-          <defaultValue xmi:type="uml:LiteralString" xmi:id="_3ozoYe2oEeCSgPwwJiGwCw" value="false"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_rEv9oesFEeCUEfUHwKzTMg" value="false"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_rEwksOsFEeCUEfUHwKzTMg" name="retention" visibility="package">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_rEwks-sFEeCUEfUHwKzTMg" value="false"/>
         </ownedAttribute>
         <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rEI5oOsFEeCUEfUHwKzTMg" name="startElement" specification="_rBt3wOsFEeCUEfUHwKzTMg">
           <ownedParameter xmi:id="_rEI5oesFEeCUEfUHwKzTMg" name="nsURI">
@@ -1591,21 +1526,21 @@ does nothing, and thus doesn't actually learn.&#xD;
 	    	&#xD;
 	    	if(statement)&#xD;
 	    	{&#xD;
-	    		if(purposeTag)&#xD;
+	    		if(purpose)&#xD;
 	    		{&#xD;
-	    			purpose.add(Purpose.valueOf(formattedTagName));&#xD;
+	    			policyCase.addPurpose(Purpose.valueOf(formattedTagName));&#xD;
 	    		}&#xD;
-	    		if(recipientTag)&#xD;
+	    		if(recipient)&#xD;
 	    		{&#xD;
-	    			recipients.add(Recipient.valueOf(formattedTagName));&#xD;
+	    			policyCase.addRecipient(Recipient.valueOf(formattedTagName));&#xD;
 	    		}&#xD;
-	    		if(retentionTag)&#xD;
+	    		if(retention)&#xD;
 	    		{&#xD;
-	    			retention.add(Retention.valueOf(formattedTagName));&#xD;
+	    			policyCase.addRetention(Retention.valueOf(formattedTagName));&#xD;
 	    		}&#xD;
-	    		if(categoriesTag)&#xD;
+	    		if(categories)&#xD;
 	    		{&#xD;
-	    			categories.add(Category.valueOf(formattedTagName));&#xD;
+	    			policyCase.addCategory(Category.valueOf(formattedTagName));&#xD;
 	    		}&#xD;
 	    	}&#xD;
 	    	&#xD;
@@ -1618,6 +1553,8 @@ does nothing, and thus doesn't actually learn.&#xD;
 	    	if(tagName.equalsIgnoreCase(&quot;statement&quot;))&#xD;
 	    	{&#xD;
 	    		statement = true;&#xD;
+	    		policyCase = new Case();&#xD;
+	    		System.out.println(&quot;New Case&quot;);&#xD;
 	    	}&#xD;
 	    	if(tagName.equalsIgnoreCase(&quot;data&quot;))&#xD;
 	    	{&#xD;
@@ -1626,23 +1563,19 @@ does nothing, and thus doesn't actually learn.&#xD;
 	    	}&#xD;
 	    	if(tagName.equalsIgnoreCase(&quot;categories&quot;))&#xD;
 	    	{&#xD;
-	    		categoriesTag = true;&#xD;
-	    		categories = new ArrayList&lt;Category>();&#xD;
+	    		categories = true;&#xD;
 	    	}&#xD;
 	    	if(tagName.equalsIgnoreCase(&quot;purpose&quot;))&#xD;
 	    	{&#xD;
-	    		purposeTag = true;&#xD;
-	    		purpose = new ArrayList&lt;Purpose>();&#xD;
+	    		purpose = true;&#xD;
 	    	}&#xD;
 	    	if(tagName.equalsIgnoreCase(&quot;recipient&quot;))&#xD;
 	    	{&#xD;
-	    		recipientTag = true;&#xD;
-	    		recipients = new ArrayList&lt;Recipient>();&#xD;
+	    		recipient = true;&#xD;
 	    	}&#xD;
 	    	if(tagName.equalsIgnoreCase(&quot;retention&quot;))&#xD;
 	    	{&#xD;
-	    		retentionTag = true;&#xD;
-	    		retention = new ArrayList&lt;Retention>();&#xD;
+	    		retention = true;&#xD;
 	    	}&#xD;
 	    </body>
         </ownedBehavior>
@@ -1661,6 +1594,10 @@ does nothing, and thus doesn't actually learn.&#xD;
           <body>if(dataTag &amp;&amp; entity)&#xD;
 	    	{&#xD;
 	    		policy.addEntityData(tempKey, new String(ch, start, length));&#xD;
+	    	}&#xD;
+	    	if(statement)&#xD;
+	    	{&#xD;
+	    		policyCase.addDataType(tempKey);&#xD;
 	    	}&#xD;
 		</body>
         </ownedBehavior>
@@ -1684,31 +1621,27 @@ does nothing, and thus doesn't actually learn.&#xD;
 	    	if(tagName.equalsIgnoreCase(&quot;data&quot;))&#xD;
 	    	{&#xD;
 	    		dataTag = false;&#xD;
-	    		if(statement)&#xD;
-	    		{&#xD;
-	    			Case policyCase = new Case(purpose, retention, recipients, categories, tempKey);&#xD;
-		    		policy.addCase(policyCase);&#xD;
-	    		}&#xD;
 	    	}&#xD;
 	    	if(tagName.equalsIgnoreCase(&quot;categories&quot;))&#xD;
 	    	{&#xD;
-	    		categoriesTag = false;&#xD;
+	    		categories = false;&#xD;
 	    	}&#xD;
 	    	if(tagName.equalsIgnoreCase(&quot;purpose&quot;))&#xD;
 	    	{&#xD;
-	    		purposeTag = false;&#xD;
+	    		purpose = false;&#xD;
 	    	}&#xD;
 	    	if(tagName.equalsIgnoreCase(&quot;recipient&quot;))&#xD;
 	    	{&#xD;
-	    		recipientTag = false;&#xD;
+	    		recipient = false;&#xD;
 	    	}&#xD;
 	    	if(tagName.equalsIgnoreCase(&quot;retention&quot;))&#xD;
 	    	{&#xD;
-	    		retentionTag = false;&#xD;
+	    		retention = false;&#xD;
 	    	}&#xD;
 	    	if(tagName.equalsIgnoreCase(&quot;statement&quot;))&#xD;
 	    	{&#xD;
 	    		statement = false;&#xD;
+	    		policy.addCase(policyCase);&#xD;
 	    	}&#xD;
 	    </body>
         </ownedBehavior>
@@ -2064,42 +1997,51 @@ does nothing, and thus doesn't actually learn.&#xD;
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_qshq4OsFEeCUEfUHwKzTMg" name="PolicyObject" clientDependency="_rB2aoOsFEeCUEfUHwKzTMg">
-      <ownedComment xmi:id="_3o0PcO2oEeCSgPwwJiGwCw">
-        <body>This is where the class begins
+      <ownedComment xmi:id="_rEzA8-sFEeCUEfUHwKzTMg">
+        <body>
+NOTE TO SELF
 
-@author ernie</body>
+Object
+	hashmap - what we use to compare
+		case - from xml
+			datatype
+			purpose
+			recipients
+			retention
+			distance
+		context - object has compare function
+			distance
+			time
+			etc
+ *	Action - object
+	
+ *</body>
       </ownedComment>
       <ownedAttribute xmi:id="_rDTMIOsFEeCUEfUHwKzTMg" name="serialVersionUID" visibility="private" isLeaf="true" isStatic="true" isReadOnly="true">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_rDTMIesFEeCUEfUHwKzTMg" value="5489334832912646160L"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_rDTzMOsFEeCUEfUHwKzTMg" name="entity" visibility="private" type="_q_22kOsFEeCUEfUHwKzTMg" association="_rFrKsOsFEeCUEfUHwKzTMg"/>
-      <ownedAttribute xmi:id="_rDVBUesFEeCUEfUHwKzTMg" name="cases" visibility="public" type="_q-uOIOsFEeCUEfUHwKzTMg" isReadOnly="true" association="_3pIYgO2oEeCSgPwwJiGwCw"/>
+      <ownedAttribute xmi:id="_rDVBUesFEeCUEfUHwKzTMg" name="statements" visibility="private" type="_q-uOIOsFEeCUEfUHwKzTMg" association="_rFrxwesFEeCUEfUHwKzTMg"/>
       <ownedAttribute xmi:id="_rDWPcesFEeCUEfUHwKzTMg" name="actionTaken" visibility="private" type="_qpN4MOsFEeCUEfUHwKzTMg" association="_rFsY0esFEeCUEfUHwKzTMg"/>
       <ownedAttribute xmi:id="_rDW2gesFEeCUEfUHwKzTMg" name="context" type="_qq5TMOsFEeCUEfUHwKzTMg" association="_rEzA9OsFEeCUEfUHwKzTMg"/>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rEPnUOsFEeCUEfUHwKzTMg" name="PolicyObject" specification="_qsjgEOsFEeCUEfUHwKzTMg">
-        <ownedParameter xmi:id="_rEPnUesFEeCUEfUHwKzTMg" type="_qshq4OsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rEPnUesFEeCUEfUHwKzTMg" type="_qshq4OsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
-        <body>cases = new ArrayList&lt;Case>();
+        <body>statements = new ArrayList&lt;Case>();
 		entity = new HashMap&lt;String, String>();
 		context = new Context(null,null,null);
 	</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rEPnUusFEeCUEfUHwKzTMg" name="getAction" specification="_qskHIesFEeCUEfUHwKzTMg">
-        <ownedParameter xmi:id="_rEPnU-sFEeCUEfUHwKzTMg" type="_qpN4MOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rEPnU-sFEeCUEfUHwKzTMg" type="_qpN4MOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>return this.actionTaken;
 	</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rEQOYOsFEeCUEfUHwKzTMg" name="setAction" specification="_q_5S0OsFEeCUEfUHwKzTMg">
         <ownedParameter xmi:id="_rEQOYesFEeCUEfUHwKzTMg" name="theRes" type="_qpN4MOsFEeCUEfUHwKzTMg"/>
-        <ownedParameter xmi:id="_rEQOYusFEeCUEfUHwKzTMg" type="_qshq4OsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rEQOYusFEeCUEfUHwKzTMg" type="_qshq4OsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>this.actionTaken = theRes;
 		return this;
@@ -2108,7 +2050,7 @@ does nothing, and thus doesn't actually learn.&#xD;
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rEQOY-sFEeCUEfUHwKzTMg" name="addCase" specification="_q_554OsFEeCUEfUHwKzTMg">
         <ownedParameter xmi:id="_rEQOZOsFEeCUEfUHwKzTMg" name="c" type="_qqH3IOsFEeCUEfUHwKzTMg"/>
         <language>java</language>
-        <body>cases.add(c);
+        <body>statements.add(c);
 	</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rEQ1cOsFEeCUEfUHwKzTMg" name="addEntityData" specification="_qsl8UOsFEeCUEfUHwKzTMg">
@@ -2126,17 +2068,19 @@ does nothing, and thus doesn't actually learn.&#xD;
         <ownedParameter xmi:id="_rEQ1dOsFEeCUEfUHwKzTMg" name="i">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
-        <ownedParameter xmi:id="_rEQ1desFEeCUEfUHwKzTMg" type="_qqH3IOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rEQ1desFEeCUEfUHwKzTMg" type="_qqH3IOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
-        <body>return cases.get(i);
+        <body>return statements.get(i);
+	</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rERcgOsFEeCUEfUHwKzTMg" name="getCases" specification="_qsnxgOsFEeCUEfUHwKzTMg">
+        <ownedParameter xmi:id="_rERcgesFEeCUEfUHwKzTMg" type="_q-uOIOsFEeCUEfUHwKzTMg" direction="return"/>
+        <language>java</language>
+        <body>return statements;
 	</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rERcgusFEeCUEfUHwKzTMg" name="getEntities" specification="_qspmsOsFEeCUEfUHwKzTMg">
-        <ownedParameter xmi:id="_rERcg-sFEeCUEfUHwKzTMg" type="_q_22kOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rERcg-sFEeCUEfUHwKzTMg" type="_q_22kOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>return entity;
 	</body>
@@ -2146,7 +2090,6 @@ does nothing, and thus doesn't actually learn.&#xD;
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
         <ownedParameter xmi:id="_rESDkusFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
         <language>java</language>
@@ -2155,7 +2098,6 @@ does nothing, and thus doesn't actually learn.&#xD;
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rESDk-sFEeCUEfUHwKzTMg" name="getName" specification="_qssC8esFEeCUEfUHwKzTMg">
         <ownedParameter xmi:id="_rESDlOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
         <language>java</language>
@@ -2166,6 +2108,14 @@ does nothing, and thus doesn't actually learn.&#xD;
         <language>java</language>
         <body>System.out.println(&quot;\nPOLICY OBJECT DEBUG PRINT&quot;);
 		System.out.println(&quot;\nENTITY&quot;);
+		/*Set set = entity.entrySet();
+		Iterator it = set.iterator();
+		while(it.hasNext())
+		{
+			Map.Entry me = (Map.Entry)it.next();
+			System.out.println(&quot;KEY: &quot; + me.getKey() + &quot;, VAL: &quot; + me.getValue() );
+		}
+		*/
 		
 		for(String key : entity.keySet())
 		{
@@ -2173,10 +2123,10 @@ does nothing, and thus doesn't actually learn.&#xD;
 		}
 		
 		
-		for(int i=0; i&lt;cases.size(); i++)
+		for(int i=0; i&lt;statements.size(); i++)
 		{
-			System.out.println(&quot;\nCASE &quot; + i);
-			cases.get(i).debug_print();
+			System.out.println(&quot;\nSTATEMENT &quot; + i);
+			statements.get(i).debug_print();
 		}
 	</body>
       </ownedBehavior>
@@ -2223,6 +2173,15 @@ does nothing, and thus doesn't actually learn.&#xD;
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
         </ownedParameter>
         <ownedParameter xmi:id="_q_6g8OsFEeCUEfUHwKzTMg" type="_qqH3IOsFEeCUEfUHwKzTMg" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:id="_qsnxgOsFEeCUEfUHwKzTMg" name="getCases" method="_rERcgOsFEeCUEfUHwKzTMg">
+        <ownedComment xmi:id="_rE0PEusFEeCUEfUHwKzTMg">
+          <body>Returns all cases for the policy
+	 * 
+	 * @author ernie
+	 * @return ArrayList&lt;Case></body>
+        </ownedComment>
+        <ownedParameter xmi:id="_rB3owOsFEeCUEfUHwKzTMg" type="_q-uOIOsFEeCUEfUHwKzTMg" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:id="_qspmsOsFEeCUEfUHwKzTMg" name="getEntities" method="_rERcgusFEeCUEfUHwKzTMg">
         <ownedComment xmi:id="_rE0PE-sFEeCUEfUHwKzTMg">
@@ -2864,91 +2823,16 @@ weighed union of a bit map interception&#xD;
 @author dimitryk</body>
       </ownedComment>
       <ownedAttribute xmi:id="_rDicsOsFEeCUEfUHwKzTMg" name="weightsConfig" visibility="private" isStatic="true" type="_q-ztsOsFEeCUEfUHwKzTMg" association="_rF07sesFEeCUEfUHwKzTMg"/>
-      <ownedAttribute xmi:id="_rEuIcOsFEeCUEfUHwKzTMg" name="no_retention" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="_3nXd8O2oEeCSgPwwJiGwCw">
-          <value xsi:nil="true"/>
-        </defaultValue>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3oT5IO2oEeCSgPwwJiGwCw" name="ours" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3oWVYO2oEeCSgPwwJiGwCw" name="current" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3oYKkO2oEeCSgPwwJiGwCw" name="individual_analysis" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o02gO2oEeCSgPwwJiGwCw" name="delivery" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o1dkO2oEeCSgPwwJiGwCw" name="same" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o2Eoe2oEeCSgPwwJiGwCw" name="other_recipient" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o2rse2oEeCSgPwwJiGwCw" name="unrelated" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o3Swe2oEeCSgPwwJiGwCw" name="pub" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o350e2oEeCSgPwwJiGwCw" name="admin" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o4g4u2oEeCSgPwwJiGwCw" name="develop" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o5H8e2oEeCSgPwwJiGwCw" name="tailoring" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o5vAe2oEeCSgPwwJiGwCw" name="pseudo_analysis" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o6WEe2oEeCSgPwwJiGwCw" name="pseudo_decision" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o69Ie2oEeCSgPwwJiGwCw" name="individual_decision" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o7kMu2oEeCSgPwwJiGwCw" name="contact" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o8LQu2oEeCSgPwwJiGwCw" name="historical" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o8yUu2oEeCSgPwwJiGwCw" name="telemarketing" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o9ZYu2oEeCSgPwwJiGwCw" name="other_purpose" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o-ngO2oEeCSgPwwJiGwCw" name="stated_purpose" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o_OkO2oEeCSgPwwJiGwCw" name="legal_requirement" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o_1oO2oEeCSgPwwJiGwCw" name="business_practices" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:id="_3o_1o-2oEeCSgPwwJiGwCw" name="indefinitely" visibility="private">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-      </ownedAttribute>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rEcboOsFEeCUEfUHwKzTMg" name="bitmapDistance" specification="_rCLx0OsFEeCUEfUHwKzTMg">
         <ownedParameter xmi:id="_rEcboesFEeCUEfUHwKzTMg" name="weights" type="_q-ztsOsFEeCUEfUHwKzTMg"/>
-        <ownedParameter xmi:id="_rEcbousFEeCUEfUHwKzTMg" type="_qtxoEOsFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
-        </ownedParameter>
+        <ownedParameter xmi:id="_rEcbousFEeCUEfUHwKzTMg" type="_qtxoEOsFEeCUEfUHwKzTMg" direction="return"/>
         <language>java</language>
         <body>weightsConfig = weights;&#xD;
-		</body>
+	</body>
       </ownedBehavior>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rEcbo-sFEeCUEfUHwKzTMg" name="MakeRecipMap" specification="_rCNnAOsFEeCUEfUHwKzTMg">
         <ownedParameter xmi:id="_rEcbpOsFEeCUEfUHwKzTMg" name="list" type="_q-uOIOsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEcbpesFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rEcbpusFEeCUEfUHwKzTMg" value="*"/>
         </ownedParameter>
@@ -2958,22 +2842,22 @@ weighed union of a bit map interception&#xD;
 		for(int i=0;i&lt;list.size();i++){&#xD;
 			switch (list.get(i)){&#xD;
 			case OURS: //weights can come in here 2&#xD;
-				Map[0]= ours;&#xD;
+				Map[0]= Double.parseDouble(weightsConfig.getProperty(&quot;ours&quot;));&#xD;
 				break;&#xD;
 			case DELIVERY:			&#xD;
-				Map[1]=delivery;&#xD;
+				Map[1]=Double.parseDouble(weightsConfig.getProperty(&quot;delivery&quot;));&#xD;
 				break;&#xD;
 			case SAME:&#xD;
-				Map[2]=same;&#xD;
+				Map[2]=Double.parseDouble(weightsConfig.getProperty(&quot;same&quot;));&#xD;
 				break;&#xD;
 			case OTHER_RECIPIENT:&#xD;
-				Map[3]=other_recipient;&#xD;
+				Map[3]=Double.parseDouble(weightsConfig.getProperty(&quot;other_recipient&quot;));&#xD;
 				break;&#xD;
 			case UNRELATED:&#xD;
-				Map[4]=unrelated;&#xD;
+				Map[4]=Double.parseDouble(weightsConfig.getProperty(&quot;unrelated&quot;));&#xD;
 				break;&#xD;
 			case PUBLIC:&#xD;
-				Map[5]=pub;&#xD;
+				Map[5]=Double.parseDouble(weightsConfig.getProperty(&quot;public&quot;));&#xD;
 				break;&#xD;
 			default:break;&#xD;
 			}&#xD;
@@ -2984,7 +2868,6 @@ weighed union of a bit map interception&#xD;
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rEdCsOsFEeCUEfUHwKzTMg" name="MakePurposeMap" specification="_rCQqUOsFEeCUEfUHwKzTMg">
         <ownedParameter xmi:id="_rEdCsesFEeCUEfUHwKzTMg" name="list" type="_q-uOIOsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEdCsusFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rEdCs-sFEeCUEfUHwKzTMg" value="*"/>
         </ownedParameter>
@@ -2994,40 +2877,40 @@ weighed union of a bit map interception&#xD;
 		for(int i=0;i&lt;list.size();i++){&#xD;
 			switch (list.get(i)){&#xD;
 			case CURRENT:&#xD;
-				Map[0]=current;&#xD;
+				Map[0]=Double.parseDouble(weightsConfig.getProperty(&quot;current&quot;));&#xD;
 				break;&#xD;
 			case ADMIN:&#xD;
-				Map[1]=admin;&#xD;
+				Map[1]=Double.parseDouble(weightsConfig.getProperty(&quot;admin&quot;));&#xD;
 				break;&#xD;
 			case DEVELOP:&#xD;
-				Map[2]=develop;&#xD;
+				Map[2]=Double.parseDouble(weightsConfig.getProperty(&quot;develop&quot;));&#xD;
 				break;&#xD;
 			case TAILORING:&#xD;
-				Map[3]=tailoring;&#xD;
+				Map[3]=Double.parseDouble(weightsConfig.getProperty(&quot;tailoring&quot;));&#xD;
 				break;&#xD;
 			case PSEUDO_ANALYSIS:&#xD;
-				Map[4]=pseudo_analysis;&#xD;
+				Map[4]=Double.parseDouble(weightsConfig.getProperty(&quot;pseudo_analysys&quot;));&#xD;
 				break;&#xD;
 			case PSEUDO_DECISION:&#xD;
-				Map[5]=pseudo_decision;&#xD;
+				Map[5]=Double.parseDouble(weightsConfig.getProperty(&quot;pseudo_decision&quot;));&#xD;
 				break;&#xD;
 			case INDIVIDUAL_ANALYSIS:&#xD;
-				Map[6]=individual_analysis;&#xD;
+				Map[6]=Double.parseDouble(weightsConfig.getProperty(&quot;individual_analysis&quot;));&#xD;
 				break;&#xD;
 			case INDIVIDUAL_DECISION:&#xD;
-				Map[7]=individual_decision;&#xD;
+				Map[7]=Double.parseDouble(weightsConfig.getProperty(&quot;individual_decision&quot;));&#xD;
 				break;&#xD;
 			case CONTACT:&#xD;
-				Map[8]=contact;&#xD;
+				Map[8]=Double.parseDouble(weightsConfig.getProperty(&quot;contact&quot;));&#xD;
 				break;&#xD;
 			case HISTORICAL:&#xD;
-				Map[9]=historical;&#xD;
+				Map[9]=Double.parseDouble(weightsConfig.getProperty(&quot;historical&quot;));&#xD;
 				break;&#xD;
 			case TELEMARKETING:&#xD;
-				Map[10]=telemarketing;&#xD;
+				Map[10]=Double.parseDouble(weightsConfig.getProperty(&quot;telemarketing&quot;));&#xD;
 				break;&#xD;
 			case OTHER_PURPOSE:&#xD;
-				Map[11]=other_purpose;&#xD;
+				Map[11]=Double.parseDouble(weightsConfig.getProperty(&quot;other_purpose&quot;));&#xD;
 				break;&#xD;
 			default:break;&#xD;
 			}&#xD;
@@ -3038,7 +2921,6 @@ weighed union of a bit map interception&#xD;
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rEdCtOsFEeCUEfUHwKzTMg" name="MakeRetentionMap" specification="_rCSfgesFEeCUEfUHwKzTMg">
         <ownedParameter xmi:id="_rEdpwOsFEeCUEfUHwKzTMg" name="list" type="_q-uOIOsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEdpwesFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rEdpwusFEeCUEfUHwKzTMg" value="*"/>
         </ownedParameter>
@@ -3048,19 +2930,19 @@ weighed union of a bit map interception&#xD;
 		for(int i=0;i&lt;list.size();i++){&#xD;
 			switch (list.get(i)){&#xD;
 			case NO_RETENTION: //weights can come in here 2&#xD;
-				Map[0]=no_retention;&#xD;
+				Map[0]=Double.parseDouble(weightsConfig.getProperty(&quot;no_retention&quot;));&#xD;
 				break;&#xD;
 			case STATED_PURPOSE:&#xD;
-				Map[1]=stated_purpose;&#xD;
+				Map[1]=Double.parseDouble(weightsConfig.getProperty(&quot;stated_purpose&quot;));&#xD;
 				break;&#xD;
 			case LEGAL_REQUIREMENT:&#xD;
-				Map[2]=legal_requirement;&#xD;
+				Map[2]=Double.parseDouble(weightsConfig.getProperty(&quot;legal_requirement&quot;));&#xD;
 				break;&#xD;
 			case BUSINESS_PRACTICES:&#xD;
-				Map[3]=business_practices;&#xD;
+				Map[3]=Double.parseDouble(weightsConfig.getProperty(&quot;business_practices&quot;));&#xD;
 				break;&#xD;
 			case INDEFINITELY:&#xD;
-				Map[4]=indefinitely;&#xD;
+				Map[4]=Double.parseDouble(weightsConfig.getProperty(&quot;idefinitely&quot;));&#xD;
 				break;&#xD;
 			default:break;&#xD;
 			}&#xD;
@@ -3072,7 +2954,6 @@ weighed union of a bit map interception&#xD;
         <ownedParameter xmi:id="_rEdpxOsFEeCUEfUHwKzTMg" name="a" type="_qqH3IOsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEdpxesFEeCUEfUHwKzTMg" name="b" type="_qqH3IOsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEdpxusFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
         </ownedParameter>
         <language>java</language>
@@ -3096,7 +2977,6 @@ weighed union of a bit map interception&#xD;
         <ownedParameter xmi:id="_rEeQ0esFEeCUEfUHwKzTMg" name="a" type="_qqH3IOsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEeQ0usFEeCUEfUHwKzTMg" name="b" type="_qqH3IOsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEeQ0-sFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
         </ownedParameter>
         <language>java</language>
@@ -3119,7 +2999,6 @@ weighed union of a bit map interception&#xD;
         <ownedParameter xmi:id="_rEe34esFEeCUEfUHwKzTMg" name="a" type="_qqH3IOsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEe34usFEeCUEfUHwKzTMg" name="b" type="_qqH3IOsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEe34-sFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
         </ownedParameter>
         <language>java</language>
@@ -3142,7 +3021,6 @@ weighed union of a bit map interception&#xD;
         <ownedParameter xmi:id="_rEe35esFEeCUEfUHwKzTMg" name="a" type="_qqH3IOsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEe35usFEeCUEfUHwKzTMg" name="b" type="_qqH3IOsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEe35-sFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
         </ownedParameter>
         <language>java</language>
@@ -3153,15 +3031,12 @@ weighed union of a bit map interception&#xD;
         <ownedParameter xmi:id="_rEfe8esFEeCUEfUHwKzTMg" name="a" type="_qshq4OsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEfe8usFEeCUEfUHwKzTMg" name="b" type="_qshq4OsFEeCUEfUHwKzTMg"/>
         <ownedParameter xmi:id="_rEfe8-sFEeCUEfUHwKzTMg" direction="return">
-          <name xsi:nil="true"/>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
         </ownedParameter>
         <language>java</language>
-        <body>setWeights();&#xD;
-		ArrayList&lt;Case> CasesA, CasesB;&#xD;
+        <body>ArrayList&lt;Case> CasesA, CasesB;&#xD;
 		CasesA=a.getCases();&#xD;
 		CasesB=b.getCases();&#xD;
-		if(CasesA.size()&lt;CasesB.size())return getTotalDistance(b, a);  //little magic to get symetry&#xD;
 		double minDist;&#xD;
 		double Distance = 0;&#xD;
 		for(int i=0;i&lt;CasesA.size();i++){&#xD;
@@ -3173,37 +3048,6 @@ weighed union of a bit map interception&#xD;
 		}&#xD;
 		&#xD;
 		return Distance;&#xD;
-	</body>
-      </ownedBehavior>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3ooCMO2oEeCSgPwwJiGwCw" name="setWeights" specification="_3nuqUO2oEeCSgPwwJiGwCw">
-        <language>java</language>
-        <body>//recipients&#xD;
-		ours=Double.parseDouble(weightsConfig.getProperty(&quot;ours&quot;));&#xD;
-		delivery=Double.parseDouble(weightsConfig.getProperty(&quot;delivery&quot;));&#xD;
-		same=Double.parseDouble(weightsConfig.getProperty(&quot;same&quot;));&#xD;
-		other_recipient=Double.parseDouble(weightsConfig.getProperty(&quot;other_recipient&quot;));&#xD;
-		unrelated=Double.parseDouble(weightsConfig.getProperty(&quot;unrelated&quot;));&#xD;
-		pub=Double.parseDouble(weightsConfig.getProperty(&quot;public&quot;));&#xD;
-		//purpose&#xD;
-		current=Double.parseDouble(weightsConfig.getProperty(&quot;current&quot;));&#xD;
-		admin=Double.parseDouble(weightsConfig.getProperty(&quot;admin&quot;));&#xD;
-		develop= Double.parseDouble(weightsConfig.getProperty(&quot;develop&quot;));&#xD;
-		tailoring=Double.parseDouble(weightsConfig.getProperty(&quot;tailoring&quot;));&#xD;
-		pseudo_analysis=Double.parseDouble(weightsConfig.getProperty(&quot;pseudo_analysis&quot;));&#xD;
-		pseudo_decision=Double.parseDouble(weightsConfig.getProperty(&quot;pseudo_decision&quot;));&#xD;
-		individual_analysis=Double.parseDouble(weightsConfig.getProperty(&quot;individual_analysis&quot;));&#xD;
-		individual_decision=Double.parseDouble(weightsConfig.getProperty(&quot;individual_decision&quot;));&#xD;
-		contact=Double.parseDouble(weightsConfig.getProperty(&quot;contact&quot;));&#xD;
-		historical=Double.parseDouble(weightsConfig.getProperty(&quot;historical&quot;));&#xD;
-		telemarketing=Double.parseDouble(weightsConfig.getProperty(&quot;telemarketing&quot;));&#xD;
-		other_purpose=Double.parseDouble(weightsConfig.getProperty(&quot;other_purpose&quot;));&#xD;
-		//retention&#xD;
-		no_retention=Double.parseDouble(weightsConfig.getProperty(&quot;no_retention&quot;));&#xD;
-		stated_purpose=Double.parseDouble(weightsConfig.getProperty(&quot;stated_purpose&quot;));&#xD;
-		legal_requirement=Double.parseDouble(weightsConfig.getProperty(&quot;legal_requirement&quot;));&#xD;
-		business_practices=Double.parseDouble(weightsConfig.getProperty(&quot;business_practices&quot;));&#xD;
-		indefinitely=Double.parseDouble(weightsConfig.getProperty(&quot;indefinitely&quot;));&#xD;
-		&#xD;
 	</body>
       </ownedBehavior>
       <interfaceRealization xmi:id="_rAkoQOsFEeCUEfUHwKzTMg" supplier="_qrESUOsFEeCUEfUHwKzTMg" client="_qtxoEOsFEeCUEfUHwKzTMg" contract="_qrESUOsFEeCUEfUHwKzTMg"/>
@@ -3319,7 +3163,6 @@ weighed union of a bit map interception&#xD;
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rCTGkesFEeCUEfUHwKzTMg" value="*"/>
         </ownedParameter>
       </ownedOperation>
-      <ownedOperation xmi:id="_3nuqUO2oEeCSgPwwJiGwCw" name="setWeights" visibility="private" method="_3ooCMO2oEeCSgPwwJiGwCw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_qt9OQOsFEeCUEfUHwKzTMg" name="distanceMetricTest" clientDependency="_rAuZQOsFEeCUEfUHwKzTMg">
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_rEgGAOsFEeCUEfUHwKzTMg" name="distanceMetricTest" specification="_rCZ0QOsFEeCUEfUHwKzTMg">
@@ -3508,6 +3351,9 @@ weighed union of a bit map interception&#xD;
     <packagedElement xmi:type="uml:Association" xmi:id="_rFchMesFEeCUEfUHwKzTMg" name="" memberEnd="_rFchMusFEeCUEfUHwKzTMg _rCxnsesFEeCUEfUHwKzTMg">
       <ownedEnd xmi:id="_rFchMusFEeCUEfUHwKzTMg" name="" type="_qqH3IOsFEeCUEfUHwKzTMg" association="_rFchMesFEeCUEfUHwKzTMg"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_rFdvUesFEeCUEfUHwKzTMg" name="" memberEnd="_rFdvUusFEeCUEfUHwKzTMg _rCy10esFEeCUEfUHwKzTMg">
+      <ownedEnd xmi:id="_rFdvUusFEeCUEfUHwKzTMg" name="" type="_qqH3IOsFEeCUEfUHwKzTMg" association="_rFdvUesFEeCUEfUHwKzTMg"/>
+    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_rFeWYesFEeCUEfUHwKzTMg" name="" memberEnd="_rFeWYusFEeCUEfUHwKzTMg _rC15IOsFEeCUEfUHwKzTMg">
       <ownedEnd xmi:id="_rFeWYusFEeCUEfUHwKzTMg" name="" type="_qqzzoOsFEeCUEfUHwKzTMg" association="_rFeWYesFEeCUEfUHwKzTMg"/>
     </packagedElement>
@@ -3538,6 +3384,9 @@ weighed union of a bit map interception&#xD;
     <packagedElement xmi:type="uml:Association" xmi:id="_rFngUOsFEeCUEfUHwKzTMg" name="" memberEnd="_rFngUesFEeCUEfUHwKzTMg _rDINAOsFEeCUEfUHwKzTMg">
       <ownedEnd xmi:id="_rFngUesFEeCUEfUHwKzTMg" name="" type="_qr1uYOsFEeCUEfUHwKzTMg" association="_rFngUOsFEeCUEfUHwKzTMg"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_rFoHYesFEeCUEfUHwKzTMg" name="" memberEnd="_rFoHYusFEeCUEfUHwKzTMg _rDKCMOsFEeCUEfUHwKzTMg">
+      <ownedEnd xmi:id="_rFoHYusFEeCUEfUHwKzTMg" name="" type="_qr4KoOsFEeCUEfUHwKzTMg" association="_rFoHYesFEeCUEfUHwKzTMg"/>
+    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_rFpVgOsFEeCUEfUHwKzTMg" name="" memberEnd="_rFpVgesFEeCUEfUHwKzTMg _rDPhwOsFEeCUEfUHwKzTMg">
       <ownedEnd xmi:id="_rFpVgesFEeCUEfUHwKzTMg" name="" type="_qsRMMOsFEeCUEfUHwKzTMg" association="_rFpVgOsFEeCUEfUHwKzTMg"/>
     </packagedElement>
@@ -3546,6 +3395,9 @@ weighed union of a bit map interception&#xD;
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_rFrKsOsFEeCUEfUHwKzTMg" name="" memberEnd="_rFrKsesFEeCUEfUHwKzTMg _rDTzMOsFEeCUEfUHwKzTMg">
       <ownedEnd xmi:id="_rFrKsesFEeCUEfUHwKzTMg" name="" type="_qshq4OsFEeCUEfUHwKzTMg" association="_rFrKsOsFEeCUEfUHwKzTMg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_rFrxwesFEeCUEfUHwKzTMg" name="" memberEnd="_rFrxwusFEeCUEfUHwKzTMg _rDVBUesFEeCUEfUHwKzTMg">
+      <ownedEnd xmi:id="_rFrxwusFEeCUEfUHwKzTMg" name="" type="_qshq4OsFEeCUEfUHwKzTMg" association="_rFrxwesFEeCUEfUHwKzTMg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_rFsY0esFEeCUEfUHwKzTMg" name="" memberEnd="_rFsY0usFEeCUEfUHwKzTMg _rDWPcesFEeCUEfUHwKzTMg">
       <ownedEnd xmi:id="_rFsY0usFEeCUEfUHwKzTMg" name="" type="_qshq4OsFEeCUEfUHwKzTMg" association="_rFsY0esFEeCUEfUHwKzTMg"/>
@@ -3577,9 +3429,6 @@ weighed union of a bit map interception&#xD;
     <packagedElement xmi:type="uml:Association" xmi:id="_rF07sesFEeCUEfUHwKzTMg" name="" memberEnd="_rF07susFEeCUEfUHwKzTMg _rDicsOsFEeCUEfUHwKzTMg">
       <ownedEnd xmi:id="_rF07susFEeCUEfUHwKzTMg" name="" type="_qtxoEOsFEeCUEfUHwKzTMg" association="_rF07sesFEeCUEfUHwKzTMg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_3pIYgO2oEeCSgPwwJiGwCw" name="" memberEnd="_3pIYge2oEeCSgPwwJiGwCw _rDVBUesFEeCUEfUHwKzTMg">
-      <ownedEnd xmi:id="_3pIYge2oEeCSgPwwJiGwCw" name="" type="_qshq4OsFEeCUEfUHwKzTMg" association="_3pIYgO2oEeCSgPwwJiGwCw"/>
-    </packagedElement>
     <profileApplication xmi:id="_mVSk4OsFEeCUEfUHwKzTMg">
       <eAnnotations xmi:id="_mVWPQOsFEeCUEfUHwKzTMg" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
@@ -3594,6 +3443,7 @@ weighed union of a bit map interception&#xD;
   <UMLLabProfile:Generics xmi:id="_qqPL4OsFEeCUEfUHwKzTMg" genericsValue="Purpose" base_Element="_qqNWsOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Generics xmi:id="_qqS2QOsFEeCUEfUHwKzTMg" genericsValue="Retention" base_Element="_qqRBEOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Generics xmi:id="_qqWgoOsFEeCUEfUHwKzTMg" genericsValue="Recipient" base_Element="_qqUrcOsFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:Generics xmi:id="_qqcAMOsFEeCUEfUHwKzTMg" genericsValue="String" base_Element="_qqaLAOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_qqrQwOsFEeCUEfUHwKzTMg" base_Element="_qqqCoOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_qqwwUusFEeCUEfUHwKzTMg" base_Element="_qqwJQOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_qr71AOsFEeCUEfUHwKzTMg" base_Element="_qr6m4OsFEeCUEfUHwKzTMg"/>
@@ -3681,11 +3531,11 @@ weighed union of a bit map interception&#xD;
   <UMLLabProfile:Annotations xmi:id="_rCFrMOsFEeCUEfUHwKzTMg" base_Element="_rCEdEOsFEeCUEfUHwKzTMg">
     <annotations xmi:id="_rCFrMesFEeCUEfUHwKzTMg" name="Override"/>
   </UMLLabProfile:Annotations>
-  <UMLLabProfile:Array xmi:id="_rCOOEusFEeCUEfUHwKzTMg" base_Element="_rCNnAOsFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:Array xmi:id="_rCOOEusFEeCUEfUHwKzTMg" dimensions="1" base_Element="_rCNnAOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Generics xmi:id="_rCQDQOsFEeCUEfUHwKzTMg" genericsValue="Recipient" base_Element="_rCNnAesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Array xmi:id="_rCRRYesFEeCUEfUHwKzTMg" base_Element="_rCQqUOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Generics xmi:id="_rCSfgOsFEeCUEfUHwKzTMg" genericsValue="Purpose" base_Element="_rCQqUesFEeCUEfUHwKzTMg"/>
-  <UMLLabProfile:Array xmi:id="_rCTGkusFEeCUEfUHwKzTMg" dimensions="1" base_Element="_rCSfgesFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:Array xmi:id="_rCTGkusFEeCUEfUHwKzTMg" base_Element="_rCSfgesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Generics xmi:id="_rCYmIOsFEeCUEfUHwKzTMg" genericsValue="Retention" base_Element="_rCSfgusFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Generics xmi:id="_rCkMUOsFEeCUEfUHwKzTMg" genericsValue="PolicyObject" base_Element="_rCi-MOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rCmokesFEeCUEfUHwKzTMg" base_Element="_rClacOsFEeCUEfUHwKzTMg"/>
@@ -3702,6 +3552,7 @@ weighed union of a bit map interception&#xD;
   <UMLLabProfile:Generics xmi:id="_rCxAoOsFEeCUEfUHwKzTMg" genericsValue="Recipient" base_Element="_rCvygesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rCxnsOsFEeCUEfUHwKzTMg" base_Element="_rCvygesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Generics xmi:id="_rCy10OsFEeCUEfUHwKzTMg" genericsValue="Category" base_Element="_rCxnsesFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:Generics xmi:id="_rC0D8OsFEeCUEfUHwKzTMg" genericsValue="String" base_Element="_rCy10esFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rC0rAOsFEeCUEfUHwKzTMg" base_Element="_rCy10esFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rC2gMOsFEeCUEfUHwKzTMg" base_Element="_rC15IOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rC48cesFEeCUEfUHwKzTMg" base_Element="_rC4VYOsFEeCUEfUHwKzTMg"/>
@@ -3725,7 +3576,8 @@ weighed union of a bit map interception&#xD;
   <UMLLabProfile:LegacyStyledElement xmi:id="_rDHl8OsFEeCUEfUHwKzTMg" base_Element="_rDG-4OsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rDI0EOsFEeCUEfUHwKzTMg" base_Element="_rDINAOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rDJbIOsFEeCUEfUHwKzTMg" base_Element="_rDI0EesFEeCUEfUHwKzTMg"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_rDLQUOsFEeCUEfUHwKzTMg" base_Property="_rDKpQesFEeCUEfUHwKzTMg" siblings="_rEsTQOsFEeCUEfUHwKzTMg _rEuvgusFEeCUEfUHwKzTMg _rEvWkusFEeCUEfUHwKzTMg _rEwksOsFEeCUEfUHwKzTMg _3ovW8O2oEeCSgPwwJiGwCw _3owlEO2oEeCSgPwwJiGwCw _rEuIcOsFEeCUEfUHwKzTMg _3oxMIu2oEeCSgPwwJiGwCw _3oyaQO2oEeCSgPwwJiGwCw _3ozBUO2oEeCSgPwwJiGwCw" root="true"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rDKpQOsFEeCUEfUHwKzTMg" base_Element="_rDKCMOsFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_rDLQUOsFEeCUEfUHwKzTMg" base_Property="_rDKpQesFEeCUEfUHwKzTMg" siblings="_rEsTQOsFEeCUEfUHwKzTMg _rEs6UusFEeCUEfUHwKzTMg _rEuIcOsFEeCUEfUHwKzTMg _rEuvgusFEeCUEfUHwKzTMg _rEvWkusFEeCUEfUHwKzTMg _rEwksOsFEeCUEfUHwKzTMg" root="true"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rDLQUesFEeCUEfUHwKzTMg" base_Element="_rDKpQesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rDO6sesFEeCUEfUHwKzTMg" base_Element="_rDO6sOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rDQI0OsFEeCUEfUHwKzTMg" base_Element="_rDPhwOsFEeCUEfUHwKzTMg"/>
@@ -3734,6 +3586,8 @@ weighed union of a bit map interception&#xD;
   <UMLLabProfile:LegacyStyledElement xmi:id="_rDSlEOsFEeCUEfUHwKzTMg" base_Element="_rDR-AOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Generics xmi:id="_rDUaQOsFEeCUEfUHwKzTMg" genericsValue="String, String" base_Element="_rDTzMOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rDVBUOsFEeCUEfUHwKzTMg" base_Element="_rDTzMOsFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:Generics xmi:id="_rDVoYOsFEeCUEfUHwKzTMg" genericsValue="Case" base_Element="_rDVBUesFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rDWPcOsFEeCUEfUHwKzTMg" base_Element="_rDVBUesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rDW2gOsFEeCUEfUHwKzTMg" base_Element="_rDWPcesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rDYEoesFEeCUEfUHwKzTMg" base_Element="_rDYEoOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rDYrsesFEeCUEfUHwKzTMg" base_Element="_rDYrsOsFEeCUEfUHwKzTMg"/>
@@ -3767,10 +3621,17 @@ weighed union of a bit map interception&#xD;
     <body>this.internalStatus = internalStatus;
 	</body>
   </uml:OpaqueBehavior>
+  <UMLLabProfile:MultiDeclaration xmi:id="_rEsTQesFEeCUEfUHwKzTMg" base_Property="_rEsTQOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rEs6UOsFEeCUEfUHwKzTMg" base_Element="_rEsTQOsFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_rEthYOsFEeCUEfUHwKzTMg" base_Property="_rEs6UusFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_rEthYesFEeCUEfUHwKzTMg" base_Element="_rEs6UusFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_rEuIcesFEeCUEfUHwKzTMg" base_Property="_rEuIcOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rEuvgOsFEeCUEfUHwKzTMg" base_Element="_rEuIcOsFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_rEuvg-sFEeCUEfUHwKzTMg" base_Property="_rEuvgusFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rEvWkOsFEeCUEfUHwKzTMg" base_Element="_rEuvgusFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_rEvWk-sFEeCUEfUHwKzTMg" base_Property="_rEvWkusFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rEv9oOsFEeCUEfUHwKzTMg" base_Element="_rEvWkusFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:MultiDeclaration xmi:id="_rEwksesFEeCUEfUHwKzTMg" base_Property="_rEwksOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:LegacyStyledElement xmi:id="_rEwksusFEeCUEfUHwKzTMg" base_Element="_rEwksOsFEeCUEfUHwKzTMg"/>
   <uml:OpaqueBehavior xmi:id="_rE3SYesFEeCUEfUHwKzTMg" name="getInternalStatus" specification="_rE2rUusFEeCUEfUHwKzTMg">
     <ownedParameter xmi:id="_rE35cOsFEeCUEfUHwKzTMg" direction="return">
@@ -3791,6 +3652,7 @@ weighed union of a bit map interception&#xD;
   <UMLLabProfile:Reference xmi:id="_rFbTEOsFEeCUEfUHwKzTMg" base_Element="_rFasAesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFchMOsFEeCUEfUHwKzTMg" base_Element="_rFbTEesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFdvUOsFEeCUEfUHwKzTMg" base_Element="_rFchMesFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:Reference xmi:id="_rFeWYOsFEeCUEfUHwKzTMg" base_Element="_rFdvUesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFfkgOsFEeCUEfUHwKzTMg" base_Element="_rFeWYesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFgLkOsFEeCUEfUHwKzTMg" base_Element="_rFfkgesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFhZsOsFEeCUEfUHwKzTMg" base_Element="_rFgLkesFEeCUEfUHwKzTMg"/>
@@ -3801,9 +3663,11 @@ weighed union of a bit map interception&#xD;
   <UMLLabProfile:Reference xmi:id="_rFmSMOsFEeCUEfUHwKzTMg" base_Element="_rFlEEesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFm5QOsFEeCUEfUHwKzTMg" base_Element="_rFmSMesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFoHYOsFEeCUEfUHwKzTMg" base_Element="_rFngUOsFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:Reference xmi:id="_rFoucOsFEeCUEfUHwKzTMg" base_Element="_rFoHYesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFp8kOsFEeCUEfUHwKzTMg" base_Element="_rFpVgOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFqjoOsFEeCUEfUHwKzTMg" base_Element="_rFp8kesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFrxwOsFEeCUEfUHwKzTMg" base_Element="_rFrKsOsFEeCUEfUHwKzTMg"/>
+  <UMLLabProfile:Reference xmi:id="_rFsY0OsFEeCUEfUHwKzTMg" base_Element="_rFrxwesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFtm8OsFEeCUEfUHwKzTMg" base_Element="_rFsY0esFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFuOAOsFEeCUEfUHwKzTMg" base_Element="_rFtm8esFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rFu1EOsFEeCUEfUHwKzTMg" base_Element="_rFuOAesFEeCUEfUHwKzTMg"/>
@@ -3814,68 +3678,4 @@ weighed union of a bit map interception&#xD;
   <UMLLabProfile:Reference xmi:id="_rFztkOsFEeCUEfUHwKzTMg" base_Element="_rFzGgesFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rF07sOsFEeCUEfUHwKzTMg" base_Element="_rF0UoOsFEeCUEfUHwKzTMg"/>
   <UMLLabProfile:Reference xmi:id="_rF1iwOsFEeCUEfUHwKzTMg" base_Element="_rF07sesFEeCUEfUHwKzTMg"/>
-  <UMLLabProfile:Generics xmi:id="_3nBfsO2oEeCSgPwwJiGwCw" genericsValue="Purpose" base_Element="_3nARkO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:Generics xmi:id="_3nCt0O2oEeCSgPwwJiGwCw" genericsValue="Retention" base_Element="_3nBfse2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:Generics xmi:id="_3nD78O2oEeCSgPwwJiGwCw" genericsValue="Recipient" base_Element="_3nCt0e2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:Generics xmi:id="_3nFKEO2oEeCSgPwwJiGwCw" genericsValue="Category" base_Element="_3nD78e2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:Generics xmi:id="_3nQwQO2oEeCSgPwwJiGwCw" genericsValue="Purpose" base_Element="_rEuvgusFEeCUEfUHwKzTMg"/>
-  <UMLLabProfile:Generics xmi:id="_3nSlcO2oEeCSgPwwJiGwCw" genericsValue="Retention" base_Element="_rEwksOsFEeCUEfUHwKzTMg"/>
-  <UMLLabProfile:Generics xmi:id="_3nUaoO2oEeCSgPwwJiGwCw" genericsValue="Recipient" base_Element="_rEvWkusFEeCUEfUHwKzTMg"/>
-  <UMLLabProfile:Generics xmi:id="_3nWP0O2oEeCSgPwwJiGwCw" genericsValue="Category" base_Element="_rEsTQOsFEeCUEfUHwKzTMg"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3oUgMO2oEeCSgPwwJiGwCw" base_Property="_3oT5IO2oEeCSgPwwJiGwCw" siblings="_3o02gO2oEeCSgPwwJiGwCw _3o1dkO2oEeCSgPwwJiGwCw _3o2Eoe2oEeCSgPwwJiGwCw _3o2rse2oEeCSgPwwJiGwCw _3o3Swe2oEeCSgPwwJiGwCw" root="true"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3oVHQO2oEeCSgPwwJiGwCw" base_Element="_3oT5IO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3oWVYe2oEeCSgPwwJiGwCw" base_Property="_3oWVYO2oEeCSgPwwJiGwCw" siblings="_3o350e2oEeCSgPwwJiGwCw _3o4g4u2oEeCSgPwwJiGwCw _3o5H8e2oEeCSgPwwJiGwCw _3o5vAe2oEeCSgPwwJiGwCw _3o6WEe2oEeCSgPwwJiGwCw" root="true"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3oW8cO2oEeCSgPwwJiGwCw" base_Element="_3oWVYO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3oYxoO2oEeCSgPwwJiGwCw" base_Property="_3oYKkO2oEeCSgPwwJiGwCw" siblings="_3o69Ie2oEeCSgPwwJiGwCw _3o7kMu2oEeCSgPwwJiGwCw _3o8LQu2oEeCSgPwwJiGwCw _3o8yUu2oEeCSgPwwJiGwCw _3o9ZYu2oEeCSgPwwJiGwCw" root="true"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3oYxoe2oEeCSgPwwJiGwCw" base_Element="_3oYKkO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3ov-AO2oEeCSgPwwJiGwCw" base_Property="_3ovW8O2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3ov-Ae2oEeCSgPwwJiGwCw" base_Element="_3ovW8O2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3owlEe2oEeCSgPwwJiGwCw" base_Property="_3owlEO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3oxMIO2oEeCSgPwwJiGwCw" base_Element="_3owlEO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3oxzMO2oEeCSgPwwJiGwCw" base_Property="_3oxMIu2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3oxzMe2oEeCSgPwwJiGwCw" base_Element="_3oxMIu2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3oyaQe2oEeCSgPwwJiGwCw" base_Property="_3oyaQO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3oyaQu2oEeCSgPwwJiGwCw" base_Element="_3oyaQO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3ozBUe2oEeCSgPwwJiGwCw" base_Property="_3ozBUO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3ozoYO2oEeCSgPwwJiGwCw" base_Element="_3ozBUO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o02ge2oEeCSgPwwJiGwCw" base_Property="_3o02gO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o02gu2oEeCSgPwwJiGwCw" base_Element="_3o02gO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o1dke2oEeCSgPwwJiGwCw" base_Property="_3o1dkO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o2EoO2oEeCSgPwwJiGwCw" base_Element="_3o1dkO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o2Eou2oEeCSgPwwJiGwCw" base_Property="_3o2Eoe2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o2rsO2oEeCSgPwwJiGwCw" base_Element="_3o2Eoe2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o2rsu2oEeCSgPwwJiGwCw" base_Property="_3o2rse2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o3SwO2oEeCSgPwwJiGwCw" base_Element="_3o2rse2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o3Swu2oEeCSgPwwJiGwCw" base_Property="_3o3Swe2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o350O2oEeCSgPwwJiGwCw" base_Element="_3o3Swe2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o4g4O2oEeCSgPwwJiGwCw" base_Property="_3o350e2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o4g4e2oEeCSgPwwJiGwCw" base_Element="_3o350e2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o4g4-2oEeCSgPwwJiGwCw" base_Property="_3o4g4u2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o5H8O2oEeCSgPwwJiGwCw" base_Element="_3o4g4u2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o5H8u2oEeCSgPwwJiGwCw" base_Property="_3o5H8e2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o5vAO2oEeCSgPwwJiGwCw" base_Element="_3o5H8e2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o5vAu2oEeCSgPwwJiGwCw" base_Property="_3o5vAe2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o6WEO2oEeCSgPwwJiGwCw" base_Element="_3o5vAe2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o6WEu2oEeCSgPwwJiGwCw" base_Property="_3o6WEe2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o69IO2oEeCSgPwwJiGwCw" base_Element="_3o6WEe2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o7kMO2oEeCSgPwwJiGwCw" base_Property="_3o69Ie2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o7kMe2oEeCSgPwwJiGwCw" base_Element="_3o69Ie2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o8LQO2oEeCSgPwwJiGwCw" base_Property="_3o7kMu2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o8LQe2oEeCSgPwwJiGwCw" base_Element="_3o7kMu2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o8yUO2oEeCSgPwwJiGwCw" base_Property="_3o8LQu2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o8yUe2oEeCSgPwwJiGwCw" base_Element="_3o8LQu2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o9ZYO2oEeCSgPwwJiGwCw" base_Property="_3o8yUu2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o9ZYe2oEeCSgPwwJiGwCw" base_Element="_3o8yUu2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o-AcO2oEeCSgPwwJiGwCw" base_Property="_3o9ZYu2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o-Ace2oEeCSgPwwJiGwCw" base_Element="_3o9ZYu2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o-nge2oEeCSgPwwJiGwCw" base_Property="_3o-ngO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o-ngu2oEeCSgPwwJiGwCw" base_Element="_3o-ngO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o_Oke2oEeCSgPwwJiGwCw" base_Property="_3o_OkO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o_Oku2oEeCSgPwwJiGwCw" base_Element="_3o_OkO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3o_1oe2oEeCSgPwwJiGwCw" base_Property="_3o_1oO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3o_1ou2oEeCSgPwwJiGwCw" base_Element="_3o_1oO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:MultiDeclaration xmi:id="_3pAcsO2oEeCSgPwwJiGwCw" base_Property="_3o_1o-2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:LegacyStyledElement xmi:id="_3pAcse2oEeCSgPwwJiGwCw" base_Element="_3o_1o-2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:Reference xmi:id="_3pKNsO2oEeCSgPwwJiGwCw" base_Element="_3pIYgO2oEeCSgPwwJiGwCw"/>
-  <UMLLabProfile:Patch xmi:id="_6xG2EO2oEeCSgPwwJiGwCw" base_Element="_qr1uYOsFEeCUEfUHwKzTMg" patchText="@@ -592,16 +592,8 @@&#xA; %09%09%09%09&#xA;-, , , , &#xA; cate&#xA;@@ -638,16 +638,30 @@&#xA; e,%0D%0A%09%09%09%09&#xA;+entity = false&#xA; ,%0D%0A%09%09%09%09p&#xA;"/>
 </xmi:XMI>

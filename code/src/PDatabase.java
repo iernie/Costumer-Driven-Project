@@ -20,9 +20,7 @@ class PDatabase extends PolicyDatabase implements Serializable
 	 * generated serial id based on warning on implementing Serializable
 	 */
 	private static final long serialVersionUID = -8940764926428061908L;
-	//private static PolicyDatabase i = new PDatabase(); //singleton instance of this class
-	public static String location; //where is the database stored on disk/as a file?
-	
+
 
 	/**
 	*	private constructor to ensure singleton-ness,
@@ -53,7 +51,7 @@ class PDatabase extends PolicyDatabase implements Serializable
 			FileInputStream fis = new FileInputStream(dLoc);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			i = (PolicyDatabase)ois.readObject();
-			PDatabase.location = dLoc;
+			PDatabase.inLocation = dLoc;
 			ois.close();
 			fis.close();
 		}
@@ -76,6 +74,10 @@ class PDatabase extends PolicyDatabase implements Serializable
 		try {
 			// Creating a stream to create the file "Policy.name" and write bytes to it
 			// Name of the file can be changed to whatever is wanted
+			if(dLoc==null)
+			{
+				dLoc = outLocation;
+			}
 			FileOutputStream fos = new FileOutputStream(dLoc);
 			// Creating a stream convering object to byte data 
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -88,7 +90,8 @@ class PDatabase extends PolicyDatabase implements Serializable
 		} 
 		catch(Exception e) {
 			// Simple error handling, show error and shut down 
-			System.out.println("Exception during serialization of policy database: " + e); 
+			System.out.println("Exception during serialization of policy database: " + e);
+			e.printStackTrace();
 			System.exit(0); 
 		}
 	}
@@ -112,6 +115,23 @@ class PDatabase extends PolicyDatabase implements Serializable
 			}
 		}
 		return results;
+	}
+
+
+
+
+	/**
+	 * 
+	 */
+	public static PolicyDatabase getInstance(String inloc, String outloc) {
+		inLocation = inloc;
+		outLocation = outloc;
+		if(i==null)
+		{
+			i= new PDatabase();
+		}
+		
+		return i;
 	}
 	
 	

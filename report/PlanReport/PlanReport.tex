@@ -4,26 +4,21 @@
 %!TEX root =  
 
 \chapter{Planning Phase}
+\label{plan}
 
 \minitoc 
 
 \section{Purpose}
-This document details the different phases in the development process. It presents the development model that has been chosen, relating the choice of model to the particular challenges faced by the nature of the project. It also describes the set of activities included in each phase and a set of activities that are ongoing throughout the lifetime of the project.
+This document details the planning process that seeks to identify the different phases in the development process and allocate resources over time to the various activities that comprise each phase. Planning also needs to account for a number of risk factors that may impact the process, either by allowing for enough preventive measures or by allocating extra time to activities that may be affected. Thus a risk report enumerating several potential risks has been worked out.
 
-\section{Development Model}
-As the project is an early implementation phase of a larger research project, there is an inherent uncertainty as to several details regarding both the implementation and the appropriateness of the underlying model. This has several implications for the development process. 
-
-Following the above discussion, a hybrid waterfall model is settled upon. Here the design, implementation and testing phases follow a cyclical pattern. In concrete terms, this means that a first prototype will be developed and then put through some tests, and depending on the results of these tests, there may be revisions in the software design.
-
-Furthermore, there are clearly overlaps between these three phases. A key part of the documentation work consists of documenting the source code, which is basically commenting during development. Furthermore, as implementation is underway, it may turn out that the design needs adjustments, due to unforeseen factors.
-
-
-\section{Phases}\label{phases}
-
-\subsection{Planning}
+\section{Project Phases}\label{phases}
+The choice of development model is detailed in Chapter\ref{prelim}. Here the various phases of the project are described.
 
 \subsection{Prestudy and Research}
 In this phase the aim is for each project member to acquire a certain level domain knowledge in the field of Internet privacy and to learn the necessary technology and tools required to implement the model as proposed by the customer. This entails having a working knowledge of the Java programming language, version control using Git and the CBR framework.
+
+\subsection{Planning}
+Planning seeks to identify the activities needed to reach the project objective. This entails breaking down the objectives into sub-problems, identifying the relationship between these, and allocating time for each of them. 
 
 \subsection{Requirement Specification}
 The requirements specification is a document listing the functional and non-functional requirements of the software to be developed, which is a standard that the results is to be measured against, thus serving as not only a contract between the customer and the project team, but as a basis for developing testing methods.
@@ -106,7 +101,7 @@ The actual risks:
 
 
 \begin{table}[htdp]
-\caption{Poorly choosen algorithms}
+\caption{Poorly chosen algorithms}
 \begin{center}
 \begin{tabularx}{\textwidth}{| X | X |}
 \hline
@@ -263,7 +258,7 @@ The actual risks:
 \end{table}
 
 \begin{table}[htdp]
-\caption{Risks 8}
+\caption{Misunderstandings.}
 \begin{center}
 \begin{tabularx}{\textwidth}{| X | X |}
 \hline
@@ -290,23 +285,25 @@ The actual risks:
 \newpage
 
 \section{Measurement of project effects}
-The minimal goal of the project is to develop the core functionality for a system that gives users advise when visiting a web-page. The functional requirments The advise is based on: 
+The primary objective of this project is to build a research prototype that allows for parsing P3P policies and provide advice using CBR given a particular knowledge base. The advice is based on: 
 
 \begin{itemize}
-\item the user’s previous actions
+\item the user's previous actions
 \item community actions or what similar users have done
 \item context of use
 \end{itemize}
    
 
 \section{Project Plan}
-As discussed in Section~\ref{phases}, the sequential part of the project is separated into six phases; pre-implementation research, requirement specification, design, implementation and documentation, evaluation, and report writing. The reporting started at the first day of the project and is going to continue until we are finished with the project. We are intending to be finished with the implementation at the end of week 42, which marks a shifting of focus to testing and evaluation. A Gantt diagram is given in Figure~\ref{gantt}.
+As discussed in Section~\ref{phases}, the sequential part of the project is separated into six phases; pre-implementation research, requirement specification, design, implementation and documentation, evaluation, and report writing. The reporting started at the first day of the project and continues until project completion. 
+
+Implementation is scheduled to be complete at the end of week 42, which marks a shifting of focus to testing and evaluation. Some of the planning tools are outlined below.
+
+\subsection{Project Milestones}
 
 
-\begin{center}
-\begin{figure}
-\label{gantt}
-\caption{Gantt Diagram.}
-\includegraphics[width=\linewidth]{PlanReport/gantt.jpg}
-\end{figure}
-\end{center}
+
+\newpage
+\includepdf[pages={1}]{PlanReport/DetailedPlan}
+
+
