@@ -1,0 +1,18 @@
+loglocation				-> string/filepath
+loglevel				-> string/logging level
+inDBLoc					-> string/filepath
+outDBLoc				-> string/filepath				-: where to write DB- defaults to where it reads from
+inWeightsLoc			-> string/filepath
+newDB 	 				-> string/boolean
+p3pLocation				-> string/filepath			-: a p3p to be added to the history
+p3pDirLocation			-> string/FOLDERpath		-: a folder of p3ps to be added to the history
+outWeightsLoc			-> string/filepath		-: where to write DB- defaults to where it reads from
+blanketAccept			-> string/boolean
+newPolicyLoc			-> string/filepath		-: the new policy to be parsed
+userInit				-> string/boolean
+
+userResponse		-> string/action		>>requires action post parsing
+userIO				-> string/UIO			>>requires action post parsing
+policyDB			-> string/policyDB		>>requires action post parsing
+cbrV				-> string/CBR			>>requires action post parsing
+genConfig			-> string/filepath		>>requires action post parsing
