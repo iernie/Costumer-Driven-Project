@@ -648,5 +648,10 @@ public class Gio {
 		return cbr;
 	}
 
+	public Properties getWeights() {
+		// TODO Auto-generated method stub
+		return origWeights;
+	}
+
 
 }
