@@ -47,7 +47,7 @@ public class Conclusion_Simple extends ConclusionAlgorithm {
 		
 		for( PolicyObject i : releventSet)
 		{
-			if((i.getAction() != null)&&(i.getAction().isAccept()))
+			if((i.getAction() != null)&&(i.getAction().isAccepted()))
 			{
 				approveList.add(i);
 				appdistance+=(1/distanceMetric.getTotalDistance(np, i));

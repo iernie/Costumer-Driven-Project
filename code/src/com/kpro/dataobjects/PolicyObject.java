@@ -36,16 +36,16 @@ public class PolicyObject implements Serializable
 		return this.context;
 	}
 	
-	public void setContext(Context theCon) {
-		this.context = theCon;
+	public void setContext(Context context) {
+		this.context = context;
 	}
 	
 	public Action getAction() {
 		return this.actionTaken;
 	}
 
-	public PolicyObject setAction(Action theRes) {
-		this.actionTaken = theRes;
+	public PolicyObject setAction(Action action) {
+		this.actionTaken = action;
 		return this;
 	}
 	
@@ -122,7 +122,7 @@ public class PolicyObject implements Serializable
 	 * @return the domain/url from which the policy came.
 	 * @author ngerstle
 	 */
-	public String getName() {
+	public String getContextDomain() {
 		return context.getDomain();
 	}
 	
@@ -134,13 +134,21 @@ public class PolicyObject implements Serializable
 	public void debug_print()
 	{
 		System.out.println("\nPOLICY OBJECT DEBUG PRINT");
-		System.out.println("\nENTITY");
 		
+		System.out.println("\nENTITY");
 		for(String key : entity.keySet())
 		{
 			System.out.println("KEY: " + key + ", VAL: " + entity.get(key) );
 		}
 		
+		System.out.println("\nCONTEXT");
+		System.out.println(context.getAccessTime());
+		
+		if(actionTaken != null)
+		{
+			System.out.println("\nACTION");
+			System.out.println(actionTaken.getAccepted());
+		}
 		
 		for(int i=0; i<cases.size(); i++)
 		{

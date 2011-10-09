@@ -46,7 +46,7 @@ public class UserIO_Simple extends UserIO {
 	 */
 	public PolicyObject userResponse(PolicyObject n)
 	{
-		System.out.println("Privacy Advisor recommends:"+n.getAction().getAccptS() + "\n\t based on these criteria:"+n.getAction().getReasonS());
+		System.out.println("Privacy Advisor recommends:"+n.getAction().getAccepted() + "\n\t based on these criteria:"+n.getAction().getReasons());
 		return n;
 	}
 
