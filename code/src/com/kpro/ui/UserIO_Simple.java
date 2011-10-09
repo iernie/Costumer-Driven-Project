@@ -1,5 +1,6 @@
 package com.kpro.ui;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.PolicyObject;
@@ -11,15 +12,6 @@ import com.kpro.dataobjects.PolicyObject;
  */
 public class UserIO_Simple extends UserIO {
 
-	/** generic constructor- returns input
-	 * @see UserIO#user_init()
-	 */
-	@Override
-	public String[] user_init(String[] args) {
-		return args;
-	}
-
-	
 	/** does nothing
 	 * @see UserIO#showDatabase(PolicyDatabase)
 	 */
@@ -57,6 +49,12 @@ public class UserIO_Simple extends UserIO {
 	 */
 	public void closeResources() {
 		
+	}
+
+
+	@Override
+	public Properties user_init(Properties genProps) {
+		return genProps;
 	}
 
 }
