@@ -43,7 +43,6 @@ public class Gio {
 
 	private static Logger logger = Logger.getLogger("");		//create logger object
 	private FileHandler fh = null;					//creates filehandler for logging
-	//private String genConfig = "./PrivacyAdviser.cfg";					//location of general configuration file
 	private Properties genProps = new Properties(); //holds all the property values
 	
 	private Properties origWeights = null;				//the loaded weights file.
@@ -351,8 +350,10 @@ public class Gio {
 				System.exit(1);
 			}
 			p = (new P3PParser()).parse(pLoc.getAbsolutePath());
-			//TODO make sure that the context is parsed if avaliable
-			p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("p3pLocation")));
+			if(p.getContext().getDomain()==null)
+			{
+				p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("p3pLocation")));
+			}			
 			pdb.addPolicy(p);
 		}
 		if(genProps.getProperty("p3pDirLocation",null) != null)
@@ -367,8 +368,10 @@ public class Gio {
 					System.exit(1);
 				}
 				p = (new P3PParser()).parse(pLoc.getAbsolutePath());
-				//TODO make sure that the context is parsed if avaliable
-				p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),pfiles[i]));
+				if(p.getContext().getDomain()==null)
+				{
+					p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),pfiles[i]));
+				}
 				pdb.addPolicy(p);
 			}
 
@@ -473,7 +476,10 @@ public class Gio {
 
 		p = (new P3PParser()).parse(pLoc.getAbsolutePath());
 		//TODO make sure that the context is parsed if avaliable
-		p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("newPolicyLoc")));
+		if(p.getContext().getDomain()==null)
+		{
+			p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("newPolicyLoc")));
+		}
 		return p;
 	}
 
