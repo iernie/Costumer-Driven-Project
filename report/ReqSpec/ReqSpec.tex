@@ -13,7 +13,7 @@ This requirements specification has been prepared for and accepted by SINTEF ICT
 The requirement specification, once accepted by the customer, will serve as a contract between the parties involved, being a guideline for design and implementation and the standard against which the product is evaluated.
 \section{Introduction}
 \subsection{Background and Similar Software}
-SINTEF ICT is currently investigating new approaches to privacy protection of end-users. Tøndel and Nyre (2011) proposes a specific agent design for a machine learning approach to advice users on privacy actions based on:
+SINTEF ICT is currently investigating new approaches to privacy protection of end-users. Tøndel et al. (2011) proposes a specific agent design for a machine learning approach to advice users on privacy actions based on:
 
 \begin{itemize}
 \item Past behavior using case based reasoning (CBR)
@@ -22,9 +22,9 @@ SINTEF ICT is currently investigating new approaches to privacy protection of en
 
 While there are systems for aiding users in making privacy related decisions, the majority of these systems rely in a large extent on the user pre-specifying his preferences and being prompted with messages about where the policy of a given site conflicts with the user’s preferences. Our design aims at being “low profile” or “non invasive”, that is able to make sensible decisions with as little interference as possible, and at the same time, given as little feedback as possible, able to cater for the dynamic nature of both web sites’ privacy policies and user preferences with respect to privacy.
 
-\subsection{Scope}
+\subsection{Scope}\label{reqScope}
 
-The primary aim of this project is the implementation of the core classification system described in Tøndel and Nyre (2011) to allow for testing the applicability of the suggested approach to predicting privacy preferences. Since the software is intended to be a part of a research project, a design that allows for testing of various hypotheses and models is required. This implies a highly modular design where the various components of the core system can be replaced. 
+The primary aim of this project is the implementation of the core classification system described in Tøndel et al. (2011) to allow for testing the applicability of the suggested approach to predicting privacy preferences. Since the software is intended to be a part of a research project, a design that allows for testing of various hypotheses and models is required. This implies a highly modular design where the various components of the core system can be replaced. 
 
 Furthermore, given the research nature of the project, less emphasis is placed on developing a complete stand-alone application. The core focus for our project will be on developing the underlying system and an interface for testing and parameter estimation. Hence two distinct systems are to be developed, both built around the same core functionality (I.E. the privacy advisor agent). Owing to the fact that this software is developed around a research project, the emphasis is on the first system:
 
@@ -35,16 +35,17 @@ Furthermore, given the research nature of the project, less emphasis is placed o
 
 \subsection{Overview}
 This document is organized as follows:
-•	Section 2 gives an overview over the system; its requirements and user characteristics.
-•	Section 3 presents four different use-case scenarios.
-•	Section 4 presents specific functional and non-functional requirements.
+•	Section~\ref{sysDesc} gives an overview over the system; its requirements and user characteristics.
+•	Section~\ref{useCase} presents four different use-case scenarios.
+•	Section~\ref{specRec} presents specific functional and non-functional requirements.
 \section{Overall Description}
 
-\subsection{System Description}
-The overall structure of the system is detailed in Tøndel and Nyre, and consists of the local CBR reasoning system, the remote/community collaborative filtering, both with their respective databases for storing information. This is in turn linked to an interface that is able to read and parse P3P policy files that are retrieved either from a local file (for the testing system) or by retrieving from the web.
+\section{System Description}\label{sysDesc}
+The overall structure of the system is detailed in Tøndel et al. (2011), and consists of the local CBR reasoning system, the remote/community collaborative filtering, both with their respective databases for storing information. This is in turn linked to an interface that is able to read and parse P3P policy files that are retrieved either from a local file (for the testing system) or by retrieving from the web.
 
  
-Figure 1: End User System Flowchart
+Figure 1: End User System Flowchart 
+
 
 \subsection{User Interface}
 Because of the research nature of the project, the customer considers the user interface to be of small importance. As the underlying algorithm/methodology is in an early development phase, the core focus is placed on producing a system for model testing and evaluation rather than an end user interface. 
@@ -64,7 +65,7 @@ Firstly, developers/researchers that will be working on the testing and calibrat
 Secondly, the end user who will be using the software in the form of a browser plugin that provides advice with respect to the users behavior on the Internet. A key objective for the project is that the agent is to be able to make good decisions and require as little feedback as possible from the user. To the extent interaction is needed, it should be able to clearly state an explanation for its decisions and allow the user to override in a simple manner.
 
 
-\section{Use Cases}
+\section{Use Cases}\label{useCase}
 
 The first use case illustrates a research setting where calibration/testing interface allows the user to load in a dataset of P3P policies and test the performance of the underlying model. The last three use cases illustrate the potential application of the system as a browser plugin that runs in the background monitoring the users activities and the web sites he is visiting. As previously stressed, the success of testing according to the first use case determines the extent to which the system described in cases 2-4 is implemented.
 
@@ -81,10 +82,10 @@ A user visits a previously unvisited website. As before, the system the system f
 \subsection*{Case 4: End user – global query, recommendation overridden}
 As before, but in this case, no sufficiently similar cases are found locally. In this case the system will query the global server for similar users that have visited the same site to base its decision on this. In this case, site is blocked, but the user disagrees. He selects an override feature and gives a reason for why he overrides.
 
-\section{Specific Requirements}
+\section{Specific Requirements}\label{specRec}
 
 \subsection{Product perspective}
-As described in Section 1.2, as the main goal of the project is to develop a testing framework for the core reasoning system. The secondary goal is to implement a user interface that can work as a stand-alone application to allow for actual user testing.
+As described in Section~\ref{reqScope}, as the main goal of the project is to develop a testing framework for the core reasoning system. The secondary goal is to implement a user interface that can work as a stand-alone application to allow for actual user testing.
 
 \subsection{Functional Requirements}
 \begin{itemize}
@@ -108,7 +109,7 @@ As described in Section 1.2, as the main goal of the project is to develop a tes
 \begin{itemize}
 \item Implementation
 \begin{itemize}
-\item Code is written in Java following Sun Microsystems’ conventions (http://www.oracle.com/technetwork/java/codeconvtoc-136057.html).
+\item Code is written in Java following Sun Microsystems’ conventions\footnote{http://www.oracle.com/technetwork/java/codeconvtoc-136057.html}.
 \item Third party libraries are to be documented with version numbers and to be included in the installation package.
 \end{itemize}
 
@@ -136,5 +137,6 @@ As described in Section 1.2, as the main goal of the project is to develop a tes
 \item Two UIs are to be implemented: A command line interface (CLI) as well as a GUI is to be designed using Java/swing.
 \item These interfaces are meant to facilitate testing the model framework.
 \end{itemize}
+
 
 \end{itemize}
