@@ -82,16 +82,7 @@ public class PrivacyAdviser {
 
 		//load the past history && commandline policies 
 		theIO.loadDB();//configFile.getProperty("databaseLocation"));
-		
-		
-		//TODO place for user_init code?? should have 4 user interfaces- commandline interactive, commandline options only, gui, config file 
-		/*where user_init = (-u flag) || (no -b and no -T)
-		if(theIO.user_init())
-		{
-			prompt from user, but load default values
-			UI.prompt for -c, -w, -p, -d, -f, -n, -b, -Te
-		}*/
-		
+
 		//done initializing
 	}
 

@@ -1,5 +1,6 @@
 package com.kpro.ui;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.PolicyObject;
@@ -15,10 +16,10 @@ public abstract class UserIO {
 	/**
 	 * returns a new String[] args to use init on.
 	 * 
-	 * @param args the default values for all commandline arguments
+	 * @param genProps the default values for all commandline arguments
 	 * @return the values to initialize the program with- same as usual args from main
 	 */
-	public abstract String[] user_init(String[] args);
+	public abstract Properties user_init(Properties genProps);
 	
 	/**
 	 * display the contents of the database
@@ -48,7 +49,10 @@ public abstract class UserIO {
 	
 	/**
 	 * closes all resources used by UserIO - windows, files, streams, etc
+	 * 
+	 * @author ngerstle
 	 */
 	public abstract void closeResources();
+
 
 }

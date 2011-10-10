@@ -1,13 +1,18 @@
 package com.kpro.parser;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
 
+import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Case;
 import com.kpro.dataobjects.Category;
+import com.kpro.dataobjects.Context;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.dataobjects.Purpose;
 import com.kpro.dataobjects.Recipient;
@@ -30,10 +35,19 @@ public class P3PParser
 		
 	class XMLParserHandler extends DefaultHandler
 	{
+		// CASE
 		private ArrayList<Purpose> purpose;
 		private ArrayList<Retention> retention;
 		private ArrayList<Recipient> recipients;
 		private ArrayList<Category> categories;
+		
+		// CONTEXT
+		private String url;
+		private Date accessTime, creationTime;
+		
+		// ACTION
+		private boolean accepted, userOverride;
+		private ArrayList<String> domains;
 		
 		private Boolean statementTag = false,
 						categoriesTag = false,
@@ -41,7 +55,15 @@ public class P3PParser
 						entityTag = false,
 						purposeTag = false,
 						recipientTag = false,
-						retentionTag = false;
+						retentionTag = false,
+						contextTag = false,
+						actionTag = false,
+						urlTag = false,
+						accessTimeTag = false,
+						creationTimeTag = false,
+						acceptedTag = false,
+						domainTag = false,
+						userOverrideTag = false;
 		
 		/**
 		 * Function that parses all of first instances of a tag
@@ -117,6 +139,43 @@ public class P3PParser
 	    		retentionTag = true;
 	    		retention = new ArrayList<Retention>();
 	    	}
+	    	if(tagName.equalsIgnoreCase("context"))
+	    	{
+	    		contextTag = true;
+	    	}
+	    	if(tagName.equalsIgnoreCase("url"))
+	    	{
+	    		urlTag = true;
+	    	}
+	    	if(tagName.equalsIgnoreCase("accesstime"))
+	    	{
+	    		accessTimeTag = true;
+	    	}
+	    	if(tagName.equalsIgnoreCase("creationtime"))
+	    	{
+	    		creationTimeTag = true;
+	    	}
+	    	if(tagName.equalsIgnoreCase("action"))
+	    	{
+	    		actionTag = true;
+	    	}
+	    	if(tagName.equalsIgnoreCase("accepted"))
+	    	{
+	    		acceptedTag = true;
+	    	}
+	    	if(tagName.equalsIgnoreCase("reasons"))
+	    	{
+	    		domains = new ArrayList<String>();
+	    	}
+	    	if(tagName.equalsIgnoreCase("domain"))
+	    	{
+	    		domainTag = true;
+	    	}
+	    	if(tagName.equalsIgnoreCase("useroverride"))
+	    	{
+	    		userOverrideTag = true;
+	    	}
+	    	
 	    }
 	    
 	    /**
@@ -130,9 +189,60 @@ public class P3PParser
 	     */
 	    public void characters(char ch[], int start, int length) throws SAXException
 	    {
+	    	String content = new String(ch, start, length);
+	    	
 	    	if(dataTag && entityTag)
 	    	{
-	    		policy.addEntityData(tempKey, new String(ch, start, length));
+	    		policy.addEntityData(tempKey, content);
+	    	}
+	    	
+	    	if(contextTag)
+	    	{
+	    		if(urlTag)
+	    		{
+	    			url = content;
+	    		}
+	    		if(accessTimeTag)
+	    		{
+	    			try {
+						accessTime = new SimpleDateFormat("yyyyMMdd").parse(content);
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+	    		}
+	    		if(creationTimeTag)
+	    		{
+	    			try {
+						creationTime = new SimpleDateFormat("yyyyMMdd").parse(content);
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+	    		}
+	    	}
+	    	if(actionTag)
+	    	{
+	    		if(acceptedTag)
+	    		{
+	    			if(content.equalsIgnoreCase("true"))
+	    			{
+	    				accepted = true;
+	    			} else {
+	    				accepted = false;
+	    			}
+	    		}
+	    		if(domainTag)
+	    		{
+	    			domains.add(content);
+	    		}
+	    		if(userOverrideTag)
+	    		{
+	    			if(content.equalsIgnoreCase("true"))
+	    			{
+	    				userOverride = true;
+	    			} else {
+	    				userOverride = false;
+	    			}
+	    		}
 	    	}
 		}
 	    
@@ -182,6 +292,42 @@ public class P3PParser
 	    	{
 	    		statementTag = false;
 	    	}
+	    	if(tagName.equalsIgnoreCase("context"))
+	    	{
+	    		contextTag = false;
+	    		Context context = new Context(accessTime, creationTime, url);
+	    		policy.setContext(context);
+	    	}
+	    	if(tagName.equalsIgnoreCase("action"))
+	    	{
+	    		actionTag = false;
+	    		Action action = new Action(accepted, domains, 0, userOverride);
+	    		policy.setAction(action);
+	    	}
+	    	if(tagName.equalsIgnoreCase("url"))
+	    	{
+	    		urlTag = false;
+	    	}
+	    	if(tagName.equalsIgnoreCase("accesstime"))
+	    	{
+	    		accessTimeTag = false;
+	    	}
+	    	if(tagName.equalsIgnoreCase("creationtime"))
+	    	{
+	    		creationTimeTag = false;
+	    	}
+	    	if(tagName.equalsIgnoreCase("accepted"))
+	    	{
+	    		acceptedTag = false;
+	    	}
+	    	if(tagName.equalsIgnoreCase("domain"))
+	    	{
+	    		domainTag = false;
+	    	}
+	    	if(tagName.equalsIgnoreCase("useroverride"))
+	    	{
+	    		userOverrideTag = false;
+	    	}
 	    }
 	}
 	
@@ -216,9 +362,11 @@ public class P3PParser
 		PolicyObject policy = new PolicyObject();
 		
         //policy = parser.parse("http://info.yahoo.com/privacy/w3c/p3p_policy.xml");
-        policy = parser.parse("http://pages.ebay.com/w3c/p3p-policy.xml#policy");
+        //policy = parser.parse("http://pages.ebay.com/w3c/p3p-policy.xml#policy");
 		//policy = parser.parse("http://www.microsoft.com/w3c/p3policy.xml");
+		policy = parser.parse("http://www.epicbytes.net/p3p.xml");
         policy.debug_print();
     }
-    */
+	*/
+    
 }
