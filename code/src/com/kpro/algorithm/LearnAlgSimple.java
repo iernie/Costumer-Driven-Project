@@ -34,7 +34,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(purp == Purpose.CURRENT){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -43,7 +43,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(purp == Purpose.ADMIN){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -52,7 +52,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(purp == Purpose.DEVELOP){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -61,7 +61,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(purp == Purpose.TAILORING){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -70,7 +70,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(purp == Purpose.PSEUDO_ANALYSIS){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -79,7 +79,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(purp == Purpose.PSEUDO_DECISION){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -88,7 +88,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(purp == Purpose.INDIVIDUAL_ANALYSIS){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -97,7 +97,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(purp == Purpose.INDIVIDUAL_DECISION){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -106,7 +106,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(purp == Purpose.CONTACT){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -115,7 +115,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(purp == Purpose.HISTORICAL){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -124,7 +124,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(purp == Purpose.TELEMARKETING){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -133,7 +133,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(purp == Purpose.OTHER_PURPOSE){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -143,7 +143,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(recip == Recipient.OURS){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -152,7 +152,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(recip == Recipient.DELIVERY){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -161,7 +161,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(recip == Recipient.SAME){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -170,7 +170,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(recip == Recipient.OTHER_RECIPIENT){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -179,7 +179,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(recip == Recipient.UNRELATED){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -188,7 +188,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(recip == Recipient.PUBLIC){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -198,7 +198,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(ret == Retention.NO_RETENTION){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -207,7 +207,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(ret == Retention.STATED_PURPOSE){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -216,7 +216,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(ret == Retention.LEGAL_REQUIREMENT){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -225,7 +225,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(ret == Retention.BUSINESS_PRACTICES){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}
@@ -234,7 +234,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 								if(ret == Retention.INDEFINITELY){
 									total++;
 								}
-								if(po.getAction().isAccept()){
+								if(po.getAction().isAccepted()){
 									yes++;
 								}
 							}

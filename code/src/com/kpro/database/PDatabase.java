@@ -113,7 +113,7 @@ public class PDatabase extends PolicyDatabase implements Serializable
 		ArrayList<PolicyObject> results = new ArrayList<PolicyObject>();
 		for(PolicyObject i : idb)
 		{
-			if( domain.compareToIgnoreCase(i.getName()) == 0)
+			if( domain.compareToIgnoreCase(i.getContextDomain()) == 0)
 			{
 				results.add(i);
 			}

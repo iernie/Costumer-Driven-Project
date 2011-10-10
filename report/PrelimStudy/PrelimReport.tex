@@ -8,25 +8,31 @@
 
 \minitoc
 
-This section describes the preliminary study phase of the project which is the time spent by the project team gaining insight into the problem the software system is to solve. For this project, the problem is very well defined from the customer's perspective, so little time is spent looking into similar products and various possible solutions to the overarching problem of computer aided privacy advice. A large portion of this time was spent on investigating the proposed solution and the technologies involved, that is Case Based Reasoning (CBR) and the technologies used by it. Another critical work laid down in this phase were choices with respect to project scope.
+This section describes the preliminary study phase of the project. It focuses on gaining insight into the problem the software system is to solve. For this project, the problem is very well defined from the customer's perspective as such, little time is spent looking into similar products and various possible solutions to the overarching problem of computer aided privacy advice.
 
-\section{Technology}
+A large portion of this time was spent on investigating the proposed solution and the technologies involved, that is Case Based Reasoning (CBR) and the technologies used by it. As the customer, SINTEF ICT, is a research institution, and the project can somewhat simplified be viewed as the "implementation" part of a larger research project, the customer could from the start provide relatively clear specification of the system that is envisioned\footnote{The system is outlined in broad terms in the article Inger Anne Tøndel, Åsmund Ahlmann Nyre and Karin Bernsmed: \emph{"Learning Privacy Preferences"}, SINTEF ICT 2011.}. 
 
+Another critical work laid down in this phase were choices with respect to project scope and development model. As will become apparent, these choices are strongly related to the nature of the problem statement.
 
-\subsection{Privacy technology}\label{privTech}
+\section{Internet Privacy Technology}
+
 This section briefly describes the situation today with respect to Internet privacy tools and which needs the project seeks to address.
 
-As discussed in Tøndel and Nyre (2010), there is a disproportion between the average Internet user's concern for privacy and the actual control he has over private information. While most websites provide a privacy policy, these tend to very long documents written in a obscure "legalesque" language, intended  for protecting the websites' interests than those of users. To aid this problem, machine readable standards such as P3P have been introduced. P3P seeks to compress the information contained in the privacy policy in an XML document that can be parsed and summarized by computer programs. 
+As discussed in Tøndel et al. (2011), there is a disproportion between the average Internet user's concern for privacy and the actual control he has over private information. While most websites provide a privacy policy, these tend to very long documents written in a obscure "legalesque" language, intended  for protecting the websites' interests than those of users. To aid this problem, machine readable standards such as P3P have been introduced. P3P seeks to compress the information contained in the privacy policy in an XML document that can be parsed and summarized by computer programs. 
 
-The AT\&T \emph{Privacy Bird} is mentioned in Tøndel and Nyre (2010) as an example of current Internet privacy software. Privacy Bird can parse P3P documents and match a site's privacy policy with the user's preferences. The problem with this however, is that the user has to explicitly state his preferences, which is a rather time-consuming endeavor. The novel feature of this project is to introduce an intelligent system that \emph{learns} the user's preferences, seeking to limit the amount of user interference. This is to be achieved by the use of CBR agent, that can look at previous examples of user choices in similar situations. A particular advantage of the CBR approach is the feedback loop where the system can actually \emph{explain} its choice in terms of similar cases which sets CBR apart from alternative reasoning models such as artificial neural networks. It also allows for better tuning to user response in those cases that the user disagrees with the recommendation.
+\subsection{Current Privacy Technology}\label{privTech}
+The AT\&T \emph{Privacy Bird} is mentioned in Tøndel et al. (2011) as an example of current Internet privacy software. Privacy Bird can parse P3P documents and match a site's privacy policy with the user's preferences. The problem with this however, is that the user has to explicitly state his preferences, which, first of all, is a rather time-consuming endeavor. Secondly, while a user may have clear notions about which information he would share in a \emph{particular} situation, such preferences may be very hard to generalize. It may be hard to give a general statement on privacy preferences in a way that is both simple enough for the user to understand and rich enough to actually describe the problem. Furthermore, preferences may be inconsistent, for instance, while in the general case, the user would not accept privacy terms similar to those of for instance Facebook; however in Facebook's particular case he will accept them nevertheless.
 
-\subsection{Case Based Reasoning}
+\subsection{How Machine Learning Can Improve Privacy Advice}
+The novel feature of this project is to introduce an intelligent system that \emph{learns} the user's preferences, seeking to limit the amount of user interference. This is to be achieved by the use of CBR agent, that can look at previous examples of user choices in similar situations. A particular advantage of the CBR approach is the feedback loop where the system can actually \emph{explain} its choice in terms of similar cases which sets CBR apart from alternative reasoning models such as artificial neural networks. It also allows for better tuning to user response in those cases that the user disagrees with the recommendation.
+
+\section{Case Based Reasoning}
 Being, the core part of the system to be developed, some time needed to be spent on looking into CBR. In vague terms, CBR is problem solving based on past solutions to previous problems. This approach is similar in many ways to the way humans solve problems, both as domain experts, and in their daily life. For instance, a software engineer, faced with a particular problem, may identify similarities to a problem he has previously solved, using for instance a factory design pattern, so he adopts this solution to the new problem with some modifications. Similarly, a NTNU student, hungry for a late night snack, recalling past experience with favorable opening hours and culinary excellency, heads off to Sesam.
 
 \begin{figure}[htbp]
 \begin{center}
-\caption{A Simplified CBR Cycle.}
 \includegraphics[width = .75\textwidth]{PrelimStudy/cbr}
+\caption{A Simplified CBR Cycle.}
 \label{cbrCycle}
 \end{center}
 \end{figure}
@@ -65,13 +71,6 @@ Direction 1 above takes the project from a system engineering direction more ove
 \section{Development Model and Workflow}
 Having briefly identified and outlined the project "flow", a development method or model must be chosen. A two-stage implementation process is envisioned; the first in which the core CBR is implemented. In the second part, the focus is on the community/CF portion. By thus splitting the work in two stages, time is made available for more thorough testing and reworking of the CBR portion, while work on the CF system, which is given a lower priority is pushed back. Given this project flow, we deemed that the work fits well within waterfall model framework. This is described in more detail in the next section. 
 
-\begin{figure}[htbp]
-\begin{center}
-\caption{A standard waterfall process.}
-\includegraphics[width = .6\textwidth]{PrelimStudy/waterfall}
-\label{waterfall}
-\end{center}
-\end{figure}
 
 \subsection{The Waterfall Model}
 The waterfall model describes the development process as a linear process that starts with planning and requirements specification, and flows sequentially through design, implementation and finally (in this case) testing as is illustrated in Figure~\ref{waterfall}. Arguments \emph{for} the waterfall approach is that it encourages rigorous planning and design, which means that inconsistencies and problems can be discovered earlier in the process, which is generally less costly than if they are discovered late, since this often means re-writing a large portion of code. 
@@ -80,8 +79,8 @@ Another advantage of the waterfall model, which relates directly to the nature o
 
 \begin{figure}[htbp]
 \begin{center}
-\caption{Development Model}
 \includegraphics[width = 1.0\textwidth]{PrelimStudy/workflow}
+\caption{The Waterfall Model.}
 \label{workflow}
 \end{center}
 \end{figure}
