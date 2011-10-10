@@ -1,14 +1,15 @@
 package com.kpro.ui;
+
 import java.util.ArrayList;
 import java.util.Properties;
-
+import java.util.Scanner;
 import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.PolicyObject;
 
 
 /**
  * @author ngerstle
- *
+ * @author ulfnore
  */
 public class UserIO_Simple extends UserIO {
 
@@ -16,6 +17,10 @@ public class UserIO_Simple extends UserIO {
 	 * @see UserIO#showDatabase(PolicyDatabase)
 	 */
 	public void showDatabase(PolicyDatabase pdb) {
+		// TODO: 
+		System.out.println();
+		for(PolicyObject po : pdb)
+			System.out.println("\n\n"+po);				
 	}
 
 	/** does nothing
@@ -32,26 +37,38 @@ public class UserIO_Simple extends UserIO {
 	 * 
 	 * @param n the policy display
 	 * @return the policy given
+	 * 
 	 * @author ngerstle
+	 * @author ulfnore
 	 * 
 	 * @see UserIO#userResponse(PolicyObject)
 	 */
 	public PolicyObject userResponse(PolicyObject n)
 	{
-		if(n.getAction().isOverridden())
-		{
-			System.out.println("User manually set this result");
-		}
-		else
-		{
-			String s = "The case is similar to the following cases:\n";
-			for(String i : n.getAction().getReasons())
-			{
-				s.concat("\t"+i+"\n");	//returns a user understandable list of policies 
-			}
-			System.out.println(s);
-		}
-		System.out.println("Privacy Advisor recommends:"+parseAcceptedToString(n.getAction().getAccepted()) + "\n\t based on these criteria:"+n.getAction().getReasons());
+		String response;		
+		Scanner sc = new Scanner(System.in);
+		
+		// Print the recommendation and the reasons for it
+		String s = "The case is similar to the following cases:\n";
+		for(String i : n.getAction().getReasons())
+			s = s+"\t"+ i + "\n";
+		System.out.println(s);
+
+		System.out.println("\nPrivacy Advisor recommends:"+parseAcceptedToString(n.getAction().getAccepted()) + 
+						   "\n\t based on these criteria:"+n.getAction().getReasons());
+		
+		
+		// prompt if user wants to override
+		do{
+			System.out.println("Ovverride recommendation? (y/n)\n");
+			response = sc.nextLine();
+		}while(response != "y" && response != "n");
+		
+		
+		// update action if overridden
+		if(response == "y")
+			n.getAction().setOverride(true);
+
 		return n;
 	}
 	

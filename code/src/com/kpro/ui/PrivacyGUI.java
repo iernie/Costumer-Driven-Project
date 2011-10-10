@@ -10,24 +10,34 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JList;
 
+import com.kpro.database.PolicyDatabase;
+import com.kpro.dataobjects.PolicyObject;
 import com.kpro.main.Gio;
 //import javax.swing.JScrollPane;
 //import javax.swing.JSplitPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.Properties;
 
 /**
  * The Privacy Advisor GUI
+ * 
+ * Runs 'on top' of command line stuff.
+ * 
  * @author ulfnore
  *
  */
-public class PrivacyGUI {
+public class PrivacyGUI extends UserIO{
 	
 	private String weightsPath;
 	private String dbPath;
 	private String p3pPath;
 	private Gio gio;
-
+	
+	JTextArea textArea;
+	JList list ;
+	
 	private JFrame frame;
 
 	/**
@@ -78,11 +88,11 @@ public class PrivacyGUI {
 		btnNewButton_1.setBounds(6, 38, 117, 29);
 		panel.add(btnNewButton_1);
 		
-		JTextArea textArea = new JTextArea();
+		textArea = new JTextArea();
 		textArea.setBounds(314, 6, 386, 438);
 		panel.add(textArea);
 		
-		JList list = new JList();
+		list = new JList();
 		list.setBounds(6, 66, 296, 378);
 		panel.add(list);
 		
@@ -113,8 +123,8 @@ public class PrivacyGUI {
 			String path = "";
 			loadDatabase();
 		}
-		
 	}
+	
 	class configMetricsListener implements ActionListener{
 
 		@Override
@@ -142,5 +152,41 @@ public class PrivacyGUI {
 		gio = new Gio(args);
 		
 		gio.loadDB();
+	}
+
+	@Override
+	public Properties user_init(Properties genProps) {
+		// TODO Auto-generated method stub
+		
+		return null;
+	}
+
+	@Override
+	public void showDatabase(PolicyDatabase pdb) {
+		// TODO Auto-generated method stub
+		String str = "";
+		for(PolicyObject po : pdb)
+		{
+			str += po.toString();
+		}
+		textArea.setText(str);			
+	}
+
+	@Override
+	public ArrayList<PolicyObject> loadHistory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PolicyObject userResponse(PolicyObject n) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void closeResources() {
+		// TODO Auto-generated method stub
+		
 	}
 }

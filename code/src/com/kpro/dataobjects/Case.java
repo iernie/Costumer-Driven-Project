@@ -1,6 +1,22 @@
 package com.kpro.dataobjects;
 import java.util.ArrayList;
-
+/**
+ * 
+ * 
+ * 
+ * ???????????????????
+ * WHY HAS THIS CLASS NO COMMENTS IN IT????????
+ * ????????????????????
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * @author ulfnore
+ *
+ */
 
 public class Case {
 	
@@ -131,4 +147,35 @@ public class Case {
 			}	
 		}
 	}
+	/**
+	 * Based on debug.print
+	 * @author ulfnore
+	 */
+	public String toString(){
+		String str = " Case ";
+		
+		str += "DATATYPE: " + datatype +"\n";
+		
+		str += "PURPOSE:\n";
+		for(Purpose p: purpose)
+			str += "\t " + p + "\n";
+
+		str += "RECIPIENTS:\n";
+		for(Recipient r: recipient)
+			str += "\t" + r + "\n";
+
+		str += "RETENTION: \n";
+		for(Retention r: retention)
+			str += "\t" + r + "\n";
+
+		if(datatype.equalsIgnoreCase("#dynamic.miscdata"))
+		{
+			str += "CATEGORY: \n";
+			for(Category c: categories)
+				str +="\t"+ c +"\n";
+		}
+		
+		return str;
+	}
+	
 }

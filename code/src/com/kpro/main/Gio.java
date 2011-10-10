@@ -439,7 +439,8 @@ public class Gio {
 	 * @author ngerstle
 	 */
 	public PolicyObject userResponse(PolicyObject n) {
-		if((parseAct(genProps.getProperty("userResponse",null)) == null) && !Boolean.parseBoolean(genProps.getProperty("blanketAccept")))
+		if((parseAct(genProps.getProperty("userResponse",null)) == null) && 
+				!Boolean.parseBoolean(genProps.getProperty("blanketAccept")))
 		{
 			return userInterface.userResponse(n);
 		}
