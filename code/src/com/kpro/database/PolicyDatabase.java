@@ -114,4 +114,18 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	 * @author ngerstle
 	 */
 	public abstract ArrayList<PolicyObject> getDomain(String domain);
+	
+	
+	/**
+	 * Standard toString method
+	 * @author ulfnore
+	 */
+	public String toString(){
+		String outStr = "";
+		for(PolicyObject po : this)
+			outStr += po;
+		return outStr;
+	}
+	
+	
 }
