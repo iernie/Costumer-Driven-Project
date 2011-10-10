@@ -23,10 +23,10 @@ import java.util.Properties;
 /**
  * The Privacy Advisor GUI
  * 
- * Runs 'on top' of command line stuff.
+ * Runs on top of command line PA.
  * 
  * @author ulfnore
- *
+ * @version 101011
  */
 public class PrivacyGUI extends UserIO{
 	
@@ -161,14 +161,16 @@ public class PrivacyGUI extends UserIO{
 		return null;
 	}
 
+	/**
+	 * Writes policy database to onscreen text area
+	 * @author ulfnore
+	 */
 	@Override
 	public void showDatabase(PolicyDatabase pdb) {
-		// TODO Auto-generated method stub
+
 		String str = "";
 		for(PolicyObject po : pdb)
-		{
 			str += po.toString();
-		}
 		textArea.setText(str);			
 	}
 
@@ -178,10 +180,29 @@ public class PrivacyGUI extends UserIO{
 		return null;
 	}
 
+	/**
+	 * get user response based on a recommendation
+	 * @author ulfnore
+	 */
 	@Override
 	public PolicyObject userResponse(PolicyObject n) {
-		// TODO Auto-generated method stub
-		return null;
+		String response = "Privacy Advisor advises: "+ n.getAction().getAccepted()+ "\n";
+		String reason ="";
+		int override = 2;
+		
+		for(String str : n.getAction().getReasons())
+			response += str + "\n";
+		
+		while(override == 2)
+			override = JOptionPane.showConfirmDialog(null, response);
+				
+		if (override == 0) // override
+		{
+			System.out.println("Action overridden.");
+			n.getAction().setOverride(true);
+		}
+		
+		return n;
 	}
 
 	@Override

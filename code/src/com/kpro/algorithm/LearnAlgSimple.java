@@ -19,6 +19,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 
 	@Override
 	protected Properties applyML(Gio theIO) {
+		theIO.getWeights();
 		double sum = 0; 
 		double weights[] = new double[23]; 
 		for (int i = 0; i < 23; i++) {
@@ -248,9 +249,27 @@ public class LearnAlgSimple extends LearnAlgorithm{
 			weights[i] = weights[i]/sum;
 		}
 		
-		return null;
+		Properties prop = new Properties();
+		
+		String[] arr = { "current", "admin", "develop", "tailoring", "pseudo_analysis", "pseudo_decision", "individual analysis",
+				"individual_decision", "contact", "historical", "telemarketing", "other_purpose", "ours", "delivery", "same",
+				"other_recipient", "unrelated", "public", "no_retention", "stated purpose", "legal_requirement", 
+				"business_practices", "indefinitely"};
+		
+		
+		for(int i = 0; i<23; i++){
+			prop.put(arr[i], weights[i]);
+		}
+		for( Object i : prop.keySet())
+		{
+			String v =  new String(i);
+		}
+		prop.
+		
+		
+		theIO.setWeights(prop);
+		return prop;
 	}
-	
 	
 	
 	private double value(double x){

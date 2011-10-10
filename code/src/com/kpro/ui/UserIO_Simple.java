@@ -13,6 +13,11 @@ import com.kpro.dataobjects.PolicyObject;
  */
 public class UserIO_Simple extends UserIO {
 
+	public UserIO_Simple() {
+		// TODO Auto-generated constructor stub
+		System.out.println("UserIO_Simple constructed!");
+	}
+	
 	/** does nothing
 	 * @see UserIO#showDatabase(PolicyDatabase)
 	 */

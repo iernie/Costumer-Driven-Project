@@ -516,5 +516,10 @@ public class Gio {
 		return parseCBR(genProps.getProperty("cbrV",null));
 	}
 
+	public Properties getWeights() {
+		// TODO Auto-generated method stub
+		return origWeights;
+	}
+
 
 }

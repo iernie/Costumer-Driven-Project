@@ -218,7 +218,7 @@ public class bitmapDistance implements DistanceMetric{
 		}
 		
 		
-		return dis;
+		return dis * Double.parseDouble(weightsConfig.getProperty("recipient"));// dis*weight later
 	}
 
 	/**
@@ -243,7 +243,7 @@ public class bitmapDistance implements DistanceMetric{
 		}
 		
 		
-		return dis;
+		return dis * Double.parseDouble(weightsConfig.getProperty("retention"));// dis*weight later
 	}
 
 	/**
@@ -268,25 +268,23 @@ public class bitmapDistance implements DistanceMetric{
 		}
 		
 		
-		return dis;
+		return dis*Double.parseDouble(weightsConfig.getProperty("purpose"));// dis*weight later
 	}
 
 	private double getSumDistance(Case a, Case b) {
 		
 		return getDistPurpose(a,b)+getDistRecip(a,b)+getDistReten(a,b);
 	}
-	private double getDistance(PolicyObject a,PolicyObject b, int times){
+
+	@Override
+	public double getTotalDistance(PolicyObject a, PolicyObject b) {
 		setWeights();
 		ArrayList<Case> CasesA, CasesB;
 		CasesA=a.getCases();
 		CasesB=b.getCases();
+		if(CasesA.size()<CasesB.size())return getTotalDistance(b, a);  //little magic to get symetry
 		double minDist;
 		double Distance = 0;
-		if(times==0){
-			times++;
-			Distance+=getDistance(b,a, times);
-		}
-		
 		for(int i=0;i<CasesA.size();i++){
 			minDist=Double.MAX_VALUE;
 			for(int d=0;d<CasesB.size();d++){
@@ -296,11 +294,6 @@ public class bitmapDistance implements DistanceMetric{
 		}
 		
 		return Distance;
-	}
-	@Override
-	public double getTotalDistance(PolicyObject a, PolicyObject b) {
-		
-		return getDistance(a,b,0);
 	}
 
 }

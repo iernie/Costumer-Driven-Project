@@ -1,6 +1,7 @@
 package com.kpro.main;
 /**
- * PrivacyAdvisor is a class that initialize and loads past privacy policy history, a new privacy instance, and makes a recommendation.
+ * PrivacyAdvisor is a class that initialize and loads past privacy policy history, 
+ * a new privacy instance, and makes a recommendation.
  *
  *  
  * @author Nicholas Gerstle (ngerstle)
@@ -63,10 +64,7 @@ public class PrivacyAdviser {
 
 	/**
 	 * Initializes the program- loads general configuration, starts logger, loads weights, loads database
-	 * 
-	 * 
 	 * @author ngerstle
-	 * 
 	 * @param args accepts optional command line arguments, including location of general config file (default pwd) 
 	 *
 	 */
@@ -85,13 +83,6 @@ public class PrivacyAdviser {
 
 		//done initializing
 	}
-
-		
-	
-	
-	
-	
-
 
 
 }
