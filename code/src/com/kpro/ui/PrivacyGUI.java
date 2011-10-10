@@ -1,15 +1,13 @@
 package com.kpro.ui;
-import java.awt.EventQueue;
 
+import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 //import java.awt.BorderLayout;
-
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JList;
-
 import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.main.Gio;
@@ -47,6 +45,7 @@ public class PrivacyGUI extends UserIO{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					//gio = new Gio(this);
 					PrivacyGUI window = new PrivacyGUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
