@@ -156,4 +156,33 @@ public class PolicyObject implements Serializable
 			cases.get(i).debug_print();
 		}
 	}
+	/**
+	 * @author ulfnore
+	 */
+	public String toString()
+	{
+		String str = "";
+		str += "Policy Object \n";
+
+		str += "\nENTITY";
+		for(String key : entity.keySet())
+			str += "KEY: " + key + ", VAL: " + entity.get(key);
+
+		
+		str += "\nCONTEXT";
+		str += context.getAccessTime();
+		
+		if(actionTaken != null)
+		{
+			str += "\nACTION";
+			str += actionTaken.getAccepted();
+		}
+		
+		for(int i=0; i<cases.size(); i++)
+		{
+			str += "\nCASE " + i + cases.get(i);
+		}
+		
+		return str;
+	}
 }
