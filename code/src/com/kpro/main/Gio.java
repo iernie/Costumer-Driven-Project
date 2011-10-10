@@ -44,7 +44,6 @@ public class Gio {
 	private static Logger logger = Logger.getLogger("");		//create logger object
 	private FileHandler fh = null;					//creates filehandler for logging
 	private Properties genProps = new Properties(); //holds all the property values
-	
 	private Properties origWeights = null;				//the loaded weights file.
 	private Properties newWeights = null;				//the revised weights, following LearnAlgorithm. written to disk by shutdown(). also used in loading weights during init()
 	private UserIO userInterface = null;				//means of interacting with the user
@@ -59,27 +58,25 @@ public class Gio {
 	public Gio(String[] args) 
 	{
 			
-		loadFromConfig("./PrivacyAdviser.cfg");
+		genProps = loadFromConfig("./PrivacyAdviser.cfg");
 		loadCLO(args);
-		
-		
 		//TODO add method to check validity of genProps (after each file load, clo load, and ui load).
 		
-		if(genProps.getProperty("genConfig")!="./PrivacyAdvisor.cfg")
+		if((genProps.getProperty("genConfig")!=null) &&(genProps.getProperty("genConfig")!="./PrivacyAdvisor.cfg"))
 		{
-			loadFromConfig(genProps.getProperty("genConfig"));
+			System.err.println("clo config call");
+			genProps = loadFromConfig(genProps.getProperty("genConfig")); //TODO merge, not override
 			loadCLO(args);
 		}
 		
 		//start the logger
 		logger = startLogger(genProps.getProperty("loglocation","./LOG.txt"),genProps.getProperty("loglevel","INFO"));
 		selectUI(genProps.getProperty("UserIO"));
-		
+
 		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")))
 		{
 			genProps = userInterface.user_init(genProps);
 		}
-		
 		selectPDB(genProps.getProperty("policyDB"));
 		
 		//load the weights configuration file
@@ -107,14 +104,14 @@ public class Gio {
 				{"outDBLoc", "true", "output database file location"},
 				{"P3PLocation","true", "adding to DB: single policy file location"},
 				{"P3PDirLocation","true", "adding to DB: multiple policy directory location"},
-				{"newDB","false", "create new database in place of old one (doesn't check for existence of old one"},
+				{"newDB","true", "create new database in place of old one (doesn't check for existence of old one"},
 				{"newPolicyLoc","true", "the policy object to process"},
 				{"userResponse","true","response to specified policy"},
 				{"userIO","true","user interface"},
 				{"userInit","false","initialization via user interface"},
 				{"policyDB","true","PolicyDatabase backend"},
 				{"cbrV","true","CBR to use"},
-				{"blanketAccept","false","automatically accept the user suggestion"}, 
+				{"blanketAccept","true","automatically accept the user suggestion"}, 
 				{"loglevel","true","level of things save to the log- see java logging details"}
 		};
 		
@@ -215,6 +212,8 @@ public class Gio {
 		Properties configFile = new Properties();
 
 		try {
+			//System.err.println("current location is "+System.getProperty("user.dir"));
+			//System.err.println("fileLoc = ["+fileLoc+"]");
 			File localConfig = new File(fileLoc);
 			InputStream is = null;
 			if(localConfig.exists())
@@ -234,6 +233,7 @@ public class Gio {
 			System.err.println("IOException reading first configuration file. Exiting...\n");
 			System.exit(1);
 		}
+		
 		return configFile;
 	}
 
@@ -325,6 +325,7 @@ public class Gio {
 	{
 		if(!Boolean.parseBoolean(genProps.getProperty("newDB")))
 		{
+			System.err.println("newDB=false:  ["+genProps.getProperty("newDB"));
 			pdb.loadDB();
 		}
 		loadCLPolicies();
@@ -363,7 +364,7 @@ public class Gio {
 			{
 				pLoc = new File(pfiles[i]);
 				if(!pLoc.exists()){
-					System.err.println("no file found at p3p policy location specified by the -histPolicyDir option");
+					System.err.println("no file found at p3p policy location specified by the -p3pDirLocation option, "+ genProps.getProperty("p3pDirLocation"));
 					System.exit(1);
 				}
 				p = (new P3PParser()).parse(pLoc.getAbsolutePath());
