@@ -113,7 +113,10 @@ public class WeightsIO {
 //	public static void main(String[] args) {
 //		WeightsIO w = new WeightsIO();
 //		String[] s = w.getKeys();
-//		System.out.println(w.getValue(s[2]));
+//		
+//		System.out.println("val: "+w.getValue(s[20]) +" key: " +s[20]);
+//		System.out.println(w.getProperties().toString());
 //	}
+	
 
 }
