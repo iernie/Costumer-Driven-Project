@@ -260,14 +260,8 @@ public class LearnAlgSimple extends LearnAlgorithm{
 		for(int i = 0; i<23; i++){
 			prop.put(arr[i], weights[i]);
 		}
-		for( Object i : prop.keySet())
-		{
-			String v =  new String(i);
-		}
-		prop.
 		
-		
-		theIO.setWeights(prop);
+		//theIO.setWeights(prop);
 		return prop;
 	}
 	

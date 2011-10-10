@@ -1,8 +1,8 @@
 package com.kpro.algorithm;
 
 import java.util.Properties;
-
 import com.kpro.database.PDatabase;
+import com.kpro.dataobjects.PolicyObject;
 import com.kpro.main.Gio;
 
 public class LearnAlgSimpler extends LearnAlgorithm{
@@ -23,27 +23,38 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 				prop.setProptery(prop.get(new String(i)).reeval(pdb));
 				corr (add corr above)
 			}
-			i.setProp (weight(corr))
+			i.setProp (weight(corr));
 		
 	}
 	
-	private double reeval(PDatabase pdb, int i)
+	private double reeval(PDatabase pdb)
 	{
-		corrrelation(pdb.objs, i);
+		int i = 0;
+		for(PolicyObject po : pdb.getCollection())
+		{
+			correlation(po, i);
+			i++;
+		}
+		
 	}
 
-	private correlation() ( 
+	private double correlation(PolicyObject po, int i)
 	{
 		int countyes = 0;
 		int countno = 0;
-		for i in history:
+		for (i in PDatabase)
+		{
 			if(prop i)
-				if(accepted)
+			{
+				if(po.getAction().isAccepted())
 				{
 					countyes ++;
 				}
 				else
 					countno ++;
+				}
+			}
+		}
 		return countyes/(countyes+countno)
 	}
 }
