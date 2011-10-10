@@ -47,7 +47,7 @@ public class P3PParser
 		
 		// ACTION
 		private boolean accepted, userOverride;
-		private ArrayList<String> domains; // TODO Actually do something with this...
+		private ArrayList<String> domains;
 		
 		private Boolean statementTag = false,
 						categoriesTag = false,
@@ -301,7 +301,7 @@ public class P3PParser
 	    	if(tagName.equalsIgnoreCase("action"))
 	    	{
 	    		actionTag = false;
-	    		Action action = new Action(accepted, null, 0, userOverride);
+	    		Action action = new Action(accepted, domains, 0, userOverride);
 	    		policy.setAction(action);
 	    	}
 	    	if(tagName.equalsIgnoreCase("url"))

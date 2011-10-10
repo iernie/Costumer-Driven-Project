@@ -38,8 +38,33 @@ public class UserIO_Simple extends UserIO {
 	 */
 	public PolicyObject userResponse(PolicyObject n)
 	{
-		System.out.println("Privacy Advisor recommends:"+n.getAction().getAccepted() + "\n\t based on these criteria:"+n.getAction().getReasons());
+		if(n.getAction().isOverridden())
+		{
+			System.out.println("User manually set this result");
+		}
+		else
+		{
+			String s = "The case is similar to the following cases:\n";
+			for(String i : n.getAction().getReasons())
+			{
+				s.concat("\t"+i+"\n");	//returns a user understandable list of policies 
+			}
+			System.out.println(s);
+		}
+		System.out.println("Privacy Advisor recommends:"+parseAcceptedToString(n.getAction().getAccepted()) + "\n\t based on these criteria:"+n.getAction().getReasons());
 		return n;
+	}
+	
+	private String parseAcceptedToString(boolean accepted)
+	{
+		if(accepted)
+		{
+			return "\tAccepted";
+		}
+		else
+		{
+			return "\tRejected";
+		}
 	}
 
 	/**

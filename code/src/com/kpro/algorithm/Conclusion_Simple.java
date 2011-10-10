@@ -40,8 +40,8 @@ public class Conclusion_Simple extends ConclusionAlgorithm {
 	 */
 	public Action conclude(PolicyObject np, Iterable<PolicyObject> releventSet)
 	{
-		ArrayList<PolicyObject> approveList = new ArrayList<PolicyObject>();
-		ArrayList<PolicyObject> rejectList = new ArrayList<PolicyObject>();
+		ArrayList<String> approveList = new ArrayList<String>();
+		ArrayList<String> rejectList = new ArrayList<String>();
 		double appdistance = 0; //the sum of the inverse distance to all approved PolicyObjects
 		double rejdistance = 0; //the sum of the inverse distance to all rejected PolicyObjects
 		
@@ -49,12 +49,12 @@ public class Conclusion_Simple extends ConclusionAlgorithm {
 		{
 			if((i.getAction() != null)&&(i.getAction().isAccepted()))
 			{
-				approveList.add(i);
+				approveList.add(i.getContextDomain());
 				appdistance+=(1/distanceMetric.getTotalDistance(np, i));
 			}
 			else
 			{
-				rejectList.add(i);
+				rejectList.add(i.getContextDomain());
 				rejdistance+=(1/distanceMetric.getTotalDistance(np, i));				
 			}
 		}

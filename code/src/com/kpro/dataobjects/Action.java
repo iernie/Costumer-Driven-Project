@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Action
 {
 	private boolean accepted; //accept the policy
-	private ArrayList<PolicyObject> reason; //basis for result. set by knn
+	private ArrayList<String> reasonDomains; //basis for result. set by knn
 	private boolean override; //the generated results was overriden by the user
 	private double confidence; //the confidence in the final value- should be between 0 and 1
 	//TODO add exceptions to rule, override, etc
@@ -19,10 +19,10 @@ public class Action
 		this.confidence = 0;
 	}
 	
-	public Action(boolean accept, ArrayList<PolicyObject> reason, double confidence,
+	public Action(boolean accept, ArrayList<String> domains, double confidence,
 			boolean override) {
 		this.accepted = accept;
-		this.reason = reason;
+		this.reasonDomains = domains;
 		this.setConfidence(confidence);
 		this.override = override;
 	}
@@ -35,47 +35,33 @@ public class Action
 	public void setAccepted(boolean accept) {
 		this.accepted = accept;
 	}
-	public ArrayList<PolicyObject> getReason() {
-		return reason;
+	public ArrayList<String> getReason() {
+		return reasonDomains;
 	}
-	public void setReason(ArrayList<PolicyObject> reason) {
-		this.reason = reason;
+	public void setReason(ArrayList<String> reason) {
+		this.reasonDomains = reason;
 	}
 	
 	/**
 	 * converts the internal accept/reject values to a String
 	 * 
-	 * @author ngerstle
-	 * @return a string that can be sent to the user with a accept/reject
+	 * @author ngerstle, ernie
+	 * @return a boolean that can be sent to the user with a accept/reject
 	 */
-	public String getAccepted() {
-		if(accepted)
-		{
-			return "\tAccept";
-		}
-		else
-		{
-			return "\tReject";
-		}
+	public boolean getAccepted() {
+		return accepted;
 	}
 	/**
 	 * 
-	 * @return a string that verbalizes why the policy was accepted or rejected
+	 * @return an arraylist that verbalizes why the policy was accepted or rejected
 	 */
-	public String getReasons() {
-		if(override)
-		{
-			return "User manually set this result";
-		}
-		else
-		{
-			String s = "The case is similar to the following cases:\n";
-			for(PolicyObject i : reason)
-			{
-				s.concat("\t"+i.getContextDomain()+"\n");	//returns a user understandable list of policies 
-			}
-			return s;
-		}
+	public ArrayList<String> getReasons() {
+		return reasonDomains;
+	}
+	
+	public boolean isOverridden()
+	{
+		return override;
 	}
 
 
