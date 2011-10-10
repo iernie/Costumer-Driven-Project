@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JList;
+
+import com.kpro.main.Gio;
 //import javax.swing.JScrollPane;
 //import javax.swing.JSplitPane;
 import java.awt.event.ActionListener;
@@ -20,6 +22,11 @@ import java.awt.event.ActionEvent;
  *
  */
 public class PrivacyGUI {
+	
+	private String weightsPath;
+	private String dbPath;
+	private String p3pPath;
+	private Gio gio;
 
 	private JFrame frame;
 
@@ -103,7 +110,10 @@ public class PrivacyGUI {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JOptionPane.showMessageDialog(null,"Load successful.");
+			String path = "";
+			loadDatabase();
 		}
+		
 	}
 	class configMetricsListener implements ActionListener{
 
@@ -121,5 +131,16 @@ public class PrivacyGUI {
 			JOptionPane.showMessageDialog(null,"Weights configured.");
 		}
 		
+	}
+	
+	
+	void loadDatabase(){
+		String[] args = 
+			{
+				"FFFFFUUU",
+			};
+		gio = new Gio(args);
+		
+		gio.loadDB();
 	}
 }

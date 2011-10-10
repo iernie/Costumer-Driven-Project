@@ -86,7 +86,6 @@ public class Gio {
 		origWeights = new Properties();
 		origWeights = loadWeights();
 		
-
 	}
 
 	/**
