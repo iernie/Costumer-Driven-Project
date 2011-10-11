@@ -46,8 +46,8 @@ public class Gio {
 	private Properties genProps = new Properties(); 		//holds all the property values
 	private Properties origWeights = null;					//the loaded weights file.
 	private Properties newWeights = null;					//the revised weights, following LearnAlgorithm. 
-															//written to disk by shutdown(). 
-															//also used in loading weights during init()
+	//written to disk by shutdown(). 
+	//also used in loading weights during init()
 	private UserIO userInterface = null;					//means of interacting with the user
 	private PolicyDatabase pdb;								//Policy database object
 
@@ -58,7 +58,7 @@ public class Gio {
 	public Gio(UserIO userIO){
 		// TODO: Nicholas
 	}
-	
+
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
 	 * Constructs and parses command line arguements as well.
@@ -67,18 +67,18 @@ public class Gio {
 	 */
 	public Gio(String[] args) 
 	{
-			
+
 		genProps = loadFromConfig("./PrivacyAdviser.cfg");
 		loadCLO(args);
 		//TODO add method to check validity of genProps (after each file load, clo load, and ui load).
-		
+
 		if((genProps.getProperty("genConfig")!=null) &&(genProps.getProperty("genConfig")!="./PrivacyAdvisor.cfg"))
 		{
 			System.err.println("clo config call");
 			genProps = loadFromConfig(genProps.getProperty("genConfig")); //TODO merge, not override
 			loadCLO(args);
 		}
-		
+
 		//start the logger
 		logger = startLogger(genProps.getProperty("loglocation","./LOG.txt"),genProps.getProperty("loglevel","INFO"));
 		selectUI(genProps.getProperty("UserIO"));
@@ -88,13 +88,13 @@ public class Gio {
 			genProps = userInterface.user_init(genProps);
 		}
 		selectPDB(genProps.getProperty("policyDB"));
-		
+
 		//load the weights configuration file
 		origWeights = new Properties();
 		origWeights = loadWeights();
-		
+
 	}
-	
+
 	/**
 	 * A constructor permitting a user interface class to launch everything and be in control.
 	 * 
@@ -107,37 +107,38 @@ public class Gio {
 		genProps = loadFromConfig("./PrivacyAdviser.cfg");
 		loadCLO(args);
 		//TODO add method to check validity of genProps (after each file load, clo load, and ui load).
-		
+
 		if((genProps.getProperty("genConfig")!=null) &&(genProps.getProperty("genConfig")!="./PrivacyAdvisor.cfg"))
 		{
 			System.err.println("clo config call");
 			genProps = loadFromConfig(genProps.getProperty("genConfig")); //TODO merge, not override
 			loadCLO(args);
 		}
-		
+
 		//start the logger
 		logger = startLogger(genProps.getProperty("loglocation","./LOG.txt"),genProps.getProperty("loglevel","INFO"));
-	
+
 		userInterface = ui;
 		/* The user interface instantiates everything else
 		//selectUI(genProps.getProperty("UserIO"));
 
 		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")))
 		{
-			genProps = userInterface.user_init(genProps);
+
 		}
-		
-		*/
-		
+
+		 */
+		genProps = userInterface.user_init(genProps);
+
 		selectPDB(genProps.getProperty("policyDB"));
-		
+
 		//load the weights configuration file
 		origWeights = new Properties();
 		origWeights = loadWeights();
-		
-		
+
+
 	}
-	
+
 	/**
 	 * accepts the direct commandline options, then parses & implements them.
 	 * 
@@ -147,7 +148,7 @@ public class Gio {
 	private void loadCLO(String[] args) 
 	{
 		Options options = new Options();
-		
+
 		String[][] clolist= 
 		{
 				{"genConfig","true","general configuration file location"},
@@ -167,7 +168,7 @@ public class Gio {
 				{"blanketAccept","true","automatically accept the user suggestion"}, 
 				{"loglevel","true","level of things save to the log- see java logging details"}
 		};
-		
+
 		for(String[] i : clolist)
 		{
 			options.addOption(i[0], Boolean.parseBoolean(i[1]),i[2]);
@@ -193,12 +194,12 @@ public class Gio {
 				genProps.setProperty(i[0],cmd.getOptionValue(i[0]));
 			}
 		}
-		
-		
-		
+
+
+
 	}
-	
-	
+
+
 	/**
 	 * converts a string into a valid CBR
 	 * 
@@ -207,7 +208,7 @@ public class Gio {
 	 * @author ngerstle
 	 */
 	private CBR parseCBR(String string) {
-		
+
 		return (string == null)?(null):(new CBR(this)).parse(string);
 
 	}
@@ -240,7 +241,7 @@ public class Gio {
 		userInterface = new UserIO_Simple();
 	}
 
-	
+
 	/**
 	 * Should parse a string to select, initialize, and return one of the actions (result of checking an object) coded.
 	 * 
@@ -286,12 +287,12 @@ public class Gio {
 			System.err.println("IOException reading first configuration file. Exiting...\n");
 			System.exit(1);
 		}
-		
+
 		return configFile;
 	}
 
 
-	
+
 
 	/**
 	 * Loads the weights configuration file, from the provided location
@@ -310,7 +311,7 @@ public class Gio {
 				System.err.println("inWeightsLoc in Gio/LoadWeights is null");
 			}
 			File localConfig = new File(genProps.getProperty("inWeightsLoc"));
-			
+
 			InputStream is = null;
 			if(localConfig.exists())
 			{
@@ -333,7 +334,7 @@ public class Gio {
 		return origWeights;
 	}
 
-	
+
 	/**
 	 * startLogger initializes and returns a file at logLoc with the results of logging at level logLevel.
 	 *  
@@ -382,6 +383,7 @@ public class Gio {
 			pdb.loadDB();
 		}
 		loadCLPolicies();
+		//System.err.println("Print pdb in gio:loaddb"+getPDB());
 	}
 
 	/** 
@@ -402,32 +404,56 @@ public class Gio {
 				System.err.println("current location is "+System.getProperty("user.dir"));
 				System.exit(1);
 			}
-			p = (new P3PParser()).parse(pLoc.getAbsolutePath());
-			if(p.getContext().getDomain()==null)
+			try
 			{
-				p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("p3pLocation")));
-			}			
-			pdb.addPolicy(p);
+				p = (new P3PParser()).parse(pLoc.getAbsolutePath());
+				if(p.getContext().getDomain()==null)
+				{
+					if(p.getContext().getDomain()==null)
+					{
+						p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("p3pLocation")));
+					}
+					pdb.addPolicy(p);
+				}
+			}
+			catch(Exception e)
+			{
+				System.err.println("Einar needs to fix this parsing error. (!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)");
+				e.printStackTrace();
+				//System.exit(5);
+			}
 		}
 		if(genProps.getProperty("p3pDirLocation",null) != null)
 		{
 			pLoc = new File(genProps.getProperty("p3pDirLocation"));
-			String[] pfiles = pLoc.list();
+			File[] pfiles = pLoc.listFiles();
+
+			//System.err.println("pfiles for p3pDirLocation: "+pfiles);
 			for(int i=0;i<pfiles.length;i++)
 			{
-				pLoc = new File(pfiles[i]);
+
+				pLoc = (pfiles[i]);
 				if(!pLoc.exists()){
 					System.err.println("no file found at p3p policy location specified by the -p3pDirLocation option, "+ genProps.getProperty("p3pDirLocation"));
 					System.exit(1);
 				}
-				p = (new P3PParser()).parse(pLoc.getAbsolutePath());
-				if(p.getContext().getDomain()==null)
+				try
 				{
-					p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),pfiles[i]));
+					p = (new P3PParser()).parse(pLoc.getAbsolutePath());
+					if(p.getContext().getDomain()==null)
+					{
+						p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),pfiles[i].getAbsolutePath()));
+					}
+					pdb.addPolicy(p);
 				}
-				pdb.addPolicy(p);
+				catch(Exception e)
+				{
+					System.err.println("Einar needs to fix this parsing error. (!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)");
+					e.printStackTrace();
+					//System.exit(5);
+				}			
 			}
-
+			//System.err.println("2:Print pdb in gio:loadclpolicy"+pdb);
 		}
 	}
 
@@ -456,7 +482,7 @@ public class Gio {
 		writePropertyFile(newWeights,genProps.getProperty("outWeightsLoc",genProps.getProperty("inWeightsLoc")));
 		userInterface.closeResources(); 
 	}
-	
+
 
 	/**
 	 * writes a property file to disk
@@ -509,7 +535,7 @@ public class Gio {
 			}
 		}
 	}
-	
+
 
 	/**
 	 * returns the policy object from the T option
@@ -558,7 +584,7 @@ public class Gio {
 
 	}
 
-	
+
 	/**
 	 * returns the CBR to use
 	 * 

@@ -126,6 +126,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 
 	@Override
 	public Properties user_init(Properties genProps) {
+		
 		// TODO Auto-generated method stub
 		return null;
 	}

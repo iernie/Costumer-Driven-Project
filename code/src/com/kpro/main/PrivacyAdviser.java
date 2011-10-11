@@ -72,6 +72,7 @@ public class PrivacyAdviser {
 	{
 		//enable IO (and parse args
 		theIO = new Gio(args); 
+		//theIO = new Gio(args,this);
 
 		if (theIO.getPDB()==null)
 			System.err.println("pdb null in PA/init");
@@ -80,6 +81,7 @@ public class PrivacyAdviser {
 
 		//load the past history && commandline policies 
 		theIO.loadDB();//configFile.getProperty("databaseLocation"));
+		//System.err.println("Print pdb in pa:init"+theIO.getPDB());
 
 		//done initializing
 	}
