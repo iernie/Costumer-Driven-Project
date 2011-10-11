@@ -98,9 +98,7 @@ public class UserIO_Simple extends UserIO {
 	 * 
 	 * @author ngerstle
 	 */
-	public void closeResources() {
-		
-	}
+	public void closeResources() {}
 
 
 	@Override

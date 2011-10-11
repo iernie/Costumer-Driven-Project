@@ -253,7 +253,7 @@ public class Gio {
 	/**
 	 * Loads the weights configuration file, from the provided location
 	 * 
-	 * @param location of configuration file
+	 * @param location of configuration file <---- ????
 	 * @return properties object corresponding to given configuration file
 	 * @author ngerstle
 	 */

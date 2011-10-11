@@ -170,6 +170,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 	@Override
 	public void closeResources() {
 		// TODO Auto-generated method stub
+		gio.shutdown();
 		
 	}
 	
@@ -177,17 +178,19 @@ public class PrivacyAdvisorGUI extends UserIO{
 	{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(e.getSource() == btnLoadConfigFile)
-				loadFile(configPath);
-			else if (e.getSource() == btnLoadDatabase)
-				loadFile(dbPath);
-			else if (e.getSource() == btnLoadPpFile)
-				loadFile(p3pPolicyPath);
-			else if (e.getSource() == btnLoadWeightsFile)
-				loadFile(weightsPath);
-			else if (e.getSource() == btnRun)
-				run();
-			updateProperties();
+			if (e.getSource() == btnRun) run();
+			else
+			{ 
+				if(e.getSource() == btnLoadConfigFile)
+					loadFile(configPath);
+				else if (e.getSource() == btnLoadDatabase)
+					loadFile(dbPath);
+				else if (e.getSource() == btnLoadPpFile)
+					loadFile(p3pPolicyPath);
+				else if (e.getSource() == btnLoadWeightsFile)
+					loadFile(weightsPath);
+				updateProperties();
+			}				
 		}
 	}
 	
@@ -211,18 +214,24 @@ public class PrivacyAdvisorGUI extends UserIO{
 	
 	private void updateProperties()
 	{
-		//in/out DB set to the same file 
-		props.setProperty("inDBLoc", dbPath);
-		props.setProperty("outDBLoc", dbPath);
+		try
+		{
+			//in/out DB set to the same file 
+			props.setProperty("inDBLoc", dbPath);
+			props.setProperty("outDBLoc", dbPath);
+			
+			props.setProperty("p3pLocation", p3pPolicyPath);
+			props.setProperty("inWeightsLoc", weightsPath);
+			props.setProperty("outWeightsLoc", weightsPath);
+			
+			// TODO: ???
+			props.setProperty("userIO", "PrivacyAdvisorGUI");
+		} catch(Exception e){
+			//TODO: something useful
+			e.printStackTrace();
+		}
+		// TODO: update gio object
 		
-		props.setProperty("p3pLocation", p3pPolicyPath);
-		props.setProperty("inWeightsLoc", weightsPath);
-		props.setProperty("outWeightsLoc", weightsPath);
-		
-		// TODO: ???
-		props.setProperty("userIO", "PrivacyAdvisorGUI");
-		
-
 	}
 	
 	private void run()
