@@ -88,19 +88,35 @@ public class P3PParser
 	    	{
 	    		if(purposeTag)
 	    		{
+	    			try {
 	    			purpose.add(Purpose.valueOf(formattedTagName));
+		    		} catch(IllegalArgumentException e) {
+	    				// SKIPPING
+	    			}
 	    		}
 	    		if(recipientTag)
 	    		{
-	    			recipients.add(Recipient.valueOf(formattedTagName));
+	    			try { 
+	    				recipients.add(Recipient.valueOf(formattedTagName));	    				
+	    			} catch(IllegalArgumentException e) {
+	    				// SKIPPING
+	    			}
 	    		}
 	    		if(retentionTag)
 	    		{
+	    			try {
 	    			retention.add(Retention.valueOf(formattedTagName));
+		    		} catch(IllegalArgumentException e) {
+	    				// SKIPPING
+	    			}
 	    		}
 	    		if(categoriesTag)
 	    		{
+	    			try {
 	    			categories.add(Category.valueOf(formattedTagName));
+		    		} catch(IllegalArgumentException e) {
+	    				// SKIPPING
+	    			}
 	    		}
 	    	}
 	    	
