@@ -94,7 +94,50 @@ public class Gio {
 		origWeights = loadWeights();
 		
 	}
+	
+	/**
+	 * A constructor permitting a user interface class to launch everything and be in control.
+	 * 
+	 * @param args any commandline arguements
+	 * @param ui the known UserIO object
+	 * @author ngerstle
+	 */
+	public Gio(String[] args, UserIO ui)
+	{
+		genProps = loadFromConfig("./PrivacyAdviser.cfg");
+		loadCLO(args);
+		//TODO add method to check validity of genProps (after each file load, clo load, and ui load).
+		
+		if((genProps.getProperty("genConfig")!=null) &&(genProps.getProperty("genConfig")!="./PrivacyAdvisor.cfg"))
+		{
+			System.err.println("clo config call");
+			genProps = loadFromConfig(genProps.getProperty("genConfig")); //TODO merge, not override
+			loadCLO(args);
+		}
+		
+		//start the logger
+		logger = startLogger(genProps.getProperty("loglocation","./LOG.txt"),genProps.getProperty("loglevel","INFO"));
+	
+		userInterface = ui;
+		/* The user interface instantiates everything else
+		//selectUI(genProps.getProperty("UserIO"));
 
+		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")))
+		{
+			genProps = userInterface.user_init(genProps);
+		}
+		
+		*/
+		
+		selectPDB(genProps.getProperty("policyDB"));
+		
+		//load the weights configuration file
+		origWeights = new Properties();
+		origWeights = loadWeights();
+		
+		
+	}
+	
 	/**
 	 * accepts the direct commandline options, then parses & implements them.
 	 * 
