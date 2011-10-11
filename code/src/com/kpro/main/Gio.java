@@ -51,13 +51,6 @@ public class Gio {
 	private UserIO userInterface = null;					//means of interacting with the user
 	private PolicyDatabase pdb;								//Policy database object
 
-	/**
-	 * 
-	 * @param userIO
-	 */
-	public Gio(UserIO userIO){
-		// TODO: Nicholas
-	}
 	
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
@@ -124,10 +117,15 @@ public class Gio {
 
 		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")))
 		{
-			genProps = userInterface.user_init(genProps);
+			
 		}
 		
 		*/
+		
+		
+		genProps = userInterface.user_init(genProps); 
+		// returns properties file to user interface,
+		// expects modified  props file in return
 		
 		selectPDB(genProps.getProperty("policyDB"));
 		
@@ -318,7 +316,8 @@ public class Gio {
 			}
 			else
 			{
-				System.err.println("No weights file is available at "+genProps.getProperty("inWeightsLoc")+" . Please place one in the working directory.");
+				System.err.println("No weights file is available at "+genProps.getProperty("inWeightsLoc")+
+						" . Please place one in the working directory.");
 				System.exit(3);
 			}
 			origWeights = new Properties();
@@ -398,7 +397,8 @@ public class Gio {
 		{
 			pLoc = new File(genProps.getProperty("p3pLocation"));
 			if(!pLoc.exists()){
-				System.err.println("no file found at p3p policy location specified by the -p3p option: "+genProps.getProperty("p3pLocation"));
+				System.err.println("no file found at p3p policy location specified by the -p3p option: "+
+									genProps.getProperty("p3pLocation"));
 				System.err.println("current location is "+System.getProperty("user.dir"));
 				System.exit(1);
 			}
@@ -417,13 +417,15 @@ public class Gio {
 			{
 				pLoc = new File(pfiles[i]);
 				if(!pLoc.exists()){
-					System.err.println("no file found at p3p policy location specified by the -p3pDirLocation option, "+ genProps.getProperty("p3pDirLocation"));
+					System.err.println("no file found at p3p policy location specified by the -p3pDirLocation option, "+ 
+										genProps.getProperty("p3pDirLocation"));
 					System.exit(1);
 				}
 				p = (new P3PParser()).parse(pLoc.getAbsolutePath());
 				if(p.getContext().getDomain()==null)
 				{
-					p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),pfiles[i]));
+					p.setContext(new Context(new Date(System.currentTimeMillis()),
+								 new Date(System.currentTimeMillis()),pfiles[i]));
 				}
 				pdb.addPolicy(p);
 			}

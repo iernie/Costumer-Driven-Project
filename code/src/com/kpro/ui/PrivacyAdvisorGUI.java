@@ -16,6 +16,8 @@ import java.util.Scanner;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 
+import sun.awt.windows.ThemeReader;
+
 import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
@@ -126,8 +128,19 @@ public class PrivacyAdvisorGUI extends UserIO{
 
 	@Override
 	public Properties user_init(Properties genProps) {
-		// TODO Auto-generated method stub
-		return null;
+		/*
+		 * create the gui
+		for i in genProps
+			new field(i)
+		once close by user after editing
+		for i in fields
+			genprops.set(i)
+		return genprops
+		*/
+		
+		System.out.println(genProps);
+//		genProps.setProperty("genConfig", configPath);
+		return genProps;
 	}
 
 	/**
@@ -135,6 +148,10 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	@Override
 	public void showDatabase(PolicyDatabase pdb) {
+		System.out.println("Printing pdb:");
+		System.err.println(pdb == null);
+		for(PolicyObject po : pdb) System.out.println(po);
+		System.out.println(pdb.toString());
 		outputArea.setText(pdb.toString());
 	}
 
@@ -182,16 +199,36 @@ public class PrivacyAdvisorGUI extends UserIO{
 			else
 			{ 
 				if(e.getSource() == btnLoadConfigFile)
+				{
 					loadFile(configPath);
+					initTest();
+				}
 				else if (e.getSource() == btnLoadDatabase)
-					loadFile(dbPath);
+				{
+//					loadFile(dbPath);
+					loadDB_test();
+				}
 				else if (e.getSource() == btnLoadPpFile)
 					loadFile(p3pPolicyPath);
 				else if (e.getSource() == btnLoadWeightsFile)
 					loadFile(weightsPath);
-				updateProperties();
+//				updateProperties();
 			}				
 		}
+	}
+	
+	
+	private void initTest()
+	{
+		gio = new Gio(null, this);
+	}
+	
+	private void loadDB_test()
+	{
+		gio = new Gio(null, this);
+		System.err.println("gio.getPDB() == null:" + gio.getPDB() == null);
+		gio.loadDB();
+		showDatabase(gio.getPDB());
 	}
 	
 	private void loadFile(String targetPath)
