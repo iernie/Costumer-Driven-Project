@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
 import com.kpro.database.PolicyDatabase;
+import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
 
 
@@ -72,8 +73,11 @@ public class UserIO_Simple extends UserIO {
 		
 		// update action if overridden
 		if(response == "y")
-			n.getAction().setOverride(true);
-
+		{
+			Action a = n.getAction();
+			a.setAccepted(!a.getAccepted());
+			a.setOverride(true);
+		}
 		return n;
 	}
 	

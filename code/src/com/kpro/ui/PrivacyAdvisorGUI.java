@@ -2,10 +2,13 @@ package com.kpro.ui;
 
 import java.awt.EventQueue;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
@@ -14,8 +17,10 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 
 import com.kpro.database.PolicyDatabase;
+import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.main.Gio;
+import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
 /**
  * Privacy Advisor GUI to run on top of 
  * @author ulfnore
@@ -35,11 +40,23 @@ public class PrivacyAdvisorGUI extends UserIO{
 	// textarea to hold output  
 	private JTextArea outputArea; 
 	
+	// buttons
+	private JButton btnLoadDatabase;
+	private JButton btnLoadPpFile; 
+	private JButton btnLoadConfigFile;
+	private JButton btnLoadWeightsFile;
+	private JButton btnRun;
+	
+	// Properties object that is passed to GIO
+	private Properties props;
+	
 	/**
 	 * Launch the application.
 	 * @author ulfnore
 	 */
 	public static void main(String[] args) {
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -66,6 +83,9 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 * @author ulfnore
 	 */
 	private void initialize() {
+		
+		props = new Properties();
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 850, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,23 +98,28 @@ public class PrivacyAdvisorGUI extends UserIO{
 		outputArea.setBounds(385, 21, 443, 281);
 		panel.add(outputArea);
 		
-		JButton btnLoadDatabase = new JButton("Load Database");
+		btnLoadDatabase = new JButton("Load Database");
+		btnLoadDatabase.addActionListener(new pAdvisorButtonListener());
 		btnLoadDatabase.setBounds(6, 6, 136, 29);
 		panel.add(btnLoadDatabase);
 		
-		JButton btnLoadPpFile = new JButton("Load P3P File");
+		btnLoadPpFile = new JButton("Load P3P File");
+		btnLoadPpFile.addActionListener(new pAdvisorButtonListener());
 		btnLoadPpFile.setBounds(6, 31, 136, 29);
 		panel.add(btnLoadPpFile);
 		
-		JButton btnLoadConfigFile = new JButton("Load Config File");
+		btnLoadConfigFile = new JButton("Load Config File");
+		btnLoadConfigFile.addActionListener(new pAdvisorButtonListener());
 		btnLoadConfigFile.setBounds(6, 59, 136, 29);
 		panel.add(btnLoadConfigFile);
 		
-		JButton btnLoadWeightsFile = new JButton("Load Weights File");
+		btnLoadWeightsFile = new JButton("Load Weights File");
+		btnLoadWeightsFile.addActionListener(new pAdvisorButtonListener());
 		btnLoadWeightsFile.setBounds(6, 88, 136, 29);
 		panel.add(btnLoadWeightsFile);
 		
-		JButton btnRun = new JButton("Run");
+		btnRun = new JButton("Run");
+		btnRun.addActionListener(new pAdvisorButtonListener());
 		btnRun.setBounds(6, 114, 136, 29);
 		panel.add(btnRun);
 	}
@@ -119,15 +144,26 @@ public class PrivacyAdvisorGUI extends UserIO{
 		return null;
 	}
 
+	/**
+	 * Shows recommendation and prompts for user action
+	 * 
+	 * Needs improvement to allow for giving reasons as for why  
+	 * recommendation is not accepted.
+	 * @author ulfnore
+	 */
 	@Override
 	public PolicyObject userResponse(PolicyObject n) {
 		String recommendation = n.getAction().getAccepted() == true ? "Accept" : "Reject";
 		int response = 2;
 		while(response == 2)
-			response = JOptionPane.showConfirmDialog(null, "Privacy Advisor recommends: "+recommendation);
-		if(response == 0) // update
-			
-			
+			response = JOptionPane.showConfirmDialog(null, "Privacy Advisor recommends: "+recommendation+
+						". Accept recommendation?");
+		if(response == 1)// update
+		{ 
+			Action a = n.getAction();
+			a.setAccepted(!a.getAccepted());
+			a.setOverride(true);
+		}
 		return n;
 	}
 
@@ -135,5 +171,77 @@ public class PrivacyAdvisorGUI extends UserIO{
 	public void closeResources() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	class pAdvisorButtonListener implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource() == btnLoadConfigFile)
+				loadFile(configPath);
+			else if (e.getSource() == btnLoadDatabase)
+				loadFile(dbPath);
+			else if (e.getSource() == btnLoadPpFile)
+				loadFile(p3pPolicyPath);
+			else if (e.getSource() == btnLoadWeightsFile)
+				loadFile(weightsPath);
+			else if (e.getSource() == btnRun)
+				run();
+			updateProperties();
+		}
+	}
+	
+	private void loadFile(String targetPath)
+	{
+		JFileChooser jfc = new JFileChooser();
+		jfc.showOpenDialog(null);
+		try{ 
+			targetPath = jfc.getSelectedFile().getAbsolutePath();
+			System.out.println(targetPath);
+			}
+		catch(NullPointerException e) { 
+			System.err.println("An exception was caught.");
+			e.printStackTrace(); 
+		}
+		catch(Exception e) {
+			System.err.println("An exception was caught.");
+			e.printStackTrace(); 
+		}
+	}
+	
+	private void updateProperties()
+	{
+		//in/out DB set to the same file 
+		props.setProperty("inDBLoc", dbPath);
+		props.setProperty("outDBLoc", dbPath);
+		
+		props.setProperty("p3pLocation", p3pPolicyPath);
+		props.setProperty("inWeightsLoc", weightsPath);
+		props.setProperty("outWeightsLoc", weightsPath);
+		
+		// TODO: ???
+		props.setProperty("userIO", "PrivacyAdvisorGUI");
+		
+
+	}
+	
+	private void run()
+	{
+		try
+		{
+			//TODO: something more relevant perhaps
+			System.out.println("Run very much successful.");
+		}catch(NullPointerException e)
+		{
+			//TODO: something more relevant perhaps
+			System.err.println("An exception was caught.");
+			e.printStackTrace();
+		}catch (Exception e) 
+		{
+			//TODO: something more relevant perhaps
+			System.err.println("An exception was caught.");
+			e.printStackTrace();
+		}
+
 	}
 }

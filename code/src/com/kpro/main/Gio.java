@@ -41,14 +41,24 @@ import com.kpro.ui.UserIO_Simple;
 public class Gio {
 
 
-	private static Logger logger = Logger.getLogger("");		//create logger object
-	private FileHandler fh = null;					//creates filehandler for logging
-	private Properties genProps = new Properties(); //holds all the property values
-	private Properties origWeights = null;				//the loaded weights file.
-	private Properties newWeights = null;				//the revised weights, following LearnAlgorithm. written to disk by shutdown(). also used in loading weights during init()
-	private UserIO userInterface = null;				//means of interacting with the user
-	private PolicyDatabase pdb;				//Policy database object
+	private static Logger logger = Logger.getLogger("");	//create logger object
+	private FileHandler fh = null;							//creates filehandler for logging
+	private Properties genProps = new Properties(); 		//holds all the property values
+	private Properties origWeights = null;					//the loaded weights file.
+	private Properties newWeights = null;					//the revised weights, following LearnAlgorithm. 
+															//written to disk by shutdown(). 
+															//also used in loading weights during init()
+	private UserIO userInterface = null;					//means of interacting with the user
+	private PolicyDatabase pdb;								//Policy database object
 
+	/**
+	 * 
+	 * @param userIO
+	 */
+	public Gio(UserIO userIO){
+		// TODO: Nicholas
+	}
+	
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
 	 * Constructs and parses command line arguements as well.
