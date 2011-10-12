@@ -97,7 +97,11 @@ public class CBR {
 		int k = 1; //size for k in knn algorithm
 		DistanceMetric dm = new distanceMetricTest(weightsConfig);
 		PolicyDatabase pdb = theIO.getPDB();
-		CBR machinelearn = new CBR(theIO,weightsConfig , new Reduction_KNN(dm,pdb,k), new Conclusion_Simple(dm), new Learn_Constant(weightsConfig));
+		
+		CBR machinelearn = new CBR(theIO,weightsConfig , 
+									new Reduction_KNN(dm,pdb,k), 
+									new Conclusion_Simple(dm), 
+									new Learn_Constant(weightsConfig));
 		return machinelearn;
 		}
 

@@ -8,8 +8,11 @@ import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.PolicyObject;
 
 /**
+ * 
  * A k-nearest-neighbors algorithm class. create it and call run on it to
  * get the nearest k neighbors to the object passed to run().
+ * 
+ * 
  * @author ulfnore, ngerstle
  *
  */

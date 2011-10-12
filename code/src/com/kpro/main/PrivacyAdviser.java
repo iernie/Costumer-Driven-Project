@@ -82,7 +82,7 @@ public class PrivacyAdviser {
 		//load the past history && commandline policies 
 		theIO.loadDB();//configFile.getProperty("databaseLocation"));
 		//System.err.println("Print pdb in pa:init"+theIO.getPDB());
-
+//		System.out.println(theIO.getPDB());
 		//done initializing
 	}
 

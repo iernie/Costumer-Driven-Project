@@ -10,6 +10,8 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -23,6 +25,7 @@ import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.main.Gio;
 import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
+import javax.swing.JScrollPane;
 /**
  * Privacy Advisor GUI to run on top of 
  * @author ulfnore
@@ -51,6 +54,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 	
 	// Properties object that is passed to GIO
 	private Properties props;
+	private JScrollPane scrollPane_1;
 	
 	/**
 	 * Launch the application.
@@ -89,16 +93,19 @@ public class PrivacyAdvisorGUI extends UserIO{
 		props = new Properties();
 		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 850, 800);
+		frame.setBounds(100, 100, 750, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
+		scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(169, 11, 529, 486);
+		panel.add(scrollPane_1);
+		
 		outputArea = new JTextArea();
-		outputArea.setBounds(385, 21, 443, 281);
-		panel.add(outputArea);
+		scrollPane_1.setViewportView(outputArea);
 		
 		btnLoadDatabase = new JButton("Load Database");
 		btnLoadDatabase.addActionListener(new pAdvisorButtonListener());
@@ -124,6 +131,10 @@ public class PrivacyAdvisorGUI extends UserIO{
 		btnRun.addActionListener(new pAdvisorButtonListener());
 		btnRun.setBounds(6, 114, 136, 29);
 		panel.add(btnRun);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(385, 287, 4, 4);
+		panel.add(scrollPane);
 	}
 
 	@Override
@@ -139,7 +150,18 @@ public class PrivacyAdvisorGUI extends UserIO{
 		return genprops
 		*/
 		
+
+		Enumeration e = genProps.propertyNames();
+		println("Properties loaded.");
+		while (e.hasMoreElements()) 
+		{
+			String key = (String)e.nextElement();
+			System.out.println(key+": "+ genProps.getProperty(key));
+			println(key+": "+ genProps.getProperty(key));
+		}
+		
 		System.out.println(genProps);
+		
 //		genProps.setProperty("genConfig", configPath);
 		return genProps;
 
@@ -202,6 +224,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 			{ 
 				if(e.getSource() == btnLoadConfigFile)
 				{
+					println("Loading config file: " + configPath);
 					loadFile(configPath);
 					initTest();
 				}
@@ -291,5 +314,16 @@ public class PrivacyAdvisorGUI extends UserIO{
 			e.printStackTrace();
 		}
 
+	}
+	
+	/**
+	 * Write to textarea
+	 * @author ulfnore
+	 */
+	private void println(String str)
+	{
+		String str0 = outputArea.getText();
+		str0 += "\n"+str;
+		outputArea.setText(str0);
 	}
 }
