@@ -46,6 +46,7 @@ public class PrivacyAdviser {
 	public static void main(String[] args) {
 		//all initialization
 		init(args);
+		theIO.showDatabase();
 		//process the given case
 		if(!theIO.isBuilding()) //actually process an object
 		{
@@ -55,6 +56,7 @@ public class PrivacyAdviser {
 			PolicyDatabase pdb = theIO.getPDB();
 			CBR machinelearn = new CBR(theIO, weightsConfig, new Reduction_KNN(dm,pdb,k), new Conclusion_Simple(dm), new Learn_Constant(weightsConfig));*/
 			theIO.getCBR().run(po);
+			theIO.showDatabase();
 		}
 		//close down
 		theIO.shutdown();

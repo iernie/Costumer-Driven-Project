@@ -600,6 +600,12 @@ public class Gio {
 	public Properties getWeights() {
 		return origWeights;
 	}
+	
+
+	public void showDatabase() {
+		userInterface.showDatabase(pdb);
+		
+	}
 
 
 }
