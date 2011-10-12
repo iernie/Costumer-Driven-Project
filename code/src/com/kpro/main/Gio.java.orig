@@ -51,6 +51,18 @@ public class Gio {
 	private UserIO userInterface = null;					//means of interacting with the user
 	private PolicyDatabase pdb;								//Policy database object
 
+<<<<<<< HEAD
+	/**
+	 * 
+	 * @param userIO
+	 */
+	public Gio(UserIO userIO){
+		// TODO: Nicholas
+	}
+
+=======
+	
+>>>>>>> fa57d7d4d6399bb37e1dc81723ab0a911439f095
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
 	 * Constructs and parses command line arguements as well.
@@ -116,16 +128,25 @@ public class Gio {
 
 		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")))
 		{
+<<<<<<< HEAD
 
 		}
 
 		 */
 		genProps = userInterface.user_init(genProps);
 
+=======
 			
+		}
+		
+		*/
+		
+		
+		genProps = userInterface.user_init(genProps); 
 		// returns properties file to user interface,
 		// expects modified  props file in return
 		
+>>>>>>> fa57d7d4d6399bb37e1dc81723ab0a911439f095
 		selectPDB(genProps.getProperty("policyDB"));
 
 		//load the weights configuration file
@@ -376,11 +397,10 @@ public class Gio {
 	{
 		if(!Boolean.parseBoolean(genProps.getProperty("newDB")))
 		{
-			//System.err.println("newDB=false:  ["+genProps.getProperty("newDB"));
+			System.err.println("newDB=false:  ["+genProps.getProperty("newDB"));
 			pdb.loadDB();
 		}
 		loadCLPolicies();
-		//System.out.println(pdb);
 		//System.err.println("Print pdb in gio:loaddb"+getPDB());
 	}
 
@@ -417,7 +437,7 @@ public class Gio {
 			}
 			catch(Exception e)
 			{
-				System.err.println("Einar needs to fix a parsing error.");
+				System.err.println("Einar needs to fix this parsing error. (!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)");
 				e.printStackTrace();
 				//System.exit(5);
 			}
@@ -439,17 +459,21 @@ public class Gio {
 				}
 				try
 				{
-
+<<<<<<< HEAD
 					p = (new P3PParser()).parse(pLoc.getAbsolutePath());
 					if(p.getContext().getDomain()==null)
 					{
 						p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),pfiles[i].getAbsolutePath()));
 					}
 					pdb.addPolicy(p);
+=======
+					p.setContext(new Context(new Date(System.currentTimeMillis()),
+								 new Date(System.currentTimeMillis()),pfiles[i]));
+>>>>>>> fa57d7d4d6399bb37e1dc81723ab0a911439f095
 				}
 				catch(Exception e)
 				{
-					System.err.println("Einar needs to fix this parsing error.");
+					System.err.println("Einar needs to fix this parsing error. (!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!)");
 					e.printStackTrace();
 					//System.exit(5);
 				}			
@@ -481,8 +505,7 @@ public class Gio {
 			newWeights = origWeights;
 		}
 		writePropertyFile(newWeights,genProps.getProperty("outWeightsLoc",genProps.getProperty("inWeightsLoc")));
-		userInterface.closeResources();
-		System.out.println("preferences saved and closed without error.");
+		userInterface.closeResources(); 
 	}
 
 
@@ -598,6 +621,7 @@ public class Gio {
 	}
 
 	public Properties getWeights() {
+		// TODO Auto-generated method stub
 		return origWeights;
 	}
 

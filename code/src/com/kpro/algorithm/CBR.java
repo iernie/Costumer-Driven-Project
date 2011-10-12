@@ -84,8 +84,11 @@ public class CBR {
 	public void run(PolicyObject newPolicy) {
 		newpol =  process(newPolicy); //knn & conclusion
 		newpol = theIO.userResponse(newpol); //user response
-		theIO.getPDB().addPolicy(newpol); //save to database
-		learnAlg.learn(theIO);
+		if(newpol != null) //the user made a one time only choice
+		{
+			theIO.getPDB().addPolicy(newpol); //save to database
+			learnAlg.learn(theIO);
+		}
 	}
 
 
@@ -96,6 +99,8 @@ public class CBR {
 		Properties weightsConfig = theIO.loadWeights();
 		int k = 1; //size for k in knn algorithm
 		DistanceMetric dm = new distanceMetricTest(weightsConfig);
+		//DistanceMetric dm = new bitmapDistance(weightsConfig);
+		//DistanceMetric dm = new Bitmapwithdata(weightsConfig);
 		PolicyDatabase pdb = theIO.getPDB();
 		
 		CBR machinelearn = new CBR(theIO,weightsConfig , 

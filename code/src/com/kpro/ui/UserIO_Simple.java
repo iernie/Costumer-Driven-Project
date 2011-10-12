@@ -60,36 +60,47 @@ public class UserIO_Simple extends UserIO {
 			s = s+"\t"+ i + "\n";
 		System.out.println(s);
 
-		System.out.println("\nPrivacy Advisor recommends:"+parseAcceptedToString(n.getAction().getAccepted()) + 
-						   "\n\t based on these criteria:"+n.getAction().getReasons());
+		System.out.println("Privacy Advisor recommends that you "+parseAcceptedToString(n.getAction().getAccepted()) + 
+						   "the new policy, \n\t based on these criteria:"+n.getAction().getReasons());
 		
 		
 		// prompt if user wants to override
 		do{
-			System.out.println("Ovverride recommendation? (y/n)\n");
+			System.out.println("Ovverride recommendation? (y/n)");
 			response = sc.nextLine();
-		}while(response != "y" && response != "n");
-		
-		
-		// update action if overridden
-		if(response == "y")
+		}while(!(response.equalsIgnoreCase("y") || response.equalsIgnoreCase("n")));
+		if(response.equalsIgnoreCase("y"))
 		{
 			Action a = n.getAction();
 			a.setAccepted(!a.getAccepted());
 			a.setOverride(true);
 		}
-		return n;
+		do
+		{
+			System.out.println("Would you like the system to remember your preference permanently? (y/n)");
+			response = sc.nextLine();
+		}while(!(response.equalsIgnoreCase("y") || response.equalsIgnoreCase("n")));
+		// update action if overridden
+		if(response.equalsIgnoreCase("y"))
+		{
+			return n;
+		}
+		else
+		{
+			//add code to backtrack later
+			return null;
+		}
 	}
 	
 	private String parseAcceptedToString(boolean accepted)
 	{
 		if(accepted)
 		{
-			return "\tAccepted";
+			return "\tAccept";
 		}
 		else
 		{
-			return "\tRejected";
+			return "\tReject";
 		}
 	}
 
