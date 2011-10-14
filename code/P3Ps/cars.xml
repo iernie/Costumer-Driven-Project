@@ -139,6 +139,18 @@ Information we collect in order to process your purchase.</CONSEQUENCE>
     </DATA-GROUP>
 </STATEMENT>
 
+<CONTEXT>
+	<URL>www.cars.com</URL>
+	<ACCESSTIME>20110925</ACCESSTIME>
+	<CREATIONTIME>20060607</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>true</ACCEPTED>
+	<DOMAINS>www.honda.com</DOMAINS>
+	<USEROVERRIDE>true</USEROVERRIDE>
+</ACTION>
+
 <!-- End of policy -->
 </POLICY>
 </POLICIES>

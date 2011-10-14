@@ -37,4 +37,17 @@
     <DATA ref="#dynamic.http"/>
    </DATA-GROUP>
   </STATEMENT>
+  
+  	<CONTEXT>
+		<URL>www.blueangelslimo.com</URL>
+		<ACCESSTIME>20110402</ACCESSTIME>
+		<CREATIONTIME>20110402</CREATIONTIME>
+	</CONTEXT>
+	
+	<ACTION>
+		<ACCEPTED>true</ACCEPTED>
+		<DOMAINS>www.blueangelslimo.com</DOMAINS>
+		<USEROVERRIDE>true</USEROVERRIDE>
+	</ACTION>
+  
  </POLICY>

@@ -63,6 +63,18 @@ Our Web server collects access logs containing this information.</CONSEQUENCE>
     </DATA-GROUP>
 </STATEMENT>
 
+<CONTEXT>
+	<URL>www.chattanoogainternet.com</URL>
+	<ACCESSTIME>20110714</ACCESSTIME>
+	<CREATIONTIME>20110714</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>false</ACCEPTED>
+	<DOMAINS>www.chattanoogainternet.com</DOMAINS>
+	<USEROVERRIDE>false</USEROVERRIDE>
+</ACTION>
+
 <!-- End of policy -->
 </POLICY>
 </POLICIES>

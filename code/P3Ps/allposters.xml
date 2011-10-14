@@ -151,6 +151,18 @@ Information we collect in order to process your purchase.</CONSEQUENCE>
     </DATA-GROUP>
 </STATEMENT>
 
+<CONTEXT>
+	<URL>www.allposters.com</URL>
+	<ACCESSTIME>20111008</ACCESSTIME>
+	<CREATIONTIME>20111009</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>false</ACCEPTED>
+	<DOMAINS>www.allposters.com</DOMAINS>
+	<USEROVERRIDE>false</USEROVERRIDE>
+</ACTION>
+
 <!-- End of policy -->
 </POLICY>
 </POLICIES>

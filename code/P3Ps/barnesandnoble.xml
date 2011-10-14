@@ -75,6 +75,19 @@ http://www.barnesandnoble.com/help/nc_privacy_policy.asp?
 					</DATA>
 				</DATA-GROUP>
 			</STATEMENT>
+			
+			<CONTEXT>
+				<URL>www.barnesandnoble.com</URL>
+				<ACCESSTIME>20110905</ACCESSTIME>
+				<CREATIONTIME>20090610</CREATIONTIME>
+			</CONTEXT>
+			
+			<ACTION>
+				<ACCEPTED>true</ACCEPTED>
+				<DOMAINS>www.barnesandnoble.com</DOMAINS>
+				<USEROVERRIDE>false</USEROVERRIDE>
+			</ACTION>
+
 		</POLICY>
 	</POLICIES>
 </META>

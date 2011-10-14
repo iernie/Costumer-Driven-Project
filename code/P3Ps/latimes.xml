@@ -98,6 +98,18 @@ The information blanks on this P3P standard form do not allow for complete or ac
     </DATA-GROUP>
 </STATEMENT>
 
+<CONTEXT>
+	<URL>www.latimes.com</URL>
+	<ACCESSTIME>20111014</ACCESSTIME>
+	<CREATIONTIME>20070607</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>true</ACCEPTED>
+	<DOMAINS>www.nytimes.com</DOMAINS>
+	<USEROVERRIDE>false</USEROVERRIDE>
+</ACTION>
+
 <!-- End of policy -->
 </POLICY>
 </POLICIES>

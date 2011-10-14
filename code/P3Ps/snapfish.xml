@@ -74,6 +74,18 @@ Snapfish service requires the user's information to communicate with the user an
     </DATA-GROUP>
 </STATEMENT>
 
+<CONTEXT>
+	<URL>www.snapfish.com</URL>
+	<ACCESSTIME>20110902</ACCESSTIME>
+	<CREATIONTIME>20110902</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>false</ACCEPTED>
+	<DOMAINS>www.gap.com</DOMAINS>
+	<USEROVERRIDE>true</USEROVERRIDE>
+</ACTION>
+
 <!-- End of policy -->
 </POLICY>
 </POLICIES>

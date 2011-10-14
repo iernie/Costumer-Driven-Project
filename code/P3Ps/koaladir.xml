@@ -121,6 +121,19 @@
 					<DATA ref="#user.name.given"></DATA>
 				</DATA-GROUP>
 			</STATEMENT>
+			
+			<CONTEXT>
+				<URL>www.koaladir.com</URL>
+				<ACCESSTIME>20100718</ACCESSTIME>
+				<CREATIONTIME>20090413</CREATIONTIME>
+			</CONTEXT>
+			
+			<ACTION>
+				<ACCEPTED>false</ACCEPTED>
+				<DOMAINS>www.coupons.com</DOMAINS>
+				<USEROVERRIDE>false</USEROVERRIDE>
+			</ACTION>
+
 		</POLICY>
 	</POLICIES>
 </META>
