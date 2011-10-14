@@ -242,10 +242,6 @@ import com.kpro.dataobjects.Retention;
 					dis=dis+Math.max(MapA[i], MapB[i]);
 				}
 			}
-		
-			
-		
-			
 			
 			return dis * Double.parseDouble(weightsConfig.getProperty("retention"));// dis*weight later
 		}
