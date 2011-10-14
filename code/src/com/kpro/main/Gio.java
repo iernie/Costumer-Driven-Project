@@ -16,8 +16,10 @@ import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Context;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.parser.P3PParser;
+import com.kpro.ui.PrivacyAdvisorGUI;
 import com.kpro.ui.UserIO;
 import com.kpro.ui.UserIO_Simple;
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 
 
 /*  to load a new database from a folder, but not use cbr on a new object. overwrites old db (-n option)
@@ -299,7 +301,7 @@ public class Gio {
 	 */
 	public Properties loadWeights()
 	{
-
+//		System.out.println("In loadWeights(): "+System.getProperty("user.dir"));
 		try 
 		{
 			if(genProps.getProperty("inWeightsLoc") == null)
@@ -307,26 +309,36 @@ public class Gio {
 				System.err.println("inWeightsLoc in Gio/LoadWeights is null");
 			}
 			File localConfig = new File(genProps.getProperty("inWeightsLoc"));
-
+//			System.out.println(genProps.getProperty("inWeightsLoc"));
 			InputStream is = null;
 			if(localConfig.exists())
 			{
 				is = new FileInputStream(localConfig);
 			}
-			else
+			else // TODO: This should probably throw an exception to be handled by userIO. 
 			{
 				System.err.println("No weights file is available at "+genProps.getProperty("inWeightsLoc")+
 						" . Please place one in the working directory.");
-				System.exit(3);
+				
+//				System.out.println(userInterface instanceof PrivacyAdvisorGUI);
+				if (userInterface instanceof PrivacyAdvisorGUI)
+					throw null;
+				else
+					System.exit(3);
 			}
 			origWeights = new Properties();
 			origWeights.load(is);
 		} 
-		catch (IOException e) 
+		catch (IOException e) // TODO: This should probably throw an exception to be handled by userIO. 
 		{
 			e.printStackTrace();
 			System.err.println("IOException reading the weights configuration file. Exiting...\n");
-			System.exit(1);
+			
+//			System.out.println(userInterface instanceof PrivacyAdvisorGUI);
+			if (userInterface instanceof PrivacyAdvisorGUI)
+				throw null;
+			else
+				System.exit(1);
 		}
 		return origWeights;
 	}

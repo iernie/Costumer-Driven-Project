@@ -89,8 +89,6 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	private void initialize() {
 		
-		props = new Properties();
-		
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 714, 534);
@@ -127,42 +125,26 @@ public class PrivacyAdvisorGUI extends UserIO{
 		panel.add(scrollPane);
 	}
 
+	/**
+	 * Called from GIO. Takes default properties file as argument.
+	 * @author ulfnore
+	 */
 	@Override
 	public Properties user_init(Properties genProps) {
-
-		/*
-		 * create the gui
-		for i in genProps
-			new field(i)
-		once close by user after editing
-		for i in fields
-			genprops.set(i)
-		return genprops
-		*/
-		
-
-
-		Enumeration e = genProps.propertyNames();
-		println("Properties file loaded.\n");
-		while (e.hasMoreElements()) 
+		if (props == null)
 		{
-			String key = (String)e.nextElement();
-//			System.out.println(key+": "+ genProps.getProperty(key));
-			println(key+": "+ genProps.getProperty(key));
-			
-		}
-
-		
-		
-		
-		JOptionPane.showMessageDialog(frame, "hello");
-//		System.out.println(genProps);
-		
-		println("hepp");
-		
-//		genProps.setProperty("genConfig", configPath);
-		return genProps;
-
+			props = genProps;
+			Enumeration e = genProps.propertyNames();
+			println("Properties file loaded.\n");
+			while (e.hasMoreElements()) 
+			{
+				String key = (String)e.nextElement();
+	//			System.out.println(key+": "+ genProps.getProperty(key));
+				println(key+": "+ genProps.getProperty(key));
+				
+			}
+		} 
+		return props;
 	}
 
 	/**
@@ -192,7 +174,9 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	@Override
 	public PolicyObject userResponse(PolicyObject n) {
+		
 		String recommendation = n.getAction().getAccepted() == true ? "Accept" : "Reject";
+		for (String str : n.getEntities().keySet()) System.out.println( str );
 		int response = 2;
 		while(response == 2)
 			response = JOptionPane.showConfirmDialog(null, 
@@ -240,20 +224,36 @@ public class PrivacyAdvisorGUI extends UserIO{
 	
 	
 	private void loadConf(){
-		if (props == null){ // load default config file
-			gio = new Gio(null, this);
-		}else{
-			String config  = outputArea.getText();
-			
+//		System.out.println("In loadConf(): " +System.getProperty("user.dir"));
+		if (props != null){// load modified config file from output area into a properties object, pass to gio 
+			try{
+			String[] config  = outputArea.getSelectedText().split("\n");
+			props = new Properties();
+			for(String str : config){
+				props.setProperty(str.split(": ")[0], str.split(": ")[1]);
+			}
+			}catch (Exception e){
+				println("Error. Invalid configuration.");
+				return;
+			}
+
+		}
+		try{
+		gio = new Gio(null, this);  // user_init called from constructor
+		}
+		catch(Exception e)
+		{
+			println("Error opening config file.");
 		}
 	}
+	
 	
 	private void loadDB()
 	{
 //		gio = new Gio(null, this);
 		try
 		{
-			System.err.println("gio.getPDB() == null:" + gio.getPDB() == null);
+//			System.err.println("gio.getPDB() == null:" + gio.getPDB() == null);
 			gio.loadDB();
 			showDatabase(gio.getPDB());
 		}
@@ -262,6 +262,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 			JOptionPane.showMessageDialog(null, "No configuration file selected. Loading default.");
 		}
 	}
+
 	
 	private void loadFile(String targetPath)
 	{
@@ -280,6 +281,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 			e.printStackTrace(); 
 		}
 	}
+
 	
 	private void updateProperties()
 	{
@@ -303,24 +305,23 @@ public class PrivacyAdvisorGUI extends UserIO{
 		
 	}
 	
+	
 	private void run()
-	{
-		
+	{		
 		try
 		{
 			gio.getCBR().run(gio.getPO());
 
-			
-			
-			
 		}catch(NullPointerException e)
 		{
 			//TODO: something more relevant perhaps
+			println("Error: No configuration is loaded.");
 			System.err.println("An exception was caught.");
 			e.printStackTrace();
 		}catch (Exception e) 
 		{
 			//TODO: something more relevant perhaps
+			println("Error: No configuration is loaded.");
 			System.err.println("An exception was caught.");
 			e.printStackTrace();
 		}
@@ -328,10 +329,6 @@ public class PrivacyAdvisorGUI extends UserIO{
 	}
 	
 	
-	private void loadDefault()
-	{
-		gio = new Gio(null,this);
-	}
 	
 	
 	/**

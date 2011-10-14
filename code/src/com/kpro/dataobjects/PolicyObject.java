@@ -162,6 +162,8 @@ public class PolicyObject implements Serializable
 		}
 	}
 	/**
+	 * This is based on the debug_print and SHOULD BE TAKEN SERIOUSLY.
+	 * 
 	 * @author ulfnore
 	 */
 	public String toString()
