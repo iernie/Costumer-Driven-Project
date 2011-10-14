@@ -18,7 +18,7 @@ import java.util.ArrayList;
  *
  */
 
-public class Case {
+public class Case implements Comparable{
 	
 	private ArrayList<Purpose> purpose;
 	private ArrayList<Retention> retention;
@@ -177,5 +177,19 @@ public class Case {
 		
 		return str;
 	}
+	
+	/**
+	 * to allow comparision of cases, primarily for white/blacklisting.
+	 * 
+	 * @param another object (a case)
+	 * @return -1 if this > other, 0 if equal, else 1
+	 * @author ngerstle
+	 */
+	public int compareTo(Object o) {
+	
+		return toString().compareToIgnoreCase(((Case)o).toString());
+	}
+
+	
 	
 }

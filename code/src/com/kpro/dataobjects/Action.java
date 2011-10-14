@@ -27,14 +27,7 @@ public class Action
 		this.override = override;
 	}
 	
-		
-	public boolean isAccepted() {
-		return accepted;
-	}
 	
-	public void setAccepted(boolean accept) {
-		this.accepted = accept;
-	}
 	public ArrayList<String> getReason() {
 		return reasonDomains;
 	}
@@ -48,9 +41,21 @@ public class Action
 	 * @author ngerstle, ernie
 	 * @return a boolean that can be sent to the user with a accept/reject
 	 */
+	public String getAcceptedStr(){
+		return accepted ? "accepted" : "rejected";
+	}
+	
+	
+	
 	public boolean getAccepted() {
 		return accepted;
 	}
+		
+	public void setAccepted(boolean accept) {
+		this.accepted = accept;
+	}
+	
+	
 	/**
 	 * 
 	 * @return an arraylist that verbalizes why the policy was accepted or rejected
