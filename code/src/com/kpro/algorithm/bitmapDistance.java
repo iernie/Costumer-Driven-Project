@@ -25,6 +25,7 @@ import com.kpro.dataobjects.Retention;
  */
 public class bitmapDistance implements DistanceMetric{
 	private static Properties weightsConfig;
+	
 	private double ours, delivery, same, other_recipient, unrelated, pub;
 	private double current, admin, develop, tailoring, pseudo_analysis, pseudo_decision;
 	private double individual_analysis, individual_decision, contact, historical, telemarketing, other_purpose;
