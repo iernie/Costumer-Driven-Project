@@ -72,12 +72,12 @@ public class UserIO_Simple extends UserIO {
 		System.out.println(s);
 
 		System.out.println("Privacy Advisor recommends that you "+parseAcceptedToString(n.getAction().getAccepted()) + 
-						   "the new policy, \n\t based on these criteria:"+n.getAction().getReasons());
+						   " the new policy, \n\t based on these criteria:"+n.getAction().getReasons());
 		
 		
 		// prompt if user wants to override
 	//	do{
-			System.out.println("Ovverride recommendation? (y/[n])");
+			System.out.println("Override recommendation? (y/[n])");
 			response = sc.nextLine();
 	//	}while(!(response.equalsIgnoreCase("y") || response.equalsIgnoreCase("n")));
 		if(response.equalsIgnoreCase("y"))
@@ -106,11 +106,11 @@ public class UserIO_Simple extends UserIO {
 	{
 		if(accepted)
 		{
-			return "\tAccept";
+			return "Accept";
 		}
 		else
 		{
-			return "\tReject";
+			return "Reject";
 		}
 	}
 
