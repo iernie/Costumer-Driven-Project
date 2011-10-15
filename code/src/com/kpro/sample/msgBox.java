@@ -1,5 +1,9 @@
 package com.kpro.sample;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -7,17 +11,14 @@ public class msgBox {
 
 	/**
 	 * @param args
+	 * @throws IOException 
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-//		int tull= JOptionPane.showConfirmDialog(null, "Hei?");
-//		System.out.println(tull);
-		
-		JFileChooser jfc = new JFileChooser();
-		int tall = jfc.showOpenDialog(null);
-		System.out.println(tall);
-		System.out.println(jfc.getSelectedFile().getAbsolutePath());
-		
+	public static void main(String[] args) throws IOException {
+		Desktop desktop = Desktop.getDesktop();
+		System.out.println(desktop.isDesktopSupported());
+		File f = new File("/Users/ulfnore/Desktop/test.txt");
+		desktop.edit(f);
+
 
 	}
 

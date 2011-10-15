@@ -26,6 +26,7 @@ import com.kpro.dataobjects.PolicyObject;
 import com.kpro.main.Gio;
 import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
 import javax.swing.JScrollPane;
+import javax.swing.JInternalFrame;
 /**
  * Privacy Advisor GUI to run on top of 
  * @author ulfnore
@@ -47,9 +48,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 	
 	// buttons
 	private JButton btnLoadDatabase;
-	private JButton btnLoadPpFile; 
 	private JButton btnLoadConfigFile;
-	private JButton btnLoadWeightsFile;
 	private JButton btnRun;
 	
 	// Properties object that is passed to GIO
@@ -90,10 +89,9 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	private void initialize() {
 		
-		props = new Properties();
-		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 750, 600);
+		frame.setResizable(false);
+		frame.setBounds(100, 100, 714, 534);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panel = new JPanel();
@@ -112,24 +110,14 @@ public class PrivacyAdvisorGUI extends UserIO{
 		btnLoadDatabase.setBounds(6, 6, 136, 29);
 		panel.add(btnLoadDatabase);
 		
-		btnLoadPpFile = new JButton("Load P3P File");
-		btnLoadPpFile.addActionListener(new pAdvisorButtonListener());
-		btnLoadPpFile.setBounds(6, 31, 136, 29);
-		panel.add(btnLoadPpFile);
-		
 		btnLoadConfigFile = new JButton("Load Config File");
 		btnLoadConfigFile.addActionListener(new pAdvisorButtonListener());
-		btnLoadConfigFile.setBounds(6, 59, 136, 29);
+		btnLoadConfigFile.setBounds(6, 33, 136, 29);
 		panel.add(btnLoadConfigFile);
-		
-		btnLoadWeightsFile = new JButton("Load Weights File");
-		btnLoadWeightsFile.addActionListener(new pAdvisorButtonListener());
-		btnLoadWeightsFile.setBounds(6, 88, 136, 29);
-		panel.add(btnLoadWeightsFile);
 		
 		btnRun = new JButton("Run");
 		btnRun.addActionListener(new pAdvisorButtonListener());
-		btnRun.setBounds(6, 114, 136, 29);
+		btnRun.setBounds(6, 61, 136, 29);
 		panel.add(btnRun);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -137,34 +125,26 @@ public class PrivacyAdvisorGUI extends UserIO{
 		panel.add(scrollPane);
 	}
 
+	/**
+	 * Called from GIO. Takes default properties file as argument.
+	 * @author ulfnore
+	 */
 	@Override
 	public Properties user_init(Properties genProps) {
-
-		/*
-		 * create the gui
-		for i in genProps
-			new field(i)
-		once close by user after editing
-		for i in fields
-			genprops.set(i)
-		return genprops
-		*/
-		
-
-		Enumeration e = genProps.propertyNames();
-		println("Properties loaded.");
-		while (e.hasMoreElements()) 
+		if (props == null)
 		{
-			String key = (String)e.nextElement();
-			System.out.println(key+": "+ genProps.getProperty(key));
-			println(key+": "+ genProps.getProperty(key));
-		}
-		
-		System.out.println(genProps);
-		
-//		genProps.setProperty("genConfig", configPath);
-		return genProps;
-
+			props = genProps;
+			Enumeration e = genProps.propertyNames();
+			println("Properties file loaded.\n");
+			while (e.hasMoreElements()) 
+			{
+				String key = (String)e.nextElement();
+	//			System.out.println(key+": "+ genProps.getProperty(key));
+				println(key+": "+ genProps.getProperty(key));
+				
+			}
+		} 
+		return props;
 	}
 
 	/**
@@ -194,11 +174,15 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	@Override
 	public PolicyObject userResponse(PolicyObject n) {
+		
 		String recommendation = n.getAction().getAccepted() == true ? "Accept" : "Reject";
+		for (String str : n.getEntities().keySet()) System.out.println( str );
 		int response = 2;
 		while(response == 2)
-			response = JOptionPane.showConfirmDialog(null, "Privacy Advisor recommends: "+recommendation+
+			response = JOptionPane.showConfirmDialog(null, 
+						"Privacy Advisor recommends: "+recommendation+
 						". Accept recommendation?");
+		
 		if(response == 1)// update
 		{ 
 			Action a = n.getAction();
@@ -215,6 +199,10 @@ public class PrivacyAdvisorGUI extends UserIO{
 		
 	}
 	
+	/**
+	 * Listens on GUI buttons.
+	 * @author ulfnore
+	 */
 	class pAdvisorButtonListener implements ActionListener
 	{
 		@Override
@@ -224,37 +212,57 @@ public class PrivacyAdvisorGUI extends UserIO{
 			{ 
 				if(e.getSource() == btnLoadConfigFile)
 				{
-					println("Loading config file: " + configPath);
-					loadFile(configPath);
-					initTest();
+					loadConf();
 				}
 				else if (e.getSource() == btnLoadDatabase)
 				{
-//					loadFile(dbPath);
-					loadDB_test();
+					loadDB();
 				}
-				else if (e.getSource() == btnLoadPpFile)
-					loadFile(p3pPolicyPath);
-				else if (e.getSource() == btnLoadWeightsFile)
-					loadFile(weightsPath);
-//				updateProperties();
 			}				
 		}
 	}
 	
 	
-	private void initTest()
-	{
-		gio = new Gio(null, this);
+	private void loadConf(){
+//		System.out.println("In loadConf(): " +System.getProperty("user.dir"));
+		if (props != null){// load modified config file from output area into a properties object, pass to gio 
+			try{
+			String[] config  = outputArea.getSelectedText().split("\n");
+			props = new Properties();
+			for(String str : config){
+				props.setProperty(str.split(": ")[0], str.split(": ")[1]);
+			}
+			}catch (Exception e){
+				println("Error. Invalid configuration.");
+				return;
+			}
+
+		}
+		try{
+		gio = new Gio(null, this);  // user_init called from constructor
+		}
+		catch(Exception e)
+		{
+			println("Error opening config file.");
+		}
 	}
 	
-	private void loadDB_test()
+	
+	private void loadDB()
 	{
-		gio = new Gio(null, this);
-		System.err.println("gio.getPDB() == null:" + gio.getPDB() == null);
-		gio.loadDB();
-		showDatabase(gio.getPDB());
+//		gio = new Gio(null, this);
+		try
+		{
+//			System.err.println("gio.getPDB() == null:" + gio.getPDB() == null);
+			gio.loadDB();
+			showDatabase(gio.getPDB());
+		}
+		catch(NullPointerException e)
+		{
+			JOptionPane.showMessageDialog(null, "No configuration file selected. Loading default.");
+		}
 	}
+
 	
 	private void loadFile(String targetPath)
 	{
@@ -273,6 +281,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 			e.printStackTrace(); 
 		}
 	}
+
 	
 	private void updateProperties()
 	{
@@ -296,25 +305,31 @@ public class PrivacyAdvisorGUI extends UserIO{
 		
 	}
 	
+	
 	private void run()
-	{
+	{		
 		try
 		{
-			//TODO: something more relevant perhaps
-			System.out.println("Run very much successful.");
+			gio.getCBR().run(gio.getPO());
+
 		}catch(NullPointerException e)
 		{
 			//TODO: something more relevant perhaps
+			println("Error: No configuration is loaded.");
 			System.err.println("An exception was caught.");
 			e.printStackTrace();
 		}catch (Exception e) 
 		{
 			//TODO: something more relevant perhaps
+			println("Error: No configuration is loaded.");
 			System.err.println("An exception was caught.");
 			e.printStackTrace();
 		}
 
 	}
+	
+	
+	
 	
 	/**
 	 * Write to textarea

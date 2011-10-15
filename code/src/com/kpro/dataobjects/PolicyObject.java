@@ -1,6 +1,7 @@
 package com.kpro.dataobjects;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -90,6 +91,9 @@ public class PolicyObject implements Serializable
 	 * @return ArrayList<Case>
 	 */
 	public ArrayList<Case> getCases(){
+		//must be sorted for the .equalCases method=> sort cases by datatype
+
+		Collections.sort(cases);
 		return cases;
 	}
 	
@@ -157,6 +161,8 @@ public class PolicyObject implements Serializable
 		}
 	}
 	/**
+	 * This is based on the debug_print and SHOULD BE TAKEN SERIOUSLY.
+	 * 
 	 * @author ulfnore
 	 */
 	public String toString()
@@ -166,15 +172,15 @@ public class PolicyObject implements Serializable
 
 		str += "\nENTITY";
 		for(String key : entity.keySet())
-			str += "KEY: " + key + ", VAL: " + entity.get(key);
+			str += "\nKEY: " + key + ", VAL: " + entity.get(key);
 
 		
-		str += "\nCONTEXT";
+		str += "\nCONTEXT: ";
 		str += context.getAccessTime();
 		
 		if(actionTaken != null)
 		{
-			str += "\nACTION";
+			str += "\nACTION: ";
 			str += actionTaken.getAccepted();
 		}
 		
@@ -184,5 +190,13 @@ public class PolicyObject implements Serializable
 		}
 		
 		return str;
+	}
+
+	public boolean equalsCases(PolicyObject newpol) {
+		if(! getContextDomain().equals(newpol.getContextDomain()))
+			return false;
+		if(!getCases().equals(newpol.getCases()))
+			return false;	
+		return true;
 	}
 }

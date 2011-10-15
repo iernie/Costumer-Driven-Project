@@ -121,6 +121,18 @@ Users can register for weekly email reminders of new offers as they are availabl
     </DATA-GROUP>
 </STATEMENT>
 
+<CONTEXT>
+	<URL>www.coupons.com</URL>
+	<ACCESSTIME>20110916</ACCESSTIME>
+	<CREATIONTIME>20110916</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>false</ACCEPTED>
+	<DOMAINS>www.coupons.com</DOMAINS>
+	<USEROVERRIDE>false</USEROVERRIDE>
+</ACTION>
+
 <!-- End of policy -->
 </POLICY>
 </POLICIES>

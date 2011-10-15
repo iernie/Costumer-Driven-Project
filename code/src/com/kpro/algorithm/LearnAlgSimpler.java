@@ -1,4 +1,4 @@
-package com.kpro.algorithm;
+/*package com.kpro.algorithm;
 
 import java.util.Properties;
 import com.kpro.database.PDatabase;
@@ -42,3 +42,4 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 		return countyes/(countyes+countno);
 	}
 }
+*/

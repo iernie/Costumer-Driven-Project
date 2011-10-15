@@ -154,6 +154,18 @@ Information we collect in order to provide e-mail newsletters or Web site servic
     </DATA-GROUP>
 </STATEMENT>
 
+<CONTEXT>
+	<URL>www.cnet.com</URL>
+	<ACCESSTIME>20110714</ACCESSTIME>
+	<CREATIONTIME>201006024</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>true</ACCEPTED>
+	<DOMAINS>www.vistaprint.com</DOMAINS>
+	<USEROVERRIDE>false</USEROVERRIDE>
+</ACTION>
+
 <!-- End of policy -->
 </POLICY>
 </POLICIES>

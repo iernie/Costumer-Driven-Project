@@ -142,6 +142,19 @@
 					<DATA ref="#user.name.given"></DATA>
 				</DATA-GROUP>
 			</STATEMENT>
+			
+			<CONTEXT>
+				<URL>www.a1golf.com</URL>
+				<ACCESSTIME>20110824</ACCESSTIME>
+				<CREATIONTIME>20070311</CREATIONTIME>
+			</CONTEXT>
+			
+			<ACTION>
+				<ACCEPTED>true</ACCEPTED>
+				<DOMAINS>www.golf.com</DOMAINS>
+				<USEROVERRIDE>false</USEROVERRIDE>
+			</ACTION>
+
 		</POLICY>
 	</POLICIES>
 </META>

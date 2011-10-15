@@ -106,6 +106,18 @@ The information collected for services will vary, but can include your name, add
     </DATA-GROUP>
 </STATEMENT>
 
+<CONTEXT>
+	<URL>www.nwsource.com</URL>
+	<ACCESSTIME>20090909</ACCESSTIME>
+	<CREATIONTIME>20090909</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>false</ACCEPTED>
+	<DOMAINS>www.daduru.com</DOMAINS>
+	<USEROVERRIDE>false</USEROVERRIDE>
+</ACTION>
+
 </POLICY>
 </POLICIES>
 

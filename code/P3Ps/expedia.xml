@@ -154,4 +154,17 @@
       <DATA ref="#dynamic.http.referer"/>
     </DATA-GROUP>
   </STATEMENT>
+  
+  	<CONTEXT>
+		<URL>www.kohls.com</URL>
+		<ACCESSTIME>20111011</ACCESSTIME>
+		<CREATIONTIME>20060905</CREATIONTIME>
+	</CONTEXT>
+	
+	<ACTION>
+		<ACCEPTED>true</ACCEPTED>
+		<DOMAINS>www.travel.com</DOMAINS>
+		<USEROVERRIDE>true</USEROVERRIDE>
+	</ACTION>
+
 </POLICY>

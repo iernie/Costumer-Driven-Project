@@ -14,7 +14,7 @@ public abstract class UserIO {
 	
 	
 	/**
-	 * returns a new String[] args to use init on.
+	 * returns a modified Properties to use init on.
 	 * 
 	 * @param genProps the default values for all commandline arguments
 	 * @return the values to initialize the program with- same as usual args from main

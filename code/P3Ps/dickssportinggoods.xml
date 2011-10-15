@@ -42,5 +42,18 @@
     <DATA ref="#thirdparty.name" optional="yes"/>
     </DATA-GROUP>
 </STATEMENT>
+
+<CONTEXT>
+	<URL>www.dickssportinggoods.com</URL>
+	<ACCESSTIME>20110221</ACCESSTIME>
+	<CREATIONTIME>20090807</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>true</ACCEPTED>
+	<DOMAINS>www.dickssportinggoods.com</DOMAINS>
+	<USEROVERRIDE>false</USEROVERRIDE>
+</ACTION>
+
 </POLICY>
 </POLICIES>

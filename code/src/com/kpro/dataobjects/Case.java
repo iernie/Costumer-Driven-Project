@@ -1,24 +1,16 @@
 package com.kpro.dataobjects;
 import java.util.ArrayList;
+
 /**
+ * This class doesn't need comments.
+ * They are all getters and setters/adders.
+ * If you don't know what those do, read a book about programming.
  * 
- * 
- * 
- * ???????????????????
- * WHY HAS THIS CLASS NO COMMENTS IN IT????????
- * ????????????????????
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * @author ulfnore
+ * @author ernie
  *
  */
 
-public class Case {
+public class Case implements Comparable{
 	
 	private ArrayList<Purpose> purpose;
 	private ArrayList<Retention> retention;
@@ -118,6 +110,47 @@ public class Case {
 		return datatype;
 	}
 	
+	/**
+	 * Based on debug.print
+	 * @author ulfnore
+	 */
+	public String toString(){
+		String str = "\nDATATYPE: " + datatype +"\n";
+		
+		str += "PURPOSE:\n";
+		for(Purpose p: purpose)
+			str += "\t " + p + "\n";
+		
+		str += "RECIPIENTS:\n";
+		for(Recipient r: recipient)
+			str += "\t" + r + "\n";
+		
+		str += "RETENTION: \n";
+		for(Retention r: retention)
+			str += "\t" + r + "\n";
+		
+		if(datatype.equalsIgnoreCase("#dynamic.miscdata"))
+		{
+			str += "CATEGORY: \n";
+			for(Category c: categories)
+				str +="\t"+ c +"\n";
+		}
+		
+		return str;
+	}
+	
+	/**
+	 * to allow comparision of cases, primarily for white/blacklisting.
+	 * 
+	 * @param another object (a case)
+	 * @return -1 if this > other, 0 if equal, else 1
+	 * @author ngerstle
+	 */
+	public int compareTo(Object o) {
+		
+		return toString().compareToIgnoreCase(((Case)o).toString());
+	}
+	
 	// DEBUG
 	
 	public void debug_print()
@@ -147,35 +180,4 @@ public class Case {
 			}	
 		}
 	}
-	/**
-	 * Based on debug.print
-	 * @author ulfnore
-	 */
-	public String toString(){
-		String str = " Case ";
-		
-		str += "DATATYPE: " + datatype +"\n";
-		
-		str += "PURPOSE:\n";
-		for(Purpose p: purpose)
-			str += "\t " + p + "\n";
-
-		str += "RECIPIENTS:\n";
-		for(Recipient r: recipient)
-			str += "\t" + r + "\n";
-
-		str += "RETENTION: \n";
-		for(Retention r: retention)
-			str += "\t" + r + "\n";
-
-		if(datatype.equalsIgnoreCase("#dynamic.miscdata"))
-		{
-			str += "CATEGORY: \n";
-			for(Category c: categories)
-				str +="\t"+ c +"\n";
-		}
-		
-		return str;
-	}
-	
 }

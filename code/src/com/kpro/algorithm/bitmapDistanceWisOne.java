@@ -23,45 +23,44 @@ import com.kpro.dataobjects.Retention;
  * @version 240911.01 
  * @author dimitryk
  */
-public class bitmapDistance implements DistanceMetric{
+public class bitmapDistanceWisOne implements DistanceMetric{
 	private static Properties weightsConfig;
-	
 	private double ours, delivery, same, other_recipient, unrelated, pub;
 	private double current, admin, develop, tailoring, pseudo_analysis, pseudo_decision;
 	private double individual_analysis, individual_decision, contact, historical, telemarketing, other_purpose;
 	private double no_retention, stated_purpose, legal_requirement, business_practices, indefinitely;
 	
-	bitmapDistance(Properties weights){
+	bitmapDistanceWisOne(Properties weights){
 		weightsConfig = weights;
 		}
 	
 	private void setWeights(){
 		//recipients
-		ours=Double.parseDouble(weightsConfig.getProperty("ours"));
-		delivery=Double.parseDouble(weightsConfig.getProperty("delivery"));
-		same=Double.parseDouble(weightsConfig.getProperty("same"));
-		other_recipient=Double.parseDouble(weightsConfig.getProperty("other_recipient"));
-		unrelated=Double.parseDouble(weightsConfig.getProperty("unrelated"));
-		pub=Double.parseDouble(weightsConfig.getProperty("public"));
+		ours=1;//Double.parseDouble(weightsConfig.getProperty("ours"));
+		delivery=1;//=Double.parseDouble(weightsConfig.getProperty("delivery"));
+		same=1;//=Double.parseDouble(weightsConfig.getProperty("same"));
+		other_recipient=1;//=Double.parseDouble(weightsConfig.getProperty("other_recipient"));
+		unrelated=1;//=Double.parseDouble(weightsConfig.getProperty("unrelated"));
+		pub=1;//=Double.parseDouble(weightsConfig.getProperty("public"));
 		//purpose
-		current=Double.parseDouble(weightsConfig.getProperty("current"));
-		admin=Double.parseDouble(weightsConfig.getProperty("admin"));
-		develop= Double.parseDouble(weightsConfig.getProperty("develop"));
-		tailoring=Double.parseDouble(weightsConfig.getProperty("tailoring"));
-		pseudo_analysis=Double.parseDouble(weightsConfig.getProperty("pseudo_analysis"));
-		pseudo_decision=Double.parseDouble(weightsConfig.getProperty("pseudo_decision"));
-		individual_analysis=Double.parseDouble(weightsConfig.getProperty("individual_analysis"));
-		individual_decision=Double.parseDouble(weightsConfig.getProperty("individual_decision"));
-		contact=Double.parseDouble(weightsConfig.getProperty("contact"));
-		historical=Double.parseDouble(weightsConfig.getProperty("historical"));
-		telemarketing=Double.parseDouble(weightsConfig.getProperty("telemarketing"));
-		other_purpose=Double.parseDouble(weightsConfig.getProperty("other_purpose"));
+		current=1;//=Double.parseDouble(weightsConfig.getProperty("current"));
+		admin=1;//=Double.parseDouble(weightsConfig.getProperty("admin"));
+		develop=1;//= Double.parseDouble(weightsConfig.getProperty("develop"));
+		tailoring=1;//=Double.parseDouble(weightsConfig.getProperty("tailoring"));
+		pseudo_analysis=1;//=Double.parseDouble(weightsConfig.getProperty("pseudo_analysis"));
+		pseudo_decision=1;//=Double.parseDouble(weightsConfig.getProperty("pseudo_decision"));
+		individual_analysis=1;//=Double.parseDouble(weightsConfig.getProperty("individual_analysis"));
+		individual_decision=1;//=Double.parseDouble(weightsConfig.getProperty("individual_decision"));
+		contact=1;//=Double.parseDouble(weightsConfig.getProperty("contact"));
+		historical=1;//=Double.parseDouble(weightsConfig.getProperty("historical"));
+		telemarketing=1;//=Double.parseDouble(weightsConfig.getProperty("telemarketing"));
+		other_purpose=1;//=Double.parseDouble(weightsConfig.getProperty("other_purpose"));
 		//retention
-		no_retention=Double.parseDouble(weightsConfig.getProperty("no_retention"));
-		stated_purpose=Double.parseDouble(weightsConfig.getProperty("stated_purpose"));
-		legal_requirement=Double.parseDouble(weightsConfig.getProperty("legal_requirement"));
-		business_practices=Double.parseDouble(weightsConfig.getProperty("business_practices"));
-		indefinitely=Double.parseDouble(weightsConfig.getProperty("indefinitely"));
+		no_retention=1;//=Double.parseDouble(weightsConfig.getProperty("no_retention"));
+		stated_purpose=1;//=Double.parseDouble(weightsConfig.getProperty("stated_purpose"));
+		legal_requirement=1;//=Double.parseDouble(weightsConfig.getProperty("legal_requirement"));
+		business_practices=1;//=Double.parseDouble(weightsConfig.getProperty("business_practices"));
+		indefinitely=1;//=Double.parseDouble(weightsConfig.getProperty("indefinitely"));
 		
 	}
 	
@@ -219,7 +218,7 @@ public class bitmapDistance implements DistanceMetric{
 		}
 		
 		
-		return dis * Double.parseDouble(weightsConfig.getProperty("recipient"));// dis*weight later
+		return dis * 1;//Double.parseDouble(weightsConfig.getProperty("recipient"));// dis*weight later
 	}
 
 	/**
@@ -244,7 +243,7 @@ public class bitmapDistance implements DistanceMetric{
 		}
 		
 		
-		return dis * Double.parseDouble(weightsConfig.getProperty("retention"));// dis*weight later
+		return dis *1;// Double.parseDouble(weightsConfig.getProperty("retention"));// dis*weight later
 	}
 
 	/**
@@ -269,7 +268,7 @@ public class bitmapDistance implements DistanceMetric{
 		}
 		
 		
-		return dis*Double.parseDouble(weightsConfig.getProperty("purpose"));// dis*weight later
+		return dis*1;//Double.parseDouble(weightsConfig.getProperty("purpose"));// dis*weight later
 	}
 
 	private double getSumDistance(Case a, Case b) {

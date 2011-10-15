@@ -257,6 +257,18 @@ won't be tailored to your interests.</CONSEQUENCE>
     </DATA-GROUP>
 </STATEMENT>
 
+<CONTEXT>
+	<URL>www.ebay.com</URL>
+	<ACCESSTIME>20111014</ACCESSTIME>
+	<CREATIONTIME>200402013</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>true</ACCEPTED>
+	<DOMAINS>www.craigslist.com</DOMAINS>
+	<USEROVERRIDE>false</USEROVERRIDE>
+</ACTION>
+
 <!-- End of policy -->
 </POLICY>
 </POLICIES>

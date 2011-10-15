@@ -69,6 +69,19 @@
 					</DATA>
 				</DATA-GROUP>
 			</STATEMENT>
+			
+			<CONTEXT>
+				<URL>www.pricegrabber.com</URL>
+				<ACCESSTIME>20111013</ACCESSTIME>
+				<CREATIONTIME>20101207</CREATIONTIME>
+			</CONTEXT>
+			
+			<ACTION>
+				<ACCEPTED>false</ACCEPTED>
+				<DOMAINS>www.prices.com</DOMAINS>
+				<USEROVERRIDE>false</USEROVERRIDE>
+			</ACTION>
+			
 		</POLICY>
 	</POLICIES>
 </META>
