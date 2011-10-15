@@ -37,12 +37,12 @@ import com.kpro.dataobjects.Retention;
 		
 		private void setWeights(){
 			//recipients
-			ours=Double.parseDouble(weightsConfig.getProperty("recipients.ours"));
-			delivery=Double.parseDouble(weightsConfig.getProperty("recipients.delivery"));
-			same=Double.parseDouble(weightsConfig.getProperty("recipients.same"));
-			other_recipient=Double.parseDouble(weightsConfig.getProperty("recipients.other_recipient"));
-			unrelated=Double.parseDouble(weightsConfig.getProperty("recipients.unrelated"));
-			pub=Double.parseDouble(weightsConfig.getProperty("recipients.public"));
+			ours=Double.parseDouble(weightsConfig.getProperty("recipient.ours"));
+			delivery=Double.parseDouble(weightsConfig.getProperty("recipient.delivery"));
+			same=Double.parseDouble(weightsConfig.getProperty("recipient.same"));
+			other_recipient=Double.parseDouble(weightsConfig.getProperty("recipient.other_recipient"));
+			unrelated=Double.parseDouble(weightsConfig.getProperty("recipient.unrelated"));
+			pub=Double.parseDouble(weightsConfig.getProperty("recipient.public"));
 			//purpose
 			current=Double.parseDouble(weightsConfig.getProperty("purpose.current"));
 			admin=Double.parseDouble(weightsConfig.getProperty("purpose.admin"));
