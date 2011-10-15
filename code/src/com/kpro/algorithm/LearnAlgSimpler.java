@@ -2,6 +2,8 @@ package com.kpro.algorithm;
 
 import java.util.Properties;
 import com.kpro.database.PDatabase;
+import com.kpro.database.PolicyDatabase;
+import com.kpro.dataobjects.Case;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.main.Gio;
 
@@ -14,47 +16,29 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 
 	@Override
 	protected Properties applyML(Gio theIO) {
-		WeightsIO w = new WeightsIO();
-
-		
-			double corr =0;
-			for(Object i : getVals(i))
-			{
-				prop.setProptery(prop.get(new String(i)).reeval(pdb));
-				corr (add corr above)
+		Properties weights = theIO.getWeights();
+		PolicyDatabase pdb = theIO.getPDB();
+		Properties newWeights = new Properties();
+		for(Object i : weights.entrySet()){
+			for(PolicyObject po : pdb.getCollection()){
+				newWeights.setProperty(i.toString(), Double.toString(correlation(po, i.toString())));
 			}
-			i.setProp (weight(corr));
-		
-	}
-	
-	private double reeval(PDatabase pdb)
-	{
-		int i = 0;
-		for(PolicyObject po : pdb.getCollection())
-		{
-			correlation(po, i);
-			i++;
 		}
-		
+		return newWeights;
 	}
 
-	private double correlation(PolicyObject po, int i)
-	{
+
+	private double correlation(PolicyObject po, String i){
 		int countyes = 0;
 		int countno = 0;
-		for (i in PDatabase)
-		{
-			if(prop i)
-			{
-				if(po.getAction().isAccepted())
-				{
-					countyes ++;
-				}
-				else
-					countno ++;
-				}
+		if(po.getEntity(i)!=null){
+			if(po.getAction().isAccepted()){
+				countyes ++;
+			}
+			else{
+				countno ++;
 			}
 		}
-		return countyes/(countyes+countno)
+		return countyes/(countyes+countno);
 	}
 }
