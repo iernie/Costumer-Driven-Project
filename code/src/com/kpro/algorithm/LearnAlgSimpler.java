@@ -1,9 +1,7 @@
-/*package com.kpro.algorithm;
+package com.kpro.algorithm;
 
 import java.util.Properties;
-import com.kpro.database.PDatabase;
 import com.kpro.database.PolicyDatabase;
-import com.kpro.dataobjects.Case;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.main.Gio;
 
@@ -32,7 +30,7 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 		int countyes = 0;
 		int countno = 0;
 		if(po.getEntity(i)!=null){
-			if(po.getAction().isAccepted()){
+			if(po.getAction().getAccepted()){
 				countyes ++;
 			}
 			else{
@@ -42,4 +40,3 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 		return countyes/(countyes+countno);
 	}
 }
-*/
