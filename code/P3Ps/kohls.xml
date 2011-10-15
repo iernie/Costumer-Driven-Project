@@ -153,7 +153,18 @@ Information we collect in order to process your purchase.</CONSEQUENCE>
     </DATA-GROUP>
 </STATEMENT>
 
+<CONTEXT>
+	<URL>www.kohls.com</URL>
+	<ACCESSTIME>20110712</ACCESSTIME>
+	<CREATIONTIME>20110712</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>true</ACCEPTED>
+	<DOMAINS>www.cnet.com</DOMAINS>
+	<USEROVERRIDE>false</USEROVERRIDE>
+</ACTION>
+
 <!-- End of policy -->
 </POLICY>
 </POLICIES>
-

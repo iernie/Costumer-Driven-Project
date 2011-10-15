@@ -142,5 +142,18 @@
 		</DATA>
 	</DATA-GROUP>
   </STATEMENT>
+  
+  	<CONTEXT>
+		<URL>www.yahoo.com</URL>
+		<ACCESSTIME>20111014</ACCESSTIME>
+		<CREATIONTIME>20040203</CREATIONTIME>
+   	</CONTEXT>
+	
+	<ACTION>
+		<ACCEPTED>true</ACCEPTED>
+		<DOMAINS>www.google.com</DOMAINS>
+		<USEROVERRIDE>false</USEROVERRIDE>
+	</ACTION>
+
 </POLICY>
 </POLICIES><!-- w3.help.bf1.yahoo.com compressed/chunked Fri Sep  9 13:07:03 UTC 2011 -->

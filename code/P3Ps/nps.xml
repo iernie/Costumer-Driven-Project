@@ -69,5 +69,18 @@ Data collected from all Web users: access logs and search strings (if entered).
             </DATA>
           </DATA-GROUP>
         </STATEMENT>
+        
+        <CONTEXT>
+			<URL>www.nps.gov</URL>
+			<ACCESSTIME>20111012</ACCESSTIME>
+			<CREATIONTIME>20061101</CREATIONTIME>
+		</CONTEXT>
+		
+		<ACTION>
+			<ACCEPTED>true</ACCEPTED>
+			<DOMAINS>www.ssa.gov</DOMAINS>
+			<USEROVERRIDE>false</USEROVERRIDE>
+		</ACTION>
+
       </POLICY>
     </POLICIES>

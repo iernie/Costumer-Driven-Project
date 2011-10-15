@@ -43,5 +43,18 @@
     <DATA ref="#thirdparty.name" optional="yes"/>
     </DATA-GROUP>
 </STATEMENT>
+
+<CONTEXT>
+	<URL>www.toysrus.com</URL>
+	<ACCESSTIME>20110317</ACCESSTIME>
+	<CREATIONTIME>20080719</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>true</ACCEPTED>
+	<DOMAINS>www.yahoo.com</DOMAINS>
+	<USEROVERRIDE>true</USEROVERRIDE>
+</ACTION>
+
 </POLICY>
 </POLICIES>

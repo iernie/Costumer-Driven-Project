@@ -92,7 +92,17 @@
 
    </STATEMENT>
 
-
+	<CONTEXT>
+		<URL>www.ussearch.com</URL>
+		<ACCESSTIME>20111011</ACCESSTIME>
+		<CREATIONTIME>20080212</CREATIONTIME>
+	</CONTEXT>
+	
+	<ACTION>
+		<ACCEPTED>true</ACCEPTED>
+		<DOMAINS>www.yahoo.com</DOMAINS>
+		<USEROVERRIDE>false</USEROVERRIDE>
+	</ACTION>
 
 <!-- End of policy -->
 </POLICY>

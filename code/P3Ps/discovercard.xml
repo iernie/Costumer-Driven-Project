@@ -103,6 +103,19 @@
           </DATA>
         </DATA-GROUP>
       </STATEMENT>
+      
+      	<CONTEXT>
+			<URL>www.discovercard.com</URL>
+			<ACCESSTIME>20111001</ACCESSTIME>
+			<CREATIONTIME>20050108</CREATIONTIME>
+		</CONTEXT>
+		
+		<ACTION>
+			<ACCEPTED>true</ACCEPTED>
+			<DOMAINS>www.visa.com</DOMAINS>
+			<USEROVERRIDE>false</USEROVERRIDE>
+		</ACTION>
+
     </POLICY>
   </POLICIES>
 </META>

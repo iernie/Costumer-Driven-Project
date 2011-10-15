@@ -66,6 +66,19 @@
 				<DATA ref="#dynamic.miscdata" optional="no"><CATEGORIES><physical/><online/><uniqueid/><purchase/><financial/><computer/><navigation/><interactive/><demographic/><preference/><location/></CATEGORIES></DATA>
 			</DATA-GROUP>
 		</STATEMENT>
+		
+		<CONTEXT>
+			<URL>www.fool.com</URL>
+			<ACCESSTIME>20110417</ACCESSTIME>
+			<CREATIONTIME>20110417</CREATIONTIME>
+		</CONTEXT>
+		
+		<ACTION>
+			<ACCEPTED>false</ACCEPTED>
+			<DOMAINS>www.cstv.com</DOMAINS>
+			<USEROVERRIDE>true</USEROVERRIDE>
+		</ACTION>
+
 		<!-- End of policy -->
 	</POLICY>
 </POLICIES>

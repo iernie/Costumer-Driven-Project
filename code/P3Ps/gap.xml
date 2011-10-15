@@ -42,5 +42,18 @@
     <DATA ref="#dynamic.miscdata" optional="yes"><CATEGORIES><preference/></CATEGORIES></DATA>
     </DATA-GROUP>
 </STATEMENT>
+
+<CONTEXT>
+	<URL>www.gap.com</URL>
+	<ACCESSTIME>20080208</ACCESSTIME>
+	<CREATIONTIME>20080208</CREATIONTIME>
+</CONTEXT>
+
+<ACTION>
+	<ACCEPTED>false</ACCEPTED>
+	<DOMAINS>www.koaladir.com</DOMAINS>
+	<USEROVERRIDE>false</USEROVERRIDE>
+</ACTION>
+
 </POLICY>
 </POLICIES>

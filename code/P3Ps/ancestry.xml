@@ -81,6 +81,18 @@
 		</DATA-GROUP>
 	</STATEMENT>
 
+	<CONTEXT>
+		<URL>www.ancestry.com</URL>
+		<ACCESSTIME>20111003</ACCESSTIME>
+		<CREATIONTIME>20081130</CREATIONTIME>
+	</CONTEXT>
+	
+	<ACTION>
+		<ACCEPTED>true</ACCEPTED>
+		<DOMAINS>www.ancestry.com</DOMAINS>
+		<USEROVERRIDE>true</USEROVERRIDE>
+	</ACTION>
+
 <!-- End of policy -->
 </POLICY>
 

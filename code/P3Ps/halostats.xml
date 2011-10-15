@@ -121,6 +121,19 @@
 					<DATA ref="#user.name.given"></DATA>
 				</DATA-GROUP>
 			</STATEMENT>
+			
+			<CONTEXT>
+				<URL>www.halostats.com</URL>
+				<ACCESSTIME>20111013</ACCESSTIME>
+				<CREATIONTIME>20100224</CREATIONTIME>
+			</CONTEXT>
+			
+			<ACTION>
+				<ACCEPTED>true</ACCEPTED>
+				<DOMAINS>www.halo.com</DOMAINS>
+				<USEROVERRIDE>true</USEROVERRIDE>
+			</ACTION>
+
 		</POLICY>
 	</POLICIES>
 </META>
