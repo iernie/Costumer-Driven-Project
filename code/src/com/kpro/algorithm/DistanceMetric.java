@@ -1,4 +1,7 @@
 package com.kpro.algorithm;
+
+import java.util.Properties;
+
 import com.kpro.dataobjects.PolicyObject;
 
 /**
@@ -15,8 +18,9 @@ import com.kpro.dataobjects.PolicyObject;
  * @version 160911.1
  * @author dimitryk
  */
-public interface DistanceMetric {
+public abstract class DistanceMetric {
 	
+	Properties weightsConfig;
 	/**
 	 * Calculates total distance between all fields
 	 * 
@@ -26,6 +30,11 @@ public interface DistanceMetric {
 	 * @return double 0 if cases are similar and positive integer if they are not
 	 */
 	
-	public double getTotalDistance(PolicyObject a, PolicyObject b);
+	
+	protected DistanceMetric(Properties weights){
+		this.weightsConfig = weights;
+	}
+	
+	public abstract double getTotalDistance(PolicyObject a, PolicyObject b);
 
 }

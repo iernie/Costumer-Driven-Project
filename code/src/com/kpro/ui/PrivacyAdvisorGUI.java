@@ -6,9 +6,12 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -32,7 +35,7 @@ import javax.swing.JInternalFrame;
  * @author ulfnore
  *
  */
-public class PrivacyAdvisorGUI extends UserIO{
+public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 
 	private JFrame frame;
 	private String weightsPath;
@@ -129,34 +132,48 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 * Called from GIO. Takes default properties file as argument.
 	 * @author ulfnore
 	 */
+//	@Override
+//	public Properties user_init(Properties genProps) {
+//		if (props == null)
+//		{
+//			props = genProps;
+//			Enumeration e = genProps.propertyNames();
+//			println("Properties file loaded.\n");
+//			while (e.hasMoreElements()) 
+//			{
+//				String key = (String)e.nextElement();
+//	//			System.out.println(key+": "+ genProps.getProperty(key));
+//				println(key+": "+ genProps.getProperty(key));
+//				
+//			}
+//		} 
+//		return props;
+//	}	
 	@Override
-	public Properties user_init(Properties genProps) {
-		if (props == null)
-		{
-			props = genProps;
-			Enumeration e = genProps.propertyNames();
-			println("Properties file loaded.\n");
-			while (e.hasMoreElements()) 
-			{
-				String key = (String)e.nextElement();
-	//			System.out.println(key+": "+ genProps.getProperty(key));
-				println(key+": "+ genProps.getProperty(key));
-				
-			}
-		} 
-		return props;
+	public Properties user_init(Properties genProps){
+		confEditor ce= new confEditor(genProps);
+		ce.start();
+		try {
+			ce.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return genProps;
 	}
-
+	
+	
 	/**
 	 * Output database to textArea
 	 */
 	@Override
 	public void showDatabase(PolicyDatabase pdb) {
-		//System.out.println("Printing pdb:");
-		//System.err.println(pdb == null);
-		//for(PolicyObject po : pdb) System.out.println(po);
-		//System.out.println(pdb.toString());
-		outputArea.setText(pdb.toString());
+		System.out.println("Printing pdb:");
+		System.err.println(pdb == null);
+//		for(PolicyObject po : pdb) System.out.println(po);
+//		System.out.println(pdb.toString());
+		println(pdb.toString());
 	}
 
 	@Override
@@ -176,7 +193,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 	public PolicyObject userResponse(PolicyObject n) {
 		
 		String recommendation = n.getAction().getAccepted() == true ? "Accept" : "Reject";
-		//for (String str : n.getEntities().keySet()) System.out.println( str );
+		for (String str : n.getEntities().keySet()) System.out.println( str );
 		int response = 2;
 		while(response == 2)
 			response = JOptionPane.showConfirmDialog(null, 
@@ -224,28 +241,37 @@ public class PrivacyAdvisorGUI extends UserIO{
 	
 	
 	private void loadConf(){
-//		System.out.println("In loadConf(): " +System.getProperty("user.dir"));
-		if (props != null){// load modified config file from output area into a properties object, pass to gio 
-			try{
-			String[] config  = outputArea.getSelectedText().split("\n");
-			props = new Properties();
-			for(String str : config){
-				props.setProperty(str.split(": ")[0], str.split(": ")[1]);
-			}
-			}catch (Exception e){
-				println("Error. Invalid configuration.");
-				return;
-			}
-
-		}
-		try{
-		gio = new Gio(null, this);  // user_init called from constructor
-		}
-		catch(Exception e)
-		{
-			println("Error opening config file.");
+		try {
+			gio = new Gio(null, this);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
+	
+//	private void loadConf(){
+////		System.out.println("In loadConf(): " +System.getProperty("user.dir"));
+//		if (props != null){// load modified config file from output area into a properties object, pass to gio 
+//			try{
+//			String[] config  = outputArea.getSelectedText().split("\n");
+//			props = new Properties();
+//			for(String str : config){
+//				props.setProperty(str.split(": ")[0], str.split(": ")[1]);
+//			}
+//			}catch (Exception e){
+//				println("Error. Invalid configuration.");
+//				return;
+//			}
+//
+//		}
+//		try{
+//			gio = new Gio(null, this);  // user_init called from constructor
+//		}
+//		catch(Exception e)
+//		{
+//			println("Error opening config file.");
+//		}
+//	}
 	
 	
 	private void loadDB()

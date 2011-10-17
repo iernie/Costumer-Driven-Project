@@ -205,8 +205,9 @@ public class Gio {
 	 * @param string the string to parse
 	 * @return the CBR to use
 	 * @author ngerstle
+	 * @throws Exception 
 	 */
-	private CBR parseCBR(String string) {
+	private CBR parseCBR(String string) throws Exception {
 
 		try {
 			return (string == null)?(null):(new CBR(this)).parse(string);
@@ -604,8 +605,9 @@ public class Gio {
 	 * 
 	 * @return the cbr to use
 	 * @author ngerstle
+	 * @throws Exception 
 	 */
-	public CBR getCBR() {
+	public CBR getCBR() throws Exception {
 		return parseCBR(genProps.getProperty("cbrV",null));
 	}
 
