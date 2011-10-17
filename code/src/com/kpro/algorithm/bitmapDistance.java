@@ -16,7 +16,7 @@ package com.kpro.algorithm;
 	import com.kpro.dataobjects.PolicyObject;
 	import com.kpro.dataobjects.Purpose;
 	import com.kpro.dataobjects.Recipient;
-import com.kpro.dataobjects.Retention;
+	import com.kpro.dataobjects.Retention;
 
 	/**
 	 * A distance metric that calculates distance based on 
@@ -24,16 +24,15 @@ import com.kpro.dataobjects.Retention;
 	 * @version 240911.01 
 	 * @author dimitryk
 	 */
-	public class bitmapDistance implements DistanceMetric{
-		private static Properties weightsConfig;
+	public class bitmapDistance extends DistanceMetric{
 		private double ours, delivery, same, other_recipient, unrelated, pub;
 		private double current, admin, develop, tailoring, pseudo_analysis, pseudo_decision;
 		private double individual_analysis, individual_decision, contact, historical, telemarketing, other_purpose;
 		private double no_retention, stated_purpose, legal_requirement, business_practices, indefinitely;
 		
-		bitmapDistance(Properties weights){
-			weightsConfig = weights;
-			}
+		public bitmapDistance(Properties weights){
+			super(weights);
+		}
 		
 		private void setWeights(){
 			//recipients
@@ -259,6 +258,39 @@ import com.kpro.dataobjects.Retention;
 			for(int i=0;i<Math.min(DataStringsA.length, DataStringsB.length);i++){ 
 				if(!(DataStringsA[i].equals(DataStringsB[i])))break;		
 				LastSameString++;
+			}
+			/*
+			 * if the "root" is different we say that data-types have larger distance 
+			 * then when just "tails" that are different
+			 * then we multiply distance with a specific factor choosen by expert knowledge 
+			 */
+			if(LastSameString==0){
+				int valueA=2, valueB=1;
+				if(DataStringsA[0].equals("dynamic")){
+					valueA=4;
+				}
+				else if(DataStringsA[0].equals("user")){
+					valueA=1;
+				}
+				else if(DataStringsA[0].equals("thirdparty")){
+					valueA=3;
+				}
+				else{
+					valueA=2;
+				}
+				if(DataStringsB[0].equals("dynamic")){
+					valueB=4;
+				}
+				else if(DataStringsB[0].equals("user")){
+					valueB=1;
+				}
+				else if(DataStringsB[0].equals("thirdparty")){
+					valueB=3;
+				}
+				else{
+					valueB=2;
+				}
+				return (DataStringsA.length+DataStringsA.length)*(Math.max(valueA, valueB)-Math.min(valueA, valueB));
 			}
 			/*
 			 * returns lenght of "tails" that did not matched

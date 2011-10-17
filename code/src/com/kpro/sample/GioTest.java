@@ -22,9 +22,14 @@ public class GioTest {
 		String loc = "/Users/ulfnore/CustomerDrivenProject/Costumer-Driven-Project/code/P3Ps/snapfish.xml";
 		args[0] = "-newPolicyLoc "+loc;
 		
-		gio = new Gio(args); 
-		gio.loadDB();
-		
+		try {
+			gio = new Gio(args);
+
+			gio.loadDB();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 		
 	}
 	
