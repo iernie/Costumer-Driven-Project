@@ -20,12 +20,31 @@ particular to choices regarding the particular CBR algorithms
 
 [Description + pseudocode + potential improvements]
 
-\subsection{Similarity Measures}
+\emph{K-Nearest Neighbors} (k-NN) is a \emph{lazy, non-parametric} algorithm for classifying objects based on the classification of the nearest examples in a given feature space. k-NN is one of the simplest machine learning algorithms as it decides the classification based on a majority vote of, that is, an object is classified according to the most common classification of its $k$ nearest neighbors. The most critical component for the success of the k-NN algorithms is the definition of distance. This is discussed in Section~\ref{SimilarityMeasures}. 
+
+For testing purposes, we have implemented a very simple kNN that sorts the example set (knowledge base) by distance from the object to be classified and returns the k nearest objects. This is obviously not an optimal approach being $O(n lg(n))$ where $n$ denotes the size of the knowledge base. This is not problematic for a small scale application such as ours where the knowledge contains less than 200 objects. If the system is to be scaled up, it would require a new kNN implementation, of which there are several available.
+
+\subsection{Distance Measures}\label{SimilarityMeasures}
 
 [Definition of distance/similarity measure]
 
+Mathematically, a \emph{metric} or \emph{distance function} is a function defines the \emph{distance} between two objects in a set are, that is, it defines a notion of how far apart two objects are. In a purely mathematical sense, a distance function defined over a set $X$, $X\times X\longrightarrow \mathbb{R}$ that is required to obey the conditions of non-negativity, symmetry, sub-additivity (the triangle inequality) and identity of indiscernibles. 
+
+Some examples of commonly used metrics are the Euclidian, Mahalanobis, and City block distances. These metrics have all in common that $\mathbb{R}^n\times \mathbb{R}^n\longrightarrow \mathbb{R}$, which in the case of comparing privacy policies and corresponding context information, is problematic as these, in their raw form contain large amounts of textual data. Two remedies could be proposed for this situation:
+
+\begin{enumerate}
+\item Provide a function to map privacy objects (P3P policies and context info) to real vectors.
+\item Define a new metric that operates directly on privacy objects.
+\end{enumerate}
+ 
 \subsubsection{Customer Advise}
-[Describe what is proposed in the paper by SINTEF.]
+In the paper "Towards a Similarity Metric for Comparing Machine Readable Privacy Policies", the some of the problems of defining a similarity metric for privacy policies is discussed.
+
+[write about this here]
+
+They also propose a particular distance metric that is characterized by:
+
+[write about proposal here]
 
 \subsubsection{Implmentation}
 [Describe what is implemented. Strengths+weaknesses+reasons to deviate

@@ -42,8 +42,9 @@ public class PrivacyAdviser {
 	 * @author ngerstle
 	 * 
 	 * @param args accepts optional command line arguments, including location of general config file (default pwd) 
+	 * @throws Exception 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		//all initialization
 		init(args);
 		theIO.showDatabase();
@@ -68,9 +69,10 @@ public class PrivacyAdviser {
 	 * Initializes the program- loads general configuration, starts logger, loads weights, loads database
 	 * @author ngerstle
 	 * @param args accepts optional command line arguments, including location of general config file (default pwd) 
+	 * @throws Exception 
 	 *
 	 */
-	public static void init(String[] args)
+	public static void init(String[] args) throws Exception
 	{
 		//enable IO (and parse args
 		try {

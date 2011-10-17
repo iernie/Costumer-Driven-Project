@@ -24,16 +24,15 @@ import com.kpro.dataobjects.Retention;
 	 * @version 240911.01 
 	 * @author dimitryk
 	 */
-	public class Bitmapwithdata  implements DistanceMetric{
-		private static Properties weightsConfig;
+	public class Bitmapwithdata  extends DistanceMetric{
 		private double ours, delivery, same, other_recipient, unrelated, pub;
 		private double current, admin, develop, tailoring, pseudo_analysis, pseudo_decision;
 		private double individual_analysis, individual_decision, contact, historical, telemarketing, other_purpose;
 		private double no_retention, stated_purpose, legal_requirement, business_practices, indefinitely;
 		
 		Bitmapwithdata(Properties weights){
-			weightsConfig = weights;
-			}
+			super(weights);
+		}
 		
 		private void setWeights(){
 			//recipients
