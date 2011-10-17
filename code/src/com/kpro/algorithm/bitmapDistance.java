@@ -16,7 +16,7 @@ package com.kpro.algorithm;
 	import com.kpro.dataobjects.PolicyObject;
 	import com.kpro.dataobjects.Purpose;
 	import com.kpro.dataobjects.Recipient;
-import com.kpro.dataobjects.Retention;
+	import com.kpro.dataobjects.Retention;
 
 	/**
 	 * A distance metric that calculates distance based on 
@@ -30,7 +30,7 @@ import com.kpro.dataobjects.Retention;
 		private double individual_analysis, individual_decision, contact, historical, telemarketing, other_purpose;
 		private double no_retention, stated_purpose, legal_requirement, business_practices, indefinitely;
 		
-		bitmapDistance(Properties weights){
+		public bitmapDistance(Properties weights){
 			super(weights);
 		}
 		
@@ -290,7 +290,7 @@ import com.kpro.dataobjects.Retention;
 				else{
 					valueB=2;
 				}
-				return (DataStringsA.length+DataStringsA.length-2*LastSameString)*(Math.max(valueA, valueB)-Math.min(valueA, valueB));
+				return (DataStringsA.length+DataStringsA.length)*(Math.max(valueA, valueB)-Math.min(valueA, valueB));
 			}
 			/*
 			 * returns lenght of "tails" that did not matched
