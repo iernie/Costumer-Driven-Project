@@ -1,23 +1,24 @@
 package com.kpro.main;
+
 import java.io.File;			//for configuration file functionality
 import java.io.FileInputStream;		//for configuration file functionality and reading serialized objects
 import java.io.FileOutputStream;	//for writing the new weights config file
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
+import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 import java.util.Properties;		//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
 
 import com.kpro.algorithm.CBR;
-import com.kpro.dataobjects.Action;
-import com.kpro.dataobjects.Context;
-import com.kpro.dataobjects.PolicyObject;
-import com.kpro.datastorage.PDatabase;
-import com.kpro.datastorage.PolicyDatabase;
+import com.kpro.algorithm.LearnAlgorithm;
 import com.kpro.parser.P3PParser;
-import com.kpro.ui.UserIO;
-import com.kpro.ui.UserIO_Simple;
+
+import com.kpro.dataobjects.*;
+import com.kpro.datastorage.*;
+import com.kpro.ui.*;
+
 
 
 /*  to load a new database from a folder, but not use cbr on a new object. overwrites old db (-n option)
@@ -41,16 +42,18 @@ import com.kpro.ui.UserIO_Simple;
 public class Gio {
 
 
-	private static Logger logger = Logger.getLogger("");	//create logger object
-	private FileHandler fh = null;							//creates filehandler for logging
-	private Properties genProps = new Properties(); 		//holds all the property values
-	private Properties origWeights = null;					//the loaded weights file.
-	private Properties newWeights = null;					//the revised weights, following LearnAlgorithm. 
-	//written to disk by shutdown(). 
-	//also used in loading weights during init()
-	private UserIO userInterface = null;					//means of interacting with the user
-	private PolicyDatabase pdb;								//Policy database object
+	private static Logger logger = Logger.getLogger("");	/**create logger object*/
+	private FileHandler fh = null;							/**creates filehandler for logging*/
+	private Properties genProps = new Properties(); 		/**holds all the property values*/
+	private Properties origWeights = null;					/**the loaded weights file.*/
+	private Properties newWeights = null;					/**the revised weights, following LearnAlgorithm. 
+															written to disk by shutdown().
+															also used in loading weights during init()*/
+	private UserIO userInterface = null;					/**means of interacting with the user*/
+	private PolicyDatabase pdb;								/**Policy database object*/
+	private NetworkR nr;									/** Network Resource (community advice database)*/
 
+	
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
 	 * Constructs and parses command line arguements as well.
@@ -84,8 +87,13 @@ public class Gio {
 		//load the weights configuration file
 		origWeights = new Properties();
 		origWeights = loadWeights();
+		startNetwork();
 
 	}
+
+	
+	
+	
 
 	/**
 	 * A constructor permitting a user interface class to launch everything and be in control.
@@ -131,7 +139,7 @@ public class Gio {
 		//load the weights configuration file
 		origWeights = new Properties();
 		origWeights = loadWeights();
-
+		startNetwork();
 
 	}
 
@@ -266,8 +274,6 @@ public class Gio {
 		Properties configFile = new Properties();
 
 		try {
-			//System.err.println("current location is "+System.getProperty("user.dir"));
-			//System.err.println("fileLoc = ["+fileLoc+"]");
 			File localConfig = new File(fileLoc);
 			InputStream is = null;
 			if(localConfig.exists())
@@ -303,7 +309,6 @@ public class Gio {
 	 */
 	public Properties loadWeights() throws Exception
 	{
-		//		System.out.println("In loadWeights(): "+System.getProperty("user.dir"));
 		try 
 		{
 			if(genProps.getProperty("inWeightsLoc") == null)
@@ -317,7 +322,7 @@ public class Gio {
 			{
 				is = new FileInputStream(localConfig);
 			}
-			else // TODO: This should probably throw an exception to be handled by userIO. 
+			else 
 			{
 				System.err.println("No weights file is available at "+genProps.getProperty("inWeightsLoc")+
 						" . Please place one in the working directory.");
@@ -326,10 +331,10 @@ public class Gio {
 			origWeights = new Properties();
 			origWeights.load(is);
 		} 
-		catch (IOException e) // TODO: This should probably throw an exception to be handled by userIO. 
+		catch (IOException e)  
 		{
 			e.printStackTrace();
-			System.err.println("IOException reading the weights configuration file. Exiting...\n");
+			System.err.println("IOException reading the weights configuration file....\n");
 			throw new Exception("In class Gio.java:loadWeights(), IOException loading the weights from file "+genProps.getProperty("inWeightsLoc")+" .");
 		}
 		return origWeights;
@@ -378,12 +383,9 @@ public class Gio {
 	{
 		if(!Boolean.parseBoolean(genProps.getProperty("newDB")))
 		{
-			//System.err.println("newDB=false:  ["+genProps.getProperty("newDB"));
 			pdb.loadDB();
 		}
-		loadCLPolicies();
-		//System.out.println(pdb);
-		//System.err.println("Print pdb in gio:loaddb"+getPDB());
+		loadCLPolicies();	
 	}
 
 	/** 
@@ -452,10 +454,8 @@ public class Gio {
 				{
 					System.err.println("Einar needs to fix this parsing error.");
 					e.printStackTrace();
-					//System.exit(5);
 				}			
 			}
-			//System.err.println("2:Print pdb in gio:loadclpolicy"+pdb);
 		}
 	}
 
@@ -474,6 +474,7 @@ public class Gio {
 	 * 
 	 */
 	public void shutdown() {
+		
 		pdb.closeDB(); //save the db
 		if(newWeights == null)
 		{
@@ -614,5 +615,34 @@ public class Gio {
 	}
 
 
+	
+	/**
+	 * Starts the NetworkR specificied by the configuration settings.
+	 * 
+	 * @throws ClassNotFoundException 
+	 * @throws InvocationTargetException 
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
+	 * @throws SecurityException 
+	 * @throws IllegalArgumentException 
+	 */
+	private void startNetwork() throws ClassNotFoundException, IllegalArgumentException, SecurityException, InstantiationException, IllegalAccessException, InvocationTargetException {
+		Class<?> cls = Class.forName("com.kpro.datastorage."+genProps.getProperty("NetworkRType"));
+		nr = (NetworkR) cls.getDeclaredConstructors()[0].newInstance(genProps.getProperty("NetworkROptions"));
+		System.err.println("nr in startNetwork="+nr);
+	}
+	
+	public NetworkR getNR()
+	{
+		return nr;
+	}
+
+
+
+
+
+	public double getConfLevel() {
+		return Double.parseDouble(genProps.getProperty("confidenceLevel","1.0"));
+	}
 
 }

@@ -21,9 +21,16 @@ public abstract class NetworkR {
 	 * 
 	 * @param location the location of the database in a string. format of string determined by type of database.
 	 */
-	public NetworkR(String location) {
-		this.location = location;
+	public NetworkR(String options)
+	{
+		parseNOptions(options);
 	}
+
+	/**
+	 * Parse the options passed to the constructor into appropriate class variables.
+	 * @param options the options string passed to the constructor.
+	 */
+	protected abstract void parseNOptions(String options);
 
 	/**
 	 * accepts a PolicyObject, and returns the remote suggested action for it (the suggestion from the server).
