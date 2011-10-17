@@ -9,10 +9,10 @@ import com.kpro.dataobjects.Recipient;
 import com.kpro.dataobjects.Retention;
 
 
-public class distanceMetricTest implements DistanceMetric{
+public class distanceMetricTest extends DistanceMetric{
 
 	public distanceMetricTest(Properties weightsConfig) {
-		// ignore the weights in this metric
+		super(weightsConfig);
 	}
 
 	public double getDistResip(Case a, Case b) {
