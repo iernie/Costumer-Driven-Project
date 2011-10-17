@@ -10,11 +10,11 @@ import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
 
 import com.kpro.algorithm.CBR;
-import com.kpro.database.PDatabase;
-import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Context;
 import com.kpro.dataobjects.PolicyObject;
+import com.kpro.datastorage.PDatabase;
+import com.kpro.datastorage.PolicyDatabase;
 import com.kpro.parser.P3PParser;
 import com.kpro.ui.UserIO;
 import com.kpro.ui.UserIO_Simple;

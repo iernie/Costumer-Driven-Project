@@ -3,9 +3,9 @@ package com.kpro.ui;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
-import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
+import com.kpro.datastorage.PolicyDatabase;
 
 
 /**

@@ -5,10 +5,10 @@ import java.util.ArrayList; //for moving between reduction and conclusion algori
 import java.util.Date;
 import java.util.Properties;	//for handling weights
 
-import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Context;
 import com.kpro.dataobjects.PolicyObject;
+import com.kpro.datastorage.PolicyDatabase;
 import com.kpro.main.Gio;
 
 /**
