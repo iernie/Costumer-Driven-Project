@@ -73,7 +73,13 @@ public class PrivacyAdviser {
 	public static void init(String[] args)
 	{
 		//enable IO (and parse args
-		theIO = new Gio(args); 
+		try {
+			theIO = new Gio(args);
+		} catch (Exception e) {
+			System.err.println("unable to initiatlize. exiting.");
+			e.printStackTrace();
+			System.exit(1);
+		} 
 		//theIO = new Gio(args,this);
 
 		if (theIO.getPDB()==null)

@@ -110,7 +110,7 @@ public class CBR {
 		
 	}
 
-	public CBR parse(String string) {
+	public CBR parse(String string) throws Exception {
 		
 		String[] algorithms = string.split(",");
 		

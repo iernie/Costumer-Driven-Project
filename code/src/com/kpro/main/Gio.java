@@ -208,7 +208,14 @@ public class Gio {
 	 */
 	private CBR parseCBR(String string) {
 
-		return (string == null)?(null):(new CBR(this)).parse(string);
+		try {
+			return (string == null)?(null):(new CBR(this)).parse(string);
+		} catch (Exception e) {
+			System.err.println("error parsing CBR, exiting.");
+			e.printStackTrace();
+			System.exit(5);
+			return null;
+		}
 
 	}
 
