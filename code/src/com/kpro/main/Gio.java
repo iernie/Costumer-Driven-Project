@@ -16,10 +16,8 @@ import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Context;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.parser.P3PParser;
-import com.kpro.ui.PrivacyAdvisorGUI;
 import com.kpro.ui.UserIO;
 import com.kpro.ui.UserIO_Simple;
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 
 
 /*  to load a new database from a folder, but not use cbr on a new object. overwrites old db (-n option)
@@ -57,9 +55,10 @@ public class Gio {
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
 	 * Constructs and parses command line arguements as well.
 	 * 
-	 *  @author ngerstle
+	 * @throws Exception Mostly from loadWeights, but should also happen for loadFromConfig
+	 * @author ngerstle
 	 */
-	public Gio(String[] args) 
+	public Gio(String[] args) throws Exception 
 	{
 
 		genProps = loadFromConfig("./PrivacyAdviser.cfg");
@@ -95,8 +94,9 @@ public class Gio {
 	 * @param args any commandline arguements
 	 * @param ui the known UserIO object
 	 * @author ngerstle
+	 * @throws Exception Mostly from loadWeights, but should also happen for loadFromConfig
 	 */
-	public Gio(String[] args, UserIO ui)
+	public Gio(String[] args, UserIO ui) throws Exception
 	{
 		genProps = loadFromConfig("./PrivacyAdviser.cfg");
 		loadCLO(args);
@@ -124,10 +124,10 @@ public class Gio {
 		 */
 		genProps = userInterface.user_init(genProps);
 
-			
+
 		// returns properties file to user interface,
 		// expects modified  props file in return
-		
+
 		selectPDB(genProps.getProperty("policyDB"));
 
 		//load the weights configuration file
@@ -143,12 +143,13 @@ public class Gio {
 	 * @param args
 	 * @author ngerstle
 	 */
+	//TODO add exception for invalid options
 	private void loadCLO(String[] args) 
 	{
 		Options options = new Options();
 
 		String[][] clolist= 
-		{
+			{
 				{"genConfig","true","general configuration file location"},
 				{"inWeightsLoc", "true", "input weights configuration file location"},
 				{"inDBLoc", "true", "input database file location"},
@@ -165,7 +166,7 @@ public class Gio {
 				{"cbrV","true","CBR to use"},
 				{"blanketAccept","true","automatically accept the user suggestion"}, 
 				{"loglevel","true","level of things save to the log- see java logging details"}
-		};
+			};
 
 		for(String[] i : clolist)
 		{
@@ -259,6 +260,7 @@ public class Gio {
 	 * @return properties object corresponding to given configuration file
 	 * @author ngerstle
 	 */
+	//TODO add exception for invalid options
 	public Properties loadFromConfig(String fileLoc)
 	{
 		Properties configFile = new Properties();
@@ -298,10 +300,11 @@ public class Gio {
 	 * @param location of configuration file <---- ????
 	 * @return properties object corresponding to given configuration file
 	 * @author ngerstle
+	 * @throws Exception if there's an issue reading the file (if it doesn't exist, or has an IO error)
 	 */
-	public Properties loadWeights()
+	public Properties loadWeights() throws Exception
 	{
-//		System.out.println("In loadWeights(): "+System.getProperty("user.dir"));
+		//		System.out.println("In loadWeights(): "+System.getProperty("user.dir"));
 		try 
 		{
 			if(genProps.getProperty("inWeightsLoc") == null)
@@ -309,7 +312,7 @@ public class Gio {
 				System.err.println("inWeightsLoc in Gio/LoadWeights is null");
 			}
 			File localConfig = new File(genProps.getProperty("inWeightsLoc"));
-//			System.out.println(genProps.getProperty("inWeightsLoc"));
+			//			System.out.println(genProps.getProperty("inWeightsLoc"));
 			InputStream is = null;
 			if(localConfig.exists())
 			{
@@ -319,12 +322,7 @@ public class Gio {
 			{
 				System.err.println("No weights file is available at "+genProps.getProperty("inWeightsLoc")+
 						" . Please place one in the working directory.");
-				
-//				System.out.println(userInterface instanceof PrivacyAdvisorGUI);
-				if (userInterface instanceof PrivacyAdvisorGUI)
-					throw null;
-				else
-					System.exit(3);
+				throw new Exception("In class Gio.java:loadWeights(), file "+genProps.getProperty("inWeightsLoc")+" doesn't exist.");
 			}
 			origWeights = new Properties();
 			origWeights.load(is);
@@ -333,12 +331,7 @@ public class Gio {
 		{
 			e.printStackTrace();
 			System.err.println("IOException reading the weights configuration file. Exiting...\n");
-			
-//			System.out.println(userInterface instanceof PrivacyAdvisorGUI);
-			if (userInterface instanceof PrivacyAdvisorGUI)
-				throw null;
-			else
-				System.exit(1);
+			throw new Exception("In class Gio.java:loadWeights(), IOException loading the weights from file "+genProps.getProperty("inWeightsLoc")+" .");
 		}
 		return origWeights;
 	}
@@ -411,7 +404,7 @@ public class Gio {
 			pLoc = new File(genProps.getProperty("p3pLocation"));
 			if(!pLoc.exists()){
 				System.err.println("no file found at p3p policy location specified by the -p3p option: "+
-									genProps.getProperty("p3pLocation"));
+						genProps.getProperty("p3pLocation"));
 				System.err.println("current location is "+System.getProperty("user.dir"));
 				System.exit(1);
 			}
@@ -446,7 +439,7 @@ public class Gio {
 				pLoc = (pfiles[i]);
 				if(!pLoc.exists()){
 					System.err.println("no file found at p3p policy location specified by the -p3pDirLocation option, "+ 
-										genProps.getProperty("p3pDirLocation"));
+							genProps.getProperty("p3pDirLocation"));
 					System.exit(1);
 				}
 				try
@@ -612,12 +605,26 @@ public class Gio {
 	public Properties getWeights() {
 		return origWeights;
 	}
-	
+
 
 	public void showDatabase() {
 		userInterface.showDatabase(pdb);
-		
+
 	}
+
+
+	/**
+	 * GUI classes should use this to ensure the user passes valid files to load.
+	 * 	
+	 * @param filepath path of the file to check
+	 * @return true if the file exists, else false
+	 * @author ngerstle
+	 */
+	public boolean fileExists(String filepath)
+	{
+		return (new File(filepath)).exists(); 
+	}
+
 
 
 }
