@@ -263,7 +263,7 @@ import com.kpro.dataobjects.Retention;
 			/*
 			 * returns lenght of "tails" that did not matched
 			 */
-			return DataStringsA.length+DataStringsA.length+2*LastSameString;
+			return DataStringsA.length+DataStringsA.length-2*LastSameString;
 		}
 		/**
 		 * Calculates distance in the Purpose field from case a to case b
