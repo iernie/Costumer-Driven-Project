@@ -261,6 +261,39 @@ import com.kpro.dataobjects.Retention;
 				LastSameString++;
 			}
 			/*
+			 * if the "root" is different we say that data-types have larger distance 
+			 * then when just "tails" that are different
+			 * then we multiply distance with a specific factor choosen by expert knowledge 
+			 */
+			if(LastSameString==0){
+				int valueA=2, valueB=1;
+				if(DataStringsA[0].equals("dynamic")){
+					valueA=4;
+				}
+				else if(DataStringsA[0].equals("user")){
+					valueA=1;
+				}
+				else if(DataStringsA[0].equals("thirdparty")){
+					valueA=3;
+				}
+				else{
+					valueA=2;
+				}
+				if(DataStringsB[0].equals("dynamic")){
+					valueB=4;
+				}
+				else if(DataStringsB[0].equals("user")){
+					valueB=1;
+				}
+				else if(DataStringsB[0].equals("thirdparty")){
+					valueB=3;
+				}
+				else{
+					valueB=2;
+				}
+				return (DataStringsA.length+DataStringsA.length-2*LastSameString)*(Math.max(valueA, valueB)-Math.min(valueA, valueB));
+			}
+			/*
 			 * returns lenght of "tails" that did not matched
 			 */
 			return DataStringsA.length+DataStringsA.length-2*LastSameString;
