@@ -4,7 +4,7 @@ import java.io.FileInputStream;		//for configuration file functionality and read
 import java.io.FileOutputStream;	//for writing the new weights config file
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
-import java.util.Date;
+import java.util.Date;			// default time for items if not specified //TODO ensure access time is always updated
 import java.util.Properties;		//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
@@ -20,43 +20,24 @@ import com.kpro.ui.UserIO;
 import com.kpro.ui.UserIO_Simple;
 
 
-/*  to load a new database from a folder, but not use cbr on a new object. overwrites old db (-n option)
- *  ./PrivacyAdvisor -b -f -n ./new_policy_history [-c config_file_location][-w weight_config_file_loc][-d db_file_location]
- *  to compare policy stored in p.txt, assuming config in default location is valid and used
- *  ./PrivacyAdvisor -T p.txt
- */
-
-
-/* Thinking:
- * 
- * user init > commandline > config file
- * 
- * so assume config at general location (load with loadgen(defaultloc))
- * check to see if commandline config (load with loadgen(newloc))
- * handle other commandline options
- * handle userinit
- * 
- */
 
 public class Gio {
 
 
-	private static Logger logger = Logger.getLogger("");	//create logger object
-	private FileHandler fh = null;							//creates filehandler for logging
-	private Properties genProps = new Properties(); 		//holds all the property values
-	private Properties origWeights = null;					//the loaded weights file.
-	private Properties newWeights = null;					//the revised weights, following LearnAlgorithm. 
-	//written to disk by shutdown(). 
-	//also used in loading weights during init()
-	private UserIO userInterface = null;					//means of interacting with the user
-	private PolicyDatabase pdb;								//Policy database object
+	private static Logger logger = Logger.getLogger("");	/** the logger object*/
+	private FileHandler fh = null;							/** creates filehandler for logging */
+	private Properties genProps = new Properties(); 		/** holds all the property values */
+	private Properties origWeights = null;					/** the loaded weights file. */
+	private Properties newWeights = null;					/** the revised weights, after the  LearnAlgorithm in the CBR is applied. 
+	it is written to disk in shutdown, but also user in loading weights during init()*/
+	private UserIO userInterface = null;					/** the only interactive means of interacting with the user */
+	private PolicyDatabase pdb;								/** THE Policy database object- the only one that should ever be referenced. */
 
 	/**
 	 * Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
 	 * Constructs and parses command line arguements as well.
 	 * 
 	 * @throws Exception Mostly from loadWeights, but should also happen for loadFromConfig
-	 * @author ngerstle
 	 */
 	public Gio(String[] args) throws Exception 
 	{
@@ -93,7 +74,6 @@ public class Gio {
 	 * 
 	 * @param args any commandline arguements
 	 * @param ui the known UserIO object
-	 * @author ngerstle
 	 * @throws Exception Mostly from loadWeights, but should also happen for loadFromConfig
 	 */
 	public Gio(String[] args, UserIO ui) throws Exception
@@ -141,7 +121,6 @@ public class Gio {
 	 * accepts the direct commandline options, then parses & implements them.
 	 * 
 	 * @param args
-	 * @author ngerstle
 	 */
 	//TODO add exception for invalid options
 	private void loadCLO(String[] args) 
@@ -204,7 +183,6 @@ public class Gio {
 	 * 
 	 * @param string the string to parse
 	 * @return the CBR to use
-	 * @author ngerstle
 	 */
 	private CBR parseCBR(String string) {
 
@@ -224,7 +202,6 @@ public class Gio {
 	 * 
 	 * @param optionValue the string to parse
 	 * @return the policy database being used
-	 * @author ngerstle
 	 */
 	private void selectPDB(String optionValue) {
 		// TODO Add other PolicyDatabase classes, when other classes are made
@@ -240,7 +217,6 @@ public class Gio {
 	 * 
 	 * @param optionValue the string to parse
 	 * @return the user interface to use
-	 * @author ngerstle
 	 */
 	private void selectUI(String optionValue) {
 		// TODO Add other UserIO classes, when other classes are made
@@ -253,7 +229,6 @@ public class Gio {
 	 * 
 	 * @param optionValue the string to parse
 	 * @return the action to apply to the new policy
-	 * @author ngerstle
 	 */
 	private Action parseAct(String optionValue) {
 		// TODO remove this later
@@ -265,7 +240,6 @@ public class Gio {
 	 *
 	 * @param location of configuration file
 	 * @return properties object corresponding to given configuration file
-	 * @author ngerstle
 	 */
 	//TODO add exception for invalid options
 	public Properties loadFromConfig(String fileLoc)
@@ -306,7 +280,6 @@ public class Gio {
 	 * 
 	 * @param location of configuration file <---- ????
 	 * @return properties object corresponding to given configuration file
-	 * @author ngerstle
 	 * @throws Exception if there's an issue reading the file (if it doesn't exist, or has an IO error)
 	 */
 	public Properties loadWeights() throws Exception
@@ -350,7 +323,6 @@ public class Gio {
 	 * @param logLoc	location of the output log file- a string
 	 * @param logLevel	logging level (is parsed by level.parse())
 	 * @return	Logger object to log to.
-	 * @author ngerstle
 	 */
 	public Logger startLogger(String logLoc, String logLevel)
 	{
@@ -381,7 +353,6 @@ public class Gio {
 	 * This is where the background database chosen.
 	 * 
 	 * @param dLoc the location of the database
-	 * @author ngerstle
 	 * 
 	 */
 	public void loadDB()
@@ -399,7 +370,6 @@ public class Gio {
 	/** 
 	 * loads [additional] policies from commandline (either -p or -f)
 	 * 
-	 * @author ngerstle
 	 */
 	private void loadCLPolicies() {
 		//we already checked to make sure we have one of the options avaliable
@@ -474,7 +444,6 @@ public class Gio {
 	 * returns the only policy database
 	 * 
 	 * @return the policy database
-	 * @author ngerstle
 	 */
 	public PolicyDatabase getPDB()
 	{
@@ -484,7 +453,6 @@ public class Gio {
 	/**
 	 * closes resources and write everything to file
 	 * 
-	 * @author ngerstle
 	 */
 	public void shutdown() {
 		pdb.closeDB(); //save the db
@@ -503,7 +471,6 @@ public class Gio {
 	 * 
 	 * @param wprops the property file to write
 	 * @param wloc	where to write to
-	 * @author ngerstle
 	 */
 	private void writePropertyFile(Properties wprops, String wloc)
 	{
@@ -528,8 +495,7 @@ public class Gio {
 	 * Generates handles response. This is were we would pass stuff to cli or gui, etc
 	 * 
 	 * @param n the processed policy object
-	 * @return the policyObjected as accepted by user (potentially modified
-	 * @author ngerstle
+	 * @return the policyObjected as accepted by user (potentially modified)
 	 */
 	public PolicyObject userResponse(PolicyObject n) {
 		if((parseAct(genProps.getProperty("userResponse",null)) == null) && 
@@ -555,7 +521,6 @@ public class Gio {
 	 * returns the policy object from the T option
 	 * 
 	 * @return the policy object to be processed
-	 * @author ngerstle
 	 */
 	public PolicyObject getPO() {
 
@@ -581,7 +546,6 @@ public class Gio {
 	 * returns the -b option if present- whether or not to solely build a database, or build and call CBR.run()
 	 *  
 	 * @return true if a CBR should NOT be run
-	 * @author ngerstle
 	 */
 	public boolean isBuilding() {
 		return (genProps.getProperty("newPolicyLoc",null)==null);
@@ -591,7 +555,6 @@ public class Gio {
 	 * saves the new weights to a buffer variable before writing in the shutdown call
 	 * 
 	 * @param newWeightP the new weights file to save
-	 * @author ngerstle
 	 */
 	public void setWeights(Properties newWeightP) {
 		newWeights = newWeightP;
@@ -603,7 +566,6 @@ public class Gio {
 	 * returns the CBR to use
 	 * 
 	 * @return the cbr to use
-	 * @author ngerstle
 	 */
 	public CBR getCBR() {
 		return parseCBR(genProps.getProperty("cbrV",null));
@@ -625,7 +587,6 @@ public class Gio {
 	 * 	
 	 * @param filepath path of the file to check
 	 * @return true if the file exists, else false
-	 * @author ngerstle
 	 */
 	public boolean fileExists(String filepath)
 	{
