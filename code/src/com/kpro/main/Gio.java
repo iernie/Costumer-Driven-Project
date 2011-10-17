@@ -56,7 +56,6 @@ public class Gio {
 	 * Constructs and parses command line arguements as well.
 	 * 
 	 * @throws Exception Mostly from loadWeights, but should also happen for loadFromConfig
-	 * @author ngerstle
 	 */
 	public Gio(String[] args) throws Exception 
 	{
@@ -93,7 +92,6 @@ public class Gio {
 	 * 
 	 * @param args any commandline arguements
 	 * @param ui the known UserIO object
-	 * @author ngerstle
 	 * @throws Exception Mostly from loadWeights, but should also happen for loadFromConfig
 	 */
 	public Gio(String[] args, UserIO ui) throws Exception
@@ -141,7 +139,6 @@ public class Gio {
 	 * accepts the direct commandline options, then parses & implements them.
 	 * 
 	 * @param args
-	 * @author ngerstle
 	 */
 	//TODO add exception for invalid options
 	private void loadCLO(String[] args) 
@@ -204,7 +201,6 @@ public class Gio {
 	 * 
 	 * @param string the string to parse
 	 * @return the CBR to use
-	 * @author ngerstle
 	 * @throws Exception 
 	 */
 	private CBR parseCBR(String string) throws Exception {
@@ -225,7 +221,6 @@ public class Gio {
 	 * 
 	 * @param optionValue the string to parse
 	 * @return the policy database being used
-	 * @author ngerstle
 	 */
 	private void selectPDB(String optionValue) {
 		// TODO Add other PolicyDatabase classes, when other classes are made
@@ -241,7 +236,6 @@ public class Gio {
 	 * 
 	 * @param optionValue the string to parse
 	 * @return the user interface to use
-	 * @author ngerstle
 	 */
 	private void selectUI(String optionValue) {
 		// TODO Add other UserIO classes, when other classes are made
@@ -254,7 +248,6 @@ public class Gio {
 	 * 
 	 * @param optionValue the string to parse
 	 * @return the action to apply to the new policy
-	 * @author ngerstle
 	 */
 	private Action parseAct(String optionValue) {
 		// TODO remove this later
@@ -266,7 +259,6 @@ public class Gio {
 	 *
 	 * @param location of configuration file
 	 * @return properties object corresponding to given configuration file
-	 * @author ngerstle
 	 */
 	//TODO add exception for invalid options
 	public Properties loadFromConfig(String fileLoc)
@@ -307,7 +299,6 @@ public class Gio {
 	 * 
 	 * @param location of configuration file <---- ????
 	 * @return properties object corresponding to given configuration file
-	 * @author ngerstle
 	 * @throws Exception if there's an issue reading the file (if it doesn't exist, or has an IO error)
 	 */
 	public Properties loadWeights() throws Exception
@@ -351,7 +342,6 @@ public class Gio {
 	 * @param logLoc	location of the output log file- a string
 	 * @param logLevel	logging level (is parsed by level.parse())
 	 * @return	Logger object to log to.
-	 * @author ngerstle
 	 */
 	public Logger startLogger(String logLoc, String logLevel)
 	{
@@ -382,7 +372,6 @@ public class Gio {
 	 * This is where the background database chosen.
 	 * 
 	 * @param dLoc the location of the database
-	 * @author ngerstle
 	 * 
 	 */
 	public void loadDB()
@@ -400,7 +389,6 @@ public class Gio {
 	/** 
 	 * loads [additional] policies from commandline (either -p or -f)
 	 * 
-	 * @author ngerstle
 	 */
 	private void loadCLPolicies() {
 		//we already checked to make sure we have one of the options avaliable
@@ -475,7 +463,6 @@ public class Gio {
 	 * returns the only policy database
 	 * 
 	 * @return the policy database
-	 * @author ngerstle
 	 */
 	public PolicyDatabase getPDB()
 	{
@@ -485,7 +472,6 @@ public class Gio {
 	/**
 	 * closes resources and write everything to file
 	 * 
-	 * @author ngerstle
 	 */
 	public void shutdown() {
 		pdb.closeDB(); //save the db
@@ -504,7 +490,6 @@ public class Gio {
 	 * 
 	 * @param wprops the property file to write
 	 * @param wloc	where to write to
-	 * @author ngerstle
 	 */
 	private void writePropertyFile(Properties wprops, String wloc)
 	{
@@ -530,7 +515,6 @@ public class Gio {
 	 * 
 	 * @param n the processed policy object
 	 * @return the policyObjected as accepted by user (potentially modified
-	 * @author ngerstle
 	 */
 	public PolicyObject userResponse(PolicyObject n) {
 		if((parseAct(genProps.getProperty("userResponse",null)) == null) && 
@@ -553,10 +537,9 @@ public class Gio {
 
 
 	/**
-	 * returns the policy object from the T option
+	 * returns the policy object from the policyObject option
 	 * 
 	 * @return the policy object to be processed
-	 * @author ngerstle
 	 */
 	public PolicyObject getPO() {
 
@@ -582,7 +565,6 @@ public class Gio {
 	 * returns the -b option if present- whether or not to solely build a database, or build and call CBR.run()
 	 *  
 	 * @return true if a CBR should NOT be run
-	 * @author ngerstle
 	 */
 	public boolean isBuilding() {
 		return (genProps.getProperty("newPolicyLoc",null)==null);
@@ -592,7 +574,6 @@ public class Gio {
 	 * saves the new weights to a buffer variable before writing in the shutdown call
 	 * 
 	 * @param newWeightP the new weights file to save
-	 * @author ngerstle
 	 */
 	public void setWeights(Properties newWeightP) {
 		newWeights = newWeightP;
@@ -604,7 +585,6 @@ public class Gio {
 	 * returns the CBR to use
 	 * 
 	 * @return the cbr to use
-	 * @author ngerstle
 	 * @throws Exception 
 	 */
 	public CBR getCBR() throws Exception {
@@ -627,7 +607,6 @@ public class Gio {
 	 * 	
 	 * @param filepath path of the file to check
 	 * @return true if the file exists, else false
-	 * @author ngerstle
 	 */
 	public boolean fileExists(String filepath)
 	{
