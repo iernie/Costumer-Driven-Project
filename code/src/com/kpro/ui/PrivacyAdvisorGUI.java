@@ -152,10 +152,10 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	@Override
 	public void showDatabase(PolicyDatabase pdb) {
-		System.out.println("Printing pdb:");
-		System.err.println(pdb == null);
-		for(PolicyObject po : pdb) System.out.println(po);
-		System.out.println(pdb.toString());
+		//System.out.println("Printing pdb:");
+		//System.err.println(pdb == null);
+		//for(PolicyObject po : pdb) System.out.println(po);
+		//System.out.println(pdb.toString());
 		outputArea.setText(pdb.toString());
 	}
 
@@ -176,7 +176,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 	public PolicyObject userResponse(PolicyObject n) {
 		
 		String recommendation = n.getAction().getAccepted() == true ? "Accept" : "Reject";
-		for (String str : n.getEntities().keySet()) System.out.println( str );
+		//for (String str : n.getEntities().keySet()) System.out.println( str );
 		int response = 2;
 		while(response == 2)
 			response = JOptionPane.showConfirmDialog(null, 

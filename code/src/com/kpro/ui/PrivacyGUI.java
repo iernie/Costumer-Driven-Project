@@ -148,9 +148,15 @@ public class PrivacyGUI extends UserIO{
 			{
 				"FFFFFUUU",
 			};
-		gio = new Gio(args);
+		try {
+			gio = new Gio(args);
+
+			gio.loadDB();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		gio.loadDB();
 	}
 
 	@Override
