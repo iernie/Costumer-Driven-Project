@@ -266,7 +266,7 @@ import com.kpro.dataobjects.Retention;
 			 * then we multiply distance with a specific factor choosen by expert knowledge 
 			 */
 			if(LastSameString==0){
-				int valueA, valueB;
+				int valueA=1, valueB=1;
 				if(DataStringsA[0].equals("dynamic")){
 					valueA=4;
 				}
