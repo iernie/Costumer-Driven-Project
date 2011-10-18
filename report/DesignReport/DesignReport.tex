@@ -28,7 +28,7 @@ For testing purposes, it has been decided on using flat file storage of privacy 
 
 \subsection{Third Party Libraries}
  
-For developing the CBR as well as P3P parsing components of the Privacy Advisor, a decision had to be made regarding the usage of third party libraries, either for components or for the entire CBR system. We basically considered two options with respect to the CBR system, the first was to use a full third party CBR system (jColibri) and the second was to use a third party system for the retrieval component of the CBR system (i.e. a k Nearest Neighbors (kNN) implementation).
+For developing the CBR as well as P3P parsing components of the Privacy Advisor, a decision had to be made regarding the usage of third party libraries, either for components or for the entire CBR system. Two options were considered with respect to the CBR system. The first was to use a full third party CBR system (jColibri). The alternative was to use a third party system for the retrieval component of the CBR system (i.e. a k Nearest Neighbors (kNN) implementation).
 
 \subsubsection{Third Party CBR System}
 The customer (SINTEF ICT) suggested looking into an open source CBR library developed at the Universidad Complutense de Madrid.
@@ -53,3 +53,10 @@ To achieve clean and reusable code, the project has adopted Oracle's Coding Conv
 
 \section{Architecture}
 To implement the Privacy Agent, a class structure is built around the CBR agent model discussed in T¿ndel and Nyre with certain additions and refinements to handle data structures, algorithms, IO and so forth. 
+
+\section{Community Server}
+The community knowledge repository is implemented using a public CouchDB (no-SQL server), which is accessed using standard Java to JSON java libraries. The client program (end-user java application) communicates with the server at two points- when the application has insufficient knowledge, or confidence in its knownledge, to make a suggestion as to the acception of a new P3P policy; and after the user has confirmed or overriden the policy.
+In the first instance, the new policy under consideration is converted to JSON using GSON (the Google Json libraries), and transmitted to the database, which parses the new policy and replies with a JSON encoded suggested Action.
+In the second instance, the final policy (including the action taken on it) is sent to the CouchDB server, and the server proceeds to store the object.
+On the database end, there are two essential interfaces (beyond any standard initialization and shutdown procedures). As seem above, these two interfaces are the suggestion provider, which includes a query to find the most similar policies and actions on them by the community, and a interface to simply save the new policy to the appropriate database.
+The database is easily replacable, requiring only the construction of a new class implementing 'NetworkR', the abstract class detailing the methods called by the PrivacyAdvisor framework. The selection between avaliable 'NetworkR' implementations in made by setting the 'NetworkRType' configuration variable during initialization to the full classname.
