@@ -1,0 +1,96 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.18)  18 OCT 2011 21:58
+entering extended mode
+**C:/Users/Knutsen/Desktop/testCaseSeparate/testCaseSeparate.tex
+(C:/Users/Knutsen/Desktop/testCaseSeparate/testCaseSeparate.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\report.cls"
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+
+LaTeX Warning: Unused global option(s):
+    [fullpage].
+
+(C:\Users\Knutsen\Desktop\testCaseSeparate\testCaseSeparate.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+Missing character: There is no Â in font cmr12!
+Missing character: There is no « in font cmr12!
+Missing character: There is no Â in font cmr12!
+Missing character: There is no » in font cmr12!
+ [1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 31.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 31.
+ [2]
+Underfull \hbox (badness 7851) in paragraph at lines 66--66
+[]\OT1/cmr/m/n/12 Feature(s) to be
+ []
+
+
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 60--71
+ [] 
+ []
+
+[3] [4] (C:\Users\Knutsen\Desktop\testCaseSeparate\testCaseSeparate.aux) ) 
+Here is how much of TeX's memory you used:
+ 254 strings out of 494049
+ 3053 string characters out of 3148476
+ 53862 words of memory out of 3000000
+ 3618 multiletter control sequences out of 15000+200000
+ 8509 words of font info for 30 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 23i,8n,19p,682b,178s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on testCaseSeparate.pdf (4 pages, 51463 bytes).
+PDF statistics:
+ 27 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
