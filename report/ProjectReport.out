@@ -71,26 +71,32 @@
 \BOOKMARK [2][-]{subsection.6.4.3}{CLI}{section.6.4}% 71
 \BOOKMARK [2][-]{subsection.6.4.4}{GUI}{section.6.4}% 72
 \BOOKMARK [0][-]{chapter*.25}{Documentation}{part.2}% 73
-\BOOKMARK [1][-]{section.7.1}{Introduction}{chapter*.25}% 74
-\BOOKMARK [-1][-]{part.3}{III Evaluation and Summary}{}% 75
-\BOOKMARK [0][-]{chapter*.26}{Evaluation and Testing}{part.3}% 76
-\BOOKMARK [1][-]{section.8.1}{Purpose}{chapter*.26}% 77
-\BOOKMARK [1][-]{section.8.2}{Testing Approaches}{chapter*.26}% 78
-\BOOKMARK [1][-]{section.8.3}{More to come here}{chapter*.26}% 79
-\BOOKMARK [0][-]{chapter*.27}{Conclusion}{part.3}% 80
-\BOOKMARK [1][-]{section.9.1}{Introduction}{chapter*.27}% 81
-\BOOKMARK [-1][-]{part.4}{IV Appendices}{}% 82
-\BOOKMARK [0][-]{appendix*.28}{Test Plan}{part.4}% 83
-\BOOKMARK [1][-]{section.A.1}{Overview}{appendix*.28}% 84
-\BOOKMARK [1][-]{section.A.2}{Test methods}{appendix*.28}% 85
-\BOOKMARK [2][-]{subsection.A.2.1}{Black-box testing}{section.A.2}% 86
-\BOOKMARK [2][-]{subsection.A.2.2}{White-box testing}{section.A.2}% 87
-\BOOKMARK [1][-]{section.A.3}{Testing approach}{appendix*.28}% 88
-\BOOKMARK [2][-]{subsection.A.3.1}{What will be tested}{section.A.3}% 89
-\BOOKMARK [2][-]{subsection.A.3.2}{What will not be tested}{section.A.3}% 90
-\BOOKMARK [1][-]{section.A.4}{Test cases}{appendix*.28}% 91
-\BOOKMARK [1][-]{section.A.5}{Test case overview}{appendix*.28}% 92
-\BOOKMARK [2][-]{subsection.A.5.1}{Unit tests}{section.A.5}% 93
-\BOOKMARK [1][-]{section.A.6}{Item pass / fail criteria}{appendix*.28}% 94
-\BOOKMARK [1][-]{section.A.7}{Test schedule}{appendix*.28}% 95
-\BOOKMARK [0][-]{appendix*.29}{Templates}{part.4}% 96
+\BOOKMARK [1][-]{section.7.1}{Source Code Documentation}{chapter*.25}% 74
+\BOOKMARK [1][-]{section.7.2}{Installation}{chapter*.25}% 75
+\BOOKMARK [2][-]{subsection.7.2.1}{Local Installation}{section.7.2}% 76
+\BOOKMARK [2][-]{subsection.7.2.2}{Server Installation}{section.7.2}% 77
+\BOOKMARK [1][-]{section.7.3}{User Interfaces}{chapter*.25}% 78
+\BOOKMARK [2][-]{subsection.7.3.1}{Graphical User Interface}{section.7.3}% 79
+\BOOKMARK [2][-]{subsection.7.3.2}{Command Line Interface}{section.7.3}% 80
+\BOOKMARK [-1][-]{part.3}{III Evaluation and Summary}{}% 81
+\BOOKMARK [0][-]{chapter*.30}{Evaluation and Testing}{part.3}% 82
+\BOOKMARK [1][-]{section.8.1}{Purpose}{chapter*.30}% 83
+\BOOKMARK [1][-]{section.8.2}{Testing Approaches}{chapter*.30}% 84
+\BOOKMARK [1][-]{section.8.3}{More to come here}{chapter*.30}% 85
+\BOOKMARK [0][-]{chapter*.31}{Conclusion}{part.3}% 86
+\BOOKMARK [1][-]{section.9.1}{Introduction}{chapter*.31}% 87
+\BOOKMARK [-1][-]{part.4}{IV Appendices}{}% 88
+\BOOKMARK [0][-]{appendix*.32}{Test Plan}{part.4}% 89
+\BOOKMARK [1][-]{section.A.1}{Overview}{appendix*.32}% 90
+\BOOKMARK [1][-]{section.A.2}{Test methods}{appendix*.32}% 91
+\BOOKMARK [2][-]{subsection.A.2.1}{Black-box testing}{section.A.2}% 92
+\BOOKMARK [2][-]{subsection.A.2.2}{White-box testing}{section.A.2}% 93
+\BOOKMARK [1][-]{section.A.3}{Testing approach}{appendix*.32}% 94
+\BOOKMARK [2][-]{subsection.A.3.1}{What will be tested}{section.A.3}% 95
+\BOOKMARK [2][-]{subsection.A.3.2}{What will not be tested}{section.A.3}% 96
+\BOOKMARK [1][-]{section.A.4}{Test cases}{appendix*.32}% 97
+\BOOKMARK [1][-]{section.A.5}{Test case overview}{appendix*.32}% 98
+\BOOKMARK [2][-]{subsection.A.5.1}{Unit tests}{section.A.5}% 99
+\BOOKMARK [1][-]{section.A.6}{Item pass / fail criteria}{appendix*.32}% 100
+\BOOKMARK [1][-]{section.A.7}{Test schedule}{appendix*.32}% 101
+\BOOKMARK [0][-]{appendix*.33}{Templates}{part.4}% 102

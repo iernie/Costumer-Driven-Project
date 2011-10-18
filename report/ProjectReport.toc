@@ -72,7 +72,7 @@
 \contentsline {subsection}{\numberline {6.2.1}K-Nearest Neighbors}{39}{subsection.6.2.1}
 \contentsline {subsection}{\numberline {6.2.2}Distance Measures}{40}{subsection.6.2.2}
 \contentsline {subsubsection}{Customer Advise}{40}{section*.23}
-\contentsline {subsubsection}{Implmentation}{40}{section*.24}
+\contentsline {subsubsection}{Implementation}{41}{section*.24}
 \contentsline {section}{\numberline {6.3}Data Storage}{41}{section.6.3}
 \contentsline {subsection}{\numberline {6.3.1}Flat File Storage}{41}{subsection.6.3.1}
 \contentsline {subsection}{\numberline {6.3.2}Databases}{41}{subsection.6.3.2}
@@ -82,17 +82,27 @@
 \contentsline {subsection}{\numberline {6.4.3}CLI}{41}{subsection.6.4.3}
 \contentsline {subsection}{\numberline {6.4.4}GUI}{41}{subsection.6.4.4}
 \contentsline {chapter}{Documentation}{43}{chapter*.25}
-\contentsline {section}{\numberline {7.1}Introduction}{43}{section.7.1}
+\contentsline {section}{\numberline {7.1}Source Code Documentation}{43}{section.7.1}
+\contentsline {section}{\numberline {7.2}Installation}{44}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Local Installation}{44}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Server Installation}{44}{subsection.7.2.2}
+\contentsline {section}{\numberline {7.3}User Interfaces}{44}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Graphical User Interface}{44}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Command Line Interface}{44}{subsection.7.3.2}
+\contentsline {subsubsection}{Configuration Files}{44}{section*.26}
+\contentsline {subsubsection}{Building a Database}{44}{section*.27}
+\contentsline {subsubsection}{Loading and Viewing a Database}{44}{section*.28}
+\contentsline {subsubsection}{Parsing a P3P Policy}{44}{section*.29}
 \contentsline {part}{III\hspace {1em}Evaluation and Summary}{45}{part.3}
-\contentsline {chapter}{Evaluation and Testing}{47}{chapter*.26}
+\contentsline {chapter}{Evaluation and Testing}{47}{chapter*.30}
 \contentsline {section}{\numberline {8.1}Purpose}{47}{section.8.1}
 \contentsline {section}{\numberline {8.2}Testing Approaches}{47}{section.8.2}
 \contentsline {section}{\numberline {8.3}More to come here}{47}{section.8.3}
 \contentsline {xpart}{Evaluation and Summary}{47}{part.3}
-\contentsline {chapter}{Conclusion}{49}{chapter*.27}
+\contentsline {chapter}{Conclusion}{49}{chapter*.31}
 \contentsline {section}{\numberline {9.1}Introduction}{49}{section.9.1}
 \contentsline {part}{IV\hspace {1em}Appendices}{51}{part.4}
-\contentsline {chapter}{Test Plan}{53}{appendix*.28}
+\contentsline {chapter}{Test Plan}{53}{appendix*.32}
 \contentsline {section}{\numberline {A.1}Overview}{53}{section.A.1}
 \contentsline {section}{\numberline {A.2}Test methods}{53}{section.A.2}
 \contentsline {subsection}{\numberline {A.2.1}Black-box testing}{53}{subsection.A.2.1}
@@ -106,4 +116,4 @@
 \contentsline {section}{\numberline {A.6}Item pass / fail criteria}{55}{section.A.6}
 \contentsline {section}{\numberline {A.7}Test schedule}{55}{section.A.7}
 \contentsline {xpart}{Appendices}{53}{part.4}
-\contentsline {chapter}{Templates}{57}{appendix*.29}
+\contentsline {chapter}{Templates}{57}{appendix*.33}
