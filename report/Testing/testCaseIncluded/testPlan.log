@@ -1,7 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.18)  18 OCT 2011 21:59
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.18)  18 OCT 2011 22:11
 entering extended mode
-**C:/Users/Knutsen/Desktop/testCaseIncluded/testPlan.tex
-(C:/Users/Knutsen/Desktop/testCaseIncluded/testPlan.tex
+**C:/Users/Knutsen/git/Customer-Driven-Project/report/Testing/testCaseIncluded/
+testPlan.tex
+
+(C:/Users/Knutsen/git/Customer-Driven-Project/report/Testing/testCaseIncluded/t
+estPlan.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -35,7 +38,9 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 LaTeX Warning: Unused global option(s):
     [fullpage].
 
-(C:\Users\Knutsen\Desktop\testCaseIncluded\testPlan.aux)
+
+(C:\Users\Knutsen\git\Customer-Driven-Project\report\Testing\testCaseIncluded\t
+estPlan.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
@@ -145,20 +150,21 @@ Overfull \hbox (18.1122pt too wide) in paragraph at lines 165--177
  [] 
  []
 
-[8] [9] [10] (C:\Users\Knutsen\Desktop\testCaseIncluded\testPlan.aux) ) 
+[8] [9] [10]
+(C:\Users\Knutsen\git\Customer-Driven-Project\report\Testing\testCaseIncluded\t
+estPlan.aux) ) 
 Here is how much of TeX's memory you used:
  254 strings out of 494049
- 2973 string characters out of 3148476
+ 3218 string characters out of 3148476
  58862 words of memory out of 3000000
  3618 multiletter control sequences out of 15000+200000
  8509 words of font info for 30 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 23i,8n,19p,674b,192s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on testPlan.pdf (10 pages, 61640 bytes).
+ 23i,8n,19p,709b,192s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on testPlan.pdf (10 pages, 62094 bytes).
 PDF statistics:
  47 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
