@@ -23,9 +23,9 @@ import javax.swing.JButton;
 
 import sun.awt.windows.ThemeReader;
 
+//import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
-import com.kpro.datastorage.PolicyDatabase;
 import com.kpro.main.Gio;
 import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
 import javax.swing.JScrollPane;
@@ -62,9 +62,7 @@ public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 	 * Launch the application.
 	 * @author ulfnore
 	 */
-	public static void main(String[] args) {
-		
-		
+	public static void main(String[] args) {		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -148,17 +146,17 @@ public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 	}
 	
 	
-	/**
-	 * Output database to textArea
-	 */
-	@Override
-	public void showDatabase(PolicyDatabase pdb) {
-		System.out.println("Printing pdb:");
-		System.err.println(pdb == null);
-//		for(PolicyObject po : pdb) System.out.println(po);
-//		System.out.println(pdb.toString());
-		println(pdb.toString());
-	}
+//	/**
+//	 * Output database to textArea
+//	 */
+//	@Override
+//	public void showDatabase(PolicyDatabase pdb) {
+//		System.out.println("Printing pdb:");
+//		System.err.println(pdb == null);
+////		for(PolicyObject po : pdb) System.out.println(po);
+////		System.out.println(pdb.toString());
+//		println(pdb.toString());
+//	}
 
 	@Override
 	public ArrayList<PolicyObject> loadHistory() {
@@ -312,5 +310,15 @@ public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 		String str0 = outputArea.getText();
 		str0 += "\n"+str;
 		outputArea.setText(str0);
+	}
+
+	@Override
+	public void showDatabase(com.kpro.datastorage.PolicyDatabase pdb) {
+		// TODO Auto-generated method stub
+		System.out.println("Printing pdb:");
+		System.err.println(pdb == null);
+//		for(PolicyObject po : pdb) System.out.println(po);
+//		System.out.println(pdb.toString());
+		println(pdb.toString());
 	}
 }

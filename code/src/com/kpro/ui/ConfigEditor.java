@@ -150,18 +150,19 @@ public class ConfigEditor extends Thread implements ActionListener{
 		outDBfileField.setColumns(10);
 		
 		inWeightsFileField = new JTextField();
-		inWeightsFileField.setText("inWeightsLoc");
+		inWeightsFileField.setText(genProps.getProperty("inWeightsLoc"));
 		inWeightsFileField.setBounds(184, 84, 134, 28);
 		panel.add(inWeightsFileField);
 		inWeightsFileField.setColumns(10);
 		
 		p3pFileField = new JTextField();
-		p3pFileField.setText("p3pLocation");
+		p3pFileField.setText(genProps.getProperty("p3pLocation"));
 		p3pFileField.setBounds(184, 112, 134, 28);
 		panel.add(p3pFileField);
 		p3pFileField.setColumns(10);
 		
 		newPolicyFileField = new JTextField();
+		newPolicyFileField.setText(genProps.getProperty("newPolicyLoc"));
 		newPolicyFileField.setBounds(184, 140, 134, 28);
 		panel.add(newPolicyFileField);
 		newPolicyFileField.setColumns(10);
