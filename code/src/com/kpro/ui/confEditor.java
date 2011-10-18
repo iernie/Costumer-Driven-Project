@@ -36,29 +36,37 @@ public class confEditor extends Thread implements ActionListener{
 	private Properties props;
 	
 
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					confEditor window = new confEditor();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					confEditor window = new confEditor();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the application.
+	 * @param Properties object to be modified.
+	 * @wbp.parser.entryPoint
 	 */
 	public confEditor(Properties props) {
 		this.props = props;
 	}
 
+	/**
+	 * No-arg constructor
+	 */
+	public confEditor(){
+		
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
