@@ -62,36 +62,9 @@ public class Gio {
 	 */
 	public Gio(String[] args) throws Exception 
 	{
-
-		genProps = loadFromConfig("./PrivacyAdviser.cfg");
-		loadCLO(args);
-		//TODO add method to check validity of genProps (after each file load, clo load, and ui load).
-
-		if((genProps.getProperty("genConfig")!=null) &&(genProps.getProperty("genConfig")!="./PrivacyAdvisor.cfg"))
-		{
-			System.err.println("clo config call");
-			genProps = loadFromConfig(genProps.getProperty("genConfig")); //TODO merge, not override
-			loadCLO(args);
-		}
-
-		//start the logger
-		logger = startLogger(genProps.getProperty("loglocation","./LOG.txt"),genProps.getProperty("loglevel","INFO"));
-		selectUI(genProps.getProperty("UserIO"));
-
-		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")))
-		{
-			genProps = userInterface.user_init(genProps);
-		}
-		selectPDB(genProps.getProperty("policyDB"));
-
-		//load the weights configuration file
-		origWeights = new Properties();
-		origWeights = loadWeights();
-		startNetwork();
-
+		this(args,null);
 	}
 
-	
 	
 	
 
@@ -104,6 +77,8 @@ public class Gio {
 	 */
 	public Gio(String[] args, UserIO ui) throws Exception
 	{
+		
+		userInterface = ui;
 		genProps = loadFromConfig("./PrivacyAdviser.cfg");
 		loadCLO(args);
 		//TODO add method to check validity of genProps (after each file load, clo load, and ui load).
@@ -117,30 +92,27 @@ public class Gio {
 
 		//start the logger
 		logger = startLogger(genProps.getProperty("loglocation","./LOG.txt"),genProps.getProperty("loglevel","INFO"));
-
-		userInterface = ui;
-		/* The user interface instantiates everything else
-		//selectUI(genProps.getProperty("UserIO"));
-
-		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")))
+		if(userInterface ==null)
 		{
-
+			selectUI(genProps.getProperty("UserIO"));
 		}
-
-		 */
-		genProps = userInterface.user_init(genProps);
-
-
-		// returns properties file to user interface,
-		// expects modified  props file in return
-
+		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")) && !(userInterface==null))
+		{
+			genProps = userInterface.user_init(genProps);
+		}
 		selectPDB(genProps.getProperty("policyDB"));
 
 		//load the weights configuration file
 		origWeights = new Properties();
 		origWeights = loadWeights();
-		startNetwork();
-
+		if(Boolean.parseBoolean(genProps.getProperty("useNet","false")))
+		{
+			startNetwork();
+		}
+		else
+		{
+			nr = null;
+		}
 	}
 
 	/**

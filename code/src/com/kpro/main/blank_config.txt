@@ -18,3 +18,4 @@ genConfig				-> string/filepath				-: load an alternate configuration file (not 
 networkRType			-> string/classname				-: the name of a networkR class
 networkROptions			-> string/commasepoptions		-: the options necessary for the above networkR class
 confidenceLevel			-> string/double				-: the confidence level at which the algorithm trusts itself; if below this, it uses the server's suggestion
+useNet					-> string/boolean				-: whether to activate network functionality
