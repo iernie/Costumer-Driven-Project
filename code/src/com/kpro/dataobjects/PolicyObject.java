@@ -172,15 +172,15 @@ public class PolicyObject implements Serializable
 
 		str += "\nENTITY";
 		for(String key : entity.keySet())
-			str += "KEY: " + key + ", VAL: " + entity.get(key);
+			str += "\nKEY: " + key + ", VAL: " + entity.get(key);
 
 		
-		str += "\nCONTEXT";
+		str += "\nCONTEXT: ";
 		str += context.getAccessTime();
 		
 		if(actionTaken != null)
 		{
-			str += "\nACTION";
+			str += "\nACTION: ";
 			str += actionTaken.getAccepted();
 		}
 		

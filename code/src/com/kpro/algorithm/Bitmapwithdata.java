@@ -24,44 +24,43 @@ import com.kpro.dataobjects.Retention;
 	 * @version 240911.01 
 	 * @author dimitryk
 	 */
-	public class Bitmapwithdata  implements DistanceMetric{
-		private static Properties weightsConfig;
+	public class Bitmapwithdata  extends DistanceMetric{
 		private double ours, delivery, same, other_recipient, unrelated, pub;
 		private double current, admin, develop, tailoring, pseudo_analysis, pseudo_decision;
 		private double individual_analysis, individual_decision, contact, historical, telemarketing, other_purpose;
 		private double no_retention, stated_purpose, legal_requirement, business_practices, indefinitely;
 		
 		Bitmapwithdata(Properties weights){
-			weightsConfig = weights;
-			}
+			super(weights);
+		}
 		
 		private void setWeights(){
 			//recipients
-			ours=Double.parseDouble(weightsConfig.getProperty("ours"));
-			delivery=Double.parseDouble(weightsConfig.getProperty("delivery"));
-			same=Double.parseDouble(weightsConfig.getProperty("same"));
-			other_recipient=Double.parseDouble(weightsConfig.getProperty("other_recipient"));
-			unrelated=Double.parseDouble(weightsConfig.getProperty("unrelated"));
-			pub=Double.parseDouble(weightsConfig.getProperty("public"));
+			ours=Double.parseDouble(weightsConfig.getProperty("recipient.ours"));
+			delivery=Double.parseDouble(weightsConfig.getProperty("recipient.delivery"));
+			same=Double.parseDouble(weightsConfig.getProperty("recipient.same"));
+			other_recipient=Double.parseDouble(weightsConfig.getProperty("recipient.other_recipient"));
+			unrelated=Double.parseDouble(weightsConfig.getProperty("recipient.unrelated"));
+			pub=Double.parseDouble(weightsConfig.getProperty("recipient.public"));
 			//purpose
-			current=Double.parseDouble(weightsConfig.getProperty("current"));
-			admin=Double.parseDouble(weightsConfig.getProperty("admin"));
-			develop= Double.parseDouble(weightsConfig.getProperty("develop"));
-			tailoring=Double.parseDouble(weightsConfig.getProperty("tailoring"));
-			pseudo_analysis=Double.parseDouble(weightsConfig.getProperty("pseudo_analysis"));
-			pseudo_decision=Double.parseDouble(weightsConfig.getProperty("pseudo_decision"));
-			individual_analysis=Double.parseDouble(weightsConfig.getProperty("individual_analysis"));
-			individual_decision=Double.parseDouble(weightsConfig.getProperty("individual_decision"));
-			contact=Double.parseDouble(weightsConfig.getProperty("contact"));
-			historical=Double.parseDouble(weightsConfig.getProperty("historical"));
-			telemarketing=Double.parseDouble(weightsConfig.getProperty("telemarketing"));
-			other_purpose=Double.parseDouble(weightsConfig.getProperty("other_purpose"));
+			current=Double.parseDouble(weightsConfig.getProperty("purpose.current"));
+			admin=Double.parseDouble(weightsConfig.getProperty("purpose.admin"));
+			develop= Double.parseDouble(weightsConfig.getProperty("purpose.develop"));
+			tailoring=Double.parseDouble(weightsConfig.getProperty("purpose.tailoring"));
+			pseudo_analysis=Double.parseDouble(weightsConfig.getProperty("purpose.pseudo_analysis"));
+			pseudo_decision=Double.parseDouble(weightsConfig.getProperty("purpose.pseudo_decision"));
+			individual_analysis=Double.parseDouble(weightsConfig.getProperty("purpose.individual_analysis"));
+			individual_decision=Double.parseDouble(weightsConfig.getProperty("purpose.individual_decision"));
+			contact=Double.parseDouble(weightsConfig.getProperty("purpose.contact"));
+			historical=Double.parseDouble(weightsConfig.getProperty("purpose.historical"));
+			telemarketing=Double.parseDouble(weightsConfig.getProperty("purpose.telemarketing"));
+			other_purpose=Double.parseDouble(weightsConfig.getProperty("purpose.other_purpose"));
 			//retention
-			no_retention=Double.parseDouble(weightsConfig.getProperty("no_retention"));
-			stated_purpose=Double.parseDouble(weightsConfig.getProperty("stated_purpose"));
-			legal_requirement=Double.parseDouble(weightsConfig.getProperty("legal_requirement"));
-			business_practices=Double.parseDouble(weightsConfig.getProperty("business_practices"));
-			indefinitely=Double.parseDouble(weightsConfig.getProperty("indefinitely"));
+			no_retention=Double.parseDouble(weightsConfig.getProperty("retention.no_retention"));
+			stated_purpose=Double.parseDouble(weightsConfig.getProperty("retention.stated_purpose"));
+			legal_requirement=Double.parseDouble(weightsConfig.getProperty("retention.legal_requirement"));
+			business_practices=Double.parseDouble(weightsConfig.getProperty("retention.business_practices"));
+			indefinitely=Double.parseDouble(weightsConfig.getProperty("retention.indefinitely"));
 			
 		}
 		
@@ -245,43 +244,10 @@ import com.kpro.dataobjects.Retention;
 			
 			return dis * Double.parseDouble(weightsConfig.getProperty("retention"));// dis*weight later
 		}
-		
-		private void MakeDataString(String datatype, String[] Datastring, int lengh){
-			int from=0,word=0;	
-			for(int i=0;i<datatype.length();i++){
-				if(datatype.charAt(i)=='.'){
-					Datastring[word]=datatype.substring(from, i);
-					from=i+1;
-					word++;
-				}
-				if(i==datatype.length()-1){
-					Datastring[word]=datatype.substring(from);
-				}
-			}
-			
-		}
-		
+	
 		private double getDistData(Case a, Case b){
-			String DataA=a.getDataType();			//Creating DataStringsA
-			int len=0;
-			for(int i=0;i<DataA.length();i++){
-				if(DataA.charAt(i)=='.'){
-					len++;
-				}
-			}
-			String[] DataStringsA = new String[len+1];
-			MakeDataString(DataA, DataStringsA, len);// Finished with A
-			
-			String DataB=b.getDataType();			//starting on B
-			len=0;//reset for B
-			for(int i=0;i<DataB.length();i++){		//Counting length of DataStringsB
-				if(DataB.charAt(i)=='.'){
-					len++;
-				}
-			}
-			String[] DataStringsB = new String[len+1];
-			MakeDataString(DataA, DataStringsB, len);// Finished with B
-			
+			String[] DataStringsA = a.getDataType().split(".");
+			String[] DataStringsB = b.getDataType().split(".");
 			int LastSameString=0;
 			/*
 			 * next for-loop only goes for the length of least of strings
@@ -327,16 +293,17 @@ import com.kpro.dataobjects.Retention;
 			
 			return getDistPurpose(a,b)+getDistRecip(a,b)+getDistReten(a,b)+getDistData(a,b);
 		}
-
-		@Override
-		public double getTotalDistance(PolicyObject a, PolicyObject b) {
-			setWeights();
+		
+		private double getDistance(PolicyObject a, PolicyObject b, int time){
 			ArrayList<Case> CasesA, CasesB;
 			CasesA=a.getCases();
 			CasesB=b.getCases();
-			if(CasesA.size()<CasesB.size())return getTotalDistance(b, a);  //little magic to get symetry
 			double minDist;
 			double Distance = 0;
+			if(time==0){
+				Distance+=getDistance(b, a, 1);  //firts B Vs A then A vs B
+			}
+			
 			for(int i=0;i<CasesA.size();i++){
 				minDist=Double.MAX_VALUE;
 				for(int d=0;d<CasesB.size();d++){
@@ -346,6 +313,12 @@ import com.kpro.dataobjects.Retention;
 			}
 			
 			return Distance;
+		}
+		
+		@Override
+		public double getTotalDistance(PolicyObject a, PolicyObject b) {
+			setWeights();
+			return getDistance(a,b,0);
 		}
 
 	}

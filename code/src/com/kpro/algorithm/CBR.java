@@ -1,14 +1,14 @@
 package com.kpro.algorithm;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList; //for moving between reduction and conclusion algorithms 
 import java.util.Date;
 import java.util.Properties;	//for handling weights
 
-import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
-import com.kpro.dataobjects.Algorithm;
 import com.kpro.dataobjects.Context;
 import com.kpro.dataobjects.PolicyObject;
+import com.kpro.datastorage.PolicyDatabase;
 import com.kpro.main.Gio;
 
 /**
@@ -20,15 +20,15 @@ import com.kpro.main.Gio;
  */
 public class CBR {
 
-	
+
 	protected Gio theIO;					//interacting with the outside world
 	protected Properties weightsConfig; 	//the weights for distance metric and learning
 
 	protected ReductionAlgorithm reduceAlg;		//the reduction algorithm to use
 	protected ConclusionAlgorithm conclusAlg;	//the conclusion algorithm to use
 	protected LearnAlgorithm learnAlg;			//the learning algorithm to use
-	
-	
+
+
 	/**
 	 * Our generic constructor.
 	 * 
@@ -47,7 +47,7 @@ public class CBR {
 		this.conclusAlg = conclusAlg;
 		this.learnAlg = learnAlg;
 	}
-	
+
 	/**
 	 * constructor that so we can call cbr.parse(string)
 	 * 
@@ -74,6 +74,11 @@ public class CBR {
 	private PolicyObject process(PolicyObject newPO) {
 		ArrayList<PolicyObject> reducedSet = reduceAlg.reduce(newPO);
 		Action a = conclusAlg.conclude(newPO,reducedSet);
+		if(a.getConfidence() < theIO.getConfLevel() && (theIO.getNR() != null))
+		{
+			System.err.println("nr="+theIO.getNR());
+			a = theIO.getNR().reqAct(newPO);
+		}
 		newPO.setAction(a);
 		return newPO;
 	}
@@ -88,7 +93,6 @@ public class CBR {
 		ArrayList<PolicyObject> a = theIO.getPDB().getDomain(newpol.getContextDomain());
 		if(!a.isEmpty()) //if we've already seen the item
 		{
-			//theIO.userMessage("This policy has already been "+a.get(0).getAction().getAcceptedStr()+" on " + a.get(0).getContext().getAccessTime()+".\n No action will be taken.");
 			if(a.get(0).equalsCases(newpol))
 			{
 				Context b = a.get(0).getContext();
@@ -101,98 +105,132 @@ public class CBR {
 		{
 			newpol =  process(newpol); //knn & conclusion
 		}
-			newpol = theIO.userResponse(newpol); //user response
-			if(newpol != null) //the user made a one time only choice
+		newpol = theIO.userResponse(newpol); //user response
+		if(newpol != null) //the user made a one time only choice
+		{
+			theIO.getPDB().addPolicy(newpol); //save to database
+			if(theIO.getNR()!= null)
 			{
-				theIO.getPDB().addPolicy(newpol); //save to database
-				learnAlg.learn(theIO);
+				theIO.getNR().saveObj(newpol);//upload to network
 			}
-		
+			learnAlg.learn(theIO);
+		}
+
 	}
 
-	public CBR parse(String string) {
-		
+	public CBR parse(String string) throws Exception {
+
 		String[] algorithms = string.split(",");
-		
+
 		int k = 1; //size for k in knn algorithm
-		
+
 		Properties weightsConfig = theIO.loadWeights();
 		DistanceMetric dm = getDistanceMetricAlgorithm(algorithms[0], weightsConfig);
 		PolicyDatabase pdb = theIO.getPDB();
-		
-		ReductionAlgorithm reductionAlgorithm = getReductionAlgorihm(algorithms[1], dm, pdb, k);
+
+		ReductionAlgorithm reductionAlgorithm = getReductionAlgorihm(algorithms[1], dm, pdb, k); //TODO fix to accept the k specified by options, not k=1 from above
 		ConclusionAlgorithm conclusionAlgortihm = getConclusionAlgorihm(algorithms[2], dm);
 		LearnAlgorithm learnAlgorithm = getLearnAlgorihm(algorithms[3], weightsConfig);
-		
+
 		return new CBR(theIO, weightsConfig, reductionAlgorithm, conclusionAlgortihm, learnAlgorithm);
 	}
-	
-	private DistanceMetric getDistanceMetricAlgorithm(String algorithm, Properties weightsConfig) {
-		Algorithm AlgorithmEnum = Algorithm.none;
+
+	private DistanceMetric getDistanceMetricAlgorithm(String algorithm, Properties weightsConfig) throws ClassNotFoundException {
 		try {
-			AlgorithmEnum = Algorithm.valueOf(algorithm);
-    	} catch(IllegalArgumentException e) {
-			System.out.println("Specified distance metric algorithm not found. Using default algorithm.");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+algorithm);
+
+			Object[] argsList = new Object[1];
+			argsList[0] = weightsConfig;
+
+			return (DistanceMetric) cls.getDeclaredConstructors()[0].newInstance(argsList);
+		} catch (ClassNotFoundException e) {
+			throw new ClassNotFoundException();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
 		}
-		switch(AlgorithmEnum) {
-			case bitmapDistance:
-				return new bitmapDistance(weightsConfig);
-			case bitmapDistanceWisOne:
-				return new bitmapDistanceWisOne(weightsConfig);
-			case bitmapWithData:
-				return new Bitmapwithdata(weightsConfig);
-			case distanceMetricTest:
-				return new distanceMetricTest(weightsConfig);
-			default:
-				return new bitmapDistanceWisOne(weightsConfig);	// Default algorithm. Change as needed.
-		}
+		return null;
 	}
-	
-	private ReductionAlgorithm getReductionAlgorihm(String algorithm, DistanceMetric dm, PolicyDatabase pdb, int k) {
-		Algorithm AlgorithmEnum = Algorithm.none;
+
+	private ReductionAlgorithm getReductionAlgorihm(String algorithm, DistanceMetric dm, PolicyDatabase pdb, int k) throws ClassNotFoundException {
 		try {
-			AlgorithmEnum = Algorithm.valueOf(algorithm);
-    	} catch(IllegalArgumentException e) {
-			System.out.println("Specified reduction algorithm not found. Using default algorithm.");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+algorithm);
+
+			Object[] argsList = new Object[3];
+			argsList[0] = dm;
+			argsList[1] = pdb;
+			argsList[2] = k;
+
+			return (ReductionAlgorithm) cls.getDeclaredConstructors()[0].newInstance(argsList);
+		} catch (ClassNotFoundException e) {
+			throw new ClassNotFoundException();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
 		}
-		switch(AlgorithmEnum) {
-			case reductionKNN:
-				return new Reduction_KNN(dm, pdb, k);
-			default:
-				return new Reduction_KNN(dm, pdb, k);	// Default algorithm. Change as needed.			
-		}
+		return null;
 	}
-	
-	private ConclusionAlgorithm getConclusionAlgorihm(String algorithm, DistanceMetric dm) {
-		Algorithm AlgorithmEnum = Algorithm.none;
+
+	private ConclusionAlgorithm getConclusionAlgorihm(String algorithm, DistanceMetric dm) throws ClassNotFoundException {
 		try {
-			AlgorithmEnum = Algorithm.valueOf(algorithm);
-    	} catch(IllegalArgumentException e) {
-			System.out.println("Specified conclusion algorithm not found. Using default algorithm.");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+algorithm);
+
+			Object[] argsList = new Object[1];
+			argsList[0] = dm;
+
+			return (ConclusionAlgorithm) cls.getDeclaredConstructors()[0].newInstance(argsList);
+		} catch (ClassNotFoundException e) {
+			throw new ClassNotFoundException();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
 		}
-		switch(AlgorithmEnum) {
-			case conclusionSimple:
-				return new Conclusion_Simple(dm);
-			default:
-				return new Conclusion_Simple(dm);	// Default algorithm. Change as needed.			
-		}
+		return null;
 	}
-	
-	private LearnAlgorithm getLearnAlgorihm(String algorithm, Properties weightsConfig) {
-		Algorithm AlgorithmEnum = Algorithm.none;
+
+	private LearnAlgorithm getLearnAlgorihm(String algorithm, Properties weightsConfig) throws ClassNotFoundException {
 		try {
-			AlgorithmEnum = Algorithm.valueOf(algorithm);
-    	} catch(IllegalArgumentException e) {
-			System.out.println("Specified learn algorithm not found. Using default algorithm.");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+algorithm);
+
+			Object[] argsList = new Object[1];
+			argsList[0] = weightsConfig;
+
+			return (LearnAlgorithm) cls.getDeclaredConstructors()[0].newInstance(argsList);
+		} catch (ClassNotFoundException e) {
+			throw new ClassNotFoundException();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
 		}
-		switch(AlgorithmEnum) {
-			case learnConstant:
-				return new Learn_Constant(weightsConfig);
-			case learnSimple:
-				return new LearnAlgSimple(weightsConfig);
-			default:
-				return new Learn_Constant(weightsConfig);	// Default algorithm. Change as needed.			
-		}
+		return null;
 	}
 
 

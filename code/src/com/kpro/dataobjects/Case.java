@@ -115,9 +115,7 @@ public class Case implements Comparable{
 	 * @author ulfnore
 	 */
 	public String toString(){
-		String str = " Case ";
-		
-		str += "DATATYPE: " + datatype +"\n";
+		String str = "\nDATATYPE: " + datatype +"\n";
 		
 		str += "PURPOSE:\n";
 		for(Purpose p: purpose)

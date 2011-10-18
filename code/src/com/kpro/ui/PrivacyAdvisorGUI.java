@@ -6,9 +6,12 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -20,7 +23,7 @@ import javax.swing.JButton;
 
 import sun.awt.windows.ThemeReader;
 
-import com.kpro.database.PolicyDatabase;
+//import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.main.Gio;
@@ -32,7 +35,7 @@ import javax.swing.JInternalFrame;
  * @author ulfnore
  *
  */
-public class PrivacyAdvisorGUI extends UserIO{
+public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 
 	private JFrame frame;
 	private String weightsPath;
@@ -59,9 +62,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 * Launch the application.
 	 * @author ulfnore
 	 */
-	public static void main(String[] args) {
-		
-		
+	public static void main(String[] args) {		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -129,35 +130,33 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 * Called from GIO. Takes default properties file as argument.
 	 * @author ulfnore
 	 */
-	@Override
-	public Properties user_init(Properties genProps) {
-		if (props == null)
-		{
-			props = genProps;
-			Enumeration e = genProps.propertyNames();
-			println("Properties file loaded.\n");
-			while (e.hasMoreElements()) 
-			{
-				String key = (String)e.nextElement();
-	//			System.out.println(key+": "+ genProps.getProperty(key));
-				println(key+": "+ genProps.getProperty(key));
-				
-			}
-		} 
-		return props;
-	}
 
-	/**
-	 * Output database to textArea
-	 */
 	@Override
-	public void showDatabase(PolicyDatabase pdb) {
-		System.out.println("Printing pdb:");
-		System.err.println(pdb == null);
-		for(PolicyObject po : pdb) System.out.println(po);
-		System.out.println(pdb.toString());
-		outputArea.setText(pdb.toString());
+	public Properties user_init(Properties genProps){
+		ConfigEditor ce= new ConfigEditor(genProps);
+		ce.start();
+		try {
+			ce.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return genProps;
 	}
+	
+	
+//	/**
+//	 * Output database to textArea
+//	 */
+//	@Override
+//	public void showDatabase(PolicyDatabase pdb) {
+//		System.out.println("Printing pdb:");
+//		System.err.println(pdb == null);
+////		for(PolicyObject po : pdb) System.out.println(po);
+////		System.out.println(pdb.toString());
+//		println(pdb.toString());
+//	}
 
 	@Override
 	public ArrayList<PolicyObject> loadHistory() {
@@ -174,13 +173,14 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	@Override
 	public PolicyObject userResponse(PolicyObject n) {
-		
+		String description = n.getContextDomain();
 		String recommendation = n.getAction().getAccepted() == true ? "Accept" : "Reject";
 		for (String str : n.getEntities().keySet()) System.out.println( str );
 		int response = 2;
 		while(response == 2)
 			response = JOptionPane.showConfirmDialog(null, 
-						"Privacy Advisor recommends: "+recommendation+
+						"For the policy: \n"+description+"\nPrivacy Advisor recommends: "
+						+recommendation+
 						". Accept recommendation?");
 		
 		if(response == 1)// update
@@ -224,28 +224,15 @@ public class PrivacyAdvisorGUI extends UserIO{
 	
 	
 	private void loadConf(){
-//		System.out.println("In loadConf(): " +System.getProperty("user.dir"));
-		if (props != null){// load modified config file from output area into a properties object, pass to gio 
-			try{
-			String[] config  = outputArea.getSelectedText().split("\n");
-			props = new Properties();
-			for(String str : config){
-				props.setProperty(str.split(": ")[0], str.split(": ")[1]);
-			}
-			}catch (Exception e){
-				println("Error. Invalid configuration.");
-				return;
-			}
-
-		}
-		try{
-		gio = new Gio(null, this);  // user_init called from constructor
-		}
-		catch(Exception e)
-		{
-			println("Error opening config file.");
+		try {
+			gio = new Gio(null, this);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
+	
+
 	
 	
 	private void loadDB()
@@ -283,29 +270,12 @@ public class PrivacyAdvisorGUI extends UserIO{
 	}
 
 	
-	private void updateProperties()
-	{
-		try
-		{
-			//in/out DB set to the same file 
-			props.setProperty("inDBLoc", dbPath);
-			props.setProperty("outDBLoc", dbPath);
-			
-			props.setProperty("p3pLocation", p3pPolicyPath);
-			props.setProperty("inWeightsLoc", weightsPath);
-			props.setProperty("outWeightsLoc", weightsPath);
-			
-			// TODO: ???
-			props.setProperty("userIO", "PrivacyAdvisorGUI");
-		} catch(Exception e){
-			//TODO: something useful
-			e.printStackTrace();
-		}
-		// TODO: update gio object
-		
-	}
+
 	
-	
+	/**
+	 * Runs the CBR algorithm to classify the input P3P.
+	 * @author ulfnore
+	 */
 	private void run()
 	{		
 		try
@@ -340,5 +310,15 @@ public class PrivacyAdvisorGUI extends UserIO{
 		String str0 = outputArea.getText();
 		str0 += "\n"+str;
 		outputArea.setText(str0);
+	}
+
+	@Override
+	public void showDatabase(com.kpro.datastorage.PolicyDatabase pdb) {
+		// TODO Auto-generated method stub
+		System.out.println("Printing pdb:");
+		System.err.println(pdb == null);
+//		for(PolicyObject po : pdb) System.out.println(po);
+//		System.out.println(pdb.toString());
+		println(pdb.toString());
 	}
 }

@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JList;
-import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.PolicyObject;
+import com.kpro.datastorage.PolicyDatabase;
 import com.kpro.main.Gio;
 //import javax.swing.JScrollPane;
 //import javax.swing.JSplitPane;
@@ -148,9 +148,15 @@ public class PrivacyGUI extends UserIO{
 			{
 				"FFFFFUUU",
 			};
-		gio = new Gio(args);
+		try {
+			gio = new Gio(args);
+
+			gio.loadDB();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		gio.loadDB();
 	}
 
 	@Override

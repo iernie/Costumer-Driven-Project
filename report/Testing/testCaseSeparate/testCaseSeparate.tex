@@ -1,0 +1,100 @@
+\documentclass[12pt, fullpage, oneside]{report}
+
+\begin{document}
+
+\title{Test Plan}
+
+	\subsection*{Test plan overview}
+		This is the test plan for the «Privacy protection for information control» application requested by SINTEF ICT. This test plan will be based on IEEE829-1998, the IEEE standard for software test documentation, with some adaptions to fit this project better. The purpose of testing is to 		find bugs and errors and correct them, and to make sure the program is working as expected. The purpose of this test plan is to make sure the tests will be executed as planned, and that they are well documented.
+
+	\setcounter{tocdepth}{1}
+
+	\section{Test Methods}
+		There are two main types of software testing: black-box testing and white-box testing.
+		
+		\subsection*{Black-box testing}
+			This is a method that test the functionality of an application. For this type of testing, knowledge about the application's code and structure is not required. The test cases are based on external descriptions of the software, e.g. specifications, functional requirements or 					designs. Black-box tests are usually functional, but they can also be non-functional. This type of testing can be applied to all levels of software testing.
+		
+		\subsection*{White-box testing}
+			This method is used for testing internal structures of an application. For white-box testing it is required to have both knowledge about the code and structure of the application, as well as knowledge about programming to design the test cases. This type of testing is normally 				done at unit level where it can test paths within a unit or paths between units, but it can also be used at integration and system levels of testing. This method can uncover many errors and problems, but it is not a good test method for finding out whether the program is 					fulfilling the requirements or not.
+
+	\section{Testing approach}
+		Our main focus will be on white-box testing. This is a program that is going to be used for research, which means that black-box testing will not be very useful as the client want to work on and test algorithms themselves. Our main task is to deliver a good framework with the 				necessary tools, and a working, learning algorithm so that further testing can be done with ease. Since one of the system requirements is high modularity, it will be a goal to have the tests be as little dependent on other modules as possible. There will be no training needs, as the 				testers are also involved in the programming.
+
+		\subsection*{What will be tested:}
+			\begin{itemize}
+				\renewcommand{\labelitemi}{$\bullet$}
+					\item \textbf{Unit testing:} This will be used for testing the functionality of the modules, so that we can ensure that they are working as intended.
+					\item \textbf{Interface testing:} As our algorithm is based on case-based reasoning (CBR), it will be important to test that it is learning from new data.
+			\end{itemize}
+
+		\subsection*{What will \underline{not} be tested:}
+			\begin{itemize}
+				\renewcommand{\labelitemi}{$\bullet$}
+					\item \textbf{Usability testing:} This program is intended for further research by the client, and not for use by customers. Since we are not delivering a program ready for users, there is no need to perform end-user tests to see how users interact with the 							program, and whether the product is accepted by users or not.
+					\item \textbf{Learning of our algorithm:} For the same reasons we will not perform any tests on the quality of the GUIs. The GUIs that will be included is there to make testing easier for the client, not to provide the best possible interaction with end-users.
+					\item \textbf{Run time:} We will not do designated tests for checking and optimizing the run time. This is because the main classification algorithm can be easily changed. Run time will only be looked into if the program is very slow even for small data sets.
+			\end{itemize}
+		
+	\section{Test case overview}
+		Under is the test cases and their identifiers. The identifiers are named UNIT-XX, where XX is the number of the test case. 
+		\vspace{8 mm}
+		
+		\textbf{Unit tests:}
+		\begin{itemize}
+			\renewcommand{\labelitemi}{$\bullet$}
+				\item UNIT-01: Command line interface (CLI) functionality
+				\item UNIT-02: P3P parser
+				\item UNIT-03: Local database
+				\item UNIT-04: Graphical user interface (GUI) functionality
+				\item UNIT-05: Algorithm classification
+				\item UNIT-06: Algorithm learning
+				\item UNIT-07: Packet passing through network to community database
+		\end{itemize}
+
+		\vspace{8 mm}
+		Under is the test case template for the unit tests
+		\vspace{8 mm}
+
+		\begin{center}
+			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
+				\hline
+				Item & Description \\ [5pt] \hline \hline
+				Name & The name of the test \\  [5pt] \hline
+				Test identifier & The identifier of the test \\  [5pt] \hline
+				Person responsible & The person responsible for making sure the test is executed correctly and on time. \\  [5pt] \hline
+				Feature(s) to be tested & What kind of functionality that is being tested. \\  [5pt] \hline
+				Pre-conditions & What code and environment that has to be in place before the test can be executed. \\  [5pt] \hline
+				Execution steps & Stepwise explanation of how to perform the test. \\  [5pt] \hline
+				Expected result & The expected output/result for the test to be successful. \\  [5pt] \hline
+			\end{tabular}
+		\end{center}
+
+	\section{Test pass / fail criteria}
+		A test is passed if the given execution steps and input produce the expected results. If they do not, the test is failed.
+
+	\section {Test scheudule}
+		Under is the table with the scheduled execution dates of the unit tests.
+
+		\begin{center}
+			\begin{tabular}{ |  p{5cm} | p{5cm} | }
+				\hline
+				Test identifier & Execution date \\ [5pt] \hline \hline
+				UNIT-01 & Saturday 22.10 \\  [5pt] \hline
+				UNIT-02 & Saturday 22.10 \\  [5pt] \hline
+				UNIT-03 & To be determined \\  [5pt] \hline
+				UNIT-04 & To be determined \\  [5pt] \hline
+				UNIT-05 & To be determined \\  [5pt] \hline
+				UNIT-06 & To be determined \\  [5pt] \hline
+				UNIT-07 & To be determined \\  [5pt] \hline
+			\end{tabular}
+		\end{center}
+
+	\section{Risks and contingencies}
+		For some of the tests we will not be able to test every possible input / output. So there is a chance a test will pass for all the combinations we will be testing for a specific test case, but still fail at some later point for some other combination. This can be a problem for the tests 				UNIT-02 P3P parser, and UNIT-05 Algorithm classification.
+
+		The P3P policies have a huge variety in which elements they contain, and certain elements have a N-to-1 relation, so it will be impossible to test if everything is parsed correctly for every possible P3P policy. The best way to prevent this is to handpick a set of policies that have as 				different content as possible, so that as many of the extremes as possible will be covered.
+
+		We got the same issue for testing the algorithm classification. There is simply too many combinations of learning base and input to cover everything. So again we have to do our best with regards to also covering as many extremes as possible.
+
+\end{document}

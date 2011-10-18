@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.PolicyObject;
+import com.kpro.datastorage.PolicyDatabase;
 
 /**
  * 
