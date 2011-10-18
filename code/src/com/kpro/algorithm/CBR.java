@@ -93,7 +93,6 @@ public class CBR {
 		ArrayList<PolicyObject> a = theIO.getPDB().getDomain(newpol.getContextDomain());
 		if(!a.isEmpty()) //if we've already seen the item
 		{
-			//theIO.userMessage("This policy has already been "+a.get(0).getAction().getAcceptedStr()+" on " + a.get(0).getContext().getAccessTime()+".\n No action will be taken.");
 			if(a.get(0).equalsCases(newpol))
 			{
 				Context b = a.get(0).getContext();
