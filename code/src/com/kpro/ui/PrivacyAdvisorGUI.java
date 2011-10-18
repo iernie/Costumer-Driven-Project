@@ -23,9 +23,9 @@ import javax.swing.JButton;
 
 import sun.awt.windows.ThemeReader;
 
-import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
+import com.kpro.datastorage.PolicyDatabase;
 import com.kpro.main.Gio;
 import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
 import javax.swing.JScrollPane;

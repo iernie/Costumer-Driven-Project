@@ -1,4 +1,4 @@
-package com.kpro.database;
+package com.kpro.datastorage;
 
 import java.io.FileInputStream;		//for reading/writing serialized databases
 import java.io.FileOutputStream;	//for reading/writing serialized databases

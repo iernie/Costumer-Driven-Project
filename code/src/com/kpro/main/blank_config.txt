@@ -15,3 +15,6 @@ cbrV					-> string/CBR					-: parses for algorithms, etc to use. See CBR:parse(S
 userIO					-> string/UIO					-: the user interface to use. see Gio:selectUI.
 policyDB				-> string/policyDB				-: select the database type. see Gio:selectPDB 
 genConfig				-> string/filepath				-: load an alternate configuration file (not './PrivacyAdvisor.cfg')
+networkRType			-> string/classname				-: the name of a networkR class
+networkROptions			-> string/commasepoptions		-: the options necessary for the above networkR class
+confidenceLevel			-> string/double				-: the confidence level at which the algorithm trusts itself; if below this, it uses the server's suggestion

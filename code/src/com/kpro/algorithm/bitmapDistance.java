@@ -157,6 +157,7 @@ package com.kpro.algorithm;
 				default:break;
 				}
 			}
+			
 			return Map;
 		}
 		
@@ -246,8 +247,8 @@ package com.kpro.algorithm;
 		}
 	
 		private double getDistData(Case a, Case b){
-			String[] DataStringsA = a.getDataType().split(".");
-			String[] DataStringsB = b.getDataType().split(".");
+			String[] DataStringsA = a.getDataType().split("\\.");
+			String[] DataStringsB = b.getDataType().split("\\.");
 			int LastSameString=0;
 			/*
 			 * next for-loop only goes for the length of least of strings
@@ -264,8 +265,10 @@ package com.kpro.algorithm;
 			 * then when just "tails" that are different
 			 * then we multiply distance with a specific factor choosen by expert knowledge 
 			 */
+			
 			if(LastSameString==0){
 				int valueA=2, valueB=1;
+				
 				if(DataStringsA[0].equals("dynamic")){
 					valueA=4;
 				}
@@ -290,12 +293,14 @@ package com.kpro.algorithm;
 				else{
 					valueB=2;
 				}
-				return (DataStringsA.length+DataStringsA.length)*(Math.max(valueA, valueB)-Math.min(valueA, valueB));
+				
+				return (DataStringsA.length+DataStringsB.length)*(Math.max(valueA, valueB)-Math.min(valueA, valueB));
 			}
 			/*
 			 * returns lenght of "tails" that did not matched
 			 */
-			return DataStringsA.length+DataStringsA.length-2*LastSameString;
+			
+			return DataStringsA.length+DataStringsB.length-2*LastSameString;
 		}
 		/**
 		 * Calculates distance in the Purpose field from case a to case b
@@ -315,6 +320,7 @@ package com.kpro.algorithm;
 			for(int i=0;i<12;i++){
 				if(MapA[i]!=MapB[i]){
 					dis=dis+Math.max(MapA[i], MapB[i]);
+				
 				}
 			}
 			

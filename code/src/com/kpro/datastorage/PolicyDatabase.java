@@ -1,4 +1,4 @@
-package com.kpro.database;
+package com.kpro.datastorage;
 
 import java.util.ArrayList;
 import java.util.Collection; //for storing policies

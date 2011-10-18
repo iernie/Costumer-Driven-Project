@@ -2,8 +2,8 @@ package com.kpro.ui;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.PolicyObject;
+import com.kpro.datastorage.PolicyDatabase;
 
 
 public abstract class UserIO {

@@ -5,10 +5,10 @@ import java.util.ArrayList; //for moving between reduction and conclusion algori
 import java.util.Date;
 import java.util.Properties;	//for handling weights
 
-import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Context;
 import com.kpro.dataobjects.PolicyObject;
+import com.kpro.datastorage.PolicyDatabase;
 import com.kpro.main.Gio;
 
 /**
@@ -74,6 +74,11 @@ public class CBR {
 	private PolicyObject process(PolicyObject newPO) {
 		ArrayList<PolicyObject> reducedSet = reduceAlg.reduce(newPO);
 		Action a = conclusAlg.conclude(newPO,reducedSet);
+		if(a.getConfidence() < theIO.getConfLevel())
+		{
+			System.err.println("nr="+theIO.getNR());
+			a = theIO.getNR().reqAct(newPO);
+		}
 		newPO.setAction(a);
 		return newPO;
 	}
@@ -105,6 +110,7 @@ public class CBR {
 			if(newpol != null) //the user made a one time only choice
 			{
 				theIO.getPDB().addPolicy(newpol); //save to database
+				theIO.getNR().saveObj(newpol);//upload to network
 				learnAlg.learn(theIO);
 			}
 		
@@ -120,7 +126,7 @@ public class CBR {
 		DistanceMetric dm = getDistanceMetricAlgorithm(algorithms[0], weightsConfig);
 		PolicyDatabase pdb = theIO.getPDB();
 
-		ReductionAlgorithm reductionAlgorithm = getReductionAlgorihm(algorithms[1], dm, pdb, k);
+		ReductionAlgorithm reductionAlgorithm = getReductionAlgorihm(algorithms[1], dm, pdb, k); //TODO fix to accept the k specified by options, not k=1 from above
 		ConclusionAlgorithm conclusionAlgortihm = getConclusionAlgorihm(algorithms[2], dm);
 		LearnAlgorithm learnAlgorithm = getLearnAlgorihm(algorithms[3], weightsConfig);
 		

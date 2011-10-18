@@ -2,8 +2,8 @@ package com.kpro.algorithm;
 
 import java.util.ArrayList; //storage structure for intermediate results
 
-import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.PolicyObject;
+import com.kpro.datastorage.PolicyDatabase;
 
 /**
  * The abstract class for implementing reduction algorithms, like Knearestneighbors.
