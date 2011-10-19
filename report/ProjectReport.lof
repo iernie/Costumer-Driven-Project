@@ -4,29 +4,31 @@
 \contentsline {xchapter}{Project Directive}{7}{chapter*.6}
 \contentsline {xpart}{Initial Phase - Planning and Research}{7}{part.1}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Preliminary Study}{11}{chapter*.7}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces A Simplified CBR Cycle.}}{13}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces The Waterfall Model.}}{16}{figure.2.2}
+\contentsline {xchapter}{Preliminary Study}{13}{chapter*.7}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces A Simplified CBR Cycle.}}{15}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The Waterfall Model.}}{18}{figure.2.2}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Planning Phase}{17}{chapter*.8}
+\contentsline {xchapter}{Planning Phase}{19}{chapter*.8}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Requirements Specification}{29}{chapter*.11}
-\contentsline {xpart}{Design and Implementation Phase}{29}{part.2}
+\contentsline {xchapter}{Requirements Specification}{31}{chapter*.11}
+\contentsline {xpart}{Design and Implementation Phase}{31}{part.2}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Design}{37}{chapter*.18}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces System Overview.}}{41}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Input/output and user interfaces.}}{42}{figure.5.4}
+\contentsline {xchapter}{Design}{39}{chapter*.18}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces System Overview.}}{43}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Input/output and user interfaces.}}{44}{figure.5.4}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Implementation Phase}{45}{chapter*.24}
+\contentsline {xchapter}{Implementation}{47}{chapter*.24}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Documentation}{51}{chapter*.32}
+\contentsline {xchapter}{Documentation}{53}{chapter*.33}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Test Plan}{57}{chapter*.37}
-\contentsline {xpart}{Evaluation and Summary}{57}{part.3}
+\contentsline {xchapter}{Test Plan}{59}{chapter*.38}
+\contentsline {xpart}{Testing, Evaluation and Summary}{59}{part.3}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Conclusion}{63}{chapter*.41}
+\contentsline {xchapter}{Project Evaluation}{65}{chapter*.42}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Test cases}{67}{appendix*.42}
-\contentsline {xpart}{Appendices}{67}{part.4}
+\contentsline {xchapter}{Conclusion}{67}{chapter*.44}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Templates}{73}{appendix*.43}
+\contentsline {xchapter}{Test cases}{71}{appendix*.45}
+\contentsline {xpart}{Appendices}{71}{part.4}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Templates}{77}{appendix*.46}
