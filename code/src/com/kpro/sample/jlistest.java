@@ -2,11 +2,8 @@ package com.kpro.sample;
 
 import java.awt.EventQueue;
 
-import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.ListModel;
-
 import java.awt.BorderLayout;
 import java.util.HashMap;
 
@@ -21,6 +18,7 @@ public class jlistest {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					jlistest window = new jlistest();

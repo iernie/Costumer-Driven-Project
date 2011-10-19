@@ -43,6 +43,7 @@ public class PrivacyGUI extends UserIO{
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					//gio = new Gio(this);

@@ -57,46 +57,42 @@
 \BOOKMARK [2][-]{subsection.5.2.4}{Third Party Libraries}{section.5.2}% 57
 \BOOKMARK [1][-]{section.5.3}{Standards}{chapter*.18}% 58
 \BOOKMARK [1][-]{section.5.4}{Architecture}{chapter*.18}% 59
-\BOOKMARK [0][-]{chapter*.22}{Implementation Phase}{part.2}% 60
-\BOOKMARK [1][-]{section.6.1}{Purpose}{chapter*.22}% 61
-\BOOKMARK [1][-]{section.6.2}{Algorithms}{chapter*.22}% 62
-\BOOKMARK [2][-]{subsection.6.2.1}{K-Nearest Neighbors}{section.6.2}% 63
-\BOOKMARK [2][-]{subsection.6.2.2}{Distance Measures}{section.6.2}% 64
-\BOOKMARK [1][-]{section.6.3}{Data Storage}{chapter*.22}% 65
-\BOOKMARK [2][-]{subsection.6.3.1}{Flat File Storage}{section.6.3}% 66
-\BOOKMARK [2][-]{subsection.6.3.2}{Databases}{section.6.3}% 67
-\BOOKMARK [1][-]{section.6.4}{User Interface}{chapter*.22}% 68
-\BOOKMARK [2][-]{subsection.6.4.1}{Model View Controller Architecture}{section.6.4}% 69
-\BOOKMARK [2][-]{subsection.6.4.2}{Privacy Advisor Interface}{section.6.4}% 70
-\BOOKMARK [2][-]{subsection.6.4.3}{CLI}{section.6.4}% 71
-\BOOKMARK [2][-]{subsection.6.4.4}{GUI}{section.6.4}% 72
-\BOOKMARK [0][-]{chapter*.25}{Documentation}{part.2}% 73
-\BOOKMARK [1][-]{section.7.1}{Source Code Documentation}{chapter*.25}% 74
-\BOOKMARK [1][-]{section.7.2}{Installation}{chapter*.25}% 75
-\BOOKMARK [2][-]{subsection.7.2.1}{Local Installation}{section.7.2}% 76
-\BOOKMARK [2][-]{subsection.7.2.2}{Server Installation}{section.7.2}% 77
-\BOOKMARK [1][-]{section.7.3}{User Interfaces}{chapter*.25}% 78
-\BOOKMARK [2][-]{subsection.7.3.1}{Graphical User Interface}{section.7.3}% 79
-\BOOKMARK [2][-]{subsection.7.3.2}{Command Line Interface}{section.7.3}% 80
-\BOOKMARK [-1][-]{part.3}{III Evaluation and Summary}{}% 81
-\BOOKMARK [0][-]{chapter*.30}{Evaluation and Testing}{part.3}% 82
-\BOOKMARK [1][-]{section.8.1}{Purpose}{chapter*.30}% 83
-\BOOKMARK [1][-]{section.8.2}{Testing Approaches}{chapter*.30}% 84
-\BOOKMARK [1][-]{section.8.3}{More to come here}{chapter*.30}% 85
-\BOOKMARK [0][-]{chapter*.31}{Conclusion}{part.3}% 86
-\BOOKMARK [1][-]{section.9.1}{Introduction}{chapter*.31}% 87
-\BOOKMARK [-1][-]{part.4}{IV Appendices}{}% 88
-\BOOKMARK [0][-]{appendix*.32}{Test Plan}{part.4}% 89
-\BOOKMARK [1][-]{section.A.1}{Overview}{appendix*.32}% 90
-\BOOKMARK [1][-]{section.A.2}{Test methods}{appendix*.32}% 91
-\BOOKMARK [2][-]{subsection.A.2.1}{Black-box testing}{section.A.2}% 92
-\BOOKMARK [2][-]{subsection.A.2.2}{White-box testing}{section.A.2}% 93
-\BOOKMARK [1][-]{section.A.3}{Testing approach}{appendix*.32}% 94
-\BOOKMARK [2][-]{subsection.A.3.1}{What will be tested}{section.A.3}% 95
-\BOOKMARK [2][-]{subsection.A.3.2}{What will not be tested}{section.A.3}% 96
-\BOOKMARK [1][-]{section.A.4}{Test cases}{appendix*.32}% 97
-\BOOKMARK [1][-]{section.A.5}{Test case overview}{appendix*.32}% 98
-\BOOKMARK [2][-]{subsection.A.5.1}{Unit tests}{section.A.5}% 99
-\BOOKMARK [1][-]{section.A.6}{Item pass / fail criteria}{appendix*.32}% 100
-\BOOKMARK [1][-]{section.A.7}{Test schedule}{appendix*.32}% 101
-\BOOKMARK [0][-]{appendix*.33}{Templates}{part.4}% 102
+\BOOKMARK [2][-]{subsection.5.4.1}{Design Overview}{section.5.4}% 60
+\BOOKMARK [2][-]{subsection.5.4.2}{Detailed Design}{section.5.4}% 61
+\BOOKMARK [2][-]{subsection.5.4.3}{Community Server}{section.5.4}% 62
+\BOOKMARK [0][-]{chapter*.24}{Implementation Phase}{part.2}% 63
+\BOOKMARK [1][-]{section.6.1}{Purpose}{chapter*.24}% 64
+\BOOKMARK [1][-]{section.6.2}{Algorithms}{chapter*.24}% 65
+\BOOKMARK [2][-]{subsection.6.2.1}{K-Nearest Neighbors}{section.6.2}% 66
+\BOOKMARK [2][-]{subsection.6.2.2}{Distance Measures}{section.6.2}% 67
+\BOOKMARK [2][-]{subsection.6.2.3}{Implementation}{section.6.2}% 68
+\BOOKMARK [1][-]{section.6.3}{Data Storage}{chapter*.24}% 69
+\BOOKMARK [2][-]{subsection.6.3.1}{Flat File Storage}{section.6.3}% 70
+\BOOKMARK [2][-]{subsection.6.3.2}{Databases}{section.6.3}% 71
+\BOOKMARK [1][-]{section.6.4}{User Interface}{chapter*.24}% 72
+\BOOKMARK [2][-]{subsection.6.4.1}{Model View Controller Architecture}{section.6.4}% 73
+\BOOKMARK [2][-]{subsection.6.4.2}{Privacy Advisor Interface}{section.6.4}% 74
+\BOOKMARK [2][-]{subsection.6.4.3}{CLI}{section.6.4}% 75
+\BOOKMARK [2][-]{subsection.6.4.4}{GUI}{section.6.4}% 76
+\BOOKMARK [0][-]{chapter*.32}{Documentation}{part.2}% 77
+\BOOKMARK [1][-]{section.7.1}{Source Code Documentation}{chapter*.32}% 78
+\BOOKMARK [1][-]{section.7.2}{Installation}{chapter*.32}% 79
+\BOOKMARK [2][-]{subsection.7.2.1}{Local Installation}{section.7.2}% 80
+\BOOKMARK [2][-]{subsection.7.2.2}{Server Installation}{section.7.2}% 81
+\BOOKMARK [1][-]{section.7.3}{User Interfaces}{chapter*.32}% 82
+\BOOKMARK [2][-]{subsection.7.3.1}{Graphical User Interface}{section.7.3}% 83
+\BOOKMARK [2][-]{subsection.7.3.2}{Command Line Interface}{section.7.3}% 84
+\BOOKMARK [-1][-]{part.3}{III Evaluation and Summary}{}% 85
+\BOOKMARK [0][-]{chapter*.37}{Test Plan}{part.3}% 86
+\BOOKMARK [1][-]{section.8.1}{Test Methods}{chapter*.37}% 87
+\BOOKMARK [1][-]{section.8.2}{Testing approach}{chapter*.37}% 88
+\BOOKMARK [1][-]{section.8.3}{Test case overview}{chapter*.37}% 89
+\BOOKMARK [1][-]{section.8.4}{Test pass / fail criteria}{chapter*.37}% 90
+\BOOKMARK [1][-]{section.8.5}{Test scheudule}{chapter*.37}% 91
+\BOOKMARK [1][-]{section.8.6}{Risks and contingencies}{chapter*.37}% 92
+\BOOKMARK [0][-]{chapter*.41}{Conclusion}{part.3}% 93
+\BOOKMARK [1][-]{section.9.1}{Introduction}{chapter*.41}% 94
+\BOOKMARK [-1][-]{part.4}{IV Appendices}{}% 95
+\BOOKMARK [0][-]{appendix*.42}{Test cases}{part.4}% 96
+\BOOKMARK [1][-]{section.A.1}{Test cases}{appendix*.42}% 97
+\BOOKMARK [0][-]{appendix*.43}{Templates}{part.4}% 98

@@ -22,6 +22,7 @@ public class UserIO_Simple extends UserIO {
 	/** does nothing
 	 * @see UserIO#showDatabase(PolicyDatabase)
 	 */
+	@Override
 	public void showDatabase(PolicyDatabase pdb) {
 		String response;		
 		Scanner sc = new Scanner(System.in);
@@ -60,6 +61,7 @@ public class UserIO_Simple extends UserIO {
 	 * 
 	 * @see UserIO#userResponse(PolicyObject)
 	 */
+	@Override
 	public PolicyObject userResponse(PolicyObject n)
 	{
 		String response;		
@@ -119,6 +121,7 @@ public class UserIO_Simple extends UserIO {
 	 * 
 	 * @author ngerstle
 	 */
+	@Override
 	public void closeResources() {}
 
 

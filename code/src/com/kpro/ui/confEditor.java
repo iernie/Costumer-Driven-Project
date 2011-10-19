@@ -13,8 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
-
 public class confEditor extends Thread implements ActionListener{
 
 	private JFrame frame;
@@ -41,6 +39,7 @@ public class confEditor extends Thread implements ActionListener{
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					confEditor window = new confEditor();

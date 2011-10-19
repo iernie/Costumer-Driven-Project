@@ -38,6 +38,7 @@ public class Conclusion_Simple extends ConclusionAlgorithm {
 	 * @return an arraylist of {Action a, double Confidence) 
 	 *
 	 */
+	@Override
 	public Action conclude(PolicyObject np, Iterable<PolicyObject> releventSet)
 	{
 		ArrayList<String> approveList = new ArrayList<String>();

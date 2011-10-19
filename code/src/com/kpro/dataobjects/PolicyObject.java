@@ -165,6 +165,7 @@ public class PolicyObject implements Serializable
 	 * 
 	 * @author ulfnore
 	 */
+	@Override
 	public String toString()
 	{
 		String str = "";

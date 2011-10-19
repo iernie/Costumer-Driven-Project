@@ -6,30 +6,19 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Iterator;
 import java.util.Properties;
-import java.util.Scanner;
-
 import javax.swing.JTextArea;
 import javax.swing.JButton;
-
-import sun.awt.windows.ThemeReader;
 
 //import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.main.Gio;
-import com.sun.corba.se.impl.encoding.CodeSetConversion.BTCConverter;
 import javax.swing.JScrollPane;
-import javax.swing.JInternalFrame;
 /**
  * Privacy Advisor GUI to run on top of 
  * @author ulfnore
@@ -47,7 +36,8 @@ public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 	private Gio gio;
 
 	// textarea to hold output  
-	private JTextArea outputArea; 
+	private JTextArea outputArea;
+	
 	
 	// buttons
 	private JButton btnLoadDatabase;
@@ -64,6 +54,7 @@ public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 	 */
 	public static void main(String[] args) {		
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					PrivacyAdvisorGUI window = new PrivacyAdvisorGUI();

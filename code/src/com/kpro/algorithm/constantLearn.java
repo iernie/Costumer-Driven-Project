@@ -21,6 +21,7 @@ public class constantLearn extends LearnAlgorithm {
 
 
 
+	@Override
 	protected Properties applyML(Gio theIO) {
 		return weightsConfig;
 	}

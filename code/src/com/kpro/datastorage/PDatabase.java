@@ -48,6 +48,7 @@ public class PDatabase extends PolicyDatabase implements Serializable
 	 * @author ngerstle
 	 * @see PolicyDatabase#closeDB()
 	 */
+	@Override
 	public void loadDB(String dLoc)
 	{
 		try
@@ -55,7 +56,7 @@ public class PDatabase extends PolicyDatabase implements Serializable
 			FileInputStream fis = new FileInputStream(dLoc);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 			i = (PolicyDatabase)ois.readObject();
-			PDatabase.inLocation = dLoc;
+			PolicyDatabase.inLocation = dLoc;
 			ois.close();
 			fis.close();
 		}
@@ -73,6 +74,7 @@ public class PDatabase extends PolicyDatabase implements Serializable
 	 * See PolicyDatabase.java. implements loading/closing the db via a serialize PDatabase object.
 	 * @see PolicyDatabase#closeDB()
 	 */
+	@Override
 	public void closeDB(String dLoc) 
 	{
 		try {
@@ -109,6 +111,7 @@ public class PDatabase extends PolicyDatabase implements Serializable
 	 * @author ngerstle
 	 * @see  PolicyDatabase#getDomain()
 	 */
+	@Override
 	public ArrayList<PolicyObject> getDomain(String domain) {
 		ArrayList<PolicyObject> results = new ArrayList<PolicyObject>();
 		for(PolicyObject i : idb)

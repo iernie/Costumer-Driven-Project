@@ -43,6 +43,7 @@ public class Reduction_KNN  extends ReductionAlgorithm{
 	 * @return ArrayList<PolicyObject> an arraylist of size k of the nearest neighbors
 	 * @author ngerstle
 	 */
+	@Override
 	public ArrayList<PolicyObject> reduce(final PolicyObject newPO) 
 	{
 		//Copying pdb.idb should not be unnecessary- remove all_pos and for loop
@@ -53,6 +54,7 @@ public class Reduction_KNN  extends ReductionAlgorithm{
 		}
 		Collections.sort(all_pos,		
 				new Comparator<PolicyObject>() {
+					@Override
 					public int compare(PolicyObject o1, PolicyObject o2) 
 					{		
 						double a = distanceMetric.getTotalDistance(newPO, o1);

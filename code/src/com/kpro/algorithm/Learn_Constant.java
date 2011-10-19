@@ -35,6 +35,7 @@ public class Learn_Constant extends LearnAlgorithm {
 	 * @author ngerstle
 	 * 
 	 */
+	@Override
 	protected Properties applyML(Gio theIO) {
 		return weightsConfig;
 	}

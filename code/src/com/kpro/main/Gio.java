@@ -12,7 +12,6 @@ import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
 
 import com.kpro.algorithm.CBR;
-import com.kpro.algorithm.LearnAlgorithm;
 import com.kpro.parser.P3PParser;
 
 import com.kpro.dataobjects.*;

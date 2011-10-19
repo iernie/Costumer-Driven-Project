@@ -54,6 +54,7 @@ public class knnReduction  extends ReductionAlgorithm{
 		}
 		Collections.sort(all_pos,		
 				new Comparator<PolicyObject>() {
+					@Override
 					public int compare(PolicyObject o1, PolicyObject o2) 
 					{
 		

@@ -75,7 +75,8 @@ public class P3PParser
 		 * @param attributes input Attributes
 		 * @throws SAXException
 		 */
-	    public void startElement(String nsURI, String strippedName, String tagName, Attributes attributes) throws SAXException
+	    @Override
+		public void startElement(String nsURI, String strippedName, String tagName, Attributes attributes) throws SAXException
 	    {
 	    	
 	    	//System.out.println("TAG: " + tagName + ", ATTRS: " + attributes.getValue(0));
@@ -203,7 +204,8 @@ public class P3PParser
 	     * @param length input int
 	     * @throws SAXException
 	     */
-	    public void characters(char ch[], int start, int length) throws SAXException
+	    @Override
+		public void characters(char ch[], int start, int length) throws SAXException
 	    {
 	    	String content = new String(ch, start, length);
 	    	
@@ -271,7 +273,8 @@ public class P3PParser
 	     * @param tagName input String
 	     * @throws SAXException
 	     */
-	    public void endElement(String nsURI, String strippedName, String tagName) throws SAXException
+	    @Override
+		public void endElement(String nsURI, String strippedName, String tagName) throws SAXException
 	    {
 	    	// IF TAG ENDS, SET IT TO FALSE
 	    	
