@@ -31,9 +31,7 @@ public class NRCouchdb extends NetworkR {
 	}
 
 	public void saveObj(PolicyObject a){
-		Gson gson = new Gson();
-		
-		Response resp = dbc.save(gson.toJson(a)); 
+        dbc.save(a);	
 	}
 
 
