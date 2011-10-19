@@ -30,6 +30,7 @@ class PolicyLight implements Serializable {
 	/**
 	 * This is the over-ridden method to display object variables value as a String. 
 	 */
+	@Override
 	public String toString() { 
 		return "Name = " + name + ", recipient = " + recipient + ", value = " + value + ", retention = " + retention;
 	}

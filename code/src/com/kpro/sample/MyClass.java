@@ -31,6 +31,7 @@ class MyClass implements Serializable {
 	/**
 	 * This is the over-ridden method to display object variables value as a String. 
 	 */
+	@Override
 	public String toString() { 
 		return "s=" + name + "; i=" + age + "; d=" + kuchV; 
 	}

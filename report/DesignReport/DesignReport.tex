@@ -20,11 +20,14 @@ For software projects of a certain scale, version control is an important techno
 For source code repositories and version control, \textbf{Git} was selected. Git is a distributed, open source version control system that is available for all platforms. Git is also used for hosting the \LaTeX documents that comprise this report. For other documents such as meeting minutes, agendas, status reports, time reporting and certain planning documents, Google Docs is used.
 
 
+
 \subsection{Programming Languages}
-\textbf{Java} is chosen as the primary programming language for implementing the majority of the code. Java is an object oriented programming language providing a level of abstraction appropriate for the task at hand in addition to a rich set of libraries, including the SWING library for GUI programming, and several libraries for networking. It also simplifies writing a browser plugin as major browsers such as Google Chrome and Firefox employ Javascript as 
+\textbf{Java} is chosen as the primary programming language for implementing the majority of the code. Java is an object oriented programming language providing a level of abstraction appropriate for the task at hand in addition to a rich set of libraries, including the SWING library for GUI programming, and several libraries for networking. It also simplifies writing a browser plugin as major browsers such as Google Chrome and Firefox employ Javascript as scripting language for plugin.
 
 \subsection{Databases}
 For testing purposes, it has been decided on using flat file storage of privacy policy data using Java's \texttt{Serializable} interface. However, the output functionality is to be written in a generic fashion to simplify use of database systems such as MySQL, CouchDB and so forth. 
+
+
 
 \subsection{Third Party Libraries}
  
@@ -47,16 +50,58 @@ Looking for XML parsers on the Java platform, we found out that there are two di
 
 We ended up using SAXParser, an internal sequential access parsers in Java. The task from here was to implement it, making the policy as an object with the fields of our choosing. It works by sequentially going through all elements of the XML document, and with easy string comparison, checking if the element is of the wanted ones.
 
+
+
 \section{Standards}
 To achieve clean and reusable code, the project has adopted Oracle's Coding Conventions for the Java Programming Language\footnote{http://www.oracle.com/technetwork/java/codeconvtoc-136057.html}. This is mentioned in the requirements specification due to the high likelihood of the customer having to change the source code for later adaptations.
 
 
-\section{Architecture}
-To implement the Privacy Agent, a class structure is built around the CBR agent model discussed in T¿ndel and Nyre with certain additions and refinements to handle data structures, algorithms, IO and so forth. 
 
-\section{Community Server}
-The community knowledge repository is implemented using a public CouchDB (no-SQL server), which is accessed using standard Java to JSON java libraries. The client program (end-user java application) communicates with the server at two points- when the application has insufficient knowledge, or confidence in its knownledge, to make a suggestion as to the acception of a new P3P policy; and after the user has confirmed or overriden the policy.
+
+\section{Architecture}
+%http://www.cmcrossroads.com/bradapp/docs/sdd.html
+In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in T¿ndel and Nyre. Refinements needed to be made include data structures for storing policies, databases, choosing actual algorithms, and so forth. This section describes how the design in broad terms.
+
+\subsection{Design Overview}
+This section describes the architecture of the local CBR based system. The next section gives an overview over the design of the server component using collaborative filtering and how it interfaces with the local system.  
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width = \textwidth]{DesignReport/uml/Case.png}
+\caption{System Overview.}
+\label{SystemOverview}
+\end{center}
+\end{figure}
+
+Figure~\ref{SystemOverview} illustrates the broad structure of the system; a policy object is passed to the CBR system from the user via the user interface. The CBR does a lookup on similar cases in the local database and makes a recommendation based on the similar cases and provides the user with the advice and the background for the advice through the user interface. The user can then give a feedback on the advice choosing to accept or reject it. The user feedback is then stored back to the database.
+
+
+\subsection{Detailed Design}
+
+
+\subsubsection{Dependencies}
+
+
+
+\subsubsection{User Interface}
+
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width = \textwidth]{DesignReport/uml/gio.png}
+\caption{Input/output and user interfaces.}
+\label{UserIO}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Community Server}
+The community knowledge repository is implemented using a public CouchDB (no-SQL server), which is accessed using standard Java to JSON java libraries. The client program (end-user java application) communicates with the server at two points- when the application has insufficient knowledge, or confidence in its knowledge, to make a suggestion as to the acceptance of a new P3P policy; and after the user has confirmed or overridden the policy.
+
 In the first instance, the new policy under consideration is converted to JSON using GSON (the Google Json libraries), and transmitted to the database, which parses the new policy and replies with a JSON encoded suggested Action.
+
 In the second instance, the final policy (including the action taken on it) is sent to the CouchDB server, and the server proceeds to store the object.
 On the database end, there are two essential interfaces (beyond any standard initialization and shutdown procedures). As seem above, these two interfaces are the suggestion provider, which includes a query to find the most similar policies and actions on them by the community, and a interface to simply save the new policy to the appropriate database.
-The database is easily replacable, requiring only the construction of a new class implementing 'NetworkR', the abstract class detailing the methods called by the PrivacyAdvisor framework. The selection between avaliable 'NetworkR' implementations in made by setting the 'NetworkRType' configuration variable during initialization to the full classname.
+The database is easily replaceable, requiring only the construction of a new class implementing 'NetworkR', the abstract class detailing the methods called by the PrivacyAdvisor framework. The selection between available 'NetworkR' implementations in made by setting the 'NetworkRType' configuration variable during initialization to the full classname.

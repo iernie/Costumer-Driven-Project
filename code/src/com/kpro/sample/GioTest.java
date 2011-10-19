@@ -1,7 +1,6 @@
 package com.kpro.sample;
 
 import com.kpro.main.Gio;
-import com.sun.corba.se.impl.orb.ParserTable.TestContactInfoListFactory;
 
 public class GioTest {
 	

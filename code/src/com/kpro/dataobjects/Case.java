@@ -114,6 +114,7 @@ public class Case implements Comparable{
 	 * Based on debug.print
 	 * @author ulfnore
 	 */
+	@Override
 	public String toString(){
 		String str = "\nDATATYPE: " + datatype +"\n";
 		
@@ -146,6 +147,7 @@ public class Case implements Comparable{
 	 * @return -1 if this > other, 0 if equal, else 1
 	 * @author ngerstle
 	 */
+	@Override
 	public int compareTo(Object o) {
 		
 		return toString().compareToIgnoreCase(((Case)o).toString());

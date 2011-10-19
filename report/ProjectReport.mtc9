@@ -1,3 +1,8 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {8.1}Purpose}{\reset@font\mtcSfont 47}{section.8.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {8.2}Testing Approaches}{\reset@font\mtcSfont 47}{section.8.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {8.3}More to come here}{\reset@font\mtcSfont 47}{section.8.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {8.1}Test Methods}{\reset@font\mtcSfont 57}{section.8.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {8.1.1}Black-box testing}{\reset@font\mtcSSfont 58}{subsection.8.1.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {8.1.2}White-box testing}{\reset@font\mtcSSfont 58}{subsection.8.1.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {8.2}Testing approach}{\reset@font\mtcSfont 58}{section.8.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {8.3}Test case overview}{\reset@font\mtcSfont 59}{section.8.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {8.4}Test pass / fail criteria}{\reset@font\mtcSfont 60}{section.8.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {8.5}Test scheudule}{\reset@font\mtcSfont 60}{section.8.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {8.6}Risks and contingencies}{\reset@font\mtcSfont 61}{section.8.6}}

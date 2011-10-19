@@ -1,6 +1,5 @@
 package com.kpro.algorithm;
 
-import com.kpro.dataobjects.PolicyObject;
 import com.kpro.main.Gio;
 
 import junit.framework.TestCase;
@@ -12,6 +11,7 @@ public class LearnAlgSimplerTest extends TestCase {
 //	private static PolicyObject po;	
 
 	
+	@Override
 	protected void setUp() throws Exception {
 
 		System.out.println("testttttt");

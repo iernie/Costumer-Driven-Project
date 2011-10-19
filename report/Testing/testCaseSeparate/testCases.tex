@@ -1,0 +1,115 @@
+\documentclass[12pt, fullpage, oneside]{report}
+
+\begin{document}
+
+\title{Test Cases}
+
+	\subsection*{Test cases}
+		This is the test cases if we want them in the appendix.
+	\setcounter{tocdepth}{1}
+
+	\section{Test cases}
+		\vspace{8 mm}		
+
+		\begin{center}
+			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
+				\hline
+				Item & Description \\ [5pt] \hline \hline
+				Name & Command line interface (CLI) functionality \\  [5pt] \hline
+				Test identifier & UNIT-01 \\  [5pt] \hline
+				Person responsible & Henrik Knutsen \\  [5pt] \hline
+				Feature(s) to be tested & All possible commands when running the program with the CLI. That input with incompatible commands does not run. \\  [5pt] \hline
+				Pre-conditions & Code for input handling for all possible commands. Error handling for invalid inputs. \\  [5pt] \hline
+				Execution steps & 1. Test all the commands one by one. \newline 2. Test the combinations of invalid inputs. \\  [5pt] \hline
+				Expected result & 1. The program runs using the input variables. \newline 2. Error warning: Invalid arguments. Abort startup. \\  [5pt] \hline
+			\end{tabular}
+		\end{center}
+
+		\begin{center}
+			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
+				\hline
+				Item & Description \\ [5pt] \hline \hline
+				Name & P3P parser \\  [5pt] \hline
+				Test identifier & UNIT-02 \\  [5pt] \hline
+				Person responsible & Henrik Knutsen \\  [5pt] \hline
+				Feature(s) to be tested & That the P3P parser correctly parses all the required fields and their values. \\  [5pt] \hline
+				Pre-conditions & The P3P parser must be implemented. Need to have P3P policies with a wide range of cases. \\  [5pt] \hline
+				Execution steps & 1. Manually go through a P3P XML and obtain all the required fields and the values. \newline 2. Run the same P3P XML in the P3P parser and print the parsed elements and their values to console.
+					\newline 3. Compare the results from the two parsing methods. \\  [5pt] \hline
+				Expected result & The two parsing methods give identical output. They must both have the same fields, each containing the same values \\  [5pt] \hline
+			\end{tabular}
+		\end{center}
+		
+		\begin{center}
+			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
+				\hline
+				Item & Description \\ [5pt] \hline \hline
+				Name & Local database \\  [5pt] \hline
+				Test identifier & UNIT-03 \\  [5pt] \hline
+				Person responsible & Henrik Knutsen \\  [5pt] \hline
+				Feature(s) to be tested & Writing to and reading from the local database. That the serialization of the database is working. \\  [5pt] \hline
+				Pre-conditions & Code for writing to and reading from the database file must be implemented. Need to have two different P3P policies. \\  [5pt] \hline
+				Execution steps & 1. Write policy A to the local database. \newline 2. Write policy B to the local database. \newline 3. Read policy A from the local database. \newline 4. Read policy B from the local database. \\  [5pt] \hline
+				Expected result & The written policy A and the read policy A must be identical. \newline The written policy B and the read policy B must be identical. \\  [5pt] \hline
+			\end{tabular}
+		\end{center}
+
+		\begin{center}
+			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
+				\hline
+				Item & Description \\ [5pt] \hline \hline
+				Name & Graphical user interface (GUI) functionality \\  [5pt] \hline
+				Test identifier & UNIT-04 \\  [5pt] \hline
+				Person responsible & Henrik Knutsen \\  [5pt] \hline
+				Feature(s) to be tested & That all the interactable elements, buttons, lists etc., is working as intended. \\  [5pt] \hline
+				Pre-conditions & GUI with all the necessary listeners must be implemented. Code for running the program with the GUI must be implemented. \\  [5pt] \hline
+				Execution steps & 1. Run the program using the GUI. \newline 2. Test all the interactable elements. \\  [5pt] \hline
+				Expected result & All the interactable elements is triggering the right methods when used. \\  [5pt] \hline
+			\end{tabular}
+		\end{center}
+
+		\begin{center}
+			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
+				\hline
+				Item & Description \\ [5pt] \hline \hline
+				Name & Algorithm classification \\  [5pt] \hline
+				Test identifier & UNIT-05 \\  [5pt] \hline
+				Person responsible & Henrik Knutsen \\  [5pt] \hline
+				Feature(s) to be tested & That the k-nearest neighbor algorithm bases its decision on the k most similar policies \\  [5pt] \hline
+				Pre-conditions & Code for reading from the weights file must be implemented. A working k-nearest neighbor algorithm that uses the weights must be implemented. Need one policy to test on, and a set of policies to be used as history. \\  [5pt] \hline
+				Execution steps & 1. Load a set of policies into the history. \newline 2. Run the k-nn algorithm on the policy to be classified and the history. \newline 3. Manually go through the policies and verify the output of the algorithm. \\  [5pt] \hline
+				Expected result & The algorithm finds the most similar policy. \\  [5pt] \hline
+			\end{tabular}
+		\end{center}
+
+		\begin{center}
+			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
+				\hline
+				Item & Description \\ [5pt] \hline \hline
+				Name & Algorithm learning \\  [5pt] \hline
+				Test identifier & UNIT-06 \\  [5pt] \hline
+				Person responsible & Henrik Knutsen \\  [5pt] \hline
+				Feature(s) to be tested & That the weights file is updated when a new policy is added to history. \\  [5pt] \hline
+				Pre-conditions & Code for reading from and writing to the weights file must be implemented. Algorithms for classification and learning must be implemented. \\  [5pt] \hline
+				Execution steps & 1. Get the contents of the weights file. \newline 2. Load a set of policies into the history. \newline 3. Run the classification algorithm on the single policy and the history. \newline 4. Choose to store the new policy, the context and the action.
+					\newline 5. Get the contents of the weights file. \newline 6. Compare the contents of the weights files obtained in steps 1. and 5. \\  [5pt] \hline
+				Expected result & The two weights files obtained in steps 1. and 5. are different \\  [5pt] \hline
+			\end{tabular}
+		\end{center}
+
+		\begin{center}
+			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
+				\hline
+				Item & Description \\ [5pt] \hline \hline
+				Name & Packet passing through network to community database \\  [5pt] \hline
+				Test identifier & UNIT-07 \\  [5pt] \hline
+				Person responsible & Henrik Knutsen \\  [5pt] \hline
+				Feature(s) to be tested & That packets can be sent between the client program and the community database.  \\  [5pt] \hline
+				Pre-conditions & A running local client. A (virtual) server. Code for sending and receiving packets must be implemented. \\  [5pt] \hline
+				Execution steps & 1. Start the program locally. \newline 2. Start the (virtual) server. \newline 3. Send packet A from the local client. \newline 4. Receive packet A at the (virtual) server. \newline 5. Send packet B from the (virtual) server.
+					\newline 6. Receive packet B at the local client. \\  [5pt] \hline
+				Expected result & The received packet A is identical to the sent packet A. The received packet B is identical to the sent packet B. \\  [5pt] \hline
+			\end{tabular}
+		\end{center}
+
+\end{document}

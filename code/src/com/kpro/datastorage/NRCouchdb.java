@@ -31,9 +31,7 @@ public class NRCouchdb extends NetworkR {
 	}
 
 	public void saveObj(PolicyObject a){
-		Gson gson = new Gson();
-		
-		Response resp = dbc.save(gson.toJson(a)); 
+        dbc.save(a);	
 	}
 
 
@@ -48,6 +46,7 @@ public class NRCouchdb extends NetworkR {
 	protected void parseNOptions(String options) {
 		
 		String[] opts = options.split(","); //dbName,newDbIfNone,Protocol,location,port,username,password
+		//System.err.println("Authenticating with username [" + opts[5] + "] and password [" + opts[6] +"]" );
 		dbc = new CouchDbClient(opts[0], Boolean.parseBoolean(opts[1]), opts[2], opts[3], Integer.parseInt(opts[4]), opts[5], opts[6]) ;
 		
 	}

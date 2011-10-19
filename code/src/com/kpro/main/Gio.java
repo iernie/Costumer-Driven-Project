@@ -12,7 +12,6 @@ import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
 
 import com.kpro.algorithm.CBR;
-import com.kpro.algorithm.LearnAlgorithm;
 import com.kpro.parser.P3PParser;
 
 import com.kpro.dataobjects.*;
@@ -601,7 +600,7 @@ public class Gio {
 	private void startNetwork() throws ClassNotFoundException, IllegalArgumentException, SecurityException, InstantiationException, IllegalAccessException, InvocationTargetException {
 		Class<?> cls = Class.forName("com.kpro.datastorage."+genProps.getProperty("NetworkRType"));
 		nr = (NetworkR) cls.getDeclaredConstructors()[0].newInstance(genProps.getProperty("NetworkROptions"));
-		System.err.println("nr in startNetwork="+nr);
+		//System.err.println("nr in startNetwork="+nr);
 	}
 	
 	public NetworkR getNR()

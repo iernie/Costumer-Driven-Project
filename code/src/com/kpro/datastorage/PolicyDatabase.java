@@ -73,6 +73,7 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	/**
 	 * @return an iterator over the internal collection
 	 */
+	@Override
 	public Iterator<PolicyObject> iterator() {
 		return idb.iterator();
 	}
@@ -120,6 +121,7 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	 * Standard toString method
 	 * @author ulfnore
 	 */
+	@Override
 	public String toString(){
 		String outStr = "";
 		for(PolicyObject po : this)
