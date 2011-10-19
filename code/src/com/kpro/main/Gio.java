@@ -600,7 +600,7 @@ public class Gio {
 	private void startNetwork() throws ClassNotFoundException, IllegalArgumentException, SecurityException, InstantiationException, IllegalAccessException, InvocationTargetException {
 		Class<?> cls = Class.forName("com.kpro.datastorage."+genProps.getProperty("NetworkRType"));
 		nr = (NetworkR) cls.getDeclaredConstructors()[0].newInstance(genProps.getProperty("NetworkROptions"));
-		System.err.println("nr in startNetwork="+nr);
+		//System.err.println("nr in startNetwork="+nr);
 	}
 	
 	public NetworkR getNR()
