@@ -77,7 +77,11 @@ public class CBR {
 		if(a.getConfidence() < theIO.getConfLevel() && (theIO.getNR() != null))
 		{
 			System.err.println("nr="+theIO.getNR());
-			a = theIO.getNR().reqAct(newPO);
+			Action b = theIO.getNR().reqAct(newPO);
+			if(b !=null)
+			{
+				a=b;
+			}
 		}
 		newPO.setAction(a);
 		return newPO;

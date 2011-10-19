@@ -27,7 +27,40 @@ The source code is documented using JavaDoc which is 	a tool that generates docu
 
 \subsubsection{Configuration Files}
 
+Table~\ref{configTable} gives an overview over the configuration file parameters.
 
+\begin{center}
+  \begin{table}[h!]
+    \label{configTable}
+    \begin{tabular} { | l | l | p{7cm} | }
+      \hline
+      \textbf{Item} & \textbf{Datatype} & \textbf{Description} \\ \hline
+      loglocation & string/filepath  & where the log is written to. can't be changed once the UI is  called. \\ \hline
+      loglevel & string/logging level	& what level to log at. \\ \hline
+      inDBLoc & string/filepath	& where to read the past history from. \\ \hline
+      outDBLoc & string/filepath & where to write DB- defaults to where it reads from. \\ \hline
+      inWeightsLoc& string/filepath & where to read the weights config file from. \\ \hline
+      outWeightsLoc	& string/filepath & where to write DB- defaults to where it reads from. \\ \hline
+      newDB & string/boolean & are we overwriting/ignoring an old database. \\ \hline
+      p3pLocation & string/filepath & a p3p to be added to the history. \\ \hline
+      p3pDirLocation	& string/FOLDERpath& a folder of p3ps to be added to the history. \\ \hline
+      blanketAccept & string/boolean & accept the advisers recommendation. \\ \hline
+      newPolicyLoc & string/filepath	& the new policy to be parsed. \\ \hline
+      userInit & string/boolean	& true if some initialization occurs via the user interface. \\ \hline
+      userResponse & string/action	& the response to the suggestion, if know beforehand. \\ \hline
+      cbrV & string/CBR & parses for algorithms, etc to use. See CBR:parse(String). \\ \hline
+      userIO & string/UIO	& the user interface to use. see Gio:selectUI. \\ \hline
+      policyDB & string/policyDB & select the database type. see Gio:selectPDB . \\ \hline
+      genConfig	& string/filepath & load an alternate configuration file. \\ \hline
+      networkRType & string/classname & the name of a networkR class. \\ \hline
+      networkROptions & string/commasepoptions	& the options necessary for the above networkR class. \\ \hline
+      confidenceLevel & string/double & the confidence level at which the algorithm trusts itself; if below this, it uses the server's suggestion. \\ \hline
+      useNet & string/boolean & whether to activate network functionality. \\ \hline
+      \hline
+    \end{tabular}
+    \caption{Configuration file parameters.}
+  \end{table}
+\end{center}
 
 \subsubsection{Building a Database}
 

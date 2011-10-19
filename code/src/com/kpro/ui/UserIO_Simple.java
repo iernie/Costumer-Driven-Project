@@ -87,20 +87,21 @@ public class UserIO_Simple extends UserIO {
 			Action a = n.getAction();
 			a.setAccepted(!a.getAccepted());
 			a.setOverride(true);
+			//add code to backtrack later
 		}
 		//do{
-			System.out.println("Would you like the system to remember your preference permanently? (y/[n])");
+			System.out.println("Would you like the system to remember your preference permanently? ([y]/n)");
 			response = sc.nextLine();
 		//}while(!(response.equalsIgnoreCase("y") || response.equalsIgnoreCase("n")));
 		// update action if overridden
-		if(response.equalsIgnoreCase("y"))
+		if(response.equalsIgnoreCase("n"))
 		{
-			return n;
+			return null;
 		}
 		else
 		{
-			//add code to backtrack later
-			return null;
+			return n;
+			
 		}
 	}
 	
