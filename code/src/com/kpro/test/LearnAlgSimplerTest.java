@@ -1,6 +1,7 @@
 package com.kpro.test;
 
 import com.kpro.main.Gio;
+import com.kpro.main.PrivacyAdviser;
 
 import junit.framework.TestCase;
 
