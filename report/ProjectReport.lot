@@ -9,30 +9,32 @@
 \addvspace {10\p@ }
 \contentsline {xchapter}{Planning Phase}{17}{chapter*.8}
 \contentsline {table}{\numberline {3.2}{\ignorespaces Risks explained}}{20}{table.3.2}
-\contentsline {table}{\numberline {3.3}{\ignorespaces Changes in requirments}}{20}{table.3.3}
-\contentsline {table}{\numberline {3.4}{\ignorespaces Poorly chosen algorithms}}{20}{table.3.4}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Changes in requirments}}{21}{table.3.3}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Poorly chosen algorithms}}{21}{table.3.4}
 \contentsline {table}{\numberline {3.5}{\ignorespaces Problems with policy retrieving}}{21}{table.3.5}
-\contentsline {table}{\numberline {3.6}{\ignorespaces Problems with external storage}}{21}{table.3.6}
-\contentsline {table}{\numberline {3.7}{\ignorespaces Remote server problems}}{21}{table.3.7}
+\contentsline {table}{\numberline {3.6}{\ignorespaces Problems with external storage}}{22}{table.3.6}
+\contentsline {table}{\numberline {3.7}{\ignorespaces Remote server problems}}{22}{table.3.7}
 \contentsline {table}{\numberline {3.8}{\ignorespaces Sickness}}{22}{table.3.8}
-\contentsline {table}{\numberline {3.9}{\ignorespaces 3rd party library problems}}{22}{table.3.9}
-\contentsline {table}{\numberline {3.10}{\ignorespaces Misunderstandings.}}{22}{table.3.10}
+\contentsline {table}{\numberline {3.9}{\ignorespaces 3rd party library problems}}{23}{table.3.9}
+\contentsline {table}{\numberline {3.10}{\ignorespaces Misunderstandings.}}{23}{table.3.10}
+\contentsline {table}{\numberline {3.11}{\ignorespaces Disagreements Within Project Team}}{24}{table.3.11}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Requirements Specification}{27}{chapter*.11}
-\contentsline {xpart}{Design and Implementation Phase}{27}{part.2}
+\contentsline {xchapter}{Requirements Specification}{29}{chapter*.11}
+\contentsline {xpart}{Design and Implementation Phase}{29}{part.2}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Design}{35}{chapter*.18}
+\contentsline {xchapter}{Design}{37}{chapter*.18}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Implementation Phase}{43}{chapter*.24}
+\contentsline {xchapter}{Implementation Phase}{45}{chapter*.24}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Documentation}{49}{chapter*.32}
+\contentsline {xchapter}{Documentation}{51}{chapter*.32}
+\contentsline {table}{\numberline {7.12}{\ignorespaces Configuration file parameters.}}{53}{table.7.12}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Test Plan}{53}{chapter*.37}
-\contentsline {xpart}{Evaluation and Summary}{53}{part.3}
+\contentsline {xchapter}{Test Plan}{57}{chapter*.37}
+\contentsline {xpart}{Evaluation and Summary}{57}{part.3}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Conclusion}{59}{chapter*.41}
+\contentsline {xchapter}{Conclusion}{63}{chapter*.41}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Test cases}{63}{appendix*.42}
-\contentsline {xpart}{Appendices}{63}{part.4}
+\contentsline {xchapter}{Test cases}{67}{appendix*.42}
+\contentsline {xpart}{Appendices}{67}{part.4}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Templates}{69}{appendix*.43}
+\contentsline {xchapter}{Templates}{73}{appendix*.43}
