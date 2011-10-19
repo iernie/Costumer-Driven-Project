@@ -124,7 +124,7 @@ public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 
 	@Override
 	public Properties user_init(Properties genProps){
-		ConfigEditor ce= new ConfigEditor(genProps);
+		ConfEditor ce= new ConfEditor(genProps);
 		ce.start();
 		try {
 			ce.join();

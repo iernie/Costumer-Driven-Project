@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  19 OCT 2011 13:32
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  19 OCT 2011 14:55
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -34,6 +34,86 @@ File: bk11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+(/usr/local/texlive/2010/texmf-dist/tex/latex/arabtex/utf8.sty
+/usr/local/texlive/2010/texmf-dist/tex/latex/arabtex/utf8.sty:19: Undefined con
+trol sequence.
+l.19 \UsePackage
+                 {utfcode}
+? 
+
+/usr/local/texlive/2010/texmf-dist/tex/latex/arabtex/utf8.sty:19: LaTeX Error: 
+Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.19 \UsePackage {u
+                   tfcode}
+? 
+/usr/local/texlive/2010/texmf-dist/tex/latex/arabtex/utf8.sty:21: Undefined con
+trol sequence.
+l.21 \a@ident
+              {utf8.sty} {3.10 UTF-8 input encoding } {13.06.2000}
+? 
+
+/usr/local/texlive/2010/texmf-dist/tex/latex/arabtex/utf8.sty:21: LaTeX Error: 
+Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 \a@ident {u
+                tf8.sty} {3.10 UTF-8 input encoding } {13.06.2000}
+? s
+OK, entering \scrollmode...
+/usr/local/texlive/2010/texmf-dist/tex/latex/arabtex/utf8.sty:34: Undefined con
+trol sequence.
+l.34 \xpa
+          \def \xpa \sc@table \xpa {\sc@table % add the UTF-8 encoding
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/usr/local/texlive/2010/texmf-dist/tex/latex/arabtex/utf8.sty:37: Undefined con
+trol sequence.
+l.37 \a@message
+                {scanner for code UTF-8 installed.}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+/usr/local/texlive/2010/texmf-dist/tex/latex/arabtex/utf8.sty:37: LaTeX Error: 
+Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.37 \a@message {s
+                  canner for code UTF-8 installed.}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
+
+./ProjectReport.tex:2: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \usepackage{utf8}{i
+                       nputenc} % For Norwegian characters.
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 (/usr/local/texlive/2010/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/07/13 v5.5 Page Geometry
 
@@ -371,24 +451,24 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (./ReqSpec/ReqSpec.aux) (./DesignReport/DesignReport.aux)
 (./Implementation/ImplementationReport.aux)
 (./Documentation/DocumentationReport.aux) (./Testing/TestPlan.aux)
-(./Conclusion/Conclusion.aux) (./Appendix/TestPlan.aux)
-(./Appendix/Templates.aux))
+(./Evaluation/Evaluation.aux) (./Conclusion/Conclusion.aux)
+(./Appendix/TestPlan.aux) (./Appendix/Templates.aux))
 \openout1 = `ProjectReport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -462,7 +542,7 @@ Package minitoc(hints) Warning: W0023
 (minitoc(hints))                of loading the ``hyperref'' package.
 
 \AtBeginShipoutBox=\box31
-Package hyperref Info: Link coloring ON on input line 49.
+Package hyperref Info: Link coloring ON on input line 50.
 (/usr/local/texlive/2010/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
@@ -474,33 +554,36 @@ Package: gettitlestring 2009/12/18 v1.3 Cleanup title references (HO)
 )
 \c@section@level=\count120
 )
-LaTeX Info: Redefining \ref on input line 49.
-LaTeX Info: Redefining \pageref on input line 49.
-LaTeX Info: Redefining \nameref on input line 49.
+LaTeX Info: Redefining \ref on input line 50.
+LaTeX Info: Redefining \pageref on input line 50.
+LaTeX Info: Redefining \nameref on input line 50.
 
 (./ProjectReport.out) (./ProjectReport.out)
 \@outlinefile=\write4
 \openout4 = `ProjectReport.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 53.
+ [1{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+] [2
+
+]
+LaTeX Font Info:    Try loading font information for U+msa on input line 54.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 53.
+LaTeX Font Info:    Try loading font information for U+msb on input line 54.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [1
 
-
-
-{/usr/local/texlive/2010/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2
+] [2
 
 ]
 Package minitoc Info: I0024
 (minitoc)             PREPARING MINITOCS FROM ProjectReport.toc on input line 7
-6.
+7.
 Package minitoc Info: I0033
 (minitoc)             Writing ProjectReport.mtc1.
 \openout3 = `ProjectReport.mtc1'.
@@ -549,10 +632,14 @@ Package minitoc Info: I0033
 (minitoc)             Writing ProjectReport.mtc12.
 \openout3 = `ProjectReport.mtc12'.
 
- [3] [4
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc13.
+\openout3 = `ProjectReport.mtc13'.
 
-]
-(./ProjectReport.lot)
+
+[3] [4
+
+] (./ProjectReport.lot)
 \tf@lot=\write5
 \openout5 = `ProjectReport.lot'.
 
@@ -565,18 +652,24 @@ Package minitoc Info: I0033
  [7] [8
 
 ]
-(./ProjectReport.toc [9] [10]
-Underfull \vbox (badness 6380) has occurred while \output is active []
-
- [11])
+(./ProjectReport.toc [9] [10] [11])
 \tf@toc=\write7
 \openout7 = `ProjectReport.toc'.
 
-
-[1] [2
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.85 \chapter
+             {Introduction} [1]pdfTeX warning (ext4): destination with the same
+ identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.85 \chapter
+             {Introduction} [2
 
 ]
-Overfull \hbox (11.28883pt too wide) in paragraph at lines 92--93
+Overfull \hbox (11.28883pt too wide) in paragraph at lines 93--94
 []\OT1/cmr/m/n/10.95 Finally, Part [][]III[][] de-scribes the test-ing and eval
 -u-a-tion phase, and sum-ma-rizes the project. 
  []
@@ -687,33 +780,24 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 10--10
 [][]  
  []
 
-Missing character: There is no ø in font cmr9!
-Missing character: There is no Å in font cmr9!
-[13]
-Missing character: There is no ø in font cmr10!
-Missing character: There is no ø in font cmr10!
-
-Underfull \vbox (badness 1092) has occurred while \output is active []
-
- [14]
-<PrelimStudy/cbr.png, id=692, 464.73625pt x 298.11375pt>
+[13] [14] <PrelimStudy/cbr.png, id=733, 464.73625pt x 298.11375pt>
 File: PrelimStudy/cbr.png Graphic file (type png)
 
 <use PrelimStudy/cbr.png>
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 44.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 49.
 
 (/usr/local/texlive/2010/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 44.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 49.
  [15 <./PrelimStudy/cbr.png>]
 Missing character: There is no ’ in font cmr10!
  [16]
 
-LaTeX Warning: Reference `waterfall' on page 17 undefined on input line 76.
+LaTeX Warning: Reference `waterfall' on page 17 undefined on input line 81.
 
-<PrelimStudy/workflow.png, id=706, 476.78125pt x 341.275pt>
+<PrelimStudy/workflow.png, id=747, 476.78125pt x 341.275pt>
 File: PrelimStudy/workflow.png Graphic file (type png)
 
 <use PrelimStudy/workflow.png> [17]) [18 <./PrelimStudy/workflow.png>]
@@ -752,7 +836,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 127--127
  []
 
 [22] [23] [24] [25] [26] [27]
-<PlanReport/DetailedPlan.pdf, id=778, page=1, 597.23125pt x 845.1575pt>
+<PlanReport/DetailedPlan.pdf, id=819, page=1, 597.23125pt x 845.1575pt>
 File: PlanReport/DetailedPlan.pdf Graphic file (type pdf)
 
 <use PlanReport/DetailedPlan.pdf, page 1>
@@ -853,11 +937,11 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no ” in font cmr10!
  [41]
 Missing character: There is no ø in font cmr10!
- <DesignReport/uml/Case.png, id=917, 572.1375pt x 420.57124pt>
+ <DesignReport/uml/Case.png, id=958, 572.1375pt x 420.57124pt>
 File: DesignReport/uml/Case.png Graphic file (type png)
 
 <use DesignReport/uml/Case.png>
-<DesignReport/uml/gio.png, id=919, 1202.4925pt x 633.36626pt>
+<DesignReport/uml/gio.png, id=960, 1202.4925pt x 633.36626pt>
 File: DesignReport/uml/gio.png Graphic file (type png)
 
 <use DesignReport/uml/gio.png> [42] [43 <./DesignReport/uml/Case.png>])
@@ -1004,7 +1088,7 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
  []
 
 )
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 5288) has occurred while \output is active []
 
  [65]
 [66]
@@ -1090,8 +1174,8 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the ProjectReport.log file.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 150.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
 (./ProjectReport.aux (./ProjectDirective/ProjectDirective.aux)
 (./PrelimStudy/PrelimReport.aux) (./PlanReport/PlanReport.aux)
 (./ReqSpec/ReqSpec.aux) (./DesignReport/DesignReport.aux)
@@ -1099,87 +1183,42 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
 (./Documentation/DocumentationReport.aux) (./Testing/TestPlan.aux)
 (./Evaluation/Evaluation.aux) (./Conclusion/Conclusion.aux)
 (./Appendix/TestPlan.aux) (./Appendix/Templates.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 150.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 151.
+Package rerunfilecheck Info: File `ProjectReport.out' has not changed.
+(rerunfilecheck)             Checksum: 9396A113FA3CDA4A37973FA2D3191B93;6974.
 
-
-Package rerunfilecheck Warning: File `ProjectReport.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `ProjectReport.out':
-(rerunfilecheck)             Before: BDEA35E55F7F7EC232CF067A9D749527;6552
-(rerunfilecheck)             After:  3C3B7B0CCE48BD044702D0175781D37F;6894.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 8847 strings out of 493747
- 127761 string characters out of 3143546
- 249031 words of memory out of 3000000
- 11356 multiletter control sequences out of 15000+200000
+ 8865 strings out of 493747
+ 128089 string characters out of 3143546
+ 249775 words of memory out of 3000000
+ 11379 multiletter control sequences out of 15000+200000
  17328 words of font info for 66 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  44i,18n,47p,1642b,430s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{section*.33} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{appendix*.43} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{appendix*.42} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.41} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.37} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.32} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.6.4.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.6.4.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.6.4.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.6.4.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.6.4} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.6.2.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
-usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
-al/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
-/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
-xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
-ve/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
-2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2
-010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
-10/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/201
-0/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2010/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2010/t
-exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ProjectReport.pdf (88 pages, 504765 bytes).
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
+ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loc
+al/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
+texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
+live/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texliv
+e/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive
+/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
+2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
+010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/201
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2010
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on ProjectReport.pdf (90 pages, 507402 bytes).
 PDF statistics:
- 1262 PDF objects out of 1440 (max. 8388607)
- 1123 compressed objects within 12 object streams
- 273 named destinations out of 1000 (max. 500000)
- 820 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1287 PDF objects out of 1440 (max. 8388607)
+ 1146 compressed objects within 12 object streams
+ 262 named destinations out of 1000 (max. 500000)
+ 868 words of extra memory for PDF output out of 10000 (max. 10000000)
 
