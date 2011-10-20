@@ -9,6 +9,7 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 
 	public LearnAlgSimpler(Properties weightsConfig) {
 		super(weightsConfig);
+		System.out.println("start");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -16,8 +17,10 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 	protected Properties applyML(Gio theIO) {
 		Properties weights = theIO.getWeights();
 		PolicyDatabase pdb = theIO.getPDB();
+		
 		Properties newWeights = new Properties();
 		for(Object i : weights.entrySet()){
+			System.out.println("weights " + weights.get(i.toString()));
 			for(PolicyObject po : pdb.getCollection()){
 				newWeights.setProperty(i.toString(), Double.toString(correlation(po, i.toString())));
 			}

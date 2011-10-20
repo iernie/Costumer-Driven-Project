@@ -1,226 +1,200 @@
 package com.kpro.ui;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Properties;
 
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class confEditor extends Thread implements ActionListener{
-
+public class ConfEditor extends Thread implements ActionListener
+{
 	private JFrame frame;
-	private JTextField newDBfield;
-	private JTextField inDBlocField;
-	private JTextField outDBlocField;
-	private JTextField inWeightsLocField;
-	private JTextField outWeightsLocField;
-	private JTextField p3pLocField;
-	private JTextField newPolicyLocField;
-	private JTextField blankAccField;
-	private JTextField userInitField;
+	private JPanel panel;
+	
+	private JTextField inDBfileField;
+	private JTextField outDBfileField;
+	private JTextField inWeightsFileField;
+	private JTextField outWeightsFileField;
+	private JTextField p3pFileField;
+	private JTextField p3pDirField;
+	private JTextField newPolicyFileField;
+	private JTextField confFileField;
+	
+	private JCheckBox newDBBox;
+	private JCheckBox blankAcceptBox;
+	private JComboBox userInitBox;
 	private JTextField cbrVerField;
-	private JTextField altConfLocField;
-	private JTextField dbTypeField;
-	private JTextField logLevField;
+	private JComboBox dbTypeBox;
+	private JComboBox logLvlBox;
+	private JComboBox networkingBox;
+	
 	private JButton btnOk;
+	private JButton btnSetInDBloc;
+	private JButton btnSetOutDBloc;
+	private JButton btnSetInWeightsLoc;
+	private JButton btnSetOutWeightsLoc;
+	private JButton btnSetP3PFileLoc;
+	private JButton btnSetP3PDirLoc;
+	private JButton btnSetPolicyLoc;
+	private JButton btnSetAltConfLoc;
 	
-	private Properties props;
+	private String[] userInitModel 	= {"default"};
+	private String[] cbrVerModel 	= {"default"};
+	private String[] dbTypeModel 	= {"default"};
+	private String[] logLvlModel	= {"default"};
+	private String[] networkModel	= {"none"};
 	
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					confEditor window = new confEditor();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	private Properties genProps;
+	
+	
+	
+	public ConfEditor(Properties genProps)
+	{
+		this.genProps = genProps;
 	}
-
-	/**
-	 * Create the application.
-	 * @param Properties object to be modified.
-	 * @wbp.parser.entryPoint
-	 */
-	public confEditor(Properties props) {
-		this.props = props;
+	public ConfEditor(){
+		InitFrame();
 	}
-
+	
+	
 	/**
-	 * No-arg constructor
+	 * Initalize frame window.
 	 */
-	public confEditor(){
-		
-	}
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
+	private void InitFrame()
+	{
+		frame = new JFrame("Configuration Editor");
+		frame.setSize(400,600);
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 363, 429);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		panel = new JPanel();
+		panel.setLayout(new GridLayout(15, 3));
+		frame.add(panel);		
 		
-		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
+		panel.add(new JLabel("Build New DB"));
+		panel.add(newDBBox = new JCheckBox());
+		panel.add(new JLabel(""));
 		
-		JLabel lblInDbLocation = new JLabel("In DB Location");
-		lblInDbLocation.setBounds(6, 44, 147, 21);
-		panel.add(lblInDbLocation);
+		panel.add(new JLabel("Blanket Accept"));
+		panel.add(blankAcceptBox = new JCheckBox());
+		panel.add(new JLabel(""));
 		
-		JLabel lblOutDbLocation = new JLabel("Out DB Location");
-		lblOutDbLocation.setBounds(6, 77, 132, 16);
-		panel.add(lblOutDbLocation);
+		panel.add(new JLabel("In DB Location"));
+		panel.add(inDBfileField = new JTextField());
+		panel.add(btnSetInDBloc = new JButton("Set"));
 		
-		JLabel lblInWeightsLocation = new JLabel("In Weights Location");
-		lblInWeightsLocation.setBounds(6, 105, 132, 16);
-		panel.add(lblInWeightsLocation);
+		panel.add(new JLabel("Out DB Location"));
+		panel.add(outDBfileField = new JTextField());
+		panel.add(btnSetOutDBloc = new JButton("Set"));
 		
-		JLabel lblOutWeightsLocation = new JLabel("Out Weights Location");
-		lblOutWeightsLocation.setBounds(6, 133, 157, 16);
-		panel.add(lblOutWeightsLocation);
+		panel.add(new JLabel("In Weights Location"));
+		panel.add(inWeightsFileField = new JTextField());
+		panel.add(btnSetInWeightsLoc = new JButton("Set"));
 		
-		JLabel lblPpLocation = new JLabel("p3p Location");
-		lblPpLocation.setBounds(6, 161, 132, 16);
-		panel.add(lblPpLocation);
+		panel.add(new JLabel("Out Weights Location"));
+		panel.add(outWeightsFileField = new JTextField());
+		panel.add(btnSetOutWeightsLoc = new JButton("Set"));
 		
-		JLabel lblNewDb = new JLabel("New DB");
-		lblNewDb.setBounds(6, 16, 61, 16);
-		panel.add(lblNewDb);
+		panel.add(new JLabel("P3P InFile Location"));
+		panel.add(p3pFileField = new JTextField());
+		panel.add(btnSetP3PFileLoc = new JButton("Set"));
 		
-		JLabel lblNewPolicyLocation = new JLabel("New Policy Location");
-		lblNewPolicyLocation.setBounds(6, 189, 132, 16);
-		panel.add(lblNewPolicyLocation);
+		panel.add(new JLabel("P3P InDirectory Location"));
+		panel.add(p3pDirField = new JTextField());
+		panel.add(btnSetP3PDirLoc = new JButton("Set"));
 		
-		JLabel lblLogLevel = new JLabel("Log level");
-		lblLogLevel.setBounds(6, 343, 132, 16);
-		panel.add(lblLogLevel);
+		panel.add(new JLabel("User Init"));
+		panel.add(userInitBox = new JComboBox(userInitModel));
+		panel.add(new JLabel(""));
 		
-		JLabel lblBlankAccept = new JLabel("Blank Accept");
-		lblBlankAccept.setBounds(6, 215, 132, 16);
-		panel.add(lblBlankAccept);
+		panel.add(new JLabel("CBR Version"));
+		panel.add(cbrVerField = new JTextField());
+		panel.add(new JLabel(""));
 		
-		JLabel lblUserInit = new JLabel("User Init");
-		lblUserInit.setBounds(6, 243, 132, 10);
-		panel.add(lblUserInit);
+		panel.add(new JLabel("Alt Config File Location"));
+		panel.add(confFileField = new JTextField());
+		panel.add(btnSetAltConfLoc = new JButton("Set"));
 		
-		JLabel lblCbrVersion = new JLabel("CBR Version");
-		lblCbrVersion.setBounds(6, 264, 147, 16);
-		panel.add(lblCbrVersion);
+		panel.add(new JLabel("DB Type"));
+		panel.add(dbTypeBox = new JComboBox(dbTypeModel));
+		panel.add(new JLabel(""));
 		
-		JLabel lblAltConfigFile = new JLabel("Alt. Config File Location");
-		lblAltConfigFile.setBounds(6, 292, 157, 16);
-		panel.add(lblAltConfigFile);
+		panel.add(new JLabel("Networking"));
+		panel.add(networkingBox = new JComboBox(networkModel));
+		panel.add(new JLabel(""));
 		
-		JLabel lblDatabaseType = new JLabel("Database Type");
-		lblDatabaseType.setBounds(6, 315, 157, 16);
-		panel.add(lblDatabaseType);
+		panel.add(new JLabel("Log Level"));
+		panel.add(logLvlBox = new JComboBox(logLvlModel));
+		panel.add(new JLabel(""));
 		
-		
-		// Text fields go here
-		
-		
-		newDBfield = new JTextField(props.getProperty("newDB"));
-		newDBfield.setBounds(184, 10, 134, 28);
-		panel.add(newDBfield);
-		newDBfield.setColumns(10);
-		
-		inDBlocField = new JTextField(props.getProperty("inDBloc"));
-		inDBlocField.setBounds(184, 40, 134, 28);
-		panel.add(inDBlocField);
-		inDBlocField.setColumns(10);
-		
-		outDBlocField = new JTextField(props.getProperty("outDBloc"));
-		outDBlocField.setBounds(184, 71, 134, 28);
-		panel.add(outDBlocField);
-		outDBlocField.setColumns(10);
-		
-		inWeightsLocField = new JTextField(props.getProperty("inWeightsLoc"));
-		inWeightsLocField.setBounds(184, 99, 134, 28);
-		panel.add(inWeightsLocField);
-		inWeightsLocField.setColumns(10);
-		
-		outWeightsLocField = new JTextField(props.getProperty("outWeightsLoc"));
-		outWeightsLocField.setBounds(184, 127, 134, 28);
-		panel.add(outWeightsLocField);
-		outWeightsLocField.setColumns(10);
-		
-		p3pLocField = new JTextField(props.getProperty("p3pLocation"));
-		p3pLocField.setBounds(184, 155, 134, 28);
-		panel.add(p3pLocField);
-		p3pLocField.setColumns(10);
-		
-		newPolicyLocField = new JTextField(props.getProperty("newPolicyLoc"));
-		newPolicyLocField.setBounds(184, 183, 134, 28);
-		panel.add(newPolicyLocField);
-		newPolicyLocField.setColumns(10);
-		
-		blankAccField = new JTextField(props.getProperty("blanketAccept"));
-		blankAccField.setBounds(184, 209, 134, 28);
-		panel.add(blankAccField);
-		blankAccField.setColumns(10);
-		
-		userInitField = new JTextField(props.getProperty("userInit"));
-		userInitField.setBounds(184, 234, 134, 28);
-		panel.add(userInitField);
-		userInitField.setColumns(10);
-		
-		cbrVerField = new JTextField(props.getProperty("cbrV"));
-		cbrVerField.setBounds(184, 258, 134, 28);
-		panel.add(cbrVerField);
-		cbrVerField.setColumns(10);
-		
-		altConfLocField = new JTextField(props.getProperty("genConfig"));
-		altConfLocField.setBounds(184, 286, 134, 28);
-		panel.add(altConfLocField);
-		altConfLocField.setColumns(10);
-		
-		dbTypeField = new JTextField(props.getProperty("policyDB"));
-		dbTypeField.setBounds(184, 309, 134, 28);
-		panel.add(dbTypeField);
-		dbTypeField.setColumns(10);
-		
-		logLevField = new JTextField(props.getProperty("loglevel"));
-		logLevField.setBounds(184, 337, 134, 28);
-		panel.add(logLevField);
-		logLevField.setColumns(10);
-		
-		btnOk = new JButton("OK");
+		panel.add(new JLabel(""));
+		panel.add(new JLabel(""));
+		panel.add(btnOk = new JButton("Run"));
 		btnOk.addActionListener(this);
-		btnOk.setBounds(201, 373, 117, 28);
-		panel.add(btnOk);
 		
 		frame.setVisible(true);
 	}
-
-	@Override
-	public void run() {
+	
+	/**
+	 * Fill properties data into forms.
+	 */
+	private void FillPropertiesData()
+	{
+		newDBBox.setSelected(genProps.getProperty("inDBLoc") == "true");
+		blankAcceptBox.setSelected(genProps.getProperty("blanketAccept") == "true");
 		
-		initialize();
+		// text fields
+		inDBfileField.setText(genProps.getProperty("inDBLoc"));
+		outDBfileField.setText(genProps.getProperty("outDBLoc"));
+		inWeightsFileField.setText(genProps.getProperty("inWeightsLoc"));
+		outWeightsFileField.setText(genProps.getProperty("outWeightsLoc"));
+		p3pFileField.setText(genProps.getProperty("p3pLocation"));
+		p3pDirField.setText(genProps.getProperty("p3pDirLocation"));
+		newPolicyFileField.setText(genProps.getProperty("newPolicyLoc"));
+		confFileField.setText(genProps.getProperty("genConfig"));
+		
 		
 	}
-
+	/** 
+	 * Update properties object whenever
+	 * a GUI field is changed. Called by
+	 * actionPerformed.
+	 */
+	private void updateProps()
+	{
+		//TODO: write this method
+	}
+	
+	public void run()
+	{
+		InitFrame();
+		FillPropertiesData();
+	}
+	
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(btnOk)){ 
-			frame.setVisible(false);
+	public void actionPerformed(ActionEvent e) 
+	{
+		if (e.getSource() ==  btnOk)
+		{
+			frame.setVisible(false);			
+			
+		}
+		else
+		{
+			updateProps();
 		}
 	}
 	
+	
+	public static void main(String[] args) {
+		new ConfEditor().run();
+	}
 	
 }

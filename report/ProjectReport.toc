@@ -3,7 +3,7 @@
 \contentsline {chapter}{Project Directive}{7}{chapter*.6}
 \contentsline {section}{\numberline {1.1}Purpose}{7}{section.1.1}
 \contentsline {section}{\numberline {1.2}Mandate}{7}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Background}{7}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.1}Background}{8}{subsection.1.2.1}
 \contentsline {section}{\numberline {1.3}Objectives}{8}{section.1.3}
 \contentsline {section}{\numberline {1.4}Resources and Duration}{8}{section.1.4}
 \contentsline {section}{\numberline {1.5}Organization}{9}{section.1.5}
@@ -13,8 +13,9 @@
 \contentsline {xpart}{Initial Phase - Planning and Research}{7}{part.1}
 \contentsline {chapter}{Preliminary Study}{13}{chapter*.7}
 \contentsline {section}{\numberline {2.1}Internet Privacy Technology}{14}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Current Privacy Technology}{14}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}How Machine Learning Can Improve Privacy Advice}{14}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.1}What is Internet Privacy?}{14}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Current Privacy Technology}{14}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}How Machine Learning Can Improve Privacy Advice}{14}{subsection.2.1.3}
 \contentsline {section}{\numberline {2.2}Case Based Reasoning}{15}{section.2.2}
 \contentsline {section}{\numberline {2.3}Project Scope}{16}{section.2.3}
 \contentsline {section}{\numberline {2.4}Development Model and Workflow}{17}{section.2.4}

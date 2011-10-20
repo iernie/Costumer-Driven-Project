@@ -104,14 +104,14 @@ public class Gio {
 		//load the weights configuration file
 		origWeights = new Properties();
 		origWeights = loadWeights();
-		if(Boolean.parseBoolean(genProps.getProperty("useNet","false")))
-		{
-			startNetwork();
-		}
-		else
-		{
-			nr = null;
-		}
+//		if(Boolean.parseBoolean(genProps.getProperty("useNet","false")))
+//		{
+//			startNetwork();
+//		}
+//		else
+//		{
+//			nr = null;
+//		}
 	}
 
 	/**
@@ -307,6 +307,9 @@ public class Gio {
 			e.printStackTrace();
 			System.err.println("IOException reading the weights configuration file....\n");
 			throw new Exception("In class Gio.java:loadWeights(), IOException loading the weights from file "+genProps.getProperty("inWeightsLoc")+" .");
+		}
+		for(Object i : origWeights.entrySet()){
+			System.out.println(i.toString());
 		}
 		return origWeights;
 	}
