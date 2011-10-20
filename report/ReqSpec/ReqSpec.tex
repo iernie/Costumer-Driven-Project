@@ -10,28 +10,31 @@
 \section{Purpose}
 This requirements specification has been prepared for and accepted by SINTEF ICT (the customer) stating the requirements for the software system to be developed for the course TDT4290: Customer Driven Project. The requirements span two categories; functional requirements, describing the functionality the software needs to supply, and non-functional requirements, describing the development process.
 
-The requirement specification, once accepted by the customer, will serve as a contract between the parties involved, being a guideline for design and implementation and the standard against which the product is evaluated.
+The requirement specification, once accepted by the customer, will serve as a contract between the parties involved, being a guideline for design and implementation and the standard against which the product is evaluated. It could also serve as a basis for further development of the Privacy Advisor system.
+
 \section{Introduction}
 \subsection{Background and Similar Software}
-SINTEF ICT is currently investigating new approaches to privacy protection of end-users. Tøndel et al. (2011) proposes a specific agent design for a machine learning approach to advice users on privacy actions based on:
+SINTEF ICT is currently investigating new approaches to privacy protection of end-users. T{\o}ndel et al. (2011) proposes a specific agent design for a machine learning approach to advice users on privacy actions based on:
 
 \begin{itemize}
 \item Past behavior using case based reasoning (CBR)
-\item Similar users’ behavior in similar situations using collaborative filtering (CF)
+\item Similar users' behavior in similar situations using collaborative filtering (CF)
 \end{itemize}
 
-While there are systems for aiding users in making privacy related decisions, the majority of these systems rely in a large extent on the user pre-specifying his preferences and being prompted with messages about where the policy of a given site conflicts with the user’s preferences. Our design aims at being “low profile” or “non invasive”, that is able to make sensible decisions with as little interference as possible, and at the same time, given as little feedback as possible, able to cater for the dynamic nature of both web sites’ privacy policies and user preferences with respect to privacy.
+While there are systems for privacy protection, and more specifically aiding users in making privacy related decisions, the majority of these systems rely in a large extent on the user pre-specifying his preferences and being prompted with messages about where the policy of a given site conflicts with the user's preferences. Our design aims at being "low profile" or "non invasive'', that is able to make sensible decisions with as little interference as possible, and at the same time, given as little feedback as possible, able to cater for the dynamic nature of both web sites' privacy policies and user preferences with respect to privacy.
 
 \subsection{Scope}\label{reqScope}
 
-The primary aim of this project is the implementation of the core classification system described in Tøndel et al. (2011) to allow for testing the applicability of the suggested approach to predicting privacy preferences. Since the software is intended to be a part of a research project, a design that allows for testing of various hypotheses and models is required. This implies a highly modular design where the various components of the core system can be replaced. 
+The primary aim of this project is the implementation of the core classification system described in T{\o}ndel et al. (2011) to allow for testing the applicability of the suggested approach to predicting privacy preferences. Since the software is intended to be a part of a research project, a design that allows for testing of various hypotheses and models is required. This implies a highly modular design where the various components of the core system can be replaced for the purpose of more detailed research. 
 
-Furthermore, given the research nature of the project, less emphasis is placed on developing a complete stand-alone application. The core focus for our project will be on developing the underlying system and an interface for testing and parameter estimation. Hence two distinct systems are to be developed, both built around the same core functionality (I.E. the privacy advisor agent). Owing to the fact that this software is developed around a research project, the emphasis is on the first system:
+Furthermore, given the research nature of the project, less emphasis is placed on developing a complete stand-alone application. The core focus for our project will be on developing the underlying system and an interface for testing and parameter estimation. Hence development can take two directions:
 
 \begin{enumerate}
 \item A testing system that can be fed a knowledge base consisting of input-output mappings (P3p + context -> decision), and run interactive tests on a sample where the user is allowed to give feedback to the system and see the explanation for the recommendation. We envision a dual CLI/GUI (command line interface and graphical user interface) solution for this. In a final product, this testing system can also be used for the purpose of calibrating the model.
 \item An end-user system that can run as a browser plug-in giving real time advice to the user as he browses the web.
 \end{enumerate}
+
+While theoretically appealing, there is little empirical research documenting the applicability of CBR to the task at hand, which in turn implies that there is likely a large research of work to be done for the system to be able to successfully predict user preferences. Based on this observation, the emphasis of this project will be on the first of the above directions, namely providing a research framework.
 
 \subsection{Overview}
 This document is organized as follows:
@@ -41,7 +44,7 @@ This document is organized as follows:
 \section{Overall Description}
 
 \section{System Description}\label{sysDesc}
-The overall structure of the system is detailed in Tøndel et al. (2011), and consists of the local CBR reasoning system, the remote/community collaborative filtering, both with their respective databases for storing information. This is in turn linked to an interface that is able to read and parse P3P policy files that are retrieved either from a local file (for the testing system) or by retrieving from the web.
+The overall structure of the system is detailed in T{\o}ndel et al. (2011), and consists of the local CBR reasoning system, the remote/community collaborative filtering, both with their respective databases for storing information. This is in turn linked to an interface that is able to read and parse P3P policy files that are retrieved either from a local file (for the testing system) or by retrieving from the web.
 
  
 Figure 1: End User System Flowchart 
@@ -70,16 +73,17 @@ Secondly, the end user who will be using the software in the form of a browser p
 The first use case illustrates a research setting where calibration/testing interface allows the user to load in a dataset of P3P policies and test the performance of the underlying model. The last three use cases illustrate the potential application of the system as a browser plugin that runs in the background monitoring the users activities and the web sites he is visiting. As previously stressed, the success of testing according to the first use case determines the extent to which the system described in cases 2-4 is implemented.
 
 \subsection*{Case 1: Research/calibration}
-In this case a researcher wants to test the properties of the underlying model. Using the Calibration GUI, he imports 50 P3P policies that are parsed. Further he designates that 40 of these are to be stored immediately in the knowledge base along with a corresponding action for each policy. 
+In this case a researcher wants to test the properties of the underlying model. Using the Calibration GUI, he imports 50 P3P policies that are parsed. Further he designates that 40 of these are to be stored immediately in the knowledge base along with a corresponding action for each policy.
+
 The user now specifies the distance metric he wants to apply to each of the different components. Finally, he can either set the (importance) weights assigned to each of the policy components, or he can load the weights from a flat text file. Now that the configuration is complete, the ten policies withheld earlier from the sample can be classified. For each of the ten policies, the user can choose either to accept, or reject, and provide a reason for his rejection before proceeding to the next policy. 
 
-\subsection*{Case 2: End user – local query, recommendation accepted, site rejected}
+\subsection*{Case 2: End user - local query, recommendation accepted, site rejected}
 A user visits a previously unvisited website. The privacy agent tries to retrieve machine-readable privacy information from the site. When the policy is obtained it is parsed and a context object, consisting of the policy, domain, time of visit, and other contextual information, is created. The context object is compared to the local database for similar contexts. Since the user has visited sites with a similar policy previously, the comparison succeeds and the site is blocked based on data from the local database. The user agrees with this decision and navigates away from the site.
 
-\subsection*{Case 3: End user – local query, site approved by recommender, recommendation accepted}
-A user visits a previously unvisited website. As before, the system the system fetches the necessary data to do a local query. This query indicates, with sufficient confidence, that the site’s policy is acceptable. The user is then allowed to continue browsing with no intervention from the Privacy Agent.
+\subsection*{Case 3: End user - local query, site approved by recommender, recommendation accepted}
+A user visits a previously unvisited website. As before, the system the system fetches the necessary data to do a local query. This query indicates, with sufficient confidence, that the site's policy is acceptable. The user is then allowed to continue browsing with no intervention from the Privacy Agent.
 
-\subsection*{Case 4: End user – global query, recommendation overridden}
+\subsection*{Case 4: End user - global query, recommendation overridden}
 As before, but in this case, no sufficiently similar cases are found locally. In this case the system will query the global server for similar users that have visited the same site to base its decision on this. In this case, site is blocked, but the user disagrees. He selects an override feature and gives a reason for why he overrides.
 
 \section{Specific Requirements}\label{specRec}
@@ -93,10 +97,10 @@ As described in Section~\ref{reqScope}, as the main goal of the project is to de
 \item The system should be able to parse a P3P file to instantiate the data as a privacy case/event/instance.
 \item Based on past history (knowledge base), it should retrieve the cases most similar to the one presented.
 \item Given the degree of similarity to past cases and the uniformity of action taken in the past, the system can either 
-\begin{itemize}
-\item Give the user a recommendation a recommendation or 
-\item Pass the recommendation decision on to the community/CF system.
-\end{itemize}
+  \begin{itemize}
+  \item Give the user a recommendation a recommendation or 
+  \item Pass the recommendation decision on to the community/CF system.
+  \end{itemize}
 \item If passed on to the CF, the system will query a server for the most similar users and use the data on their decisions in similar cases to make a recommendation (along with local/CBR recommendation) 
 \item Update the database with the recommendation.
 \item Allow the user to view the explanation for the recommendation
@@ -108,35 +112,35 @@ As described in Section~\ref{reqScope}, as the main goal of the project is to de
 \subsection{Non-Functional Requirements}
 \begin{itemize}
 \item Implementation
-\begin{itemize}
-\item Code is written in Java following Sun Microsystems’ conventions\footnote{http://www.oracle.com/technetwork/java/codeconvtoc-136057.html}.
-\item Third party libraries are to be documented with version numbers and to be included in the installation package.
+  \begin{itemize}
+  \item Code is written in Java following Sun Microsystems' conventions\footnote{http://www.oracle.com/technetwork/java/codeconvtoc-136057.html}.
+  \item Third party libraries are to be documented with version numbers and to be included in the installation package.
 \end{itemize}
 
 \item Maintainability:
-\begin{itemize}
-\item Code repositories and version control: github is used as code repository and for version control.
-\item User documentation is to be produced.
-\item A well documented API is to be designed	
-\item English (US) is to be used as language for naming convention for source code and filenames, and in code comments and documentation.
-\item The code is to be designed in a modular fashion.
-\end{itemize}
+  \begin{itemize}
+  \item Code repositories and version control: github is used as code repository and for version control.
+  \item User documentation is to be produced.
+  \item A well documented API is to be designed	
+  \item English (US) is to be used as language for naming convention for source code and filenames, and in code comments and documentation.
+  \item The code is to be designed in a modular fashion.
+  \end{itemize}
 
 \item Performance: 
-\begin{itemize}
-\item For the final end-user product that will run as a browser plug-in, performance will be important, as the program should not be seen as a nuisance in getting work done.
-\end{itemize}
+  \begin{itemize}
+  \item For the final end-user product that will run as a browser plug-in, performance will be important, as the program should not be seen as a nuisance in getting work done.
+  \end{itemize}
 
 \item Portability: 
-\begin{itemize}
-\item The testing/design system should be portable to any system with a JRE.
-\end{itemize}
+  \begin{itemize}
+  \item The testing/design system should be portable to any system with a JRE.
+  \end{itemize}
 
 \item User interface:
-\begin{itemize}
-\item Two UIs are to be implemented: A command line interface (CLI) as well as a GUI is to be designed using Java/swing.
-\item These interfaces are meant to facilitate testing the model framework.
-\end{itemize}
+  \begin{itemize}
+  \item Two UIs are to be implemented: A command line interface (CLI) as well as a GUI is to be designed using Java/swing.
+  \item These interfaces are meant to facilitate testing the model framework.
+  \end{itemize}
 
 
 \end{itemize}
