@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.18)  18 OCT 2011 22:11
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.18)  20 OCT 2011 20:16
 entering extended mode
 **C:/Users/Knutsen/git/Customer-Driven-Project/report/Testing/testCaseIncluded/
 testPlan.tex
@@ -81,92 +81,105 @@ Overfull \hbox (18.1122pt too wide) in paragraph at lines 60--71
  []
 
 [3]
-Underfull \hbox (badness 7851) in paragraph at lines 85--85
-[]\OT1/cmr/m/n/12 Feature(s) to be
- []
-
-
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 79--90
- [] 
- []
-
-
-Underfull \hbox (badness 7851) in paragraph at lines 99--99
-[]\OT1/cmr/m/n/12 Feature(s) to be
- []
-
-
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 93--105
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 78--91
  [] 
  []
 
 [4]
-Underfull \hbox (badness 7851) in paragraph at lines 114--114
+Underfull \hbox (badness 7851) in paragraph at lines 104--104
 []\OT1/cmr/m/n/12 Feature(s) to be
  []
 
 
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 108--119
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 98--109
+ [] 
+ []
+
+
+Underfull \hbox (badness 7851) in paragraph at lines 118--118
+[]\OT1/cmr/m/n/12 Feature(s) to be
+ []
+
+
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 112--124
  [] 
  []
 
 [5]
-Underfull \hbox (badness 7851) in paragraph at lines 128--128
+Underfull \hbox (badness 7851) in paragraph at lines 133--133
 []\OT1/cmr/m/n/12 Feature(s) to be
  []
 
 
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 122--133
- [] 
- []
-
-
-Underfull \hbox (badness 7851) in paragraph at lines 142--142
-[]\OT1/cmr/m/n/12 Feature(s) to be
- []
-
-
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 136--147
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 127--138
  [] 
  []
 
 [6]
-Underfull \hbox (badness 7851) in paragraph at lines 156--156
+Underfull \hbox (badness 7851) in paragraph at lines 147--147
 []\OT1/cmr/m/n/12 Feature(s) to be
  []
 
 
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 150--162
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 141--152
  [] 
  []
 
 [7]
-Underfull \hbox (badness 7851) in paragraph at lines 171--171
+Underfull \hbox (badness 7851) in paragraph at lines 161--161
 []\OT1/cmr/m/n/12 Feature(s) to be
  []
 
 
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 165--177
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 155--166
  [] 
  []
 
-[8] [9] [10]
+[8]
+Overfull \vbox (42.09982pt too high) has occurred while \output is active []
+
+
+[9]
+Underfull \hbox (badness 7851) in paragraph at lines 175--175
+[]\OT1/cmr/m/n/12 Feature(s) to be
+ []
+
+
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 169--180
+ [] 
+ []
+
+[10] [11]
+Underfull \hbox (badness 7851) in paragraph at lines 189--189
+[]\OT1/cmr/m/n/12 Feature(s) to be
+ []
+
+
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 183--194
+ [] 
+ []
+
+[12]
+Overfull \vbox (13.09982pt too high) has occurred while \output is active []
+
+
+[13] [14]
 (C:\Users\Knutsen\git\Customer-Driven-Project\report\Testing\testCaseIncluded\t
 estPlan.aux) ) 
 Here is how much of TeX's memory you used:
  254 strings out of 494049
  3218 string characters out of 3148476
- 58862 words of memory out of 3000000
+ 56862 words of memory out of 3000000
  3618 multiletter control sequences out of 15000+200000
  8509 words of font info for 30 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 23i,8n,19p,709b,192s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 23i,8n,19p,954b,192s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx1
 2.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
 /Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on testPlan.pdf (10 pages, 62094 bytes).
+Output written on testPlan.pdf (14 pages, 67118 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
+ 60 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

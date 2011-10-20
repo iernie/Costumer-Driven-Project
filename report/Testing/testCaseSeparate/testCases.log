@@ -1,7 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.18)  18 OCT 2011 21:58
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.18)  20 OCT 2011 20:23
 entering extended mode
-**C:/Users/Knutsen/Desktop/testCaseSeparate/testCases.tex
-(C:/Users/Knutsen/Desktop/testCaseSeparate/testCases.tex
+**C:/Users/Knutsen/git/Customer-Driven-Project/report/Testing/testCaseSeparate/
+testCases.tex
+
+(C:/Users/Knutsen/git/Customer-Driven-Project/report/Testing/testCaseSeparate/t
+estCases.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -35,7 +38,9 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 LaTeX Warning: Unused global option(s):
     [fullpage].
 
-(C:\Users\Knutsen\Desktop\testCaseSeparate\testCases.aux)
+
+(C:\Users\Knutsen\git\Customer-Driven-Project\report\Testing\testCaseSeparate\t
+estCases.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
@@ -49,98 +54,107 @@ LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 15.
+(Font)              <12> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 15.
+(Font)              <8> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 15.
+(Font)              <6> on input line 12.
 
-Underfull \hbox (badness 7851) in paragraph at lines 21--21
+Underfull \hbox (badness 7851) in paragraph at lines 18--18
 []\OT1/cmr/m/n/12 Feature(s) to be
  []
 
 
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 15--26
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 12--23
  [] 
  []
 
 
-Underfull \hbox (badness 7851) in paragraph at lines 35--35
+Underfull \hbox (badness 7851) in paragraph at lines 32--32
 []\OT1/cmr/m/n/12 Feature(s) to be
  []
 
 
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 29--41
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 26--38
  [] 
  []
 
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 7851) in paragraph at lines 50--50
+Underfull \hbox (badness 7851) in paragraph at lines 47--47
 []\OT1/cmr/m/n/12 Feature(s) to be
  []
 
 
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 44--55
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 41--52
  [] 
  []
 
 [2]
-Underfull \hbox (badness 7851) in paragraph at lines 64--64
+Underfull \hbox (badness 7851) in paragraph at lines 61--61
 []\OT1/cmr/m/n/12 Feature(s) to be
  []
 
 
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 58--69
- [] 
- []
-
-
-Underfull \hbox (badness 7851) in paragraph at lines 78--78
-[]\OT1/cmr/m/n/12 Feature(s) to be
- []
-
-
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 72--83
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 55--66
  [] 
  []
 
 [3]
-Underfull \hbox (badness 7851) in paragraph at lines 92--92
+Underfull \hbox (badness 7851) in paragraph at lines 75--75
 []\OT1/cmr/m/n/12 Feature(s) to be
  []
 
 
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 86--98
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 69--80
  [] 
  []
 
 [4]
-Underfull \hbox (badness 7851) in paragraph at lines 107--107
+Overfull \vbox (42.09982pt too high) has occurred while \output is active []
+
+
+[5]
+Underfull \hbox (badness 7851) in paragraph at lines 89--89
 []\OT1/cmr/m/n/12 Feature(s) to be
  []
 
 
-Overfull \hbox (18.1122pt too wide) in paragraph at lines 101--113
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 83--94
  [] 
  []
 
-[5] [6] (C:\Users\Knutsen\Desktop\testCaseSeparate\testCases.aux) ) 
+[6] [7]
+Underfull \hbox (badness 7851) in paragraph at lines 103--103
+[]\OT1/cmr/m/n/12 Feature(s) to be
+ []
+
+
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 97--108
+ [] 
+ []
+
+[8]
+Overfull \vbox (13.09982pt too high) has occurred while \output is active []
+
+
+[9]
+(C:\Users\Knutsen\git\Customer-Driven-Project\report\Testing\testCaseSeparate\t
+estCases.aux) ) 
 Here is how much of TeX's memory you used:
  249 strings out of 494049
- 2903 string characters out of 3148476
- 58862 words of memory out of 3000000
+ 3148 string characters out of 3148476
+ 56862 words of memory out of 3000000
  3613 multiletter control sequences out of 15000+200000
  7587 words of font info for 27 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 22i,8n,19p,329b,192s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on testCases.pdf (6 pages, 38837 bytes).
+ 22i,8n,19p,956b,192s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx
+12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on testCases.pdf (9 pages, 43038 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
+ 40 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
