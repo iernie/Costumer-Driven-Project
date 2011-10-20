@@ -28,6 +28,7 @@ public abstract class LearnAlgorithm {
 	public LearnAlgorithm(Properties weightsConfig)
 	{
 		this.weightsConfig = weightsConfig;
+	
 	}
 	
 	/**

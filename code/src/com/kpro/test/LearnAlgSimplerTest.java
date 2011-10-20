@@ -1,13 +1,11 @@
 package com.kpro.test;
 
 import com.kpro.main.Gio;
-import com.kpro.main.PrivacyAdviser;
-
 import junit.framework.TestCase;
 
 public class LearnAlgSimplerTest extends TestCase {
 
-
+ 
 	static Gio theIO;
 //	private static PolicyObject po;	
 
@@ -26,9 +24,9 @@ public class LearnAlgSimplerTest extends TestCase {
 		theIO.loadDB();
 		
 	}
-	public static void main(String[] args) {
-		System.out.println("sadf");
-	}
+//	public static void main(String[] args) {
+//		System.out.println("sadf");
+//	}
 
 	public void testApplyML() {
 		//assertEquals(expected, actual);
