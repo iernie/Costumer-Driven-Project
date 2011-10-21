@@ -2,135 +2,148 @@
 \contentsline {part}{I\hspace {1em}Initial Phase - Planning and Research}{5}{part.1}
 \contentsline {chapter}{Project Directive}{7}{chapter*.6}
 \contentsline {section}{\numberline {1.1}Purpose}{7}{section.1.1}
-\contentsline {section}{\numberline {1.2}Mandate}{7}{section.1.2}
+\contentsline {section}{\numberline {1.2}Mandate}{8}{section.1.2}
 \contentsline {subsection}{\numberline {1.2.1}Background}{8}{subsection.1.2.1}
 \contentsline {section}{\numberline {1.3}Objectives}{8}{section.1.3}
-\contentsline {section}{\numberline {1.4}Resources and Duration}{8}{section.1.4}
+\contentsline {section}{\numberline {1.4}Resources and Duration}{9}{section.1.4}
 \contentsline {section}{\numberline {1.5}Organization}{9}{section.1.5}
 \contentsline {section}{\numberline {1.6}Planning}{9}{section.1.6}
 \contentsline {section}{\numberline {1.7}Limitations and Scope}{9}{section.1.7}
 \contentsline {section}{\numberline {1.8}Quality Assurance}{11}{section.1.8}
+\contentsline {subsection}{\numberline {1.8.1}Status Reporting}{11}{subsection.1.8.1}
+\contentsline {subsubsection}{External Reporting}{11}{section*.7}
+\contentsline {subsubsection}{Internal Reporting}{11}{section*.8}
+\contentsline {subsubsection}{Templates}{11}{section*.9}
+\contentsline {subsection}{\numberline {1.8.2}Response Timelines}{12}{subsection.1.8.2}
+\contentsline {subsubsection}{Risk Management}{12}{section*.10}
+\contentsline {subsection}{\numberline {1.8.3}Document Respository}{12}{subsection.1.8.3}
 \contentsline {xpart}{Initial Phase - Planning and Research}{7}{part.1}
-\contentsline {chapter}{Preliminary Study}{13}{chapter*.7}
+\contentsline {chapter}{Preliminary Study}{13}{chapter*.11}
 \contentsline {section}{\numberline {2.1}Internet Privacy Technology}{14}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}What is Internet Privacy?}{14}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Current Privacy Technology}{14}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}How Machine Learning Can Improve Privacy Advice}{14}{subsection.2.1.3}
-\contentsline {section}{\numberline {2.2}Case Based Reasoning}{15}{section.2.2}
-\contentsline {section}{\numberline {2.3}Project Scope}{16}{section.2.3}
-\contentsline {section}{\numberline {2.4}Development Model and Workflow}{17}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}The Waterfall Model}{17}{subsection.2.4.1}
-\contentsline {chapter}{Planning Phase}{19}{chapter*.8}
-\contentsline {section}{\numberline {3.1}Purpose}{19}{section.3.1}
-\contentsline {section}{\numberline {3.2}Project Phases}{20}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Preliminary Study and Research}{20}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Planning}{20}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Requirement Specification}{20}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Design/Architecture}{20}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}Implementation}{20}{subsection.3.2.5}
-\contentsline {subsection}{\numberline {3.2.6}Evaluation and Documentation}{21}{subsection.3.2.6}
-\contentsline {subsection}{\numberline {3.2.7}Ongoing Activities}{21}{subsection.3.2.7}
-\contentsline {subsubsection}{Reporting and Administrative Tasks}{21}{section*.9}
-\contentsline {subsubsection}{Study and Lectures}{21}{section*.10}
-\contentsline {section}{\numberline {3.3}Risk Report}{21}{section.3.3}
-\contentsline {section}{\numberline {3.4}Measurement of project effects}{26}{section.3.4}
-\contentsline {section}{\numberline {3.5}Project Plan}{26}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Project Milestones}{27}{subsection.3.5.1}
-\contentsline {part}{II\hspace {1em}Design and Implementation Phase}{29}{part.2}
-\contentsline {chapter}{Requirements Specification}{31}{chapter*.11}
-\contentsline {section}{\numberline {4.1}Purpose}{31}{section.4.1}
-\contentsline {section}{\numberline {4.2}Introduction}{32}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Background and Similar Software}{32}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Scope}{32}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Overview}{33}{subsection.4.2.3}
-\contentsline {section}{\numberline {4.3}Overall Description}{33}{section.4.3}
-\contentsline {section}{\numberline {4.4}System Description}{33}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}User Interface}{33}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Hardware and Software Interface}{34}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}User Characteristic}{34}{subsection.4.4.3}
-\contentsline {subsubsection}{Developers/Researchers}{34}{section*.12}
-\contentsline {subsubsection}{End Users}{34}{section*.13}
-\contentsline {section}{\numberline {4.5}Use Cases}{34}{section.4.5}
-\contentsline {section}{\numberline {4.6}Specific Requirements}{36}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Product perspective}{36}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Functional Requirements}{36}{subsection.4.6.2}
-\contentsline {subsection}{\numberline {4.6.3}Non-Functional Requirements}{37}{subsection.4.6.3}
-\contentsline {xpart}{Design and Implementation Phase}{31}{part.2}
-\contentsline {chapter}{Design}{39}{chapter*.18}
-\contentsline {section}{\numberline {5.1}Purpose}{39}{section.5.1}
-\contentsline {section}{\numberline {5.2}Development Tools and Technologies}{40}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Documents and Source Code Repositories}{40}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Programming Languages}{40}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Databases}{40}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}Third Party Libraries}{40}{subsection.5.2.4}
-\contentsline {subsubsection}{Third Party CBR System}{41}{section*.19}
-\contentsline {subsubsection}{Third Party k Nearest Neighbors Implementations}{41}{section*.20}
-\contentsline {subsubsection}{P3P/XML Parser}{41}{section*.21}
-\contentsline {section}{\numberline {5.3}Standards}{42}{section.5.3}
-\contentsline {section}{\numberline {5.4}Architecture}{42}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Design Overview}{42}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}Detailed Design}{44}{subsection.5.4.2}
-\contentsline {subsubsection}{Dependencies}{44}{section*.22}
-\contentsline {subsubsection}{User Interface}{44}{section*.23}
-\contentsline {subsection}{\numberline {5.4.3}Community Server}{44}{subsection.5.4.3}
-\contentsline {chapter}{Implementation}{47}{chapter*.24}
-\contentsline {section}{\numberline {6.1}Algorithms}{48}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}K-Nearest Neighbors}{48}{subsection.6.1.1}
-\contentsline {subsubsection}{Learning algorithms}{48}{section*.26}
-\contentsline {subsection}{\numberline {6.1.2}Distance Measures}{48}{subsection.6.1.2}
-\contentsline {subsubsection}{Definition}{48}{section*.27}
-\contentsline {subsubsection}{Common Metrics}{49}{section*.28}
-\contentsline {subsubsection}{Customer Advise}{49}{section*.29}
-\contentsline {subsection}{\numberline {6.1.3}Implementation}{50}{subsection.6.1.3}
-\contentsline {subsubsection}{Bitmap Representation}{50}{section*.30}
-\contentsline {subsubsection}{Privacy Policy Representation}{50}{section*.31}
-\contentsline {subsubsection}{Bitmap Distance}{51}{section*.32}
-\contentsline {section}{\numberline {6.2}Data Storage}{52}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Flat File Storage}{52}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Databases}{52}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}User Interface}{52}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Model View Controller Architecture}{52}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Privacy Advisor Interface}{52}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}CLI}{52}{subsection.6.3.3}
-\contentsline {subsection}{\numberline {6.3.4}GUI}{52}{subsection.6.3.4}
-\contentsline {chapter}{Documentation}{53}{chapter*.33}
-\contentsline {section}{\numberline {7.1}Source Code Documentation}{53}{section.7.1}
-\contentsline {section}{\numberline {7.2}Installation}{54}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Local Installation}{54}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Server Installation}{54}{subsection.7.2.2}
-\contentsline {section}{\numberline {7.3}User Interfaces}{54}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Graphical User Interface}{54}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Command Line Interface}{54}{subsection.7.3.2}
-\contentsline {subsubsection}{Configuration Files}{54}{section*.34}
-\contentsline {subsubsection}{Building a Database}{54}{section*.35}
-\contentsline {subsubsection}{Loading and Viewing a Database}{54}{section*.36}
-\contentsline {subsubsection}{Parsing a P3P Policy}{54}{section*.37}
-\contentsline {part}{III\hspace {1em}Testing, Evaluation and Summary}{57}{part.3}
-\contentsline {chapter}{Test Plan}{59}{chapter*.38}
-\contentsline {section}{\numberline {8.1}Test Methods}{59}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}Black-box testing}{60}{subsection.8.1.1}
-\contentsline {subsection}{\numberline {8.1.2}White-box testing}{60}{subsection.8.1.2}
-\contentsline {section}{\numberline {8.2}Testing approach}{60}{section.8.2}
-\contentsline {section}{\numberline {8.3}Test case overview}{61}{section.8.3}
-\contentsline {section}{\numberline {8.4}Test pass / fail criteria}{62}{section.8.4}
-\contentsline {section}{\numberline {8.5}Test scheudule}{62}{section.8.5}
-\contentsline {section}{\numberline {8.6}Risks and contingencies}{63}{section.8.6}
-\contentsline {xpart}{Testing, Evaluation and Summary}{59}{part.3}
-\contentsline {chapter}{Project Evaluation}{65}{chapter*.42}
-\contentsline {section}{\numberline {9.1}Software Evaluation}{66}{section.9.1}
-\contentsline {section}{\numberline {9.2}Organization and Group Dynamics}{66}{section.9.2}
-\contentsline {section}{\numberline {9.3}Tools}{66}{section.9.3}
-\contentsline {subsection}{\numberline {9.3.1}Programming and Implementation}{66}{subsection.9.3.1}
-\contentsline {subsection}{\numberline {9.3.2}Reporting and Organizational Tools}{66}{subsection.9.3.2}
-\contentsline {section}{\numberline {9.4}Resource Use}{66}{section.9.4}
-\contentsline {chapter}{Conclusion}{67}{chapter*.44}
-\contentsline {section}{\numberline {10.1}Introduction}{67}{section.10.1}
-\contentsline {part}{IV\hspace {1em}Appendices}{69}{part.4}
-\contentsline {chapter}{Test cases}{71}{appendix*.45}
-\contentsline {section}{\numberline {A.1}Test cases}{71}{section.A.1}
-\contentsline {xpart}{Appendices}{71}{part.4}
-\contentsline {chapter}{Templates}{77}{appendix*.46}
-\contentsline {subsection}{\numberline {A.1.1}Status Reports}{77}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2}Meeting Notes}{77}{subsection.A.1.2}
-\contentsline {subsection}{\numberline {A.1.3}Testing}{77}{subsection.A.1.3}
-\contentsline {subsection}{\numberline {A.1.4}Time Reporting}{77}{subsection.A.1.4}
+\contentsline {subsubsection}{The Platform for Privacy Preferences Project (P3P}{15}{section*.12}
+\contentsline {subsubsection}{AT\&T Privacy Bird}{15}{section*.13}
+\contentsline {subsubsection}{Other Privacy Agents}{15}{section*.14}
+\contentsline {subsection}{\numberline {2.1.3}How Machine Learning Can Improve Privacy Advice}{16}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Case Based Reasoning}{16}{section.2.2}
+\contentsline {section}{\numberline {2.3}Project Scope}{18}{section.2.3}
+\contentsline {section}{\numberline {2.4}Development Model and Workflow}{19}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}The Waterfall Model}{19}{subsection.2.4.1}
+\contentsline {chapter}{Planning Phase}{21}{chapter*.15}
+\contentsline {section}{\numberline {3.1}Purpose}{21}{section.3.1}
+\contentsline {section}{\numberline {3.2}Project Phases}{22}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Preliminary Study and Research}{22}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Planning}{22}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Requirement Specification}{22}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Design/Architecture}{22}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Implementation}{22}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}Evaluation and Documentation}{23}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.7}Ongoing Activities}{23}{subsection.3.2.7}
+\contentsline {subsubsection}{Reporting and Administrative Tasks}{23}{section*.16}
+\contentsline {subsubsection}{Study and Lectures}{23}{section*.17}
+\contentsline {section}{\numberline {3.3}Risk Report}{23}{section.3.3}
+\contentsline {section}{\numberline {3.4}Measurement of project effects}{28}{section.3.4}
+\contentsline {section}{\numberline {3.5}Project Plan}{28}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Project Milestones}{29}{subsection.3.5.1}
+\contentsline {part}{II\hspace {1em}Design and Implementation Phase}{31}{part.2}
+\contentsline {chapter}{Requirements Specification}{33}{chapter*.18}
+\contentsline {section}{\numberline {4.1}Purpose}{33}{section.4.1}
+\contentsline {section}{\numberline {4.2}Introduction}{34}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Background and Similar Software}{34}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Scope}{34}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Overview}{35}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Overall Description}{35}{section.4.3}
+\contentsline {section}{\numberline {4.4}System Description}{35}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}User Interface}{35}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Hardware and Software Interface}{36}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}User Characteristic}{36}{subsection.4.4.3}
+\contentsline {subsubsection}{Developers/Researchers}{36}{section*.19}
+\contentsline {subsubsection}{End Users}{36}{section*.20}
+\contentsline {section}{\numberline {4.5}Use Cases}{36}{section.4.5}
+\contentsline {section}{\numberline {4.6}Specific Requirements}{38}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Product perspective}{38}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Functional Requirements}{38}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}Non-Functional Requirements}{39}{subsection.4.6.3}
+\contentsline {xpart}{Design and Implementation Phase}{33}{part.2}
+\contentsline {chapter}{Design}{41}{chapter*.25}
+\contentsline {section}{\numberline {5.1}Purpose}{41}{section.5.1}
+\contentsline {section}{\numberline {5.2}Development Tools and Technologies}{42}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Documents and Source Code Repositories}{42}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Programming Languages}{42}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Databases}{42}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Third Party Libraries}{42}{subsection.5.2.4}
+\contentsline {subsubsection}{Third Party CBR System}{43}{section*.26}
+\contentsline {subsubsection}{Third Party k Nearest Neighbors Implementations}{43}{section*.27}
+\contentsline {subsubsection}{P3P/XML Parser}{43}{section*.28}
+\contentsline {section}{\numberline {5.3}Standards}{44}{section.5.3}
+\contentsline {section}{\numberline {5.4}Architecture}{44}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Design Overview}{44}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Detailed Design}{46}{subsection.5.4.2}
+\contentsline {subsubsection}{Dependencies}{46}{section*.29}
+\contentsline {subsubsection}{User Interface}{46}{section*.30}
+\contentsline {subsection}{\numberline {5.4.3}Community Server}{46}{subsection.5.4.3}
+\contentsline {chapter}{Implementation}{49}{chapter*.31}
+\contentsline {section}{\numberline {6.1}Algorithms}{50}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}K-Nearest Neighbors}{50}{subsection.6.1.1}
+\contentsline {subsubsection}{Learning algorithms}{50}{section*.33}
+\contentsline {subsection}{\numberline {6.1.2}Distance Measures}{50}{subsection.6.1.2}
+\contentsline {subsubsection}{Definition}{50}{section*.34}
+\contentsline {subsubsection}{Common Metrics}{51}{section*.35}
+\contentsline {subsubsection}{Customer Advise}{51}{section*.36}
+\contentsline {subsection}{\numberline {6.1.3}Implementation}{52}{subsection.6.1.3}
+\contentsline {subsubsection}{Bitmap Representation}{52}{section*.37}
+\contentsline {subsubsection}{Privacy Policy Representation}{52}{section*.38}
+\contentsline {subsubsection}{Bitmap Distance}{53}{section*.39}
+\contentsline {subsubsection}{Data-type-string similarity}{53}{section*.40}
+\contentsline {subsubsection}{ The global similarity }{54}{section*.41}
+\contentsline {section}{\numberline {6.2}Data Storage}{55}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Flat File Storage}{55}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Databases}{55}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}User Interface}{55}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Model View Controller Architecture}{55}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Privacy Advisor Interface}{55}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}CLI}{55}{subsection.6.3.3}
+\contentsline {subsection}{\numberline {6.3.4}GUI}{55}{subsection.6.3.4}
+\contentsline {chapter}{Documentation}{57}{chapter*.42}
+\contentsline {section}{\numberline {7.1}Source Code Documentation}{57}{section.7.1}
+\contentsline {section}{\numberline {7.2}Installation}{58}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Local Installation}{58}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Server Installation}{58}{subsection.7.2.2}
+\contentsline {section}{\numberline {7.3}User Interfaces}{58}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Graphical User Interface}{58}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Command Line Interface}{58}{subsection.7.3.2}
+\contentsline {subsubsection}{Configuration Files}{58}{section*.43}
+\contentsline {subsubsection}{Building a Database}{58}{section*.44}
+\contentsline {subsubsection}{Loading and Viewing a Database}{58}{section*.45}
+\contentsline {subsubsection}{Parsing a P3P Policy}{58}{section*.46}
+\contentsline {part}{III\hspace {1em}Testing, Evaluation and Summary}{61}{part.3}
+\contentsline {chapter}{Test Plan}{63}{chapter*.47}
+\contentsline {section}{\numberline {8.1}Test Methods}{63}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Black-box testing}{64}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}White-box testing}{64}{subsection.8.1.2}
+\contentsline {section}{\numberline {8.2}Testing approach}{64}{section.8.2}
+\contentsline {section}{\numberline {8.3}Test case overview}{65}{section.8.3}
+\contentsline {section}{\numberline {8.4}Test pass / fail criteria}{66}{section.8.4}
+\contentsline {section}{\numberline {8.5}Test scheudule}{66}{section.8.5}
+\contentsline {section}{\numberline {8.6}Risks and contingencies}{67}{section.8.6}
+\contentsline {xpart}{Testing, Evaluation and Summary}{63}{part.3}
+\contentsline {chapter}{Project Evaluation}{69}{chapter*.51}
+\contentsline {section}{\numberline {9.1}Software Evaluation}{70}{section.9.1}
+\contentsline {section}{\numberline {9.2}Organization and Group Dynamics}{70}{section.9.2}
+\contentsline {section}{\numberline {9.3}Tools}{70}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}Programming and Implementation}{70}{subsection.9.3.1}
+\contentsline {subsection}{\numberline {9.3.2}Reporting and Organizational Tools}{70}{subsection.9.3.2}
+\contentsline {section}{\numberline {9.4}Resource Use}{70}{section.9.4}
+\contentsline {chapter}{Conclusion}{71}{chapter*.53}
+\contentsline {section}{\numberline {10.1}Introduction}{71}{section.10.1}
+\contentsline {part}{IV\hspace {1em}Appendices}{73}{part.4}
+\contentsline {chapter}{Test cases}{75}{appendix*.54}
+\contentsline {section}{\numberline {A.1}Test cases}{75}{section.A.1}
+\contentsline {xpart}{Appendices}{75}{part.4}
+\contentsline {chapter}{Templates}{81}{appendix*.55}
+\contentsline {subsection}{\numberline {A.1.1}Status Reports}{81}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}Meeting Notes}{82}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3}Time Reporting}{83}{subsection.A.1.3}
+\contentsline {subsection}{\numberline {A.1.4}Test Plan}{83}{subsection.A.1.4}
+\contentsline {subsection}{\numberline {A.1.5}Java documentation}{84}{subsection.A.1.5}

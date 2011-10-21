@@ -2,41 +2,41 @@
 \contentsline {xchapter}{Introduction}{3}{chapter*.5}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Project Directive}{7}{chapter*.6}
-\contentsline {table}{\numberline {1.1}{\ignorespaces Responsibilities}}{10}{table.1.1}
+\contentsline {table}{\numberline {1.1}{\ignorespaces Responsibilities.}}{10}{table.1.1}
 \contentsline {xpart}{Initial Phase - Planning and Research}{7}{part.1}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Preliminary Study}{13}{chapter*.7}
+\contentsline {xchapter}{Preliminary Study}{13}{chapter*.11}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Planning Phase}{19}{chapter*.8}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Risks explained}}{22}{table.3.2}
-\contentsline {table}{\numberline {3.3}{\ignorespaces Changes in requirments}}{23}{table.3.3}
-\contentsline {table}{\numberline {3.4}{\ignorespaces Poorly chosen algorithms}}{23}{table.3.4}
-\contentsline {table}{\numberline {3.5}{\ignorespaces Problems with policy retrieving}}{23}{table.3.5}
-\contentsline {table}{\numberline {3.6}{\ignorespaces Problems with external storage}}{24}{table.3.6}
-\contentsline {table}{\numberline {3.7}{\ignorespaces Remote server problems}}{24}{table.3.7}
-\contentsline {table}{\numberline {3.8}{\ignorespaces Sickness}}{24}{table.3.8}
-\contentsline {table}{\numberline {3.9}{\ignorespaces 3rd party library problems}}{25}{table.3.9}
-\contentsline {table}{\numberline {3.10}{\ignorespaces Misunderstandings.}}{25}{table.3.10}
-\contentsline {table}{\numberline {3.11}{\ignorespaces Disagreements Within Project Team}}{26}{table.3.11}
+\contentsline {xchapter}{Planning Phase}{21}{chapter*.15}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Risks explained}}{24}{table.3.2}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Changes in requirments}}{25}{table.3.3}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Poorly chosen algorithms}}{25}{table.3.4}
+\contentsline {table}{\numberline {3.5}{\ignorespaces Problems with policy retrieving}}{25}{table.3.5}
+\contentsline {table}{\numberline {3.6}{\ignorespaces Problems with external storage}}{26}{table.3.6}
+\contentsline {table}{\numberline {3.7}{\ignorespaces Remote server problems}}{26}{table.3.7}
+\contentsline {table}{\numberline {3.8}{\ignorespaces Sickness}}{26}{table.3.8}
+\contentsline {table}{\numberline {3.9}{\ignorespaces 3rd party library problems}}{27}{table.3.9}
+\contentsline {table}{\numberline {3.10}{\ignorespaces Misunderstandings.}}{27}{table.3.10}
+\contentsline {table}{\numberline {3.11}{\ignorespaces Disagreements Within Project Team}}{28}{table.3.11}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Requirements Specification}{31}{chapter*.11}
-\contentsline {xpart}{Design and Implementation Phase}{31}{part.2}
+\contentsline {xchapter}{Requirements Specification}{33}{chapter*.18}
+\contentsline {xpart}{Design and Implementation Phase}{33}{part.2}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Design}{39}{chapter*.18}
+\contentsline {xchapter}{Design}{41}{chapter*.25}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Implementation}{47}{chapter*.24}
+\contentsline {xchapter}{Implementation}{49}{chapter*.31}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Documentation}{53}{chapter*.33}
-\contentsline {table}{\numberline {7.12}{\ignorespaces Configuration file parameters.}}{55}{table.7.12}
+\contentsline {xchapter}{Documentation}{57}{chapter*.42}
+\contentsline {table}{\numberline {7.12}{\ignorespaces Configuration file parameters.}}{59}{table.7.12}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Test Plan}{59}{chapter*.38}
-\contentsline {xpart}{Testing, Evaluation and Summary}{59}{part.3}
+\contentsline {xchapter}{Test Plan}{63}{chapter*.47}
+\contentsline {xpart}{Testing, Evaluation and Summary}{63}{part.3}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Project Evaluation}{65}{chapter*.42}
+\contentsline {xchapter}{Project Evaluation}{69}{chapter*.51}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Conclusion}{67}{chapter*.44}
+\contentsline {xchapter}{Conclusion}{71}{chapter*.53}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Test cases}{71}{appendix*.45}
-\contentsline {xpart}{Appendices}{71}{part.4}
+\contentsline {xchapter}{Test cases}{75}{appendix*.54}
+\contentsline {xpart}{Appendices}{75}{part.4}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Templates}{77}{appendix*.46}
+\contentsline {xchapter}{Templates}{81}{appendix*.55}

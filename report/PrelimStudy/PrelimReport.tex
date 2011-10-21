@@ -32,7 +32,17 @@ The disproportion between the average Internet user's concern for privacy and th
 \subsubsection{The Platform for Privacy Preferences Project (P3P}
 As an aid in this problem, machine readable standards such as P3P have been introduced. P3P seeks to compress the information contained in the privacy policy in an XML document that can be parsed and summarized by computer programs. 
 
+\subsubsection{AT\&T Privacy Bird}
 The AT\&T \emph{Privacy Bird} is mentioned in T{\o}ndel et al. (2011) as an example of current P3P based Internet privacy software. Privacy Bird can parse P3P documents and match a site's privacy policy with the user's preferences. The problem with this however, is that the user has to explicitly state his preferences, which, first of all, is a rather time-consuming endeavor. Secondly, while a user may have clear notions about which information he would share in a \emph{particular} situation, such preferences may be very hard to generalize. It may be hard to give a general statement on privacy preferences in a way that is both simple enough for the user to understand and rich enough to actually describe the problem. Furthermore, preferences may be inconsistent, for instance, while in the general case, the user would not accept privacy terms similar to those of for instance Facebook; however in Facebook's particular case he will accept them nevertheless.
+
+\subsubsection{Other Privacy Agents}
+Bernsmed et al. mentions a few other examples of available and suggested approaches to building privacy systems:
+
+\begin{itemize}
+\item \textbf{PIPWatch Toolbar} is a browser plugin that is based on users contributing privacy information about pages through the interface.
+\item \textbf{Privacy and Identity Mangament for Europe (PRIME)} is an EU project proposing that service providers add an extra layer for privacy sensitive transactions.
+\item \textbf{Collaborative Privacy Management}, in contrast to PRIME, proposes a user-centric arhcitecture that employs collaborative filetering.
+\end{itemize}
 
 \subsection{How Machine Learning Can Improve Privacy Advice}
 
@@ -93,7 +103,7 @@ The first stage implements the core CBR.  In the second part, the focus is shift
 
 
 \subsection{The Waterfall Model}
-The waterfall model describes the development process as a linear process that starts with planning and requirements specification, and flows sequentially through design, implementation and finally (in this case) testing as is illustrated in Figure~\ref{waterfall}. Arguments \emph{for} the waterfall approach is that it encourages rigorous planning and design, which means that inconsistencies and problems can be discovered earlier in the process, which is generally less costly than if they are discovered late, since this often means re-writing a large portion of code. 
+The waterfall model describes the development process as a linear process that starts with planning and requirements specification, and flows sequentially through design, implementation and finally (in this case) testing as is illustrated in Figure~\ref{waterfall}. Arguments \emph{for} the waterfall approach are that it encourages rigorous planning and design, which means that inconsistencies and problems can be discovered earlier in the process, which is generally less costly than if they are discovered late, since this often means re-writing a large portion of code. 
 
 Another advantage of the waterfall model, which relates directly to the nature of this particular project, is the focus on design. Since the software product to be delivered is a very early prototype that is to be used in further research, and likely to be further modified in the future, providing solid modularity and interfaces so as to allow code reuse is critical. Properly documenting the program structure, as encouraged by the waterfall model, will also be highly beneficial to anyone who is later to modify the program.
 
