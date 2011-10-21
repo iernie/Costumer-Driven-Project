@@ -1,7 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.18)  18 OCT 2011 21:58
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.18)  20 OCT 2011 20:24
 entering extended mode
-**C:/Users/Knutsen/Desktop/testCaseSeparate/testCaseSeparate.tex
-(C:/Users/Knutsen/Desktop/testCaseSeparate/testCaseSeparate.tex
+**C:/Users/Knutsen/git/Customer-Driven-Project/report/Testing/testCaseSeparate/
+testCaseSeparate.tex
+
+(C:/Users/Knutsen/git/Customer-Driven-Project/report/Testing/testCaseSeparate/t
+estCaseSeparate.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -35,7 +38,9 @@ File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 LaTeX Warning: Unused global option(s):
     [fullpage].
 
-(C:\Users\Knutsen\Desktop\testCaseSeparate\testCaseSeparate.aux)
+
+(C:\Users\Knutsen\git\Customer-Driven-Project\report\Testing\testCaseSeparate\t
+estCaseSeparate.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
@@ -65,7 +70,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 31.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 31.
- [2]
+
+[2]
 Underfull \hbox (badness 7851) in paragraph at lines 66--66
 []\OT1/cmr/m/n/12 Feature(s) to be
  []
@@ -75,22 +81,28 @@ Overfull \hbox (18.1122pt too wide) in paragraph at lines 60--71
  [] 
  []
 
-[3] [4] (C:\Users\Knutsen\Desktop\testCaseSeparate\testCaseSeparate.aux) ) 
+[3]
+Overfull \hbox (18.1122pt too wide) in paragraph at lines 78--91
+ [] 
+ []
+
+[4] [5] [6]
+(C:\Users\Knutsen\git\Customer-Driven-Project\report\Testing\testCaseSeparate\t
+estCaseSeparate.aux) ) 
 Here is how much of TeX's memory you used:
  254 strings out of 494049
- 3053 string characters out of 3148476
+ 3298 string characters out of 3148476
  53862 words of memory out of 3000000
  3618 multiletter control sequences out of 15000+200000
  8509 words of font info for 30 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 23i,8n,19p,682b,178s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on testCaseSeparate.pdf (4 pages, 51463 bytes).
+ 23i,8n,19p,717b,178s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on testCaseSeparate.pdf (6 pages, 53998 bytes).
 PDF statistics:
- 27 PDF objects out of 1000 (max. 8388607)
+ 33 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
