@@ -366,21 +366,32 @@ public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 			policyObj = new DefaultMutableTreeNode(po.getContextDomain());
 			top.add(policyObj);
 			int case_id = 1;
+			
 			for (Case c : po){
 				policyObj.add(caseNode = 
-						new DefaultMutableTreeNode("Case " + String.valueOf(case_id)));
+						new DefaultMutableTreeNode("Case " + String.valueOf(case_id++)));
+				
+				caseNode.add(purpose = 
+						new DefaultMutableTreeNode("Purpose"));
+				caseNode.add(recipient = 
+						new DefaultMutableTreeNode("Recipient"));
+				caseNode.add(retention = 
+						new DefaultMutableTreeNode("Retention"));
+				caseNode.add(category = 
+						new DefaultMutableTreeNode("Category"));
+				
 				for (Purpose p : c.getPurposes())
-					caseNode.add(purpose = 
-					new DefaultMutableTreeNode(p.toString()));
+					purpose.add(new DefaultMutableTreeNode(p.toString()));				
 				for (Recipient r : c.getRecipients())
-					caseNode.add(recipient = 
-					new DefaultMutableTreeNode(r.toString()));
+					recipient.add(new DefaultMutableTreeNode(r.toString()));
 				for(Retention r : c.getRetentions())
-					caseNode.add(retention = 
-					new DefaultMutableTreeNode(r.toString()));
-				for(Category cat : c.getCategories())
-					caseNode.add(new DefaultMutableTreeNode(cat.toString()));
+					retention.add(new DefaultMutableTreeNode(r.toString()));
+//				for(Category cat : c.getCategories())
+//					category.add(new DefaultMutableTreeNode(cat.toString()));
+				
 			}
+			policyObj.add(
+					new DefaultMutableTreeNode(po.getAction()));
 		}
 		
 		

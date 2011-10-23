@@ -46,6 +46,7 @@ public class ConfEditor extends Thread implements ActionListener
 	private JButton btnSetP3PDirLoc;
 	private JButton btnSetPolicyLoc;
 	private JButton btnSetAltConfLoc;
+
 	
 	private String[] userInitModel 	= {"default"};
 	private String[] cbrVerModel 	= {"default"};
@@ -76,9 +77,11 @@ public class ConfEditor extends Thread implements ActionListener
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel = new JPanel();
-		panel.setLayout(new GridLayout(15, 3));
+		panel.setLayout(new GridLayout(16, 3));
 		frame.add(panel);		
 		
+		
+		// ADD BUTTONS
 		panel.add(new JLabel("Build New DB"));
 		panel.add(newDBBox = new JCheckBox());
 		panel.add(new JLabel(""));
@@ -133,6 +136,11 @@ public class ConfEditor extends Thread implements ActionListener
 		panel.add(btnSetAltConfLoc = new JButton("Set"));
 		btnSetAltConfLoc.addActionListener(this);
 		
+		panel.add(new JLabel("New Policy File Loc"));
+		panel.add(newPolicyFileField = new JTextField());
+		panel.add(btnSetPolicyLoc = new JButton("Set"));
+		btnSetPolicyLoc.addActionListener(this);
+		
 		panel.add(new JLabel("DB Type"));
 		panel.add(dbTypeBox = new JComboBox(dbTypeModel));
 		panel.add(new JLabel(""));
@@ -161,30 +169,31 @@ public class ConfEditor extends Thread implements ActionListener
 	 */
 	private void FillPropertiesData()
 	{
-		// combo boxes
-		newDBBox.setSelected(genProps.getProperty("inDBLoc") == "true");
-		blankAcceptBox.setSelected(genProps.getProperty("blanketAccept") == "true");
-		
-		// text fields
-		inDBfileField.setText(genProps.getProperty("inDBLoc"));
-		outDBfileField.setText(genProps.getProperty("outDBLoc"));
-		inWeightsFileField.setText(genProps.getProperty("inWeightsLoc"));
-		outWeightsFileField.setText(genProps.getProperty("outWeightsLoc"));
-		p3pFileField.setText(genProps.getProperty("p3pLocation"));
-		p3pDirField.setText(genProps.getProperty("p3pDirLocation"));
-		newPolicyFileField.setText(genProps.getProperty("newPolicyLoc"));
-		confFileField.setText(genProps.getProperty("genConfig"));
-		
-		// make all fields ineditable
-		inDBfileField.setEditable(false);
-		outDBfileField.setEditable(false);
-		inWeightsFileField.setEditable(false);
-		outWeightsFileField.setEditable(false);
-		p3pDirField.setEditable(false);
-		p3pFileField.setEditable(false);
-		newPolicyFileField.setEditable(false);
-		confFileField.setEditable(false);
-		
+		if(genProps != null){
+			// combo boxes
+			newDBBox.setSelected(genProps.getProperty("inDBLoc") == "true");
+			blankAcceptBox.setSelected(genProps.getProperty("blanketAccept") == "true");
+			
+			// text fields
+			inDBfileField.setText(genProps.getProperty("inDBLoc"));
+			outDBfileField.setText(genProps.getProperty("outDBLoc"));
+			inWeightsFileField.setText(genProps.getProperty("inWeightsLoc"));
+			outWeightsFileField.setText(genProps.getProperty("outWeightsLoc"));
+			p3pFileField.setText(genProps.getProperty("p3pLocation"));
+			p3pDirField.setText(genProps.getProperty("p3pDirLocation"));
+			confFileField.setText(genProps.getProperty("genConfig"));
+			newPolicyFileField.setText(genProps.getProperty("newPolicyLoc"));
+			
+			// make all fields ineditable
+			inDBfileField.setEditable(false);
+			outDBfileField.setEditable(false);
+			inWeightsFileField.setEditable(false);
+			outWeightsFileField.setEditable(false);
+			p3pDirField.setEditable(false);
+			p3pFileField.setEditable(false);
+			newPolicyFileField.setEditable(false);
+			confFileField.setEditable(false);
+		}
 		
 	}
 	
@@ -194,11 +203,17 @@ public class ConfEditor extends Thread implements ActionListener
 		FillPropertiesData();
 	}
 	
+	
+	/**
+	 * Standard actionPerformed method. See
+	 * {@link java.awt.event.ActionListener}.
+	 */
+	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
 		if (e.getSource() ==  btnOk)
 		{
-			frame.setVisible(false);			
+			frame.setVisible(false);
 			
 		}else{
 			// Setting file paths
@@ -243,6 +258,15 @@ public class ConfEditor extends Thread implements ActionListener
 		}
 	}
 	
+	
+	/**
+	 * Updates file paths in properties file and
+	 * confEditor text fields based on choices
+	 * made using set buttons.
+	 *  
+	 * @param propsField
+	 * @param directory
+	 */
 	private void setPropsFile(String propsField, boolean directory)
 	{
 		JFileChooser jfc = new JFileChooser(genProps.getProperty(propsField));
@@ -277,9 +301,12 @@ public class ConfEditor extends Thread implements ActionListener
 		
 	}
 	
-	public static void main(String[] args) 
-	{
-		new ConfEditor().run();
-	}
+	
+	
+	
+//	public static void main(String[] args) 
+//	{
+//		new ConfEditor().run();
+//	}
 	
 }

@@ -93,4 +93,15 @@ public class Action
 		return this;
 	}
 	
+	@Override
+	public String toString() {
+		String str = accepted == true ?
+				"Accepted. " : "Rejected. ";
+		str += override ? "Override. " : "No Override. ";
+		str += "Confidence: "+ confidence;
+			
+				
+		return str;
+	}
+	
 }
