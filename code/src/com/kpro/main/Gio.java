@@ -308,9 +308,7 @@ public class Gio {
 			System.err.println("IOException reading the weights configuration file....\n");
 			throw new Exception("In class Gio.java:loadWeights(), IOException loading the weights from file "+genProps.getProperty("inWeightsLoc")+" .");
 		}
-		for(Object i : origWeights.entrySet()){
-			System.out.println(i.toString());
-		}
+		
 		return origWeights;
 	}
 

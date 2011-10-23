@@ -1,5 +1,6 @@
 package com.kpro.test;
 
+import com.kpro.algorithm.LearnAlgSimpler;
 import com.kpro.main.Gio;
 import junit.framework.TestCase;
 
@@ -7,6 +8,7 @@ public class LearnAlgSimplerTest extends TestCase {
 
  
 	static Gio theIO;
+	private LearnAlgSimpler leanAlg;
 //	private static PolicyObject po;	
 
 	
@@ -29,12 +31,14 @@ public class LearnAlgSimplerTest extends TestCase {
 //	}
 
 	public void testApplyML() {
-		//assertEquals(expected, actual);
-		fail("Not yet implemented");
+		
+		assertEquals(12, leanAlg.forTest(theIO));
+		//fail("Not yet implemented");
 	}
 
 	public void testLearnAlgSimpler() {
-		fail("Not yet implemented");
+		System.out.println("derr");
+		//fail("Not yet implemented");
 	}
 }
 
