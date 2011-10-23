@@ -175,6 +175,15 @@ public class ConfEditor extends Thread implements ActionListener
 		newPolicyFileField.setText(genProps.getProperty("newPolicyLoc"));
 		confFileField.setText(genProps.getProperty("genConfig"));
 		
+		// make all fields ineditable
+		inDBfileField.setEditable(false);
+		outDBfileField.setEditable(false);
+		inWeightsFileField.setEditable(false);
+		outWeightsFileField.setEditable(false);
+		p3pDirField.setEditable(false);
+		p3pFileField.setEditable(false);
+		newPolicyFileField.setEditable(false);
+		confFileField.setEditable(false);
 		
 		
 	}
@@ -185,7 +194,6 @@ public class ConfEditor extends Thread implements ActionListener
 		FillPropertiesData();
 	}
 	
-	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
 		if (e.getSource() ==  btnOk)
@@ -242,7 +250,31 @@ public class ConfEditor extends Thread implements ActionListener
 				JFileChooser.DIRECTORIES_ONLY : JFileChooser.FILES_ONLY);
 		int retVal = jfc.showOpenDialog(null);
 		if(retVal == JFileChooser.APPROVE_OPTION)
-			genProps.setProperty(propsField, jfc.getSelectedFile().getAbsolutePath());
+		{
+			String path = jfc.getSelectedFile().getAbsolutePath();
+			genProps.setProperty(propsField, path);
+			
+			//update textfields to hold file path
+
+			if(propsField == "inDBLoc")  
+				inDBfileField.setText(path);
+			else if (propsField=="outDBLoc") 
+				outDBfileField.setText(path);
+			else if (propsField ==  "inWeightsLoc")
+				inWeightsFileField.setText(path);
+			else if (propsField == "outWeightsLoc")
+				outWeightsFileField.setText(path);
+			else if (propsField == "p3pLocation")
+				p3pFileField.setText(path);
+			else if (propsField == "p3pDirLocation")
+				p3pDirField.setText(path);
+			else if (propsField == "genConfig")
+				confFileField.setText(path);
+			else if (propsField == "newPolicyLoc") 
+				newPolicyFileField.setText(path);
+
+		}
+		
 	}
 	
 	public static void main(String[] args) 

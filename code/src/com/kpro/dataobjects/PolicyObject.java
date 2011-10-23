@@ -3,13 +3,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * This is where the class begins
  * 
  * @author ernie
  */
-public class PolicyObject implements Serializable
+public class PolicyObject implements Serializable, Iterable<Case>
 {
 	/**
 	 * added generated serial id from warning on implementing serializable
@@ -199,5 +200,10 @@ public class PolicyObject implements Serializable
 		if(!getCases().equals(newpol.getCases()))
 			return false;	
 		return true;
+	}
+
+	@Override
+	public Iterator<Case> iterator() {
+		return cases.iterator();
 	}
 }
