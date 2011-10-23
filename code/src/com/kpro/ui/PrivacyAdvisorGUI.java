@@ -165,14 +165,19 @@ public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 	@Override
 	public PolicyObject userResponse(PolicyObject n) {
 		String description = n.getContextDomain();
-		String recommendation = n.getAction().getAccepted() == true ? "Accept" : "Reject";
-		for (String str : n.getEntities().keySet()) System.out.println( str );
+		String recommendation = n.getAction().getAccepted() == true ? "Accept." : "Reject.";
+		String reason = "\nReason:\n";
+		for (String str : n.getAction().getReasons()) reason += str + "\n";
+		reason += "\n";
+		String confidence = "\nWith Confidence: " + String.valueOf(n.getAction().getConfidence());
+		
+		
 		int response = 2;
 		while(response == 2)
 			response = JOptionPane.showConfirmDialog(null, 
 						"For the policy: \n"+description+"\nPrivacy Advisor recommends: "
-						+recommendation+
-						". Accept recommendation?");
+						+recommendation + reason + confidence + 
+						". \nAccept recommendation?");
 		
 		if(response == 1)// update
 		{ 
@@ -213,7 +218,6 @@ public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 		}
 	}
 	
-	
 	private void loadConf(){
 		try {
 			gio = new Gio(null, this);
@@ -222,10 +226,7 @@ public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 			e.printStackTrace();
 		}
 	}
-	
-
-	
-	
+		
 	private void loadDB()
 	{
 //		gio = new Gio(null, this);
@@ -241,7 +242,6 @@ public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 		}
 	}
 
-	
 	private void loadFile(String targetPath)
 	{
 		JFileChooser jfc = new JFileChooser();
@@ -260,9 +260,6 @@ public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 		}
 	}
 
-	
-
-	
 	/**
 	 * Runs the CBR algorithm to classify the input P3P.
 	 * @author ulfnore
@@ -288,9 +285,6 @@ public class PrivacyAdvisorGUI extends UserIO {//implements Runnable{
 		}
 
 	}
-	
-	
-	
 	
 	/**
 	 * Write to textarea

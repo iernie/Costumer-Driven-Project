@@ -11,11 +11,13 @@
 \contentsline {xchapter}{Planning Phase}{21}{chapter*.15}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Requirements Specification}{33}{chapter*.18}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Program Flow.}}{36}{figure.4.3}
 \contentsline {xpart}{Design and Implementation Phase}{33}{part.2}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Design}{41}{chapter*.25}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces System Overview.}}{45}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Input/output and user interfaces.}}{46}{figure.5.4}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Program Flow.}}{45}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces System Overview.}}{46}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Input/output and user interfaces.}}{47}{figure.5.6}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Implementation}{49}{chapter*.31}
 \addvspace {10\p@ }
@@ -32,8 +34,8 @@
 \contentsline {xpart}{Appendices}{75}{part.4}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Templates}{81}{appendix*.55}
-\contentsline {figure}{\numberline {A.5}{\ignorespaces Status Report Template.}}{81}{figure.A.5}
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Meeting Report Template.}}{82}{figure.A.6}
-\contentsline {figure}{\numberline {A.7}{\ignorespaces Time Report Template.}}{83}{figure.A.7}
-\contentsline {figure}{\numberline {A.8}{\ignorespaces Test Plan Template.}}{83}{figure.A.8}
-\contentsline {figure}{\numberline {A.9}{\ignorespaces Javadoc Template.}}{84}{figure.A.9}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Status Report Template.}}{81}{figure.A.7}
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Meeting Report Template.}}{82}{figure.A.8}
+\contentsline {figure}{\numberline {A.9}{\ignorespaces Time Report Template.}}{83}{figure.A.9}
+\contentsline {figure}{\numberline {A.10}{\ignorespaces Test Plan Template.}}{83}{figure.A.10}
+\contentsline {figure}{\numberline {A.11}{\ignorespaces Javadoc Template.}}{84}{figure.A.11}

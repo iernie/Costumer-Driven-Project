@@ -58,9 +58,9 @@
 \contentsline {subsection}{\numberline {4.4.1}User Interface}{35}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Hardware and Software Interface}{36}{subsection.4.4.2}
 \contentsline {subsection}{\numberline {4.4.3}User Characteristic}{36}{subsection.4.4.3}
-\contentsline {subsubsection}{Developers/Researchers}{36}{section*.19}
-\contentsline {subsubsection}{End Users}{36}{section*.20}
-\contentsline {section}{\numberline {4.5}Use Cases}{36}{section.4.5}
+\contentsline {subsubsection}{Developers/Researchers}{37}{section*.19}
+\contentsline {subsubsection}{End Users}{37}{section*.20}
+\contentsline {section}{\numberline {4.5}Use Cases}{37}{section.4.5}
 \contentsline {section}{\numberline {4.6}Specific Requirements}{38}{section.4.6}
 \contentsline {subsection}{\numberline {4.6.1}Product perspective}{38}{subsection.4.6.1}
 \contentsline {subsection}{\numberline {4.6.2}Functional Requirements}{38}{subsection.4.6.2}
@@ -79,10 +79,10 @@
 \contentsline {section}{\numberline {5.3}Standards}{44}{section.5.3}
 \contentsline {section}{\numberline {5.4}Architecture}{44}{section.5.4}
 \contentsline {subsection}{\numberline {5.4.1}Design Overview}{44}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}Detailed Design}{46}{subsection.5.4.2}
-\contentsline {subsubsection}{Dependencies}{46}{section*.29}
-\contentsline {subsubsection}{User Interface}{46}{section*.30}
-\contentsline {subsection}{\numberline {5.4.3}Community Server}{46}{subsection.5.4.3}
+\contentsline {subsection}{\numberline {5.4.2}Detailed Design}{45}{subsection.5.4.2}
+\contentsline {subsubsection}{Dependencies}{45}{section*.29}
+\contentsline {subsubsection}{User Interface}{45}{section*.30}
+\contentsline {subsection}{\numberline {5.4.3}Community Server}{45}{subsection.5.4.3}
 \contentsline {chapter}{Implementation}{49}{chapter*.31}
 \contentsline {section}{\numberline {6.1}Algorithms}{50}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}K-Nearest Neighbors}{50}{subsection.6.1.1}
