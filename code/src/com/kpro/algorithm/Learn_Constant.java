@@ -37,6 +37,7 @@ public class Learn_Constant extends LearnAlgorithm {
 	 */
 	@Override
 	protected Properties applyML(Gio theIO) {
+		System.out.println("cooonstant");
 		return weightsConfig;
 	}
 
