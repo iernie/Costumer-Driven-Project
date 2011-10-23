@@ -104,14 +104,14 @@ public class Gio {
 		//load the weights configuration file
 		origWeights = new Properties();
 		origWeights = loadWeights();
-//		if(Boolean.parseBoolean(genProps.getProperty("useNet","false")))
-//		{
-//			startNetwork();
-//		}
-//		else
-//		{
-//			nr = null;
-//		}
+		if(Boolean.parseBoolean(genProps.getProperty("useNet","false")))
+		{
+			startNetwork();
+		}
+		else
+		{
+			nr = null;
+		}
 	}
 
 	/**
