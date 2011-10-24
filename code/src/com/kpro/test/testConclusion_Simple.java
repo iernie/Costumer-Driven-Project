@@ -10,12 +10,13 @@ import java.util.Properties;
 import sun.font.CreatedFontTracker;
 
 import junit.framework.Assert;
+import junit.framework.TestCase;
 
 import com.kpro.algorithm.Conclusion_Simple;
 import com.kpro.algorithm.bitmapDistance;
 import com.kpro.dataobjects.*;
 
-public class testConclusion_Simple {
+public class testConclusion_Simple extends TestCase{
 	private bitmapDistance bitmap;
 	private Properties weights;
 	private Conclusion_Simple Conclusion;
@@ -24,6 +25,7 @@ public class testConclusion_Simple {
 	
 	private void CreateSet(){
 		//case 1
+		Set=new ArrayList<PolicyObject>();
 		Case case1 = new Case();
 		case1.addPurpose(Purpose.ADMIN);
 		case1.addPurpose(Purpose.DEVELOP);
