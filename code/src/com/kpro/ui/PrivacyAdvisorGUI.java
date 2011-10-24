@@ -191,6 +191,14 @@ public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 		return genProps;
 	}
 	
+	private void loadConfig(){
+		try {
+			gio = new Gio(null,this);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 
 	@Override
@@ -247,7 +255,7 @@ public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 	{
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == runMenuItem) run();
-			else if (e.getSource() == loadConfigMenuItem) loadConf();
+			else if (e.getSource() == loadConfigMenuItem) loadConfig();
 			else if (e.getSource() == loadDBMenuItem) loadDB();
 			else if (e.getSource() == exitMenuItem){
 				frame.setVisible(false);
@@ -256,14 +264,7 @@ public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 		}
 	}
 	
-	private void loadConf(){
-		try {
-			gio = new Gio(null, this);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+
 		
 	private void loadDB()
 	{
@@ -280,23 +281,7 @@ public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 		}
 	}
 
-	private void loadFile(String targetPath)
-	{
-		JFileChooser jfc = new JFileChooser();
-		jfc.showOpenDialog(null);
-		try{ 
-			targetPath = jfc.getSelectedFile().getAbsolutePath();
-			System.out.println(targetPath);
-			}
-		catch(NullPointerException e) { 
-			System.err.println("An exception was caught.");
-			e.printStackTrace(); 
-		}
-		catch(Exception e) {
-			System.err.println("An exception was caught.");
-			e.printStackTrace(); 
-		}
-	}
+
 
 	/**
 	 * Runs the CBR algorithm to classify the input P3P.

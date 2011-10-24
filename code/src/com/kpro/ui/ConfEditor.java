@@ -59,6 +59,12 @@ public class ConfEditor extends Thread implements ActionListener
 	private String[] logLvlModel	= {"default"};
 	private String[] networkModel	= {"none"};
 	
+	
+//	private String[][] bla = {{"inDBLoc", "outDBLoc"},
+//							  {"Location of old DB File",
+//							   "Location of new DB File"},
+//							   {}};
+	
 	private Properties genProps;
 	
 	
@@ -67,6 +73,7 @@ public class ConfEditor extends Thread implements ActionListener
 	{
 		this.genProps = genProps;
 	}
+	
 	public ConfEditor(){
 		InitFrame();
 	}
@@ -198,8 +205,7 @@ public class ConfEditor extends Thread implements ActionListener
 			p3pFileField.setEditable(false);
 			newPolicyFileField.setEditable(false);
 			confFileField.setEditable(false);
-		}
-		
+		}	
 	}
 	
 	public void run()
