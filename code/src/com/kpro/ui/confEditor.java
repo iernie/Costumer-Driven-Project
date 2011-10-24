@@ -62,6 +62,7 @@ public class ConfEditor extends Thread implements ActionListener
 	{
 		this.genProps = genProps;
 	}
+	
 	public ConfEditor(){
 		InitFrame();
 	}
@@ -193,8 +194,7 @@ public class ConfEditor extends Thread implements ActionListener
 			p3pFileField.setEditable(false);
 			newPolicyFileField.setEditable(false);
 			confFileField.setEditable(false);
-		}
-		
+		}	
 	}
 	
 	public void run()
