@@ -304,9 +304,9 @@ public class ConfEditor extends Thread implements ActionListener
 	
 	
 	
-//	public static void main(String[] args) 
-//	{
-//		new ConfEditor().run();
-//	}
+	public static void main(String[] args) 
+	{
+		new ConfEditor().run();
+	}
 	
 }
