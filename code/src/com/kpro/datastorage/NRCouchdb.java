@@ -1,5 +1,9 @@
 package com.kpro.datastorage;
 
+import java.io.FileNotFoundException;
+import java.io.PipedInputStream;
+import java.io.PrintStream;
+
 import org.lightcouch.CouchDbClient;
 import org.lightcouch.Response;
 
@@ -47,7 +51,16 @@ public class NRCouchdb extends NetworkR {
 		
 		String[] opts = options.split(","); //dbName,newDbIfNone,Protocol,location,port,username,password
 		//System.err.println("Authenticating with username [" + opts[5] + "] and password [" + opts[6] +"]" );
+		PrintStream a = new PrintStream(System.err);
+		try {
+			System.setErr(new PrintStream("/dev/null"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		dbc = new CouchDbClient(opts[0], Boolean.parseBoolean(opts[1]), opts[2], opts[3], Integer.parseInt(opts[4]), opts[5], opts[6]) ;
+		
+		//System.setErr(a);
 		
 	}
 

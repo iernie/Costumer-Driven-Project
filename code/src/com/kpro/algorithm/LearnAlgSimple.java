@@ -268,10 +268,13 @@ public class LearnAlgSimple extends LearnAlgorithm{
 	
 	
 	private double value(double x){
+		/*
 		if(x>=0 && x<=50){
 			return 100-2*x;
 		}
 		return 2*x-100;
+		*/
+		return 2*Math.abs(x-50);
 	}
 
 }
