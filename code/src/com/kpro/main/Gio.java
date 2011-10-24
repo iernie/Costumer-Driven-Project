@@ -91,6 +91,8 @@ public class Gio {
 
 		//start the logger
 		logger = startLogger(genProps.getProperty("loglocation","./LOG.txt"),genProps.getProperty("loglevel","INFO"));
+
+		
 		if(userInterface ==null)
 		{
 			selectUI(genProps.getProperty("UserIO"));
@@ -101,9 +103,11 @@ public class Gio {
 		}
 		selectPDB(genProps.getProperty("policyDB"));
 
+		
 		//load the weights configuration file
 		origWeights = new Properties();
 		origWeights = loadWeights();
+		
 		if(Boolean.parseBoolean(genProps.getProperty("useNet","false")))
 		{
 			startNetwork();
@@ -112,6 +116,7 @@ public class Gio {
 		{
 			nr = null;
 		}
+		System.err.println("net");
 	}
 
 	/**
