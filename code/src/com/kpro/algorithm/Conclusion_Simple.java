@@ -61,11 +61,11 @@ public class Conclusion_Simple extends ConclusionAlgorithm {
 		}
 		if(appdistance > rejdistance)
 		{
-			return new Action(true, approveList, appdistance, false);
+			return new Action(true, approveList, appdistance/(appdistance+rejdistance), false);
 		}
 		else
 		{
-			return new Action(true, rejectList, rejdistance, false);
+			return new Action(true, rejectList, rejdistance/(appdistance+rejdistance), false);
 		}
 	}
 
