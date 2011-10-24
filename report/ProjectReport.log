@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  21 OCT 2011 09:22
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  24 OCT 2011 16:10
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -687,7 +687,7 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 10--10
 
 
 
-] [14] [15] <PrelimStudy/cbr.png, id=769, 464.73625pt x 298.11375pt>
+] [14] [15] <PrelimStudy/cbr.png, id=773, 464.73625pt x 298.11375pt>
 File: PrelimStudy/cbr.png Graphic file (type png)
 
 <use PrelimStudy/cbr.png> [16]
@@ -696,7 +696,7 @@ Missing character: There is no Õ in font cmr10!
 
 LaTeX Warning: Reference `waterfall' on page 19 undefined on input line 106.
 
-<PrelimStudy/workflow.png, id=789, 476.78125pt x 341.275pt>
+<PrelimStudy/workflow.png, id=793, 476.78125pt x 341.275pt>
 File: PrelimStudy/workflow.png Graphic file (type png)
 
 <use PrelimStudy/workflow.png>) [19] [20 <./PrelimStudy/workflow.png>]
@@ -735,7 +735,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--133
  []
 
 [24] [25] [26] [27] [28] [29]
-<PlanReport/DetailedPlan.pdf, id=858, page=1, 597.23125pt x 845.1575pt>
+<PlanReport/DetailedPlan.pdf, id=862, page=1, 597.23125pt x 845.1575pt>
 File: PlanReport/DetailedPlan.pdf Graphic file (type pdf)
 
 <use PlanReport/DetailedPlan.pdf, page 1>
@@ -779,7 +779,7 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¥ in font cmr10!
- <DesignReport/uml/flowchart.png, id=937, 789.95125pt x 451.6875pt>
+ <DesignReport/uml/flowchart.png, id=941, 789.95125pt x 451.6875pt>
 File: DesignReport/uml/flowchart.png Graphic file (type png)
 
 <use DesignReport/uml/flowchart.png> [35]
@@ -822,11 +822,11 @@ Missing character: There is no Ó in font cmr10!
 Missing character: There is no ¿ in font cmr10!
 File: DesignReport/uml/flowchart.png Graphic file (type png)
  <use DesignReport/uml/flowchart.png>
-<DesignReport/uml/Case.png, id=1001, 572.1375pt x 420.57124pt>
+<DesignReport/uml/Case.png, id=1004, 572.1375pt x 420.57124pt>
 File: DesignReport/uml/Case.png Graphic file (type png)
 
 <use DesignReport/uml/Case.png>
-<DesignReport/uml/gio.png, id=1003, 1051.93pt x 655.44875pt>
+<DesignReport/uml/gio.png, id=1006, 1051.93pt x 655.44875pt>
 File: DesignReport/uml/gio.png Graphic file (type png)
 
 <use DesignReport/uml/gio.png> [44]) [45] [46 <./DesignReport/uml/Case.png>]
@@ -884,8 +884,7 @@ Type  H <return>  for immediate help.
 l.54 \item T
             he \emph{Hamming distance} is defined as number of positions in ...
 
-? s
-OK, entering \scrollmode...
+? 
 
 ./Implementation/ImplementationReport.tex:54: LaTeX Error: Something's wrong--p
 erhaps a missing \item.
@@ -897,28 +896,19 @@ Type  H <return>  for immediate help.
 l.54 \item T
             he \emph{Hamming distance} is defined as number of positions in ...
 
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+? 
 ./Implementation/ImplementationReport.tex:55: Missing $ inserted.
 <inserted text> 
                 $
 l.55 
      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
+? 
 ./Implementation/ImplementationReport.tex:55: Missing } inserted.
 <inserted text> 
                 }
 l.55 
      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
+? 
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
@@ -935,12 +925,7 @@ distancecanbecalculatedasd[] [] \OT1/cmr/m/n/10.95 =
                                                   \fi 
 l.55 
      
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
+? 
 [51]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no • in font cmr10!
@@ -1144,11 +1129,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-<Appendix/statusreportTemp.jpg, id=1226, 1803.73875pt x 1303.87125pt>
+<Appendix/statusreportTemp.jpg, id=1227, 1803.73875pt x 1303.87125pt>
 File: Appendix/statusreportTemp.jpg Graphic file (type jpg)
 
 <use Appendix/statusreportTemp.jpg>
-<Appendix/meetingreportTemp.jpg, id=1227, 1915.155pt x 1872.9975pt>
+<Appendix/meetingreportTemp.jpg, id=1228, 1915.155pt x 1872.9975pt>
 File: Appendix/meetingreportTemp.jpg Graphic file (type jpg)
 
 <use Appendix/meetingreportTemp.jpg>
@@ -1156,11 +1141,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [81 <./Appendix/statusreportTemp.jpg>] [82 <./Appendix/meetingreportTemp.jpg>]
 
-<Appendix/timereportTemp.jpg, id=1236, 816.80156pt x 234.1247pt>
+<Appendix/timereportTemp.jpg, id=1237, 816.80156pt x 234.1247pt>
 File: Appendix/timereportTemp.jpg Graphic file (type jpg)
 
 <use Appendix/timereportTemp.jpg>
-<Appendix/testplanTemp.jpg, id=1237, 1011.02719pt x 588.69937pt>
+<Appendix/testplanTemp.jpg, id=1238, 1011.02719pt x 588.69937pt>
 File: Appendix/testplanTemp.jpg Graphic file (type jpg)
 
 <use Appendix/testplanTemp.jpg> [83 <./Appendix/timereportTemp.jpg> <./Appendix
@@ -1196,48 +1181,36 @@ Package rerunfilecheck Info: File `ProjectReport.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 8916 strings out of 493747
- 129158 string characters out of 3143546
- 251804 words of memory out of 3000000
+ 8913 strings out of 493747
+ 129128 string characters out of 3143546
+ 251887 words of memory out of 3000000
  11397 multiletter control sequences out of 15000+200000
  17328 words of font info for 66 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  44i,18n,47p,1708b,430s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{figure.A.6} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.A.5} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{figure.5.3} has been referenced but does not exist,
- replaced by a fixed one
-
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
-usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
-l/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/
-texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
-live/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
-010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/20
-10/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/201
-0/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2010
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2010/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2010/te
-xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ProjectReport.pdf (95 pages, 1688345 bytes).
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
+r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
+cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loca
+l/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
+exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
+ive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive
+/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/
+2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
+010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
+10/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2010
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2010/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on ProjectReport.pdf (95 pages, 1688396 bytes).
 PDF statistics:
- 1372 PDF objects out of 1440 (max. 8388607)
- 1217 compressed objects within 13 object streams
- 292 named destinations out of 1000 (max. 500000)
+ 1371 PDF objects out of 1440 (max. 8388607)
+ 1216 compressed objects within 13 object streams
+ 289 named destinations out of 1000 (max. 500000)
  922 words of extra memory for PDF output out of 10000 (max. 10000000)
 

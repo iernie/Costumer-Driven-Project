@@ -15,7 +15,7 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 		
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	
 	@Override
 	protected Properties applyML(Gio theIO) {
@@ -26,7 +26,8 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 		Properties newWeights = new Properties();
 		
 		for(Object i : weights.keySet()){
-				newWeights.setProperty(i.toString(), Double.toString(correlation(i)*Double.parseDouble(weights.get(i).toString())));
+				newWeights.setProperty(i.toString(), Double.toString(correlation(i)*
+									   Double.parseDouble(weights.get(i).toString())));
 		}
 		return newWeights;
 

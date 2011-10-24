@@ -34,6 +34,7 @@ public class bitmapDistanceWisOne extends DistanceMetric{
 	}
 	
 	private void setWeights(){
+		
 		//recipients
 		ours=1;//Double.parseDouble(weightsConfig.getProperty("ours"));
 		delivery=1;//=Double.parseDouble(weightsConfig.getProperty("delivery"));
