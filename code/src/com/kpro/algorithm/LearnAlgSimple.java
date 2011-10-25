@@ -19,7 +19,6 @@ public class LearnAlgSimple extends LearnAlgorithm{
 
 	@Override
 	protected Properties applyML(Gio theIO) {
-		System.out.println("ssssssssssssssssssssssssssssssssssssssssssssimple");
 		theIO.getWeights();
 		double sum = 0; 
 		double weights[] = new double[23]; 
