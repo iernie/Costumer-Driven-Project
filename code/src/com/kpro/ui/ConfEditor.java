@@ -37,12 +37,12 @@ public class ConfEditor extends Thread{
 
 	private Properties genProps;
 	
-	private String[] userInitModel 	= 	{"default"};
-	private String[] uiModel =			{"default"};	 
-	private String[] cbrVerModel 	= 	{"default"};
+	private String[] userInitModel 	= 	{"true", "false"};
+	private String[] uiModel =			{"PrivacyAdvisorGUI"};	 
+	private String[] cbrVerModel 	= 	{"bitmapDistanceWisOne,Reduction_KNN,Conclusion_Simple,LearnAlgSimpler"};
 	private String[] dbTypeModel 	= 	{"default"};
-	private String[] logLvlModel	=  	{"default"};
-	private String[] networkTypeModel = {"none"};
+	private String[] logLvlModel	=  	{"INFO"};
+	private String[] networkTypeModel = {"NRCouchdb"};
 	
 	
 	
@@ -224,7 +224,7 @@ public class ConfEditor extends Thread{
 	private String openFile(boolean directory)
 	{
 		String path = null;
-		JFileChooser jfc = new JFileChooser();
+		JFileChooser jfc = new JFileChooser(System.getProperty("user.dir"));
 		if(directory)
 			jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		else
@@ -258,11 +258,13 @@ public class ConfEditor extends Thread{
 									true : false);
 					textfields.get(key).setText(path);
 					updateProps();
+				}else if (e.getSource() ==  btnOk){
+					updateProps();
+					System.out.println("closing frame");
+					frame.setVisible(false);
 				}
-			}else if (e.getSource() ==  btnOk)
-				frame.setVisible(false);
-			else
-				updateProps();
+			}
+			else updateProps();
 			
 		}
 		

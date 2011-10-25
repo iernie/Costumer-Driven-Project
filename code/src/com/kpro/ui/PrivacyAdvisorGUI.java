@@ -45,15 +45,13 @@ import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
  * @author ulfnore
  *
  */
-public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {//implements Runnable{
+public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 
 	private JFrame frame;
 	private String weightsPath;
 	private String configPath;
 	private String dbPath;
 	private String p3pPolicyPath;
-	
-	// a gio object
 	private Gio gio;
 
 	// textarea to hold output and 
@@ -69,8 +67,6 @@ public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 	private JMenuItem loadDBMenuItem;
 	private JMenuItem runMenuItem;
 	private JMenuItem exitMenuItem;
-	
-
 	
 	
 	// Properties object that is passed to GIO
@@ -310,7 +306,7 @@ public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 	}
 	
 	/**
-	 * Write to textarea
+	 * Write to PrivacyAdvisorGUI output textarea.
 	 * @author ulfnore
 	 */
 	private void println(String str)
@@ -320,21 +316,21 @@ public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 		outputArea.setText(str0);
 	}
 
+	
 	@Override
 	public void showDatabase(com.kpro.datastorage.PolicyDatabase pdb) {
-		// TODO Auto-generated method stub
-		System.out.println("Printing pdb:");
-		System.err.println(pdb == null);
+//		System.out.println("Printing pdb:");
+//		System.err.println(pdb == null);
 //		for(PolicyObject po : pdb) System.out.println(po);
 //		System.out.println(pdb.toString());
-		println(pdb.toString());
+//		println(pdb.toString());
 		buildTree(pdb);
+		println("Database successfully loaded.\n");
 	}
 
 	@Override
-	public void valueChanged(TreeSelectionEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void valueChanged(TreeSelectionEvent e) {
+		println(e.getSource().toString());
 	}
 	
 	private void buildTree(PolicyDatabase pdb)
