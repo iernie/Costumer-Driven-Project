@@ -81,12 +81,13 @@
 				Name & The name of the test \\  [5pt] \hline
 				Test identifier & The identifier of the test \\  [5pt] \hline
 				Person responsible & The person that executed the test \\  [5pt] \hline
-				Date of execution & The date of when the test was executed \\ [5pt] \hline
+				Date of execution & The date when the test was executed \\ [5pt] \hline
 				Execution steps & Stepwise explanation of how to perform the test. \\  [5pt] \hline
 				Steps executed & The steps executed by the tester. \\ [5pt] \hline
 				Expected result & The expected output/result for the test to be successful. \\  [5pt] \hline
 				Step results & The results of the performed steps. SUCCESS / NO SUCCESS for each step. \\ [5pt] \hline
 				Test conclusion & SUCCESS / NO SUCCESS for the entire test. Only successful if every step is successful. \\ [5pt] \hline
+				Comments & Comments, if necessary, on the test. \\ [5pt] \hline
 			\end{tabular}
 		\end{center}
 
@@ -158,7 +159,7 @@
 				Name & Algorithm classification \\  [5pt] \hline
 				Test identifier & UNIT-05 \\  [5pt] \hline
 				Person responsible & Henrik Knutsen, Dimitry Kongevold \\  [5pt] \hline
-				Feature(s) to be tested & That the k-nearest neighbor algorithm bases its decision on the k most similar policies \\  [5pt] \hline
+				Feature(s) to be tested & That the k-nearest neighbor algorithm bases its decision on the k most similar policies. \\  [5pt] \hline
 				Pre-conditions & Code for reading from the weights file must be implemented. A working k-nearest neighbor algorithm that uses the weights must be implemented. Need one policy to test on, and a set of policies to be used as history. \\  [5pt] \hline
 				Execution steps & 1. Load a set of policies into the history. \newline 2. Run the distance algorithm on the single policy and the history. \newline 3. Manually calculate and write down the distances between the single policy and each of the policies in the history. \newline 						4. Compare the distances that are returned by the algorithm with the manually calculated distances. \newline 5. Run the reduction algorithm with input to find the k nearest policies. \newline 6. Manually find the k policies with the lowest distance. \newline 7. 							Compare the policies returned by the reduction algorithm and those found manually. \newline 8. Run the conclusion algorithm. \\  [5pt] \hline
 				Expected result & 1. The policies are successfully stored in the database. \newline 2. The distance algorithm runs successfully for the chosen input, and returns the distances between the single policy and each of the policies in the history. \newline 3. The distance 							between the single policy and the policies in the database are found and written down. \newline 4. The distances returned by the algorithm, and the respective distances calculated manually are identical. \newline 5. The reduction algorithm runs successfully for 						the chosen input and returns the k nearest policies. \newline 6. The k nearest policies are found and written down. \newline 7. The k policies returned by the reduction algorithm and the k policies found manually are the same policies. \newline 8. The conclusion 							algorithm runs successfully. \\  [5pt] \hline
@@ -187,7 +188,7 @@
 				Test identifier & UNIT-07 \\  [5pt] \hline
 				Person responsible & Henrik Knutsen \\  [5pt] \hline
 				Feature(s) to be tested & That packets can be sent between the client program and the community database.  \\  [5pt] \hline
-				Pre-conditions & A running local client. A (virtual) server. Code for sending and receiving packets must be implemented. \\  [5pt] \hline
+				Pre-conditions & A running local client. A (virtual) server. Code for sending and receiving packets. \\  [5pt] \hline
 				Execution steps & 1. Start the program locally. \newline 2. Start the (virtual) server. \newline 3. Send policy A from the local client to the server. Print the contents of policy A. \newline 4. Receive packet A at the (virtual) server. Print the contents of policy A. \newline 							5. Compare the sent policy A and the received policy A. \newline 6. Send policy B from the (virtual) server to the client. Print the contents of policy B. \newline 7. Receive policy B at the local client. Print the contents of policy B. \newline 8. Compare the sent 							policy B and the received policy B. \\  [5pt] \hline
 				Expected result & 1. The program starts successfully. \newline 2. The (virtual) server starts successfully. \newline 3. Policy A is sent to the server. Its contents are printed to console. \newline 4. Policy A is received at the (virtual) server. Its contents are printed to 							console. \newline 5. The contents of the sent policy A and the received policy A are identical. \newline 6. Policy B is sent to the local client. Its contents are printed to console. \newline 7. Policy B is received at the local client. Its contents are printed to 								console. \newline 8. The contents of the sent policy B and the received policy B are identical.\\  [5pt] \hline
 			\end{tabular}
