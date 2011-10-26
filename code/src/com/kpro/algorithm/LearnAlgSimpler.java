@@ -46,7 +46,8 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 
 	}
 	/**
-	 * If
+	 * Goes through the PolicyDatabaeses and their cases and checks if 
+	 * atleast one of them contains the parameter.
 	 * 
 	 * @param Objects from GIO.getWeights()
 	 * @return double
@@ -56,11 +57,13 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 		double countno = 1;
 		boolean y = false;
 		for(PolicyObject po : pdb.getCollection()){
+			//checks if the parameter object is in any of the cases in any of the policyobjects
 			for(Case c : po.getCases()){
 				if(!y){
 					for(Purpose p : c.getPurposes()){
-//						System.out.println(i.toString().substring(8) +"   "+ p.toString());
-						if(i.toString().substring(8).equals(p.toString())){
+						//String compares the purposes from the config file, and the ones stored in the database
+						if(i.toString().substring(8).toLowerCase().equals(p.toString())){
+							//if y is set to true we don't need to check further
 							y = true;
 							break;
 						}
@@ -68,7 +71,7 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 				}
 				if(!y){
 					for(Retention p : c.getRetentions()){
-						if(i.toString().substring(10).equals(p.toString())){
+						if(i.toString().substring(10).toLowerCase().equals(p.toString())){
 							y = true;
 							break;
 						}
@@ -76,7 +79,7 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 				}
 				if(!y){
 					for(Recipient p : c.getRecipients()){
-						if(i.toString().substring(11).equals(p.toString())){
+						if(i.toString().substring(11).toLowerCase().equals(p.toString())){
 							y = true;
 							break;
 						}
