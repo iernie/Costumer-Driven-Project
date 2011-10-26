@@ -18,16 +18,17 @@ import com.kpro.dataobjects.Purpose;
 import com.kpro.dataobjects.Recipient;
 import com.kpro.dataobjects.Retention;
 
+/**
+ * Parser that parses a P3P policy and makes it into a PolicyObject
+ * 
+ * @author ernie
+ *
+ */
 public class P3PParser
 {
 	private PolicyObject policy;
 	private String tempKey;
 	
-	/**
-	 * Constructor for P3PParser
-	 * 
-	 * @author ernie
-	 */
 	public P3PParser()
 	{
 		policy = new PolicyObject();
