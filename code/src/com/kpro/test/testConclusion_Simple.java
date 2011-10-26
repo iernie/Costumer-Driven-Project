@@ -158,7 +158,11 @@ public class testConclusion_Simple extends TestCase{
 	CreateSet();
 	Action acA=new Action();
 	acA.setAccepted(true);
+	
+	
 	Assert.assertEquals(acA.getAccepted(),Conclusion.conclude(target, Set).getAccepted());
+	// confedence must be ( ((0.1)+(1/21)) / ( (1/33)+(1/34)+(1/32)+(1/52)+(0.1)+(1/21) ) )
+	Assert.assertEquals(0.5763494003446411,Conclusion.conclude(target, Set).getConfidence());
 	}
 	private void loadWeights()
 	{
