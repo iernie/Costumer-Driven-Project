@@ -260,7 +260,6 @@ public class ConfEditor extends Thread{
 					updateProps();
 				}else if (e.getSource() ==  btnOk){
 					updateProps();
-					System.out.println("closing frame");
 					frame.setVisible(false);
 				}
 			}
