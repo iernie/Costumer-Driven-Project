@@ -9,14 +9,33 @@ import com.kpro.dataobjects.Recipient;
 import com.kpro.dataobjects.Retention;
 import com.kpro.main.Gio;
 
-
+/**
+ * A very slow learning algorithm that goes through every case in every
+ * PolicyObject in the whole database.
+ * 
+ * @author Nesha
+ *
+ */
 public class LearnAlgSimple extends LearnAlgorithm{
 
+	/**
+	 * constructor
+	 * @param weightsConfig the weights
+	 */
 	public LearnAlgSimple(Properties weightsConfig) {
 		super(weightsConfig);
-		// TODO Auto-generated constructor stub
 	}
-
+	/**
+	 * For every case it checks if it contains any of the purposes, retentions
+	 * or recipients, and if it does it checks whether the action of the 
+	 * PolicyObject it is in, was accepted. And if it was accepted a counter(yes)
+	 * is incremented, and another counter (total) is incremented always.
+	 * The new weight is then value(yes/total)
+	 * 
+	 * @param theIO the GIO
+	 * @return Property a new weights Property
+	 * 
+	 */
 	@Override
 	protected Properties applyML(Gio theIO) {
 		theIO.getWeights();
@@ -265,7 +284,12 @@ public class LearnAlgSimple extends LearnAlgorithm{
 		return prop;
 	}
 	
-	
+	/**
+	 * Called by applyML()
+	 * 
+	 * @param x double value between [0,1] which is yes/total from applyML()
+	 * @return double value [0,5] that represents a new weights value
+	 */
 	private double value(double x){
 		/*
 		if(x>=0 && x<=50){
@@ -273,7 +297,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 		}
 		return 2*x-100;
 		*/
-		return 2*Math.abs(x-50);
+		return 10*Math.abs(x-0.5);
 	}
 
 }
