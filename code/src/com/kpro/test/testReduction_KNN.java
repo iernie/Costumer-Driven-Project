@@ -110,12 +110,16 @@ public class testReduction_KNN extends TestCase{
 		Action acD=new Action();
 		acA.setAccepted(true);
 		acD.setAccepted(false);
+		
+		Set = PDatabase.getInstance("outDBLoc","inDBLoc");
+		
 		//0
 		target=new PolicyObject();
 		target.addCase(case1);
 		target.addCase(case3);
 		target.addCase(case7);
 		target.setAction(acD);
+		target.setContext(new Context(null, null, "a"));
 		Set.addPolicy(target);
 		//1
 		target=new PolicyObject();
@@ -124,6 +128,7 @@ public class testReduction_KNN extends TestCase{
 		target.addCase(case4);
 		target.addCase(case6);
 		target.setAction(acA);
+		target.setContext(new Context(null, null, "b"));
 		Set.addPolicy(target);
 		//2
 		target=new PolicyObject();
@@ -131,12 +136,14 @@ public class testReduction_KNN extends TestCase{
 		target.addCase(case2);
 		target.addCase(case1);
 		target.setAction(acD);
+		target.setContext(new Context(null, null, "c"));
 		Set.addPolicy(target);
 		//3
 		target=new PolicyObject();
 		target.addCase(case7);
 		target.addCase(case6);
 		target.setAction(acD);
+		target.setContext(new Context(null, null, "d"));
 		Set.addPolicy(target);
 		//4
 		target=new PolicyObject();
@@ -144,61 +151,24 @@ public class testReduction_KNN extends TestCase{
 		target.addCase(case5);
 		target.addCase(case7);
 		target.setAction(acA);
-		//5
+		target.setContext(new Context(null, null, "e"));
 		Set.addPolicy(target);
+		//5
 		target=new PolicyObject();
 		target.addCase(case5);
 		target.addCase(case2);
 		target.addCase(case3);
 		target.setAction(acD);
+		target.setContext(new Context(null, null, "f"));
 		Set.addPolicy(target);
 		//target
 		target=new PolicyObject();
 		target.addCase(case6);
 		target.addCase(case4);
 		target.addCase(case5);
-
+		
 	}
 	
-	
-	
-	private void loadWeights()
-	{
-
-		//		System.out.println("In loadWeights(): "+System.getProperty("user.dir"));
-		try 
-		{
-			
-			
-			File localConfig = new File("./src/com/kpro/test/Testweights.cfg");
-//			System.out.println(genProps.getProperty("inWeightsLoc"));
-			InputStream is = null;
-			if(localConfig.exists())
-			{
-				is = new FileInputStream(localConfig);
-			}
-			else // TODO: This should probably throw an exception to be handled by userIO. 
-			{
-				System.err.println("No weights file is available at "+
-						" . Please place one in the working directory.");
-				
-//				System.out.println(userInterface instanceof PrivacyAdvisorGUI);
-				
-			}
-			weights = new Properties();
-			weights.load(is);
-		}
-		catch (IOException e) // TODO: This should probably throw an exception to be handled by userIO. 
-		{
-			e.printStackTrace();
-			System.err.println("IOException reading the weights configuration file. Exiting...\n");
-			
-//			System.out.println(userInterface instanceof PrivacyAdvisorGUI);
-		
-		}
-		
-
-	}
 	
 	public void testDistance(){
 		loadWeights();
@@ -315,9 +285,49 @@ public class testReduction_KNN extends TestCase{
 		three.addCase(case3);
 		three.setAction(acD);
 	
-		
-		Assert.assertEquals(0,KNN.reduce(target).get(0).getCase(0).compareTo(one.getCase(0)));
-		Assert.assertEquals(0,KNN.reduce(target).get(1).getCase(0).compareTo(two.getCase(0)));
-		Assert.assertEquals(0,KNN.reduce(target).get(2).getCase(0).compareTo(three.getCase(0)));
+		System.out.println(KNN.reduce(target).get(1));
+		//Assert.assertEquals(true,true);
+		Assert.assertEquals(Set.getDomain("e"),KNN.reduce(target).get(0));
+		Assert.assertEquals(Set.getDomain("a"),KNN.reduce(target).get(1));
+		Assert.assertEquals(Set.getDomain("f"),KNN.reduce(target).get(2));
 		}
+	
+
+	private void loadWeights()
+	{
+
+		//		System.out.println("In loadWeights(): "+System.getProperty("user.dir"));
+		try 
+		{
+			
+			
+			File localConfig = new File("./src/com/kpro/test/Testweights.cfg");
+//			System.out.println(genProps.getProperty("inWeightsLoc"));
+			InputStream is = null;
+			if(localConfig.exists())
+			{
+				is = new FileInputStream(localConfig);
+			}
+			else // TODO: This should probably throw an exception to be handled by userIO. 
+			{
+				System.err.println("No weights file is available at "+
+						" . Please place one in the working directory.");
+				
+//				System.out.println(userInterface instanceof PrivacyAdvisorGUI);
+				
+			}
+			weights = new Properties();
+			weights.load(is);
+		}
+		catch (IOException e) // TODO: This should probably throw an exception to be handled by userIO. 
+		{
+			e.printStackTrace();
+			System.err.println("IOException reading the weights configuration file. Exiting...\n");
+			
+//			System.out.println(userInterface instanceof PrivacyAdvisorGUI);
+		
+		}
+		
+
+	}
 }
