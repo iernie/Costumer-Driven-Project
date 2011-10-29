@@ -4,13 +4,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
+
 import java.util.Properties;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
-import com.kpro.algorithm.Conclusion_Simple;
 import com.kpro.algorithm.Reduction_KNN;
 import com.kpro.algorithm.bitmapDistance;
 import com.kpro.dataobjects.*;
@@ -285,12 +284,15 @@ public class testReduction_KNN extends TestCase{
 		three.addCase(case3);
 		three.setAction(acD);
 	
-		System.out.println(KNN.reduce(target).get(1));
+		//System.out.println(KNN.reduce(target).get(1));
 		//Assert.assertEquals(true,true);
 		// it not "working" because we don't have a compare method or something but now returnts right PO
-		Assert.assertEquals(Set.getDomain("e"),KNN.reduce(target).get(0));
-		Assert.assertEquals(Set.getDomain("a"),KNN.reduce(target).get(1));
-		Assert.assertEquals(Set.getDomain("f"),KNN.reduce(target).get(2));
+		Assert.assertEquals(0.0,bitmap.getTotalDistance(Set.getDomain("e").get(0), KNN.reduce(target).get(0)));
+		Assert.assertEquals(0.0,bitmap.getTotalDistance(Set.getDomain("b").get(0), KNN.reduce(target).get(1)));
+		Assert.assertEquals(0.0,bitmap.getTotalDistance(Set.getDomain("f").get(0), KNN.reduce(target).get(2)));
+		
+		//Assert.assertEquals(Set.getDomain("a").get(0),KNN.reduce(target).get(1));
+		//Assert.assertEquals(Set.getDomain("f"),KNN.reduce(target).get(2));
 		}
 	
 
