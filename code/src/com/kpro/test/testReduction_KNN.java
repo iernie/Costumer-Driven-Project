@@ -287,6 +287,7 @@ public class testReduction_KNN extends TestCase{
 	
 		System.out.println(KNN.reduce(target).get(1));
 		//Assert.assertEquals(true,true);
+		// it not "working" because we don't have a compare method or something but now returnts right PO
 		Assert.assertEquals(Set.getDomain("e"),KNN.reduce(target).get(0));
 		Assert.assertEquals(Set.getDomain("a"),KNN.reduce(target).get(1));
 		Assert.assertEquals(Set.getDomain("f"),KNN.reduce(target).get(2));
