@@ -131,11 +131,8 @@ public class PolicyObject implements Serializable, Iterable<Case>
 		return context.getDomain();
 	}
 	
-	/**
-	 * this is a debug method and should NOT BE TAKEN SERIOUSLY
-	 * 
-	 * @author ernie
-	 */
+	
+	/*
 	public void debug_print()
 	{
 		System.out.println("\nPOLICY OBJECT DEBUG PRINT");
@@ -160,7 +157,7 @@ public class PolicyObject implements Serializable, Iterable<Case>
 			System.out.println("\nCASE " + i);
 			cases.get(i).debug_print();
 		}
-	}
+	}*/
 	/**
 	 * This is based on the debug_print and SHOULD BE TAKEN SERIOUSLY.
 	 * 

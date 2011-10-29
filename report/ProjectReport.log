@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  24 OCT 2011 16:12
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  26 OCT 2011 15:27
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -860,7 +860,8 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 13--13
 l.53 ...ath is followed. It can be written as \sum
                                                   _{d=n}|x_d â€“ y_d| where ...
 
-? 
+? s
+OK, entering \scrollmode...
 
 ./Implementation/ImplementationReport.tex:54: LaTeX Error: Command \item invali
 d in math mode.
@@ -872,7 +873,9 @@ Type  H <return>  for immediate help.
 l.54 \item
            The \emph{Hamming distance} is defined as number of positions in ...
 
-? 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 
 ./Implementation/ImplementationReport.tex:54: LaTeX Error: Something's wrong--p
 erhaps a missing \item.
@@ -884,7 +887,9 @@ Type  H <return>  for immediate help.
 l.54 \item T
             he \emph{Hamming distance} is defined as number of positions in ...
 
-? 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 
 ./Implementation/ImplementationReport.tex:54: LaTeX Error: Something's wrong--p
 erhaps a missing \item.
@@ -896,19 +901,28 @@ Type  H <return>  for immediate help.
 l.54 \item T
             he \emph{Hamming distance} is defined as number of positions in ...
 
-? 
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 ./Implementation/ImplementationReport.tex:55: Missing $ inserted.
 <inserted text> 
                 $
 l.55 
      
-? 
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
 ./Implementation/ImplementationReport.tex:55: Missing } inserted.
 <inserted text> 
                 }
 l.55 
      
-? 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
@@ -925,7 +939,12 @@ distancecanbecalculatedasd[] [] \OT1/cmr/m/n/10.95 =
                                                   \fi 
 l.55 
      
-? 
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
 [51]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no • in font cmr10!

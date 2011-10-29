@@ -38,6 +38,7 @@ import javax.swing.JScrollPane;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreeNode;
 
 import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
 /**
@@ -45,7 +46,7 @@ import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
  * @author ulfnore
  *
  */
-public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
+public class PrivacyAdvisorGUI extends UserIO{
 
 	private JFrame frame;
 	private String weightsPath;
@@ -127,7 +128,7 @@ public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 		textScrollpane.setViewportView(outputArea);
 		top = new DefaultMutableTreeNode("Policy Database");
 		leTree = new JTree(top);
-		leTree.addTreeSelectionListener(this);
+		leTree.addTreeSelectionListener(new TListener());
 		treeScrollpane = new JScrollPane(leTree);
 
 		panel.add(textScrollpane);
@@ -223,9 +224,12 @@ public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 		int response = 2;
 		while(response == 2)
 			response = JOptionPane.showConfirmDialog(null, 
-						"For the policy: \n"+description+"\nPrivacy Advisor recommends: "
+						"For the policy: \n"+description+
+						"\nPrivacy Advisor recommends: "
 						+recommendation + reason + confidence + 
-						". \nAccept recommendation?");
+						". \nAccept recommendation?",
+						"Privacy Advisor",
+						JOptionPane.YES_NO_OPTION);
 		
 		if(response == 1)// update
 		{ 
@@ -328,10 +332,7 @@ public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 		println("Database successfully loaded.\n");
 	}
 
-	@Override
-	public void valueChanged(TreeSelectionEvent e) {
-		println(e.getSource().toString());
-	}
+
 	
 	private void buildTree(PolicyDatabase pdb)
 	{
@@ -373,9 +374,22 @@ public class PrivacyAdvisorGUI extends UserIO implements TreeSelectionListener {
 			}
 			policyObj.add(
 					new DefaultMutableTreeNode(po.getAction()));
+		}	
+	}
+	
+	
+	/**
+	 * Implements the TreeSelectionListener interface.
+	 * 
+	 * See {@link TreeSelectionListener}
+	 * @author ulfnore
+	 */
+	private class TListener implements TreeSelectionListener{	
+		@Override
+		public void valueChanged(TreeSelectionEvent e) {
+			println(e.getPath().toString());
+			for(Object o: e.getPath().getPath())
+				System.out.println(o);
 		}
-		
-		
-		
 	}
 }

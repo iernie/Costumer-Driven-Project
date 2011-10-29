@@ -20,17 +20,21 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 	
 	private PolicyDatabase pdb;
 	
+	/**
+	 * constructor
+	 * @param weightsConfig the weights
+	 */
 	public LearnAlgSimpler(Properties weightsConfig) {
 		super(weightsConfig);
-		
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
-	 * Learns by updating the weights config file
+	 * Goes through the whole weights Properties and sets new
+	 * weights which it gets by calling correlation with every
+	 * key in the property as its input. 
 	 * 
-	 * @param GIO
-	 * @return Properties
+	 * @param theIO the GIO
+	 * @return Properties the new weights
 	 */
 	@Override
 	protected Properties applyML(Gio theIO) {
@@ -39,14 +43,30 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 		Properties newWeights = new Properties();
 		
 		for(Object i : weights.keySet()){
-				newWeights.setProperty(i.toString(), Double.toString(correlation(i)*
-									   Double.parseDouble(weights.get(i).toString())));
+				newWeights.setProperty(i.toString(), Double.toString(value(correlation(i))));
+									 
 		}
 		return newWeights;
 
 	}
+	
 	/**
-	 * If
+	 * Called by applyML()
+	 * 
+	 * @param x double value between [0,1] which is countyes/countno from applyML()
+	 * @return double value [0,5] that represents a new weights value
+	 */
+	private double value(double x){
+		return 10*Math.abs(x-0.5);
+	}
+	
+	/**
+	 * Goes through the PolicyDatabaeses and their cases and checks if 
+	 * atleast one of them contains the parameter. And if it does, the
+	 * returned value is set to the % of the amount of the PolicyObjects 
+	 * (that contains this parameter) that have their actions accepted.
+	 * If the parameter isn't in any of the PolicyObjects the returned 
+	 * value is 0.5  
 	 * 
 	 * @param Objects from GIO.getWeights()
 	 * @return double
@@ -56,27 +76,30 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 		double countno = 1;
 		boolean y = false;
 		for(PolicyObject po : pdb.getCollection()){
+			//checks if the parameter object is in any of the cases in any of the policyobjects
 			for(Case c : po.getCases()){
-				if(!y){
+				if(!y && i.toString().length()>8){
 					for(Purpose p : c.getPurposes()){
-//						System.out.println(i.toString().substring(8) +"   "+ p.toString());
-						if(i.toString().substring(8).equals(p.toString())){
+						//String compares the purposes from the config file, and the ones stored in the database
+						if(i.toString().substring(8).toLowerCase().equals(p.toString())){
+							//if y is set to true we don't need to check further
 							y = true;
 							break;
 						}
 					}
 				}
-				if(!y){
+				if(!y && i.toString().length()>10){
 					for(Retention p : c.getRetentions()){
-						if(i.toString().substring(10).equals(p.toString())){
+						if(i.toString().substring(10).toLowerCase().equals(p.toString())){
+							
 							y = true;
 							break;
 						}
 					}
 				}
-				if(!y){
+				if(!y && i.toString().length()>10){
 					for(Recipient p : c.getRecipients()){
-						if(i.toString().substring(11).equals(p.toString())){
+						if(i.toString().substring(10).toLowerCase().equals(p.toString())){
 							y = true;
 							break;
 						}
@@ -97,6 +120,7 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 					}
 				}
 			}
+			
 		}
 		return countyes/(countyes+countno);
 	}

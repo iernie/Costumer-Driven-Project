@@ -45,12 +45,18 @@ public class Action
 		return accepted ? "accepted" : "rejected";
 	}
 	
-	
-	
+	/**
+	 * Returns true if the action was accepted, and false otherwise.
+	 * @return boolean
+	 */
 	public boolean getAccepted() {
 		return accepted;
 	}
 		
+	/**
+	 * Sets the accepted state of the action.
+	 * @param boolean accept
+	 */
 	public void setAccepted(boolean accept) {
 		this.accepted = accept;
 	}
@@ -64,6 +70,10 @@ public class Action
 		return reasonDomains;
 	}
 	
+	/**
+	 * Returns true if the action is manually overridden.
+	 * @return boolean
+	 */
 	public boolean isOverridden()
 	{
 		return override;
