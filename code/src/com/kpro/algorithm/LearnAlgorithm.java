@@ -51,6 +51,5 @@ public abstract class LearnAlgorithm {
 	 * @author ngerstle
 	 */
 	protected abstract Properties applyML(Gio theIO);
-
 	
 }

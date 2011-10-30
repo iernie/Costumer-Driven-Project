@@ -18,6 +18,8 @@ import com.kpro.main.Gio;
  */
 public class LearnAlgSimpler extends LearnAlgorithm{
 	
+
+
 	private PolicyDatabase pdb;
 	
 	/**
@@ -36,7 +38,6 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 	 * @param theIO the GIO
 	 * @return Properties the new weights
 	 */
-	@Override
 	protected Properties applyML(Gio theIO) {
 		Properties weights = theIO.getWeights();
 		pdb = theIO.getPDB();
@@ -78,28 +79,28 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 		for(PolicyObject po : pdb.getCollection()){
 			//checks if the parameter object is in any of the cases in any of the policyobjects
 			for(Case c : po.getCases()){
-				if(!y && i.toString().length()>8){
+				if(!y){
 					for(Purpose p : c.getPurposes()){
 						//String compares the purposes from the config file, and the ones stored in the database
-						if(i.toString().substring(8).toLowerCase().equals(p.toString())){
+						if(i.toString().substring(8).equals(p.toString())){
 							//if y is set to true we don't need to check further
 							y = true;
 							break;
 						}
 					}
 				}
-				if(!y && i.toString().length()>10){
+				if(!y ){
 					for(Retention p : c.getRetentions()){
-						if(i.toString().substring(10).toLowerCase().equals(p.toString())){
+						if(i.toString().substring(10).equals(p.toString())){
 							
 							y = true;
 							break;
 						}
 					}
 				}
-				if(!y && i.toString().length()>10){
+				if(!y){
 					for(Recipient p : c.getRecipients()){
-						if(i.toString().substring(10).toLowerCase().equals(p.toString())){
+						if(i.toString().substring(10).equals(p.toString())){
 							y = true;
 							break;
 						}
@@ -120,7 +121,6 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 					}
 				}
 			}
-			
 		}
 		return countyes/(countyes+countno);
 	}
