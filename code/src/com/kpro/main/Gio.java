@@ -124,6 +124,7 @@ public class Gio {
 	{
 		Options options = new Options();
 
+		System.err.println(genProps);
 		String[][] clolist= 
 			{
 				{"genConfig","true","general configuration file location"},
@@ -162,14 +163,19 @@ public class Gio {
 			System.exit(3);
 		}
 
+		for(String i : args)
+		{
+			System.err.println(i);
+		}
 		for(String[] i : clolist)
 		{
 			if(cmd.hasOption(i[0]))
 			{
+				System.err.println("found option i: "+i);
 				genProps.setProperty(i[0],cmd.getOptionValue(i[0]));
 			}
 		}
-
+		System.err.println(genProps);
 
 
 	}
