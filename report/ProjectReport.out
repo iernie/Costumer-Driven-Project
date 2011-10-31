@@ -91,17 +91,19 @@
 \BOOKMARK [1][-]{section.8.1}{Test Methods}{chapter*.47}% 91
 \BOOKMARK [1][-]{section.8.2}{Testing approach}{chapter*.47}% 92
 \BOOKMARK [1][-]{section.8.3}{Test case overview}{chapter*.47}% 93
-\BOOKMARK [1][-]{section.8.4}{Test pass / fail criteria}{chapter*.47}% 94
-\BOOKMARK [1][-]{section.8.5}{Test scheudule}{chapter*.47}% 95
-\BOOKMARK [1][-]{section.8.6}{Risks and contingencies}{chapter*.47}% 96
-\BOOKMARK [0][-]{chapter*.51}{Project Evaluation}{part.3}% 97
-\BOOKMARK [1][-]{section.9.1}{Software Evaluation}{chapter*.51}% 98
-\BOOKMARK [1][-]{section.9.2}{Organization and Group Dynamics}{chapter*.51}% 99
-\BOOKMARK [1][-]{section.9.3}{Tools}{chapter*.51}% 100
-\BOOKMARK [1][-]{section.9.4}{Resource Use}{chapter*.51}% 101
-\BOOKMARK [0][-]{chapter*.53}{Conclusion}{part.3}% 102
-\BOOKMARK [1][-]{section.10.1}{Introduction}{chapter*.53}% 103
-\BOOKMARK [-1][-]{part.4}{IV Appendices}{}% 104
-\BOOKMARK [0][-]{appendix*.54}{Test cases}{part.4}% 105
-\BOOKMARK [1][-]{section.A.1}{Test cases}{appendix*.54}% 106
-\BOOKMARK [0][-]{appendix*.55}{Templates}{part.4}% 107
+\BOOKMARK [1][-]{section.8.4}{Test cases}{chapter*.47}% 94
+\BOOKMARK [1][-]{section.8.5}{Test pass / fail criteria}{chapter*.47}% 95
+\BOOKMARK [1][-]{section.8.6}{Test schedule}{chapter*.47}% 96
+\BOOKMARK [1][-]{section.8.7}{Risks and contingencies}{chapter*.47}% 97
+\BOOKMARK [0][-]{chapter*.51}{Project Evaluation}{part.3}% 98
+\BOOKMARK [1][-]{section.9.1}{Software Evaluation}{chapter*.51}% 99
+\BOOKMARK [1][-]{section.9.2}{Group Dynamics and Organization}{chapter*.51}% 100
+\BOOKMARK [1][-]{section.9.3}{Tools}{chapter*.51}% 101
+\BOOKMARK [1][-]{section.9.4}{Resource Use}{chapter*.51}% 102
+\BOOKMARK [1][-]{section.9.5}{Risks that Occurred}{chapter*.51}% 103
+\BOOKMARK [1][-]{section.9.6}{Course Evaluation - TDT4290}{chapter*.51}% 104
+\BOOKMARK [0][-]{chapter*.56}{Conclusion}{part.3}% 105
+\BOOKMARK [1][-]{section.10.1}{Introduction}{chapter*.56}% 106
+\BOOKMARK [-1][-]{part.4}{IV Appendices}{}% 107
+\BOOKMARK [0][-]{appendix*.57}{Test Plan}{part.4}% 108
+\BOOKMARK [1][-]{section.A.1}{Test cases}{appendix*.57}% 109
