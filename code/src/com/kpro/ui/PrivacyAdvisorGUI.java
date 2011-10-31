@@ -181,7 +181,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 		try {
 			ce.join();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		
@@ -192,7 +192,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 		try {
 			gio = new Gio(null,this);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -200,7 +200,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 
 	@Override
 	public ArrayList<PolicyObject> loadHistory() {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
@@ -242,7 +242,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 
 	@Override
 	public void closeResources() {
-		// TODO Auto-generated method stub
+
 		gio.shutdown();
 		
 	}
