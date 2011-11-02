@@ -55,7 +55,7 @@ public class NRCouchdb extends NetworkR {
 		try {
 			System.setErr(new PrintStream("/dev/null"));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 		dbc = new CouchDbClient(opts[0], Boolean.parseBoolean(opts[1]), opts[2], opts[3], Integer.parseInt(opts[4]), opts[5], opts[6]) ;

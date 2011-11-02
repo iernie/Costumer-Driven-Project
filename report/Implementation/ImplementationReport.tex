@@ -11,7 +11,7 @@
 
 \minitoc
 
-\section*{Purpose}
+\subsection*{Purpose}
 This document explains the implementation phase of the project providing a more detailed description of particular key
 details that were not decided on in the design phase. This relates in particular to choices regarding the particular CBR algorithms
 (k-Nearest Neighbors) and the similarity measures describing how "equal'' two cases are. It also details the datastructures that
@@ -50,14 +50,11 @@ Some examples of commonly used metrics are the Euclidian, Mahalanobis, and the M
 \subsubsection{Common Metrics}
 
 \begin{itemize}
-\item The\emph{Manhattan distance} function computes the distance that would be traveled to get from one data point to the other if a grid-like path is followed. It can be written as \sum_{d=n}|x_d – y_d| where d is the dimensionality of the data objects. 
-\item The \emph{Hamming distance} is defined as number of positions in which a source and target vector disagrees. If data are bitstrings then Hamming distance can be calculated as d_h \left( s,t \right) = \sum_{i} s_i \bigoplus t_i .
- 
-\item \emph{Levenshtein distance} is based on Hamming distance but adds also operands as insertion, deletion and substitution. And can be written... 
- 
+\item The\emph{Manhattan distance} function computes the distance that would be traveled to get from one data point to the other if a grid-like path is followed. 
+\item The \emph{Hamming distance} is defined as number of positions in which a source and target vector disagrees.  
+\item \emph{Levenshtein distance} is based on Hamming distance but adds also operands as insertion, deletion and substitution.  
 \item \emph{Ontology distances} are more based on compute semantic similarity of objects rather than their textual representation. For example distance between apple and orange is less then between apple and house. To calculate this distance you need some sort of logical tool like ontological tree. Where every leaf has a logical ancestor for example ancestor for apple will be fruit.
 \end{itemize}
- 
 \subsubsection{Customer Advise}
 
 In the paper "Towards a Similarity Metric for Comparing Machine Readable Privacy Policies", the some of the problems of defining a similarity metric for privacy policies is discussed. A key topic is how the calculation of similarity between online 3P3 policies can be subdivided in two parts, \emph{local similarity} and \emph{global similarity}. This way known metrics such Levenshtein distance  can be applied to local distance. And for global similarity we can calculate a simple or weighted average of local distances, where the second one allows for amplifying the importance of particular attributes.
@@ -95,21 +92,25 @@ Weights are the key to learning and adjusting this algorithm. They are greatly u
 \subsubsection{ The global similarity }
 The global similarity part was not as easy as creating a bitmap. The number of cases a policy can is undefined, and the similarity of those cases can differ a great deal. Your solution was sum of minimal distance of each Case to a case in the other policy. For instance a caseA from policyA have distance 2, 3, 1 to cases in policyB that mean the distance caseA will have distance 1 to policy. 
 
+\begin{figure}[htpb]
+\hrule
 \begin{verbatim}
+
 Sum=0
-For caseA in PolicyA.Cases
-	Min=infinity
-	For caseB in PolicyB.Cases
-		Dist=Compare caseA to caseB
-		If dist<min then
-			Min=dist
-		End
-	End
-	Sum=sum+min
-End
+For caseA in PolicyA
+  Min=infinity
+  For caseB in PolicyB
+    Dist=Compare(caseA, caseB)
+    If dist<min then
+      Min=dist
+  Sum=sum+min
 Distance=sum
 
 \end{verbatim}
+\hline
+  \caption{Algorithm for similarity computation.}
+  \label{similAlgo}
+\end{figure}
  
 
 By choosing minimal distance between cases we guaranty that if two cases are identical the distance between them will be 0. But it also creates a problem, consider to policies policyA with {caseA1 caseA2 caseA3} and policyB with {caseB1 caseB2} where every case in A has minimal distance with caseB1. This way the properties of caseB2 will go unnoticed in the sum of distances between cases. We solved this problem by running algorithm twice but changing places of policy A and B the 2nd time and simply summing results.
@@ -123,7 +124,10 @@ There is some variations in this method. You can use maximum/minimum distance be
 
 \section{Data Storage}
 
+
 \subsection{Flat File Storage}
+
+
 
 \subsection{Databases}
 
