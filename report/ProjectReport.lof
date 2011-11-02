@@ -4,32 +4,32 @@
 \contentsline {xchapter}{Project Directive}{7}{chapter*.6}
 \contentsline {xpart}{Initial Phase - Planning and Research}{7}{part.1}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Preliminary Study}{13}{chapter*.12}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces A Simplified CBR Cycle.}}{17}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces The Waterfall Model.}}{20}{figure.2.2}
+\contentsline {xchapter}{Preliminary Study}{15}{chapter*.11}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces A Simplified CBR Cycle.}}{19}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The Waterfall Model.}}{22}{figure.2.2}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Planning Phase}{21}{chapter*.16}
+\contentsline {xchapter}{Planning Phase}{25}{chapter*.15}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Requirements Specification}{33}{chapter*.20}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Program Flow.}}{36}{figure.4.3}
-\contentsline {xpart}{Design and Implementation Phase}{33}{part.2}
+\contentsline {xchapter}{Requirements Specification}{37}{chapter*.19}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Program Flow.}}{40}{figure.4.3}
+\contentsline {xpart}{Design and Implementation Phase}{37}{part.2}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Design}{41}{chapter*.28}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Program Flow.}}{45}{figure.5.4}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces System Overview.}}{46}{figure.5.5}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Input/output and user interfaces.}}{47}{figure.5.6}
+\contentsline {xchapter}{Design}{45}{chapter*.27}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Program Flow.}}{49}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces System Overview.}}{50}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Input/output and user interfaces.}}{51}{figure.5.6}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Implementation}{49}{chapter*.38}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Algorithm for similarity computation.}}{54}{figure.6.7}
+\contentsline {xchapter}{Implementation}{53}{chapter*.35}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Algorithm for similarity computation.}}{58}{figure.6.7}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Documentation}{57}{chapter*.49}
+\contentsline {xchapter}{Documentation}{61}{chapter*.46}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Test Plan}{63}{chapter*.54}
-\contentsline {xpart}{Testing, Evaluation and Summary}{63}{part.3}
+\contentsline {xchapter}{Test Plan}{67}{chapter*.51}
+\contentsline {xpart}{Testing, Evaluation and Summary}{67}{part.3}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Project Evaluation}{69}{chapter*.58}
-\contentsline {figure}{\numberline {9.8}{\ignorespaces Actual vs. planned time. By project phase.}}{72}{figure.9.8}
-\contentsline {figure}{\numberline {9.9}{\ignorespaces Actual vs. planned time. Cumulative.}}{72}{figure.9.9}
+\contentsline {xchapter}{Project Evaluation}{73}{chapter*.55}
+\contentsline {figure}{\numberline {9.8}{\ignorespaces Actual vs. planned time. By project phase.}}{76}{figure.9.8}
+\contentsline {figure}{\numberline {9.9}{\ignorespaces Actual vs. planned time. Cumulative.}}{76}{figure.9.9}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Conclusion}{73}{chapter*.64}
-\contentsline {xpart}{Appendices}{77}{part.4}
+\contentsline {xchapter}{Conclusion}{79}{chapter*.61}
+\contentsline {xpart}{Appendices}{83}{part.4}
