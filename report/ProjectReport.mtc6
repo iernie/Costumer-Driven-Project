@@ -9,7 +9,10 @@
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.2}Standards}{\reset@font\mtcSfont 44}{section.5.2}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.3}Architecture}{\reset@font\mtcSfont 44}{section.5.3}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.1}Design Overview}{\reset@font\mtcSSfont 44}{subsection.5.3.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.2}Detailed Design}{\reset@font\mtcSSfont 45}{subsection.5.3.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Dependencies}{\reset@font\mtcSSSfont 45}{section*.33}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode User Interface}{\reset@font\mtcSSSfont 45}{section*.34}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.3}Community Server}{\reset@font\mtcSSfont 45}{subsection.5.3.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode User Interface}{\reset@font\mtcSSSfont 44}{section*.33}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Weights and Configuration Files}{\reset@font\mtcSSSfont 45}{section*.34}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode CBR}{\reset@font\mtcSSSfont 45}{section*.35}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.2}Detailed Design}{\reset@font\mtcSSfont 47}{subsection.5.3.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Dependencies}{\reset@font\mtcSSSfont 47}{section*.36}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode User Interface}{\reset@font\mtcSSSfont 47}{section*.37}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.3}Community Server}{\reset@font\mtcSSfont 47}{subsection.5.3.3}}

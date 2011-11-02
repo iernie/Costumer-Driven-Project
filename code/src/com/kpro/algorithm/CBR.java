@@ -74,7 +74,16 @@ public class CBR {
 	private PolicyObject process(PolicyObject newPO) {
 		ArrayList<PolicyObject> reducedSet = reduceAlg.reduce(newPO);
 		Action a = conclusAlg.conclude(newPO,reducedSet);
-		if(a.getConfidence() < theIO.getConfLevel() && (theIO.getNR() != null))
+		
+		if (Double.isNaN(a.getConfidence()))
+		{
+			System.err.println("Confidence is NaN in CBR.process");
+		}
+		if(theIO.getNR() == null)
+			System.err.println("theIO.getNR == null in CBR.process");
+		
+		
+		if(((a.getConfidence() < theIO.getConfLevel()) || (Double.isNaN(a.getConfidence()))) && (theIO.getNR() != null))
 		{
 			System.err.println("nr="+theIO.getNR());
 			Action b = theIO.getNR().reqAct(newPO);
@@ -83,6 +92,7 @@ public class CBR {
 				a=b;
 			}
 		}
+		
 		newPO.setAction(a);
 		return newPO;
 	}

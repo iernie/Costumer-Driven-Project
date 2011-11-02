@@ -17,9 +17,7 @@ This section details some of the choices that were made regarding development to
 \subsection{Documents and Source Code Repositories}
 For software projects of a certain scale, version control is an important technology that allows project members to work simultaneously against the same files without causing inconsistencies. Version control systems also allow for comparison with older versions, tracking changes and restoring previous copies in the case of errors.
 
-For source code repositories and version control, \textbf{Git} was selected. Git is a distributed, open source version control system that is available for all platforms. Git is also used for hosting the \LaTeX documents that comprise this report. For other documents such as meeting minutes, agendas, status reports, time reporting and certain planning documents, Google Docs is used.
-
-
+For source code repositories and version control, \textbf{Git} was selected. Git is a distributed, open source version control system that is available for all platforms. Git is also used for hosting the \LaTeX documents that comprise this report. For other documents such as meeting minutes, agendas, status reports, time reporting and certain planning documents, \textbf{Google Docs} is used.
 
 \subsection{Programming Languages}
 \textbf{Java} is chosen as the primary programming language for implementing the majority of the code. Java is an object oriented programming language providing a level of abstraction appropriate for the task at hand in addition to a rich set of libraries, including the SWING library for GUI programming, and several libraries for networking. It also simplifies writing a browser plugin as major browsers such as Google Chrome and Firefox employ Javascript as scripting language for plugin.
@@ -27,7 +25,8 @@ For source code repositories and version control, \textbf{Git} was selected. Git
 \subsection{Databases}
 For testing purposes, it has been decided on using flat file storage of privacy policy data using Java's \texttt{Serializable} interface. However, the output functionality is to be written in a generic fashion to simplify use of database systems such as MySQL, CouchDB and so forth. 
 
-
+%[Discuss community server here]
+[Discuss community server here]
 
 \subsection{Third Party Libraries}
  
@@ -60,7 +59,7 @@ To achieve clean and reusable code, the project has adopted Oracle's Coding Conv
 
 \section{Architecture}
 %http://www.cmcrossroads.com/bradapp/docs/sdd.html
-In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in T¿ndel and Nyre. Refinements needed to be made include data structures for storing policies, databases, choosing actual algorithms, and so forth. This section describes how the design in broad terms.
+In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in T{\o}ndel and Nyre. Refinements needed to be made include data structures for storing policies, databases, choosing actual algorithms, and so forth. This section describes how the design in broad terms.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -81,17 +80,32 @@ This section describes the architecture of the local CBR based system. The next 
 \end{center}
 \end{figure}
 
-Figure~\ref{SystemOverview} illustrates the broad structure of the system; a policy object is passed to the CBR system from the user via the user interface. The CBR does a lookup on similar cases in the local database and makes a recommendation based on the similar cases and provides the user with the advice and the background for the advice through the user interface. The user can then give a feedback on the advice choosing to accept or reject it. The user feedback is then stored back to the database.
-
-
-\subsection{Detailed Design}
-
-
-\subsubsection{Dependencies}
-
-
+Figures~\ref{DesignFlowChart} and \ref{SystemOverview} illustrate the broad structure of the system; a policy object is passed to the CBR system from the user via the user interface. The CBR does a lookup on similar cases in the local database and makes a recommendation based on the similar cases and provides the user with the advice and the background for the advice through the user interface. The user can then give a feedback on the advice choosing to accept or reject it. The user feedback is then stored back to the database.
 
 \subsubsection{User Interface}
+Privacy Advisor can be run using either a command line interface (CLI) or a graphical user interface (GUI). Both the CLI and the GUI are built on top of a "General Input/Output'' module, GIO. GIO creates the database objects and issues the proper commands to the CBR framework based on user input.
+
+\subsubsection{Weights and Configuration Files}
+As an addition to passing command line arguments, GIO also reads a text based configuration file containing CBR and database settings. The configuration files are detailed in the User Documentation in table~\ref{configTable}. 
+
+\subsubsection{CBR}
+Input from the UI is passed on to the CBR framework. CBR in turn references three other key modules, a \emph{reduction} algorithm, a \emph{conclusion} algorithm, and finally, a \emph{learning} algorithm.
+
+The reduction algorithm searches the database to find the most similar cases to the new case presented. The canonical reduction algorithm is k Nearest Neighbors, discussed in section~\ref{kNN}. The conclusion algorithm looks at the set of cases returned by the reduction, and decides on the most appropriate action for the novel case. It also returns a measure of confidence in the conclusion reached.
+
+Finally, a learning algorithm allows for automatically tuning the parameters used for distance calculations. This is discussed further in section~\ref{learnAlgos}.
+
+
+\subsection{Interfaces}
+
+% \begin{center}
+%   \begin{table}[htdp]
+%     \begin{tabularx}{\textwidth}{ | X | |}
+      
+%     \end{tabularx}
+%   \end{table}
+% \end{center}
+
 
 
 \begin{figure}[htbp]
