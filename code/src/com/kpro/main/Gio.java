@@ -124,6 +124,7 @@ public class Gio {
 	{
 		Options options = new Options();
 
+//		System.err.println(genProps);
 		String[][] clolist= 
 			{
 				{"genConfig","true","general configuration file location"},
@@ -162,14 +163,19 @@ public class Gio {
 			System.exit(3);
 		}
 
+//		for(String i : args)
+//		{
+//			System.err.println(i);
+//		}
 		for(String[] i : clolist)
 		{
 			if(cmd.hasOption(i[0]))
 			{
+//				System.err.println("found option i: "+i);
 				genProps.setProperty(i[0],cmd.getOptionValue(i[0]));
 			}
 		}
-
+//		System.err.println(genProps);
 
 
 	}
@@ -599,7 +605,12 @@ public class Gio {
 	 * @throws IllegalArgumentException 
 	 */
 	private void startNetwork() throws ClassNotFoundException, IllegalArgumentException, SecurityException, InstantiationException, IllegalAccessException, InvocationTargetException {
+		//System.err.println("startnetwork called");
 		Class<?> cls = Class.forName("com.kpro.datastorage."+genProps.getProperty("NetworkRType"));
+		if(cls == null)
+		{
+			System.err.println("NetworkRType incorrect- null in Gio.startNetwork()");
+		}
 		nr = (NetworkR) cls.getDeclaredConstructors()[0].newInstance(genProps.getProperty("NetworkROptions"));
 		//System.err.println("nr in startNetwork="+nr);
 	}

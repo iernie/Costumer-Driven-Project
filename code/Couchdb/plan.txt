@@ -1,0 +1,8 @@
+in simple:
+	a list, which serves as 'conclusion', producing an action from the reduce
+	a reduce, which returns the closest k results to the incomming object, grouping identical policies (by accepted/not)
+	a map, calculating the distance to the incomming policy
+
+regarding the query:
+	it will be http://localhost:5984/privacydb/_design/Couchdb/_list/test/testing?obj=$ID
+	for the testing one, where $ID is the id of an already save doc, to be later deleted
