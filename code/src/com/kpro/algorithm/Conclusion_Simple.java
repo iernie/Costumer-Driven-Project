@@ -14,8 +14,8 @@ import com.kpro.dataobjects.PolicyObject;
 public class Conclusion_Simple extends ConclusionAlgorithm {
 
 	private DistanceMetric distanceMetric; // distance metric to use for choosing
-	
-	
+
+
 	/**
 	 * a simple conclusion that just bases the result on the inverse distance of the policies,
 	 * and returns as a confidence the sum of inverse distances
@@ -27,7 +27,7 @@ public class Conclusion_Simple extends ConclusionAlgorithm {
 	{
 		this.distanceMetric = distanceMetric;
 	}
-	
+
 	/**
 	 * makes a decision on the reduced set
 	 * 
@@ -45,27 +45,53 @@ public class Conclusion_Simple extends ConclusionAlgorithm {
 		ArrayList<String> rejectList = new ArrayList<String>();
 		double appdistance = 0; //the sum of the inverse distance to all approved PolicyObjects
 		double rejdistance = 0; //the sum of the inverse distance to all rejected PolicyObjects
-		
+
 		for( PolicyObject i : releventSet)
 		{
-			if((i.getAction() != null)&&(i.getAction().getAccepted()))
+			if(i.getAction() != null)
 			{
-				approveList.add(i.getContextDomain());
-				appdistance+=(1/distanceMetric.getTotalDistance(np, i));
-			}
-			else
-			{
-				rejectList.add(i.getContextDomain());
-				rejdistance+=(1/distanceMetric.getTotalDistance(np, i));				
+				double d =distanceMetric.getTotalDistance(np, i); //just incase this is zero...
+				if(i.getAction().getAccepted())
+				{
+					approveList.add(i.getContextDomain());
+
+					appdistance+=(d==0)?(0):(1/d);
+				}
+				else
+				{
+					rejectList.add(i.getContextDomain());
+					rejdistance+=(d==0)?(0):(1/d);				
+				}
 			}
 		}
-		if(appdistance > rejdistance)
+
+		
+//		System.err.print("approveList \t"+approveList+"\t\t confidence \t"+ (appdistance/(appdistance+rejdistance)));
+//		System.err.print("rejectList \t"+rejectList+"\t\t confidence \t"+ (rejdistance/(appdistance+rejdistance)) );
+//		System.err.print("\t\t appdistance: "+appdistance +"\trejdistance"+rejdistance);
+		if(approveList.isEmpty() && rejectList.isEmpty())
 		{
-			return new Action(true, approveList, appdistance/(appdistance+rejdistance), false);
+			System.err.println("c=0");
+			return new Action(false, approveList, 0, false);
+		}
+		else if(approveList.isEmpty())
+		{
+			return new Action(false, rejectList, 1, false);
+		}
+		else if(rejectList.isEmpty())
+		{
+			return new Action(true, approveList, 1, false);
 		}
 		else
 		{
-			return new Action(true, rejectList, rejdistance/(appdistance+rejdistance), false);
+			if(appdistance > rejdistance) 
+			{
+				return new Action(true, approveList, (appdistance/(appdistance+rejdistance)), false);
+			}
+			else 
+			{
+				return new Action(false, rejectList, (rejdistance/(appdistance+rejdistance)), false);
+			}
 		}
 	}
 

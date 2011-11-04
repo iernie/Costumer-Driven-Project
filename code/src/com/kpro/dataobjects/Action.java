@@ -81,10 +81,15 @@ public class Action
 
 
 	public void setConfidence(double confidence) {
+		if(confidence<0)
+			confidence = -confidence;
 		if((0<= confidence)&&(confidence <=1))
 			this.confidence = confidence;
 		else
-			this.confidence = -confidence;
+		{
+			System.err.println("!!!setting confidence to "+confidence);
+			this.confidence = Double.NEGATIVE_INFINITY;
+		}
 	}
 
 
@@ -99,7 +104,7 @@ public class Action
 	}
 
 	public Action setOverride(boolean b) {
-		override = b;
+		this.override = b;
 		return this;
 	}
 	

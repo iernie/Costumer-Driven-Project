@@ -75,17 +75,13 @@ public class CBR {
 		ArrayList<PolicyObject> reducedSet = reduceAlg.reduce(newPO);
 		Action a = conclusAlg.conclude(newPO,reducedSet);
 		
-		if (Double.isNaN(a.getConfidence()))
-		{
-			System.err.println("Confidence is NaN in CBR.process");
-		}
 		if(theIO.getNR() == null)
 			System.err.println("theIO.getNR == null in CBR.process");
 		
 		
 		if(((a.getConfidence() < theIO.getConfLevel()) || (Double.isNaN(a.getConfidence()))) && (theIO.getNR() != null))
 		{
-			System.err.println("nr="+theIO.getNR());
+			System.err.println("local confidence="+a.getConfidence());
 			Action b = theIO.getNR().reqAct(newPO);
 			if(b !=null)
 			{

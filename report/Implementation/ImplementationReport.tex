@@ -93,7 +93,7 @@ Weights are the key to learning and adjusting this algorithm. They are greatly u
 The global similarity part was not as easy as creating a bitmap. The number of cases a policy can is undefined, and the similarity of those cases can differ a great deal. Your solution was sum of minimal distance of each Case to a case in the other policy. For instance a caseA from policyA have distance 2, 3, 1 to cases in policyB that mean the distance caseA will have distance 1 to policy. 
 
 \begin{figure}[htpb]
-\hrule
+
 \begin{verbatim}
 
 Sum=0
@@ -106,7 +106,7 @@ For caseA in PolicyA
   Sum=sum+min
 Distance=sum
 \end{verbatim}
-\hline
+
   \caption{Algorithm for similarity computation.}
   \label{similAlgo}
 \end{figure}

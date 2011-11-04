@@ -87,6 +87,7 @@ public class UserIO_Simple extends UserIO {
 			Action a = n.getAction();
 			a.setAccepted(!a.getAccepted());
 			a.setOverride(true);
+			n.setAction(a);
 			//add code to backtrack later
 		}
 		//do{
