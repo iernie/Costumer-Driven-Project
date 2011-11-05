@@ -10,6 +10,7 @@ import java.util.Properties;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
+import com.kpro.algorithm.Conclusion_Simple;
 import com.kpro.algorithm.Reduction_KNN;
 import com.kpro.algorithm.bitmapDistance;
 import com.kpro.dataobjects.*;
@@ -174,6 +175,8 @@ public class testReduction_KNN extends TestCase{
 		CreateSet();
 		bitmap= new bitmapDistance(weights);
 		KNN=new Reduction_KNN(bitmap,Set,3);
+		Conclusion_Simple Conclusion;
+		Conclusion=new Conclusion_Simple(bitmap);
 		
 		Case case1 = new Case();
 		case1.addPurpose(Purpose.ADMIN);
@@ -290,7 +293,7 @@ public class testReduction_KNN extends TestCase{
 		Assert.assertEquals(0.0,bitmap.getTotalDistance(Set.getDomain("e").get(0), KNN.reduce(target).get(0)));
 		Assert.assertEquals(0.0,bitmap.getTotalDistance(Set.getDomain("b").get(0), KNN.reduce(target).get(1)));
 		Assert.assertEquals(0.0,bitmap.getTotalDistance(Set.getDomain("f").get(0), KNN.reduce(target).get(2)));
-		
+		Assert.assertEquals(true,Conclusion.conclude(target, KNN.reduce(target)).getAccepted());
 		//Assert.assertEquals(Set.getDomain("a").get(0),KNN.reduce(target).get(1));
 		//Assert.assertEquals(Set.getDomain("f"),KNN.reduce(target).get(2));
 		}

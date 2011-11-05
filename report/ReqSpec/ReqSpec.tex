@@ -8,12 +8,12 @@
 \minitoc
 
 \subsection*{Purpose}
-This requirements specification has been prepared for and accepted by SINTEF ICT (the customer) stating the requirements for the software system to be developed for the course TDT4290: Customer Driven Project. The requirements span two categories; functional requirements, describing the functionality the software needs to supply, and non-functional requirements, describing the development process.
+This requirements specification has been prepared for and accepted by SINTEF ICT (the customer) it states the requirements for the software system to be developed for the course TDT4290: Customer Driven Project. The requirements span two categories; functional requirements, describing the functionality the software needs to supply, and non-functional requirements, expected quality.
 
 The requirement specification, once accepted by the customer, will serve as a contract between the parties involved, being a guideline for design and implementation and the standard against which the product is evaluated. It could also serve as a basis for further development of the Privacy Advisor system.
 
 \section{Introduction}
-\subsection{Background and Similar Software}
+\subsection{Background and Current Privacy Advising Software}
 SINTEF ICT is currently investigating new approaches to privacy protection of end-users. T{\o}ndel et al. (2011) proposes a specific agent design for a machine learning approach to advice users on privacy actions based on:
 
 \begin{itemize}
@@ -34,13 +34,13 @@ Furthermore, given the research nature of the project, less emphasis is placed o
 \item An end-user system that can run as a browser plug-in giving real time advice to the user as he browses the web.
 \end{enumerate}
 
-While theoretically appealing, there is little empirical research documenting the applicability of CBR to the task at hand, which in turn implies that there is likely a large research of work to be done for the system to be able to successfully predict user preferences. Based on this observation, the emphasis of this project will be on the first of the above directions, namely providing a research framework.
+While theoretically appealing, there is little empirical research documenting the applicability of CBR to the task at hand, which in turn implies that there is likely a large research work to be done for the system to be able to successfully predict user preferences. Based on this observation, the emphasis of this project will be on the first of the above directions, namely providing a research framework.
 
 \subsection{Overview}
 This document is organized as follows:
-¥	Section~\ref{sysDesc} gives an overview over the system; its requirements and user characteristics.
-¥	Section~\ref{useCase} presents four different use-case scenarios.
-¥	Section~\ref{specRec} presents specific functional and non-functional requirements.
+ï¿½	Section~\ref{sysDesc} gives an overview over the system; its requirements and user characteristics.
+ï¿½	Section~\ref{useCase} presents four different use-case scenarios.
+ï¿½	Section~\ref{specRec} presents specific functional and non-functional requirements.
 \section{Overall Description}
 
 \section{System Description}\label{sysDesc}
@@ -85,7 +85,7 @@ The user now specifies the distance metric he wants to apply to each of the diff
 A user visits a previously unvisited website. The privacy agent tries to retrieve machine-readable privacy information from the site. When the policy is obtained it is parsed and a context object, consisting of the policy, domain, time of visit, and other contextual information, is created. The context object is compared to the local database for similar contexts. Since the user has visited sites with a similar policy previously, the comparison succeeds and the site is blocked based on data from the local database. The user agrees with this decision and navigates away from the site.
 
 \subsection*{Case 3: End user - local query, site approved by recommender, recommendation accepted}
-A user visits a previously unvisited website. As before, the system the system fetches the necessary data to do a local query. This query indicates, with sufficient confidence, that the site's policy is acceptable. The user is then allowed to continue browsing with no intervention from the Privacy Agent.
+A user visits a previously unvisited website. As before, the system fetches the necessary data to do a local query. This query indicates, with sufficient confidence, that the site's policy is acceptable. The user is then allowed to continue browsing with no intervention from the Privacy Agent.
 
 \subsection*{Case 4: End user - global query, recommendation overridden}
 As before, but in this case, no sufficiently similar cases are found locally. In this case the system will query the global server for similar users that have visited the same site to base its decision on this. In this case, site is blocked, but the user disagrees. He selects an override feature and gives a reason for why he overrides.
@@ -102,7 +102,7 @@ As described in Section~\ref{reqScope}, as the main goal of the project is to de
 \item Based on past history (knowledge base), it should retrieve the cases most similar to the one presented.
 \item Given the degree of similarity to past cases and the uniformity of action taken in the past, the system can either 
   \begin{itemize}
-  \item Give the user a recommendation a recommendation or 
+  \item Give the user a recommendation or 
   \item Pass the recommendation decision on to the community/CF system.
   \end{itemize}
 \item If passed on to the CF, the system will query a server for the most similar users and use the data on their decisions in similar cases to make a recommendation (along with local/CBR recommendation) 
