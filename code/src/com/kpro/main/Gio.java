@@ -132,8 +132,8 @@ public class Gio {
 				{"inDBLoc", "input database file location"},
 				{"outWeightsLoc", "output weights configuration file location"},
 				{"outDBLoc",  "output database file location"},
-				{"P3PLocation", "adding to DB: single policy file location"},
-				{"P3PDirLocation", "adding to DB: multiple policy directory location"},
+				{"p3pLocation", "adding to DB: single policy file location"},
+				{"p3pDirLocation", "adding to DB: multiple policy directory location"},
 				{"newDB", "create new database in place of old one (doesn't check for existence of old one"},
 				{"newPolicyLoc", "the policy object to process"},
 				{"userResponse","response to specified policy"},
@@ -165,7 +165,7 @@ public class Gio {
 		}
 		catch (ParseException e)
 		{
-			System.err.println("Error parsing commandline arguements.");
+			System.err.println("Error parsing commandline arguments.");
 			e.printStackTrace();
 			System.exit(3);
 		}
