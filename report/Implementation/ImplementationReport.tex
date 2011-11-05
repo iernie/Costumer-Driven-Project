@@ -12,10 +12,10 @@
 \minitoc
 
 \subsection*{Purpose}
-This document explains the implementation phase of the project providing a more detailed description of particular key
+This chapter explains the implementation phase of the project it provides a more detailed description of particular key
 details that were not decided on in the design phase. This relates in particular to choices regarding the particular CBR algorithms
-(k-Nearest Neighbors) and the similarity measures describing how "equal'' two cases are. It also details the datastructures that
-are used to represent policies and how comparisons are done on these datastructures.
+(k-Nearest Neighbors) and the similarity measures describing how "equal'' two cases are. It also details the data structures that
+are used to represent policies and how comparisons are done on these data structures.
 
 \section{Algorithms}
 
@@ -34,9 +34,9 @@ By updating the weights like this we make sure that the system to some degree le
 
 \subsubsection{Definition}
 
-Mathematically, a \emph{metric} or \emph{distance function} is a function defines the \emph{distance} between two objects in a set are, that is, it defines a notion of how far apart two objects are. In a purely mathematical sense, a distance function defined over a set $X$, $X\times X\longrightarrow \mathbb{R}$ that is required to obey the conditions of non-negativity, symmetry, sub-additivity (the triangle inequality) and identity of indiscernibles. 
+Mathematically, a \emph{metric} or \emph{distance function} is a function that defines the \emph{distance} between two objects in a set. That is, it defines a notion of how far apart two objects are. In a purely mathematical sense, a distance function defined over a set $X$, $X\times X\longrightarrow \mathbb{R}$ that is required to obey the conditions of non-negativity, symmetry, sub-additivity (the triangle inequality) and identity of indiscernibles. 
 
-Some examples of commonly used metrics are the Euclidian, Mahalanobis, and the Manhattan distance measures. These along with a few others are defined in the next section. These metrics have all in common that $\mathbb{R}^n\times \mathbb{R}^n\longrightarrow \mathbb{R}$, which in the case of comparing privacy policies and corresponding context information, is problematic as these, in their raw form contain large amounts of textual data. Two remedies could be proposed for this situation:
+Some examples of commonly used metrics are the Eucldean, Mahalanobis, and the Manhattan distance measures. These along with a few others are defined in the next section. These metrics have all in common that $\mathbb{R}^n\times \mathbb{R}^n\longrightarrow \mathbb{R}$, which in the case of comparing privacy policies and corresponding context information, is problematic as these, in their raw form contain large amounts of textual data. Two remedies could be proposed for this situation:
 
 \begin{enumerate}
 \item Provide a function to map privacy objects (P3P policies and context info) to real vectors.
@@ -50,27 +50,27 @@ Some examples of commonly used metrics are the Euclidian, Mahalanobis, and the M
 \subsubsection{Common Metrics}
 
 \begin{itemize}
-\item The\emph{Manhattan distance} function computes the distance that would be traveled to get from one data point to the other if a grid-like path is followed. 
-\item The \emph{Hamming distance} is defined as number of positions in which a source and target vector disagrees.  
+\item \emph{Manhattan distance} is function computes the distance that would be travelled to get from one data point to the other if a grid-like path is followed.  
+\item \emph{Hamming distance} is defined as number of positions in which a source and target vector disagrees.  
 \item \emph{Levenshtein distance} is based on Hamming distance but adds also operands as insertion, deletion and substitution.  
 \item \emph{Ontology distances} are more based on compute semantic similarity of objects rather than their textual representation. For example distance between apple and orange is less then between apple and house. To calculate this distance you need some sort of logical tool like ontological tree. Where every leaf has a logical ancestor for example ancestor for apple will be fruit.
 \end{itemize}
 \subsubsection{Customer Advise}
 
-In the paper "Towards a Similarity Metric for Comparing Machine Readable Privacy Policies", the some of the problems of defining a similarity metric for privacy policies is discussed. A key topic is how the calculation of similarity between online 3P3 policies can be subdivided in two parts, \emph{local similarity} and \emph{global similarity}. This way known metrics such Levenshtein distance  can be applied to local distance. And for global similarity we can calculate a simple or weighted average of local distances, where the second one allows for amplifying the importance of particular attributes.
+In the paper "Towards a Similarity Metric for Comparing Machine Readable Privacy Policies", some of the problems of defining a similarity metric for privacy policies is discussed. A key topic is how the calculation of similarity between online 3P3 policies can be subdivided in two parts, \emph{local similarity} and \emph{global similarity}. This way, known metrics such as Levenshtein distance  can be applied to local distance. And for global similarity we can calculate a simple or weighted average of local distances, where the second one allows for amplifying the importance of particular attributes.
 
-Another important topic is how system designers can apply domain knowledge to improve distance calculation. For example, for the recipient field identifying who data is shared with, there are certain values revealing that significantly more private information is exposed than others. Having private information retained by the website (recipient = "ours") is in a sense less critical than it being given away to third parties for commercial purposes (recipient = "other) or being public (recipient= "public"). So distance between unrelated or public is less then between ours and unrelated.
+Another important topic is how system designers can apply domain knowledge to improve distance calculation. For example, for the recipient field identifying who data is shared with, there are certain values revealing that significantly more private information is exposed than others. Having private information retained by the website (recipient = "ours") is in a sense less critical than it being given away to third parties for commercial purposes (recipient = "other) or being public (recipient= "public"). So distance between unrelated or public is less than between ours and unrelated.
 
 \subsection{Implementation}
 
 \subsubsection{Bitmap Representation}
-A bitmap (or bit string) is a way of representing a set of objects. It simply translates values from a set to a vector of fixed length, where each value has a specific place. For example over language $L=\{a,b,c,d\}$ for a sets $\{a,b,c\}$ a bit-map will look like $[1 1 1 0]$ where 1st integer represents $a$ and last integer represents value $d$. This way it doesnÕt matter what order the values are arranged and how many values are so set $\{d,b\}$ over same langue $L$ will be $[0 1 0 1]$ where 1st value still representing value $a$, or more correctly said, absence of value $a$. Calculating intersections or unions over bitmaps $A$ and $B$ uses bitwise Boolean operators. Where union can be easily written as $(A_i \vee B_i)$ where i is the position in the vector, and the intersection $(A_i \wedge B_i)$.
+A bitmap (or bit string) is a way of representing a set of objects. It simply translates values from a set to a vector of fixed length, where each value has a specific place. For example over language $L=\{a,b,c,d\}$ for a sets $\{a,b,c\}$ a bit-map will look like $[1 1 1 0]$ where 1st integer represents $a$ and last integer represents value $d$. This way it doesn't matter what order the values are arranged and how many values are so set $\{d,b\}$ over same language $L$ will be $[0 1 0 1]$ where 1st value still representing value $a$, or more correctly said, absence of value $a$. Calculating intersections or unions over bitmaps $A$ and $B$ uses bitwise Boolean operators. Where union can be easily written as $(A_i \vee B_i)$ where i is the position in the vector, and the intersection $(A_i \wedge B_i)$.
 
 Weighed bitmap is when each of the values is multiplied by its corresponding weight. Let us say on the language $L$ the weights are $a=1 b=2 c=4 d=3$, since bit-map over set $\{a,b,c\}$ is $[1 1 1 0]$ the weighed bit-map will be $[1*w_a 1*_b 1*_c 0*w_d]=[1 2 4 0]$. And for set $\{d,b\}$ it will be $[0 2 0 3]$.
 
 \subsubsection{Privacy Policy Representation}
 
-This section describes the data structures used to represent policies. On the top level, \texttt{policyObject}s contain P3P policy and context information (URL + time etc.). A P3P policy can have a varying number of \emph{statements}, some of them greatly differ from each other, and others are very similar. Each statement is build of four fields: data-collected, purpose, recipient and retention. Purpose, recipient and retention can contain one or many given values, the combination of witch describe how the given data-collected may be used in the future. Data-collected is divided in four major fields: dynamic, user, third-party and business. Many different data-types can be collected in one statement.
+This section describes the data structures used to represent policies. On the top level, \texttt{policyObject}s contain P3P policy and context information (URL + time etc.). A P3P policy can have a varying number of \emph{statements}, some of them greatly differ from each other, and others are very similar. Each statement is build of four fields: data-collected, purpose, recipient and retention. Purpose, recipient and retention can contain one or many given values, the combination of what describe how the given data-collected may be used in the future. Data-collected is divided in four major fields: dynamic, user, third-party and business. Many different data-types can be collected in one statement.
 
 For every data object that being described in a statement, we create a \texttt{Case}. A \texttt{Case} in a \texttt{policyObject} corresponds to a statement in P3P policy. It contains the purpose, recipient and retention, but a Case can only have one unique data type; this results that one statement can be translated to many cases. \texttt{policyObject} has a list of all its \texttt{Case}s and additional information that we find useful like time of the visit, location of the domain, and action decided upon by the CBR system or the user. Based on SINTEFs proposal the two levels of similarity, local and global are accounted for in implementation. 
 
@@ -81,16 +81,16 @@ The distance function is to be a highly modular component of the CBR system. The
 
 
 \subsubsection{Data-type-string similarity}
-The way data type is structured in P3P policies makes it possible to calculate a data-type distance by just parsing data-type-string. Every data-type string has to start with one of the four previously mentioned fields, then after a dot a sub-field is followed after other dot a sub-sub-field. Let us say we have your simplified ontological tree just within the syntax of data-type-string with an "invisible" root node over those four fields. This way when we have to data-type-strings for comparison we can easily count number of ancestors from string A to string B. For instance String a is “user.home-info.postal” and B “user.bdate”. Number of nodes we need to take from stringA to stringB is 3. 
+The way data type is structured in P3P policies makes it possible to calculate a data-type distance by just parsing data-type-string. Every data-type string has to start with one of the four previously mentioned fields, then after a dot a sub-field is followed after other dot a sub-sub-field. Let us say we have your simplified ontological tree just within the syntax of data-type-string with an "invisible" root node over those four fields. This way when we have two data-type-strings for comparison we can easily count number of ancestors from string A to string B. For instance String a is “user.home-info.postal” and B “user.bdate”. Number of nodes we need to take from stringA to stringB is 3. 
 
-The weakness is that without weights it is more string comparison then ontological tree.
+The weakness is that without weights it is more of string comparison than ontological tree.
 
 It is possible to create a weight system so this algorithm will work like a full ontological tree. For example if each node had a value/weight it would be possible to simply take difference between StringA’s 1st 2nd and 3rd field and respectfully StringB’s fields.
  
 Weights are the key to learning and adjusting this algorithm. They are greatly used in previously mentioned implementation of Hamming distance and can give great results in data-type analysis.
 
 \subsubsection{ The global similarity }
-The global similarity part was not as easy as creating a bitmap. The number of cases a policy can is undefined, and the similarity of those cases can differ a great deal. Your solution was sum of minimal distance of each Case to a case in the other policy. For instance a caseA from policyA have distance 2, 3, 1 to cases in policyB that mean the distance caseA will have distance 1 to policy. 
+The global similarity part was not as easy as creating a bitmap. The number of cases a policy can be is undefined, and the similarity of those cases can differ a great deal. Your solution was sum of minimal distance of each Case to a case in the other policy. For instance a caseA from policyA have distance 2, 3, 1 to cases in policyB that mean the distance caseA will have distance 1 to policyB. 
 
 \begin{figure}[htpb]
 
@@ -112,11 +112,11 @@ Distance=sum
 \end{figure}
  
 
-By choosing minimal distance between cases we guaranty that if two cases are identical the distance between them will be 0. But it also creates a problem, consider to policies policyA with {caseA1 caseA2 caseA3} and policyB with {caseB1 caseB2} where every case in A has minimal distance with caseB1. This way the properties of caseB2 will go unnoticed in the sum of distances between cases. We solved this problem by running algorithm twice but changing places of policy A and B the 2nd time and simply summing results.
+By choosing minimal distance between cases we guaranty that if two cases are identical the distance between them will be 0. But it also creates a problem, consider two policies policyA with {caseA1 caseA2 caseA3} and policyB with {caseB1 caseB2} where every case in A has minimal distance with caseB1. This way the properties of caseB2 will go unnoticed in the sum of distances between cases. We solved this problem by running algorithm twice but changing places of policy A and B the 2nd time and simply summing results.
 
 The weakness of computing this way is that some of the distances will be counted twice, but user-privacy-safety wise is better to count some cases of minimal distance twice then leave a most distant case out.
 
-There is some variations in this method. You can use maximum/minimum distance between cases or average of the sum. We choose minimum because this way we always try to find a best match between cases and policies. With an algorithm that will minimize error from computing twice, from a to b and b to a, minimum distance with give the best results. But in total picture if you use same algorithm that considers every case for every policy in your database the results will be proportional.
+There is some variations in this method. You can use maximum/minimum distance between cases or average of the sum. We choose minimum because this way we always try to find a best match between cases and policies. With an algorithm that will minimize error from computing twice, from a to b and b to a, minimum distance will give the best results. But in total picture if you use same algorithm that considers every case for every policy in your database the results will be proportional.
 
 
 

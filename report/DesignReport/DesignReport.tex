@@ -9,7 +9,7 @@
 \minitoc
 
 \subsection*{Purpose}
-This document describes the design phase of the program, where the program architecture is established. Several critical decisions are made in this phase and the design and architecture decisions impacts the way the implementation phase proceeds as it defines how the final software system is decomposed into modules, and how these modules behave and interact with each other. Details regarding programming languages, algorithms, data structures, coding standards and other software engineering features must also be established prior to proceeding from this phase.
+This chapter describes the design phase of the program, where the program architecture is established. Several critical decisions are made in this phase and the design and architecture decisions impacts the way the implementation phase proceeds as it defines how the final software system is decomposed into modules, and how these modules behave and interact with each other. Details regarding programming languages, algorithms, data structures, coding standards and other software engineering features must also be established prior to proceeding from this phase.
 
 \section{Development Tools and Technologies}\label{DevTools}
 This section details some of the choices that were made regarding development tools and technologies for this project.
@@ -40,9 +40,9 @@ jColibri is a CBR system that has been under development for well over 10 years 
 However, its comprehensiveness also means that it takes more reading to understand and properly apply to the project at hand, and due to its size and poor documentation, jColibri was ultimately deemed unfit for the Privacy Advisor project. Due to the limited time resources available to this project, the risks associated with spending a large amount of time on a third party library that eventually would not be running was to high.
  
 \subsubsection{Third Party k Nearest Neighbors Implementations}
-Since kNN is a standard classification algorithm, there are several open source implementations available. Limiting the search space to Java implementations, a library called ÒThe Java Machine Learning LibraryÓ (JavaML) was the primary candidate, as it provided a clean and simple interface and allowed for extracting confidence measures.
+Since kNN is a standard classification algorithm, there are several open source implementations available. Limiting the search space to Java implementations, a library called ï¿½The Java Machine Learning Libraryï¿½ (JavaML) was the primary candidate, as it provided a clean and simple interface and allowed for extracting confidence measures.
  
-The problem with this library relates to the nature of distance metrics used in classifying privacy policies which is compositional in a way that is non-trivial to handle in JavaML. Furthermore, JavaML seems to operate only on arrays of floating point numbers, which means the distance metric must be defined in two stages; first mapping from Òpolicy domainÓ to real numbers, then in terms of a metric on real vectors.
+The problem with this library relates to the nature of distance metrics used in classifying privacy policies which is compositional in a way that is non-trivial to handle in JavaML. Furthermore, JavaML seems to operate only on arrays of floating point numbers, which means the distance metric must be defined in two stages; first mapping from ï¿½policy domainï¿½ to real numbers, then in terms of a metric on real vectors.
 
 \subsubsection{P3P/XML Parser}
 Looking for XML parsers on the Java platform, we found out that there are two different types of XML parsers we could use, the first being a DOM Parsers and the second one being a sequential access parser. The difference being that DOM parsers operate on the document as a whole, while sequential access parsers operates on each piece of the XML document sequentually.
