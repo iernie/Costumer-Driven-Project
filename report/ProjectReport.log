@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  2 NOV 2011 13:48
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  5 NOV 2011 11:38
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -372,7 +372,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (./Implementation/ImplementationReport.aux)
 (./Documentation/DocumentationReport.aux) (./Testing/TestPlan.aux)
 (./Evaluation/Evaluation.aux) (./Conclusion/Conclusion.aux)
-(./Appendix/TestPlan.aux))
+(./Appendix/TestPlan.aux) (./Appendix/Templates.aux) (./Appendix/Glossary.aux)
+(./Appendix/References.aux))
 \openout1 = `ProjectReport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
@@ -545,6 +546,14 @@ Package minitoc Info: I0033
 (minitoc)             Writing ProjectReport.mtc11.
 \openout3 = `ProjectReport.mtc11'.
 
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc12.
+\openout3 = `ProjectReport.mtc12'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc13.
+\openout3 = `ProjectReport.mtc13'.
+
  [3] [4
 
 ]
@@ -678,7 +687,7 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
 
-[17] <PrelimStudy/cbrCycle.png, id=759, 282.05376pt x 309.155pt>
+[17] <PrelimStudy/cbrCycle.png, id=782, 282.05376pt x 309.155pt>
 File: PrelimStudy/cbrCycle.png Graphic file (type png)
 
 <use PrelimStudy/cbrCycle.png> [18] [19 <./PrelimStudy/cbrCycle.png>]
@@ -687,7 +696,7 @@ Missing character: There is no Õ in font cmr10!
 
 LaTeX Warning: Reference `waterfall' on page 21 undefined on input line 106.
 
-[21] <PrelimStudy/workflow.png, id=785, 476.78125pt x 341.275pt>
+[21] <PrelimStudy/workflow.png, id=807, 476.78125pt x 341.275pt>
 File: PrelimStudy/workflow.png Graphic file (type png)
 
 <use PrelimStudy/workflow.png> [22 <./PrelimStudy/workflow.png>]) [23]
@@ -726,7 +735,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--133
  []
 
 [28] [29] [30] [31] [32] [33]
-<PlanReport/DetailedPlan.pdf, id=858, page=1, 597.23125pt x 845.1575pt>
+<PlanReport/DetailedPlan.pdf, id=881, page=1, 597.23125pt x 845.1575pt>
 File: PlanReport/DetailedPlan.pdf Graphic file (type pdf)
 
 <use PlanReport/DetailedPlan.pdf, page 1>
@@ -770,7 +779,7 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¥ in font cmr10!
 Missing character: There is no ¥ in font cmr10!
- <DesignReport/uml/flowchart.png, id=937, 789.95125pt x 451.6875pt>
+ <DesignReport/uml/flowchart.png, id=959, 789.95125pt x 451.6875pt>
 File: DesignReport/uml/flowchart.png Graphic file (type png)
 
 <use DesignReport/uml/flowchart.png> [39] [40 <./DesignReport/uml/flowchart.png
@@ -814,7 +823,7 @@ Missing character: There is no Ó in font cmr10!
  [47]
 File: DesignReport/uml/flowchart.png Graphic file (type png)
  <use DesignReport/uml/flowchart.png>
-<DesignReport/uml/Case.png, id=1000, 572.1375pt x 420.57124pt>
+<DesignReport/uml/Case.png, id=1022, 572.1375pt x 420.57124pt>
 File: DesignReport/uml/Case.png Graphic file (type png)
 
 <use DesignReport/uml/Case.png>
@@ -822,7 +831,7 @@ File: DesignReport/uml/Case.png Graphic file (type png)
 LaTeX Warning: Reference `DesignFlowChart' on page 48 undefined on input line 8
 3.
 
-[48] <DesignReport/uml/gio.png, id=1010, 1051.93pt x 655.44875pt>
+[48] <DesignReport/uml/gio.png, id=1032, 1051.93pt x 655.44875pt>
 File: DesignReport/uml/gio.png Graphic file (type png)
 
 <use DesignReport/uml/gio.png> [49] [50 <./DesignReport/uml/Case.png>])
@@ -924,14 +933,14 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 ./Documentation/DocumentationReport.tex:67: Missing $ inserted.
 <inserted text> 
                 $
-l.67 ...tabase from a directory \texttt{./P3P_Dir}
+l.67 ...database from a directory \texttt{P3P_Dir}
                                                    holding P3P files, Privacy
 ? s
 OK, entering \scrollmode...
 ./Documentation/DocumentationReport.tex:67: Extra }, or forgotten $.
 <recently read> \egroup 
                         
-l.67 ...tabase from a directory \texttt{./P3P_Dir}
+l.67 ...database from a directory \texttt{P3P_Dir}
                                                    holding P3P files, Privacy
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -942,16 +951,16 @@ deleted material, e.g., by typing `I$}'.
 ./Documentation/DocumentationReport.tex:70: Missing $ inserted.
 <inserted text> 
                 $
-l.70   --p3pDirLocation = ./P3P_Dir}
-                                    .
+l.70   --p3pDirLocation = P3P_Dir}
+                                  .
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ./Documentation/DocumentationReport.tex:70: Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.70   --p3pDirLocation = ./P3P_Dir}
-                                    .
+l.70   --p3pDirLocation = P3P_Dir}
+                                  .
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -961,8 +970,8 @@ deleted material, e.g., by typing `I$}'.
 ./Documentation/DocumentationReport.tex:70: Extra }, or forgotten $.
 \nfss@text #1->{\mbox {#1}}
                            
-l.70   --p3pDirLocation = ./P3P_Dir}
-                                    .
+l.70   --p3pDirLocation = P3P_Dir}
+                                  .
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
@@ -1036,15 +1045,15 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (283.65523pt too wide) in paragraph at lines 67--76
+Overfull \hbox (272.30992pt too wide) in paragraph at lines 67--76
 \OT1/cmr/bx/n/10.95 CLI\OT1/cmr/m/n/10.95 : To build a new database from a di-r
-ec-tory \OT1/cmtt/m/n/10.95 ./P3P$[]\OML/cmm/m/it/10.95 irholdingP\OT1/cmr/m/n/
-10.95 3\OML/cmm/m/it/10.95 Pfiles; PrivacyAdvisorcanbecalledfromthecommandlinei
-nthefollowingfashion \OT1/cmr/m/n/10.95 :
+ec-tory \OT1/cmtt/m/n/10.95 P3P$[]\OML/cmm/m/it/10.95 irholdingP\OT1/cmr/m/n/10
+.95 3\OML/cmm/m/it/10.95 Pfiles; PrivacyAdvisorcanbecalledfromthecommandlineint
+hefollowingfashion \OT1/cmr/m/n/10.95 :
  []
 
 
-Overfull \hbox (1232.70592pt too wide) in paragraph at lines 67--76
+Overfull \hbox (1209.71117pt too wide) in paragraph at lines 67--76
 []$ 
  []
 
@@ -1625,11 +1634,11 @@ Overfull \hbox (6.89565pt too wide) in paragraph at lines 93--96
 ver each phase of
  []
 
-<Evaluation/time_per_activity.png, id=1191, 757.83125pt x 372.39125pt>
+<Evaluation/time_per_activity.png, id=1213, 757.83125pt x 372.39125pt>
 File: Evaluation/time_per_activity.png Graphic file (type png)
 
 <use Evaluation/time_per_activity.png>
-<Evaluation/actual_v_planned_cuml.png, id=1192, 662.475pt x 372.39125pt>
+<Evaluation/actual_v_planned_cuml.png, id=1214, 662.475pt x 372.39125pt>
 File: Evaluation/actual_v_planned_cuml.png Graphic file (type png)
 
 <use Evaluation/actual_v_planned_cuml.png>
@@ -1701,602 +1710,60 @@ f the course \OT1/cmtt/m/it/10.95 TDT4290
 \openout2 = `Appendix/TestPlan.aux'.
 
 
-(./Appendix/TestPlan.tex
-\openout3 = `ProjectReport.mtc'.
+No file Appendix/TestPlan.tex.
+\openout2 = `Appendix/Templates.aux'.
 
-\openout3 = `ProjectReport.mtc'.
+(./Appendix/Templates.tex
+<Appendix/statusreportTemp.jpg, id=1255, 1803.73875pt x 1303.87125pt>
+File: Appendix/statusreportTemp.jpg Graphic file (type jpg)
 
+<use Appendix/statusreportTemp.jpg>
+<Appendix/meetingreportTemp.jpg, id=1256, 1915.155pt x 1872.9975pt>
+File: Appendix/meetingreportTemp.jpg Graphic file (type jpg)
 
-Overfull \hbox (30.0pt too wide) in paragraph at lines 8--8
-[][][]  
- []
-
-(./ProjectReport.mtc12)
-Overfull \hbox (30.0pt too wide) in paragraph at lines 8--8
-[][]  
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--19
-[]|\OT1/cmtt/m/n/10.95 Person
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]|\OT1/cmtt/m/n/10.95 Feature(s) to be
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-[]|\OT1/cmtt/m/n/10.95 That all possible commands are working correctly
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--20
-\OT1/cmtt/m/n/10.95 when using the CLI. That input with incompatible
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--21
-[]|\OT1/cmtt/m/n/10.95 Code for input handling for all possible
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--21
-\OT1/cmtt/m/n/10.95 commands. Code for error handling for invalid
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--22
-[]|\OT1/cmtt/m/n/10.95 1. Start the program with all possible commands.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--22
-\OT1/cmtt/m/n/10.95 2. Start the program with all possible
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--22
-\OT1/cmtt/m/n/10.95 combinations of incompatible commands. Run once
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--23
-[]|\OT1/cmtt/m/n/10.95 1. The program starts successfully, performing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--23
-\OT1/cmtt/m/n/10.95 2. The program aborts startup. Gives error
- []
-
-
+<use Appendix/meetingreportTemp.jpg>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [83
 
 
+
+
+ <./Appendix/statusreportTemp.jpg>] [84 <./Appendix/meetingreportTemp.jpg>]
+<Appendix/timereportTemp.jpg, id=1265, 816.80156pt x 234.1247pt>
+File: Appendix/timereportTemp.jpg Graphic file (type jpg)
+
+<use Appendix/timereportTemp.jpg>
+<Appendix/testplanTemp.jpg, id=1266, 1011.02719pt x 588.69937pt>
+File: Appendix/testplanTemp.jpg Graphic file (type jpg)
+
+<use Appendix/testplanTemp.jpg> [85 <./Appendix/timereportTemp.jpg> <./Appendix
+/testplanTemp.jpg>]
+<Appendix/javadocTemp.jpg, id=1271, 665.48625pt x 1514.65875pt>
+File: Appendix/javadocTemp.jpg Graphic file (type jpg)
+
+<use Appendix/javadocTemp.jpg>) [86 <./Appendix/javadocTemp.jpg>]
+\openout2 = `Appendix/Glossary.aux'.
+
+
+(./Appendix/Glossary.tex) [87
+
+
+
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 33--33
-[]|\OT1/cmtt/m/n/10.95 Person
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-[]|\OT1/cmtt/m/n/10.95 Feature(s) to be
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
-[]|\OT1/cmtt/m/n/10.95 That the P3P parser correctly parses all the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--35
-[]|\OT1/cmtt/m/n/10.95 The P3P parser must be implemented. Need to have
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-[]|\OT1/cmtt/m/n/10.95 1. Manually go through a P3P XML and obtain all
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-\OT1/cmtt/m/n/10.95 2. Run the same P3P XML in the P3P parser and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-\OT1/cmtt/m/n/10.95 print the parsed elements and their values to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
-\OT1/cmtt/m/n/10.95 3. Compare the results from the two parsing
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
-[]|\OT1/cmtt/m/n/10.95 1. All required fields and values are obtained
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
-\OT1/cmtt/m/n/10.95 2. The P3P XML is parsed successfully. Its
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
-\OT1/cmtt/m/n/10.95 3. The results are identical. The the two
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
-\OT1/cmtt/m/n/10.95 outputs on paper and in console have the same
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [84]
-Underfull \hbox (badness 10000) in paragraph at lines 48--48
-[]|\OT1/cmtt/m/n/10.95 Person
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
-[]|\OT1/cmtt/m/n/10.95 Feature(s) to be
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
-[]|\OT1/cmtt/m/n/10.95 Writing to and reading from the local database.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
-\OT1/cmtt/m/n/10.95 That the serialization of the database is
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
-[]|\OT1/cmtt/m/n/10.95 Code for writing to and reading from the database
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
-\OT1/cmtt/m/n/10.95 5. Compare the written policy A and the read
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
-\OT1/cmtt/m/n/10.95 6. Compare the written policy B and the read
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
-[]|\OT1/cmtt/m/n/10.95 1. Policy A is successfully written to the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
-\OT1/cmtt/m/n/10.95 2. Policy B is successfully written to the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
-\OT1/cmtt/m/n/10.95 3. Policy A is successfully read from the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
-\OT1/cmtt/m/n/10.95 4. Policy B is successfully read from the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
-\OT1/cmtt/m/n/10.95 5. The written policy A and the read policy A
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
-\OT1/cmtt/m/n/10.95 are identical. They both have the same fields,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
-\OT1/cmtt/m/n/10.95 6. The written policy B and the read policy B
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--52
-\OT1/cmtt/m/n/10.95 are identical. They both have the same fields,
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [85]
-Underfull \hbox (badness 10000) in paragraph at lines 62--62
-[]|\OT1/cmtt/m/n/10.95 Person
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 63--63
-[]|\OT1/cmtt/m/n/10.95 Feature(s) to be
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 63--63
-[]|\OT1/cmtt/m/n/10.95 That all the elements - buttons, lists etc. -
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--64
-[]|\OT1/cmtt/m/n/10.95 GUI with all the necessary listeners must be
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--64
-\OT1/cmtt/m/n/10.95 implemented. Code for running the program with
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--66
-\OT1/cmtt/m/n/10.95 2. All the elements are triggering the connected
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [86]
-Underfull \hbox (badness 10000) in paragraph at lines 76--76
-[]|\OT1/cmtt/m/n/10.95 Person
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 77--77
-[]|\OT1/cmtt/m/n/10.95 Feature(s) to be
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 77--77
-[]|\OT1/cmtt/m/n/10.95 That the k-nearest neighbor algorithm bases its
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 78--78
-[]|\OT1/cmtt/m/n/10.95 Code for reading from the weights file must
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 78--78
-\OT1/cmtt/m/n/10.95 be implemented. A working k-nearest neighbor
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 78--78
-\OT1/cmtt/m/n/10.95 algorithm that uses the weights must be
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 78--78
-\OT1/cmtt/m/n/10.95 implemented. Need one policy to test on, and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
-\OT1/cmtt/m/n/10.95 2. Run the distance algorithm on the single
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
-\OT1/cmtt/m/n/10.95 3. Manually calculate and write down the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
-\OT1/cmtt/m/n/10.95 distances between the single policy and each
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
-\OT1/cmtt/m/n/10.95 4. Compare the distances that are returned
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
-\OT1/cmtt/m/n/10.95 by the algorithm with the manually calculated
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
-\OT1/cmtt/m/n/10.95 5. Run the reduction algorithm with input to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
-\OT1/cmtt/m/n/10.95 6. Manually find the k policies with the lowest
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
-\OT1/cmtt/m/n/10.95 7. Compare the policies returned by the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-[]|\OT1/cmtt/m/n/10.95 1. The policies are successfully stored in the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-\OT1/cmtt/m/n/10.95 2. The distance algorithm runs successfully
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-\OT1/cmtt/m/n/10.95 for the chosen input, and returns the distances
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-\OT1/cmtt/m/n/10.95 between the single policy and each of the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-\OT1/cmtt/m/n/10.95 3. The distance between the single policy
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-\OT1/cmtt/m/n/10.95 and the policies in the database are found and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-\OT1/cmtt/m/n/10.95 4. The distances returned by the algorithm, and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-\OT1/cmtt/m/n/10.95 the respective distances calculated manually are
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-\OT1/cmtt/m/n/10.95 5. The reduction algorithm runs successfully
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-\OT1/cmtt/m/n/10.95 for the chosen input and returns the k nearest
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-\OT1/cmtt/m/n/10.95 6. The k nearest policies are found and written
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-\OT1/cmtt/m/n/10.95 7. The k policies returned by the reduction
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--80
-\OT1/cmtt/m/n/10.95 algorithm and the k policies found manually are
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [87]
-Overfull \vbox (145.42355pt too high) has occurred while \output is active []
-
-
-[88]
-Underfull \hbox (badness 10000) in paragraph at lines 90--90
-[]|\OT1/cmtt/m/n/10.95 Person
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 91--91
-[]|\OT1/cmtt/m/n/10.95 Feature(s) to be
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 91--91
-[]|\OT1/cmtt/m/n/10.95 That the weights file is updated when a new
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--92
-[]|\OT1/cmtt/m/n/10.95 Code for reading from and writing to the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--92
-\OT1/cmtt/m/n/10.95 weights file. Code for writing to the database.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--92
-\OT1/cmtt/m/n/10.95 Algorithms for classification and learning must
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--93
-[]|\OT1/cmtt/m/n/10.95 1. Obtain and write down the contents of the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--93
-\OT1/cmtt/m/n/10.95 3. Run the classification algorithm on the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--93
-\OT1/cmtt/m/n/10.95 6. Obtain and write down the contents of the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--93
-\OT1/cmtt/m/n/10.95 7. Compare the contents of the weights files
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-[]|\OT1/cmtt/m/n/10.95 1. The contents of the weights file is obtained
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-\OT1/cmtt/m/n/10.95 2. All the chosen policies are successfully
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-\OT1/cmtt/m/n/10.95 3. The algorithm classifies the new policy,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-\OT1/cmtt/m/n/10.95 gives a recommendation on what action to take,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-\OT1/cmtt/m/n/10.95 and asks the user if the recommendation is
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-\OT1/cmtt/m/n/10.95 4. The user is asked whether to save the new
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-\OT1/cmtt/m/n/10.95 5. The new policy is successfully written to the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-\OT1/cmtt/m/n/10.95 6. The contents of the weights file is obtained
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-\OT1/cmtt/m/n/10.95 7. At least one of the fields in the weights
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-\OT1/cmtt/m/n/10.95 files obtained from steps 1. and 6. are
- []
-
-
-Overfull \vbox (9.4235pt too high) has occurred while \output is active []
-
-
-[89]
-Underfull \hbox (badness 10000) in paragraph at lines 102--102
-[]|\OT1/cmtt/m/n/10.95 Packet passing through network to community
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 104--104
-[]|\OT1/cmtt/m/n/10.95 Person
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--105
-[]|\OT1/cmtt/m/n/10.95 Feature(s) to be
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--105
-[]|\OT1/cmtt/m/n/10.95 That packets can be sent between the client
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--106
-[]|\OT1/cmtt/m/n/10.95 A running local client. A (virtual) server.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 106--106
-\OT1/cmtt/m/n/10.95 Code for sending and receiving packets must be
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\OT1/cmtt/m/n/10.95 3. Send policy A from the local client to the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\OT1/cmtt/m/n/10.95 4. Receive packet A at the (virtual) server.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\OT1/cmtt/m/n/10.95 5. Compare the sent policy A and the received
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\OT1/cmtt/m/n/10.95 6. Send policy B from the (virtual) server to
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\OT1/cmtt/m/n/10.95 7. Receive policy B at the local client. Print
- []
+\openout2 = `Appendix/References.aux'.
 
+ (./Appendix/References.tex [88
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--107
-\OT1/cmtt/m/n/10.95 8. Compare the sent policy B and the received
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
-\OT1/cmtt/m/n/10.95 3. Policy A is sent to the server. Its contents
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
-\OT1/cmtt/m/n/10.95 4. Policy A is received at the (virtual) server.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
-\OT1/cmtt/m/n/10.95 5. The contents of the sent policy A and the
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
-\OT1/cmtt/m/n/10.95 6. Policy B is sent to the local client. Its
- []
-
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
-\OT1/cmtt/m/n/10.95 7. Policy B is received at the local client.
- []
-
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
-\OT1/cmtt/m/n/10.95 8. The contents of the sent policy B and the
+]
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
+[]\OT1/cmtt/m/n/10.95 Leslie Lamport, \OT1/cmtt/m/it/10.95 L[]T[]X: A Document 
+Preparation System\OT1/cmtt/m/n/10.95 . Addison Wesley,
  []
-
-
-Overfull \vbox (9.4235pt too high) has occurred while \output is active []
-
 
-[90]
+) [89]
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the ProjectReport.maf file.
@@ -2308,18 +1775,19 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the ProjectReport.log file.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 112.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 112.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 153.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
 (./ProjectReport.aux (./ProjectDirective/ProjectDirective.aux)
 (./PrelimStudy/PrelimReport.aux) (./PlanReport/PlanReport.aux)
 (./ReqSpec/ReqSpec.aux) (./DesignReport/DesignReport.aux)
 (./Implementation/ImplementationReport.aux)
 (./Documentation/DocumentationReport.aux) (./Testing/TestPlan.aux)
 (./Evaluation/Evaluation.aux) (./Conclusion/Conclusion.aux)
-(./Appendix/TestPlan.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 112.
+(./Appendix/TestPlan.aux) (./Appendix/Templates.aux) (./Appendix/Glossary.aux)
+(./Appendix/References.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 153.
 Package rerunfilecheck Info: File `ProjectReport.out' has not changed.
-(rerunfilecheck)             Checksum: 4695AA7242A9FFF569DE26CA4148917B;7191.
+(rerunfilecheck)             Checksum: B8640E866DA55991E6069AE903828736;7184.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2327,45 +1795,45 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
- ) )
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 67 ({)
-### bottom level
-(\end occurred when \iftrue on line 144 was incomplete)
-(\end occurred when \ifnum on line 144 was incomplete) 
+### bottom level 
 Here is how much of TeX's memory you used:
- 8909 strings out of 493747
- 128783 string characters out of 3143546
- 251079 words of memory out of 3000000
- 11393 multiletter control sequences out of 15000+200000
- 17973 words of font info for 69 fonts, out of 3000000 for 9000
+ 8977 strings out of 493747
+ 130246 string characters out of 3143546
+ 253297 words of memory out of 3000000
+ 11425 multiletter control sequences out of 15000+200000
+ 18141 words of font info for 70 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 44i,18n,47p,1708b,439s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2010/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2010/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2010/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2010/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/local/texlive/2010/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2010/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2010/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2010/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2010/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2010/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2010/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2010/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmti10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmti9.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/
-amsfonts/symbols/msbm10.pfb>
-Output written on ProjectReport.pdf (101 pages, 589711 bytes).
+ 44i,18n,47p,1708b,440s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmbx12.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx8.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmitt10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi8.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
+.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
+fb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
+sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/
+local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/l
+ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
+cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loc
+al/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local
+/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/
+texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/te
+xlive/2010/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on ProjectReport.pdf (100 pages, 1725461 bytes).
 PDF statistics:
- 1398 PDF objects out of 1440 (max. 8388607)
- 1238 compressed objects within 13 object streams
- 296 named destinations out of 1000 (max. 500000)
- 899 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1422 PDF objects out of 1440 (max. 8388607)
+ 1258 compressed objects within 13 object streams
+ 306 named destinations out of 1000 (max. 500000)
+ 924 words of extra memory for PDF output out of 10000 (max. 10000000)
 
