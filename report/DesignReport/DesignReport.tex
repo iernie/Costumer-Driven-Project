@@ -82,8 +82,12 @@ This section describes the architecture of the local CBR based system. The next 
 
 Figures~\ref{DesignFlowChart} and \ref{SystemOverview} illustrate the broad structure of the system; a policy object is passed to the CBR system from the user via the user interface. The CBR does a lookup on similar cases in the local database and makes a recommendation based on the similar cases and provides the user with the advice and the background for the advice through the user interface. The user can then give a feedback on the advice choosing to accept or reject it. The user feedback is then stored back to the database.
 
-\subsubsection{User Interface}
+\subsubsection{CLI and I/O}
 Privacy Advisor can be run using either a command line interface (CLI) or a graphical user interface (GUI). Both the CLI and the GUI are built on top of a "General Input/Output'' module, GIO. GIO creates the database objects and issues the proper commands to the CBR framework based on user input.
+
+%GIO Figure
+
+\subsubsection{GUI}
 
 \subsubsection{Weights and Configuration Files}
 As an addition to passing command line arguments, GIO also reads a text based configuration file containing CBR and database settings. The configuration files are detailed in the User Documentation in table~\ref{configTable}. 
@@ -95,6 +99,16 @@ The reduction algorithm searches the database to find the most similar cases to 
 
 Finally, a learning algorithm allows for automatically tuning the parameters used for distance calculations. This is discussed further in section~\ref{learnAlgos}.
 
+% comment reduction, learning, conclusion, KNN
+
+% add figure
+
+\subsubsection{P3P Policy Objects}
+%fig
+
+\subsubsection{P3P Policy Database}
+
+%fig
 
 \subsection{Interfaces}
 
@@ -115,6 +129,7 @@ Finally, a learning algorithm allows for automatically tuning the parameters use
 \label{UserIO}
 \end{center}
 \end{figure}
+
 
 
 
