@@ -126,35 +126,35 @@ public class Gio {
 
 		String[][] clolist= 
 			{
-				//{"variable/optionname", "has an arguement"- "true"/"false", "description"},
-				{"genConfig","true","general configuration file location"},
-				{"inWeightsLoc", "true", "input weights configuration file location"},
-				{"inDBLoc", "true", "input database file location"},
-				{"outWeightsLoc", "true", "output weights configuration file location"},
-				{"outDBLoc", "true", "output database file location"},
-				{"P3PLocation","true", "adding to DB: single policy file location"},
-				{"P3PDirLocation","true", "adding to DB: multiple policy directory location"},
-				{"newDB","true", "create new database in place of old one (doesn't check for existence of old one"},
-				{"newPolicyLoc","true", "the policy object to process"},
-				{"userResponse","true","response to specified policy"},
-				{"userIO","true","user interface"},
-				{"userInit","true","initialization via user interface"},
-				{"policyDB","true","PolicyDatabase backend"},
-				{"cbrV","true","CBR to use"},
-				{"blanketAccept","true","automatically accept the user suggestion"}, 
-				{"loglevel","true","level of things save to the log- see java logging details"},
-				{"policyDB","true","PolicyDatabase backend"},
-				{"networkRType","true","Network Resource type"},
-				{"networkROptions","true","Network Resource options"},
-				{"confidenceLevel","true","Confidence threshold for consulting a networked resource"},
-				{"useNet","true","use networking options"},
-				{"loglocation","true","where to save the log file"},
-				{"loglevel","true","the java logging level to use. See online documentation for enums."}
+				//{"variable/optionname", "description"},
+				{"genConfig","general configuration file location"},
+				{"inWeightsLoc", "input weights configuration file location"},
+				{"inDBLoc", "input database file location"},
+				{"outWeightsLoc", "output weights configuration file location"},
+				{"outDBLoc",  "output database file location"},
+				{"P3PLocation", "adding to DB: single policy file location"},
+				{"P3PDirLocation", "adding to DB: multiple policy directory location"},
+				{"newDB", "create new database in place of old one (doesn't check for existence of old one"},
+				{"newPolicyLoc", "the policy object to process"},
+				{"userResponse","response to specified policy"},
+				{"userIO","user interface"},
+				{"userInit","initialization via user interface"},
+				{"policyDB","PolicyDatabase backend"},
+				{"cbrV","CBR to use"},
+				{"blanketAccept","automatically accept the user suggestion"}, 
+				{"loglevel","level of things save to the log- see java logging details"},
+				{"policyDB","PolicyDatabase backend"},
+				{"networkRType","Network Resource type"},
+				{"networkROptions","Network Resource options"},
+				{"confidenceLevel","Confidence threshold for consulting a networked resource"},
+				{"useNet","use networking options"},
+				{"loglocation","where to save the log file"},
+				{"loglevel","the java logging level to use. See online documentation for enums."}
 			};
 
 		for(String[] i : clolist)
 		{
-			options.addOption(i[0], Boolean.parseBoolean(i[1]),i[2]);
+			options.addOption(i[0],true,i[1]);
 		}
 
 		CommandLineParser parser = new PosixParser();
