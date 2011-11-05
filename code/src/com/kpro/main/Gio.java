@@ -124,9 +124,9 @@ public class Gio {
 	{
 		Options options = new Options();
 
-//		System.err.println(genProps);
 		String[][] clolist= 
 			{
+				//{"variable/optionname", "has an arguement"- "true"/"false", "description"},
 				{"genConfig","true","general configuration file location"},
 				{"inWeightsLoc", "true", "input weights configuration file location"},
 				{"inDBLoc", "true", "input database file location"},
@@ -138,7 +138,7 @@ public class Gio {
 				{"newPolicyLoc","true", "the policy object to process"},
 				{"userResponse","true","response to specified policy"},
 				{"userIO","true","user interface"},
-				{"userInit","false","initialization via user interface"},
+				{"userInit","true","initialization via user interface"},
 				{"policyDB","true","PolicyDatabase backend"},
 				{"cbrV","true","CBR to use"},
 				{"blanketAccept","true","automatically accept the user suggestion"}, 
