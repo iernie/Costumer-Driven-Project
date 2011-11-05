@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  5 NOV 2011 11:38
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  5 NOV 2011 12:55
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -366,14 +366,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \c@example=\count113
 \c@warning=\count114
 
-(./ProjectReport.aux (./ProjectDirective/ProjectDirective.aux)
-(./PrelimStudy/PrelimReport.aux) (./PlanReport/PlanReport.aux)
-(./ReqSpec/ReqSpec.aux) (./DesignReport/DesignReport.aux)
-(./Implementation/ImplementationReport.aux)
-(./Documentation/DocumentationReport.aux) (./Testing/TestPlan.aux)
-(./Evaluation/Evaluation.aux) (./Conclusion/Conclusion.aux)
-(./Appendix/TestPlan.aux) (./Appendix/Templates.aux) (./Appendix/Glossary.aux)
-(./Appendix/References.aux))
+(./ProjectReport.aux)
 \openout1 = `ProjectReport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
@@ -479,12 +472,28 @@ LaTeX Info: Redefining \ref on input line 50.
 LaTeX Info: Redefining \pageref on input line 50.
 LaTeX Info: Redefining \nameref on input line 50.
 
-(./ProjectReport.out) (./ProjectReport.out)
+(./ProjectReport.out)
+Runaway argument?
+{Third Pa 
+./ProjectReport.tex:50: File ended while scanning use of \@@BOOKMARK.
+<inserted text> 
+                \par 
+l.50 \begin{document}
+                     
+? 
+(./ProjectReport.out)
+Runaway argument?
+{Third Pa 
+./ProjectReport.tex:50: File ended while scanning use of \@@BOOKMARK.
+<inserted text> 
+                \par 
+l.50 \begin{document}
+                     
+? 
 \@outlinefile=\write4
 \openout4 = `ProjectReport.out'.
 
 LaTeX Font Info:    Try loading font information for U+msa on input line 54.
-
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
@@ -501,85 +510,68 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ]
 Package minitoc Info: I0024
 (minitoc)             PREPARING MINITOCS FROM ProjectReport.toc on input line 7
-7.
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc1.
-\openout3 = `ProjectReport.mtc1'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc2.
-\openout3 = `ProjectReport.mtc2'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc3.
-\openout3 = `ProjectReport.mtc3'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc4.
-\openout3 = `ProjectReport.mtc4'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc5.
-\openout3 = `ProjectReport.mtc5'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc6.
-\openout3 = `ProjectReport.mtc6'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc7.
-\openout3 = `ProjectReport.mtc7'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc8.
-\openout3 = `ProjectReport.mtc8'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc9.
-\openout3 = `ProjectReport.mtc9'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc10.
-\openout3 = `ProjectReport.mtc10'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc11.
-\openout3 = `ProjectReport.mtc11'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc12.
-\openout3 = `ProjectReport.mtc12'.
-
-Package minitoc Info: I0033
-(minitoc)             Writing ProjectReport.mtc13.
-\openout3 = `ProjectReport.mtc13'.
-
+6.
  [3] [4
 
 ]
-(./ProjectReport.lot)
+
+Package hyperref Warning: old lot file detected, not used; run LaTeX again.
+
 \tf@lot=\write5
 \openout5 = `ProjectReport.lot'.
 
- [5] [6
+[5] [6
 
-] (./ProjectReport.lof)
+]
+
+Package hyperref Warning: old lof file detected, not used; run LaTeX again.
+
 \tf@lof=\write6
 \openout6 = `ProjectReport.lof'.
 
- [7] [8
+[7] [8
 
 ]
-(./ProjectReport.toc [9] [10] [11])
+
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+
 \tf@toc=\write7
 \openout7 = `ProjectReport.toc'.
 
- [1] [2
+[1] [2
 
 ]
-Overfull \hbox (11.28883pt too wide) in paragraph at lines 93--94
-[]\OT1/cmr/m/n/10.95 Finally, Part [][]III[][] de-scribes the test-ing and eval
--u-a-tion phase, and sum-ma-rizes the project. 
+
+LaTeX Warning: Reference `p1' on page 3 undefined on input line 88.
+
+
+LaTeX Warning: Reference `directive' on page 3 undefined on input line 88.
+
+
+LaTeX Warning: Reference `plan' on page 3 undefined on input line 88.
+
+
+LaTeX Warning: Reference `prelim' on page 3 undefined on input line 88.
+
+
+LaTeX Warning: Reference `p2' on page 3 undefined on input line 90.
+
+
+LaTeX Warning: Reference `reqspec' on page 3 undefined on input line 90.
+
+
+LaTeX Warning: Reference `design' on page 3 undefined on input line 90.
+
+
+LaTeX Warning: Reference `impl' on page 3 undefined on input line 90.
+
+
+LaTeX Warning: Reference `p3' on page 3 undefined on input line 92.
+
+
+Overfull \hbox (10.71204pt too wide) in paragraph at lines 92--93
+[]\OT1/cmr/m/n/10.95 Finally, Part [] de-scribes the test-ing and eval-u-a-tion
+ phase, and sum-ma-rizes the project. 
  []
 
 [3] [4
@@ -606,8 +598,14 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 
 
 ]
-Missing character: There is no ’ in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ø in font cmr10!
+Missing character: There is no Ω in font cmr10!
  [8]
+
+LaTeX Warning: Reference `orgTable' on page 9 undefined on input line 47.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 85--85
 []|\OT1/cmr/m/n/10.95 User doc-u-men-ta-
  []
@@ -687,23 +685,28 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
 
-[17] <PrelimStudy/cbrCycle.png, id=782, 282.05376pt x 309.155pt>
+[17] <PrelimStudy/cbrCycle.png, id=390, 282.05376pt x 309.155pt>
 File: PrelimStudy/cbrCycle.png Graphic file (type png)
 
 <use PrelimStudy/cbrCycle.png> [18] [19 <./PrelimStudy/cbrCycle.png>]
-Missing character: There is no ’ in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ø in font cmr10!
+Missing character: There is no Ω in font cmr10!
  [20]
 
 LaTeX Warning: Reference `waterfall' on page 21 undefined on input line 106.
 
-[21] <PrelimStudy/workflow.png, id=807, 476.78125pt x 341.275pt>
+[21] <PrelimStudy/workflow.png, id=415, 476.78125pt x 341.275pt>
 File: PrelimStudy/workflow.png Graphic file (type png)
 
-<use PrelimStudy/workflow.png> [22 <./PrelimStudy/workflow.png>]) [23]
+<use PrelimStudy/workflow.png> [22 <./PrelimStudy/workflow.png>]
+
+LaTeX Warning: Reference `workflow' on page 23 undefined on input line 120.
+
+) [23]
 \openout2 = `PlanReport/PlanReport.aux'.
 
-
-(./PlanReport/PlanReport.tex [24
+ (./PlanReport/PlanReport.tex [24
 
 
 
@@ -722,9 +725,18 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 10--10
 [][]  
  []
 
+
+LaTeX Warning: Reference `prelim' on page 25 undefined on input line 15.
+
 [25]
-Missing character: There is no ’ in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ø in font cmr10!
+Missing character: There is no Ω in font cmr10!
  [26]
+
+LaTeX Warning: Reference `riskTable' on page 27 undefined on input line 48.
+
+
 Underfull \hbox (badness 1102) in paragraph at lines 104--104
 []|\OT1/cmr/m/n/10.95 Clarify the re-quire-ments and agree on
  []
@@ -734,8 +746,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--133
 []|\OT1/cmr/m/n/10.95 Research on sim-i-lar al-go-rithms and
  []
 
-[28] [29] [30] [31] [32] [33]
-<PlanReport/DetailedPlan.pdf, id=881, page=1, 597.23125pt x 845.1575pt>
+[28] [29] [30] [31]
+
+LaTeX Warning: Reference `phases' on page 32 undefined on input line 352.
+
+[32] [33]
+<PlanReport/DetailedPlan.pdf, id=496, page=1, 597.23125pt x 845.1575pt>
 File: PlanReport/DetailedPlan.pdf Graphic file (type pdf)
 
 <use PlanReport/DetailedPlan.pdf, page 1>
@@ -776,10 +792,26 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 
 
 ] [38]
-Missing character: There is no • in font cmr10!
-Missing character: There is no • in font cmr10!
-Missing character: There is no • in font cmr10!
- <DesignReport/uml/flowchart.png, id=959, 789.95125pt x 451.6875pt>
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ø in font cmr10!
+Missing character: There is no Ω in font cmr10!
+
+
+LaTeX Warning: Reference `sysDesc' on page 39 undefined on input line 41.
+
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ø in font cmr10!
+Missing character: There is no Ω in font cmr10!
+
+LaTeX Warning: Reference `useCase' on page 39 undefined on input line 42.
+
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ø in font cmr10!
+Missing character: There is no Ω in font cmr10!
+
+LaTeX Warning: Reference `specRec' on page 39 undefined on input line 43.
+
+<DesignReport/uml/flowchart.png, id=572, 789.95125pt x 451.6875pt>
 File: DesignReport/uml/flowchart.png Graphic file (type png)
 
 <use DesignReport/uml/flowchart.png> [39] [40 <./DesignReport/uml/flowchart.png
@@ -793,6 +825,9 @@ ted, site re-jected
 Underfull \vbox (badness 1024) has occurred while \output is active []
 
  [41]
+
+LaTeX Warning: Reference `reqScope' on page 42 undefined on input line 96.
+
 [42] [43]) [44]
 \openout2 = `DesignReport/DesignReport.aux'.
 
@@ -816,14 +851,22 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 10--10
 
 
 ] [46]
-Missing character: There is no “ in font cmr10!
-Missing character: There is no ” in font cmr10!
-Missing character: There is no “ in font cmr10!
-Missing character: There is no ” in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ø in font cmr10!
+Missing character: There is no Ω in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ø in font cmr10!
+Missing character: There is no Ω in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ø in font cmr10!
+Missing character: There is no Ω in font cmr10!
+Missing character: There is no Ô in font cmr10!
+Missing character: There is no ø in font cmr10!
+Missing character: There is no Ω in font cmr10!
  [47]
 File: DesignReport/uml/flowchart.png Graphic file (type png)
  <use DesignReport/uml/flowchart.png>
-<DesignReport/uml/Case.png, id=1022, 572.1375pt x 420.57124pt>
+<DesignReport/uml/Case.png, id=641, 572.1375pt x 420.57124pt>
 File: DesignReport/uml/Case.png Graphic file (type png)
 
 <use DesignReport/uml/Case.png>
@@ -831,11 +874,25 @@ File: DesignReport/uml/Case.png Graphic file (type png)
 LaTeX Warning: Reference `DesignFlowChart' on page 48 undefined on input line 8
 3.
 
-[48] <DesignReport/uml/gio.png, id=1032, 1051.93pt x 655.44875pt>
+
+LaTeX Warning: Reference `SystemOverview' on page 48 undefined on input line 83
+.
+
+
+LaTeX Warning: Reference `configTable' on page 48 undefined on input line 93.
+
+[48]
+
+LaTeX Warning: Reference `kNN' on page 49 undefined on input line 98.
+
+
+LaTeX Warning: Reference `learnAlgos' on page 49 undefined on input line 100.
+
+[49] [50 <./DesignReport/uml/Case.png>]
+<DesignReport/uml/gio.png, id=661, 1051.93pt x 655.44875pt>
 File: DesignReport/uml/gio.png Graphic file (type png)
 
-<use DesignReport/uml/gio.png> [49] [50 <./DesignReport/uml/Case.png>])
-[51 <./DesignReport/uml/gio.png>] [52]
+<use DesignReport/uml/gio.png> [51 <./DesignReport/uml/gio.png>]) [52]
 \openout2 = `Implementation/ImplementationReport.aux'.
 
 
@@ -854,14 +911,15 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 13--13
 [][]  
  []
 
+
+LaTeX Warning: Reference `SimilarityMeasures' on page 53 undefined on input lin
+e 24.
+
 [53
 
 
 
-] [54] [55]
-Missing character: There is no √ in font cmr10!
-Missing character: There is no ï in font cmr10!
- [56]
+] [54] [55] [56]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
@@ -874,19 +932,13 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
-
-Overfull \hbox (7.82253pt too wide) in paragraph at lines 86--87
-[]\OT1/cmr/m/n/10.95 The weak-ness is that with-out weights it is more string c
-om-par-i-son then on-to-log-i-cal tree. 
- []
-
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
-[57]
+ [57]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [58])
@@ -912,6 +964,9 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 [][]  
  []
 
+
+LaTeX Warning: Reference `configTable' on page 61 undefined on input line 30.
+
 [61]
 Underfull \hbox (badness 10000) in paragraph at lines 44--44
 []|\OT1/cmr/m/n/10.95 are we over-writ-ing/ignoring an old
@@ -929,133 +984,6 @@ Overfull \hbox (7.667pt too wide) in paragraph at lines 35--61
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-./Documentation/DocumentationReport.tex:67: Missing $ inserted.
-<inserted text> 
-                $
-l.67 ...database from a directory \texttt{P3P_Dir}
-                                                   holding P3P files, Privacy
-? s
-OK, entering \scrollmode...
-./Documentation/DocumentationReport.tex:67: Extra }, or forgotten $.
-<recently read> \egroup 
-                        
-l.67 ...database from a directory \texttt{P3P_Dir}
-                                                   holding P3P files, Privacy
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./Documentation/DocumentationReport.tex:70: Missing $ inserted.
-<inserted text> 
-                $
-l.70   --p3pDirLocation = P3P_Dir}
-                                  .
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./Documentation/DocumentationReport.tex:70: Extra }, or forgotten $.
-\mbox #1->\leavevmode \hbox {#1}
-                                
-l.70   --p3pDirLocation = P3P_Dir}
-                                  .
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./Documentation/DocumentationReport.tex:70: Extra }, or forgotten $.
-\nfss@text #1->{\mbox {#1}}
-                           
-l.70   --p3pDirLocation = P3P_Dir}
-                                  .
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-./Documentation/DocumentationReport.tex:71: Missing $ inserted.
-<inserted text> 
-                $
-l.71 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 72.
-
-./Documentation/DocumentationReport.tex:76: LaTeX Error: Something's wrong--per
-haps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.76 \subsubsection
-                   {Loading and Viewing a Database}
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-./Documentation/DocumentationReport.tex:76: LaTeX Error: Something's wrong--per
-haps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.76 \subsubsection
-                   {Loading and Viewing a Database}
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-./Documentation/DocumentationReport.tex:76: Missing } inserted.
-<inserted text> 
-                }
-l.76 ...subsection{Loading and Viewing a Database}
-                                                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-./Documentation/DocumentationReport.tex:76: Missing $ inserted.
-<inserted text> 
-                $
-l.76 ...subsection{Loading and Viewing a Database}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-./Documentation/DocumentationReport.tex:76: Missing } inserted.
-<inserted text> 
-                }
-l.76 ...subsection{Loading and Viewing a Database}
-                                                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (272.30992pt too wide) in paragraph at lines 67--76
-\OT1/cmr/bx/n/10.95 CLI\OT1/cmr/m/n/10.95 : To build a new database from a di-r
-ec-tory \OT1/cmtt/m/n/10.95 P3P$[]\OML/cmm/m/it/10.95 irholdingP\OT1/cmr/m/n/10
-.95 3\OML/cmm/m/it/10.95 Pfiles; PrivacyAdvisorcanbecalledfromthecommandlineint
-hefollowingfashion \OT1/cmr/m/n/10.95 :
- []
-
-
-Overfull \hbox (1209.71117pt too wide) in paragraph at lines 67--76
-[]$ 
- []
 
 ) [62] [63] [64
 
@@ -1078,343 +1006,18 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 4--4
 [][]  
  []
 
-
-Overfull \hbox (24.14171pt too wide) in paragraph at lines 6--7
-\OT1/cmtt/m/n/10.95 This is the test plan for the "Privacy Advisor" application
- requested by SINTEF
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 6--7
-\OT1/cmtt/m/n/10.95 ICT. This test plan is based on IEEE829-1998, the IEEE stan
-dard for software
- []
-
-
-Overfull \hbox (29.8904pt too wide) in paragraph at lines 6--7
-\OT1/cmtt/m/n/10.95 test documentation, with some adaptions to fit this project
- better. The purpose
- []
-
-
-Overfull \hbox (35.63908pt too wide) in paragraph at lines 6--7
-\OT1/cmtt/m/n/10.95 of testing is find bugs and errors and correct them, and to
- make sure the program
- []
-
-
-Overfull \hbox (29.8904pt too wide) in paragraph at lines 6--7
-\OT1/cmtt/m/n/10.95 is working as expected. The purpose of this test plan is to
- make sure the tests
- []
-
-
-Overfull \hbox (18.39302pt too wide) in paragraph at lines 11--12
-\OT1/cmtt/m/n/10.95 There are two main types of software testing: black-box tes
-ting and white-box
- []
-
-
-Overfull \hbox (18.39302pt too wide) in paragraph at lines 14--15
-\OT1/cmtt/m/n/10.95 This is a method that test the functionality of an applicat
-ion. For this type
- []
-
-
-Overfull \hbox (35.63908pt too wide) in paragraph at lines 14--15
-\OT1/cmtt/m/n/10.95 of testing, knowledge about the application's code and stru
-cture is not required.
- []
-
-
-Overfull \hbox (75.8799pt too wide) in paragraph at lines 14--15
-\OT1/cmtt/m/n/10.95 The test cases are based on external descriptions of the so
-ftware, e.g. specifications,
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 14--15
-\OT1/cmtt/m/n/10.95 functional requirements or designs. Black-box tests are usu
-ally functional,
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 14--15
-\OT1/cmtt/m/n/10.95 but they can also be non-functional. This type of testing c
-an be applied to
- []
-
 [67
 
 
-]
-Overfull \hbox (1.14696pt too wide) in paragraph at lines 17--18
-\OT1/cmtt/m/n/10.95 This method is used for testing internal structures of an a
-pplication. For
- []
-
-
-Overfull \hbox (52.88515pt too wide) in paragraph at lines 17--18
-\OT1/cmtt/m/n/10.95 white-box testing it is required to have both knowledge abo
-ut the code and structure
- []
-
-
-Overfull \hbox (12.64433pt too wide) in paragraph at lines 17--18
-\OT1/cmtt/m/n/10.95 of the application, as well as knowledge about programming 
-to design the test
- []
-
-
-Overfull \hbox (12.64433pt too wide) in paragraph at lines 17--18
-\OT1/cmtt/m/n/10.95 cases. This type of testing is normally done at unit level 
-where it can test
- []
-
-
-Overfull \hbox (41.38777pt too wide) in paragraph at lines 17--18
-\OT1/cmtt/m/n/10.95 paths within a unit or paths between units, but it can also
- be used at integration
- []
-
-
-Overfull \hbox (29.8904pt too wide) in paragraph at lines 17--18
-\OT1/cmtt/m/n/10.95 and system levels of testing. This method can uncover many 
-errors and problems,
- []
-
-
-Overfull \hbox (41.38777pt too wide) in paragraph at lines 17--18
-\OT1/cmtt/m/n/10.95 but it is not a good test method for finding out whether th
-e program is fulfilling
- []
-
-
-Overfull \hbox (12.64433pt too wide) in paragraph at lines 20--21
-\OT1/cmtt/m/n/10.95 Our main focus will be on white-box testing. This is a prog
-ram that is going
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 20--21
-\OT1/cmtt/m/n/10.95 to be used for research, which means that black-box testing
- will not be very
- []
-
-
-Overfull \hbox (18.39302pt too wide) in paragraph at lines 20--21
-\OT1/cmtt/m/n/10.95 useful as the client want to work on and test algorithms th
-emselves. Our main
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 20--21
-\OT1/cmtt/m/n/10.95 task is to deliver a good framework with the necessary tool
-s, and a working,
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 20--21
-\OT1/cmtt/m/n/10.95 learning algorithm so that further testing can be done with
- ease. Since one
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 20--21
-\OT1/cmtt/m/n/10.95 of the system requirements is high modularity, it will be a
- goal to have the
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 20--21
-\OT1/cmtt/m/n/10.95 tests be as little dependent on other modules as possible. 
-There will be no
- []
-
-
-Overfull \hbox (45.76808pt too wide) in paragraph at lines 25--26
-[]\OT1/cmtt/m/n/10.95 Unit testing: This will be used for testing the functiona
-lity of the modules,
- []
-
-
-Overfull \hbox (34.2707pt too wide) in paragraph at lines 26--27
-[]\OT1/cmtt/m/n/10.95 Interface testing: As our algorithm is based on case-base
-d reasoning (CBR),
- []
-
-
-Overfull \hbox (11.27596pt too wide) in paragraph at lines 32--33
-[]\OT1/cmtt/m/n/10.95 Usability testing: This program is intended for further r
-esearch by the
- []
-
-
-Overfull \hbox (34.2707pt too wide) in paragraph at lines 32--33
-\OT1/cmtt/m/n/10.95 client, and not for use by customers. Since we are not deli
-vering a program
- []
-
-
-Overfull \hbox (34.2707pt too wide) in paragraph at lines 32--33
-\OT1/cmtt/m/n/10.95 ready for users, there is no need to perform end-user tests
- to see how users
- []
-
-
-Overfull \hbox (5.52727pt too wide) in paragraph at lines 32--33
-\OT1/cmtt/m/n/10.95 interact with the program, and whether the product is accep
-ted by users
- []
-
-[68]
-Overfull \hbox (11.27596pt too wide) in paragraph at lines 33--34
-[]\OT1/cmtt/m/n/10.95 Learning of our algorithm: For the same reasons we will n
-ot perform any
- []
-
-
-Overfull \hbox (22.77333pt too wide) in paragraph at lines 33--34
-\OT1/cmtt/m/n/10.95 tests on the quality of the GUIs. The GUIs that will be inc
-luded is there
- []
-
-
-Overfull \hbox (5.52727pt too wide) in paragraph at lines 33--34
-\OT1/cmtt/m/n/10.95 to make testing easier for the client, not to provide the b
-est possible
- []
-
-
-Overfull \hbox (22.77333pt too wide) in paragraph at lines 34--35
-[]\OT1/cmtt/m/n/10.95 Run time: We will not do designated tests for checking an
-d optimizing the
- []
-
-
-Overfull \hbox (22.77333pt too wide) in paragraph at lines 34--35
-\OT1/cmtt/m/n/10.95 run time. This is because the main classification algorithm
- can be easily
- []
-
-
-Overfull \hbox (5.52727pt too wide) in paragraph at lines 34--35
-\OT1/cmtt/m/n/10.95 changed. Run time will only be looked into if the program i
-s very slow
- []
-
-
-Overfull \hbox (41.38777pt too wide) in paragraph at lines 38--40
-\OT1/cmtt/m/n/10.95 Under is the test cases and their identifiers. The identifi
-ers are named UNIT-XX,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 63--63
-[]|\OT1/cmtt/m/n/10.95 Person
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 63--63
-[]|\OT1/cmtt/m/n/10.95 The person responsible for making sure the test
- []
-
-
+] [68]
 Underfull \hbox (badness 10000) in paragraph at lines 64--64
-[]|\OT1/cmtt/m/n/10.95 Feature(s) to be
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--65
-[]|\OT1/cmtt/m/n/10.95 What code and environment that has to be in place
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 67--67
-[]|\OT1/cmtt/m/n/10.95 The expected output/result for the test to be
+[]|\OT1/cmr/m/n/10.95 Feature(s) to be
  []
 
 [69]
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 75--76
-\OT1/cmtt/m/n/10.95 A test is passed if the given execution steps and input pro
-duce the expected
- []
-
-
-Overfull \hbox (13.9009pt too wide) in paragraph at lines 78--79
-\OT1/cmtt/m/n/10.95 Under is the table with the scheduled execution dates of th
-e unit tests. 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [70]
-Overfull \hbox (29.8904pt too wide) in paragraph at lines 95--96
-\OT1/cmtt/m/n/10.95 For some of the tests we will not be able to test every pos
-sible input / output.
- []
-
-
-Overfull \hbox (35.63908pt too wide) in paragraph at lines 95--96
-\OT1/cmtt/m/n/10.95 So there is a chance a test will pass for all the combinati
-ons we will be testing
- []
-
-
-Overfull \hbox (1.14696pt too wide) in paragraph at lines 95--96
-\OT1/cmtt/m/n/10.95 for a specific test case, but still fail at some later poin
-t for some other
- []
-
-
-Overfull \hbox (35.63908pt too wide) in paragraph at lines 95--96
-\OT1/cmtt/m/n/10.95 combination. This can be a problem for the tests UNIT-02 P3
-P parser, and UNIT-05
- []
-
-
-Overfull \hbox (29.8904pt too wide) in paragraph at lines 97--98
-[]\OT1/cmtt/m/n/10.95 The P3P policies have a huge variety in which elements th
-ey contain, and certain
- []
-
-
-Overfull \hbox (24.14171pt too wide) in paragraph at lines 97--98
-\OT1/cmtt/m/n/10.95 elements have a N-to-1 relation, so it will be impossible t
-o test if everything
- []
-
-
-Overfull \hbox (1.14696pt too wide) in paragraph at lines 97--98
-\OT1/cmtt/m/n/10.95 is parsed correctly for every possible P3P policy. The best
- way to prevent
- []
-
-
-Overfull \hbox (35.63908pt too wide) in paragraph at lines 97--98
-\OT1/cmtt/m/n/10.95 this is to handpick a set of policies that have as differen
-t content as possible,
- []
-
-)
-Overfull \hbox (29.8904pt too wide) in paragraph at lines 99--129
-[]\OT1/cmtt/m/n/10.95 We got the same issue for testing the algorithm classific
-ation. There is simply
- []
-
-
-Overfull \hbox (24.14171pt too wide) in paragraph at lines 99--129
-\OT1/cmtt/m/n/10.95 too many combinations of learning base and input to cover e
-verything. So again
- []
-
-
-Overfull \hbox (71.38777pt too wide) in paragraph at lines 99--129
-\OT1/cmtt/m/n/10.95 we have to do our best with regards to also covering as man
-y extremes as possible. 
- []
-
+ [70])
 [71]
 \openout2 = `Evaluation/Evaluation.aux'.
 
@@ -1438,272 +1041,41 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
  []
 
 
-Overfull \hbox (1.14696pt too wide) in paragraph at lines 11--14
-\OT1/cmtt/m/n/10.95 The final phase of the project consists of evaluating the a
-ctual outcome of
- []
-
-
-Overfull \hbox (12.64433pt too wide) in paragraph at lines 11--14
-\OT1/cmtt/m/n/10.95 the project work and the processes that have led to the out
-come. It seeks to
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 16.
-
-LaTeX Font Info:    No file OMScmtt.fd. on input line 16.
-
-LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbullet' on input line 16.
-
-
-Overfull \hbox (1.14696pt too wide) in paragraph at lines 28--33
-\OT1/cmtt/m/n/10.95 The project team was slightly heterogenous, with two intern
-ational students
- []
-
-
-Overfull \hbox (18.39302pt too wide) in paragraph at lines 28--33
-\OT1/cmtt/m/n/10.95 and the remaining seven Norwegian. For this reason, English
- was chosen as the
- []
-
-
-Overfull \hbox (1.14696pt too wide) in paragraph at lines 28--33
-\OT1/cmtt/m/n/10.95 offical language of the project. This may to some extent ha
-ve impacted the
- []
-
-
-Overfull \hbox (12.64433pt too wide) in paragraph at lines 28--33
-\OT1/cmtt/m/n/10.95 degree of participation of some team members during meeting
-s, and discussions
- []
-
-
-Underfull \vbox (badness 1337) has occurred while \output is active []
+Underfull \vbox (badness 2073) has occurred while \output is active []
 
  [73]
-Overfull \hbox (47.13646pt too wide) in paragraph at lines 38--41
-\OT1/cmtt/m/n/10.95 Referring to choices discussed in section [][]5.1[][], the 
-key software tools and languages
- []
 
-
-Overfull \hbox (41.38777pt too wide) in paragraph at lines 45--50
-\OT1/cmtt/m/n/10.95 The choice of programming language for the project was very
- much up to the project
- []
-
-
-Overfull \hbox (41.38777pt too wide) in paragraph at lines 45--50
-\OT1/cmtt/m/n/10.95 team as the customer had no particular preference, and the 
-project did not require
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 45--50
-\OT1/cmtt/m/n/10.95 anything beyond what is catered for by most general purpose
- languages. Java
- []
-
-
-Overfull \hbox (35.63908pt too wide) in paragraph at lines 45--50
-\OT1/cmtt/m/n/10.95 was therefore selected selected as implementation language 
-based on the following
- []
-
-
-Overfull \hbox (51.51677pt too wide) in paragraph at lines 52--54
-[]\OT1/cmtt/m/n/10.95 All team members had some previous experience in Java pro
-gramming from previous
- []
-
-
-Overfull \hbox (11.27596pt too wide) in paragraph at lines 54--56
-[]\OT1/cmtt/m/n/10.95 Good documentation and a large amount of third party libr
-aries available
- []
-
-
-Overfull \hbox (35.63908pt too wide) in paragraph at lines 58--65
-[]\OT1/cmtt/m/n/10.95 While all team members did have a Java programming backgr
-ound, there were clearly
- []
-
-
-Overfull \hbox (12.64433pt too wide) in paragraph at lines 58--65
-\OT1/cmtt/m/n/10.95 vast differences in skill levels. This was the cause of som
-e frustration and
- []
-
-
-Overfull \hbox (58.63383pt too wide) in paragraph at lines 58--65
-\OT1/cmtt/m/n/10.95 extra work. In retrospect, more time should have been spent
- on clarifying background
- []
-
-
-Overfull \hbox (24.14171pt too wide) in paragraph at lines 58--65
-\OT1/cmtt/m/n/10.95 and interests of each team member so as to better allocate 
-workload. Some will
- []
-
-
-Overfull \hbox (1.14696pt too wide) in paragraph at lines 58--65
-\OT1/cmtt/m/n/10.95 also argue that a more "light-weigh'' programming language,
- such as Python,
- []
-
-
-Overfull \hbox (48.39302pt too wide) in paragraph at lines 58--65
-\OT1/cmtt/m/n/10.95 would have been a better choice, even despite the lack of p
-revious experience. 
- []
-
-
-Overfull \hbox (24.14171pt too wide) in paragraph at lines 67--72
-\OT1/cmtt/m/n/10.95 Git and GitHub were chosen as version control system (VCS) 
-and code repository.
- []
-
-
-Overfull \hbox (18.39302pt too wide) in paragraph at lines 67--72
-\OT1/cmtt/m/n/10.95 Several team members had only marginal experience with VCSs
- and did not commit
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 67--72
-\OT1/cmtt/m/n/10.95 to learning this in a serious manner, which led to somewhat
- slow progress in
- []
-
-
-Overfull \hbox (12.64433pt too wide) in paragraph at lines 67--72
-\OT1/cmtt/m/n/10.95 the start. However, once these problems were resolved, it c
-an be agreed that
- []
+LaTeX Warning: Reference `DevTools' on page 74 undefined on input line 38.
 
 [74]
-Overfull \hbox (41.38777pt too wide) in paragraph at lines 75--78
-\OT1/cmtt/m/n/10.95 Google Docs was used as repository for all "temporary'' doc
-uments such as agendas,
- []
+
+LaTeX Warning: Reference `perActivity' on page 75 undefined on input line 93.
 
 
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 75--78
-\OT1/cmtt/m/n/10.95 status reports, drafts and so forth. All "major'' documents
- were typeset in
- []
+LaTeX Warning: Reference `actualPlannedCuml' on page 75 undefined on input line
+ 93.
 
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 83--89
-\OT1/cmtt/m/n/10.95 Being the de-facto typesetting system for academic writing,
- and the only one
- []
-
-
-Overfull \hbox (30.67177pt too wide) in paragraph at lines 83--89
-\OT1/cmtt/m/n/10.95 that some group members had experience with, L[]T[]Xwas cho
-sen for writing the final
- []
-
-
-Overfull \hbox (41.38777pt too wide) in paragraph at lines 83--89
-\OT1/cmtt/m/n/10.95 report as well as all phase documents. As with GitHub, thou
-gh to a lesser extent,
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 83--89
-\OT1/cmtt/m/n/10.95 there was a lack of commitment to learning by certain group
- members, causing
- []
-
-
-Overfull \hbox (1.14696pt too wide) in paragraph at lines 93--96
-\OT1/cmtt/m/n/10.95 Figures [][]9.8[][] and [][]9.9[][] illustrate the discrepa
-ncies between actual and planned
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 93--96
-\OT1/cmtt/m/n/10.95 time use on all activities, both cumulative over time and o
-ver each phase of
- []
-
-<Evaluation/time_per_activity.png, id=1213, 757.83125pt x 372.39125pt>
+<Evaluation/time_per_activity.png, id=871, 757.83125pt x 372.39125pt>
 File: Evaluation/time_per_activity.png Graphic file (type png)
 
 <use Evaluation/time_per_activity.png>
-<Evaluation/actual_v_planned_cuml.png, id=1214, 662.475pt x 372.39125pt>
+<Evaluation/actual_v_planned_cuml.png, id=872, 662.475pt x 372.39125pt>
 File: Evaluation/actual_v_planned_cuml.png Graphic file (type png)
 
 <use Evaluation/actual_v_planned_cuml.png>
-Overfull \hbox (1.14696pt too wide) in paragraph at lines 115--122
-\OT1/cmtt/m/n/10.95 Referring to the discussion in section [][]3.2[][], we can 
-state in retrospect that
- []
 
-
-Overfull \hbox (1.14696pt too wide) in paragraph at lines 115--122
-\OT1/cmtt/m/n/10.95 few of the risks we anticipated occurred, at least with maj
-or consequences.
- []
-
-
-Overfull \hbox (29.8904pt too wide) in paragraph at lines 115--122
-\OT1/cmtt/m/n/10.95 Some problems occurred building a P3P parser (risk item 3),
- causing some initial
- []
-
-
-Overfull \hbox (24.14171pt too wide) in paragraph at lines 115--122
-\OT1/cmtt/m/n/10.95 delays as it took longer time than anticipated to get the s
-ystem fully working.
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 115--122
-\OT1/cmtt/m/n/10.95 This problem was in part due to some unclear notions in the
- specification of
- []
+LaTeX Warning: Reference `riskReport' on page 75 undefined on input line 115.
 
 [75] [76 <./Evaluation/time_per_activity.png (PNG copy)> <./Evaluation/actual_v
-_planned_cuml.png (PNG copy)>]
-Overfull \hbox (12.64433pt too wide) in paragraph at lines 123--127
-[]\OT1/cmtt/m/n/10.95 Furthermore, the project has not proceded without any con
-flicts. While roles
- []
-
-
-Overfull \hbox (6.89565pt too wide) in paragraph at lines 123--127
-\OT1/cmtt/m/n/10.95 and responsibilities were agreed on early on in the project
- phase, it turned
- []
-
-
-Overfull \hbox (8.1522pt too wide) in paragraph at lines 123--127
-\OT1/cmtt/m/n/10.95 out that these assignments did not distribute the workload 
-very evenly. 
- []
-
-)
-Overfull \hbox (24.14171pt too wide) in paragraph at lines 131--133
-\OT1/cmtt/m/n/10.95 Finally, we include some notes on how well the objectives o
-f the course \OT1/cmtt/m/it/10.95 TDT4290
- []
-
-[77]
+_planned_cuml.png (PNG copy)>]) [77]
 \openout2 = `Conclusion/Conclusion.aux'.
 
  (./Conclusion/Conclusion.tex [78
 
 
 
-]) [79] [80
+])
+[79] [80
 
 
 ] [81] [82]
@@ -1714,11 +1086,11 @@ No file Appendix/TestPlan.tex.
 \openout2 = `Appendix/Templates.aux'.
 
 (./Appendix/Templates.tex
-<Appendix/statusreportTemp.jpg, id=1255, 1803.73875pt x 1303.87125pt>
+<Appendix/statusreportTemp.jpg, id=915, 1803.73875pt x 1303.87125pt>
 File: Appendix/statusreportTemp.jpg Graphic file (type jpg)
 
 <use Appendix/statusreportTemp.jpg>
-<Appendix/meetingreportTemp.jpg, id=1256, 1915.155pt x 1872.9975pt>
+<Appendix/meetingreportTemp.jpg, id=916, 1915.155pt x 1872.9975pt>
 File: Appendix/meetingreportTemp.jpg Graphic file (type jpg)
 
 <use Appendix/meetingreportTemp.jpg>
@@ -1730,16 +1102,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
  <./Appendix/statusreportTemp.jpg>] [84 <./Appendix/meetingreportTemp.jpg>]
-<Appendix/timereportTemp.jpg, id=1265, 816.80156pt x 234.1247pt>
+<Appendix/timereportTemp.jpg, id=931, 816.80156pt x 234.1247pt>
 File: Appendix/timereportTemp.jpg Graphic file (type jpg)
 
 <use Appendix/timereportTemp.jpg>
-<Appendix/testplanTemp.jpg, id=1266, 1011.02719pt x 588.69937pt>
+<Appendix/testplanTemp.jpg, id=932, 1011.02719pt x 588.69937pt>
 File: Appendix/testplanTemp.jpg Graphic file (type jpg)
 
 <use Appendix/testplanTemp.jpg> [85 <./Appendix/timereportTemp.jpg> <./Appendix
 /testplanTemp.jpg>]
-<Appendix/javadocTemp.jpg, id=1271, 665.48625pt x 1514.65875pt>
+<Appendix/javadocTemp.jpg, id=941, 665.48625pt x 1514.65875pt>
 File: Appendix/javadocTemp.jpg Graphic file (type jpg)
 
 <use Appendix/javadocTemp.jpg>) [86 <./Appendix/javadocTemp.jpg>]
@@ -1757,13 +1129,7 @@ File: Appendix/javadocTemp.jpg Graphic file (type jpg)
 
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 10--15
-[]\OT1/cmtt/m/n/10.95 Leslie Lamport, \OT1/cmtt/m/it/10.95 L[]T[]X: A Document 
-Preparation System\OT1/cmtt/m/n/10.95 . Addison Wesley,
- []
-
-) [89]
+]) [89]
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the ProjectReport.maf file.
@@ -1775,8 +1141,8 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the ProjectReport.log file.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 153.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 152.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 152.
 (./ProjectReport.aux (./ProjectDirective/ProjectDirective.aux)
 (./PrelimStudy/PrelimReport.aux) (./PlanReport/PlanReport.aux)
 (./ReqSpec/ReqSpec.aux) (./DesignReport/DesignReport.aux)
@@ -1785,55 +1151,53 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
 (./Evaluation/Evaluation.aux) (./Conclusion/Conclusion.aux)
 (./Appendix/TestPlan.aux) (./Appendix/Templates.aux) (./Appendix/Glossary.aux)
 (./Appendix/References.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 153.
-Package rerunfilecheck Info: File `ProjectReport.out' has not changed.
-(rerunfilecheck)             Checksum: B8640E866DA55991E6069AE903828736;7184.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 152.
 
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+Package rerunfilecheck Warning: File `ProjectReport.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
 
+Package rerunfilecheck Info: Checksums for `ProjectReport.out':
+(rerunfilecheck)             Before: E01DC318908F56CB1A51373FC1F9435C;4096
+(rerunfilecheck)             After:  30729133ECF0D2AB0298AAFABA90182B;7138.
 
 LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
- )
-(\end occurred inside a group at level 1)
-
-### simple group (level 1) entered at line 67 ({)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
- 8977 strings out of 493747
- 130246 string characters out of 3143546
- 253297 words of memory out of 3000000
- 11425 multiletter control sequences out of 15000+200000
- 18141 words of font info for 70 fonts, out of 3000000 for 9000
+ 8871 strings out of 493747
+ 128198 string characters out of 3143546
+ 245016 words of memory out of 3000000
+ 11357 multiletter control sequences out of 15000+200000
+ 17989 words of font info for 68 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 44i,18n,47p,1708b,440s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmbx8.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmitt10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi8.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
-.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
-fb></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb>
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
-sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/
-local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/l
-ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
-cal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loc
-al/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local
-/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/
-texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/te
-xlive/2010/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ProjectReport.pdf (100 pages, 1725461 bytes).
+ 44i,18n,47p,1708b,430s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
+usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
+sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
+/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
+ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
+al/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
+/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
+xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
+ve/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
+2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2
+010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
+10/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/201
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2010/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2010/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2010/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on ProjectReport.pdf (97 pages, 1706343 bytes).
 PDF statistics:
- 1422 PDF objects out of 1440 (max. 8388607)
- 1258 compressed objects within 13 object streams
- 306 named destinations out of 1000 (max. 500000)
- 924 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1092 PDF objects out of 1200 (max. 8388607)
+ 935 compressed objects within 10 object streams
+ 305 named destinations out of 1000 (max. 500000)
+ 540 words of extra memory for PDF output out of 10000 (max. 10000000)
 

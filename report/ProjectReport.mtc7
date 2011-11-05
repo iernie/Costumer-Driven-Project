@@ -1,16 +1,16 @@
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {6.1}Algorithms}{\reset@font\mtcSfont 54}{section.6.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {6.1.1}K-Nearest Neighbors}{\reset@font\mtcSSfont 54}{subsection.6.1.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Learning algorithms}{\reset@font\mtcSSSfont 54}{section*.37}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Learning algorithms}{\reset@font\mtcSSSfont 54}{section*.40}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {6.1.2}Distance Measures}{\reset@font\mtcSSfont 54}{subsection.6.1.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Definition}{\reset@font\mtcSSSfont 54}{section*.38}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Common Metrics}{\reset@font\mtcSSSfont 55}{section*.39}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Customer Advise}{\reset@font\mtcSSSfont 55}{section*.40}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Definition}{\reset@font\mtcSSSfont 54}{section*.41}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Common Metrics}{\reset@font\mtcSSSfont 55}{section*.42}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Customer Advise}{\reset@font\mtcSSSfont 55}{section*.43}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {6.1.3}Implementation}{\reset@font\mtcSSfont 56}{subsection.6.1.3}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Bitmap Representation}{\reset@font\mtcSSSfont 56}{section*.41}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Privacy Policy Representation}{\reset@font\mtcSSSfont 56}{section*.42}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Bitmap Distance}{\reset@font\mtcSSSfont 57}{section*.43}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Data-type-string similarity}{\reset@font\mtcSSSfont 57}{section*.44}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode  The global similarity }{\reset@font\mtcSSSfont 58}{section*.45}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Bitmap Representation}{\reset@font\mtcSSSfont 56}{section*.44}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Privacy Policy Representation}{\reset@font\mtcSSSfont 56}{section*.45}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Bitmap Distance}{\reset@font\mtcSSSfont 57}{section*.46}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Data-type-string similarity}{\reset@font\mtcSSSfont 57}{section*.47}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode  The global similarity }{\reset@font\mtcSSSfont 57}{section*.48}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {6.2}Data Storage}{\reset@font\mtcSfont 59}{section.6.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {6.2.1}Flat File Storage}{\reset@font\mtcSSfont 59}{subsection.6.2.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {6.2.2}Databases}{\reset@font\mtcSSfont 59}{subsection.6.2.2}}
