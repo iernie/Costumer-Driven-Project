@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.apache.http.impl.cookie.DateParseException;
+import org.apache.http.impl.cookie.DateUtils;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
 
@@ -148,12 +150,11 @@ public class P3PParser
 				} else {
 					String date = attributes.getValue("date");
 					if (date != null) {
-						SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz");
-						Date d = new Date();
+						Date d = null;
 						try {
-							d = format.parse(date);
-						} catch (ParseException e) {
-							e.printStackTrace();
+							d = DateUtils.parseDate(date);
+						} catch (DateParseException e) {
+							// Date is malformed
 						}
 						expiryDate = d;
 					}
