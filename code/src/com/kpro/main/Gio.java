@@ -142,7 +142,12 @@ public class Gio {
 				{"policyDB","true","PolicyDatabase backend"},
 				{"cbrV","true","CBR to use"},
 				{"blanketAccept","true","automatically accept the user suggestion"}, 
-				{"loglevel","true","level of things save to the log- see java logging details"}
+				{"loglevel","true","level of things save to the log- see java logging details"},
+				{"policyDB","true","PolicyDatabase backend"},
+				{"networkRType","true","Network Resource type"},
+				{"networkROptions","true","Network Resource options"},
+				{"confidenceLevel","true","Confidence threshold for consulting a networked resource"},
+				{"useNet","true","use networking options"}
 			};
 
 		for(String[] i : clolist)
