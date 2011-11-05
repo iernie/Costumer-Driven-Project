@@ -44,12 +44,13 @@ public class P3PParser
 		
 		// CONTEXT
 		private String url;
-		private Date accessTime, creationTime;
+		private Date accessTime, creationTime, expiryDate;
 		
 		// ACTION
 		private boolean accepted, userOverride;
 		private ArrayList<String> domains;
 		
+		// TAGS
 		private Boolean statementTag = false,
 						categoriesTag = false,
 						dataTag = false,
@@ -91,7 +92,13 @@ public class P3PParser
 	    		if(purposeTag)
 	    		{
 	    			try {
-	    			purpose.add(Purpose.valueOf(formattedTagName));
+	    				Purpose p = Purpose.valueOf(formattedTagName);
+	    				String attribute = attributes.getValue("required");
+	    				if(attribute != null
+	    						&& (attribute.equalsIgnoreCase("opt-in") || attributes.getValue(0).equalsIgnoreCase("opt-out"))) {
+	    					p.setOptional();
+	    				}
+	    				purpose.add(p);
 		    		} catch(IllegalArgumentException e) {
 	    				// SKIPPING
 	    			}
@@ -99,7 +106,13 @@ public class P3PParser
 	    		if(recipientTag)
 	    		{
 	    			try { 
-	    				recipients.add(Recipient.valueOf(formattedTagName));	    				
+	    				Recipient r = Recipient.valueOf(formattedTagName);
+	    				String attribute = attributes.getValue("required");
+	    				if(attribute != null
+	    						&& (attributes.getValue(0).equalsIgnoreCase("opt-in") || attributes.getValue(0).equalsIgnoreCase("opt-out"))) {
+	    					r.setOptional();
+	    				}
+	    				recipients.add(r);	    				
 	    			} catch(IllegalArgumentException e) {
 	    				// SKIPPING
 	    			}
@@ -107,7 +120,7 @@ public class P3PParser
 	    		if(retentionTag)
 	    		{
 	    			try {
-	    			retention.add(Retention.valueOf(formattedTagName));
+	    				retention.add(Retention.valueOf(formattedTagName));
 		    		} catch(IllegalArgumentException e) {
 	    				// SKIPPING
 	    			}
@@ -115,7 +128,7 @@ public class P3PParser
 	    		if(categoriesTag)
 	    		{
 	    			try {
-	    			categories.add(Category.valueOf(formattedTagName));
+	    				categories.add(Category.valueOf(formattedTagName));
 		    		} catch(IllegalArgumentException e) {
 	    				// SKIPPING
 	    			}
@@ -123,7 +136,29 @@ public class P3PParser
 	    	}
 	    	
 	    	// IF TAG IS TO BE FOUND, SET IT TO TRUE
-
+	    	
+	    	if(tagName.equalsIgnoreCase("expiry"))
+	    	{
+	    		String maxAge = attributes.getValue("max-age");
+	    		if (maxAge != null) {
+	    			long dateInMillis = System.currentTimeMillis() + ((long)Integer.parseInt(maxAge))*1000;
+	    			Date d = new Date();  
+	    			d.setTime(dateInMillis);
+	    			expiryDate = d;
+				} else {
+					String date = attributes.getValue("date");
+					if (date != null) {
+						SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz");
+						Date d = new Date();
+						try {
+							d = format.parse(date);
+						} catch (ParseException e) {
+							e.printStackTrace();
+						}
+						expiryDate = d;
+					}
+				}
+	    	}
 	    	if(tagName.equalsIgnoreCase("entity"))
 	    	{
 	    		entityTag = true;
@@ -279,6 +314,10 @@ public class P3PParser
 	    {
 	    	// IF TAG ENDS, SET IT TO FALSE
 	    	
+	    	if(tagName.equalsIgnoreCase("expiry"))
+	    	{
+	    		policy.getContext().setExpiryDate(expiryDate);
+	    	}
 	    	if(tagName.equalsIgnoreCase("entity"))
 	    	{
 	    		entityTag = false;
@@ -382,9 +421,9 @@ public class P3PParser
 		PolicyObject policy = new PolicyObject();
 		
         //policy = parser.parse("http://info.yahoo.com/privacy/w3c/p3p_policy.xml");
-        //policy = parser.parse("http://pages.ebay.com/w3c/p3p-policy.xml#policy");
+        policy = parser.parse("http://pages.ebay.com/w3c/p3p-policy.xml#policy");
 		//policy = parser.parse("http://www.microsoft.com/w3c/p3policy.xml");
-		policy = parser.parse("http://www.epicbytes.net/p3p.xml");
+		//policy = parser.parse("http://www.epicbytes.net/p3p.xml");
         policy.debug_print();
     }
 	*/

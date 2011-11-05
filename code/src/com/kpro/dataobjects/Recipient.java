@@ -12,4 +12,14 @@ public enum Recipient {
 	OTHER_RECIPIENT,
 	UNRELATED,
 	PUBLIC;
+	
+	private boolean optional = false;
+
+	public void setOptional() {
+		this.optional = true;
+	}
+
+	public boolean isOptional() {
+		return this.optional;
+	}
 }

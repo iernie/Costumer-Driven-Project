@@ -144,7 +144,15 @@ public class PolicyObject implements Serializable, Iterable<Case>
 		}
 		
 		System.out.println("\nCONTEXT");
-		System.out.println(context.getAccessTime());
+		try {
+			System.out.println("ACCESSED: " + context.getAccessTime().toString());			
+		} catch (NullPointerException e) {
+		}
+		try {
+			System.out.println("CREATED: " + context.getCreationTime().toString());			
+		} catch (NullPointerException e) {
+		}
+		System.out.println("EXPIRES: " + context.getExpiryDate().toString());			
 		
 		if(actionTaken != null)
 		{

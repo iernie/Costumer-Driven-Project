@@ -19,4 +19,14 @@ public enum Purpose {
 	TELEMARKETING,
 	OTHER_PURPOSE,
 	CUSTOMIZATION;
+	
+	private boolean optional = false;
+
+	public void setOptional() {
+		this.optional = true;
+	}
+
+	public boolean isOptional() {
+		return this.optional;
+	}
 }
