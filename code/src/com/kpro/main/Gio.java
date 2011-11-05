@@ -147,7 +147,9 @@ public class Gio {
 				{"networkRType","true","Network Resource type"},
 				{"networkROptions","true","Network Resource options"},
 				{"confidenceLevel","true","Confidence threshold for consulting a networked resource"},
-				{"useNet","true","use networking options"}
+				{"useNet","true","use networking options"},
+				{"loglocation","true","where to save the log file"},
+				{"loglevel","true","the java logging level to use. See online documentation for enums."}
 			};
 
 		for(String[] i : clolist)
