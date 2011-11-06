@@ -54,13 +54,13 @@
 \contentsline {section}{\numberline {4.3}System Description}{39}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}User Interface}{39}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Hardware and Software Interface}{39}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}User Characteristic}{40}{subsection.4.3.3}
-\contentsline {subsubsection}{Developers/Researchers}{40}{section*.21}
+\contentsline {subsection}{\numberline {4.3.3}User Characteristic}{41}{subsection.4.3.3}
+\contentsline {subsubsection}{Developers/Researchers}{41}{section*.21}
 \contentsline {subsubsection}{End Users}{41}{section*.22}
 \contentsline {section}{\numberline {4.4}Use Cases}{41}{section.4.4}
-\contentsline {section}{\numberline {4.5}Specific Requirements}{42}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Product perspective}{42}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Functional Requirements}{42}{subsection.4.5.2}
+\contentsline {section}{\numberline {4.5}Specific Requirements}{43}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Product perspective}{43}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Functional Requirements}{43}{subsection.4.5.2}
 \contentsline {subsection}{\numberline {4.5.3}Non-Functional Requirements}{43}{subsection.4.5.3}
 \contentsline {xpart}{Design and Implementation Phase}{37}{part.2}
 \contentsline {chapter}{Design}{45}{chapter*.27}
@@ -76,79 +76,79 @@
 \contentsline {section}{\numberline {5.3}Architecture}{48}{section.5.3}
 \contentsline {subsection}{\numberline {5.3.1}Design Overview}{48}{subsection.5.3.1}
 \contentsline {subsubsection}{CLI and I/O}{48}{section*.32}
-\contentsline {subsubsection}{GUI}{49}{section*.33}
-\contentsline {subsubsection}{Weights and Configuration Files}{49}{section*.34}
-\contentsline {subsubsection}{CBR}{49}{section*.35}
-\contentsline {subsubsection}{P3P Policy Objects}{51}{section*.36}
-\contentsline {subsubsection}{P3P Policy Database}{51}{section*.37}
-\contentsline {subsection}{\numberline {5.3.2}Interfaces}{51}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}Community Server}{51}{subsection.5.3.3}
-\contentsline {chapter}{Implementation}{53}{chapter*.38}
-\contentsline {section}{\numberline {6.1}Algorithms}{54}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}K-Nearest Neighbors}{54}{subsection.6.1.1}
-\contentsline {subsubsection}{Learning algorithms}{54}{section*.40}
-\contentsline {subsection}{\numberline {6.1.2}Distance Measures}{54}{subsection.6.1.2}
-\contentsline {subsubsection}{Definition}{54}{section*.41}
-\contentsline {subsubsection}{Common Metrics}{55}{section*.42}
-\contentsline {subsubsection}{Customer Advise}{55}{section*.43}
-\contentsline {subsection}{\numberline {6.1.3}Implementation}{56}{subsection.6.1.3}
-\contentsline {subsubsection}{Bitmap Representation}{56}{section*.44}
-\contentsline {subsubsection}{Privacy Policy Representation}{56}{section*.45}
-\contentsline {subsubsection}{Bitmap Distance}{57}{section*.46}
-\contentsline {subsubsection}{Data-type-string similarity}{57}{section*.47}
-\contentsline {subsubsection}{ The global similarity }{58}{section*.48}
-\contentsline {section}{\numberline {6.2}Data Storage}{59}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Flat File Storage}{59}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Databases}{59}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}User Interface}{59}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Model View Controller Architecture}{59}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Privacy Advisor Interface}{59}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}CLI}{59}{subsection.6.3.3}
-\contentsline {subsection}{\numberline {6.3.4}GUI}{59}{subsection.6.3.4}
-\contentsline {chapter}{Documentation}{61}{chapter*.49}
-\contentsline {section}{\numberline {7.1}Source Code Documentation}{61}{section.7.1}
-\contentsline {section}{\numberline {7.2}Installation}{62}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Local Installation}{62}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}Server Installation}{62}{subsection.7.2.2}
-\contentsline {section}{\numberline {7.3}User Interfaces}{62}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Graphical User Interface}{62}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Command Line Interface}{62}{subsection.7.3.2}
-\contentsline {subsubsection}{Configuration Files}{62}{section*.50}
-\contentsline {subsubsection}{Building a Database}{62}{section*.51}
-\contentsline {subsubsection}{Loading and Viewing a Database}{62}{section*.52}
-\contentsline {subsubsection}{Parsing a P3P Policy}{62}{section*.53}
-\contentsline {part}{III\hspace {1em}Testing, Evaluation and Summary}{65}{part.3}
-\contentsline {chapter}{Test Plan}{67}{chapter*.54}
-\contentsline {section}{\numberline {8.1}Test Methods}{67}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}Black-box testing}{68}{subsection.8.1.1}
-\contentsline {subsection}{\numberline {8.1.2}White-box testing}{68}{subsection.8.1.2}
-\contentsline {section}{\numberline {8.2}Testing approach}{68}{section.8.2}
-\contentsline {section}{\numberline {8.3}Test case overview}{69}{section.8.3}
-\contentsline {section}{\numberline {8.4}Test cases}{70}{section.8.4}
-\contentsline {section}{\numberline {8.5}Test pass / fail criteria}{70}{section.8.5}
-\contentsline {section}{\numberline {8.6}Test schedule}{70}{section.8.6}
-\contentsline {section}{\numberline {8.7}Risks and contingencies}{71}{section.8.7}
-\contentsline {xpart}{Testing, Evaluation and Summary}{67}{part.3}
-\contentsline {chapter}{Project Evaluation}{73}{chapter*.58}
-\contentsline {section}{\numberline {9.1}Software Evaluation}{74}{section.9.1}
-\contentsline {section}{\numberline {9.2}Group Dynamics and Organization}{74}{section.9.2}
-\contentsline {section}{\numberline {9.3}Tools}{74}{section.9.3}
-\contentsline {subsection}{\numberline {9.3.1}Programming and Implementation}{74}{subsection.9.3.1}
-\contentsline {subsubsection}{Java}{74}{section*.60}
-\contentsline {subsubsection}{Git/GitHub}{75}{section*.61}
-\contentsline {subsection}{\numberline {9.3.2}Reporting and Organizational Tools}{75}{subsection.9.3.2}
-\contentsline {subsubsection}{Google Docs}{75}{section*.62}
-\contentsline {subsubsection}{\LaTeX }{75}{section*.63}
-\contentsline {section}{\numberline {9.4}Resource Use}{75}{section.9.4}
-\contentsline {section}{\numberline {9.5}Risks that Occurred}{75}{section.9.5}
-\contentsline {section}{\numberline {9.6}Course Evaluation - TDT4290}{77}{section.9.6}
-\contentsline {chapter}{Conclusion}{79}{chapter*.64}
-\contentsline {part}{IV\hspace {1em}Appendices}{81}{part.4}
-\contentsline {chapter}{Templates}{83}{appendix*.65}
-\contentsline {subsection}{\numberline {A.0.1}Status Reports}{83}{subsection.A.0.1}
-\contentsline {subsection}{\numberline {A.0.2}Meeting Notes}{84}{subsection.A.0.2}
-\contentsline {subsection}{\numberline {A.0.3}Time Reporting}{85}{subsection.A.0.3}
-\contentsline {subsection}{\numberline {A.0.4}Test Plan}{85}{subsection.A.0.4}
-\contentsline {subsection}{\numberline {A.0.5}Java documentation}{86}{subsection.A.0.5}
-\contentsline {xpart}{Appendices}{83}{part.4}
-\contentsline {chapter}{Glossary}{87}{appendix*.66}
+\contentsline {subsubsection}{GUI}{51}{section*.33}
+\contentsline {subsubsection}{Weights and Configuration Files}{51}{section*.34}
+\contentsline {subsubsection}{CBR}{51}{section*.35}
+\contentsline {subsubsection}{P3P Policy Objects}{52}{section*.36}
+\contentsline {subsubsection}{P3P Policy Database}{52}{section*.37}
+\contentsline {subsection}{\numberline {5.3.2}Interfaces}{52}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Community Server}{52}{subsection.5.3.3}
+\contentsline {chapter}{Implementation}{55}{chapter*.38}
+\contentsline {section}{\numberline {6.1}Algorithms}{56}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}K-Nearest Neighbors}{56}{subsection.6.1.1}
+\contentsline {subsubsection}{Learning algorithms}{56}{section*.40}
+\contentsline {subsection}{\numberline {6.1.2}Distance Measures}{56}{subsection.6.1.2}
+\contentsline {subsubsection}{Definition}{56}{section*.41}
+\contentsline {subsubsection}{Common Metrics}{57}{section*.42}
+\contentsline {subsubsection}{Customer Advise}{57}{section*.43}
+\contentsline {subsection}{\numberline {6.1.3}Implementation}{58}{subsection.6.1.3}
+\contentsline {subsubsection}{Bitmap Representation}{58}{section*.44}
+\contentsline {subsubsection}{Privacy Policy Representation}{58}{section*.45}
+\contentsline {subsubsection}{Bitmap Distance}{59}{section*.46}
+\contentsline {subsubsection}{Data-type-string similarity}{59}{section*.47}
+\contentsline {subsubsection}{ The global similarity }{60}{section*.48}
+\contentsline {section}{\numberline {6.2}Data Storage}{61}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Flat File Storage}{61}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Databases}{61}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}User Interface}{61}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Model View Controller Architecture}{61}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Privacy Advisor Interface}{61}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}CLI}{61}{subsection.6.3.3}
+\contentsline {subsection}{\numberline {6.3.4}GUI}{61}{subsection.6.3.4}
+\contentsline {chapter}{Documentation}{63}{chapter*.49}
+\contentsline {section}{\numberline {7.1}Source Code Documentation}{63}{section.7.1}
+\contentsline {section}{\numberline {7.2}Installation}{64}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Local Installation}{64}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}Server Installation}{65}{subsection.7.2.2}
+\contentsline {section}{\numberline {7.3}User Interfaces}{65}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Graphical User Interface}{65}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Command Line Interface}{65}{subsection.7.3.2}
+\contentsline {subsubsection}{Configuration Files}{65}{section*.50}
+\contentsline {subsubsection}{Building a Database}{67}{section*.51}
+\contentsline {subsubsection}{Loading and Viewing a Database}{67}{section*.52}
+\contentsline {subsubsection}{Parsing a P3P Policy}{67}{section*.53}
+\contentsline {part}{III\hspace {1em}Testing, Evaluation and Summary}{69}{part.3}
+\contentsline {chapter}{Test Plan}{71}{chapter*.54}
+\contentsline {section}{\numberline {8.1}Test Methods}{71}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Black-box testing}{72}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}White-box testing}{72}{subsection.8.1.2}
+\contentsline {section}{\numberline {8.2}Testing approach}{72}{section.8.2}
+\contentsline {section}{\numberline {8.3}Test case overview}{73}{section.8.3}
+\contentsline {section}{\numberline {8.4}Test cases}{74}{section.8.4}
+\contentsline {section}{\numberline {8.5}Test pass / fail criteria}{74}{section.8.5}
+\contentsline {section}{\numberline {8.6}Test schedule}{74}{section.8.6}
+\contentsline {section}{\numberline {8.7}Risks and contingencies}{75}{section.8.7}
+\contentsline {xpart}{Testing, Evaluation and Summary}{71}{part.3}
+\contentsline {chapter}{Project Evaluation}{77}{chapter*.58}
+\contentsline {section}{\numberline {9.1}Software Evaluation}{78}{section.9.1}
+\contentsline {section}{\numberline {9.2}Group Dynamics and Organization}{78}{section.9.2}
+\contentsline {section}{\numberline {9.3}Tools}{78}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}Programming and Implementation}{78}{subsection.9.3.1}
+\contentsline {subsubsection}{Java}{78}{section*.60}
+\contentsline {subsubsection}{Git/GitHub}{79}{section*.61}
+\contentsline {subsection}{\numberline {9.3.2}Reporting and Organizational Tools}{79}{subsection.9.3.2}
+\contentsline {subsubsection}{Google Docs}{79}{section*.62}
+\contentsline {subsubsection}{\LaTeX }{79}{section*.63}
+\contentsline {section}{\numberline {9.4}Resource Use}{79}{section.9.4}
+\contentsline {section}{\numberline {9.5}Risks that Occurred}{79}{section.9.5}
+\contentsline {section}{\numberline {9.6}Course Evaluation - TDT4290}{81}{section.9.6}
+\contentsline {chapter}{Conclusion}{83}{chapter*.64}
+\contentsline {part}{IV\hspace {1em}Appendices}{85}{part.4}
+\contentsline {chapter}{Templates}{87}{appendix*.65}
+\contentsline {subsection}{\numberline {A.0.1}Status Reports}{87}{subsection.A.0.1}
+\contentsline {subsection}{\numberline {A.0.2}Meeting Notes}{88}{subsection.A.0.2}
+\contentsline {subsection}{\numberline {A.0.3}Time Reporting}{89}{subsection.A.0.3}
+\contentsline {subsection}{\numberline {A.0.4}Test Plan}{89}{subsection.A.0.4}
+\contentsline {subsection}{\numberline {A.0.5}Java documentation}{90}{subsection.A.0.5}
+\contentsline {xpart}{Appendices}{87}{part.4}
+\contentsline {chapter}{Glossary}{91}{appendix*.66}

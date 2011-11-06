@@ -17,28 +17,33 @@
 \contentsline {xchapter}{Design}{45}{chapter*.27}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Program Flow.}}{49}{figure.5.4}
 \contentsline {figure}{\numberline {5.5}{\ignorespaces System Overview.}}{50}{figure.5.5}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Input/output and user interfaces.}}{51}{figure.5.6}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces CBR System.}}{51}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Input/output and user interfaces.}}{52}{figure.5.7}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Implementation}{53}{chapter*.38}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Algorithm for similarity computation.}}{58}{figure.6.7}
+\contentsline {xchapter}{Implementation}{55}{chapter*.38}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Algorithm for similarity computation.}}{60}{figure.6.8}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Documentation}{61}{chapter*.49}
+\contentsline {xchapter}{Documentation}{63}{chapter*.49}
+\contentsline {figure}{\numberline {7.9}{\ignorespaces First step: right click and choose "export".}}{64}{figure.7.9}
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Second step: choose runnable jar.}}{65}{figure.7.10}
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Third step: choose launch config, destination and library handling.}}{66}{figure.7.11}
+\contentsline {figure}{\numberline {7.12}{\ignorespaces Run the program.}}{67}{figure.7.12}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Test Plan}{67}{chapter*.54}
-\contentsline {xpart}{Testing, Evaluation and Summary}{67}{part.3}
+\contentsline {xchapter}{Test Plan}{71}{chapter*.54}
+\contentsline {xpart}{Testing, Evaluation and Summary}{71}{part.3}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Project Evaluation}{73}{chapter*.58}
-\contentsline {figure}{\numberline {9.8}{\ignorespaces Actual vs. planned time. By project phase.}}{76}{figure.9.8}
-\contentsline {figure}{\numberline {9.9}{\ignorespaces Actual vs. planned time. Cumulative.}}{76}{figure.9.9}
+\contentsline {xchapter}{Project Evaluation}{77}{chapter*.58}
+\contentsline {figure}{\numberline {9.13}{\ignorespaces Actual vs. planned time. By project phase.}}{80}{figure.9.13}
+\contentsline {figure}{\numberline {9.14}{\ignorespaces Actual vs. planned time. Cumulative.}}{80}{figure.9.14}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Conclusion}{79}{chapter*.64}
+\contentsline {xchapter}{Conclusion}{83}{chapter*.64}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Templates}{83}{appendix*.65}
-\contentsline {figure}{\numberline {A.10}{\ignorespaces Status Report Template.}}{83}{figure.A.10}
-\contentsline {figure}{\numberline {A.11}{\ignorespaces Meeting Report Template.}}{84}{figure.A.11}
-\contentsline {figure}{\numberline {A.12}{\ignorespaces Time Report Template.}}{85}{figure.A.12}
-\contentsline {figure}{\numberline {A.13}{\ignorespaces Test Plan Template.}}{85}{figure.A.13}
-\contentsline {figure}{\numberline {A.14}{\ignorespaces Javadoc Template.}}{86}{figure.A.14}
-\contentsline {xpart}{Appendices}{83}{part.4}
+\contentsline {xchapter}{Templates}{87}{appendix*.65}
+\contentsline {figure}{\numberline {A.15}{\ignorespaces Status Report Template.}}{87}{figure.A.15}
+\contentsline {figure}{\numberline {A.16}{\ignorespaces Meeting Report Template.}}{88}{figure.A.16}
+\contentsline {figure}{\numberline {A.17}{\ignorespaces Time Report Template.}}{89}{figure.A.17}
+\contentsline {figure}{\numberline {A.18}{\ignorespaces Test Plan Template.}}{89}{figure.A.18}
+\contentsline {figure}{\numberline {A.19}{\ignorespaces Javadoc Template.}}{90}{figure.A.19}
+\contentsline {xpart}{Appendices}{87}{part.4}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Glossary}{87}{appendix*.66}
+\contentsline {xchapter}{Glossary}{91}{appendix*.66}
