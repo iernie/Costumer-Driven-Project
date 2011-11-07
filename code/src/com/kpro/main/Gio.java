@@ -5,7 +5,9 @@ import java.io.FileInputStream;		//for configuration file functionality and read
 import java.io.FileOutputStream;	//for writing the new weights config file
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.Properties;		//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
@@ -18,6 +20,7 @@ import com.kpro.parser.P3PParser;
 import com.kpro.dataobjects.*;
 import com.kpro.datastorage.*;
 import com.kpro.ui.*;
+import com.sun.tools.corba.se.idl.Factories;
 
 
 
@@ -216,8 +219,20 @@ public class Gio {
 	 * @return the policy database being used
 	 */
 	private void selectPDB(String optionValue) {
-		// TODO Add other PolicyDatabase classes, when other classes are made
-		pdb = PDatabase.getInstance(genProps.getProperty("inDBLoc"), genProps.getProperty("outDBLoc",genProps.getProperty("inDBLoc")));
+		System.out.println(optionValue);
+		try {
+			Class<?> cls = Class.forName("com.kpro.datastorage."+optionValue);
+			
+			Object[] argslist = new Object[2];
+			argslist[0] = genProps.getProperty("inDBLoc");
+			argslist[1] = genProps.getProperty("outDBLoc",genProps.getProperty("inDBLoc"));
+
+			Method[] factoryMethod = cls.getDeclaredMethods();
+			pdb = (PolicyDatabase) factoryMethod[0].invoke(null, argslist);
+		} catch (Exception e) {
+			System.err.println("Selected PolicyDatabase not found");
+		}
+
 		if(pdb==null)
 		{
 			System.err.println("pdb null in selectPDB");
@@ -399,14 +414,11 @@ public class Gio {
 			try
 			{
 				p = (new P3PParser()).parse(pLoc.getAbsolutePath());
-				if(p.getContext().getDomain()==null)
+				if(p.getContextDomain()==null)
 				{
-					if(p.getContext().getDomain()==null)
-					{
-						p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("p3pLocation")));
-					}
-					pdb.addPolicy(p);
+					p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("p3pLocation")));
 				}
+				pdb.addPolicy(p);
 			}
 			catch(Exception e)
 			{
