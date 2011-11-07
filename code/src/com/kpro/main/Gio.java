@@ -12,6 +12,7 @@ import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
 
 import com.kpro.algorithm.CBR;
+import com.kpro.algorithm.DistanceMetric;
 import com.kpro.parser.P3PParser;
 
 import com.kpro.dataobjects.*;
@@ -93,7 +94,7 @@ public class Gio {
 		logger = startLogger(genProps.getProperty("loglocation","./LOG.txt"),genProps.getProperty("loglevel","INFO"));
 		if(userInterface ==null)
 		{
-			selectUI(genProps.getProperty("UserIO"));
+			selectUI(genProps.getProperty("userIO"));
 		}
 		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")) && !(userInterface==null))
 		{
@@ -230,8 +231,12 @@ public class Gio {
 	 * @return the user interface to use
 	 */
 	private void selectUI(String optionValue) {
-		// TODO Add other UserIO classes, when other classes are made
-		userInterface = new UserIO_Simple();
+		try {
+			Class<?> cls = Class.forName("com.kpro.ui."+optionValue);
+			userInterface = (UserIO) cls.newInstance();
+		} catch (Exception e) {
+			System.err.println("Selected UserIO not found");
+		}
 	}
 
 
