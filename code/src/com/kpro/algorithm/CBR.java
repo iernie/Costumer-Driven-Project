@@ -132,13 +132,13 @@ public class CBR {
 
 		String[] algorithms = string.split(",");
 
-		int k = 1; //size for k in knn algorithm
+		int k = Integer.parseInt(algorithms[1].split(":")[1]);
 
 		Properties weightsConfig = theIO.loadWeights();
 		DistanceMetric dm = getDistanceMetricAlgorithm(algorithms[0], weightsConfig);
 		PolicyDatabase pdb = theIO.getPDB();
 
-		ReductionAlgorithm reductionAlgorithm = getReductionAlgorihm(algorithms[1], dm, pdb, k); //TODO fix to accept the k specified by options, not k=1 from above
+		ReductionAlgorithm reductionAlgorithm = getReductionAlgorihm(algorithms[1].split(":")[0], dm, pdb, k);
 		ConclusionAlgorithm conclusionAlgortihm = getConclusionAlgorihm(algorithms[2], dm);
 		LearnAlgorithm learnAlgorithm = getLearnAlgorihm(algorithms[3], weightsConfig);
 
