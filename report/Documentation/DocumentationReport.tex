@@ -16,6 +16,43 @@ The source code is documented using JavaDoc which is 	a tool that generates docu
 \section{Installation}
 
 \subsection{Local Installation}
+To make the program run outside of the Eclipse environment it have to be exported as a runnable jar file. This can be done by right clicking the project in eclipse, choose "Export", type in "jar" in the in the new windows that opened up and choose "Runnable Jar File", before clicking "next". These two steps are showed in the two figures \ref{exportFirstStep} and \ref{exportSecondStep}.
+
+\begin{centering}
+  \begin{figure}
+    \includegraphics{Documentation/export.png}
+    \caption{First step: right click and choose "export".}
+    \label{exportFirstStep}
+  \end{figure}
+\end{centering}
+
+\begin{centering}
+  \begin{figure}
+    \includegraphics{Documentation/export_jar.png}
+    \caption{Second step: choose runnable jar.}
+    \label{exportSecondStep}
+  \end{figure}
+\end{centering}
+
+Then we have to choose which classfile we want to be the main class, in the "Launch configuration" dropdown menu we can choose between the two classes PrivacyAdviser and PrivacyAdvisorGUI. The first one is choosen if we want to run the whole program froim the command line, and the second one if we want to use the GUI. Then choose the export destination, and "Package requires libraries into generated JAR" as the library handling. Pressing finish now should start exporting the program. These steps are shown in figure \ref{exportLastStep}.
+
+\begin{centering}
+  \begin{figure}
+    \includegraphics{Documentation/export_last.png}
+    \caption{Third step: choose launch config, destination and library handling.}
+    \label{exportLastStep}
+  \end{figure}
+\end{centering}
+
+Before running the program we have to put the PrivacyAdviser.cfg file in the same folder as the exported jar file. To run the program, open the command prompt and locate to the folder where the jar file is stored. Then write the command java -jar filename.jar, and now the program should start (even if it's the cli or gui version). This is show in figure \ref{runProgram}.
+
+\begin{centering}
+  \begin{figure}
+    \includegraphics{Documentation/run.png}
+    \caption{Run the program.}
+    \label{runProgram}
+  \end{figure}
+\end{centering}
 
 \subsection{Server Installation}
 
@@ -64,14 +101,16 @@ Table~\ref{configTable} gives an overview over the configuration file parameters
 
 \subsubsection{Building a Database}
 
-\textbf{CLI}: To build a new database from a directory \texttt{P3P_Dir} holding P3P files, Privacy
+\textbf{CLI}: To build a new database from a directory \texttt{P3PDir} holding P3P files, Privacy
 Advisor can be called from the command line in the following fashion:
-\texttt{PrivacyAdvisor --newDB = True --outDBLoc =new.db
-  --p3pDirLocation = P3P_Dir}.
+\texttt{PrivacyAdvisor -newDB  true -outDBLoc new.db
+  -p3pDirLocation P3PDir}.
 
 \textbf{GUI}: To build a new database in the similar fashion using the
 graphical user interface, the configuration window can be set up
 similarly to that illustrated in figure[XXXX].
+
+
 
 \subsubsection{Loading and Viewing a Database}
 

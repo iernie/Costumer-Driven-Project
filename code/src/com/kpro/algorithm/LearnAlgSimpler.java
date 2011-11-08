@@ -79,7 +79,7 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 		for(PolicyObject po : pdb.getCollection()){
 			//checks if the parameter object is in any of the cases in any of the policyobjects
 			for(Case c : po.getCases()){
-				if(!y){
+				if(!y && i.toString().length()>8){
 					for(Purpose p : c.getPurposes()){
 						//String compares the purposes from the config file, and the ones stored in the database
 						if(i.toString().substring(8).equals(p.toString())){
@@ -89,7 +89,7 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 						}
 					}
 				}
-				if(!y ){
+				if(!y && i.toString().length()>10){
 					for(Retention p : c.getRetentions()){
 						if(i.toString().substring(10).equals(p.toString())){
 							
@@ -98,7 +98,7 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 						}
 					}
 				}
-				if(!y){
+				if(!y && i.toString().length()>10){
 					for(Recipient p : c.getRecipients()){
 						if(i.toString().substring(10).equals(p.toString())){
 							y = true;

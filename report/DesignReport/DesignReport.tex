@@ -85,7 +85,13 @@ Figures~\ref{DesignFlowChart} and \ref{SystemOverview} illustrate the broad stru
 \subsubsection{CLI and I/O}
 Privacy Advisor can be run using either a command line interface (CLI) or a graphical user interface (GUI). Both the CLI and the GUI are built on top of a "General Input/Output'' module, GIO. GIO creates the database objects and issues the proper commands to the CBR framework based on user input.
 
-%GIO Figure
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width = \textwidth]{DesignReport/uml/gio.png}
+\caption{working of system.}
+\label{working of system}
+\end{center}
+\end{figure}
 
 \subsubsection{GUI}
 
@@ -99,16 +105,38 @@ The reduction algorithm searches the database to find the most similar cases to 
 
 Finally, a learning algorithm allows for automatically tuning the parameters used for distance calculations. This is discussed further in section~\ref{learnAlgos}.
 
+An overview of the CBR system is given in Figure~\ref{cbr_fig}...
 % comment reduction, learning, conclusion, KNN
 
-% add figure
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width = \textwidth]{DesignReport/uml/CBR.png}
+\caption{CBR System.}
+\label{cbr_fig}
+\end{center}
+\end{figure}
+
 
 \subsubsection{P3P Policy Objects}
-%fig
+
+begin{figure}[htbp]
+\begin{center}
+\includegraphics[width = \textwidth]{DesignReport/uml/po.png}
+\caption{Policy Object.}
+\label{po_fig}
+\end{center}
+\end{figure}
 
 \subsubsection{P3P Policy Database}
 
-%fig
+begin{figure}[htbp]
+\begin{center}
+\includegraphics[width = \textwidth]{DesignReport/uml/pd.png}
+\caption{Policy Database.}
+\label{pd_fig}
+\end{center}
+\end{figure}
 
 \subsection{Interfaces}
 
