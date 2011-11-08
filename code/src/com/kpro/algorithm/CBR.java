@@ -132,7 +132,7 @@ public class CBR {
 
 		String[] algorithms = string.split(",");
 
-		int k = 1; //size for k in knn algorithm
+		int k = 3; //size for k in knn algorithm
 
 		Properties weightsConfig = theIO.loadWeights();
 		DistanceMetric dm = getDistanceMetricAlgorithm(algorithms[0], weightsConfig);
