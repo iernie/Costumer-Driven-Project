@@ -25,10 +25,14 @@ are used to represent policies and how comparisons are done on these data struct
 
 For testing purposes, we have implemented a very simple kNN that sorts the example set (knowledge base) by distance from the object to be classified and returns the k nearest objects. This is obviously not an optimal approach being $O(n lg(n))$ where $n$ denotes the size of the knowledge base. This is not problematic for a small scale application such as ours where the knowledge contains less than 200 objects. If the system is to be scaled up, it would require a new kNN implementation, of which there are several available.
 
+
 \subsubsection{Learning algorithms}\label{learnAlgos}
 The learning algorithm updates the weighs that each property field is assigned in computing distances. The learning algorithm goes through the policies in the database and computes updated weights. The implemented learning algorithm is a simple one that for each weight goes through every policy and checks if it have been accepted or not. Then it returns the number of accepts divided by the number of policies for each weight.
 
 By updating the weights like this we make sure that the system to some degree learns what the user wants. Thus, hopefully the system would be able to make a different conclusion next time if the user didn't agree on the conclusion the system came up with this time.
+
+\subsection{Confidence Measure}\label{confidenceMeasure}
+%% maybe to be put in design
 
 \subsection{Distance Measures}\label{SimilarityMeasures}
 
