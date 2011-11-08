@@ -148,8 +148,8 @@ public class Gio {
 				{"blanketAccept","automatically accept the user suggestion"}, 
 				{"loglevel","level of things save to the log- see java logging details"},
 				{"policyDB","PolicyDatabase backend"},
-				{"networkRType","Network Resource type"},
-				{"networkROptions","Network Resource options"},
+				{"NetworkRType","Network Resource type"},
+				{"NetworkROptions","Network Resource options"},
 				{"confidenceLevel","Confidence threshold for consulting a networked resource"},
 				{"useNet","use networking options"},
 				{"loglocation","where to save the log file"},
@@ -174,19 +174,19 @@ public class Gio {
 			System.exit(3);
 		}
 
-//		for(String i : args)
-//		{
-//			System.err.println(i);
-//		}
+		for(String i : args)
+		{
+			System.err.println(i);
+	}
 		for(String[] i : clolist)
 		{
 			if(cmd.hasOption(i[0]))
 			{
-//				System.err.println("found option i: "+i);
+				System.err.println("found option i: "+i);
 				genProps.setProperty(i[0],cmd.getOptionValue(i[0]));
 			}
 		}
-//		System.err.println(genProps);
+		System.err.println(genProps);
 
 
 	}

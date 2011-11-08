@@ -1,0 +1,4 @@
+07.nov.2011 10:46:27 org.lightcouch.CouchDbClientBase$2 process
+INFO: >> GET / HTTP/1.1
+07.nov.2011 10:46:27 org.lightcouch.CouchDbClientBase$3 process
+INFO: << Status: 200

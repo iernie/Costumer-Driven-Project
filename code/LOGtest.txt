@@ -1,0 +1,8 @@
+07.nov.2011 09:38:44 org.lightcouch.CouchDbClientBase$2 process
+INFO: >> GET / HTTP/1.1
+07.nov.2011 09:38:44 org.lightcouch.CouchDbClientBase$3 process
+INFO: << Status: 200
+07.nov.2011 09:39:02 org.lightcouch.CouchDbClientBase$2 process
+INFO: >> PUT /privacydb/3800301b69e647e199dffd0dc648e57e HTTP/1.1
+07.nov.2011 09:39:02 org.lightcouch.CouchDbClientBase$3 process
+INFO: << Status: 201
