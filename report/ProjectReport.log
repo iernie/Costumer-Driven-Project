@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  5 NOV 2011 12:55
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  5 NOV 2011 13:21
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -366,7 +366,14 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \c@example=\count113
 \c@warning=\count114
 
-(./ProjectReport.aux)
+(./ProjectReport.aux (./ProjectDirective/ProjectDirective.aux)
+(./PrelimStudy/PrelimReport.aux) (./PlanReport/PlanReport.aux)
+(./ReqSpec/ReqSpec.aux) (./DesignReport/DesignReport.aux)
+(./Implementation/ImplementationReport.aux)
+(./Documentation/DocumentationReport.aux) (./Testing/TestPlan.aux)
+(./Evaluation/Evaluation.aux) (./Conclusion/Conclusion.aux)
+(./Appendix/TestPlan.aux) (./Appendix/Templates.aux) (./Appendix/Glossary.aux)
+(./Appendix/References.aux))
 \openout1 = `ProjectReport.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
@@ -472,28 +479,12 @@ LaTeX Info: Redefining \ref on input line 50.
 LaTeX Info: Redefining \pageref on input line 50.
 LaTeX Info: Redefining \nameref on input line 50.
 
-(./ProjectReport.out)
-Runaway argument?
-{Third Pa 
-./ProjectReport.tex:50: File ended while scanning use of \@@BOOKMARK.
-<inserted text> 
-                \par 
-l.50 \begin{document}
-                     
-? 
-(./ProjectReport.out)
-Runaway argument?
-{Third Pa 
-./ProjectReport.tex:50: File ended while scanning use of \@@BOOKMARK.
-<inserted text> 
-                \par 
-l.50 \begin{document}
-                     
-? 
+(./ProjectReport.out) (./ProjectReport.out)
 \@outlinefile=\write4
 \openout4 = `ProjectReport.out'.
 
 LaTeX Font Info:    Try loading font information for U+msa on input line 54.
+
 (/usr/local/texlive/2010/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
@@ -511,67 +502,84 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 Package minitoc Info: I0024
 (minitoc)             PREPARING MINITOCS FROM ProjectReport.toc on input line 7
 6.
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc1.
+\openout3 = `ProjectReport.mtc1'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc2.
+\openout3 = `ProjectReport.mtc2'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc3.
+\openout3 = `ProjectReport.mtc3'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc4.
+\openout3 = `ProjectReport.mtc4'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc5.
+\openout3 = `ProjectReport.mtc5'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc6.
+\openout3 = `ProjectReport.mtc6'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc7.
+\openout3 = `ProjectReport.mtc7'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc8.
+\openout3 = `ProjectReport.mtc8'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc9.
+\openout3 = `ProjectReport.mtc9'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc10.
+\openout3 = `ProjectReport.mtc10'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc11.
+\openout3 = `ProjectReport.mtc11'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc12.
+\openout3 = `ProjectReport.mtc12'.
+
+Package minitoc Info: I0033
+(minitoc)             Writing ProjectReport.mtc13.
+\openout3 = `ProjectReport.mtc13'.
+
  [3] [4
 
 ]
-
-Package hyperref Warning: old lot file detected, not used; run LaTeX again.
-
+(./ProjectReport.lot)
 \tf@lot=\write5
 \openout5 = `ProjectReport.lot'.
 
-[5] [6
+ [5] [6
 
-]
-
-Package hyperref Warning: old lof file detected, not used; run LaTeX again.
-
+] (./ProjectReport.lof)
 \tf@lof=\write6
 \openout6 = `ProjectReport.lof'.
 
-[7] [8
+ [7] [8
 
 ]
-
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
-
+(./ProjectReport.toc [9] [10] [11])
 \tf@toc=\write7
 \openout7 = `ProjectReport.toc'.
 
-[1] [2
+ [1] [2
 
 ]
-
-LaTeX Warning: Reference `p1' on page 3 undefined on input line 88.
-
-
-LaTeX Warning: Reference `directive' on page 3 undefined on input line 88.
-
-
-LaTeX Warning: Reference `plan' on page 3 undefined on input line 88.
-
-
-LaTeX Warning: Reference `prelim' on page 3 undefined on input line 88.
-
-
-LaTeX Warning: Reference `p2' on page 3 undefined on input line 90.
-
-
-LaTeX Warning: Reference `reqspec' on page 3 undefined on input line 90.
-
-
-LaTeX Warning: Reference `design' on page 3 undefined on input line 90.
-
-
-LaTeX Warning: Reference `impl' on page 3 undefined on input line 90.
-
-
-LaTeX Warning: Reference `p3' on page 3 undefined on input line 92.
-
-
-Overfull \hbox (10.71204pt too wide) in paragraph at lines 92--93
-[]\OT1/cmr/m/n/10.95 Finally, Part [] de-scribes the test-ing and eval-u-a-tion
- phase, and sum-ma-rizes the project. 
+Overfull \hbox (11.28883pt too wide) in paragraph at lines 92--93
+[]\OT1/cmr/m/n/10.95 Finally, Part [][]III[][] de-scribes the test-ing and eval
+-u-a-tion phase, and sum-ma-rizes the project. 
  []
 
 [3] [4
@@ -602,10 +610,6 @@ Missing character: There is no ï in font cmr10!
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no ½ in font cmr10!
  [8]
-
-LaTeX Warning: Reference `orgTable' on page 9 undefined on input line 47.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 85--85
 []|\OT1/cmr/m/n/10.95 User doc-u-men-ta-
  []
@@ -685,7 +689,7 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
 
-[17] <PrelimStudy/cbrCycle.png, id=390, 282.05376pt x 309.155pt>
+[17] <PrelimStudy/cbrCycle.png, id=777, 282.05376pt x 309.155pt>
 File: PrelimStudy/cbrCycle.png Graphic file (type png)
 
 <use PrelimStudy/cbrCycle.png> [18] [19 <./PrelimStudy/cbrCycle.png>]
@@ -696,17 +700,14 @@ Missing character: There is no ½ in font cmr10!
 
 LaTeX Warning: Reference `waterfall' on page 21 undefined on input line 106.
 
-[21] <PrelimStudy/workflow.png, id=415, 476.78125pt x 341.275pt>
+[21] <PrelimStudy/workflow.png, id=802, 476.78125pt x 341.275pt>
 File: PrelimStudy/workflow.png Graphic file (type png)
 
-<use PrelimStudy/workflow.png> [22 <./PrelimStudy/workflow.png>]
-
-LaTeX Warning: Reference `workflow' on page 23 undefined on input line 120.
-
-) [23]
+<use PrelimStudy/workflow.png> [22 <./PrelimStudy/workflow.png>]) [23]
 \openout2 = `PlanReport/PlanReport.aux'.
 
- (./PlanReport/PlanReport.tex [24
+
+(./PlanReport/PlanReport.tex [24
 
 
 
@@ -725,18 +726,11 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 10--10
 [][]  
  []
 
-
-LaTeX Warning: Reference `prelim' on page 25 undefined on input line 15.
-
 [25]
 Missing character: There is no ï in font cmr10!
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no ½ in font cmr10!
  [26]
-
-LaTeX Warning: Reference `riskTable' on page 27 undefined on input line 48.
-
-
 Underfull \hbox (badness 1102) in paragraph at lines 104--104
 []|\OT1/cmr/m/n/10.95 Clarify the re-quire-ments and agree on
  []
@@ -746,12 +740,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--133
 []|\OT1/cmr/m/n/10.95 Research on sim-i-lar al-go-rithms and
  []
 
-[28] [29] [30] [31]
-
-LaTeX Warning: Reference `phases' on page 32 undefined on input line 352.
-
-[32] [33]
-<PlanReport/DetailedPlan.pdf, id=496, page=1, 597.23125pt x 845.1575pt>
+[28] [29] [30] [31] [32] [33]
+<PlanReport/DetailedPlan.pdf, id=876, page=1, 597.23125pt x 845.1575pt>
 File: PlanReport/DetailedPlan.pdf Graphic file (type pdf)
 
 <use PlanReport/DetailedPlan.pdf, page 1>
@@ -795,38 +785,21 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 Missing character: There is no ï in font cmr10!
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no ½ in font cmr10!
-
-
-LaTeX Warning: Reference `sysDesc' on page 39 undefined on input line 41.
-
 Missing character: There is no ï in font cmr10!
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no ½ in font cmr10!
-
-LaTeX Warning: Reference `useCase' on page 39 undefined on input line 42.
-
 Missing character: There is no ï in font cmr10!
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no ½ in font cmr10!
-
-LaTeX Warning: Reference `specRec' on page 39 undefined on input line 43.
-
-<DesignReport/uml/flowchart.png, id=572, 789.95125pt x 451.6875pt>
+ <DesignReport/uml/flowchart.png, id=954, 503.8825pt x 462.72874pt>
 File: DesignReport/uml/flowchart.png Graphic file (type png)
 
 <use DesignReport/uml/flowchart.png> [39] [40 <./DesignReport/uml/flowchart.png
->]
+>] [41]
 Overfull \hbox (7.36899pt too wide) in paragraph at lines 84--84
 [][]\OT1/cmr/bx/n/12 Case 2: End user - lo-cal query, rec-om-men-da-tion ac-cep
 ted, site re-jected 
  []
-
-
-Underfull \vbox (badness 1024) has occurred while \output is active []
-
- [41]
-
-LaTeX Warning: Reference `reqScope' on page 42 undefined on input line 96.
 
 [42] [43]) [44]
 \openout2 = `DesignReport/DesignReport.aux'.
@@ -866,7 +839,7 @@ Missing character: There is no ½ in font cmr10!
  [47]
 File: DesignReport/uml/flowchart.png Graphic file (type png)
  <use DesignReport/uml/flowchart.png>
-<DesignReport/uml/Case.png, id=641, 572.1375pt x 420.57124pt>
+<DesignReport/uml/Case.png, id=1017, 597.23125pt x 413.545pt>
 File: DesignReport/uml/Case.png Graphic file (type png)
 
 <use DesignReport/uml/Case.png>
@@ -874,29 +847,26 @@ File: DesignReport/uml/Case.png Graphic file (type png)
 LaTeX Warning: Reference `DesignFlowChart' on page 48 undefined on input line 8
 3.
 
+[48] [49] [50 <./DesignReport/uml/Case.png>]
 
-LaTeX Warning: Reference `SystemOverview' on page 48 undefined on input line 83
-.
+LaTeX Warning: Reference `cbr_fig' on page 51 undefined on input line 102.
 
+<DesignReport/uml/CBR.png, id=1037, 1097.09875pt x 397.485pt>
+File: DesignReport/uml/CBR.png Graphic file (type png)
 
-LaTeX Warning: Reference `configTable' on page 48 undefined on input line 93.
-
-[48]
-
-LaTeX Warning: Reference `kNN' on page 49 undefined on input line 98.
-
-
-LaTeX Warning: Reference `learnAlgos' on page 49 undefined on input line 100.
-
-[49] [50 <./DesignReport/uml/Case.png>]
-<DesignReport/uml/gio.png, id=661, 1051.93pt x 655.44875pt>
+<use DesignReport/uml/CBR.png>
+<DesignReport/uml/gio.png, id=1038, 1092.08pt x 655.44875pt>
 File: DesignReport/uml/gio.png Graphic file (type png)
 
-<use DesignReport/uml/gio.png> [51 <./DesignReport/uml/gio.png>]) [52]
+<use DesignReport/uml/gio.png> [51 <./DesignReport/uml/CBR.png>]) [52 <./Design
+Report/uml/gio.png>] [53]
 \openout2 = `Implementation/ImplementationReport.aux'.
 
+ (./Implementation/ImplementationReport.tex [54
 
-(./Implementation/ImplementationReport.tex
+
+
+]
 \openout3 = `ProjectReport.mtc'.
 
 \openout3 = `ProjectReport.mtc'.
@@ -911,15 +881,7 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 13--13
 [][]  
  []
 
-
-LaTeX Warning: Reference `SimilarityMeasures' on page 53 undefined on input lin
-e 24.
-
-[53
-
-
-
-] [54] [55] [56]
+[55] [56] [57] [58]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
@@ -938,14 +900,14 @@ Missing character: There is no ™ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [57]
+ [59]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [58])
-[59]
+ [60])
+[61]
 \openout2 = `Documentation/DocumentationReport.aux'.
 
- (./Documentation/DocumentationReport.tex [60
+ (./Documentation/DocumentationReport.tex [62
 
 
 
@@ -964,10 +926,7 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 [][]  
  []
 
-
-LaTeX Warning: Reference `configTable' on page 61 undefined on input line 30.
-
-[61]
+[63]
 Underfull \hbox (badness 10000) in paragraph at lines 44--44
 []|\OT1/cmr/m/n/10.95 are we over-writ-ing/ignoring an old
  []
@@ -985,10 +944,10 @@ Overfull \hbox (7.667pt too wide) in paragraph at lines 35--61
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [62] [63] [64
+) [64] [65] [66
 
 
-] [65] [66]
+] [67] [68]
 \openout2 = `Testing/TestPlan.aux'.
 
  (./Testing/TestPlan.tex
@@ -1006,22 +965,22 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 4--4
 [][]  
  []
 
-[67
+[69
 
 
-] [68]
+] [70]
 Underfull \hbox (badness 10000) in paragraph at lines 64--64
 []|\OT1/cmr/m/n/10.95 Feature(s) to be
  []
 
-[69]
+[71]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [70])
-[71]
+ [72])
+[73]
 \openout2 = `Evaluation/Evaluation.aux'.
 
- (./Evaluation/Evaluation.tex [72
+ (./Evaluation/Evaluation.tex [74
 
 
 
@@ -1043,42 +1002,27 @@ Overfull \hbox (30.0pt too wide) in paragraph at lines 9--9
 
 Underfull \vbox (badness 2073) has occurred while \output is active []
 
- [73]
-
-LaTeX Warning: Reference `DevTools' on page 74 undefined on input line 38.
-
-[74]
-
-LaTeX Warning: Reference `perActivity' on page 75 undefined on input line 93.
-
-
-LaTeX Warning: Reference `actualPlannedCuml' on page 75 undefined on input line
- 93.
-
-<Evaluation/time_per_activity.png, id=871, 757.83125pt x 372.39125pt>
+ [75]
+[76] <Evaluation/time_per_activity.png, id=1223, 757.83125pt x 372.39125pt>
 File: Evaluation/time_per_activity.png Graphic file (type png)
 
 <use Evaluation/time_per_activity.png>
-<Evaluation/actual_v_planned_cuml.png, id=872, 662.475pt x 372.39125pt>
+<Evaluation/actual_v_planned_cuml.png, id=1224, 662.475pt x 372.39125pt>
 File: Evaluation/actual_v_planned_cuml.png Graphic file (type png)
 
-<use Evaluation/actual_v_planned_cuml.png>
-
-LaTeX Warning: Reference `riskReport' on page 75 undefined on input line 115.
-
-[75] [76 <./Evaluation/time_per_activity.png (PNG copy)> <./Evaluation/actual_v
-_planned_cuml.png (PNG copy)>]) [77]
+<use Evaluation/actual_v_planned_cuml.png> [77] [78 <./Evaluation/time_per_acti
+vity.png (PNG copy)> <./Evaluation/actual_v_planned_cuml.png (PNG copy)>])
+[79]
 \openout2 = `Conclusion/Conclusion.aux'.
 
- (./Conclusion/Conclusion.tex [78
+ (./Conclusion/Conclusion.tex [80
 
 
 
-])
-[79] [80
+]) [81] [82
 
 
-] [81] [82]
+] [83] [84]
 \openout2 = `Appendix/TestPlan.aux'.
 
 
@@ -1086,50 +1030,50 @@ No file Appendix/TestPlan.tex.
 \openout2 = `Appendix/Templates.aux'.
 
 (./Appendix/Templates.tex
-<Appendix/statusreportTemp.jpg, id=915, 1803.73875pt x 1303.87125pt>
+<Appendix/statusreportTemp.jpg, id=1264, 1803.73875pt x 1303.87125pt>
 File: Appendix/statusreportTemp.jpg Graphic file (type jpg)
 
 <use Appendix/statusreportTemp.jpg>
-<Appendix/meetingreportTemp.jpg, id=916, 1915.155pt x 1872.9975pt>
+<Appendix/meetingreportTemp.jpg, id=1265, 1915.155pt x 1872.9975pt>
 File: Appendix/meetingreportTemp.jpg Graphic file (type jpg)
 
 <use Appendix/meetingreportTemp.jpg>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [83
+ [85
 
 
 
 
- <./Appendix/statusreportTemp.jpg>] [84 <./Appendix/meetingreportTemp.jpg>]
-<Appendix/timereportTemp.jpg, id=931, 816.80156pt x 234.1247pt>
+ <./Appendix/statusreportTemp.jpg>] [86 <./Appendix/meetingreportTemp.jpg>]
+<Appendix/timereportTemp.jpg, id=1275, 816.80156pt x 234.1247pt>
 File: Appendix/timereportTemp.jpg Graphic file (type jpg)
 
 <use Appendix/timereportTemp.jpg>
-<Appendix/testplanTemp.jpg, id=932, 1011.02719pt x 588.69937pt>
+<Appendix/testplanTemp.jpg, id=1276, 1011.02719pt x 588.69937pt>
 File: Appendix/testplanTemp.jpg Graphic file (type jpg)
 
-<use Appendix/testplanTemp.jpg> [85 <./Appendix/timereportTemp.jpg> <./Appendix
+<use Appendix/testplanTemp.jpg> [87 <./Appendix/timereportTemp.jpg> <./Appendix
 /testplanTemp.jpg>]
-<Appendix/javadocTemp.jpg, id=941, 665.48625pt x 1514.65875pt>
+<Appendix/javadocTemp.jpg, id=1281, 665.48625pt x 1514.65875pt>
 File: Appendix/javadocTemp.jpg Graphic file (type jpg)
 
-<use Appendix/javadocTemp.jpg>) [86 <./Appendix/javadocTemp.jpg>]
+<use Appendix/javadocTemp.jpg>) [88 <./Appendix/javadocTemp.jpg>]
 \openout2 = `Appendix/Glossary.aux'.
 
 
-(./Appendix/Glossary.tex) [87
+(./Appendix/Glossary.tex) [89
 
 
 
 ]
 \openout2 = `Appendix/References.aux'.
 
- (./Appendix/References.tex [88
+ (./Appendix/References.tex [90
 
 
 
-]) [89]
+]) [91]
 Package minitoc Info: I0009
 (minitoc)             Listing minitoc auxiliary files. 
 (minitoc)             Creating the ProjectReport.maf file.
@@ -1152,15 +1096,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 152.
 (./Appendix/TestPlan.aux) (./Appendix/Templates.aux) (./Appendix/Glossary.aux)
 (./Appendix/References.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 152.
+Package rerunfilecheck Info: File `ProjectReport.out' has not changed.
+(rerunfilecheck)             Checksum: 30729133ECF0D2AB0298AAFABA90182B;7138.
 
-
-Package rerunfilecheck Warning: File `ProjectReport.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `ProjectReport.out':
-(rerunfilecheck)             Before: E01DC318908F56CB1A51373FC1F9435C;4096
-(rerunfilecheck)             After:  30729133ECF0D2AB0298AAFABA90182B;7138.
 
 LaTeX Warning: There were undefined references.
 
@@ -1169,35 +1107,44 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 8871 strings out of 493747
- 128198 string characters out of 3143546
- 245016 words of memory out of 3000000
- 11357 multiletter control sequences out of 15000+200000
+ 8981 strings out of 493747
+ 130328 string characters out of 3143546
+ 253331 words of memory out of 3000000
+ 11423 multiletter control sequences out of 15000+200000
  17989 words of font info for 68 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  44i,18n,47p,1708b,430s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
-usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
-al/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
-/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
-xlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texli
-ve/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
-2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2
-010/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
-10/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/201
-0/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2010/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2010/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2010/tex
-mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ProjectReport.pdf (97 pages, 1706343 bytes).
+pdfTeX warning (dest): name{figure.A.10} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.9.8} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.6.7} has been referenced but does not exist,
+ replaced by a fixed one
+
+</usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
+/usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
+usr/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></us
+r/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
+/local/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/l
+ocal/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
+al/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
+/texlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/t
+exlive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texl
+ive/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
+/2010/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/20
+10/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/201
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2010
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2010/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2010/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2010/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2010/texmf
+-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on ProjectReport.pdf (102 pages, 1741155 bytes).
 PDF statistics:
- 1092 PDF objects out of 1200 (max. 8388607)
- 935 compressed objects within 10 object streams
- 305 named destinations out of 1000 (max. 500000)
- 540 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1432 PDF objects out of 1440 (max. 8388607)
+ 1265 compressed objects within 13 object streams
+ 314 named destinations out of 1000 (max. 500000)
+ 921 words of extra memory for PDF output out of 10000 (max. 10000000)
 
