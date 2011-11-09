@@ -1,0 +1,473 @@
+\documentclass[a4paper]{article}
+
+\begin{document}
+
+\section{Testing documentation}
+\subsection{UNIT-01 - Command line interface functionality}
+	\begin{center}
+		\begin{tabular}{ |  p{3cm} | p{7cm} | }
+			\hline
+			Item & Description \\ [5pt] \hline \hline
+			Name & Command line interface (CLI) functionality \\  [5pt] \hline
+			Test identifier & UNIT-01 \\  [5pt] \hline
+			Person responsible & Henrik Knutsen \\  [5pt] \hline
+			Date of execution & October 27th \\  [5pt] \hline
+
+			Execution steps & 	\begin{enumerate}
+							\item Run the program for every type of argument
+							\item Run the program without arguments
+						\end{enumerate} \\ [5pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item
+							\begin{enumerate}
+								\item Run with -logloc logTest.txt
+								\item Run with -loglevel ALL
+								\item Run with -inDBLoc database.db
+								\item Run with -outDBLoc database.db
+								\item Run with -inWeightsLoc testWeights.cfg
+								\item Run with -outWeightsLoc testWeights.cfg
+								\item Run with -newDB false
+								\item Run with -p3pLocation ticketmaster1.xml
+								\item Run with -p3pDirLocation P3P
+								\item Run with -blanketAccept true
+								\item Run with -newPolicyLoc test.xml
+								\item Run with -userInit true
+								\item Run with -userResponse reject
+								%\item Run with -cbrV bitmapDistanceWisOne,Reduction_KNN,Conclusion_Simple,LearnAlgSimpler
+								%\item Run with -userIO UserIO_Simple
+								%\item Run with -policyDB PDatabase
+								%\item Run with -genConfig test.cfg
+								\item Run with -NetworkRType NRCouchdb
+								\item Run with -NetworkROptions privacydb,false,http,vm-6113.idi.ntnu.no,5984,PA,1234
+								\item Run with -confidenceLevel 1.5
+								\item Run with -useNet true
+							\end{enumerate}
+							\item Run the program without arguments
+						\end{enumerate} \\ [5pt] \hline
+			
+			Expected results & 	\begin{enumerate}
+							\item
+							\begin{enumerate}
+								\item Logfile is created at the specified filepath
+								\item loglevel is set to the specified value
+								\item inDBLoc is set to the specified value
+								\item outDBLoc is set to the specified value
+								\item inWeightsLoc is set to the specified filepath
+								\item outWeightsLoc is set to the specified filepath
+								\item newDB is set to false
+								\item p3pLocation is set to the specified filepath
+								item p3pDirLocation is set to the specified filepath
+								\item recommendation is automatically accepted
+								\item newPolicyLoc is set to the specified filepath
+								\item userInit is set to the specified value
+								%\item cbrV is set to the specified classes
+								%\item userIO is set to the specified class
+								%\item policyDB is set to the specified class
+								%\item genConfig is set to the specified filepath. Values of the specified config file are loaded
+								\item NetworkRType is set to the specified class
+								\item NetworkROptions is set to the specified values
+								\item confidenceLevel is set to the specified value
+								\item useNet is set to the specified value
+							\end{enumerate}
+							\item All the values are loaded from the config file
+						\end{enumerate} \\ [5pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item
+							\begin{enumerate}
+								\item Logfile is created at the specified filepath
+								\item loglevel is set to ALL
+								\item inDBLoc is set to database.db
+								\item outDBLoc is set to database.db
+								\item inWeightsLoc is set to testWeights.cfg
+								\item outWeightsLoc is set to testWeights.cfg
+								\item newDB is set to false
+								\item p3pLocation is set to ticketmaster1.xml
+								\item p3pDirLocation is set to P3P
+								\item The recommendation is automatically accepted
+								\item newPolicyLoc is set to test.xml
+								\item userInit is set to true
+								%\item cbrV is set to bitmapDistanceWisOne,Reduction_KNN,Conclusion_Simple,LearnAlgSimpler
+								%\item userIO is set to UserIO_Simple
+								%\item Not implemented, on TODO list
+								%\item genConfig is set to test.cfg. Values in test.cfg are loaded
+								\item NetworkRType is set to NRCouchdb
+								\item NetworkROptions is set to privacydb,false,http,vm-6113.idi.ntnu.no,5984,PA,1234
+								\item confidenceLevel is set to 1.5, recommendation is gives from (default) community database
+								\item useNet is set to true, networking is enabled
+							\end{enumerate}
+							\item All the values are loaded from the default config file
+						\end{enumerate} \\ [5pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item
+							\begin{enumerate}
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS								
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS								
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+								\item NO PASS
+								\item PASS
+								\item PASS
+								\item NO PASS
+								\item PASS
+							\end{enumerate}
+							\item PASS
+						\end{enumerate}
+						Test not passed. 1Q and 1T failed \\ [5pt] \hline
+
+			Comments & --Check if userResponse is supposed to be accept / reject 
+					--Check confidenceLevel again when networking is working, currently using default
+					\\ [5pt] \hline
+
+		\end{tabular}
+	\end{center}
+
+
+\subsection{UNIT-02 - P3P parser}
+	\begin{center}
+		\begin{tabular}{ |  p{3cm} | p{7cm} | }
+			\hline
+			Item & Description \\ [5pt] \hline \hline
+			Name & P3P parser \\  [5pt] \hline
+			Test identifier & UNIT-02 \\  [5pt] \hline
+			Person responsible & Henrik Knutsen \\  [5pt] \hline
+			Date of execution & October 27th \\  [5pt] \hline
+
+			Execution steps & 	\begin{enumerate}
+							\item Run a P3P xml in the P3P parser and print the parsed fields and their values to console
+							\item Manually compare the printed fields and values with the contents of the P3P xml
+						\end{enumerate} \\ [5pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item Test for barnesandnoble.com
+							\begin{enumerate}
+								\item barnesandnoble.xml is parsed and printed
+								\item Contents of the xml is compared with to what was printed in step 1(a)
+							\end{enumerate}
+							\item Test for daduru.com
+							\begin{enumerate}
+								\item daduru.com is parsed and printed
+								\item Contents of the xml is compared with to what was printed in step 2(a)
+							\end{enumerate}
+							\item Test for ssa.gov
+							\begin{enumerate}
+								\item ssa.gov is parsed and printed
+								\item Contents of the xml is compared with to what was printed in step 3(a)
+							\end{enumerate}
+							\item Test for toysrus.com
+							\begin{enumerate}
+								\item toysrus.com is parsed and printed
+								\item Contents of the xml is compared with to what was printed in step 4(a)
+							\end{enumerate}
+						\end{enumerate} \\ [5pt] \hline
+			
+			Expected results &	\begin{enumerate}
+							\item The P3P xml is parsed successfully. It's content is printed to console
+							\item The printed output have the same fields, each having the same value as those in the xml
+						\end{enumerate}
+							 \\  [5pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item Results for barnesandnoble.com
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+							\item Results for daduru.com
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+							\item Results for ssa.gov
+							\begin{enumerate}
+								\item ssa.gov is parsed and printed
+								\item Contents of the xml is compared with to what was printed in step 3(a)
+							\end{enumerate}
+							\item Results for toysrus.com
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+						\end{enumerate}
+							 \\  [5pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+						\end{enumerate}
+						Test passed \\  [5pt] \hline
+		\end{tabular}
+	\end{center}
+
+\subsection{UNIT-03 - Local database}
+		\begin{center}
+		\begin{tabular}{ |  p{3cm} | p{7cm} | }
+			\hline
+			Item & Description \\ [5pt] \hline \hline
+			Name & Local database \\  [5pt] \hline
+			Test identifier & UNIT-03 \\  [5pt] \hline
+			Person responsible & Henrik Knutsen \\  [5pt] \hline
+			Date of execution & October 27th \\  [5pt] \hline
+
+			Execution steps & 	\begin{enumerate}
+							\item Write policy A to the local database
+							\item Write policy B to the local database
+							\item Read and print policy A from the local database
+							\item Read and print policy A from the local database
+							\item Compare the written policy A and the read policy A
+							\item Compare the written policy B and the read policy B
+						\end{enumerate} \\ [5pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item Program is started writing policy A to an empty database, and writing policy A to the database
+							\item Accept recommendation and chose to save the new action and policy
+							\item Print the new database after policy B was added (step 2)
+							\item Also done in step 3
+							\item The contents of policy A that was to be written in step 1 is compared to what was printed of policy A in step 3
+							\item The contents of policy B that was to be written in step 2 is compared to what was printed of policy B in step 3
+						\end{enumerate} \\ [5pt] \hline
+			
+			Expected results &	\begin{enumerate}
+							\item Policy A is successfully written to the database file
+							\item Policy B is successfully written to the database file
+							\item Policy A is successfully read from the database file and printed
+							\item Policy B is successfully read from the database file and printed
+							\item The written policy A and the read policy A are identical. They both have the same fields, with the same values
+							\item The written policy B and the read policy B are identical. They both have the same fields, with the same values
+						\end{enumerate}
+							 \\  [5pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item Policy A was successfully written to the database file
+							\item Policy B was successfully written to the database file
+							\item Database was successfully printed
+							\item Same as step 3
+							\item The loaded and printed policy A is the same as the one that was written
+							\item The loaded and printed policy B is the same as the one that was written
+						\end{enumerate}
+							 \\  [5pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+						\end{enumerate}
+						Test passed \\  [5pt] \hline
+			Comments &	- \\ [5pt] \hline
+		\end{tabular}
+	\end{center}
+
+\subsection{UNIT-04 - Graphical user interface (GUI) functionality}
+		\begin{center}
+		\begin{tabular}{ |  p{3cm} | p{7cm} | }
+			\hline
+			Item & Description \\ [5pt] \hline \hline
+			Name & Graphical user interface (GUI) functionality \\  [5pt] \hline
+			Test identifier & UNIT-04 \\  [5pt] \hline
+			Person responsible & Henrik Knutsen \\  [5pt] \hline
+			Date of execution & October 29th \\  [5pt] \hline
+
+			Execution steps & 	\begin{enumerate}
+							\item Run the program using the GUI
+							\item Test every option in the menu bar
+							\item Test every button in the load config file prompt
+							\item Test every scroll bar
+							\item Resize the window
+						\end{enumerate} \\ [5pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item Program started with graphical user interface
+							\item  
+							\begin{enumerate}
+								\item Clicked load config file
+								\item Clicked load db file
+								\item Clicked run
+								\item Clicked exit
+							\end{enumerate}
+							\item ---
+							\item 
+							\begin{enumerate}
+								\item Used scrollbar for the printed contents of the chosen database element (upper section)
+								\item Used scrollbar for the contents of the database file (middle / lower section)
+							\end{enumerate}
+							\item Attempted to resize the window
+						\end{enumerate} \\ [5pt] \hline
+			
+			Expected results &	\begin{enumerate}
+							\item The program starts and loads the graphical user interface
+							\item  
+							\begin{enumerate}
+								\item Prompt for setting config values is opened
+								\item The specified database is loaded
+								\item The program gives a popup with a recommendation for the selected policy based on the history in the specified database
+								\item Program closes
+							\end{enumerate}
+							\item ---
+							\item 
+							\begin{enumerate}
+								\item The scrollbar scrolls through the list, up and down, from top to bottom, successfully
+								\item The scrollbar scrolls through the list, up and down, from top to bottom, successfully
+							\end{enumerate}
+							\item Window can be resized without having elements of the GUI overlapping. The elements and panes should scales with the main window
+						\end{enumerate}
+							 \\  [5pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item The program starts and loads the graphical user interface
+							\item 
+							\begin{enumerate}
+								\item Graphical interface for setting config values is opened
+								\item The specified database file is loaded
+								\item The program gives a popup with a recommendation and options for accepting or rejecting
+								\item Program closes
+							\end{enumerate}
+							\item ----
+							\item  
+							\begin{enumerate}
+								\item The scrollbar scrolls through the list, up and down, fro top to bottom, successfully
+								\item Error when scrolling to the top of the list (nullPointerException). Bugging out the elements of the list the xml
+							\end{enumerate}
+							\item Can't rescale the window
+						\end{enumerate}
+							 \\  [5pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item PASS
+							\item 
+							\begin{enumerate}
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+							\end{enumerate}
+							\item ----
+							\item  
+							\begin{enumerate}
+								\item PASS
+								\item NO PASS
+							\end{enumerate}
+							\item NO PASS
+						\end{enumerate}
+						Test not passed. 3, 4B and 5 failed \\  [5pt] \hline
+		\end{tabular}
+	\end{center}
+
+\subsection{UNIT-05 - Algorithm classification}
+			\begin{center}
+		\begin{tabular}{ |  p{3cm} | p{7cm} | }
+			\hline
+			Item & Description \\ [5pt] \hline \hline
+			Name & Algorithm classification \\  [5pt] \hline
+			Test identifier & UNIT-05 \\  [5pt] \hline
+			Person responsible & Henrik Knutsen \& Dimitry Kongevold \\  [5pt] \hline
+			Date of execution & October 30th \\  [5pt] \hline
+
+			Execution steps & 	\begin{enumerate}
+							\item Load a set of policies into the database file
+							\item Manually calculate and write down the distances between the single policy and each of the policies in the history
+							\item Run the distance algorithm on a single policy and the history and compare the distances that are returned by the algorithm with the manually calculated distances from step 2
+							\item Manually find the k policies with the lowest distances
+							\item Run the reduction algorithm with necessary input to find the k nearest policies and compare the k policies returned by the reduction algorithm with those found in step 4
+							\item Run the conclusion algorithm and verify the results returned by the algorithm ???
+						\end{enumerate} \\ [5pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item Created a test domain by loading six policies into the history
+							\item Manually calculated the distances between the policy to be classified and each of the six policies, and inserted the reulsts into a table
+							\item Created a JUnit test testReduction_KNN. Asserting that the six values returned by the algorithm is the same as those calculated manually in step 2
+							\item Found the k nearest policies from what was calculated in step 2
+							\item Created a JUnit test testReduction_KNN. Asserting that the reduction algorithm returns the same k nearest policies are those found manually in step 4
+							\item Created a JUnit test testReduction_KNN ???
+						\end{enumerate} \\ [5pt] \hline
+			
+			Expected results &	\begin{enumerate}
+							\item The policies are added to the database file
+							\item The six distances are obtained
+							\item The JUnit test passes
+							\item The k policies are obtained
+							\item The JUnit test passes
+							\item The JUnit test passes ???
+						\end{enumerate}
+							 \\  [5pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item The policies are added to the database file
+							\item The six distances are obtained
+							\item The JUnit is successful
+							\item The k policies are obtained
+							\item The JUnit test is \underline{un}successful. The most distant policy is returned
+							\item The JUnit test is not run
+						\end{enumerate}
+							 \\  [5pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item NO PASS
+							\item NO PASS
+						\end{enumerate}
+						Test failed. 1E and 1F failed \\  [5pt] \hline
+		\end{tabular}
+	\end{center}
+
+\subsection{UNIT-06 - Algorithm learning}
+	\begin{center}
+		\begin{tabular}{ |  p{3cm} | p{7cm} | }
+			\hline
+			Item & Description \\ [5pt] \hline \hline
+			Name & Algorithm learning \\  [5pt] \hline
+			Test identifier & UNIT-06 \\  [5pt] \hline
+			Person responsible & Henrik Knutsen \& Neshahavan Karunakaran \\  [5pt] \hline
+			Date of execution & November 4th \\  [5pt] \hline
+
+			Execution steps & 	\begin{enumerate}
+							\item a
+						\end{enumerate} \\ [5pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item b
+						\end{enumerate} \\ [5pt] \hline
+			
+			Expected results &	\begin{enumerate}
+							\item c
+						\end{enumerate}
+							 \\  [5pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item d
+						\end{enumerate}
+							 \\  [5pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item d
+						\end{enumerate}
+						Test failed \\ [5pt] \hline
+		\end{tabular}
+	\end{center}
+
+\subsection{UNIT-07 - Networking (community database)}
+	e
+
+
+\end{document}

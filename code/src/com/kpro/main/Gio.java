@@ -5,18 +5,22 @@ import java.io.FileInputStream;		//for configuration file functionality and read
 import java.io.FileOutputStream;	//for writing the new weights config file
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.Properties;		//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
 
 import com.kpro.algorithm.CBR;
+import com.kpro.algorithm.DistanceMetric;
 import com.kpro.parser.P3PParser;
 
 import com.kpro.dataobjects.*;
 import com.kpro.datastorage.*;
 import com.kpro.ui.*;
+import com.sun.tools.corba.se.idl.Factories;
 
 
 
@@ -93,7 +97,7 @@ public class Gio {
 		logger = startLogger(genProps.getProperty("loglocation","./LOG.txt"),genProps.getProperty("loglevel","INFO"));
 		if(userInterface ==null)
 		{
-			selectUI(genProps.getProperty("UserIO"));
+			selectUI(genProps.getProperty("userIO"));
 		}
 		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")) && !(userInterface==null))
 		{
@@ -144,8 +148,8 @@ public class Gio {
 				{"blanketAccept","automatically accept the user suggestion"}, 
 				{"loglevel","level of things save to the log- see java logging details"},
 				{"policyDB","PolicyDatabase backend"},
-				{"networkRType","Network Resource type"},
-				{"networkROptions","Network Resource options"},
+				{"NetworkRType","Network Resource type"},
+				{"NetworkROptions","Network Resource options"},
 				{"confidenceLevel","Confidence threshold for consulting a networked resource"},
 				{"useNet","use networking options"},
 				{"loglocation","where to save the log file"},
@@ -170,19 +174,19 @@ public class Gio {
 			System.exit(3);
 		}
 
-//		for(String i : args)
-//		{
-//			System.err.println(i);
-//		}
+		for(String i : args)
+		{
+			System.err.println(i);
+	}
 		for(String[] i : clolist)
 		{
 			if(cmd.hasOption(i[0]))
 			{
-//				System.err.println("found option i: "+i);
+				System.err.println("found option i: "+i);
 				genProps.setProperty(i[0],cmd.getOptionValue(i[0]));
 			}
 		}
-//		System.err.println(genProps);
+		System.err.println(genProps);
 
 
 	}
@@ -215,8 +219,20 @@ public class Gio {
 	 * @return the policy database being used
 	 */
 	private void selectPDB(String optionValue) {
-		// TODO Add other PolicyDatabase classes, when other classes are made
-		pdb = PDatabase.getInstance(genProps.getProperty("inDBLoc"), genProps.getProperty("outDBLoc",genProps.getProperty("inDBLoc")));
+		System.out.println(optionValue);
+		try {
+			Class<?> cls = Class.forName("com.kpro.datastorage."+optionValue);
+			
+			Object[] argslist = new Object[2];
+			argslist[0] = genProps.getProperty("inDBLoc");
+			argslist[1] = genProps.getProperty("outDBLoc",genProps.getProperty("inDBLoc"));
+
+			Method[] factoryMethod = cls.getDeclaredMethods();
+			pdb = (PolicyDatabase) factoryMethod[0].invoke(null, argslist);
+		} catch (Exception e) {
+			System.err.println("Selected PolicyDatabase not found");
+		}
+
 		if(pdb==null)
 		{
 			System.err.println("pdb null in selectPDB");
@@ -230,8 +246,12 @@ public class Gio {
 	 * @return the user interface to use
 	 */
 	private void selectUI(String optionValue) {
-		// TODO Add other UserIO classes, when other classes are made
-		userInterface = new UserIO_Simple();
+		try {
+			Class<?> cls = Class.forName("com.kpro.ui."+optionValue);
+			userInterface = (UserIO) cls.newInstance();
+		} catch (Exception e) {
+			System.err.println("Selected UserIO not found");
+		}
 	}
 
 
@@ -394,14 +414,11 @@ public class Gio {
 			try
 			{
 				p = (new P3PParser()).parse(pLoc.getAbsolutePath());
-				if(p.getContext().getDomain()==null)
+				if(p.getContextDomain()==null)
 				{
-					if(p.getContext().getDomain()==null)
-					{
-						p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("p3pLocation")));
-					}
-					pdb.addPolicy(p);
+					p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("p3pLocation")));
 				}
+				pdb.addPolicy(p);
 			}
 			catch(Exception e)
 			{

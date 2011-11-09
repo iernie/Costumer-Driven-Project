@@ -130,7 +130,7 @@ public class PDatabase extends PolicyDatabase implements Serializable
 	/**
 	 * 
 	 */
-	public static PolicyDatabase getInstance(String inloc, String outloc) {
+	public static synchronized PolicyDatabase getInstance(String inloc, String outloc) {
 		inLocation = inloc;
 		outLocation = outloc;
 		if(i==null)
