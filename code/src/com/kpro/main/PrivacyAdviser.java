@@ -51,7 +51,7 @@ public class PrivacyAdviser {
 		//process the given case
 		if(!theIO.isBuilding()) //actually process an object
 		{
-			po = theIO.getPO();
+			po = theIO.loadPO();
 			/*int k = 1; //size for k in knn algorithm
 			DistanceMetric dm = new distanceMetricTest(weightsConfig);
 			PolicyDatabase pdb = theIO.getPDB();

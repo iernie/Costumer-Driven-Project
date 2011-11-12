@@ -114,9 +114,11 @@ public class Action
 				"Accepted. " : "Rejected. ";
 		str += override ? "Override. " : "No Override. ";
 		str += "Confidence: "+ confidence;
-		str += " reasonDomain: [";
-		for(String i : reasonDomains)
-			str += (" "+i+",");
+		if(reasonDomains != null) {
+			str += " reasonDomain: [";
+			for(String i : reasonDomains)
+				str += (" "+i+",");			
+		}
 			
 				
 		return str;
