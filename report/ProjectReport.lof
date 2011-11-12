@@ -1,0 +1,43 @@
+\addvspace {10\p@ }
+\contentsline {xchapter}{Introduction}{3}{chapter*.5}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Project Directive}{7}{chapter*.6}
+\contentsline {xpart}{Initial Phase - Planning and Research}{7}{part.1}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Preliminary Study}{15}{chapter*.11}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces A Simplified CBR Cycle.}}{19}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The Waterfall Model.}}{22}{figure.2.2}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Planning Phase}{25}{chapter*.15}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Requirements Specification}{37}{chapter*.19}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Program Flow.}}{40}{figure.4.3}
+\contentsline {xpart}{Design and Implementation Phase}{37}{part.2}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Design}{45}{chapter*.27}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Program Flow.}}{49}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces System Overview.}}{50}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces working of system.}}{51}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces CBR System.}}{52}{figure.5.7}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Policy Object.}}{53}{figure.5.8}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Policy Database.}}{54}{figure.5.9}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Input/output and user interfaces.}}{55}{figure.5.10}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Implementation}{57}{chapter*.38}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Algorithm for similarity computation.}}{62}{figure.6.11}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Documentation}{65}{chapter*.49}
+\contentsline {figure}{\numberline {7.12}{\ignorespaces First step: right click and choose "export".}}{66}{figure.7.12}
+\contentsline {figure}{\numberline {7.13}{\ignorespaces Second step: choose runnable jar.}}{67}{figure.7.13}
+\contentsline {figure}{\numberline {7.14}{\ignorespaces Third step: choose launch config, destination and library handling.}}{68}{figure.7.14}
+\contentsline {figure}{\numberline {7.15}{\ignorespaces Run the program.}}{69}{figure.7.15}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Test Plan}{73}{chapter*.54}
+\contentsline {xpart}{Testing, Evaluation and Summary}{73}{part.3}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Project Evaluation}{79}{chapter*.58}
+\contentsline {figure}{\numberline {9.16}{\ignorespaces Actual vs. planned time. By project phase.}}{82}{figure.9.16}
+\contentsline {figure}{\numberline {9.17}{\ignorespaces Actual vs. planned time. Cumulative.}}{82}{figure.9.17}
+\addvspace {10\p@ }
+\contentsline {xchapter}{Conclusion}{85}{chapter*.64}
+\contentsline {xpart}{Appendices}{89}{part.4}
