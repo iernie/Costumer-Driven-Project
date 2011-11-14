@@ -123,7 +123,7 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	 */
 	@Override
 	public String toString(){
-		String outStr = "";
+		String outStr = this.getClass().toString() + " " + inLocation + " " + outLocation + "\n";
 		for(PolicyObject po : this)
 			outStr += po;
 		return outStr;

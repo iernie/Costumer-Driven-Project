@@ -9,14 +9,14 @@
 
 This section provides documentation for the Privacy Advisor system. It gives an overview over the available documentation of source code, instructions for how to compile and install the system, and how it is used via. its GUI and command line interfaces.
 
-\section{Source Code Documentation}
+\section{Source Code Documentation} 
 
 The source code is documented using JavaDoc which is 	a tool that generates documentation in HTML format based on source code comments in Java, and is a standard part of the Java SDK. The JavaDoc for the Privacy Advisor system follows Sun Microsystems' style guide for writing JavaDoc comments\footnote{See: http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html}. Source code documentation plays an important role in this project, as it is an early software prototype to be used in research which means that the code is then likely to be modified. The aim of the source code documentation is to supplement UML design documents to facilitate future development.
 
 \section{Installation}
 
-\subsection{Local Installation}
-To make the program run outside of the Eclipse environment it have to be exported as a runnable jar file. This can be done by right clicking the project in eclipse, choose "Export", type in "jar" in the in the new windows that opened up and choose "Runnable Jar File", before clicking "next". These two steps are showed in the two figures \ref{exportFirstStep} and \ref{exportSecondStep}.
+\subsection{Local Installation} \label{LocalInst}
+To make the program run outside of the Eclipse environment it have to be exported as a runnable jar file. This can be done by right clicking the project in eclipse, choose \texttt{Export}, type in \texttt{jar} in the new window that opens up and choose \texttt{Runnable Jar File}, before clicking \texttt{next}. These steps are showed in the two figures \ref{exportFirstStep} and \ref{exportSecondStep}.
 
 \begin{centering}
   \begin{figure}
@@ -34,7 +34,7 @@ To make the program run outside of the Eclipse environment it have to be exporte
   \end{figure}
 \end{centering}
 
-Then we have to choose which classfile we want to be the main class, in the "Launch configuration" dropdown menu we can choose between the two classes PrivacyAdviser and PrivacyAdvisorGUI. The first one is choosen if we want to run the whole program froim the command line, and the second one if we want to use the GUI. Then choose the export destination, and "Package requires libraries into generated JAR" as the library handling. Pressing finish now should start exporting the program. These steps are shown in figure \ref{exportLastStep}.
+Then we have to choose which classfile we want to be the main class; in the \texttt{Launch configuration} dropdown menu we can choose between the two classes \texttt{PrivacyAdviser} and \texttt{PrivacyAdvisorGUI}. The first one is choosen if we want to run the program by using the command line, and the second one if we want to use the GUI. Then choose the export destination, and choose \texttt{Package requires libraries into generated JAR} as the library handling. Pressing finish now should start exporting the program. These steps are shown in figure \ref{exportLastStep}.
 
 \begin{centering}
   \begin{figure}
@@ -44,7 +44,8 @@ Then we have to choose which classfile we want to be the main class, in the "Lau
   \end{figure}
 \end{centering}
 
-Before running the program we have to put the PrivacyAdviser.cfg file in the same folder as the exported jar file. To run the program, open the command prompt and locate to the folder where the jar file is stored. Then write the command java -jar filename.jar, and now the program should start (even if it's the cli or gui version). This is show in figure \ref{runProgram}.
+Before running the program we have to put the PrivacyAdviser.cfg file in the same folder as the exported jar file. And if the database file and the weights file isn't at the same folder, their location have to be specified in the PrivacyAdviser.cfg file. To run the program, open the command prompt and locate to the folder where the jar file is stored. Then write the command \texttt{java -jar filename.jar}, and now the program should start (even if it's the cli or gui version). This is show in figure \ref{runProgram}.
+
 
 \begin{centering}
   \begin{figure}
@@ -57,10 +58,15 @@ Before running the program we have to put the PrivacyAdviser.cfg file in the sam
 \subsection{Server Installation}
 
 \section{User Interfaces}
+The Privacy Adviser consist, as mentioned in section \ref{LocalInst}, of two different user interfaces. The advantage of the GUI is that it's easier to see the contents in the database before and after the program runs. The advantage of using the command line interface is that we can work much faster than by using the graphical user interface. But the best part of using the command line interface is that we can add options when calling (starting) the program, this is explained in detail in section \ref{cliExplained}.
 
 \subsection{Graphical User Interface}
 
-\subsection{Command Line Interface}
+\subsection{Command Line Interface} \label{cliExplained}
+By running the program from the command line we can add options (parameters) directly when starting up the program. If we run the program normally, as described in section \ref{LocalInst}, the options in the PrivacyAdviser.cfg will be used. But when we add options in the command line when starting the program, the added options will override the ones in the config file.
+As an example we can take the location of the database. By default the options in PrivacyAdviser.cfg is set to replace the old database with the new database when the program exits. There are two ways to change this. If we never or rarly want the new database to replace the old one we can just change the \texttt{outDBLoc} option to be different from the \texttt{inDBLoc} option in the config file. But if we want to change the location/name just once, we can add an option in the command line like this:
+\texttt{java -jar privacyAdvisor.jar -outDBLoc newDatabase.db}
+We can add more than one option in this manner, and for the options that we don't specify, the options in the config file will be used. For a complete list of the options see table \ref{configTable}.
 
 \subsubsection{Configuration Files}
 

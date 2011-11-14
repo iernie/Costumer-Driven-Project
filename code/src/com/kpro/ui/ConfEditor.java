@@ -1,28 +1,24 @@
 package com.kpro.ui;
 
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Properties;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JEditorPane;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
-
-public class ConfEditor extends Thread{
+public class ConfEditor {
 
 	private JFrame frame;
 	private JPanel panel;
@@ -38,13 +34,11 @@ public class ConfEditor extends Thread{
 	private Properties genProps;
 	
 	private String[] userInitModel 	= 	{"true", "false"};
-	private String[] uiModel =			{"PrivacyAdvisorGUI"};	 
-	private String[] cbrVerModel 	= 	{"bitmapDistanceWisOne,Reduction_KNN,Conclusion_Simple,LearnAlgSimpler"};
-	private String[] dbTypeModel 	= 	{"default"};
+	private String[] uiModel =			{"PrivacyAdvisorGUI","UserIO_Simple"};	 
+	private String[] cbrVerModel 	= 	{"bitmapDistanceWisOne,Reduction_KNN:1,Conclusion_Simple,LearnAlgSimpler"};
+	private String[] dbTypeModel 	= 	{"PDatabase"};
 	private String[] logLvlModel	=  	{"INFO"};
 	private String[] networkTypeModel = {"NRCouchdb"};
-	
-	
 	
 	
 	/**
@@ -98,8 +92,8 @@ public class ConfEditor extends Thread{
 		fieldNames.put("cbrV", "CBR Version");
 		textfields.put("cbrV", new JTextField());
 		
-		fieldNames.put("userInterface", "User Interface");
-		comboboxes.put("userInterface", new JComboBox(uiModel));
+		fieldNames.put("userIO", "User Interface");
+		comboboxes.put("userIO", new JComboBox(uiModel));
 		
 		fieldNames.put("userInit", "User Init");
 		comboboxes.put("userInit", new JComboBox(userInitModel));
@@ -163,6 +157,7 @@ public class ConfEditor extends Thread{
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel = new JPanel();
+		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		panel.setLayout(new GridLayout(18, 3));
 		frame.add(panel);		
 		
@@ -202,11 +197,6 @@ public class ConfEditor extends Thread{
 		InitComponents();
 		InitFrame();
 	}
-	
-	
-	
-	
-
 	
 	
 	public static void main(String[] args) 
@@ -279,7 +269,7 @@ public class ConfEditor extends Thread{
 		
 		for (String key : textfields.keySet())
 			genProps.setProperty(key, textfields.get(key).getText());
-		for (String key : comboboxes.keySet())
+		for (String key : comboboxes.keySet()) 
 			genProps.setProperty(key, (String)comboboxes.get(key).getSelectedItem());
 		for (String key : checkboxes.keySet())
 			genProps.setProperty(key, checkboxes.get(key).isSelected() ? "true" : "false");
@@ -297,6 +287,20 @@ public class ConfEditor extends Thread{
 	        if (buttons.get(s).equals(btn))
 	            return s;
 	    return null;
+	}
+	
+	public Properties getGenProps() {
+		return this.genProps;
+	}
+	
+	/**
+	 * Returns true if the config editor is visible
+	 * @return true if visible
+	 * @author ernie
+	 */
+	
+	public boolean isVisible() {
+		return frame.isVisible();
 	}
 	
 }
