@@ -25,6 +25,7 @@ import javax.swing.JTextArea;
 //import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Case;
+import com.kpro.dataobjects.Category;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.dataobjects.Purpose;
 import com.kpro.dataobjects.Recipient;
@@ -183,8 +184,21 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	@Override
 	public Properties user_init(Properties genProps){
-		ConfEditor ce = new ConfEditor(genProps);
-		ce.run();
+		final ConfEditor ce = new ConfEditor(genProps);
+		Thread t = new Thread() {
+			public void run() {
+				ce.run();
+				while(ce.isVisible()) {
+					try {
+						sleep(500);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			};
+		};
+		t.start();
+		System.out.println("Thread finished?");
 		return ce.getGenProps();
 	}
 	
@@ -335,16 +349,15 @@ public class PrivacyAdvisorGUI extends UserIO{
 								caseNode = null,
 								purpose = null,
 								recipient = null, 
-								retention = null;
+								retention = null,
+								category = null;
 		
 		for (PolicyObject po : pdb){
 			policyObj = new DefaultMutableTreeNode(po.getContextDomain());
-			root.add(policyObj);
-			int case_id = 1;
 			
 			for (Case c : po){
 				policyObj.add(caseNode = 
-						new DefaultMutableTreeNode("Case " + String.valueOf(case_id++)));
+						new DefaultMutableTreeNode(c.getDataType()));
 				
 				caseNode.add(purpose = 
 						new DefaultMutableTreeNode("Purpose"));
@@ -353,16 +366,26 @@ public class PrivacyAdvisorGUI extends UserIO{
 				caseNode.add(retention = 
 						new DefaultMutableTreeNode("Retention"));
 				
+				if (c.getCategories() != null) {
+					caseNode.add(category = 
+							new DefaultMutableTreeNode("Category"));
+					for (Category ca : c.getCategories())
+						category.add(new DefaultMutableTreeNode(ca.toString()));
+				}
+				
 				for (Purpose p : c.getPurposes())
-					purpose.add(new DefaultMutableTreeNode(p.toString()));				
+					purpose.add(new DefaultMutableTreeNode(p.toString() + (p.isOptional() ? " - Optional" : "")));
+				
 				for (Recipient r : c.getRecipients())
 					recipient.add(new DefaultMutableTreeNode(r.toString()));
+				
 				for(Retention r : c.getRetentions())
 					retention.add(new DefaultMutableTreeNode(r.toString()));		
 			}
 			policyObj.add(
 					new DefaultMutableTreeNode(po.getAction()));
 		}	
+		root.add(policyObj);
 	}
 	
 	private void buildTree(DefaultMutableTreeNode root, PolicyObject po)

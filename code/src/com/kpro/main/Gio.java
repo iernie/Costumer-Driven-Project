@@ -119,6 +119,7 @@ public class Gio {
 		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")) && !(userInterface==null))
 		{
 			genProps = userInterface.user_init(genProps);
+			System.out.println("in ConfigUI");
 		}
 	}
 
