@@ -344,7 +344,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 			
 			for (Case c : po){
 				policyObj.add(caseNode = 
-						new DefaultMutableTreeNode("Case " + String.valueOf(case_id++)));
+						new DefaultMutableTreeNode(c.getDataType()));
 				
 				caseNode.add(purpose = 
 						new DefaultMutableTreeNode("Purpose"));
