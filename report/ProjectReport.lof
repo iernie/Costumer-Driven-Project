@@ -22,6 +22,7 @@
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Policy Object.}}{53}{figure.5.8}
 \contentsline {figure}{\numberline {5.9}{\ignorespaces Policy Database.}}{54}{figure.5.9}
 \contentsline {figure}{\numberline {5.10}{\ignorespaces Input/output and user interfaces.}}{55}{figure.5.10}
+\contentsline {xpart}{introduction}{55}{part.3}
 \addvspace {10\p@ }
 \contentsline {xchapter}{Implementation}{57}{chapter*.38}
 \contentsline {figure}{\numberline {6.11}{\ignorespaces Algorithm for similarity computation.}}{62}{figure.6.11}
@@ -32,12 +33,12 @@
 \contentsline {figure}{\numberline {7.14}{\ignorespaces Third step: choose launch config, destination and library handling.}}{68}{figure.7.14}
 \contentsline {figure}{\numberline {7.15}{\ignorespaces Run the program.}}{69}{figure.7.15}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Test Plan}{73}{chapter*.54}
-\contentsline {xpart}{Testing, Evaluation and Summary}{73}{part.3}
+\contentsline {xchapter}{Test Plan}{75}{chapter*.54}
+\contentsline {xpart}{Testing, Evaluation and Summary}{75}{part.4}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Project Evaluation}{79}{chapter*.58}
-\contentsline {figure}{\numberline {9.16}{\ignorespaces Actual vs. planned time. By project phase.}}{82}{figure.9.16}
-\contentsline {figure}{\numberline {9.17}{\ignorespaces Actual vs. planned time. Cumulative.}}{82}{figure.9.17}
+\contentsline {xchapter}{Project Evaluation}{81}{chapter*.58}
+\contentsline {figure}{\numberline {9.16}{\ignorespaces Actual vs. planned time. By project phase.}}{84}{figure.9.16}
+\contentsline {figure}{\numberline {9.17}{\ignorespaces Actual vs. planned time. Cumulative.}}{85}{figure.9.17}
 \addvspace {10\p@ }
-\contentsline {xchapter}{Conclusion}{85}{chapter*.64}
-\contentsline {xpart}{Appendices}{89}{part.4}
+\contentsline {xchapter}{Conclusion}{87}{chapter*.65}
+\contentsline {xpart}{Appendices}{91}{part.5}

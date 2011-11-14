@@ -79,10 +79,12 @@
 \contentsline {subsubsection}{GUI}{52}{section*.33}
 \contentsline {subsubsection}{Weights and Configuration Files}{52}{section*.34}
 \contentsline {subsubsection}{CBR}{52}{section*.35}
-\contentsline {subsubsection}{P3P Policy Objects}{54}{section*.36}
-\contentsline {subsubsection}{P3P Policy Database}{54}{section*.37}
-\contentsline {subsection}{\numberline {5.3.2}Interfaces}{54}{subsection.5.3.2}
-\contentsline {subsection}{\numberline {5.3.3}Community Server}{54}{subsection.5.3.3}
+\contentsline {subsubsection}{P3P Policy Objects}{53}{section*.36}
+\contentsline {subsubsection}{P3P Policy Database}{53}{section*.37}
+\contentsline {subsection}{\numberline {5.3.2}Interfaces}{53}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Community Server}{53}{subsection.5.3.3}
+\contentsline {part}{III\hspace {1em}introduction}{55}{part.3}
+\contentsline {xpart}{introduction}{55}{part.3}
 \contentsline {chapter}{Implementation}{57}{chapter*.38}
 \contentsline {section}{\numberline {6.1}Algorithms}{58}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}K-Nearest Neighbors}{58}{subsection.6.1.1}
@@ -112,37 +114,41 @@
 \contentsline {subsection}{\numberline {7.2.1}Local Installation}{66}{subsection.7.2.1}
 \contentsline {subsection}{\numberline {7.2.2}Server Installation}{67}{subsection.7.2.2}
 \contentsline {section}{\numberline {7.3}User Interfaces}{67}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Graphical User Interface}{67}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Command Line Interface}{67}{subsection.7.3.2}
-\contentsline {subsubsection}{Configuration Files}{67}{section*.50}
-\contentsline {subsubsection}{Building a Database}{69}{section*.51}
-\contentsline {subsubsection}{Loading and Viewing a Database}{69}{section*.52}
-\contentsline {subsubsection}{Parsing a P3P Policy}{69}{section*.53}
-\contentsline {part}{III\hspace {1em}Testing, Evaluation and Summary}{71}{part.3}
-\contentsline {chapter}{Test Plan}{73}{chapter*.54}
-\contentsline {section}{\numberline {8.1}Test Methods}{73}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}Black-box testing}{74}{subsection.8.1.1}
-\contentsline {subsection}{\numberline {8.1.2}White-box testing}{74}{subsection.8.1.2}
-\contentsline {section}{\numberline {8.2}Testing approach}{74}{section.8.2}
-\contentsline {section}{\numberline {8.3}Test case overview}{75}{section.8.3}
-\contentsline {section}{\numberline {8.4}Test cases}{76}{section.8.4}
-\contentsline {section}{\numberline {8.5}Test pass / fail criteria}{76}{section.8.5}
-\contentsline {section}{\numberline {8.6}Test schedule}{76}{section.8.6}
-\contentsline {section}{\numberline {8.7}Risks and contingencies}{77}{section.8.7}
-\contentsline {xpart}{Testing, Evaluation and Summary}{73}{part.3}
-\contentsline {chapter}{Project Evaluation}{79}{chapter*.58}
-\contentsline {section}{\numberline {9.1}Software Evaluation}{80}{section.9.1}
-\contentsline {section}{\numberline {9.2}Group Dynamics and Organization}{80}{section.9.2}
-\contentsline {section}{\numberline {9.3}Tools}{80}{section.9.3}
-\contentsline {subsection}{\numberline {9.3.1}Programming and Implementation}{80}{subsection.9.3.1}
-\contentsline {subsubsection}{Java}{80}{section*.60}
-\contentsline {subsubsection}{Git/GitHub}{81}{section*.61}
-\contentsline {subsection}{\numberline {9.3.2}Reporting and Organizational Tools}{81}{subsection.9.3.2}
-\contentsline {subsubsection}{Google Docs}{81}{section*.62}
-\contentsline {subsubsection}{\LaTeX }{81}{section*.63}
-\contentsline {section}{\numberline {9.4}Resource Use}{81}{section.9.4}
-\contentsline {section}{\numberline {9.5}Risks that Occurred}{81}{section.9.5}
-\contentsline {section}{\numberline {9.6}Course Evaluation - TDT4290}{83}{section.9.6}
-\contentsline {chapter}{Conclusion}{85}{chapter*.64}
-\contentsline {part}{IV\hspace {1em}Appendices}{87}{part.4}
-\contentsline {xpart}{Appendices}{89}{part.4}
+\contentsline {subsection}{\numberline {7.3.1}Graphical User Interface}{69}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Command Line Interface}{69}{subsection.7.3.2}
+\contentsline {subsubsection}{Configuration Files}{69}{section*.50}
+\contentsline {subsubsection}{Building a Database}{71}{section*.51}
+\contentsline {subsubsection}{Loading and Viewing a Database}{71}{section*.52}
+\contentsline {subsubsection}{Parsing a P3P Policy}{71}{section*.53}
+\contentsline {part}{IV\hspace {1em}Testing, Evaluation and Summary}{73}{part.4}
+\contentsline {chapter}{Test Plan}{75}{chapter*.54}
+\contentsline {section}{\numberline {8.1}Test Methods}{75}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Black-box testing}{76}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}White-box testing}{76}{subsection.8.1.2}
+\contentsline {section}{\numberline {8.2}Testing approach}{76}{section.8.2}
+\contentsline {section}{\numberline {8.3}Test case overview}{77}{section.8.3}
+\contentsline {section}{\numberline {8.4}Test cases}{78}{section.8.4}
+\contentsline {section}{\numberline {8.5}Test pass / fail criteria}{78}{section.8.5}
+\contentsline {section}{\numberline {8.6}Test schedule}{78}{section.8.6}
+\contentsline {section}{\numberline {8.7}Risks and contingencies}{79}{section.8.7}
+\contentsline {xpart}{Testing, Evaluation and Summary}{75}{part.4}
+\contentsline {chapter}{Project Evaluation}{81}{chapter*.58}
+\contentsline {section}{\numberline {9.1}Software Evaluation}{82}{section.9.1}
+\contentsline {section}{\numberline {9.2}Group Dynamics and Organization}{82}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}Internal Dynamics}{82}{subsection.9.2.1}
+\contentsline {subsection}{\numberline {9.2.2}External Interests}{82}{subsection.9.2.2}
+\contentsline {subsubsection}{Customer}{82}{section*.59}
+\contentsline {subsubsection}{Project Advisor}{82}{section*.60}
+\contentsline {section}{\numberline {9.3}Tools}{83}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}Programming and Implementation}{83}{subsection.9.3.1}
+\contentsline {subsubsection}{Java}{83}{section*.61}
+\contentsline {subsubsection}{Git/GitHub}{83}{section*.62}
+\contentsline {subsection}{\numberline {9.3.2}Reporting and Organizational Tools}{83}{subsection.9.3.2}
+\contentsline {subsubsection}{Google Docs}{84}{section*.63}
+\contentsline {subsubsection}{\LaTeX }{84}{section*.64}
+\contentsline {section}{\numberline {9.4}Resource Use}{84}{section.9.4}
+\contentsline {section}{\numberline {9.5}Risks that Occurred}{84}{section.9.5}
+\contentsline {section}{\numberline {9.6}Course Evaluation - TDT4290}{85}{section.9.6}
+\contentsline {chapter}{Conclusion}{87}{chapter*.65}
+\contentsline {part}{V\hspace {1em}Appendices}{89}{part.5}
+\contentsline {xpart}{Appendices}{91}{part.5}
