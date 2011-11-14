@@ -99,8 +99,27 @@ public class Action
 
 
 	public Action parse(String optionValue) {
-		// TODO make this actually parse, rather than return a generic no
-		return new Action(false, null, 1, true);
+		String[] parsedOptions = optionValue.split(",");
+		
+		if (parsedOptions.length != 4) {
+			System.err.println("Not enough arguments given to -userResponse");
+			return null;
+		}
+		
+		boolean accept = false;
+		if (parsedOptions[0].equalsIgnoreCase("accept")) {
+			accept = true;
+		}
+		
+		ArrayList<String> domains = new ArrayList<String>();
+		for (String domain: parsedOptions[1].split(";")) {
+			domains.add(domain);			
+		}
+		
+		double confidence = Double.parseDouble(parsedOptions[2]);
+		boolean override = Boolean.parseBoolean(parsedOptions[3]);
+		
+		return new Action(accept, domains, confidence, override);
 	}
 
 	public Action setOverride(boolean b) {

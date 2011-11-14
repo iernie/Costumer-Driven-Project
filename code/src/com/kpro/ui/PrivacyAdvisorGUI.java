@@ -96,6 +96,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 		initialize();
 		try {
 			gio = new Gio(null,this);
+			loadDB();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -165,7 +166,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 		menuBar.add(menu);
 		
 		loadConfigMenuItem = new JMenuItem("Configuration", KeyEvent.VK_C);
-		loadDBMenuItem= new JMenuItem("Load Database", KeyEvent.VK_D);
+		loadDBMenuItem= new JMenuItem("Reload Database", KeyEvent.VK_D);
 		runMenuItem = new JMenuItem("Run",KeyEvent.VK_R);
 		exitMenuItem = new JMenuItem("Exit", KeyEvent.VK_Q);
 		
@@ -184,20 +185,9 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	@Override
 	public Properties user_init(Properties genProps){
-		final ConfEditor ce = new ConfEditor(genProps);
-		Thread t = new Thread() {
-			public void run() {
-				ce.run();
-				while(ce.isVisible()) {
-					try {
-						sleep(500);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-			};
-		};
-		t.start();
+		ConfigEditor ce = new ConfigEditor(genProps);
+		ce.run();
+		
 		System.out.println("Thread finished?");
 		return ce.getGenProps();
 	}
@@ -356,36 +346,35 @@ public class PrivacyAdvisorGUI extends UserIO{
 			policyObj = new DefaultMutableTreeNode(po.getContextDomain());
 			
 			for (Case c : po){
-				policyObj.add(caseNode = 
-						new DefaultMutableTreeNode(c.getDataType()));
+				caseNode = new DefaultMutableTreeNode(c.getDataType());
 				
-				caseNode.add(purpose = 
-						new DefaultMutableTreeNode("Purpose"));
-				caseNode.add(recipient = 
-						new DefaultMutableTreeNode("Recipient"));
-				caseNode.add(retention = 
-						new DefaultMutableTreeNode("Retention"));
-				
-				if (c.getCategories() != null) {
-					caseNode.add(category = 
-							new DefaultMutableTreeNode("Category"));
-					for (Category ca : c.getCategories())
-						category.add(new DefaultMutableTreeNode(ca.toString()));
-				}
-				
+				purpose = new DefaultMutableTreeNode("Purpose");
 				for (Purpose p : c.getPurposes())
 					purpose.add(new DefaultMutableTreeNode(p.toString() + (p.isOptional() ? " - Optional" : "")));
+				caseNode.add(purpose);
 				
+				recipient = new DefaultMutableTreeNode("Recipient");
 				for (Recipient r : c.getRecipients())
-					recipient.add(new DefaultMutableTreeNode(r.toString()));
+					recipient.add(new DefaultMutableTreeNode(r.toString() + (r.isOptional() ? " - Optional" : "")));
+				caseNode.add(recipient);
 				
+				retention = new DefaultMutableTreeNode("Retention");
 				for(Retention r : c.getRetentions())
-					retention.add(new DefaultMutableTreeNode(r.toString()));		
+					retention.add(new DefaultMutableTreeNode(r.toString()));
+				caseNode.add(retention);
+				
+				if (c.getCategories() != null) {
+					category = new DefaultMutableTreeNode("Category");
+					for (Category ca : c.getCategories())
+						category.add(new DefaultMutableTreeNode(ca.toString()));
+					caseNode.add(category);
+				}
+				
+				policyObj.add(caseNode);
 			}
-			policyObj.add(
-					new DefaultMutableTreeNode(po.getAction()));
+			policyObj.add(new DefaultMutableTreeNode(po.getAction()));
+			root.add(policyObj);
 		}	
-		root.add(policyObj);
 	}
 	
 	private void buildTree(DefaultMutableTreeNode root, PolicyObject po)
@@ -394,32 +383,40 @@ public class PrivacyAdvisorGUI extends UserIO{
 								caseNode = null,
 								purpose = null,
 								recipient = null, 
-								retention = null;
+								retention = null,
+								category = null;
 		
 		policyObj = new DefaultMutableTreeNode(po.getContextDomain());
-		root.add(policyObj);
-		int case_id = 1;
 		
 		for (Case c : po){
-			policyObj.add(caseNode = 
-					new DefaultMutableTreeNode("Case " + String.valueOf(case_id++)));
+			caseNode = new DefaultMutableTreeNode(c.getDataType());
 			
-			caseNode.add(purpose = 
-					new DefaultMutableTreeNode("Purpose"));
-			caseNode.add(recipient = 
-					new DefaultMutableTreeNode("Recipient"));
-			caseNode.add(retention = 
-					new DefaultMutableTreeNode("Retention"));
-			
+			purpose = new DefaultMutableTreeNode("Purpose");
 			for (Purpose p : c.getPurposes())
-				purpose.add(new DefaultMutableTreeNode(p.toString()));				
+				purpose.add(new DefaultMutableTreeNode(p.toString() + (p.isOptional() ? " - Optional" : "")));
+			caseNode.add(purpose);
+			
+			recipient = new DefaultMutableTreeNode("Recipient");
 			for (Recipient r : c.getRecipients())
-				recipient.add(new DefaultMutableTreeNode(r.toString()));
+				recipient.add(new DefaultMutableTreeNode(r.toString() + (r.isOptional() ? " - Optional" : "")));
+			caseNode.add(recipient);
+			
+			retention = new DefaultMutableTreeNode("Retention");
 			for(Retention r : c.getRetentions())
-				retention.add(new DefaultMutableTreeNode(r.toString()));		
+				retention.add(new DefaultMutableTreeNode(r.toString()));
+			caseNode.add(retention);
+			
+			if (c.getCategories() != null) {
+				category = new DefaultMutableTreeNode("Category");
+				for (Category ca : c.getCategories())
+					category.add(new DefaultMutableTreeNode(ca.toString()));
+				caseNode.add(category);
+			}
+			
+			policyObj.add(caseNode);
 		}
-		policyObj.add(
-				new DefaultMutableTreeNode(po.getAction()));
+		policyObj.add(new DefaultMutableTreeNode(po.getAction()));
+		root.add(policyObj);
 	}
 	
 	
