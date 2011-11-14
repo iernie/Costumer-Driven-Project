@@ -55,6 +55,7 @@ public class Gio {
 	private UserIO userInterface = null;					/**means of interacting with the user*/
 	private PolicyDatabase pdb;								/**Policy database object*/
 	private NetworkR nr;									/** Network Resource (community advice database)*/
+	private PolicyObject po;								/** The new PolicyObject that is parsed **/
 
 	
 	/**
@@ -99,10 +100,6 @@ public class Gio {
 		{
 			selectUI(genProps.getProperty("userIO"));
 		}
-		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")) && !(userInterface==null))
-		{
-			genProps = userInterface.user_init(genProps);
-		}
 		selectPDB(genProps.getProperty("policyDB"));
 
 		//load the weights configuration file
@@ -115,6 +112,13 @@ public class Gio {
 		else
 		{
 			nr = null;
+		}
+	}
+	
+	public void configUI() {
+		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")) && !(userInterface==null))
+		{
+			genProps = userInterface.user_init(genProps);
 		}
 	}
 
@@ -173,11 +177,12 @@ public class Gio {
 			e.printStackTrace();
 			System.exit(3);
 		}
-
+		/*
 		for(String i : args)
 		{
 			System.err.println(i);
-	}
+		}
+		*/
 		for(String[] i : clolist)
 		{
 			if(cmd.hasOption(i[0]))
@@ -219,16 +224,19 @@ public class Gio {
 	 * @return the policy database being used
 	 */
 	private void selectPDB(String optionValue) {
-		System.out.println(optionValue);
 		try {
 			Class<?> cls = Class.forName("com.kpro.datastorage."+optionValue);
+			
+			@SuppressWarnings("rawtypes")
+			Class[] params = new Class[2];
+			params[0] = String.class;
+			params[1] = String.class;
+			Method m = cls.getDeclaredMethod("getInstance", params);
 			
 			Object[] argslist = new Object[2];
 			argslist[0] = genProps.getProperty("inDBLoc");
 			argslist[1] = genProps.getProperty("outDBLoc",genProps.getProperty("inDBLoc"));
-
-			Method[] factoryMethod = cls.getDeclaredMethods();
-			pdb = (PolicyDatabase) factoryMethod[0].invoke(null, argslist);
+			pdb = (PolicyDatabase) m.invoke(null, argslist);
 		} catch (Exception e) {
 			System.err.println("Selected PolicyDatabase not found");
 		}
@@ -386,11 +394,19 @@ public class Gio {
 	 */
 	public void loadDB()
 	{
-		if(!Boolean.parseBoolean(genProps.getProperty("newDB")))
-		{
-			pdb.loadDB();
+		try {
+			if(!Boolean.parseBoolean(genProps.getProperty("newDB")))
+			{
+				pdb.loadDB();
+			}			
+		} catch (Exception e) {
+			System.err.println("Something wrong with loading DB");
 		}
-		loadCLPolicies();	
+		try {
+			loadCLPolicies();				
+		} catch (Exception e) {
+			System.err.println("Error. Probably wrong path to P3P folder");
+		}
 	}
 
 	/** 
@@ -544,9 +560,8 @@ public class Gio {
 	 * 
 	 * @return the policy object to be processed
 	 */
-	public PolicyObject getPO() {
+	public PolicyObject loadPO() {
 
-		PolicyObject p = null;
 		if(genProps.getProperty("newPolicyLoc",null) == null)
 			System.err.println("newPolLoc == null in gio:getPO");
 		File pLoc = new File(genProps.getProperty("newPolicyLoc",null));
@@ -555,17 +570,21 @@ public class Gio {
 			System.exit(1);
 		}
 
-		p = (new P3PParser()).parse(pLoc.getAbsolutePath());
+		po = (new P3PParser()).parse(pLoc.getAbsolutePath());
 		//TODO make sure that the context is parsed if avaliable
-		if(p.getContext().getDomain()==null)
+		if(po.getContext().getDomain()==null)
 		{
-			p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("newPolicyLoc")));
+			po.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("newPolicyLoc")));
 		}
-		return p;
+		return po;
+	}
+	
+	public PolicyObject getPO() {
+		return po;
 	}
 
 	/**
-	 * returns the -b option if present- whether or not to solely build a database, or build and call CBR.run()
+	 * returns the true if it should only build
 	 *  
 	 * @return true if a CBR should NOT be run
 	 */
