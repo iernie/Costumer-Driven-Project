@@ -2,32 +2,29 @@ package com.kpro.ui;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.GridLayout;
-import java.awt.MenuBar;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JSplitPane;
 import javax.swing.JTree;
+import javax.swing.SwingUtilities;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Properties;
 import javax.swing.JTextArea;
-import javax.swing.JButton;
 
 //import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Case;
-import com.kpro.dataobjects.Category;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.dataobjects.Purpose;
 import com.kpro.dataobjects.Recipient;
@@ -35,12 +32,10 @@ import com.kpro.dataobjects.Retention;
 import com.kpro.datastorage.PolicyDatabase;
 import com.kpro.main.Gio;
 import javax.swing.JScrollPane;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreeNode;
-
-import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
 /**
  * Privacy Advisor GUI to run on top of 
  * @author ulfnore
@@ -58,8 +53,8 @@ public class PrivacyAdvisorGUI extends UserIO{
 	// textarea to hold output and 
 	// JTree to visualize pDatabase
 	private JTextArea outputArea;
-	private JTree leTree;
-	private DefaultMutableTreeNode top;
+	private JTree dataBaseTree, policyTree;
+	private DefaultMutableTreeNode dataBaseTreeRoot, policyTreeRoot;
 	
 	// menu bar
 	private JMenuBar menuBar;
@@ -73,8 +68,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 	// Properties object that is passed to GIO
 	private Properties props;
 	
-	private JScrollPane textScrollpane;
-	private JScrollPane treeScrollpane;
+	private JScrollPane outputAreaScrollPane, dataBaseTreeScrollPane, policyTreeScrollPane;
 	
 	/**
 	 * Launch the application.
@@ -99,43 +93,65 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	public PrivacyAdvisorGUI() {
 		initialize();
+		try {
+			gio = new Gio(null,this);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * GUI initializer:
 	 * Initialize the contents of the frame.
-	 * @author ulfnore
+	 * @author ulfnore, ernie
 	 */
 	private void initialize() {
 		
+		GridBagConstraints c = new GridBagConstraints();
+		
 		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 900, 700);
+		frame.setResizable(true);
+		frame.setMinimumSize(new Dimension(800, 600));
+		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel);
-		panel.setSize(frame.getSize());
-		panel.setLayout(new GridLayout(0,1));
-
+		JPanel panel = new JPanel(new GridBagLayout());
+		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
+		panel.setSize(new Dimension(frame.getWidth(), frame.getHeight()));
+		frame.add(panel);
 		
 		// Add text area + tree view
+		c.fill = GridBagConstraints.BOTH;
 		
-		textScrollpane = new JScrollPane();
-		treeScrollpane = new JScrollPane();
-		
-		outputArea = new JTextArea();
-		textScrollpane.setViewportView(outputArea);
-		top = new DefaultMutableTreeNode("Policy Database");
-		leTree = new JTree(top);
-		leTree.addTreeSelectionListener(new TListener());
-		treeScrollpane = new JScrollPane(leTree);
-
-		panel.add(textScrollpane);
-		panel.add(treeScrollpane);
+		c.weightx = 0.5;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		dataBaseTreeRoot = new DefaultMutableTreeNode("Policy Database");
+		dataBaseTree = new JTree(dataBaseTreeRoot);
+		dataBaseTree.addTreeSelectionListener(new TListener());
+		dataBaseTreeScrollPane = new JScrollPane(dataBaseTree);
+		panel.add(dataBaseTreeScrollPane, c);
 	
+		c.weightx = 0.5;
+		c.gridx = 1;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		policyTreeRoot = new DefaultMutableTreeNode("New Policy");
+		policyTree = new JTree(policyTreeRoot);
+		policyTree.addTreeSelectionListener(new TListener());
+		policyTreeScrollPane = new JScrollPane(policyTree);
+		panel.add(policyTreeScrollPane, c);
 
-
+		c.gridx = 0;
+		c.gridy = 1;
+		c.weightx = 1;
+		c.weighty = 1;
+		c.gridwidth = 2;
+		outputAreaScrollPane = new JScrollPane();
+		outputArea = new JTextArea();
+		outputAreaScrollPane.setViewportView(outputArea);
+		panel.add(outputAreaScrollPane, c);
 		
 		
 		// Build menu
@@ -147,8 +163,8 @@ public class PrivacyAdvisorGUI extends UserIO{
 		frame.setJMenuBar(menuBar);
 		menuBar.add(menu);
 		
-		loadConfigMenuItem = new JMenuItem("Load Config File", KeyEvent.VK_C);
-		loadDBMenuItem= new JMenuItem("Load DB File", KeyEvent.VK_D);
+		loadConfigMenuItem = new JMenuItem("Configuration", KeyEvent.VK_C);
+		loadDBMenuItem= new JMenuItem("Load Database", KeyEvent.VK_D);
 		runMenuItem = new JMenuItem("Run",KeyEvent.VK_R);
 		exitMenuItem = new JMenuItem("Exit", KeyEvent.VK_Q);
 		
@@ -159,15 +175,6 @@ public class PrivacyAdvisorGUI extends UserIO{
 		
 		menu.add(loadConfigMenuItem); menu.add(loadDBMenuItem);
 		menu.add(runMenuItem); menu.add(exitMenuItem);
-		
-		
-		
-		
-		// Add buttons and listeners
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(385, 287, 4, 4);
-		panel.add(scrollPane);
 	}
 
 	/**
@@ -176,25 +183,13 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	@Override
 	public Properties user_init(Properties genProps){
-		ConfEditor ce= new ConfEditor(genProps);
-		ce.start();
-		try {
-			ce.join();
-		} catch (InterruptedException e) {
-
-			e.printStackTrace();
-		}
-		
-		return genProps;
+		ConfEditor ce = new ConfEditor(genProps);
+		ce.run();
+		return ce.getGenProps();
 	}
 	
 	private void loadConfig(){
-		try {
-			gio = new Gio(null,this);
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
+		gio.configUI();
 	}
 	
 
@@ -268,10 +263,9 @@ public class PrivacyAdvisorGUI extends UserIO{
 		
 	private void loadDB()
 	{
-//		gio = new Gio(null, this);
 		try
 		{
-//			System.err.println("gio.getPDB() == null:" + gio.getPDB() == null);
+			//System.err.println("gio.getPDB() == null:" + gio.getPDB() == null);
 			gio.loadDB();
 			showDatabase(gio.getPDB());
 		}
@@ -291,7 +285,8 @@ public class PrivacyAdvisorGUI extends UserIO{
 	{		
 		try
 		{
-			gio.getCBR().run(gio.getPO());
+			gio.getCBR().run(gio.loadPO());
+			buildTree(policyTreeRoot, gio.getPO());
 
 		}catch(NullPointerException e)
 		{
@@ -323,30 +318,28 @@ public class PrivacyAdvisorGUI extends UserIO{
 	
 	@Override
 	public void showDatabase(com.kpro.datastorage.PolicyDatabase pdb) {
-//		System.out.println("Printing pdb:");
-//		System.err.println(pdb == null);
-//		for(PolicyObject po : pdb) System.out.println(po);
-//		System.out.println(pdb.toString());
-//		println(pdb.toString());
-		buildTree(pdb);
+		//System.out.println("Printing pdb:");
+		//System.err.println(pdb == null);
+		//for(PolicyObject po : pdb) System.out.println(po);
+		//System.out.println(pdb.toString());
+		//println(pdb.toString());
+		buildTree(dataBaseTreeRoot, pdb);
 		println("Database successfully loaded.\n");
 	}
 
 
 	
-	private void buildTree(PolicyDatabase pdb)
+	private void buildTree(DefaultMutableTreeNode root, PolicyDatabase pdb)
 	{
 		DefaultMutableTreeNode 	policyObj = null,
 								caseNode = null,
 								purpose = null,
 								recipient = null, 
-								retention = null,
-								category = null;
-		
+								retention = null;
 		
 		for (PolicyObject po : pdb){
 			policyObj = new DefaultMutableTreeNode(po.getContextDomain());
-			top.add(policyObj);
+			root.add(policyObj);
 			int case_id = 1;
 			
 			for (Case c : po){
@@ -359,22 +352,51 @@ public class PrivacyAdvisorGUI extends UserIO{
 						new DefaultMutableTreeNode("Recipient"));
 				caseNode.add(retention = 
 						new DefaultMutableTreeNode("Retention"));
-				caseNode.add(category = 
-						new DefaultMutableTreeNode("Category"));
 				
 				for (Purpose p : c.getPurposes())
 					purpose.add(new DefaultMutableTreeNode(p.toString()));				
 				for (Recipient r : c.getRecipients())
 					recipient.add(new DefaultMutableTreeNode(r.toString()));
 				for(Retention r : c.getRetentions())
-					retention.add(new DefaultMutableTreeNode(r.toString()));
-//				for(Category cat : c.getCategories())
-//					category.add(new DefaultMutableTreeNode(cat.toString()));
-				
+					retention.add(new DefaultMutableTreeNode(r.toString()));		
 			}
 			policyObj.add(
 					new DefaultMutableTreeNode(po.getAction()));
 		}	
+	}
+	
+	private void buildTree(DefaultMutableTreeNode root, PolicyObject po)
+	{
+		DefaultMutableTreeNode 	policyObj = null,
+								caseNode = null,
+								purpose = null,
+								recipient = null, 
+								retention = null;
+		
+		policyObj = new DefaultMutableTreeNode(po.getContextDomain());
+		root.add(policyObj);
+		int case_id = 1;
+		
+		for (Case c : po){
+			policyObj.add(caseNode = 
+					new DefaultMutableTreeNode("Case " + String.valueOf(case_id++)));
+			
+			caseNode.add(purpose = 
+					new DefaultMutableTreeNode("Purpose"));
+			caseNode.add(recipient = 
+					new DefaultMutableTreeNode("Recipient"));
+			caseNode.add(retention = 
+					new DefaultMutableTreeNode("Retention"));
+			
+			for (Purpose p : c.getPurposes())
+				purpose.add(new DefaultMutableTreeNode(p.toString()));				
+			for (Recipient r : c.getRecipients())
+				recipient.add(new DefaultMutableTreeNode(r.toString()));
+			for(Retention r : c.getRetentions())
+				retention.add(new DefaultMutableTreeNode(r.toString()));		
+		}
+		policyObj.add(
+				new DefaultMutableTreeNode(po.getAction()));
 	}
 	
 	
