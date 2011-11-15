@@ -119,6 +119,7 @@ public class Gio {
 		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")) && !(userInterface==null))
 		{
 			genProps = userInterface.user_init(genProps);
+			System.out.println("in ConfigUI");
 		}
 	}
 
@@ -537,13 +538,13 @@ public class Gio {
 	 */
 	public PolicyObject userResponse(PolicyObject n) {
 		if((parseAct(genProps.getProperty("userResponse",null)) == null) && 
-				!Boolean.parseBoolean(genProps.getProperty("blanketAccept")))
+				!Boolean.parseBoolean(genProps.getProperty("blanketAccept", "false")))
 		{
 			return userInterface.userResponse(n);
 		}
 		else
 		{
-			if(Boolean.parseBoolean(genProps.getProperty("blanketAccept")))
+			if(Boolean.parseBoolean(genProps.getProperty("blanketAccept", "false")))
 			{
 				return n.setAction(n.getAction().setOverride(true));
 			}
