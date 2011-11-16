@@ -18,7 +18,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-public class ConfigEditor extends Thread {
+import com.kpro.main.Gio;
+
+import sun.awt.ModalityEvent;
+
+public class ConfigEditor {
 
 	private JFrame frame;
 	private JPanel panel;
@@ -31,7 +35,7 @@ public class ConfigEditor extends Thread {
 	private HashMap<String, JComboBox> comboboxes;
 	private HashMap<String, JCheckBox> checkboxes;	
 
-	private Properties genProps;
+	protected Properties genProps;
 	
 	private String[] userInitModel 	= 	{"true", "false"};
 	private String[] uiModel =			{"PrivacyAdvisorGUI","UserIO_Simple"};	 
@@ -159,9 +163,7 @@ public class ConfigEditor extends Thread {
 		panel = new JPanel();
 		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		panel.setLayout(new GridLayout(18, 3));
-		frame.add(panel);		
-		
-		
+		frame.add(panel);
 		
 		for (String str : checkboxes.keySet())
 		{
@@ -190,26 +192,10 @@ public class ConfigEditor extends Thread {
 		frame.setVisible(true);
 	}
 	
-
-	@Override
 	public void run()
 	{
 		InitComponents();
 		InitFrame();
-		while(frame.isVisible()) {
-			try {
-				wait();
-			} catch (InterruptedException e) {
-				System.out.println("Config thread couldn't wait");
-			}
-		}
-	}
-	
-	
-	public static void main(String[] args) 
-	{
-		new ConfigEditor().run();
-		
 	}
 	
 	/**
@@ -257,7 +243,6 @@ public class ConfigEditor extends Thread {
 					updateProps();
 				}else if (e.getSource() ==  btnOk){
 					updateProps();
-					notifyAll();
 					frame.setVisible(false);
 				}
 			}
@@ -271,7 +256,7 @@ public class ConfigEditor extends Thread {
 	 * Update local properties object according to
 	 * values in SWING components.
 	 */
-	private void updateProps(){
+	protected void updateProps(){
 		if(genProps == null)
 			genProps = new Properties();
 		
@@ -296,19 +281,9 @@ public class ConfigEditor extends Thread {
 	            return s;
 	    return null;
 	}
-	
+
 	public Properties getGenProps() {
-		return this.genProps;
-	}
-	
-	/**
-	 * Returns true if the config editor is visible
-	 * @return true if visible
-	 * @author ernie
-	 */
-	
-	public boolean isVisible() {
-		return frame.isVisible();
+		return genProps;
 	}
 	
 }
