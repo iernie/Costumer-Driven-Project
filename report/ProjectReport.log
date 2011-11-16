@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  16 NOV 2011 10:13
+This is pdfTeX, Version 3.1415926-1.40.11 (TeX Live 2010) (format=pdflatex 2010.10.4)  16 NOV 2011 10:21
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1097,9 +1097,6 @@ Package rerunfilecheck Info: File `ProjectReport.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) )
 (\end occurred when \iftrue on line 145 was incomplete)
 (\end occurred when \ifnum on line 145 was incomplete) 
@@ -1128,7 +1125,7 @@ public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmti9.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2010/texmf-dist/fonts/type1/publ
 ic/amsfonts/symbols/msbm10.pfb>
-Output written on ProjectReport.pdf (99 pages, 832997 bytes).
+Output written on ProjectReport.pdf (99 pages, 832981 bytes).
 PDF statistics:
  1469 PDF objects out of 1728 (max. 8388607)
  1298 compressed objects within 13 object streams

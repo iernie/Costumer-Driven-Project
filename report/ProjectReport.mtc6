@@ -1,24 +1,24 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.1}Development Tools and Technologies}{\reset@font\mtcSfont 46}{section.5.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.1}Documents and Source Code Repositories}{\reset@font\mtcSSfont 46}{subsection.5.1.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.2}Programming Languages}{\reset@font\mtcSSfont 46}{subsection.5.1.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.3}Development Tools}{\reset@font\mtcSSfont 46}{subsection.5.1.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.4}Local Databases}{\reset@font\mtcSSfont 46}{subsection.5.1.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.5}Non-local Database}{\reset@font\mtcSSfont 47}{subsection.5.1.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.6}Third Party Libraries}{\reset@font\mtcSSfont 47}{subsection.5.1.6}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Third Party CBR System}{\reset@font\mtcSSSfont 47}{section*.29}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Third Party k Nearest Neighbors Implementations}{\reset@font\mtcSSSfont 48}{section*.30}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode P3P/XML Parser}{\reset@font\mtcSSSfont 48}{section*.31}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Commandline Input Parser}{\reset@font\mtcSSSfont 48}{section*.32}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Logging}{\reset@font\mtcSSSfont 48}{section*.33}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode CouchDB and JSON}{\reset@font\mtcSSSfont 49}{section*.34}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.2}Standards}{\reset@font\mtcSfont 49}{section.5.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.3}Architecture}{\reset@font\mtcSfont 49}{section.5.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.1}Design Overview}{\reset@font\mtcSSfont 49}{subsection.5.3.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode CLI and I/O}{\reset@font\mtcSSSfont 52}{section*.35}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode GUI}{\reset@font\mtcSSSfont 52}{section*.36}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Weights and Configuration Files}{\reset@font\mtcSSSfont 52}{section*.37}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode CBR}{\reset@font\mtcSSSfont 53}{section*.38}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode P3P Policy Objects}{\reset@font\mtcSSSfont 53}{section*.39}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode P3P Policy Database}{\reset@font\mtcSSSfont 53}{section*.40}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.2}Interfaces}{\reset@font\mtcSSfont 55}{subsection.5.3.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.3}Community Server}{\reset@font\mtcSSfont 55}{subsection.5.3.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.1}Development Tools and Technologies}{\reset@font\mtcSfont 39}{section.5.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.1}Documents and Source Code Repositories}{\reset@font\mtcSSfont 40}{subsection.5.1.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.2}Programming Languages}{\reset@font\mtcSSfont 40}{subsection.5.1.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.3}Development Tools}{\reset@font\mtcSSfont 40}{subsection.5.1.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.4}Local Databases}{\reset@font\mtcSSfont 40}{subsection.5.1.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.5}Non-local Database}{\reset@font\mtcSSfont 40}{subsection.5.1.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.1.6}Third Party Libraries}{\reset@font\mtcSSfont 41}{subsection.5.1.6}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Third Party CBR System}{\reset@font\mtcSSSfont 41}{section*.29}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Third Party k Nearest Neighbors Implementations}{\reset@font\mtcSSSfont 41}{section*.30}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode P3P/XML Parser}{\reset@font\mtcSSSfont 41}{section*.31}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Commandline Input Parser}{\reset@font\mtcSSSfont 42}{section*.32}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Logging}{\reset@font\mtcSSSfont 42}{section*.33}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode CouchDB and JSON}{\reset@font\mtcSSSfont 42}{section*.34}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.2}Standards}{\reset@font\mtcSfont 42}{section.5.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.3}Architecture}{\reset@font\mtcSfont 42}{section.5.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.1}Design Overview}{\reset@font\mtcSSfont 43}{subsection.5.3.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode CLI and I/O}{\reset@font\mtcSSSfont 45}{section*.35}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode GUI}{\reset@font\mtcSSSfont 45}{section*.36}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Weights and Configuration Files}{\reset@font\mtcSSSfont 45}{section*.37}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode CBR}{\reset@font\mtcSSSfont 46}{section*.38}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode P3P Policy Objects}{\reset@font\mtcSSSfont 46}{section*.39}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode P3P Policy Database}{\reset@font\mtcSSSfont 46}{section*.40}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.2}Interfaces}{\reset@font\mtcSSfont 48}{subsection.5.3.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.3}Community Server}{\reset@font\mtcSSfont 48}{subsection.5.3.3}}
