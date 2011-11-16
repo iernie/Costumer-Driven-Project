@@ -18,6 +18,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import com.kpro.main.Gio;
+
+import sun.awt.ModalityEvent;
+
 public class ConfigEditor extends Thread {
 
 	private JFrame frame;
@@ -190,26 +194,17 @@ public class ConfigEditor extends Thread {
 		frame.setVisible(true);
 	}
 	
-
 	@Override
 	public void run()
 	{
 		InitComponents();
 		InitFrame();
-		while(frame.isVisible()) {
+		while (frame.isVisible()) {
 			try {
-				wait();
-			} catch (InterruptedException e) {
-				System.out.println("Config thread couldn't wait");
+				sleep(500);
+			} catch (Exception e) {
 			}
 		}
-	}
-	
-	
-	public static void main(String[] args) 
-	{
-		new ConfigEditor().run();
-		
 	}
 	
 	/**
@@ -257,8 +252,8 @@ public class ConfigEditor extends Thread {
 					updateProps();
 				}else if (e.getSource() ==  btnOk){
 					updateProps();
-					notifyAll();
 					frame.setVisible(false);
+					frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSED));
 				}
 			}
 			else updateProps();
@@ -296,19 +291,11 @@ public class ConfigEditor extends Thread {
 	            return s;
 	    return null;
 	}
-	
+
+
+
 	public Properties getGenProps() {
-		return this.genProps;
-	}
-	
-	/**
-	 * Returns true if the config editor is visible
-	 * @return true if visible
-	 * @author ernie
-	 */
-	
-	public boolean isVisible() {
-		return frame.isVisible();
+		return genProps;
 	}
 	
 }

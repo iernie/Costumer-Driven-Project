@@ -19,7 +19,7 @@ public abstract class UserIO {
 	 * @param genProps the default values for all commandline arguments
 	 * @return the values to initialize the program with- same as usual args from main
 	 */
-	public abstract Properties user_init(Properties genProps);
+	public abstract void user_init(Properties genProps);
 	
 	/**
 	 * display the contents of the database

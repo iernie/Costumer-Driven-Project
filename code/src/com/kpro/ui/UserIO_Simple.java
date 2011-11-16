@@ -128,8 +128,7 @@ public class UserIO_Simple extends UserIO {
 
 
 	@Override
-	public Properties user_init(Properties genProps) {
-		return genProps;
+	public void user_init(Properties genProps) {
 	}
 
 }
