@@ -1,4 +1,4 @@
-begin\documentclass[11pt]{book}
+\documentclass[11pt]{book}
 %\usepackage{utf8}{inputenc} % For Norwegian characters.
 \usepackage{geometry}        
 \geometry{letterpaper}    
@@ -8,7 +8,9 @@ begin\documentclass[11pt]{book}
 \usepackage{epstopdf}
 \usepackage{tabularx}
 \usepackage{minitoc}
+\usepackage{fullpage}
 \usepackage{pdfpages}
+
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 \usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, 
