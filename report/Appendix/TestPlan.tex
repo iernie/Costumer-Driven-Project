@@ -1,104 +1,104 @@
-\chapter{Test Plan}
+\documentclass[12pt, fullpage, oneside]{report}
 
-	\section*{Test cases}
-		\vspace{8 mm}		
+\begin{document}
 
-		\begin{center}
-			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
-				\hline
-				Item & Description \\ [5pt] \hline \hline
-				Name & Command line interface (CLI) functionality \\  [5pt] \hline
-				Test identifier & UNIT-01 \\  [5pt] \hline
-				Person responsible & Henrik Knutsen \\  [5pt] \hline
-				Feature(s) to be tested & That all possible commands are working correctly when using the CLI. That input with incompatible commands does not run. \\  [5pt] \hline
-				Pre-conditions & Code for input handling for all possible commands. Code for error handling for invalid inputs. \\  [5pt] \hline
-				Execution steps & 1. Start the program with all possible commands. Run once for each command. \newline 2. Start the program with all possible combinations of incompatible commands. Run once for each combination of incompatible commands. \\  [5pt] \hline
-				Expected result & 1. The program starts successfully, performing the action connected to the command. \newline 2. The program aborts startup. Gives error warning: Invalid arguments. \\  [5pt] \hline
-			\end{tabular}
-		\end{center}
+\title{Test Plan}
 
-		\begin{center}
-			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
-				\hline
-				Item & Description \\ [5pt] \hline \hline
-				Name & P3P parser \\  [5pt] \hline
-				Test identifier & UNIT-02 \\  [5pt] \hline
-				Person responsible & Henrik Knutsen \\  [5pt] \hline
-				Feature(s) to be tested & That the P3P parser correctly parses all the required fields and their values. \\  [5pt] \hline
-				Pre-conditions & The P3P parser must be implemented. Need to have P3P policies with a wide range of cases. \\  [5pt] \hline
-				Execution steps & 1. Manually go through a P3P XML and obtain all the required fields and their values. \newline 2. Run the same P3P XML in the P3P parser and print the parsed elements and their values to console.
-					\newline 3. Compare the results from the two parsing methods. \\  [5pt] \hline
-				Expected result & 1. All required fields and values are obtained and written down. \newline 2. The P3P XML is parsed successfully. Its content is printed to console. \newline 3. The results are identical. The the two outputs on paper and in console have the same fields, 						with the same values. \\  [5pt] \hline
-			\end{tabular}
-		\end{center}
+\subsection*{Test plan}
+This is the test plan for the "Privacy Advisor" application requested by SINTEF ICT. This test plan is based on IEEE829-1998, the IEEE standard for software test documentation, with some adaptions to fit this project better. The purpose of testing is find bugs and errors and correct them, and to make sure the program is working as expected. The purpose of this test plan is to make sure the tests will be executed as planned, and that they are well documented.
+
+\setcounter{tocdepth}{1}
+
+\section{Test Methods}
+There are two main types of software testing: black-box testing and white-box testing.
 		
+\subsection{Black-box testing}
+This is a method that test the functionality of an application. For this type of testing, knowledge about the application's code and structure is not required. The test cases are based on external descriptions of the software, e.g. specifications, functional requirements or designs. Black-box tests are usually functional, but they can also be non-functional. This type of testing can be applied to all levels of software testing.
+		
+\subsection{White-box testing}
+This method is used for testing internal structures of an application. For white-box testing it is required to have both knowledge about the code and structure of the application, as well as knowledge about programming to design the test cases. This type of testing is normally 	done at unit level where it can test paths within a unit or paths between units, but it can also be used at integration and system levels of testing. This method can uncover many errors and problems, but it is not a good test method for finding out whether the program is fulfilling the requirements or not.
+
+\section{Testing approach}
+Our main focus will be on white-box testing. This is a program that is going to be used for research, which means that black-box testing will not be very useful as the client want to work on and test algorithms themselves. Our main task is to deliver a good framework with the necessary tools, and a working, learning algorithm so that further testing can be done with ease. Since one of the system requirements is high modularity, it will be a goal to have the tests be as little dependent on other modules as possible. There will be no training needs, as the testers are also involved in the programming.
+
+		\subsection*{What will be tested:}
+			\begin{itemize}
+				\renewcommand{\labelitemi}{$\bullet$}
+					\item \textbf{Unit testing:} This will be used for testing the functionality of the modules, so that we can ensure that they are working as intended.
+					\item \textbf{Learning of our algorithm:} As our algorithm is based on case-based reasoning (CBR), it will be important to test that it is learning from new data.
+			\end{itemize}
+
+		\subsection*{What will \underline{not} be tested:}
+			\begin{itemize}
+				\renewcommand{\labelitemi}{$\bullet$}
+					\item \textbf{Usability testing:} This program is intended for further research by the client, and not for use by customers. Since we are not delivering a program ready for users, there is no need to perform end-user tests to see how users interact with the 							program, and whether the product is accepted by users or not.
+					\item \textbf{Interface testing:} For the same reasons we will not perform any tests on the quality of the GUIs. The GUIs that will be included is there to make testing easier for the client, not to provide the best possible interaction with end-users.
+					\item \textbf{Run time:} We will not do designated tests for checking and optimizing the run time. This is because the main classification algorithm can be easily changed. Run time will only be looked into if the program is very slow even for small data sets.
+			\end{itemize}
+		
+	\section{Test case overview}
+		This is the test cases and their identifiers. The identifiers are named UNIT-XX, where XX is the number of the test case.
+		\vspace{8 mm}
+		
+		\textbf{Unit tests:}
+		\begin{itemize}
+			\renewcommand{\labelitemi}{$\bullet$}
+				\item UNIT-01: Command line interface (CLI) functionality
+				\item UNIT-02: P3P parser
+				\item UNIT-03: Local database
+				\item UNIT-04: Graphical user interface (GUI) functionality
+				\item UNIT-05: Algorithm classification
+				\item UNIT-06: Algorithm learning
+				\item UNIT-07: Packet passing through network to community database
+		\end{itemize}
+
+		\vspace{8 mm}
+		This is the test case template for the unit tests.
+		\vspace{8 mm}
+
 		\begin{center}
-			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
+			\begin{tabular}{ |  p{4cm} | p{10cm} | }
 				\hline
-				Item & Description \\ [5pt] \hline \hline
-				Name & Local database \\  [5pt] \hline
-				Test identifier & UNIT-03 \\  [5pt] \hline
-				Person responsible & Henrik Knutsen \\  [5pt] \hline
-				Feature(s) to be tested & Writing to and reading from the local database. That the serialization of the database is working. \\  [5pt] \hline
-				Pre-conditions & Code for writing to and reading from the database file. Need to have two different P3P policies. \\  [5pt] \hline
-				Execution steps & 1. Write policy A to the local database. \newline 2. Write policy B to the local database. \newline 3. Read policy A from the local database. \newline 4. Read policy B from the local database. \newline 5. Compare the written policy A and the read 							policy A. \newline 6. Compare the written policy B and the read policy B. \\  [5pt] \hline
-				Expected result & 1. Policy A is successfully written to the database file. \newline 2. Policy B is successfully written to the database file. \newline 3. Policy A is successfully read from the database file. \newline 4. Policy B is successfully read from the database file. 							\newline 5. The written policy A and the read policy A are identical. They both have the same fields, with the same values. \newline 6. The written policy B and the read policy B are identical. They both have the same fields, with the same values.\\  [5pt] \hline
+				Item & Description \\ [3pt] \hline \hline
+				Name & The name of the test \\  [3pt] \hline
+				Test identifier & The identifier of the test \\  [3pt] \hline
+				Person responsible & The person responsible for making sure the test is executed correctly and on time. \\  [3pt] \hline
+				Feature(s) to be tested & What kind of functionality that is being tested. \\  [3pt] \hline
+				Pre-conditions & What code and environment that has to be in place before the test can be executed. \\  [3pt] \hline
+				Execution steps & Stepwise explanation of how to perform the test. \\  [3pt] \hline
+				Expected result & The expected output/result for the test to be successful. \\  [3pt] \hline
 			\end{tabular}
 		\end{center}
 
+	\section{Test cases}
+		See the appendix for the test cases.
+
+	\section{Test pass / fail criteria}
+		A test is passed if the given execution steps and input produce the expected results. If they do not, the test is failed.
+
+	\section {Test schedule}
+		This is the table for when the UNIT tests are scheduled to start.
+
 		\begin{center}
-			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
+			\begin{tabular}{ |  p{5cm} | p{5cm} | }
 				\hline
-				Item & Description \\ [5pt] \hline \hline
-				Name & Graphical user interface (GUI) functionality \\  [5pt] \hline
-				Test identifier & UNIT-04 \\  [5pt] \hline
-				Person responsible & Henrik Knutsen \\  [5pt] \hline
-				Feature(s) to be tested & That all the elements - buttons, lists etc. - are working as intended. \\  [5pt] \hline
-				Pre-conditions & GUI with all the necessary listeners must be implemented. Code for running the program with the GUI. \\  [5pt] \hline
-				Execution steps & 1. Start the program using the GUI. \newline 2. Use all the elements in the GUI. \\  [5pt] \hline
-				Expected result & 1. The program starts successfully in GUI mode. \newline 2. All the elements are triggering the connected methods when used. \\  [5pt] \hline
+				Test identifier & Execution date \\ [3pt] \hline \hline
+				UNIT-01 & October 22nd \\  [3pt] \hline
+				UNIT-02 & October 24th \\  [3pt] \hline
+				UNIT-03 & October 26th \\  [3pt] \hline
+				UNIT-04 & October 29th \\  [3pt] \hline
+				UNIT-05 & October 29th \\  [3pt] \hline
+				UNIT-06 & October 29th \\  [3pt] \hline
+				UNIT-07 & November 12th \\  [3pt] \hline
 			\end{tabular}
 		\end{center}
 
-		\begin{center}
-			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
-				\hline
-				Item & Description \\ [5pt] \hline \hline
-				Name & Algorithm classification \\  [5pt] \hline
-				Test identifier & UNIT-05 \\  [5pt] \hline
-				Person responsible & Henrik Knutsen, Dimitry Kongevold \\  [5pt] \hline
-				Feature(s) to be tested & That the k-nearest neighbor algorithm bases its decision on the k most similar policies \\  [5pt] \hline
-				Pre-conditions & Code for reading from the weights file must be implemented. A working k-nearest neighbor algorithm that uses the weights must be implemented. Need one policy to test on, and a set of policies to be used as history. \\  [5pt] \hline
-				Execution steps & 1. Load a set of policies into the history. \newline 2. Run the distance algorithm on the single policy and the history. \newline 3. Manually calculate and write down the distances between the single policy and each of the policies in the history. \newline 						4. Compare the distances that are returned by the algorithm with the manually calculated distances. \newline 5. Run the reduction algorithm with input to find the k nearest policies. \newline 6. Manually find the k policies with the lowest distance. \newline 7. 							Compare the policies returned by the reduction algorithm and those found manually. \newline 8. Run the conclusion algorithm. \\  [5pt] \hline
-				Expected result & 1. The policies are successfully stored in the database. \newline 2. The distance algorithm runs successfully for the chosen input, and returns the distances between the single policy and each of the policies in the history. \newline 3. The distance 							between the single policy and the policies in the database are found and written down. \newline 4. The distances returned by the algorithm, and the respective distances calculated manually are identical. \newline 5. The reduction algorithm runs successfully for 						the chosen input and returns the k nearest policies. \newline 6. The k nearest policies are found and written down. \newline 7. The k policies returned by the reduction algorithm and the k policies found manually are the same policies. \newline 8. The conclusion 							algorithm runs successfully. \\  [5pt] \hline
-			\end{tabular}
-		\end{center}
+\section{Risks and contingencies}
+For some of the tests we will not be able to test every possible input / output. So there is a chance a test will pass for all the combinations we will be testing for a specific test case, but still fail at some later point for some other combination. This can be a problem for the tests UNIT-02 P3P parser, and UNIT-05 Algorithm classification.
 
-		\begin{center}
-			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
-				\hline
-				Item & Description \\ [5pt] \hline \hline
-				Name & Algorithm learning \\  [5pt] \hline
-				Test identifier & UNIT-06 \\  [5pt] \hline
-				Person responsible & Henrik Knutsen, Neshahavan Karunakaran\\  [5pt] \hline
-				Feature(s) to be tested & That the weights file is updated when a new policy is added to history. \\  [5pt] \hline
-				Pre-conditions & Code for reading from and writing to the weights file. Code for writing to the database. Algorithms for classification and learning must be implemented. \\  [5pt] \hline
-				Execution steps & 1. Obtain and write down the contents of the weights file. \newline 2. Load a set of policies into the history. \newline 3. Run the classification algorithm on the single policy and the history. \newline 4. Accept the recommendation. \newline 5. Choose  						to save the new policy to history. \newline 6. Obtain and write down the contents of the weights file. \newline 7. Compare the contents of the weights files obtained in steps 1. and 6. \\  [5pt] \hline
-				Expected result & 1. The contents of the weights file is obtained and written down. \newline 2. All the chosen policies are successfully stored in the database. \newline 3. The algorithm classifies the new policy, gives a recommendation on what action to take, and asks 						the user if the recommendation is accepted. \newline 4. The user is asked whether to save the new policy to history or not. \newline 5. The new policy is successfully written to the database. \newline 6. The contents of the weights file is obtained and written 							down. \newline 7. At least one of the fields in the weights files obtained from steps 1. and 6. are different. \\  [5pt] \hline
-			\end{tabular}
-		\end{center}
+The P3P policies have a huge variety in which elements they contain, and certain elements have a N-to-1 relation, so it will be impossible to test if everything is parsed correctly for every possible P3P policy. The best way to prevent this is to handpick a set of policies that have as different content as possible, so that as many of the extremes as possible will be covered.
 
-		\begin{center}
-			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
-				\hline
-				Item & Description \\ [5pt] \hline \hline
-				Name & Packet passing through network to community database \\  [5pt] \hline
-				Test identifier & UNIT-07 \\  [5pt] \hline
-				Person responsible & Henrik Knutsen \\  [5pt] \hline
-				Feature(s) to be tested & That packets can be sent between the client program and the community database.  \\  [5pt] \hline
-				Pre-conditions & A running local client. A (virtual) server. Code for sending and receiving packets must be implemented. \\  [5pt] \hline
-				Execution steps & 1. Start the program locally. \newline 2. Start the (virtual) server. \newline 3. Send policy A from the local client to the server. Print the contents of policy A. \newline 4. Receive packet A at the (virtual) server. Print the contents of policy A. \newline 							5. Compare the sent policy A and the received policy A. \newline 6. Send policy B from the (virtual) server to the client. Print the contents of policy B. \newline 7. Receive policy B at the local client. Print the contents of policy B. \newline 8. Compare the sent 							policy B and the received policy B. \\  [5pt] \hline
-				Expected result & 1. The program starts successfully. \newline 2. The (virtual) server starts successfully. \newline 3. Policy A is sent to the server. Its contents are printed to console. \newline 4. Policy A is received at the (virtual) server. Its contents are printed to 							console. \newline 5. The contents of the sent policy A and the received policy A are identical. \newline 6. Policy B is sent to the local client. Its contents are printed to console. \newline 7. Policy B is received at the local client. Its contents are printed to 								console. \newline 8. The contents of the sent policy B and the received policy B are identical.\\  [5pt] \hline
-			\end{tabular}
-		\end{center}
+We got the same issue for testing the algorithm classification. There is simply too many combinations of learning base and input to cover everything. So again we have to do our best with regards to also covering as many extremes as possible.
+
+
 \end{document}
