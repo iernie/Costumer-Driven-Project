@@ -3,8 +3,6 @@ package com.kpro.ui;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.HashMap;
 import java.util.Properties;
 
@@ -17,10 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-
-import com.kpro.main.Gio;
-
-import sun.awt.ModalityEvent;
 
 public class ConfigEditor {
 
@@ -39,7 +33,7 @@ public class ConfigEditor {
 	
 	private String[] userInitModel 	= 	{"true", "false"};
 	private String[] uiModel =			{"PrivacyAdvisorGUI","UserIO_Simple"};	 
-	private String[] cbrVerModel 	= 	{"bitmapDistanceWisOne,Reduction_KNN:1,Conclusion_Simple,LearnAlgSimpler"};
+	//private String[] cbrVerModel 	= 	{"bitmapDistanceWisOne,Reduction_KNN:1,Conclusion_Simple,LearnAlgSimpler"};
 	private String[] dbTypeModel 	= 	{"PDatabase"};
 	private String[] logLvlModel	=  	{"INFO"};
 	private String[] networkTypeModel = {"NRCouchdb"};

@@ -4,31 +4,19 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.JTree;
-import javax.swing.SwingUtilities;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Properties;
 import javax.swing.JTextArea;
 
@@ -56,10 +44,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 public class PrivacyAdvisorGUI extends UserIO{
 
 	private JFrame frame;
-	private String weightsPath;
-	private String configPath;
-	private String dbPath;
-	private String p3pPolicyPath;
 	private Gio gio;
 
 	// textarea to hold output and 
@@ -76,12 +60,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 	private JMenuItem runMenuItem;
 	private JMenuItem exitMenuItem;
 	
-	
-	// Properties object that is passed to GIO
-	private Properties props;
-	
 	private JScrollPane outputAreaScrollPane, dataBaseTreeScrollPane, policyTreeScrollPane;
-	private static Object lock = new Object();
 	
 	/**
 	 * Launch the application.
