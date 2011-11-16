@@ -19,8 +19,13 @@ For software projects of a certain scale, version control is an important techno
 
 For source code repositories and version control, \textbf{Git} was selected. Git is a distributed, open source version control system that is available for all platforms. Git is also used for hosting the \LaTeX documents that comprise this report. For other documents such as meeting minutes, agendas, status reports, time reporting and certain planning documents, \textbf{Google Docs} is used.
 
+
 \subsection{Programming Languages}
 \textbf{Java} is chosen as the primary programming language for implementing the majority of the code. Java is an object oriented programming language providing a level of abstraction appropriate for the task at hand in addition to a rich set of libraries, including the SWING library for GUI programming, and several libraries for networking. It also simplifies writing a browser plugin as major browsers such as Google Chrome and Firefox employ Javascript as scripting language for plugin.
+Javascript was used in small measure for the use of a CouchDB community server.
+
+\subsection{Development Tools}
+Eclipse was used for all Java development, while standard text editors were used for Javascript and manual P3P policy editing. The CouchDB server was hosted on a VMware virtual machine, and was accessible via web interface on most standard web browsers.
 
 \subsection{Local Databases}
 For simplicity's sake, it was decided to use flat files to store privacy policy data between new problems in the CBR cycle. The provided class uses Java's \texttt{Serializable} interface. However, the output functionality is written in a generic fashion to simplify and allow use of database systems such as MySQL, CouchDB and so forth. 
@@ -183,7 +188,7 @@ An overview of the Policy Database is given in Figure~\ref{pd_fig}...
 
 
 
-\subsection{Community Server}
+\subsection{Community Server} %%TODO needs rewrite- focuse here is on design not implementation. mention query should be server-side
 The community knowledge repository is implemented using a public CouchDB (no-SQL server), which is accessed using standard Java to JSON java libraries. The client program (end-user java application) communicates with the server at two points- when the application has insufficient knowledge, or confidence in its knowledge, to make a suggestion as to the acceptance of a new P3P policy; and after the user has confirmed or overridden the policy.
 
 In the first instance, the new policy under consideration is converted to JSON using GSON (the Google Json libraries), and transmitted to the database, which parses the new policy and replies with a JSON encoded suggested Action.
