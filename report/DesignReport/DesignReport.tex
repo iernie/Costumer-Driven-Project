@@ -37,21 +37,19 @@ For testing purposes, it has been decided on using flat file storage of privacy 
  
 For developing the CBR as well as P3P parsing components of the Privacy Advisor, a decision had to be made regarding the usage of third party libraries, either for components or for the entire CBR system. Two options were considered with respect to the CBR system. The first was to use a full third party CBR system (jColibri). The alternative was to use a third party system for the retrieval component of the CBR system (i.e. a k Nearest Neighbors (kNN) implementation).
 
-<<<<<<< HEAD
+
 \subsubsection{Third Party CBR System}
-The customer (SINTEF ICT) suggested looking into an open source CBR library developed at the Universidad Complutense de Madrid.
-=======
+
 The customer, SINTEF ICT, suggested looking into an open source CBR library developed at the Universidad Complutense de Madrid.
->>>>>>> 9390378237fe2fce259a200c1bcfc712c87aa408
  
 jColibri is a CBR system that has been under development for well over 10 years and is a very comprehensive system allowing for database interfaces and several other features,  and is according to the customer, a popular choice in academia for CBR projects. It is also written in Java, which of course makes interfacing it simple from our own Java project.
  
 However, its comprehensiveness also means that it takes more reading to understand and properly apply to the project at hand, and due to its size and poor documentation, jColibri was ultimately deemed unfit for the Privacy Advisor project. Due to the limited time resources available to this project, the risks associated with spending a large amount of time on a third party library that eventually would not be running was to high.
  
 \subsubsection{Third Party k Nearest Neighbors Implementations}
-Since kNN is a standard classification algorithm, there are several open source implementations available. Limiting the search space to Java implementations, a library called �The Java Machine Learning Library� (JavaML) was the primary candidate, as it provided a clean and simple interface and allowed for extracting confidence measures.
+Since kNN is a standard classification algorithm, there are several open source implementations available. Limiting the search space to Java implementations, a library called \emph{The Java Machine Learning Library} (JavaML) was the primary candidate, as it provided a clean and simple interface and allowed for extracting confidence measures.
  
-The problem with this library relates to the nature of distance metrics used in classifying privacy policies which is compositional in a way that is non-trivial to handle in JavaML. Furthermore, JavaML seems to operate only on arrays of floating point numbers, which means the distance metric must be defined in two stages; first mapping from �policy domain� to real numbers, then in terms of a metric on real vectors.
+The problem with this library relates to the nature of distance metrics used in classifying privacy policies which is compositional in a way that is non-trivial to handle in JavaML. Furthermore, JavaML seems to operate only on arrays of floating point numbers, which means the distance metric must be defined in two stages; first mapping from \emph{policy domain} to real numbers, then in terms of a metric on real vectors.
 
 \subsubsection{P3P/XML Parser}
 Looking for XML parsers on the Java platform, we found out that there are two different types of XML parsers we could use, the first being a DOM Parsers and the second one being a sequential access parser. The difference being that DOM parsers operate on the document as a whole, while sequential access parsers operates on each piece of the XML document sequentually.
@@ -110,7 +108,7 @@ Privacy Advisor can be run using either a command line interface (CLI) or a grap
 \subsubsection{Weights and Configuration Files}
 As an addition to passing command line arguments, GIO also reads a text based configuration file containing CBR and database settings. The configuration files are detailed in the User Documentation in table~\ref{configTable}. 
 
-\subsubsection{CBR}
+\subsubsection{CBR} % TODO Nicholas: Why PDatabase is not connected directly to CBR
 Input from the UI is passed on to the CBR framework. CBR in turn references three other key modules, a \emph{reduction} algorithm, a \emph{conclusion} algorithm, and finally, a \emph{learning} algorithm.
 
 The reduction algorithm searches the database to find the most similar cases to the new case presented. The canonical reduction algorithm is k Nearest Neighbors, discussed in section~\ref{kNN}. The conclusion algorithm looks at the set of cases returned by the reduction, and decides on the most appropriate action for the novel case. It also returns a measure of confidence in the conclusion reached.
