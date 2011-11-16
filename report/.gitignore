@@ -1,8 +1,8 @@
 *.mtc*
-*.aux
-*.lof
-*.dvi
-*.log
-*.maf
-*.lot
-*.out
+*.aux*
+*.lof*
+*.dvi*
+*.log*
+*.maf*
+*.lot*
+*.out*
