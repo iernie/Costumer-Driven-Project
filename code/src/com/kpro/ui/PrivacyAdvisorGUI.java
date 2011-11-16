@@ -4,21 +4,31 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.SwingUtilities;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 import javax.swing.JTextArea;
 
@@ -32,6 +42,7 @@ import com.kpro.dataobjects.Recipient;
 import com.kpro.dataobjects.Retention;
 import com.kpro.datastorage.PolicyDatabase;
 import com.kpro.main.Gio;
+
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.TreeSelectionEvent;
@@ -70,6 +81,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 	private Properties props;
 	
 	private JScrollPane outputAreaScrollPane, dataBaseTreeScrollPane, policyTreeScrollPane;
+	private static Object lock = new Object();
 	
 	/**
 	 * Launch the application.
@@ -184,12 +196,9 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 * @author ulfnore
 	 */
 	@Override
-	public Properties user_init(Properties genProps){
-		ConfigEditor ce = new ConfigEditor(genProps);
-		ce.run();
-		
-		System.out.println("Thread finished?");
-		return ce.getGenProps();
+	public void user_init(Properties genProps){
+		PrivacyAdvisorConfigEditor configEditor = new PrivacyAdvisorConfigEditor(genProps);
+		configEditor.run();
 	}
 	
 	private void loadConfig(){
@@ -433,5 +442,19 @@ public class PrivacyAdvisorGUI extends UserIO{
 			for(Object o: e.getPath().getPath())
 				System.out.println(o);
 		}
+	}
+	
+	private class PrivacyAdvisorConfigEditor extends ConfigEditor {
+		
+		public PrivacyAdvisorConfigEditor(Properties genProps) {
+			this.genProps = genProps;
+		}
+
+		@Override
+		protected void updateProps() {
+			super.updateProps();
+			gio.setGenProps(getGenProps());
+		}
+		
 	}
 }

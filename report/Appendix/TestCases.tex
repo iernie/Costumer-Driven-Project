@@ -1,0 +1,248 @@
+% Activate the following line by filling in the right side. If for example the name of the root file is Main.tex, write
+% "...root = Main.tex" if the chapter file is in the same directory, and "...root = ../Main.tex" if the chapter is in a subdirectory.
+ 
+%!TEX root =  
+
+\chapter{Test cases}
+
+\begin{center}
+	\begin{longtable}{ | p{4cm} | p{10cm} | }
+	\caption{UNIT-01}\\ \hline
+	\textbf{Item} & \textbf{Description} \\ [3pt] \hline \hline
+	\endfirsthead
+	\multicolumn{2}{c}%
+	{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+	\textbf{Item} & \textbf{Description}\\ \hline
+	\endhead \hline \hline 
+	\multicolumn{2}{r}{\textit{Continued on next page}} \\
+	\endfoot \hline
+	\endlastfoot
+				Name & Command line interface (CLI) functionality \\  [3pt] \hline
+				Test identifier & UNIT-01 \\  [3pt] \hline
+				Person responsible & Henrik Knutsen \\  [3pt] \hline
+				Feature(s) to be tested & That all possible commands are working correctly when using the CLI. That the program runs without input \\ [3pt] \hline
+				Pre-conditions & Code for input handling for all possible commands. Code for error handling for invalid inputs. \\  [3pt] \hline
+				
+				Execution steps & 	\begin{enumerate}
+								\item Run the program for every type of argument
+								\item Run the program without arguments
+							\end{enumerate} \\ [3pt] \hline
+
+				Expected results & 	\begin{enumerate}
+								\item The specified variable is set to the specified value
+								\item All the values are loaded from the config file
+							\end{enumerate} \\ [3pt] \hline
+	\end{longtable}
+\end{center}
+
+\newpage
+\begin{center}
+	\begin{longtable}{ | p{4cm} | p{10cm} | }
+	\caption{UNIT-02}\\ \hline
+	\textbf{Item} & \textbf{Description} \\ [3pt] \hline \hline
+	\endfirsthead
+	\multicolumn{2}{c}%
+	{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+	\textbf{Item} & \textbf{Description}\\ \hline
+	\endhead \hline \hline 
+	\multicolumn{2}{r}{\textit{Continued on next page}} \\
+	\endfoot \hline
+	\endlastfoot
+				Name & P3P parser \\  [3pt] \hline
+				Test identifier & UNIT-02 \\  [3pt] \hline
+				Person responsible & Henrik Knutsen \\  [3pt] \hline
+				Feature(s) to be tested & That the P3P parser correctly parses all the required fields and their values. \\  [3pt] \hline
+				Pre-conditions & The P3P parser must be implemented. Need to have P3P policies with a wide range of cases. \\  [3pt] \hline
+				
+				Execution steps & 	\begin{enumerate}
+								\item Run a P3P xml in the P3P parser and print the parsed fields and their values to console
+								\item Manually compare the printed fields and values with the contents of the P3P xml
+							\end{enumerate} \\ [3pt] \hline
+	
+				Expected results &	\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same value as those in the xml
+							\end{enumerate}	\\  [3pt] \hline
+	\end{longtable}
+\end{center}
+		
+\newpage
+\begin{center}
+	\begin{longtable}{ | p{4cm} | p{10cm} | }
+	\caption{UNIT-03}\\ \hline
+	\textbf{Item} & \textbf{Description} \\ [3pt] \hline \hline
+	\endfirsthead
+	\multicolumn{2}{c}%
+	{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+	\textbf{Item} & \textbf{Description}\\ \hline
+	\endhead \hline \hline 
+	\multicolumn{2}{r}{\textit{Continued on next page}} \\
+	\endfoot \hline
+	\endlastfoot
+				Name & Local database \\  [3pt] \hline
+				Test identifier & UNIT-03 \\  [3pt] \hline
+				Person responsible & Henrik Knutsen \\  [3pt] \hline
+				Feature(s) to be tested & Writing to and reading from the local database. That the serialization of the database is working. \\  [3pt] \hline
+				Pre-conditions & Code for writing to and reading from the database file. Need to have two different P3P policies. \\  [3pt] \hline
+				
+				Execution steps & 	\begin{enumerate}
+								\item Write policy A to the local database
+								\item Write policy B to the local database
+								\item Read and print policy A from the local database
+								\item Read and print policy A from the local database
+								\item Compare the written policy A and the read policy A
+								\item Compare the written policy B and the read policy B
+							\end{enumerate} \\ [3pt] \hline
+
+				Expected results &	\begin{enumerate}
+								\item Policy A is successfully written to the database file
+								\item Policy B is successfully written to the database file
+								\item Policy A is successfully read from the database file and printed
+								\item Policy B is successfully read from the database file and printed
+								\item The written policy A and the read policy A are identical. They both have the same fields, with the same values
+								\item The written policy B and the read policy B are identical. They both have the same fields, with the same values
+							\end{enumerate}  \\  [3pt] \hline
+	\end{longtable}
+\end{center}
+
+\newpage
+\begin{center}
+	\begin{longtable}{ | p{4cm} | p{10cm} | }
+	\caption{UNIT-04}\\ \hline
+	\textbf{Item} & \textbf{Description} \\ [3pt] \hline \hline
+	\endfirsthead
+	\multicolumn{2}{c}%
+	{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+	\textbf{Item} & \textbf{Description}\\ \hline
+	\endhead \hline \hline 
+	\multicolumn{2}{r}{\textit{Continued on next page}} \\
+	\endfoot \hline
+	\endlastfoot
+				Name & Graphical user interface (GUI) functionality \\  [3pt] \hline
+				Test identifier & UNIT-04 \\  [3pt] \hline
+				Person responsible & Henrik Knutsen \\  [3pt] \hline
+				Feature(s) to be tested & That all the elements - buttons, lists etc. - are working as intended. \\  [3pt] \hline
+				Pre-conditions & GUI with all the necessary listeners must be implemented. Code for running the program with the GUI. \\  [3pt] \hline
+				
+				Execution steps & 	\begin{enumerate}
+								\item Run the program using the GUI
+								\item Test every option in the menu bar
+								\item Test every button in the configuration menu
+								\item Test every scroll bar
+								\item Resize the window
+							\end{enumerate} \\ [3pt] \hline
+
+				Expected results &	\begin{enumerate}
+								\item The program starts and loads the graphical user interface
+								\item The action connected to the option is executed successfully						
+								\item The action connected to the button/checkbox is executed successfully						
+								\item The scroll bar scrolls through the list, up and down, from end to end, successfully
+								\item Window can be resized without having elements of the GUI overlapping. The elements and panes scales with the main window
+							\end{enumerate} \\  [3pt] \hline
+	\end{longtable}
+\end{center}
+
+\newpage
+\begin{center}
+	\begin{longtable}{ | p{4cm} | p{10cm} | }
+	\caption{UNIT-05}\\ \hline
+	\textbf{Item} & \textbf{Description} \\ [3pt] \hline \hline
+	\endfirsthead
+	\multicolumn{2}{c}%
+	{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+	\textbf{Item} & \textbf{Description}\\ \hline
+	\endhead \hline \hline 
+	\multicolumn{2}{r}{\textit{Continued on next page}} \\
+	\endfoot \hline
+	\endlastfoot
+				Name & Algorithm classification \\  [3pt] \hline
+				Test identifier & UNIT-05 \\  [3pt] \hline
+				Person responsible & Henrik Knutsen, Dimitry Kongevold \\  [3pt] \hline
+				Feature(s) to be tested & That the k-nearest neighbor algorithm bases its decision on the k most similar policies \\  [3pt] \hline
+				Pre-conditions & Code for reading from the weights file must be implemented. A working k-nearest neighbor algorithm that uses the weights must be implemented. Need one policy to test on, and a set of policies to be used as history. \\  [3pt] \hline
+				
+				Execution steps & 	\begin{enumerate}
+								\item Load a set of policies into the database file
+								\item Manually calculate and write down the distances between the single policy and each of the policies in the history
+								\item Run the distance algorithm on a single policy and the history and compare the distances that are returned by the algorithm with the manually calculated distances from step 2
+								\item Manually find the k policies with the lowest distances
+								\item Run the reduction algorithm with necessary input to find the k nearest policies and compare the k policies returned by the reduction algorithm with those found in step 4
+								\item Run the conclusion algorithm and verify the results returned by the algorithm ???
+							\end{enumerate} \\ [3pt] \hline
+
+			Expected results &	\begin{enumerate}
+							\item The policies are added to the database file
+							\item The six distances are obtained
+							\item The algorithm returns the same distances as those found in step 2
+							\item The k policies are obtained
+							\item The algorithm returns the same k policies as those found in step 4
+							\item ??
+						\end{enumerate} \\  [3pt] \hline
+	\end{longtable}
+\end{center}
+
+\newpage
+\begin{center}
+	\begin{longtable}{ | p{4cm} | p{10cm} | }
+	\caption{UNIT-06}\\ \hline
+	\textbf{Item} & \textbf{Description} \\ [3pt] \hline \hline
+	\endfirsthead
+	\multicolumn{2}{c}%
+	{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+	\textbf{Item} & \textbf{Description}\\ \hline
+	\endhead \hline \hline 
+	\multicolumn{2}{r}{\textit{Continued on next page}} \\
+	\endfoot \hline
+	\endlastfoot
+				Name & Algorithm learning \\  [3pt] \hline
+				Test identifier & UNIT-06 \\  [3pt] \hline
+				Person responsible & Henrik Knutsen, Neshahavan Karunakaran\\  [3pt] \hline
+				Feature(s) to be tested & That the weights file is updated when a new policy is added to history. \\  [3pt] \hline
+				Pre-conditions & Code for reading from and writing to the weights file. Code for writing to the database. Algorithms for classification and learning must be implemented. \\  [3pt] \hline
+
+				Execution steps & 	\begin{enumerate}
+								\item Make a set of policies and load the set into the history
+								\item Read the weights from the weights file
+								\item Run the classification and learning algorithms on the policy to be classified and the history, with the weights from step 2
+								\item Read the weights from the weights file
+								\item Compare the contents of the weights ﬁles obtained in steps 2 and 4
+							\end{enumerate} \\ [3pt] \hline
+
+				Expected results &	\begin{enumerate}
+								\item The policies are loaded into the history successfully
+								\item The weights are written down
+								\item The classification and learning algorithm runs successfully on the policy to be classified and the history
+								\item The weights are loaded
+								\item The weights loaded in step 4 are different from the weights written down in step 2
+							\end{enumerate} \\  [3pt] \hline
+	\end{longtable}
+\end{center}
+
+\newpage
+\begin{center}
+	\begin{longtable}{ | p{4cm} | p{10cm} | }
+	\caption{UNIT-07}\\ \hline
+	\textbf{Item} & \textbf{Description} \\ [3pt] \hline \hline
+	\endfirsthead
+	\multicolumn{2}{c}%
+	{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\ \hline
+	\textbf{Item} & \textbf{Description}\\ \hline
+	\endhead \hline \hline 
+	\multicolumn{2}{r}{\textit{Continued on next page}} \\
+	\endfoot \hline
+	\endlastfoot
+				Name & Interaction with community databas \\  [3pt] \hline
+				Test identifier & UNIT-07 \\  [3pt] \hline
+				Person responsible & Henrik Knutsen \\  [3pt] \hline
+				Feature(s) to be tested & That packets can be sent between the client program and the community database.  \\  [3pt] \hline
+				Pre-conditions & A running local client. A (virtual) server. Code for sending and receiving packets must be implemented. \\  [3pt] \hline
+				
+				Execution steps & 	\begin{enumerate}
+								\item a
+							\end{enumerate} \\ [3pt] \hline
+
+				Expected results &	\begin{enumerate}
+								\item a
+							\end{enumerate} \\  [3pt] \hline
+	\end{longtable}
+\end{center}

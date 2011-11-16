@@ -128,9 +128,8 @@ public class UserIO_Simple extends UserIO {
 
 
 	@Override
-	public Properties user_init(Properties genProps) {
+	public void user_init(Properties genProps) {
 		System.out.println("UserIO_Simple does not allowing the user to configure initialization settings at this time.");
-		return genProps;
 	}
 
 }

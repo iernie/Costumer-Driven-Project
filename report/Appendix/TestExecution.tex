@@ -1,0 +1,779 @@
+% Activate the following line by filling in the right side. If for example the name of the root file is Main.tex, write
+% "...root = Main.tex" if the chapter file is in the same directory, and "...root = ../Main.tex" if the chapter is in a subdirectory.
+ 
+%!TEX root =  
+
+\chapter{Test execution}
+
+\begin{center}
+\begin{longtable}{ | p{4cm} | p{10cm} | }
+\caption{UNIT-01}\\
+\hline
+\textbf{Item} & \textbf{Description} \\ [3pt]
+\hline \hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\textbf{Item} & \textbf{Description}\\
+\hline
+\endhead
+\hline
+\hline 
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+Name & Command line interface (CLI) functionality \\  [3pt] \hline
+Test identifier & UNIT-01 \\  [3pt] \hline
+Person responsible & Henrik Knutsen \\  [3pt] \hline
+Date of first execution & October 24th \\ [3pt]
+Date of completion & November 16th \\ [3pt] \hline
+			
+			Execution steps & 	\begin{enumerate}
+							\item Run the program for every type of argument
+							\item Run the program without arguments
+						\end{enumerate} \\ [3pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item
+							\begin{enumerate}
+								\item Run with -logloc logTest.txt
+								\item Run with -loglevel ALL
+								\item Run with -inDBLoc database.db
+								\item Run with -outDBLoc database.db
+								\item Run with -inWeightsLoc testWeights.cfg
+								\item Run with -outWeightsLoc testWeights.cfg
+								\item Run with -newDB false
+								\item Run with -p3pLocation ticketmaster1.xml
+								\item Run with -p3pDirLocation P3P
+								\item Run with -blanketAccept true
+								\item Run with -newPolicyLoc test.xml
+								\item Run with -userInit true
+								\item Run with -userResponse //TODO
+								\item Run with -cbrV bitmapDistanceWisOne, Reduction\_KNN ,Conclusion\_Simple, LearnAlgSimpler
+								\item Run with -userIO UserIO\_Simple
+								\item Run with -policyDB PDatabase
+								\item Run with -genConfig test.cfg
+								\item Run with -NetworkRType NRCouchdb
+								\item Run with -NetworkROptions privacydb, false, http, vm-6113.idi.ntnu.no, 5948, PA, 1234
+								\item Run with -confidenceLevel 1.5
+								\item Run with -useNet true
+							\end{enumerate}
+							\item Run the program without arguments
+						\end{enumerate} \\ [3pt] \hline
+			
+			Expected results & 	\begin{enumerate}
+							\item
+							\begin{enumerate}
+								\item Logfile is created at the specified filepath
+								\item loglevel is set to the specified value
+								\item inDBLoc is set to the specified value
+								\item outDBLoc is set to the specified value
+								\item inWeightsLoc is set to the specified filepath
+								\item outWeightsLoc is set to the specified filepath
+								\item newDB is set to false
+								\item p3pLocation is set to the specified file
+								\item p3pDirLocation is set to the specified filepath
+								\item recommendation is automatically accepted
+								\item newPolicyLoc is set to the specified filepath
+								\item userInit is set to the specified value
+								\item the specified action is appended to the policy
+								\item cbrV is set to the specified classes
+								\item userIO is set to the specified class
+								\item policyDB is set to the specified class
+								\item genConfig is set to the specified file. Values of the specified config file are loaded
+								\item NetworkRType is set to the specified class
+								\item NetworkROptions is set to the specified values
+								\item confidenceLevel is set to the specified value
+								\item useNet is set to the specified value
+							\end{enumerate}
+							\item All the values are loaded from the config file
+						\end{enumerate} \\ [3pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item
+							\begin{enumerate}
+								\item Logfile is created at the specified filepath
+								\item loglevel is set to ALL
+								\item inDBLoc is set to database.db
+								\item outDBLoc is set to database.db
+								\item inWeightsLoc is set to testWeights.cfg
+								\item outWeightsLoc is set to testWeights.cfg
+								\item newDB is set to false
+								\item p3pLocation is set to ticketmaster1.xml
+								\item p3pDirLocation is set to P3P
+								\item Recommendation is automatically accepted
+								\item newPolicyLoc is set to test.xml
+								\item userInit is set to true
+								\item userResponse ---
+								\item cbrV is set to bitmapDistanceWisOne, Reduction\_KNN, Conclusion\_Simple, LearnAlgSimpler
+								\item userIO is set to UserIO\_Simple
+								\item policyDB is set to the specified class
+								\item genConfig is set to test.cfg. Values in test.cfg are loaded
+								\item NetworkRType is set to NRCouchdb
+								\item NetworkROptions is set to privacydb, false, http, vm-6113.idi.ntnu.no, 5984, PA, 1234
+								\item confidenceLevel is set to 1.5, recommendation is gives from (default) community database
+								\item useNet is set to true, networking is enabled
+							\end{enumerate}
+							\item All the values are loaded from the default config file
+						\end{enumerate} \\ [3pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item
+							\begin{enumerate}
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS								
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS								
+								\item PASS
+								\item NO PASS
+								\item PASS
+								\item PASS
+								\item (NO) PASS
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+							\end{enumerate}
+							\item PASS
+						\end{enumerate}
+						Test not passed. 1M (and 1P) failed \\ [3pt] \hline
+
+			Comments & -
+					\\ [3pt] \hline
+\end{longtable}
+\end{center}
+
+\newpage
+\begin{center}
+\begin{longtable}{ | p{4cm} | p{10cm} | }
+\caption{UNIT-02}\\
+\hline
+\textbf{Item} & \textbf{Description} \\
+\hline \hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\textbf{Item} & \textbf{Description}\\
+\hline
+\endhead
+\hline
+\hline 
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+Name & P3P parser \\  [3pt] \hline
+Test identifier & UNIT-02 \\  [3pt] \hline
+Person responsible & Henrik Knutsen \\  [3pt] \hline
+Date of first execution & October 24th \\ [3pt]
+Date of completion & November 7th \\ [3pt] \hline
+
+Execution steps & 	\begin{enumerate}
+				\item Run a P3P xml in the P3P parser and print the parsed fields and their values to console
+				\item Manually compare the printed fields and values with the contents of the P3P xml
+			\end{enumerate} \\ [3pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item Test for barnesandnoble.com
+							\begin{enumerate}
+								\item barnesandnoble.xml is parsed and printed to console
+								\item Contents of the xml is compared with to what was printed in step 1(a)
+							\end{enumerate}
+
+							\item Test for daduru.com
+							\begin{enumerate}
+								\item daduru.com is parsed and printed to console
+								\item Contents of the xml is compared with to what was printed in step 2(a)
+							\end{enumerate}
+
+							\item Test for ssa.gov
+							\begin{enumerate}
+								\item ssa.gov is parsed and printed to console
+								\item Contents of the xml is compared with to what was printed in step 3(a)
+							\end{enumerate}
+
+							\item Test for toysrus.com
+							\begin{enumerate}
+								\item toysrus.com is parsed and printed to console
+								\item Contents of the xml is compared with to what was printed in step 4(a)
+							\end{enumerate}
+
+							\item Test for gunbroker.com
+							\begin{enumerate}
+								\item gunbroker.com is parsed and printed to console
+								\item Contents of the xml is compared with to what was printed in step 5(a)
+							\end{enumerate}
+
+							\item Test for latimes.com
+							\begin{enumerate}
+								\item latimes.com is parsed and printed to console
+								\item Contents of the xml is compared with to what was printed in step 6(a)
+							\end{enumerate}
+
+							\item Test for planedesire.com
+							\begin{enumerate}
+								\item planedesire.com is parsed and printed to console
+								\item Contents of the xml is compared with to what was printed in step 7(a)
+							\end{enumerate}
+
+							\item  Test for yahoo.com
+							\begin{enumerate}
+								\item yahoo.com is parsed and printed to console
+								\item Contents of the xml is compared with to what was printed in step 8(a)
+							\end{enumerate}
+
+							\item Test for nextel.com
+							\begin{enumerate}
+								\item nextel.com is parsed and printed to console
+								\item Contents of the xml is compared with to what was printed in step 9(a)
+							\end{enumerate}
+
+							\item Test for ebay.xml
+							\begin{enumerate}
+								\item ebay.com is parsed and printed to console
+								\item Contents of the xml is compared with to what was printed in step 10(a)
+							\end{enumerate}
+						\end{enumerate} \\ [3pt] \hline
+			
+			Expected results &	\begin{enumerate}
+							\item The P3P xml is parsed successfully. It's content is printed to console
+							\item The printed output have the same fields, each having the same value as those in the xml
+						\end{enumerate}
+							 \\  [3pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item Results for barnesandnoble.com
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+
+							\item Results for daduru.com
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+
+							\item Results for ssa.gov
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+
+							\item Results for toysrus.com
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+							
+							\item Results for gunbroker.com
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+
+							\item Results for latimes.com
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+
+							\item Results for planedesire.com
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+
+							\item Results for yahoo.com
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+
+							\item Results for nextel.com
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+					
+							\item Results for ebay.com
+							\begin{enumerate}
+								\item The P3P xml is parsed successfully. It's content is printed to console
+								\item The printed output have the same fields, each having the same values as those in the xml
+							\end{enumerate}
+						\end{enumerate}
+							 \\  [3pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+						\end{enumerate}
+						Test passed \\  [3pt] \hline
+			Comments & As mentioned in the test plan, it is not guaranteed that the parser is successfully parsing every possible field of every possible policy even though it has passed this test
+					\\ [3pt] \hline
+		\end{longtable}
+	\end{center}
+
+\newpage
+\begin{center}
+\begin{longtable}{ | p{4cm} | p{10cm} | }
+\caption{UNIT-03}\\
+\hline
+\textbf{Item} & \textbf{Description} \\
+\hline \hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\textbf{Item} & \textbf{Description}\\
+\hline
+\endhead
+\hline
+\hline 
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+Name & Local database \\  [3pt] \hline
+Test identifier & UNIT-03 \\  [3pt] \hline
+Person responsible & Henrik Knutsen \\  [3pt] \hline
+Date of first execution & October 24th \\ [3pt]
+Date of completion & October 24th \\ [3pt] \hline
+
+			Execution steps & 	\begin{enumerate}
+							\item Write policy A to the local database
+							\item Write policy B to the local database
+							\item Read and print policy A from the local database
+							\item Read and print policy A from the local database
+							\item Compare the written policy A and the read policy A
+							\item Compare the written policy B and the read policy B
+						\end{enumerate} \\ [3pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item Program is started writing policy A to an empty database
+							\item Accept recommendation and chose to save the new action and policy (policy B)
+							\item Print the new database after policy B was added (step 2)
+							\item Done in step 3
+							\item The contents of policy A that was written in step 1 is compared to what was printed of policy A in step 3
+							\item The contents of policy B that was written in step 2 is compared to what was printed of policy B in step 3
+						\end{enumerate} \\ [3pt] \hline
+			
+			Expected results &	\begin{enumerate}
+							\item Policy A is successfully written to the database file
+							\item Policy B is successfully written to the database file
+							\item Policy A is successfully read from the database file and printed
+							\item Policy B is successfully read from the database file and printed
+							\item The written policy A and the read policy A are identical. They both have the same fields, with the same values
+							\item The written policy B and the read policy B are identical. They both have the same fields, with the same values
+						\end{enumerate}
+							 \\  [3pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item Policy A was successfully written to the database file
+							\item Policy B was successfully written to the database file
+							\item Database was successfully printed
+							\item Same as step 3
+							\item The contents of the loaded policy A and printed contents of policy A are identical
+							\item The contents of the loaded policy B and printed contents of policy B are identical
+						\end{enumerate}
+							 \\  [3pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+						\end{enumerate}
+						Test passed \\  [3pt] \hline
+			Comments &	- \\ [3pt] \hline
+		\end{longtable}
+	\end{center}
+
+\newpage
+\begin{center}
+\begin{longtable}{ | p{4cm} | p{10cm} | }
+\caption{UNIT-04}\\
+\hline
+\textbf{Item} & \textbf{Description} \\
+\hline \hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\textbf{Item} & \textbf{Description}\\
+\hline
+\endhead
+\hline
+\hline 
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+Name & Graphical user interface (GUI) functionality \\  [3pt] \hline
+Test identifier & UNIT-04 \\  [3pt] \hline
+Person responsible & Henrik Knutsen \\  [3pt] \hline
+Date of execution & October 29th \\  [3pt] \hline
+Date of completion & November ??th \\ [3pt] \hline
+
+			Execution steps & 	\begin{enumerate}
+							\item Run the program using the GUI
+							\item Test every option in the menu bar
+							\item Test every button in the configuration menu
+							\item Test every scroll bar
+							\item Resize the window
+						\end{enumerate} \\ [3pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item Program started with graphical user interface
+
+							\item Chose every option in the menu bar
+							\begin{enumerate}
+								\item Clicked "Configuration"
+								\item Clicked "Reload Database"
+								\item Clicked "Run"
+								\item Clicked "Exit"
+							\end{enumerate}
+
+							\item Clicked every button in the configuration menu
+							\begin{enumerate}
+								\item a
+								\item b
+								\item c
+							\end{enumerate}
+
+							\item Used every scroll bar
+							\begin{enumerate}
+								\item Used scroll bar for scrolling up/down in database pane
+								\item Used scroll bar for scrolling left/right in database pane
+								\item Used scroll bar for scrolling up/down in new policy pane
+								\item Used scroll bar for scrolling left/right in new policy pane
+								\item Used scroll bar for scrolling up/down in output pane
+							\end{enumerate}
+
+							\item Attempted to resize the window
+						\end{enumerate} \\ [3pt] \hline
+			
+			Expected results &	\begin{enumerate}
+							\item The program starts and loads the graphical user interface
+
+							\item  
+							\begin{enumerate}
+								\item Menu for setting config values is opened
+								\item The specified database is loaded
+								\item The program gives a popup with a recommendation for the selected policy based on the history in the specified database
+								\item Program closes
+							\end{enumerate}
+							
+							\item
+							\begin{enumerate}
+								\item a
+								\item b
+								\item c
+							\end{enumerate}
+
+							\item 
+							\begin{enumerate}
+								\item The scroll bar scrolls through the list, up and down, from end to end, successfully
+								\item The scroll bar scrolls through the list, up and down, from end to end, successfully
+								\item The scroll bar scrolls through the list, up and down, from end to end, successfully
+								\item The scroll bar scrolls through the list, up and down, from end to end, successfully									\item The scroll bar scrolls through the list, up and down, from end to end, successfully
+							\end{enumerate}
+
+							\item Window can be resized without having elements of the GUI overlapping. The elements and panes scales with the main window
+						\end{enumerate}
+							 \\  [3pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item The program starts and loads the graphical user interface
+
+							\item  
+							\begin{enumerate}
+								\item Menu for setting config values is not opened
+								\item The specified database is loaded
+								\item The program gives a popup with a recommendation for the selected policy based on the history in the specified database
+								\item Program closes
+							\end{enumerate}
+							
+							\item
+							\begin{enumerate}
+								\item a
+								\item b
+								\item c
+							\end{enumerate}
+
+							\item 
+							\begin{enumerate}
+								\item The scroll bar appears when conent of the pane is too big to fit, and it scrolls through the list, up and down, from end to end, successfully
+								\item The scroll bar appears when conent of the pane is too big to fit, and it scrolls through the list, left and right, from end to end, successfully
+								\item The scroll bar appears when conent of the pane is too big to fit, and it scrolls through the list, up and down, from end to end, successfully		
+								\item The scroll bar appears when conent of the pane is too big to fit, and it scrolls through the list, left and right, from end to end, successfully
+								\item The scroll bar appears when conent of the pane is too big to fit, and it scrolls through the list, up and down, from end to end, successfully
+							\end{enumerate}
+
+							\item The window can be resized. The panes are scaling with the main window
+						\end{enumerate}
+							\\ [3pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item PASS
+
+							\item  
+							\begin{enumerate}
+								\item NO PASS
+								\item PASS
+								\item PASS
+								\item PASS
+							\end{enumerate}
+							
+							\item
+							\begin{enumerate}
+								\item NO PASS
+								\item NO PASS
+								\item NO PASS
+							\end{enumerate}
+
+							\item 
+							\begin{enumerate}																							\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+								\item PASS
+							\end{enumerate}
+
+							\item PASS
+						\end{enumerate}
+
+						Test not passed. 2A and 3 failed \\ [3pt] \hline
+			Comments &	- \\ [3pt] \hline
+		\end{longtable}
+	\end{center}
+
+\newpage
+\begin{center}
+\begin{longtable}{ | p{4cm} | p{10cm} | }
+\caption{UNIT-05}\\
+\hline
+\textbf{Item} & \textbf{Description} \\
+\hline \hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\textbf{Item} & \textbf{Description}\\
+\hline
+\endhead
+\hline
+\hline 
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+Name & Algorithm classification \\  [3pt] \hline
+Test identifier & UNIT-05 \\  [3pt] \hline
+Person responsible & Henrik Knutsen \& Dimitry Kongevold \\  [3pt] \hline
+Date of execution & October 30th \\  [3pt]
+Date of completion & November 1st \\ [3pt] \hline
+			
+			Execution steps & 	\begin{enumerate}
+							\item Load a set of policies into the database file
+							\item Manually calculate and write down the distances between the single policy and each of the policies in the history
+							\item Run the distance algorithm on a single policy and the history and compare the distances that are returned by the algorithm with the manually calculated distances from step 2
+							\item Manually find the k policies with the lowest distances
+							\item Run the reduction algorithm with necessary input to find the k nearest policies and compare the k policies returned by the reduction algorithm with those found in step 4
+							\item Run the conclusion algorithm and verify the results returned by the algorithm ???
+						\end{enumerate} \\ [3pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item Created a test domain by loading six policies into the history
+							\item Distances between the policy to be classified and each of the six policies were calculated manually and the results were inserted into a table
+							\item A JUnit test testReduction\_KNN was created. This test was used to assert that the six values returned by the algorithm are the same as those calculated manually in step 2
+							\item Found the k nearest policies from what was calculated in step 2
+							\item A JUnit test testReduction\_KNN was created. This test was used to assert that the reduction algorithm returns the same k nearest policies as those that was found manually in step 4
+							\item Created a JUnit test testReduction\_KNN ???
+						\end{enumerate} \\ [3pt] \hline
+			
+			Expected results &	\begin{enumerate}
+							\item The policies are added to the database file
+							\item The six distances are obtained
+							\item The algorithm returns the same distances as those found in step 2
+							\item The k policies are obtained
+							\item The algorithm returns the same k policies as those found in step 4
+							\item ??
+						\end{enumerate}
+							 \\  [3pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item The policies are added to the database file
+							\item The six distances are obtained
+							\item The JUnit is successful
+							\item The k policies are obtained
+							\item The JUnit test is successful
+							\item The JUnit test is not run
+						\end{enumerate}
+							 \\  [3pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item NO PASS
+						\end{enumerate}
+						Test not passed. 6 failed \\  [3pt] \hline
+			Comments & As mentioned in the test plan, it is not guaranteed that the algorithm will classify correctly for every possible combination of policy and database history even though it has passed this test
+					\\ [3pt] \hline
+		\end{longtable}
+	\end{center}
+
+\newpage
+\begin{center}
+\begin{longtable}{ | p{4cm} | p{10cm} | }
+\caption{UNIT-06}\\
+\hline
+\textbf{Item} & \textbf{Description} \\
+\hline \hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\textbf{Item} & \textbf{Description}\\
+\hline
+\endhead
+\hline
+\hline 
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+Name & Algorithm learning \\  [3pt] \hline
+Test identifier & UNIT-06 \\  [3pt] \hline
+Person responsible & Henrik Knutsen \& Neshahavan Karunakaran \\  [3pt] \hline
+Date of execution & November 4th \\  [3pt] 
+Date of completion & November 12th \\ [3pt] \hline
+
+			Execution steps & 	\begin{enumerate}
+							\item Make a set of policies and load the set into the history
+							\item Read the weights from the weights file
+							\item Run the classification and learning algorithms on the policy to be classified and the history, with the weights from step 2
+							\item Read the weights from the weights file
+							\item Compare the contents of the weights ﬁles obtained in steps 2 and 4
+						\end{enumerate} \\ [3pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item Program is started with a set of policies used to build a history
+							\item Contents of the weights file is written down
+							\item A JUnit test LearnAlgSimplerTest is created. The test runs the classification and learning algortihms on the policy to be classified and the history
+							\item The test loads the weights from the weights file
+							\item The test compares the weights loaded in step 4 with the values that was written down in step 2
+						\end{enumerate} \\ [3pt] \hline
+			
+			Expected results &	\begin{enumerate}
+							\item The policies are loaded into the history successfully
+							\item The weights are written down
+							\item The classification and learning algorithm runs successfully on the policy to be classified and the history
+							\item The weights are loaded
+							\item The weights loaded in step 4 are different from the weights written down in step 2
+						\end{enumerate}
+							 \\  [3pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item The policies are loaded into the history successfully
+							\item The weights are written down
+							\item The JUnit test runs the classification and learning algorithm successfully
+							\item The JUnit test loads the weights file successfully
+							\item The JUnit test confirms that the values in the weights file have changed
+						\end{enumerate}
+							 \\  [3pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+							\item PASS
+						\end{enumerate}
+						Test passed \\ [3pt] \hline
+			Comments & Some changes are needed for this test to run. These changes are mentioned in the test class
+				\\ [3pt] \hline
+		\end{longtable}
+	\end{center}
+
+\newpage
+\begin{center}
+\begin{longtable}{ | p{4cm} | p{10cm} | }
+\caption{UNIT-07}\\
+\hline
+\textbf{Item} & \textbf{Description} \\
+\hline \hline
+\endfirsthead
+\multicolumn{2}{c}%
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\hline
+\textbf{Item} & \textbf{Description}\\
+\hline
+\endhead
+\hline
+\hline 
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+Name & Interaction with community database \\  [3pt] \hline
+Test identifier & UNIT-07 \\  [3pt] \hline
+Person responsible & Henrik Knutsen \\  [3pt] \hline
+Date of execution & November 14th \\  [3pt]
+Date of completion & November 14th \\ [3pt] \hline
+
+			Execution steps & 	\begin{enumerate}
+							\item a
+						\end{enumerate} \\ [3pt] \hline
+
+			Steps executed & 	\begin{enumerate}
+							\item b
+						\end{enumerate} \\ [3pt] \hline
+			
+			Expected results &	\begin{enumerate}
+							\item c
+						\end{enumerate}
+							 \\  [3pt] \hline
+
+			Step results & 	\begin{enumerate}
+							\item d
+						\end{enumerate}
+							 \\  [3pt] \hline
+
+			Test conclusion & 	\begin{enumerate}
+							\item d
+						\end{enumerate}
+						Test failed \\ [3pt] \hline
+		\end{longtable}
+	\end{center}
