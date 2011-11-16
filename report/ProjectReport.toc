@@ -80,16 +80,14 @@
 \contentsline {section}{\numberline {5.2}Standards}{42}{section.5.2}
 \contentsline {section}{\numberline {5.3}Architecture}{42}{section.5.3}
 \contentsline {subsection}{\numberline {5.3.1}Design Overview}{43}{subsection.5.3.1}
-\contentsline {subsubsection}{CLI and I/O}{45}{section*.35}
-\contentsline {subsubsection}{GUI}{45}{section*.36}
-\contentsline {subsubsection}{Weights and Configuration Files}{45}{section*.37}
-\contentsline {subsubsection}{CBR}{46}{section*.38}
+\contentsline {subsubsection}{CLI and I/O}{43}{section*.35}
+\contentsline {subsubsection}{GUI}{43}{section*.36}
+\contentsline {subsubsection}{Weights and Configuration Files}{43}{section*.37}
+\contentsline {subsubsection}{CBR}{43}{section*.38}
 \contentsline {subsubsection}{P3P Policy Objects}{46}{section*.39}
 \contentsline {subsubsection}{P3P Policy Database}{46}{section*.40}
 \contentsline {subsection}{\numberline {5.3.2}Interfaces}{48}{subsection.5.3.2}
 \contentsline {subsection}{\numberline {5.3.3}Community Server}{48}{subsection.5.3.3}
-\contentsline {part}{III\hspace {1em}introduction}{49}{part.3}
-\contentsline {xpart}{introduction}{49}{part.3}
 \contentsline {chapter}{Implementation}{51}{chapter*.41}
 \contentsline {section}{\numberline {6.1}Algorithms}{51}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}K-Nearest Neighbors}{51}{subsection.6.1.1}
@@ -112,10 +110,8 @@
 \contentsline {subsubsection}{CouchDB server}{58}{section*.52}
 \contentsline {subsubsection}{Java Connector Class}{58}{section*.53}
 \contentsline {section}{\numberline {6.3}User Interface}{59}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}Model View Controller Architecture}{59}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}Privacy Advisor Interface}{59}{subsection.6.3.2}
-\contentsline {subsection}{\numberline {6.3.3}CLI}{59}{subsection.6.3.3}
-\contentsline {subsection}{\numberline {6.3.4}GUI}{59}{subsection.6.3.4}
+\contentsline {subsection}{\numberline {6.3.1}CLI}{59}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}GUI}{59}{subsection.6.3.2}
 \contentsline {chapter}{Documentation}{61}{chapter*.54}
 \contentsline {section}{\numberline {7.1}Source Code Documentation}{61}{section.7.1}
 \contentsline {section}{\numberline {7.2}Installation}{61}{section.7.2}
@@ -128,7 +124,7 @@
 \contentsline {subsubsection}{Building a Database}{66}{section*.56}
 \contentsline {subsubsection}{Loading and Viewing a Database}{66}{section*.57}
 \contentsline {subsubsection}{Parsing a P3P Policy}{66}{section*.58}
-\contentsline {part}{IV\hspace {1em}Testing, Evaluation and Summary}{67}{part.4}
+\contentsline {part}{III\hspace {1em}Testing, Evaluation and Summary}{67}{part.3}
 \contentsline {chapter}{Test Plan}{69}{chapter*.59}
 \contentsline {section}{\numberline {8.1}Test Methods}{69}{section.8.1}
 \contentsline {subsection}{\numberline {8.1.1}Black-box testing}{69}{subsection.8.1.1}
@@ -139,7 +135,7 @@
 \contentsline {section}{\numberline {8.5}Test pass / fail criteria}{72}{section.8.5}
 \contentsline {section}{\numberline {8.6}Test schedule}{72}{section.8.6}
 \contentsline {section}{\numberline {8.7}Risks and contingencies}{72}{section.8.7}
-\contentsline {xpart}{Testing, Evaluation and Summary}{69}{part.4}
+\contentsline {xpart}{Testing, Evaluation and Summary}{69}{part.3}
 \contentsline {chapter}{Project Evaluation}{73}{chapter*.63}
 \contentsline {section}{\numberline {9.1}Software Evaluation}{74}{section.9.1}
 \contentsline {section}{\numberline {9.2}Group Dynamics and Organization}{74}{section.9.2}
@@ -158,5 +154,5 @@
 \contentsline {section}{\numberline {9.5}Risks that Occurred}{76}{section.9.5}
 \contentsline {section}{\numberline {9.6}Course Evaluation - TDT4290}{76}{section.9.6}
 \contentsline {chapter}{Conclusion}{79}{chapter*.70}
-\contentsline {part}{V\hspace {1em}Appendices}{81}{part.5}
-\contentsline {xpart}{Appendices}{83}{part.5}
+\contentsline {part}{IV\hspace {1em}Appendices}{81}{part.4}
+\contentsline {xpart}{Appendices}{83}{part.4}

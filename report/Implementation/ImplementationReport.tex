@@ -31,10 +31,12 @@ The learning algorithm updates the weighs that each property field is assigned i
 
 By updating the weights like this we make sure that the system to some degree learns what the user wants. Thus, hopefully the system would be able to make a different conclusion next time if the user didn't agree on the conclusion the system came up with this time.
 
-\subsection{Confidence Measure}\label{confidenceMeasure}%%TODO
+\subsection{Confidence Measure}\label{confidenceMeasure}%%TODO Dimitry
 %% maybe to be put in design
 
-\subsection{Distance Measures}\label{SimilarityMeasures}%%TODO
+\subsection{Distance Measures}\label{SimilarityMeasures}%%TODO 
+
+This section briefly discusses some theory behind distance measures, ways to approach the problem of determining mathematically how similar two objects are.
 
 \subsubsection{Definition}
 
@@ -146,10 +148,10 @@ There is some variations in this method. You can use maximum/minimum distance be
 
 
 \section{Data Storage}
-As the CBR model requires, data must be stored in a persistant fashion between cycles, and thus, while the program is not running. Furthermore, the ability to load raw cases (P3P policies, in this case), is needed not only to initialize a database, especially in a repeatable fashion, but also for establishing the new case under consideration. These requirements are handeled by two distinct bodies of code- the P3P parsing class, and the policy database class. Furthermore, there is also the need for a centralized, multi-user database, accessed not locally but across a network, when the local database proves incapable of providing a satisfactory solution to the problem.
+As the CBR model requires, data must be stored in a persistant fashion between cycles, and thus, while the program is not running. Furthermore, the ability to load raw cases (P3P policies, in this case), is needed not only to initialize a database, especially in a repeatable fashion, but also for establishing the new case under consideration. These requirements are handled by two distinct bodies of code- the P3P parsing class, and the policy database class. Furthermore, there is also the need for a centralized, multi-user database, accessed not locally but across a network, when the local database proves incapable of providing a satisfactory solution to the problem.
 
 \subsection{P3P Parsing}  %Flat File Storage} %% This is what was meant by flat file storage, right??
-%%TODO Einar?
+%%TODO Einar
 
 \subsection{Local Database}
 The provided local database class ('PDatabase') is located in the 'datastorage' group, and implements the abstract model 'PolicyDatabase'. It enforces the singleton model, and is based on java.io.serializable for saving objects on disk, and stores objects in a private ArrayList<PolicyObject>. The methods function precisely as laid out in the Design section, and offer an example of how a PolicyDatabase should function.
@@ -168,18 +170,12 @@ The code provided includes a test view that simulates the results of a query- it
 A proposal for a map-reduce based on the same algorithms presented above (the k-nearest-neighbors algorithm and conclusion\_simple) is included, but not complete.
 
 \subsubsection{Java Connector Class}
-The remote database class provided is entitled 'NRCouchdb'. This class implements the abstract NetworkR class detailed above.
-The server instance specific options necessary to provide location, port, password, etc, to the class are pulled from the 'NetworkROptions' option, valid at commandline as well as in the configuration file. A replacement class should pull any necessary options from a comma-seperated list at the same location.
+The remote database class provided is entitled 'NRCouchdb'. This class implements the abstract NetworkR class detailed above. The server instance specific options necessary to provide location, port, password, etc, to the class are pulled from the 'NetworkROptions' option, valid at commandline as well as in the configuration file. A replacement class should pull any necessary options from a comma-seperated list at the same location.
+
 As with all of the modular classes (algorithms, policy databases, network resources, and user interfaces), the fallback resource (usually on a remote server) can easily be switched out by setting the appropriate  option to the qualified class name in either the configuration file or on commandline (in this case, the option is 'NetworkRType').
 
-\section{User Interface} %%TODO einar and nicholas need to talk about who does what
+\section{User Interface} %%TODO 
 
-\subsection{Model View Controller Architecture} %%TODO what /why? Ulf??
-[Describe theoretically]
+\subsection{CLI}%%TODO Nicholas
 
-\subsection{Privacy Advisor Interface} %%TODO
-[Describe choices that have been made and reasons for differences from standard architecture]
-
-\subsection{CLI}%%TODO
-
-\subsection{GUI}%%TODO
+\subsection{GUI}%%TODO Einar

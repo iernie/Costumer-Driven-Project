@@ -63,47 +63,44 @@
 \BOOKMARK [1][-]{section.5.3}{Architecture}{chapter*.27}% 63
 \BOOKMARK [2][-]{subsection.5.3.1}{Design Overview}{section.5.3}% 64
 \BOOKMARK [2][-]{subsection.5.3.2}{Interfaces}{section.5.3}% 65
-\BOOKMARK [0][-]{subsection.5.3.3}{Community Server}{part.3}% 67
-\BOOKMARK [-1][-]{part.3}{III introduction}{}% 66
-\BOOKMARK [0][-]{chapter*.41}{Implementation}{part.3}% 68
-\BOOKMARK [1][-]{section.6.1}{Algorithms}{chapter*.41}% 69
-\BOOKMARK [2][-]{subsection.6.1.1}{K-Nearest Neighbors}{section.6.1}% 70
-\BOOKMARK [2][-]{subsection.6.1.2}{Confidence Measure}{section.6.1}% 71
-\BOOKMARK [2][-]{subsection.6.1.3}{Distance Measures}{section.6.1}% 72
-\BOOKMARK [2][-]{subsection.6.1.4}{Implementation}{section.6.1}% 73
-\BOOKMARK [1][-]{section.6.2}{Data Storage}{chapter*.41}% 74
-\BOOKMARK [2][-]{subsection.6.2.1}{P3P Parsing}{section.6.2}% 75
-\BOOKMARK [2][-]{subsection.6.2.2}{Local Database}{section.6.2}% 76
-\BOOKMARK [2][-]{subsection.6.2.3}{Remote Databases}{section.6.2}% 77
-\BOOKMARK [1][-]{section.6.3}{User Interface}{chapter*.41}% 78
-\BOOKMARK [2][-]{subsection.6.3.1}{Model View Controller Architecture}{section.6.3}% 79
-\BOOKMARK [2][-]{subsection.6.3.2}{Privacy Advisor Interface}{section.6.3}% 80
-\BOOKMARK [2][-]{subsection.6.3.3}{CLI}{section.6.3}% 81
-\BOOKMARK [2][-]{subsection.6.3.4}{GUI}{section.6.3}% 82
-\BOOKMARK [0][-]{chapter*.54}{Documentation}{part.3}% 83
-\BOOKMARK [1][-]{section.7.1}{Source Code Documentation}{chapter*.54}% 84
-\BOOKMARK [1][-]{section.7.2}{Installation}{chapter*.54}% 85
-\BOOKMARK [2][-]{subsection.7.2.1}{Local Installation}{section.7.2}% 86
-\BOOKMARK [2][-]{subsection.7.2.2}{Server Installation}{section.7.2}% 87
-\BOOKMARK [1][-]{section.7.3}{User Interfaces}{chapter*.54}% 88
-\BOOKMARK [2][-]{subsection.7.3.1}{Graphical User Interface}{section.7.3}% 89
-\BOOKMARK [2][-]{subsection.7.3.2}{Command Line Interface}{section.7.3}% 90
-\BOOKMARK [-1][-]{part.4}{IV Testing, Evaluation and Summary}{}% 91
-\BOOKMARK [0][-]{chapter*.59}{Test Plan}{part.4}% 92
-\BOOKMARK [1][-]{section.8.1}{Test Methods}{chapter*.59}% 93
-\BOOKMARK [1][-]{section.8.2}{Testing approach}{chapter*.59}% 94
-\BOOKMARK [1][-]{section.8.3}{Test case overview}{chapter*.59}% 95
-\BOOKMARK [1][-]{section.8.4}{Test cases}{chapter*.59}% 96
-\BOOKMARK [1][-]{section.8.5}{Test pass / fail criteria}{chapter*.59}% 97
-\BOOKMARK [1][-]{section.8.6}{Test schedule}{chapter*.59}% 98
-\BOOKMARK [1][-]{section.8.7}{Risks and contingencies}{chapter*.59}% 99
-\BOOKMARK [0][-]{chapter*.63}{Project Evaluation}{part.4}% 100
-\BOOKMARK [1][-]{section.9.1}{Software Evaluation}{chapter*.63}% 101
-\BOOKMARK [1][-]{section.9.2}{Group Dynamics and Organization}{chapter*.63}% 102
-\BOOKMARK [1][-]{section.9.3}{Tools}{chapter*.63}% 103
-\BOOKMARK [1][-]{section.9.4}{Resource Use}{chapter*.63}% 104
-\BOOKMARK [1][-]{section.9.5}{Risks that Occurred}{chapter*.63}% 105
-\BOOKMARK [1][-]{section.9.6}{Course Evaluation - TDT4290}{chapter*.63}% 106
-\BOOKMARK [0][-]{chapter*.70}{Conclusion}{part.4}% 107
-\BOOKMARK [-1][-]{part.5}{V Appendices}{}% 108
-\BOOKMARK [0][-]{appendix*.72}{Test Plan}{part.5}% 109
+\BOOKMARK [2][-]{subsection.5.3.3}{Community Server}{section.5.3}% 66
+\BOOKMARK [0][-]{chapter*.41}{Implementation}{part.2}% 67
+\BOOKMARK [1][-]{section.6.1}{Algorithms}{chapter*.41}% 68
+\BOOKMARK [2][-]{subsection.6.1.1}{K-Nearest Neighbors}{section.6.1}% 69
+\BOOKMARK [2][-]{subsection.6.1.2}{Confidence Measure}{section.6.1}% 70
+\BOOKMARK [2][-]{subsection.6.1.3}{Distance Measures}{section.6.1}% 71
+\BOOKMARK [2][-]{subsection.6.1.4}{Implementation}{section.6.1}% 72
+\BOOKMARK [1][-]{section.6.2}{Data Storage}{chapter*.41}% 73
+\BOOKMARK [2][-]{subsection.6.2.1}{P3P Parsing}{section.6.2}% 74
+\BOOKMARK [2][-]{subsection.6.2.2}{Local Database}{section.6.2}% 75
+\BOOKMARK [2][-]{subsection.6.2.3}{Remote Databases}{section.6.2}% 76
+\BOOKMARK [1][-]{section.6.3}{User Interface}{chapter*.41}% 77
+\BOOKMARK [2][-]{subsection.6.3.1}{CLI}{section.6.3}% 78
+\BOOKMARK [2][-]{subsection.6.3.2}{GUI}{section.6.3}% 79
+\BOOKMARK [0][-]{chapter*.54}{Documentation}{part.2}% 80
+\BOOKMARK [1][-]{section.7.1}{Source Code Documentation}{chapter*.54}% 81
+\BOOKMARK [1][-]{section.7.2}{Installation}{chapter*.54}% 82
+\BOOKMARK [2][-]{subsection.7.2.1}{Local Installation}{section.7.2}% 83
+\BOOKMARK [2][-]{subsection.7.2.2}{Server Installation}{section.7.2}% 84
+\BOOKMARK [1][-]{section.7.3}{User Interfaces}{chapter*.54}% 85
+\BOOKMARK [2][-]{subsection.7.3.1}{Graphical User Interface}{section.7.3}% 86
+\BOOKMARK [2][-]{subsection.7.3.2}{Command Line Interface}{section.7.3}% 87
+\BOOKMARK [-1][-]{part.3}{III Testing, Evaluation and Summary}{}% 88
+\BOOKMARK [0][-]{chapter*.59}{Test Plan}{part.3}% 89
+\BOOKMARK [1][-]{section.8.1}{Test Methods}{chapter*.59}% 90
+\BOOKMARK [1][-]{section.8.2}{Testing approach}{chapter*.59}% 91
+\BOOKMARK [1][-]{section.8.3}{Test case overview}{chapter*.59}% 92
+\BOOKMARK [1][-]{section.8.4}{Test cases}{chapter*.59}% 93
+\BOOKMARK [1][-]{section.8.5}{Test pass / fail criteria}{chapter*.59}% 94
+\BOOKMARK [1][-]{section.8.6}{Test schedule}{chapter*.59}% 95
+\BOOKMARK [1][-]{section.8.7}{Risks and contingencies}{chapter*.59}% 96
+\BOOKMARK [0][-]{chapter*.63}{Project Evaluation}{part.3}% 97
+\BOOKMARK [1][-]{section.9.1}{Software Evaluation}{chapter*.63}% 98
+\BOOKMARK [1][-]{section.9.2}{Group Dynamics and Organization}{chapter*.63}% 99
+\BOOKMARK [1][-]{section.9.3}{Tools}{chapter*.63}% 100
+\BOOKMARK [1][-]{section.9.4}{Resource Use}{chapter*.63}% 101
+\BOOKMARK [1][-]{section.9.5}{Risks that Occurred}{chapter*.63}% 102
+\BOOKMARK [1][-]{section.9.6}{Course Evaluation - TDT4290}{chapter*.63}% 103
+\BOOKMARK [0][-]{chapter*.70}{Conclusion}{part.3}% 104
+\BOOKMARK [-1][-]{part.4}{IV Appendices}{}% 105
+\BOOKMARK [0][-]{appendix*.72}{Test Plan}{part.4}% 106
