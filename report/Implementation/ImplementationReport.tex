@@ -31,10 +31,10 @@ The learning algorithm updates the weighs that each property field is assigned i
 
 By updating the weights like this we make sure that the system to some degree learns what the user wants. Thus, hopefully the system would be able to make a different conclusion next time if the user didn't agree on the conclusion the system came up with this time.
 
-\subsection{Confidence Measure}\label{confidenceMeasure}
+\subsection{Confidence Measure}\label{confidenceMeasure}%%TODO
 %% maybe to be put in design
 
-\subsection{Distance Measures}\label{SimilarityMeasures}
+\subsection{Distance Measures}\label{SimilarityMeasures}%%TODO
 
 \subsubsection{Definition}
 
@@ -46,7 +46,8 @@ Some examples of commonly used metrics are the Eucldean, Mahalanobis, and the Ma
 \item Provide a function to map privacy objects (P3P policies and context info) to real vectors.
 \item Define a new metric that operates directly on privacy objects.
 \end{enumerate}
- 
+
+%TODO 
 %% NBNBNBNB!!!!
 %% Formulae must be inserted!!
 %%
@@ -59,7 +60,7 @@ Some examples of commonly used metrics are the Eucldean, Mahalanobis, and the Ma
 \item \emph{Levenshtein distance} is based on Hamming distance but adds also operands as insertion, deletion and substitution. 
 \item \emph{Ontology distances} are more based on compute semantic similarity of objects rather than their textual representation. For example distance between apple and orange is less then between apple and house. To calculate this distance you need some sort of logical tool like ontological tree. Where every leaf has a logical ancestor for example ancestor for apple will be fruit.
 \end{itemize}
-\subsubsection{Customer Advise}
+\subsubsection{Customer Advice}
 
 In the paper "Towards a Similarity Metric for Comparing Machine Readable Privacy Policies", some of the problems of defining a similarity metric for privacy policies is discussed. A key topic is how the calculation of similarity between online 3P3 policies can be subdivided in two parts, \emph{local similarity} and \emph{global similarity}. This way, known metrics such as Levenshtein distance  can be applied to local distance. And for global similarity we can calculate a simple or weighted average of local distances, where the second one allows for amplifying the importance of particular attributes.
 
@@ -126,22 +127,40 @@ There is some variations in this method. You can use maximum/minimum distance be
 
 
 \section{Data Storage}
+As the CBR model requires, data must be stored in a persistant fashion between cycles, and thus, while the program is not running. Furthermore, the ability to load raw cases (P3P policies, in this case), is needed not only to initialize a database, especially in a repeatable fashion, but also for establishing the new case under consideration. These requirements are handeled by two distinct bodies of code- the P3P parsing class, and the policy database class. Furthermore, there is also the need for a centralized, multi-user database, accessed not locally but across a network, when the local database proves incapable of providing a satisfactory solution to the problem.
 
+\subsection{P3P Parsing}  %Flat File Storage} %% This is what was meant by flat file storage, right??
+%%TODO Einar?
 
-\subsection{Flat File Storage}
+\subsection{Local Database}
+The provided local database class ('PDatabase') is located in the 'datastorage' group, and implements the abstract model 'PolicyDatabase'. It enforces the singleton model, and is based on java.io.serializable for saving objects on disk, and stores objects in a private ArrayList<PolicyObject>. The methods function precisely as laid out in the Design section, and offer an example of how a PolicyDatabase should function.
+Please note the lack of direct access to the internal object storage- thus enabling the use of MySQL, or some other data storage format for not only saving the case history between CBR cycles, but also during the cycle itself, provided that a policy can be added and an iterator provided over the dataset.
+As with all of the modular classes (algorithms, policy databases, network resources, and user interfaces), the class used to load, interface with, and save the local database can easily be switched out by setting the appropriate  option to the qualified class name in either the configuration file or on commandline (in this case, the option is 'policyDB').
 
+\subsection{Remote Databases}  %network is going here
+Access to a community server or network resource is contingent on two things- a remote server, and the class used to interface with said server. In the framework provided, the two classes provide access to a distinct dataset- in fact, while it is possible to create a local substitute providing identical functionality to the existing PolicyDatabase and CBR algorithms, the Java NetworkR class providing the abstract implementation does not provide access to the same case history. Responsibility for providing a reasonable solution in this combined 'retrieve-reuse' phase (the execution of algorithms in a similar model to those used in the local CBR) is intended to reside on the server side, as the resources consumed in transmitting the much larger community case history to a local client are far more significant than those required to run the query locally, and provided only a suggested solution.
+Provided in the code is an implementation using a CouchDB database, and a class. The Java code uses several third party libraries (CouchLight and gson, described above) to communicate with a CouchDB database located on a virtual machine provided for the project by NTNU IDI.
 
+\subsubsection{CouchDB server}
+The virtual machine hosting the CouchDB server is located at vm-6113.idi.ntnu.no, with the server using port 5984 for communication. All test queries and preliminary code was developed using a set of tools known as 'couchapp' in javascript. The queries can be broken down into two distinct parts: the map-reduce, and the view. 
+In CouchDB, a map-reduce operates on a dataset to produce a direct report of the result, with minimal formatting (formatting is possible, but not used in this case). A  map-reduce is composed of a 'map' javascript function, which is applied to every document in the database and can be used to reveal the useful attributes of the document (eg, the value of an attribute or sum of attributes). This resulting list can be sorted, range-limited, etc. The reduce function is applied to initial results of the associated map function (required), and combines the results in a recursive fashion- the function will be applied to the initial results, then the combined results of the first set of reduce operations, then the second, and so on. 
+A view formats the results of a map-reduce operation (offering an easy way to switch between, say, http, xml, and json results, depending on the view applied to a given map-reduce).
+The code provided includes a test view that simulates the results of a query- it sends a valid, JSON-encoded Action object that carries the server's suggested solution to the client. 
+A proposal for a map-reduce based on the same algorithms presented above (the k-nearest-neighbors algorithm and conclusion_simple) is included, but not complete.
 
-\subsection{Databases}
+\subsubsection{Java Connector Class}
+The remote database class provided is entitled 'NRCouchdb'. This class implements the abstract NetworkR class detailed above.
+The server instance specific options necessary to provide location, port, password, etc, to the class are pulled from the 'NetworkROptions' option, valid at commandline as well as in the configuration file. A replacement class should pull any necessary options from a comma-seperated list at the same location.
+As with all of the modular classes (algorithms, policy databases, network resources, and user interfaces), the fallback resource (usually on a remote server) can easily be switched out by setting the appropriate  option to the qualified class name in either the configuration file or on commandline (in this case, the option is 'NetworkRType').
 
-\section{User Interface}
+\section{User Interface} %%TODO einar and nicholas need to talk about who does what
 
-\subsection{Model View Controller Architecture}
+\subsection{Model View Controller Architecture} %%TODO what /why? Ulf??
 [Describe theoretically]
 
-\subsection{Privacy Advisor Interface}
+\subsection{Privacy Advisor Interface} %%TODO
 [Describe choices that have been made and reasons for differences from standard architecture]
 
-\subsection{CLI}
+\subsection{CLI}%%TODO
 
-\subsection{GUI}
+\subsection{GUI}%%TODO

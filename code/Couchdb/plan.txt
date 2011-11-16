@@ -1,3 +1,4 @@
+%TODO
 in simple:
 	a list, which serves as 'conclusion', producing an action from the reduce
 	a reduce, which returns the closest k results to the incomming object, grouping identical policies (by accepted/not)
