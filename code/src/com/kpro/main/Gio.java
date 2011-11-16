@@ -5,7 +5,6 @@ import java.io.FileInputStream;		//for configuration file functionality and read
 import java.io.FileOutputStream;	//for writing the new weights config file
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Date;
@@ -14,13 +13,11 @@ import java.util.logging.*;		//for logger functionality
 import org.apache.commons.cli.*;	//for command line options
 
 import com.kpro.algorithm.CBR;
-import com.kpro.algorithm.DistanceMetric;
 import com.kpro.parser.P3PParser;
 
 import com.kpro.dataobjects.*;
 import com.kpro.datastorage.*;
 import com.kpro.ui.*;
-import com.sun.tools.corba.se.idl.Factories;
 
 
 
