@@ -18,44 +18,51 @@ The source code is documented using JavaDoc which is 	a tool that generates docu
 \subsection{Local Installation} \label{LocalInst}
 To make the program run outside of the Eclipse environment it have to be exported as a runnable jar file. This can be done by right clicking the project in eclipse, choose \texttt{Export}, type in \texttt{jar} in the new window that opens up and choose \texttt{Runnable Jar File}, before clicking \texttt{next}. These steps are showed in the two figures \ref{exportFirstStep} and \ref{exportSecondStep}.
 
-\begin{centering}
   \begin{figure}
+	\begin{centering}
     \includegraphics{Documentation/export.png}
     \caption{First step: right click and choose "export".}
     \label{exportFirstStep}
+    \end{centering}
   \end{figure}
-\end{centering}
 
-\begin{centering}
+
   \begin{figure}
+  \begin{centering}
     \includegraphics{Documentation/export_jar.png}
     \caption{Second step: choose runnable jar.}
     \label{exportSecondStep}
+    \end{centering}
   \end{figure}
-\end{centering}
+
 
 Then we have to choose which classfile we want to be the main class; in the \texttt{Launch configuration} dropdown menu we can choose between the two classes \texttt{PrivacyAdviser} and \texttt{PrivacyAdvisorGUI}. The first one is choosen if we want to run the program by using the command line, and the second one if we want to use the GUI. Then choose the export destination, and choose \texttt{Package requires libraries into generated JAR} as the library handling. Pressing finish now should start exporting the program. These steps are shown in figure \ref{exportLastStep}.
 
-\begin{centering}
+
   \begin{figure}
+\begin{centering}
     \includegraphics{Documentation/export_last.png}
     \caption{Third step: choose launch config, destination and library handling.}
     \label{exportLastStep}
-  \end{figure}
 \end{centering}
+  \end{figure}
 
-Before running the program we have to put the PrivacyAdviser.cfg file in the same folder as the exported jar file. And if the database file and the weights file isn't at the same folder, their location have to be specified in the PrivacyAdviser.cfg file. To run the program, open the command prompt and locate to the folder where the jar file is stored. Then write the command \texttt{java -jar filename.jar}, and now the program should start (even if it's the cli or gui version). This is show in figure \ref{runProgram}.
+
+Before running the program we have to put the PrivacyAdviser.cfg file in the same folder as the exported jar file. And if the database file and the weights file isn't at the same folder, their location have to be specified in the PrivacyAdviser.cfg file. To run the program, open the command prompt and locate to the folder where the jar file is stored. Then write the command \texttt{java -jar filename.jar}, and now the program should start (even if it's the cli or gui version). This is shown in figure \ref{runProgram}.
 
 
-\begin{centering}
+
   \begin{figure}
+  \begin{centering}
     \includegraphics{Documentation/run.png}
     \caption{Run the program.}
     \label{runProgram}
+    \end{centering}
   \end{figure}
-\end{centering}
+
 
 \subsection{Server Installation}
+The CouchDB server is a default Ubuntu installation on a VMware virtual machine provided by NTNU IDI, with CouchDB installed using the command \texttt{sudo apt-get install couchdb}. The database server was configured via futon (the default web interface, located at localhost:5984\/\_util) to provide a database entitled \texttt{privacydb}, with a non-administration user (details noted in default program configuration file).
 
 \section{User Interfaces}
 The Privacy Adviser consist, as mentioned in section \ref{LocalInst}, of two different user interfaces. The advantage of the GUI is that it's easier to see the contents in the database before and after the program runs. The advantage of using the command line interface is that we can work much faster than by using the graphical user interface. But the best part of using the command line interface is that we can add options when calling (starting) the program, this is explained in detail in section \ref{cliExplained}.

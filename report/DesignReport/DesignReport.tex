@@ -19,8 +19,13 @@ For software projects of a certain scale, version control is an important techno
 
 For source code repositories and version control, \textbf{Git} was selected. Git is a distributed, open source version control system that is available for all platforms. Git is also used for hosting the \LaTeX documents that comprise this report. For other documents such as meeting minutes, agendas, status reports, time reporting and certain planning documents, \textbf{Google Docs} is used.
 
+
 \subsection{Programming Languages}
 \textbf{Java} is chosen as the primary programming language for implementing the majority of the code. Java is an object oriented programming language providing a level of abstraction appropriate for the task at hand in addition to a rich set of libraries, including the SWING library for GUI programming, and several libraries for networking. It also simplifies writing a browser plugin as major browsers such as Google Chrome and Firefox employ Javascript as scripting language for plugin.
+Javascript was used in small measure for the use of a CouchDB community server.
+
+\subsection{Development Tools}
+Eclipse was used for all Java development, while standard text editors were used for Javascript and manual P3P policy editing. The CouchDB server was hosted on a VMware virtual machine, and was accessible via web interface on most standard web browsers.
 
 \subsection{Databases}
 For testing purposes, it has been decided on using flat file storage of privacy policy data using Java's \texttt{Serializable} interface. However, the output functionality is to be written in a generic fashion to simplify use of database systems such as MySQL, CouchDB and so forth. 
@@ -32,8 +37,12 @@ For testing purposes, it has been decided on using flat file storage of privacy 
  
 For developing the CBR as well as P3P parsing components of the Privacy Advisor, a decision had to be made regarding the usage of third party libraries, either for components or for the entire CBR system. Two options were considered with respect to the CBR system. The first was to use a full third party CBR system (jColibri). The alternative was to use a third party system for the retrieval component of the CBR system (i.e. a k Nearest Neighbors (kNN) implementation).
 
+<<<<<<< HEAD
 \subsubsection{Third Party CBR System}
 The customer (SINTEF ICT) suggested looking into an open source CBR library developed at the Universidad Complutense de Madrid.
+=======
+The customer, SINTEF ICT, suggested looking into an open source CBR library developed at the Universidad Complutense de Madrid.
+>>>>>>> 9390378237fe2fce259a200c1bcfc712c87aa408
  
 jColibri is a CBR system that has been under development for well over 10 years and is a very comprehensive system allowing for database interfaces and several other features,  and is according to the customer, a popular choice in academia for CBR projects. It is also written in Java, which of course makes interfacing it simple from our own Java project.
  
@@ -53,8 +62,6 @@ We ended up using SAXParser, an internal sequential access parsers in Java. The 
 
 \section{Standards}
 To achieve clean and reusable code, the project has adopted Oracle's Coding Conventions for the Java Programming Language\footnote{http://www.oracle.com/technetwork/java/codeconvtoc-136057.html}. This is mentioned in the requirements specification due to the high likelihood of the customer having to change the source code for later adaptations.
-
-
 
 
 \section{Architecture}
@@ -93,7 +100,12 @@ Privacy Advisor can be run using either a command line interface (CLI) or a grap
 \end{center}
 \end{figure}
 
+<<<<<<< HEAD
 \subsubsection{GUI}
+=======
+\subsubsection{GUI} 
+%TODO Einar
+>>>>>>> 9390378237fe2fce259a200c1bcfc712c87aa408
 
 \subsubsection{Weights and Configuration Files}
 As an addition to passing command line arguments, GIO also reads a text based configuration file containing CBR and database settings. The configuration files are detailed in the User Documentation in table~\ref{configTable}. 
@@ -120,6 +132,11 @@ An overview of the CBR system is given in Figure~\ref{cbr_fig}...
 
 \subsubsection{P3P Policy Objects}
 An overview of the Policy Object is given in Figure~\ref{po_fig}...
+<<<<<<< HEAD
+=======
+%TODO Einar
+
+>>>>>>> 9390378237fe2fce259a200c1bcfc712c87aa408
 
 \begin{figure}[htbp]
 \begin{center}
@@ -130,7 +147,20 @@ An overview of the Policy Object is given in Figure~\ref{po_fig}...
 \end{figure}
 
 \subsubsection{P3P Policy Database}
+<<<<<<< HEAD
 An overview of the Policy Database is given in Figure~\ref{pd_fig}...
+=======
+The local case history, maintained in a local database, is stored via a concrete class implementing 'PolicyDatabase'. This abstract class details the required methods for a local policy database: a singleton constructor for the database object; a call to load the database once constructed, from disk; a method adding a single policy to the database; a method returning a Java iterator over the stored PolicyObjects, and a call to return all policies from a given domain.
+
+In order to ensure consistency, the local policy database enforces singletonness. The database object itself is constructed without the actual history, requiring a seperate parameter-less 'loadDB' call on it to load policies from disk to the class, if necessary.
+
+During the CBR cycle, it becomes necessary to check past cases for relevancy during the 'retrieve' phase. This is accomplished by using the standard java Iterator return by \texttt{getiterator()}.
+Finally, the CBR cycle concludes by saving the new case (using 'addpolicy(newpolicy)'), and closing the database using 'closeDB()' (which is when the cases would be saved to disk).
+
+An overview of the Policy Database is given in Figure~\ref{pd_fig}...
+%TODO
+
+>>>>>>> 9390378237fe2fce259a200c1bcfc712c87aa408
 
 \begin{figure}[htbp]
 \begin{center}
@@ -156,16 +186,22 @@ An overview of the Policy Database is given in Figure~\ref{pd_fig}...
 \begin{center}
 \includegraphics[width = \textwidth]{DesignReport/uml/gio.png}
 \caption{Input/output and user interfaces.}
-\part{introduction}
 \label{UserIO}
 \end{center}
 \end{figure}
 
 
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width = \textwidth]{DesignReport/uml/policyadvisorgui}
+\caption{GUI interfaces.}
+\label{GUI_interface}
+\end{center}
+\end{figure}
 
 
 
-\subsection{Community Server}
+\subsection{Community Server} %%TODO needs rewrite- focuse here is on design not implementation. mention query should be server-side
 The community knowledge repository is implemented using a public CouchDB (no-SQL server), which is accessed using standard Java to JSON java libraries. The client program (end-user java application) communicates with the server at two points- when the application has insufficient knowledge, or confidence in its knowledge, to make a suggestion as to the acceptance of a new P3P policy; and after the user has confirmed or overridden the policy.
 
 In the first instance, the new policy under consideration is converted to JSON using GSON (the Google Json libraries), and transmitted to the database, which parses the new policy and replies with a JSON encoded suggested Action.
