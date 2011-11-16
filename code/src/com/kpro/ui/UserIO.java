@@ -32,6 +32,7 @@ public abstract class UserIO {
 	/**
 	 * gets any policies not already provided for the history
 	 * 
+	 * @deprecated 
 	 * @return an arraylist of policy objects to be added to history prior to the CBR run.
 	 * @author ngerstle
 	 */

@@ -56,6 +56,7 @@ Before running the program we have to put the PrivacyAdviser.cfg file in the sam
 \end{centering}
 
 \subsection{Server Installation}
+The CouchDB server is a default Ubuntu installation on a VMware virtual machine provided by NTNU IDI, with CouchDB installed using the command 'sudo apt-get install couchdb'. The database server was configured via futon (the default web interface, located at localhost:5984/_util) to provide a database entitled 'privacydb', with a non-administration user (details noted in default program configuration file).
 
 \section{User Interfaces}
 The Privacy Adviser consist, as mentioned in section \ref{LocalInst}, of two different user interfaces. The advantage of the GUI is that it's easier to see the contents in the database before and after the program runs. The advantage of using the command line interface is that we can work much faster than by using the graphical user interface. But the best part of using the command line interface is that we can add options when calling (starting) the program, this is explained in detail in section \ref{cliExplained}.
