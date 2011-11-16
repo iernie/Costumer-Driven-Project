@@ -1,11 +1,8 @@
-% Activate the following line by filling in the right side. If for example the name of the root file is Main.tex, write
-% "...root = Main.tex" if the chapter file is in the same directory, and "...root = ../Main.tex" if the chapter is in a subdirectory.
- 
-%!TEX root =  
+\documentclass[12pt, fullpage, oneside]{report}
 
-\chapter{Test plan}\label{testplan}
+\begin{document}
 
-\minitoc
+\title{Test Plan}
 
 \subsection*{Test plan}
 This is the test plan for the "Privacy Advisor" application requested by SINTEF ICT. This test plan is based on IEEE829-1998, the IEEE standard for software test documentation, with some adaptions to fit this project better. The purpose of testing is find bugs and errors and correct them, and to make sure the program is working as expected. The purpose of this test plan is to make sure the tests will be executed as planned, and that they are well documented.
@@ -102,3 +99,6 @@ For some of the tests we will not be able to test every possible input / output.
 The P3P policies have a huge variety in which elements they contain, and certain elements have a N-to-1 relation, so it will be impossible to test if everything is parsed correctly for every possible P3P policy. The best way to prevent this is to handpick a set of policies that have as different content as possible, so that as many of the extremes as possible will be covered.
 
 We got the same issue for testing the algorithm classification. There is simply too many combinations of learning base and input to cover everything. So again we have to do our best with regards to also covering as many extremes as possible.
+
+
+\end{document}

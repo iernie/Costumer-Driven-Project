@@ -1,0 +1,267 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.18)  15 NOV 2011 21:49
+entering extended mode
+**C:/Users/Knutsen/git/Customer-Driven-Project/report/Testing/TestCases.tex
+(C:/Users/Knutsen/git/Customer-Driven-Project/report/Testing/TestCases.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\report.cls"
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\longtable.sty"
+Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip43
+\LTright=\skip44
+\LTpre=\skip45
+\LTpost=\skip46
+\LTchunksize=\count88
+\LTcapwidth=\dimen103
+\LT@head=\box26
+\LT@firsthead=\box27
+\LT@foot=\box28
+\LT@lastfoot=\box29
+\LT@cols=\count89
+\LT@rows=\count90
+\c@LT@tables=\count91
+\c@LT@chunks=\count92
+\LT@p@ftn=\toks14
+)
+
+LaTeX Warning: Unused global option(s):
+    [fullpage].
+
+(C:\Users\Knutsen\git\Customer-Driven-Project\report\Testing\TestCases.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 12--15
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 15--19
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 19--21
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 21--22
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 22--38
+ [] [] 
+ []
+
+[1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Overfull \hbox (32.33858pt too wide) in alignment at lines 43--46
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 46--50
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 50--52
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 52--53
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 53--69
+ [] [] 
+ []
+
+[2]
+Overfull \hbox (32.33858pt too wide) in alignment at lines 74--77
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 77--81
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 81--83
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 83--84
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 84--108
+ [] [] 
+ []
+
+[3] [4]
+Overfull \hbox (32.33858pt too wide) in alignment at lines 113--116
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 116--120
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 120--122
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 122--123
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 123--145
+ [] [] 
+ []
+
+[5] [6]
+Overfull \hbox (32.33858pt too wide) in alignment at lines 150--153
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 153--157
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 157--159
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 159--160
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 160--184
+ [] [] 
+ []
+
+[7] [8]
+Overfull \hbox (32.33858pt too wide) in alignment at lines 189--192
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 192--196
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 196--198
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 198--199
+ [] [] 
+ []
+
+Missing character: There is no Ô in font cmr12!
+Missing character: There is no ¨ in font cmr12!
+Missing character: There is no Å in font cmr12!
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 199--221
+ [] [] 
+ []
+
+[9] [10]
+Overfull \hbox (32.33858pt too wide) in alignment at lines 226--229
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 229--233
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 233--235
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 235--236
+ [] [] 
+ []
+
+
+Overfull \hbox (32.33858pt too wide) in alignment at lines 236--250
+ [] [] 
+ []
+
+[11] (C:\Users\Knutsen\git\Customer-Driven-Project\report\Testing\TestCases.aux
+) ) 
+Here is how much of TeX's memory you used:
+ 334 strings out of 494049
+ 3982 string characters out of 3148476
+ 62390 words of memory out of 3000000
+ 3699 multiletter control sequences out of 15000+200000
+ 5803 words of font info for 21 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 22i,6n,19p,329b,268s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on TestCases.pdf (11 pages, 57362 bytes).
+PDF statistics:
+ 50 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
