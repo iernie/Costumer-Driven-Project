@@ -44,7 +44,7 @@ public class LearnAlgSimple extends LearnAlgorithm{
 		for (int i = 0; i < 23; i++) {
 			int total = 0;
 			int yes = 0;
-			for (PolicyObject  po : theIO.getPDB().getCollection() ) {
+			for (PolicyObject  po : theIO.getPDB() ) {
 				for(Case ca : po.getCases()){
 					switch (i){
 						//the 12 first are Purposes
