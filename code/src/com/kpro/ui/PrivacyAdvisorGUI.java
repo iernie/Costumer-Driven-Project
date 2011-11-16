@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.Properties;
 import javax.swing.JTextArea;
 
-//import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Case;
 import com.kpro.dataobjects.Category;
