@@ -22,7 +22,7 @@ import com.kpro.main.Gio;
 
 import sun.awt.ModalityEvent;
 
-public class ConfigEditor extends Thread {
+public class ConfigEditor {
 
 	private JFrame frame;
 	private JPanel panel;
@@ -35,7 +35,7 @@ public class ConfigEditor extends Thread {
 	private HashMap<String, JComboBox> comboboxes;
 	private HashMap<String, JCheckBox> checkboxes;	
 
-	private Properties genProps;
+	protected Properties genProps;
 	
 	private String[] userInitModel 	= 	{"true", "false"};
 	private String[] uiModel =			{"PrivacyAdvisorGUI","UserIO_Simple"};	 
@@ -163,9 +163,7 @@ public class ConfigEditor extends Thread {
 		panel = new JPanel();
 		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		panel.setLayout(new GridLayout(18, 3));
-		frame.add(panel);		
-		
-		
+		frame.add(panel);
 		
 		for (String str : checkboxes.keySet())
 		{
@@ -194,17 +192,10 @@ public class ConfigEditor extends Thread {
 		frame.setVisible(true);
 	}
 	
-	@Override
 	public void run()
 	{
 		InitComponents();
 		InitFrame();
-		while (frame.isVisible()) {
-			try {
-				sleep(500);
-			} catch (Exception e) {
-			}
-		}
 	}
 	
 	/**
@@ -253,7 +244,6 @@ public class ConfigEditor extends Thread {
 				}else if (e.getSource() ==  btnOk){
 					updateProps();
 					frame.setVisible(false);
-					frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSED));
 				}
 			}
 			else updateProps();
@@ -266,7 +256,7 @@ public class ConfigEditor extends Thread {
 	 * Update local properties object according to
 	 * values in SWING components.
 	 */
-	private void updateProps(){
+	protected void updateProps(){
 		if(genProps == null)
 			genProps = new Properties();
 		
@@ -291,8 +281,6 @@ public class ConfigEditor extends Thread {
 	            return s;
 	    return null;
 	}
-
-
 
 	public Properties getGenProps() {
 		return genProps;
