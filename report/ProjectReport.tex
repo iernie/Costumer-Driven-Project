@@ -9,6 +9,7 @@
 \usepackage{tabularx}
 \usepackage{minitoc}
 \usepackage{pdfpages}
+\usepackage{longtable}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 \usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, 
@@ -140,7 +141,8 @@ Finally, Part~\ref{p3} describes the testing and evaluation phase, and summarize
 \appendix
 \Alph{chapter}
 \setcounter{chapter}{1}
-\include{Appendix/TestPlan}
+\include{Appendix/TestCases}
+\include{Appendix/TestExecution}
 \include{Appendix/Templates}
 \include{Appendix/Glossary}
 \include{Appendix/References}
