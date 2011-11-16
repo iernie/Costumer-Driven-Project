@@ -1,8 +1,9 @@
-\documentclass[10pt]{article}
-\usepackage{longtable}
-\usepackage{underscore}
+% Activate the following line by filling in the right side. If for example the name of the root file is Main.tex, write
+% "...root = Main.tex" if the chapter file is in the same directory, and "...root = ../Main.tex" if the chapter is in a subdirectory.
+ 
+%!TEX root =  
 
-\begin{document}
+\chapter{Test execution}
 
 \begin{center}
 \begin{longtable}{ | p{4cm} | p{10cm} | }
@@ -51,8 +52,8 @@ Date of completion & November 16th \\ [3pt] \hline
 								\item Run with -newPolicyLoc test.xml
 								\item Run with -userInit true
 								\item Run with -userResponse //TODO
-								\item Run with -cbrV bitmapDistanceWisOne, Reduction_KNN ,Conclusion_Simple, LearnAlgSimpler
-								\item Run with -userIO UserIO_Simple
+								\item Run with -cbrV bitmapDistanceWisOne, Reduction\_KNN ,Conclusion\_Simple, LearnAlgSimpler
+								\item Run with -userIO UserIO\_Simple
 								\item Run with -policyDB PDatabase
 								\item Run with -genConfig test.cfg
 								\item Run with -NetworkRType NRCouchdb
@@ -107,8 +108,8 @@ Date of completion & November 16th \\ [3pt] \hline
 								\item newPolicyLoc is set to test.xml
 								\item userInit is set to true
 								\item userResponse ---
-								\item cbrV is set to bitmapDistanceWisOne, Reduction_KNN, Conclusion_Simple, LearnAlgSimpler
-								\item userIO is set to UserIO_Simple
+								\item cbrV is set to bitmapDistanceWisOne, Reduction\_KNN, Conclusion\_Simple, LearnAlgSimpler
+								\item userIO is set to UserIO\_Simple
 								\item policyDB is set to the specified class
 								\item genConfig is set to test.cfg. Values in test.cfg are loaded
 								\item NetworkRType is set to NRCouchdb
@@ -611,10 +612,10 @@ Date of completion & November 1st \\ [3pt] \hline
 			Steps executed & 	\begin{enumerate}
 							\item Created a test domain by loading six policies into the history
 							\item Distances between the policy to be classified and each of the six policies were calculated manually and the results were inserted into a table
-							\item A JUnit test testReduction_KNN was created. This test was used to assert that the six values returned by the algorithm are the same as those calculated manually in step 2
+							\item A JUnit test testReduction\_KNN was created. This test was used to assert that the six values returned by the algorithm are the same as those calculated manually in step 2
 							\item Found the k nearest policies from what was calculated in step 2
-							\item A JUnit test testReduction_KNN was created. This test was used to assert that the reduction algorithm returns the same k nearest policies as those that was found manually in step 4
-							\item Created a JUnit test testReduction_KNN ???
+							\item A JUnit test testReduction\_KNN was created. This test was used to assert that the reduction algorithm returns the same k nearest policies as those that was found manually in step 4
+							\item Created a JUnit test testReduction\_KNN ???
 						\end{enumerate} \\ [3pt] \hline
 			
 			Expected results &	\begin{enumerate}
@@ -776,4 +777,3 @@ Date of completion & November 14th \\ [3pt] \hline
 						Test failed \\ [3pt] \hline
 		\end{longtable}
 	\end{center}
-\end{document}
