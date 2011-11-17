@@ -33,13 +33,12 @@ public class NRCouchdb extends NetworkR {
 	
 	public NRCouchdb(String options) {
 		super(options); //should call parseNOptions
-		//add extra initialization code (IF NEEDED) here
 	}
 		
 	public Action reqAct(PolicyObject a) {
 		
 		Response r = (dbc.save(a)); //send policy to database to allow distance comparison- can't send as part of url, :(
-		//TODO insecure (save/delete[/save]). make note, and propose better way
+		//TODO insecure (anybody can save/delete[/save]). make note, and propose better way
 		
 		String query = dbc.getDBUri() + LVquerybase + r.getId();
 		String result = "";
@@ -57,7 +56,7 @@ public class NRCouchdb extends NetworkR {
 			System.err.println("malformed url exception in nrcouchdb");
 			e.printStackTrace();
 		} catch (IOException e) {
-			//TODO dialog with why it broke?
+			System.err.println("IOException when requesting an action from server");
 			e.printStackTrace();
 		}
 
@@ -79,8 +78,8 @@ public class NRCouchdb extends NetworkR {
 		
 		JsonObject json = (new JsonParser()).parse(result).getAsJsonObject();
 		Action b =(new Gson()).fromJson(result, Action.class);
-	    JsonArray array = (json.get("reasonDomains")).getAsJsonArray();
-	    
+		JsonArray array = (json.get("reasonDomains")).getAsJsonArray();
+		    
 		b.setAccepted(json.get("accepted").getAsBoolean());
 		b.setConfidence(json.get("confidence").getAsDouble());
 		b.setOverride(json.get("override").getAsBoolean());
@@ -123,6 +122,8 @@ public class NRCouchdb extends NetworkR {
 	protected void parseNOptions(String options) {
 		
 		String[] opts = options.split(","); //dbName,newDbIfNone,Protocol,location,port,username,password
+
+		//ATTEMPT AT HIDING LIBRARY ERRSTREAM MESSAGES (don't know why they show up).
 		//System.err.println("Authenticating with username [" + opts[5] + "] and password [" + opts[6] +"]" );
 //		PrintStream a = new PrintStream(System.err);
 //		try {

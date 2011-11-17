@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * This is where the class begins
+ * The PolicyObject class acts to hold all the relevent information for a given policy. This informations is broken into 'cases' (see the 'case' class- different items, indexed by datatype), the context (see the 'context' class- holds information that applies to whole policy), and action (see the 'action' class- holds the action taken).
  * 
- * @author ernie
+ * @author ernie, ngerstle
  */
 public class PolicyObject implements Serializable, Iterable<Case>
 {
@@ -17,7 +17,7 @@ public class PolicyObject implements Serializable, Iterable<Case>
 	 */
 	private static final long serialVersionUID = 5489334832912646160L;
 	private HashMap<String, String> entity;
-	private ArrayList<Case> cases;
+	private ArrayList<Case> cases; //all the cases present in a policy
 	private Action actionTaken; //the action taken (includes acc/reject, reason, etc)
 	private Context context; //the context for the p3p policy- see context.java
 	
@@ -132,40 +132,6 @@ public class PolicyObject implements Serializable, Iterable<Case>
 	}
 	
 	
-	/*
-	public void debug_print()
-	{
-		System.out.println("\nPOLICY OBJECT DEBUG PRINT");
-		
-		System.out.println("\nENTITY");
-		for(String key : entity.keySet())
-		{
-			System.out.println("KEY: " + key + ", VAL: " + entity.get(key) );
-		}
-		
-		System.out.println("\nCONTEXT");
-		try {
-			System.out.println("ACCESSED: " + context.getAccessTime().toString());			
-		} catch (NullPointerException e) {
-		}
-		try {
-			System.out.println("CREATED: " + context.getCreationTime().toString());			
-		} catch (NullPointerException e) {
-		}
-		System.out.println("EXPIRES: " + context.getExpiryDate().toString());			
-		
-		if(actionTaken != null)
-		{
-			System.out.println("\nACTION");
-			System.out.println(actionTaken.getAccepted());
-		}
-		
-		for(int i=0; i<cases.size(); i++)
-		{
-			System.out.println("\nCASE " + i);
-			cases.get(i).debug_print();
-		}
-	}*/
 	/**
 	 * This is based on the debug_print and SHOULD BE TAKEN SERIOUSLY.
 	 * 
@@ -199,6 +165,11 @@ public class PolicyObject implements Serializable, Iterable<Case>
 		return str;
 	}
 
+	/**
+	*	A simple true/false check to see if policies are identical- if all the strings inside them are, then the policies are.
+	*	@param newpol the policy to compare 'this' to
+	*	@return boolean; true if getContextDomains are equal and getCases() are equal (two string comparisons) else false.
+	*/
 	public boolean equalsCases(PolicyObject newpol) {
 		if(! getContextDomain().equals(newpol.getContextDomain()))
 			return false;
@@ -208,6 +179,10 @@ public class PolicyObject implements Serializable, Iterable<Case>
 	}
 
 	@Override
+	/**
+	*	Returns an iterator over the cases present.
+	*	@return Iterator<Case>
+	*/
 	public Iterator<Case> iterator() {
 		return cases.iterator();
 	}

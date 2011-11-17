@@ -1,3 +1,5 @@
+//This could work if we can access the new policy and correctly compute a distance (see the /TODO below).
+
 function(keys, values, rereduce) 
 {
 	//reduce to nearest neighbors

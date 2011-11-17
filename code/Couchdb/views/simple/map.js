@@ -1,6 +1,6 @@
 function(doc) {
 //compare doc to incomming. return distance, accept, doc ?  
-
+// beginnings of an attempt to project the n-dimensional cases to a single number- is bound to fail, disregard/don't use
 
 
 	if(doc[actionTaken] && doc[cases])

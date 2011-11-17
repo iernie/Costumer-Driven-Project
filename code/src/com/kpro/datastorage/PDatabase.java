@@ -12,7 +12,7 @@ import com.kpro.dataobjects.PolicyObject;
 
 
 /**
-*	This singleton class will store all past P3P/contexts instances in a hashmap.
+*	This singleton class will store all past P3P/contexts instances in a hashmap, and is saved on disk via java.io.serializable.
 *
 *	@author Nicholas Gerstle, Henrik Knutsen, Aman Kaur
 *	@version 1.0
@@ -128,7 +128,9 @@ public class PDatabase extends PolicyDatabase implements Serializable
 
 
 	/**
-	 * 
+	 * returns an instance of the database.
+	 * @param inloc where the database should be loaded from (on disc)
+	 * @param outloc where the database should be saved to (on disc)
 	 */
 	public static synchronized PolicyDatabase getInstance(String inloc, String outloc) {
 		inLocation = inloc;

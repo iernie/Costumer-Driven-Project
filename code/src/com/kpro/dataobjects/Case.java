@@ -2,7 +2,7 @@ package com.kpro.dataobjects;
 import java.util.ArrayList;
 
 /**
- * A class that contains a single datatype from a PolicyObject
+ * A class that contains a single datatype from a PolicyObject.
  * 
  * @author ernie
  *
@@ -209,33 +209,4 @@ public class Case implements Comparable{
 		return toString().compareToIgnoreCase(((Case)o).toString());
 	}
 	
-	// DEBUG
-	/*
-	public void debug_print()
-	{	
-		System.out.println("DATATYPE: " + datatype);
-		
-		for(Purpose p: purpose)
-		{
-			System.out.println("PURPOSE: " + p);
-		}
-		
-		for(Recipient r: recipient)
-		{
-			System.out.println("RECIPIENT: " + r);
-		}
-		
-		for(Retention r: retention)
-		{
-			System.out.println("RETENTION: " + r);
-		}
-		
-		if(datatype.equalsIgnoreCase("#dynamic.miscdata"))
-		{
-			for(Category c: categories)
-			{
-				System.out.println("CATEGORY: " + c);
-			}	
-		}
-	}*/
 }

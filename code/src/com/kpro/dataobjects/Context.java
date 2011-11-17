@@ -2,7 +2,8 @@ package com.kpro.dataobjects;
 import java.util.Date;
 
 /**
- *	Holds domain (from p3p), time, and other contextual information.
+ *	Holds domain (from p3p), time, and other contextual information that applies to an entire p3p policy.
+ *	@author ngerstle, iernie
  */
 
 public class Context

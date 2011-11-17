@@ -6,11 +6,10 @@ import java.util.ArrayList;
 */
 public class Action
 {
-	private boolean accepted; //accept the policy
-	private ArrayList<String> reasonDomains; //basis for result. set by knn
+	private boolean accepted; //true- the user should accept the policy, false the user should not
+	private ArrayList<String> reasonDomains; //basis for result- string of other policies.getDomain
 	private boolean override; //the generated results was overriden by the user
-	private double confidence; //the confidence in the final value- should be between 0 and 1
-	//TODO add exceptions to rule, override, etc
+	private double confidence; //the confidence in the final value- should be between 0 and 1, with 1 = 100% confidence
 	
 	
 	public Action()
@@ -38,7 +37,6 @@ public class Action
 	/**
 	 * converts the internal accept/reject values to a String
 	 * 
-	 * @author ngerstle, ernie
 	 * @return a boolean that can be sent to the user with a accept/reject
 	 */
 	public String getAcceptedStr(){
@@ -63,7 +61,6 @@ public class Action
 	
 	
 	/**
-	 * 
 	 * @return an arraylist that verbalizes why the policy was accepted or rejected
 	 */
 	public ArrayList<String> getReasons() {
@@ -80,6 +77,9 @@ public class Action
 	}
 
 
+	/**
+	* Sets the confidence, with checks on the value: if confidence = abs(input) if 1>=input>=-1, else negative infinity
+	*/
 	public void setConfidence(double confidence) {
 		if(confidence<0)
 			confidence = -confidence;
@@ -97,7 +97,11 @@ public class Action
 		return confidence;
 	}
 
-
+	/**
+	* Parse a comma-seperated string into an Action. The string needs to have four comma-seperated tokens (thus three commas) and no spaces. The format is accept,domains,confidence,override where accept is 'accept' if accept==true, or anything else if accept!=true; domains is a semi-colon seperated string list of domains (no commas, no spaces, etc), eg 'www.google.com;www.yahoo.com;domain3;domain4' ; confidence is a double that is the confidence (parsed by parseDouble), and override is a boolean (parsed by parseBoolean).
+	* @param optionValue the option string- see above. must have 3 commas, no spaces
+	* @return an Action parsed from above
+	*/
 	public Action parse(String optionValue) {
 		String[] parsedOptions = optionValue.split(",");
 		
@@ -126,7 +130,12 @@ public class Action
 		this.override = b;
 		return this;
 	}
-	
+
+
+	/**
+	* Overriden toString. format: ('Accepted.'|'Rejected.')('Override.'|'No Override.')("Confidences: %f")["reasonDomain: [" (" string,")+].
+	* @return fancy string version see above. eg "Accepted. Override. Confidence: 0.5 reasonDomain: [ google.com"
+	*/	
 	@Override
 	public String toString() {
 		String str = accepted == true ?
