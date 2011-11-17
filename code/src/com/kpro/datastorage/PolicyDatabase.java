@@ -82,10 +82,10 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	 * shouldn't be needed, but implement for faster access in Reduction_KNN
 	 * @return
 	 */
-//	public Collection<PolicyObject> getCollection()
-//	{
-//	BAD CODE BYEBYE	return idb;
-//	}
+	public Collection<PolicyObject> getCollection()
+	{
+	return idb;
+	}
 	
 	/**
 	 * calls closeDB(PolicyDatabase.outlocation)

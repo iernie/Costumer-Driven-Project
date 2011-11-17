@@ -4,35 +4,22 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.JTree;
-import javax.swing.SwingUtilities;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Properties;
 import javax.swing.JTextArea;
 
-//import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Case;
 import com.kpro.dataobjects.Category;
@@ -56,10 +43,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 public class PrivacyAdvisorGUI extends UserIO{
 
 	private JFrame frame;
-	private String weightsPath;
-	private String configPath;
-	private String dbPath;
-	private String p3pPolicyPath;
 	private Gio gio;
 
 	// textarea to hold output and 
@@ -76,12 +59,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 	private JMenuItem runMenuItem;
 	private JMenuItem exitMenuItem;
 	
-	
-	// Properties object that is passed to GIO
-	private Properties props;
-	
 	private JScrollPane outputAreaScrollPane, dataBaseTreeScrollPane, policyTreeScrollPane;
-	private static Object lock = new Object();
 	
 	/**
 	 * Launch the application.
@@ -221,29 +199,35 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	@Override
 	public PolicyObject userResponse(PolicyObject n) {
-		String description = n.getContextDomain();
-		String recommendation = n.getAction().getAccepted() == true ? "Accept." : "Reject.";
-		String reason = "\nReason:\n";
-		for (String str : n.getAction().getReasons()) reason += str + "\n";
-		reason += "\n";
-		String confidence = "\nWith Confidence: " + String.valueOf(n.getAction().getConfidence());
-		
-		
-		int response = 2;
-		while(response == 2)
-			response = JOptionPane.showConfirmDialog(null, 
+		try {
+			
+			String description = n.getContextDomain();
+			String recommendation = n.getAction().getAccepted() == true ? "Accept." : "Reject.";
+			String reason = "\nReason:\n";
+			for (String str : n.getAction().getReasons()) reason += str + "\n";
+			reason += "\n";
+			String confidence = "\nWith Confidence: " + String.valueOf(n.getAction().getConfidence());
+			
+			
+			int response = 2;
+			while(response == 2)
+				response = JOptionPane.showConfirmDialog(null, 
 						"For the policy: \n"+description+
 						"\nPrivacy Advisor recommends: "
 						+recommendation + reason + confidence + 
 						". \nAccept recommendation?",
 						"Privacy Advisor",
 						JOptionPane.YES_NO_OPTION);
-		
-		if(response == 1)// update
-		{ 
-			Action a = n.getAction();
-			a.setAccepted(!a.getAccepted());
-			a.setOverride(true);
+			
+			if(response == 1)// update
+			{ 
+				Action a = n.getAction();
+				a.setAccepted(!a.getAccepted());
+				a.setOverride(true);
+			}
+		} catch (NullPointerException e) {
+			println("No chosen policy to classify");
+			System.err.println("No chosen policy to clasify");
 		}
 		return n;
 	}
@@ -295,10 +279,11 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 * @author ulfnore
 	 */
 	private void run()
-	{		
+	{
 		try
 		{
-			gio.getCBR().run(gio.loadPO());
+			gio.loadPO();
+			gio.getCBR().run(gio.getPO());
 			buildTree(policyTreeRoot, gio.getPO());
 
 		}catch(NullPointerException e)

@@ -76,7 +76,7 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 		double countyes = 1;
 		double countno = 1;
 		boolean y = false;
-		for(PolicyObject po : pdb.getCollection()){
+		for(PolicyObject po : pdb){
 			//checks if the parameter object is in any of the cases in any of the policyobjects
 			for(Case c : po.getCases()){
 				if(!y && i.toString().length()>8){
