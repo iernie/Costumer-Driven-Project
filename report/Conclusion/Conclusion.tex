@@ -20,15 +20,36 @@ be substituted without affecting the remainder of the software.
 
 \section{Future Development}
 
+To conclude this report, we look at the some important challenges that
+must be addressed in order to further the Privacy Advisor system to a
+end-user product.
+
 \subsection{Testing}
 For the Privacy Advisor system to be truly valuable, it has to be made
 available to end users; the most likely realization being in the
 form of a web-browser plugin. For this to occur, much testing is still
-required.
+required. This testing is a more involved type of testing than the standard
+unit testing that the Privacy Advisor system has been through at present.
 
-\subsection{Networking}
+For the system to actually be successful it has to provide accurate predictions
+of users' Internet decisions so that it can provide good privacy protection
+without being invasive in the users' day-to-day Internet activities. This type
+of testing will require putting together a group of test users and monitoring their
+activities over a \emmph{prolonged period of time}\footnote{The time aspect is stressed here
+as the system will need time to actually learn the user's preferences.}. 
 
-
+\subsection{Collaborative Filtering} %% TODO: Nicholas: verify
+One of the key improvements to the current Privacy Advisor system is the
+collaborative filtering/community portion of the system. While the interface
+for a networking system is well integrated in the CBR system, the current 
+network resource has limited features. Furthermore, this component of the system
+will also require a prolonged period of testing, as a substantial amount of data
+needs to be gathered to give proper advice as this operates on a per-user-per-site
+basis\footnote{SINTEFs current proposal for a collaborative filtering system is
+to find the most similar user(s) and base the recommendation on his actions on the
+same/similar sites.}.
 
 \subsection{Distance Metrics}
 
+
+\subsection{The Current State of Internet Privacy Policies}
