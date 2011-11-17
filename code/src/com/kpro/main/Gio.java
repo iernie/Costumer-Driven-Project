@@ -121,6 +121,7 @@ public class Gio {
 	
 	public void setGenProps(Properties genProps) {
 		this.genProps = genProps;
+		System.out.println(genProps.getProperty("newDB"));
 	}
 
 	/**
@@ -271,7 +272,6 @@ public class Gio {
 	 * @return the action to apply to the new policy
 	 */
 	private Action parseAct(String optionValue) {
-		// TODO remove this later
 		return (optionValue == null)?(null):(new Action().parse(optionValue));
 	}
 
@@ -396,6 +396,7 @@ public class Gio {
 	public void loadDB()
 	{
 		try {
+			//TODO what about if we want to create a new db?
 			if(!Boolean.parseBoolean(genProps.getProperty("newDB")))
 			{
 				pdb.loadDB();
@@ -561,10 +562,10 @@ public class Gio {
 	 * 
 	 * @return the policy object to be processed
 	 */
-	public PolicyObject loadPO() {
+	public void loadPO() {
 
 		if(genProps.getProperty("newPolicyLoc",null) == null)
-			System.err.println("newPolLoc == null in gio:getPO");
+			System.err.println("newPolLoc == null in gio:loadPO");
 		File pLoc = new File(genProps.getProperty("newPolicyLoc",null));
 		if(!pLoc.exists()){
 			System.err.println("no file found at p3p policy location specified by the new policy option");
@@ -577,7 +578,6 @@ public class Gio {
 		{
 			po.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("newPolicyLoc")));
 		}
-		return po;
 	}
 	
 	public PolicyObject getPO() {
@@ -663,10 +663,6 @@ public class Gio {
 	{
 		return nr;
 	}
-
-
-
-
 
 	public double getConfLevel() {
 		return Double.parseDouble(genProps.getProperty("confidenceLevel","1.0"));

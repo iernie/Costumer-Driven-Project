@@ -1,5 +1,6 @@
 package com.kpro.ui;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,9 +32,6 @@ abstract class ConfigEditor {
 
 	protected Properties genProps;
 	
-	private String[] userInitModel 	= 	{"true", "false"};
-	private String[] uiModel =			{"PrivacyAdvisorGUI","UserIO_Simple"};	 
-	//private String[] cbrVerModel 	= 	{"bitmapDistanceWisOne,Reduction_KNN:1,Conclusion_Simple,LearnAlgSimpler"};
 	private String[] dbTypeModel 	= 	{"PDatabase"};
 	private String[] logLvlModel	=  	{"INFO"};
 	private String[] networkTypeModel = {"NRCouchdb"};
@@ -61,40 +59,34 @@ abstract class ConfigEditor {
 		
 		fieldNames.put("p3pLocation", "Add new P3P to DB");
 		textfields.put("p3pLocation", new JTextField());
-		buttons.put("p3pLocation", new JButton("Set"));
+		buttons.put("p3pLocation", new JButton("Choose file"));
 		
 		fieldNames.put("p3pDirLocation", "Add P3P Dir to DB");
 		textfields.put("p3pDirLocation", new JTextField());
-		buttons.put("p3pDirLocation", new JButton("Set"));
+		buttons.put("p3pDirLocation", new JButton("Choose file"));
 		
 		fieldNames.put("newPolicyLoc", "P3P to Evaluate");
 		textfields.put("newPolicyLoc", new JTextField());
-		buttons.put("newPolicyLoc", new JButton("Set"));
+		buttons.put("newPolicyLoc", new JButton("Choose file"));
 		
 		fieldNames.put("inDBLoc", "Input DB Location");
 		textfields.put("inDBLoc", new JTextField());
-		buttons.put("inDBLoc", new JButton("Set"));
+		buttons.put("inDBLoc", new JButton("Choose file"));
 		
 		fieldNames.put("outDBLoc", "Output DB Location");
 		textfields.put("outDBLoc", new JTextField());
-		buttons.put("outDBLoc", new JButton("Set"));
+		buttons.put("outDBLoc", new JButton("Choose file"));
 		
 		fieldNames.put("inWeightsLoc", "Input Weights Location");
 		textfields.put("inWeightsLoc", new JTextField());
-		buttons.put("inWeightsLoc", new JButton("Set"));
+		buttons.put("inWeightsLoc", new JButton("Choose file"));
 		
 		fieldNames.put("outWeightsLoc", "Output Weights Location");
 		textfields.put("outWeightsLoc", new JTextField());
-		buttons.put("outWeightsLoc", new JButton("Set"));
+		buttons.put("outWeightsLoc", new JButton("Choose file"));
 		
 		fieldNames.put("cbrV", "CBR Version");
 		textfields.put("cbrV", new JTextField());
-		
-		fieldNames.put("userIO", "User Interface");
-		comboboxes.put("userIO", new JComboBox(uiModel));
-		
-		fieldNames.put("userInit", "User Init");
-		comboboxes.put("userInit", new JComboBox(userInitModel));
 		
 		fieldNames.put("NetworkRType", "Network Type");
 		comboboxes.put("NetworkRType", new JComboBox(networkTypeModel));
@@ -150,13 +142,13 @@ abstract class ConfigEditor {
 	 */
 	private void InitFrame()
 	{
-		frame = new JFrame("Configuration Editor");
+		frame = new JFrame("Configure");
 		frame.setSize(400,600);
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(true);
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		panel = new JPanel();
 		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
-		panel.setLayout(new GridLayout(18, 3));
+		panel.setLayout(new GridLayout(15, 3));
 		frame.add(panel);
 		
 		for (String str : checkboxes.keySet())
