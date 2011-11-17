@@ -51,7 +51,7 @@ Date of completion & November 16th \\ [3pt] \hline
 								\item Run with -blanketAccept true
 								\item Run with -newPolicyLoc test.xml
 								\item Run with -userInit true
-								\item Run with -userResponse //TODO
+								\item Run with -userResponse accept,google,0.5,false
 								\item Run with -cbrV bitmapDistanceWisOne, Reduction\_KNN ,Conclusion\_Simple, LearnAlgSimpler
 								\item Run with -userIO UserIO\_Simple
 								\item Run with -policyDB PDatabase
@@ -79,7 +79,7 @@ Date of completion & November 16th \\ [3pt] \hline
 								\item recommendation is automatically accepted
 								\item newPolicyLoc is set to the specified filepath
 								\item userInit is set to the specified value
-								\item the specified action is appended to the policy
+								\item the specified response and context is appended to the policy
 								\item cbrV is set to the specified classes
 								\item userIO is set to the specified class
 								\item policyDB is set to the specified class
@@ -107,7 +107,7 @@ Date of completion & November 16th \\ [3pt] \hline
 								\item Recommendation is automatically accepted
 								\item newPolicyLoc is set to test.xml
 								\item userInit is set to true
-								\item userResponse ---
+								\item the specified response and context is appended to the policy
 								\item cbrV is set to bitmapDistanceWisOne, Reduction\_KNN, Conclusion\_Simple, LearnAlgSimpler
 								\item userIO is set to UserIO\_Simple
 								\item policyDB is set to the specified class
@@ -123,31 +123,31 @@ Date of completion & November 16th \\ [3pt] \hline
 			Test conclusion & 	\begin{enumerate}
 							\item
 							\begin{enumerate}
-								\item PASS
-								\item PASS
-								\item PASS
-								\item PASS
-								\item PASS
-								\item PASS								
-								\item PASS
-								\item PASS
-								\item PASS
-								\item PASS
-								\item PASS								
-								\item PASS
-								\item NO PASS
-								\item PASS
-								\item PASS
-								\item (NO) PASS
-								\item PASS
-								\item PASS
-								\item PASS
-								\item PASS
-								\item PASS
+								\item Success
+								\item Success
+								\item Success
+								\item Success
+								\item Success
+								\item Success								
+								\item Success
+								\item Success
+								\item Success
+								\item Success
+								\item Success								
+								\item Success
+								\item Success
+								\item Success
+								\item Success
+								\item Success
+								\item Success
+								\item Success
+								\item Success
+								\item Success
+								\item Success
 							\end{enumerate}
-							\item PASS
+							\item Success
 						\end{enumerate}
-						Test not passed. 1M (and 1P) failed \\ [3pt] \hline
+						\underline{Test passed} \\ [3pt] \hline
 
 			Comments & -
 					\\ [3pt] \hline
@@ -318,18 +318,18 @@ Execution steps & 	\begin{enumerate}
 							 \\  [3pt] \hline
 
 			Test conclusion & 	\begin{enumerate}
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
+							\item Success
+							\item Success
+							\item Success
+							\item Success
+							\item Success
+							\item Success
+							\item Success
+							\item Success
+							\item Success
+							\item Success
 						\end{enumerate}
-						Test passed \\  [3pt] \hline
+						\underline{Test passed} \\  [3pt] \hline
 			Comments & As mentioned in the test plan, it is not guaranteed that the parser is successfully parsing every possible field of every possible policy even though it has passed this test
 					\\ [3pt] \hline
 		\end{longtable}
@@ -401,14 +401,14 @@ Date of completion & October 24th \\ [3pt] \hline
 							 \\  [3pt] \hline
 
 			Test conclusion & 	\begin{enumerate}
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
+							\item Success
+							\item Success
+							\item Success
+							\item Success
+							\item Success
+							\item Success
 						\end{enumerate}
-						Test passed \\  [3pt] \hline
+						\underline{Test passed} \\  [3pt] \hline
 			Comments &	- \\ [3pt] \hline
 		\end{longtable}
 	\end{center}
@@ -438,7 +438,7 @@ Name & Graphical user interface (GUI) functionality \\  [3pt] \hline
 Test identifier & UNIT-04 \\  [3pt] \hline
 Person responsible & Henrik Knutsen \\  [3pt] \hline
 Date of execution & October 29th \\  [3pt] \hline
-Date of completion & November ??th \\ [3pt] \hline
+Date of completion & November 17th \\ [3pt] \hline
 
 			Execution steps & 	\begin{enumerate}
 							\item Run the program using the GUI
@@ -456,14 +456,17 @@ Date of completion & November ??th \\ [3pt] \hline
 								\item Clicked "Configuration"
 								\item Clicked "Reload Database"
 								\item Clicked "Run"
+								\item Clicked "Run", and then "Run" again after the algorithm has classified and stored the policy
 								\item Clicked "Exit"
 							\end{enumerate}
 
 							\item Clicked every button in the configuration menu
 							\begin{enumerate}
-								\item a
-								\item b
-								\item c
+								\item Checked all the checkboxes individually
+								\item Opened the all the dropdown menus and selected an option
+								\item Chose a file for all the options with the "set" button
+								\item Clicked the "x" to close the configuration editor
+								\item Clicked the OK button
 							\end{enumerate}
 
 							\item Used every scroll bar
@@ -475,7 +478,11 @@ Date of completion & November ??th \\ [3pt] \hline
 								\item Used scroll bar for scrolling up/down in output pane
 							\end{enumerate}
 
-							\item Attempted to resize the window
+							\item Resized the windows
+							\begin{enumerate}
+								\item Attempted to resize the main window
+								\item Attempted to resize the configuration editor window
+							\end{enumerate}
 						\end{enumerate} \\ [3pt] \hline
 			
 			Expected results &	\begin{enumerate}
@@ -483,17 +490,20 @@ Date of completion & November ??th \\ [3pt] \hline
 
 							\item  
 							\begin{enumerate}
-								\item Menu for setting config values is opened
-								\item The specified database is loaded
+								\item Menu for changing configuration values is opened
+								\item The specified database is loaded and used instead of the database loaded on startup
 								\item The program gives a popup with a recommendation for the selected policy based on the history in the specified database
-								\item Program closes
+								\item The program a warning message that there is no policy to classify. Algorithm is not run
+								\item Program terminates
 							\end{enumerate}
 							
 							\item
 							\begin{enumerate}
-								\item a
-								\item b
-								\item c
+								\item The "newDB" option is set to the specified option. The "useNet" option is set to the specified option.
+								\item All the dropdown menus can be opened, and an option and be chosen
+								\item File manager opens. The option is set to the selected file / folder
+								\item The configuration editor closes without saving changes
+								\item The configuration editor closes saving changes
 							\end{enumerate}
 
 							\item 
@@ -501,10 +511,15 @@ Date of completion & November ??th \\ [3pt] \hline
 								\item The scroll bar scrolls through the list, up and down, from end to end, successfully
 								\item The scroll bar scrolls through the list, up and down, from end to end, successfully
 								\item The scroll bar scrolls through the list, up and down, from end to end, successfully
-								\item The scroll bar scrolls through the list, up and down, from end to end, successfully									\item The scroll bar scrolls through the list, up and down, from end to end, successfully
+								\item The scroll bar scrolls through the list, up and down, from end to end, successfully									
+								\item The scroll bar scrolls through the list, up and down, from end to end, successfully
 							\end{enumerate}
 
-							\item Window can be resized without having elements of the GUI overlapping. The elements and panes scales with the main window
+							\item 
+							\begin{enumerate}
+								\item Window can be resized without having elements of the GUI overlapping. The elements and panes scales with the main window
+								\item Window can be resized without having elements of the GUI overlapping. The elements and panes scales with the main window
+							\end{enumerate}
 						\end{enumerate}
 							 \\  [3pt] \hline
 
@@ -513,62 +528,77 @@ Date of completion & November ??th \\ [3pt] \hline
 
 							\item  
 							\begin{enumerate}
-								\item Menu for setting config values is not opened
+								\item The mencu for changing configuration values is opened
 								\item The specified database is loaded
-								\item The program gives a popup with a recommendation for the selected policy based on the history in the specified database
-								\item Program closes
+								\item The program gives a recommendation for the selected policy based on history
+								\item The program a warning message that there is no policy to classify. Algorithm is not run
+								\item Program terminates
 							\end{enumerate}
 							
 							\item
 							\begin{enumerate}
-								\item a
-								\item b
-								\item c
+								\item The "newDB" option is set to the specified option. The "useNet" option is set to the specified option.
+								\item All the dropdown menus can be opened, and an option and be chosen
+								\item File manager opens. The option is set to the selected file / folder
+								\item The configuration editor closes without saving changes
+								\item The configuration editor closes saving changes
 							\end{enumerate}
 
 							\item 
 							\begin{enumerate}
-								\item The scroll bar appears when conent of the pane is too big to fit, and it scrolls through the list, up and down, from end to end, successfully
-								\item The scroll bar appears when conent of the pane is too big to fit, and it scrolls through the list, left and right, from end to end, successfully
-								\item The scroll bar appears when conent of the pane is too big to fit, and it scrolls through the list, up and down, from end to end, successfully		
-								\item The scroll bar appears when conent of the pane is too big to fit, and it scrolls through the list, left and right, from end to end, successfully
-								\item The scroll bar appears when conent of the pane is too big to fit, and it scrolls through the list, up and down, from end to end, successfully
+								\item The scroll bar scrolls from end to end without any error
+								\item The scroll bar scrolls from end to end without any error								
+								\item The scroll bar scrolls from end to end without any error
+								\item The scroll bar scrolls from end to end without any error						
+								\item The scroll bar scrolls from end to end without any error
 							\end{enumerate}
 
-							\item The window can be resized. The panes are scaling with the main window
+							\item 
+							\begin{enumerate}
+								\item Window can be resized without having elements of the GUI overlapping. The elements and panes scales with the main window
+								\item Window can be resized without having elements of the GUI overlapping. The elements and panes scales with the main window
+							\end{enumerate}
 						\end{enumerate}
-							\\ [3pt] \hline
+							 \\  [3pt] \hline
 
 			Test conclusion & 	\begin{enumerate}
-							\item PASS
+							\item Success
 
 							\item  
 							\begin{enumerate}
-								\item NO PASS
-								\item PASS
-								\item PASS
-								\item PASS
+								\item Success
+								\item Success
+								\item Success
+								\item Success
+								\item Success
 							\end{enumerate}
 							
 							\item
 							\begin{enumerate}
-								\item NO PASS
-								\item NO PASS
-								\item NO PASS
+								\item Success
+								\item Success
+								\item Success
+								\item Success
+								\item Success
 							\end{enumerate}
 
 							\item 
-							\begin{enumerate}																							\item PASS
-								\item PASS
-								\item PASS
-								\item PASS
-								\item PASS
+							\begin{enumerate}																							
+								\item Success
+								\item Success
+								\item Success
+								\item Success
+								\item Success
 							\end{enumerate}
 
-							\item PASS
+							\item 
+							\begin{enumerate}																							
+								\item Success
+								\item Success
+							\end{enumerate}
 						\end{enumerate}
 
-						Test not passed. 2A and 3 failed \\ [3pt] \hline
+						\underline{Test passed} \\ [3pt] \hline
 			Comments &	- \\ [3pt] \hline
 		\end{longtable}
 	\end{center}
@@ -606,7 +636,7 @@ Date of completion & November 1st \\ [3pt] \hline
 							\item Run the distance algorithm on a single policy and the history and compare the distances that are returned by the algorithm with the manually calculated distances from step 2
 							\item Manually find the k policies with the lowest distances
 							\item Run the reduction algorithm with necessary input to find the k nearest policies and compare the k policies returned by the reduction algorithm with those found in step 4
-							\item Run the conclusion algorithm and verify the results returned by the algorithm ???
+							\item Run the conclusion algorithm and verify the results returned by the algorithm
 						\end{enumerate} \\ [3pt] \hline
 
 			Steps executed & 	\begin{enumerate}
@@ -615,7 +645,7 @@ Date of completion & November 1st \\ [3pt] \hline
 							\item A JUnit test testReduction\_KNN was created. This test was used to assert that the six values returned by the algorithm are the same as those calculated manually in step 2
 							\item Found the k nearest policies from what was calculated in step 2
 							\item A JUnit test testReduction\_KNN was created. This test was used to assert that the reduction algorithm returns the same k nearest policies as those that was found manually in step 4
-							\item Created a JUnit test testReduction\_KNN ???
+							\item Created a JUnit Conclusion\_Simple. This test is checking if the algorithm is giving the correct recommendation based on the k nearest policies found in step 5, and that the confidence has the correct value
 						\end{enumerate} \\ [3pt] \hline
 			
 			Expected results &	\begin{enumerate}
@@ -624,7 +654,7 @@ Date of completion & November 1st \\ [3pt] \hline
 							\item The algorithm returns the same distances as those found in step 2
 							\item The k policies are obtained
 							\item The algorithm returns the same k policies as those found in step 4
-							\item ??
+							\item The algorithm is giving the correct recommendation and confidence value
 						\end{enumerate}
 							 \\  [3pt] \hline
 
@@ -634,19 +664,19 @@ Date of completion & November 1st \\ [3pt] \hline
 							\item The JUnit is successful
 							\item The k policies are obtained
 							\item The JUnit test is successful
-							\item The JUnit test is not run
+							\item The JUnit test is successful
 						\end{enumerate}
 							 \\  [3pt] \hline
 
 			Test conclusion & 	\begin{enumerate}
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
-							\item NO PASS
+							\item Success
+							\item Success
+							\item Success
+							\item Success
+							\item Success
+							\item Success
 						\end{enumerate}
-						Test not passed. 6 failed \\  [3pt] \hline
+						\underline{Test passed} \\  [3pt] \hline
 			Comments & As mentioned in the test plan, it is not guaranteed that the algorithm will classify correctly for every possible combination of policy and database history even though it has passed this test
 					\\ [3pt] \hline
 		\end{longtable}
@@ -714,14 +744,14 @@ Date of completion & November 12th \\ [3pt] \hline
 							 \\  [3pt] \hline
 
 			Test conclusion & 	\begin{enumerate}
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
-							\item PASS
+							\item Success
+							\item Success
+							\item Success
+							\item Success
+							\item Success
 						\end{enumerate}
-						Test passed \\ [3pt] \hline
-			Comments & Some changes are needed for this test to run. These changes are mentioned in the test class
+						\underline{Test passed} \\ [3pt] \hline
+			Comments & Some changes are needed for this test to run. These changes are mentioned in the test class LearnAlgSimplerTest.java
 				\\ [3pt] \hline
 		\end{longtable}
 	\end{center}
@@ -754,26 +784,33 @@ Date of execution & November 14th \\  [3pt]
 Date of completion & November 14th \\ [3pt] \hline
 
 			Execution steps & 	\begin{enumerate}
-							\item a
+							\item Upload a policy to the community database
+							\item Check that the database returns a recommendation
 						\end{enumerate} \\ [3pt] \hline
 
 			Steps executed & 	\begin{enumerate}
-							\item b
+							\item Ran the program trying to classify a policy with a database history using networking. Chose to save the new policy
+							\item Checked that a recommendation is returned from the community database
 						\end{enumerate} \\ [3pt] \hline
 			
 			Expected results &	\begin{enumerate}
-							\item c
+							\item The policy to be classified is saved on the community database
+							\item The community database returns a recommendation based on the policy to be classified and the database history
 						\end{enumerate}
 							 \\  [3pt] \hline
 
 			Step results & 	\begin{enumerate}
-							\item d
+							\item The policy to be classified is saved on the community database with no loss of data 
+							\item The community database returns a recommendation. See comments
 						\end{enumerate}
 							 \\  [3pt] \hline
 
 			Test conclusion & 	\begin{enumerate}
-							\item d
+							\item Success
+							\item Success. See comments
 						\end{enumerate}
-						Test failed \\ [3pt] \hline
+						\underline{Test passed} \\ [3pt] \hline
+			Comments & The community database returns a recommendation, but it returns the same recommendation every time for any combination of input. This is because this part is not yet implemented.
+				\\ [3pt] \hline
 		\end{longtable}
 	\end{center}
