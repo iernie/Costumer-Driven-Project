@@ -1,8 +1,43 @@
 Todo list for project report
 ----------------------------
+  
+- page nums on blank pages
+- references inside document
+- bibliography
+- remove evaluation section
+- table in planning, remove separation
+- figures
+- new program flow figure, simplify first figure, more detail in design
+- planning document
+- risk tables -> appendix, write summary to keep in the report
+- Planning phase: rename-> Project Planning
+- Project Plan: Measurement of project effects -> expand
+- Project Plan -> Milestones: wording, explanation, why when etc
+- Parts numbering
+- bullet lists in specific requirements -> numbered
+- evaluate requirements at the end
+- LaTeX to bold in design
+- Tools from design -> planning/prestudy (tosin email)
+- tosin email introduction
+- Design overview rework
+- UMLs to appendix from design
+- organize writings on server/networking between design-implementation
+- Confidence measures 
+- Learning algorithm
+- section numbering
 
-- produce templates for appendix
-- risk report should have an overall quantitative measure, 
-  ie. prob x consequence 
-- fix references in document
-- 
+- documentation to appendix
+- boxes for command examples
+- figures: use wrapfigure
+- documentation: state two diff config files, weights + conf, config can be entered either through config file or by commandline
+
+- testing: usability testing instead of interface testing
+- unit test, double tables
+- evaluation chapter -> stuff on software, remove stuff on group/blabla
+- add google docs section in evaluation
+- update time stuff
+- remove course evaluation
+- remove glossary
+- add index 
+
+

@@ -22,6 +22,7 @@ For source code repositories and version control, \textbf{Git} was selected. Git
 
 \subsection{Programming Languages}
 \textbf{Java} is chosen as the primary programming language for implementing the majority of the code. Java is an object oriented programming language providing a level of abstraction appropriate for the task at hand in addition to a rich set of libraries, including the SWING library for GUI programming, and several libraries for networking. It also simplifies writing a browser plugin as major browsers such as Google Chrome and Firefox employ Javascript as scripting language for plugin.
+
 Javascript was used in small measure for the use of a CouchDB community server.
 
 \subsection{Development Tools}
@@ -98,12 +99,12 @@ Privacy Advisor can be run using either a command line interface (CLI) or a grap
 \end{center}
 \end{figure}
 
-<<<<<<< HEAD
-\subsubsection{GUI}
+
+
 =======
 \subsubsection{GUI} 
 %TODO Einar
->>>>>>> 9390378237fe2fce259a200c1bcfc712c87aa408
+
 
 \subsubsection{Weights and Configuration Files}
 As an addition to passing command line arguments, GIO also reads a text based configuration file containing CBR and database settings. The configuration files are detailed in the User Documentation in table~\ref{configTable}. 
@@ -130,11 +131,10 @@ An overview of the CBR system is given in Figure~\ref{cbr_fig}...
 
 \subsubsection{P3P Policy Objects}
 An overview of the Policy Object is given in Figure~\ref{po_fig}...
-<<<<<<< HEAD
-=======
+
+
 %TODO Einar
 
->>>>>>> 9390378237fe2fce259a200c1bcfc712c87aa408
 
 \begin{figure}[htbp]
 \begin{center}
@@ -145,9 +145,9 @@ An overview of the Policy Object is given in Figure~\ref{po_fig}...
 \end{figure}
 
 \subsubsection{P3P Policy Database}
-<<<<<<< HEAD
+
 An overview of the Policy Database is given in Figure~\ref{pd_fig}...
-=======
+
 The local case history, maintained in a local database, is stored via a concrete class implementing 'PolicyDatabase'. This abstract class details the required methods for a local policy database: a singleton constructor for the database object; a call to load the database once constructed, from disk; a method adding a single policy to the database; a method returning a Java iterator over the stored PolicyObjects, and a call to return all policies from a given domain.
 
 In order to ensure consistency, the local policy database enforces singletonness. The database object itself is constructed without the actual history, requiring a seperate parameter-less 'loadDB' call on it to load policies from disk to the class, if necessary.
@@ -158,7 +158,7 @@ Finally, the CBR cycle concludes by saving the new case (using 'addpolicy(newpol
 An overview of the Policy Database is given in Figure~\ref{pd_fig}...
 %TODO
 
->>>>>>> 9390378237fe2fce259a200c1bcfc712c87aa408
+
 
 \begin{figure}[htbp]
 \begin{center}
