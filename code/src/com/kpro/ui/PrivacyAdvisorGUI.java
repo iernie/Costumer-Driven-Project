@@ -171,7 +171,6 @@ public class PrivacyAdvisorGUI extends UserIO{
 
 	/**
 	 * Called from GIO. Takes default properties file as argument.
-	 * @author ulfnore
 	 */
 	@Override
 	public void user_init(Properties genProps){
@@ -182,6 +181,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 	private void loadConfig(){
 		gio.configUI();
 	}
+	
 	
 
 	@Override
@@ -234,9 +234,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 
 	@Override
 	public void closeResources() {
-
 		gio.shutdown();
-		
 	}
 	
 	/**
@@ -257,7 +255,10 @@ public class PrivacyAdvisorGUI extends UserIO{
 	}
 	
 
-		
+	/**
+	 * 
+	 * 
+	 */
 	private void loadDB()
 	{
 		try
@@ -285,7 +286,6 @@ public class PrivacyAdvisorGUI extends UserIO{
 			gio.loadPO();
 			gio.getCBR().run(gio.getPO());
 			buildTree(policyTreeRoot, gio.getPO());
-
 		}catch(NullPointerException e)
 		{
 			//TODO: something more relevant perhaps
@@ -326,7 +326,12 @@ public class PrivacyAdvisorGUI extends UserIO{
 	}
 
 
-	
+	/**
+	 * Builds the tree view of the knowledge base (ie. reference database).
+	 * 
+	 * @param root
+	 * @param pdb
+	 */
 	private void buildTree(DefaultMutableTreeNode root, PolicyDatabase pdb)
 	{
 		DefaultMutableTreeNode 	policyObj = null,
@@ -371,6 +376,12 @@ public class PrivacyAdvisorGUI extends UserIO{
 		}	
 	}
 	
+	/**
+	 * Builds the tree view of the policy to be classified.
+	 * 
+	 * @param root
+	 * @param po
+	 */
 	private void buildTree(DefaultMutableTreeNode root, PolicyObject po)
 	{
 		DefaultMutableTreeNode 	policyObj = null,

@@ -32,9 +32,10 @@ abstract class ConfigEditor {
 
 	protected Properties genProps;
 	
-	private String[] dbTypeModel 	= 	{"PDatabase"};
-	private String[] logLvlModel	=  	{"INFO"};
-	private String[] networkTypeModel = {"NRCouchdb"};
+	
+	private String[] logLvlModel	=  	{"OFF", "FATAL", "ERROR", "WARN", 
+										 "INFO", "DEBUG", "TRACE"};
+	
 	
 	
 	/**
@@ -55,7 +56,7 @@ abstract class ConfigEditor {
 		checkboxes.put("newDB", new JCheckBox());
 		
 		fieldNames.put("policyDB", "DB Type");
-		comboboxes.put("policyDB", new JComboBox(dbTypeModel));
+		textfields.put("policyDB", new JTextField());
 		
 		fieldNames.put("p3pLocation", "Add new P3P to DB");
 		textfields.put("p3pLocation", new JTextField());
@@ -89,7 +90,7 @@ abstract class ConfigEditor {
 		textfields.put("cbrV", new JTextField());
 		
 		fieldNames.put("NetworkRType", "Network Type");
-		comboboxes.put("NetworkRType", new JComboBox(networkTypeModel));
+		textfields.put("NetworkRType", new JTextField());
 		
 		fieldNames.put("NetworkROptions", "Networking Options");
 		textfields.put("NetworkROptions", new JTextField());
@@ -100,8 +101,10 @@ abstract class ConfigEditor {
 		// Add action listeners to all components
 		for(JCheckBox c : checkboxes.values())
 			c.addActionListener(new ConfEditorActionListener());
-		for(JTextField f : textfields.values())
-			f.setEditable(false);
+		
+//		for(JTextField f : textfields.values())
+//			f.setEditable(false);
+		
 		for(JButton b : buttons.values())
 			b.addActionListener(new ConfEditorActionListener());
 		for(JComboBox b : comboboxes.values())
