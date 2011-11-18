@@ -54,8 +54,8 @@ Before running the program we have to put the PrivacyAdviser.cfg file in the sam
 
   \begin{figure}
   \begin{centering}
-    \includegraphics{Documentation/run.png}
-    \caption{Run the program.}
+    \includegraphics{Documentation/cli.png}
+    \caption{Running the program.}
     \label{runProgram}
     \end{centering}
   \end{figure}
@@ -74,7 +74,23 @@ As an example we can take the location of the database. By default the options i
 We can add more than one option in this manner, and for the options that we don't specify, the options in the config file will be used. For a complete list of the options see table \ref{configTable}.
 
 \subsection{Graphical User Interface}
-When using the graphical user interface we can get an overview of the all the policies and cases in the database as a tree-structure. We can also see how the new policy that we want to add is structured. The GUI is started from the command line the same way the CLI is started. When the GUI is stared, it automatically loads the database file, and displays it in the tree-structure. It also shows the new policy that we want to test. If we then press the \texttt{Privacy Advisor} button and press the \texttt{Run} button the process should start. If we want to change the location of the database, the new policy or anything else we can press the \texttt{Configuration} button and then change it. A figure of how the GUI looks like sho shown in figure ..... [IMAGE OF THE GUI TO COME HERE]
+When using the graphical user interface we can get an overview of the all the policies and cases in the database as a tree-structure. We can also see how the new policy that we want to add is structured. This can be seen in figure \ref{guiFigure}. The GUI is started from the command line the same way the CLI is started. When the GUI is stared, it automatically loads the database file, and displays the tree-structure. If we press the \texttt{Privacy Advisor} and  the \texttt{Run} buttons the process should start. If we want to change the location of the database, the new policy or anything else we can press the \texttt{Configuration} button and make the changes in the \texttt{Configuration Editor} window that shows up. This Configuration Editor window is showed in figure\ref{guiConfig}.
+
+\begin{centering}
+  \begin{figure}
+    \includegraphics{Documentation/gui.png}
+    \caption{The GUI.}
+    \label{guiFigure}
+  \end{figure}
+\end{centering}
+
+\begin{centering}
+  \begin{figure}
+    \includegraphics{Documentation/gui_config.png}
+    \caption{Configuration in the GUI.}
+    \label{guiConfig}
+  \end{figure}
+\end{centering}
 
 \subsubsection{Configuration Files}
 

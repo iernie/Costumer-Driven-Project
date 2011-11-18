@@ -7,8 +7,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import sun.font.CreatedFontTracker;
-
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
@@ -40,9 +38,6 @@ public class testConclusion_Simple extends TestCase{
 		Case case2=new Case();
 		case2.addPurpose(Purpose.ADMIN);
 		case2.addPurpose(Purpose.DEVELOP);
-//		temp.addPurpose(Purpose.TELEMARKETING);
-//		temp.addPurpose(Purpose.OTHER_PURPOSE);
-//		temp.addRecipient(Recipient.DELIVERY);
 		case2.addRecipient(Recipient.OURS);
 		case2.addRetention(Retention.NO_RETENTION);
 		case2.addRetention(Retention.STATED_PURPOSE);
