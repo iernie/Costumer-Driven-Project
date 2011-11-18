@@ -16,7 +16,7 @@ The source code is documented using JavaDoc which is 	a tool that generates docu
 \section{Installation}
 
 \subsection{Local Installation} \label{LocalInst}
-To make the program run outside of the Eclipse environment it have to be exported as a runnable jar file. This can be done by right clicking the project in eclipse, choose \texttt{Export}, type in \texttt{jar} in the new window that opens up and choose \texttt{Runnable Jar File}, before clicking \texttt{next}. These steps are showed in the two figures \ref{exportFirstStep} and \ref{exportSecondStep}.
+To make the program run outside of the Eclipse environment it has to be exported as a runnable jar file. This can be done by right clicking the project in Eclipse, choose \texttt{Export}, type in \texttt{jar} in the new window that opens up and choose \texttt{Runnable Jar File}, before clicking \texttt{next}. These steps are shown in the two figures \ref{exportFirstStep} and \ref{exportSecondStep}.
 
   \begin{figure}
 	\begin{centering}
@@ -36,7 +36,7 @@ To make the program run outside of the Eclipse environment it have to be exporte
   \end{figure}
 
 
-Then we have to choose which classfile we want to be the main class; in the \texttt{Launch configuration} dropdown menu we can choose between the two classes \texttt{PrivacyAdviser} and \texttt{PrivacyAdvisorGUI}. The first one is choosen if we want to run the program by using the command line, and the second one if we want to use the GUI. Then choose the export destination, and choose \texttt{Package requires libraries into generated JAR} as the library handling. Pressing finish now should start exporting the program. These steps are shown in figure \ref{exportLastStep}.
+Then we have to choose which class file is to be the main class; in the \texttt{Launch configuration} dropdown menu we can choose between the two classes \texttt{PrivacyAdviser} and \texttt{PrivacyAdvisorGUI}. The first one is choosen if we want to run the program by using the command line, and the second one if we want to use the GUI. Then choose the export destination, and choose \texttt{Package requires libraries into generated JAR} as the library handling. Pressing finish now should start exporting the program. These steps are shown in figure \ref{exportLastStep}.
 
 
   \begin{figure}
@@ -69,8 +69,11 @@ The Privacy Adviser consist, as mentioned in section \ref{LocalInst}, of two dif
 
 \subsection{Command Line Interface} \label{cliExplained}
 By running the program from the command line we can add options (parameters) directly when starting up the program. If we run the program normally, as described in section \ref{LocalInst}, the options in the PrivacyAdviser.cfg will be used. But when we add options in the command line when starting the program, the added options will override the ones in the config file.
+
 As an example we can take the location of the database. By default the options in PrivacyAdviser.cfg is set to replace the old database with the new database when the program exits. There are two ways to change this. If we never or rarly want the new database to replace the old one we can just change the \texttt{outDBLoc} option to be different from the \texttt{inDBLoc} option in the config file. But if we want to change the location/name just once, we can add an option in the command line like this:
+%put this in a box
 \texttt{java -jar privacyAdvisor.jar -outDBLoc newDatabase.db}
+
 We can add more than one option in this manner, and for the options that we don't specify, the options in the config file will be used. For a complete list of the options see table \ref{configTable}.
 
 \subsection{Graphical User Interface}
