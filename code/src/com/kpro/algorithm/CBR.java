@@ -137,13 +137,11 @@ public class CBR {
 		//TODO change the parse so as to allow instantiated classes to know how to parse their own objects
 		String[] algorithms = string.split(",");
 
-		int k = Integer.parseInt(algorithms[1].split(":")[1]);
-
 		Properties weightsConfig = theIO.loadWeights();
 		DistanceMetric dm = getDistanceMetricAlgorithm(algorithms[0], weightsConfig);
 		PolicyDatabase pdb = theIO.getPDB();
 
-		ReductionAlgorithm reductionAlgorithm = getReductionAlgorihm(algorithms[1].split(":")[0], dm, pdb, k);
+		ReductionAlgorithm reductionAlgorithm = getReductionAlgorithm(algorithms[1],dm,pdb);
 		ConclusionAlgorithm conclusionAlgortihm = getConclusionAlgorihm(algorithms[2], dm);
 		LearnAlgorithm learnAlgorithm = getLearnAlgorihm(algorithms[3], weightsConfig);
 
@@ -151,7 +149,7 @@ public class CBR {
 	}
 
 	/**
-	*	Parse the distance metric substring into a DistanceMetric obejct with the right attributes and values.
+	*	Parse the distance metric substring into a DistanceMetric object with the right attributes and values.
 	*
 	*	@param algorithm the string specifying which distancemetric algorithm to use
 	*	@param weightsConfig the weightsConfiguration file (load this from Gio)
@@ -182,22 +180,22 @@ public class CBR {
 	}
 
 	/**
-	*	Parse the reduction algorithm substring into a ReductionAlgorithm obejct with the right attributes and values.
+	*	Parse the reduction algorithm substring into a ReductionAlgorithm object with the right attributes and values.
 	*
-	*	@param algorithm the string specifying which reduction algorithm to use
+	*	@param algorithm the string specifying which reduction algorithm to use and number of relevant policies to include in format "algorithmName:k" where k is an integer
 	*	@param dm the distance metric to use 
 	*	@param pdb the policy database to run on
-	*	@param k the number of relevent policy objects to return when done
 	*	@return the ReductionAlgorithm class specified
 	*/
-	private ReductionAlgorithm getReductionAlgorihm(String algorithm, DistanceMetric dm, PolicyDatabase pdb, int k) throws ClassNotFoundException {
+	private ReductionAlgorithm getReductionAlgorithm(String algorithm, DistanceMetric dm, PolicyDatabase pdb) throws ClassNotFoundException {
 		try {
-			Class<?> cls = Class.forName("com.kpro.algorithm."+algorithm);
+			String[] parts = algorithm.split(":");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+parts[0]);
 
 			Object[] argsList = new Object[3];
 			argsList[0] = dm;
 			argsList[1] = pdb;
-			argsList[2] = k;
+			argsList[2] = Integer.parseInt(parts[1]);
 
 			return (ReductionAlgorithm) cls.getDeclaredConstructors()[0].newInstance(argsList);
 		} catch (ClassNotFoundException e) {
