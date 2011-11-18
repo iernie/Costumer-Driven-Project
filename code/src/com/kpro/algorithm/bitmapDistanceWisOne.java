@@ -1,7 +1,7 @@
 package com.kpro.algorithm;
 /**
  * A distance metric that calculates distance based on 
- * weighed union of a bit map interception
+ * weighted union of a bit map interception (all weights are one).
  *
  * @author Dimitry Kongevold(dimitryk)
  * 
@@ -32,7 +32,10 @@ public class bitmapDistanceWisOne extends DistanceMetric{
 	bitmapDistanceWisOne(Properties weights){
 		super(weights);
 	}
-	
+
+	/**
+	*	All weights are set to one.
+	*/	
 	private void setWeights(){
 		
 		//recipients
@@ -271,10 +274,24 @@ public class bitmapDistanceWisOne extends DistanceMetric{
 		return dis*1;//Double.parseDouble(weightsConfig.getProperty("purpose"));// dis*weight later
 	}
 
+        /**
+	* Returns the distance between two cases a and b based on purpose, recipient, retention, and data.
+	* @author dimitryk
+	* @param a the 1st case 
+	* @param b the 2nd case
+	* @return the distance between cases 
+	*/
 	private double getSumDistance(Case a, Case b) {
 		
 		return getDistPurpose(a,b)+getDistRecip(a,b)+getDistReten(a,b);
 	}
+
+      /**
+      * Initializes weights (to one)  and returns the distance between two PolicyObjects.
+      * @param a the 1st policy object
+      * @param b the second policy object
+      * @return the distance between the two policy objects
+      */
 
 	@Override
 	public double getTotalDistance(PolicyObject a, PolicyObject b) {

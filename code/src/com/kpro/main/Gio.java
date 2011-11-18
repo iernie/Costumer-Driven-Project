@@ -21,11 +21,6 @@ import com.kpro.ui.*;
 
 
 
-/*  to load a new database from a folder, but not use cbr on a new object. overwrites old db (-n option)
- *  ./PrivacyAdvisor -b -f -n ./new_policy_history [-c config_file_location][-w weight_config_file_loc][-d db_file_location]
- *  to compare policy stored in p.txt, assuming config in default location is valid and used
- *  ./PrivacyAdvisor -T p.txt
- */
 
 
 /* Thinking:
@@ -112,6 +107,10 @@ public class Gio {
 		}
 	}
 	
+
+	/**
+	* call the user interface's general configuration method if the userInit option is true, and a user interface exists
+	*/
 	public void configUI() {
 		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")) && !(userInterface==null))
 		{
@@ -121,7 +120,6 @@ public class Gio {
 	
 	public void setGenProps(Properties genProps) {
 		this.genProps = genProps;
-		System.out.println(genProps.getProperty("newDB"));
 	}
 
 	/**
@@ -614,14 +612,30 @@ public class Gio {
 		return parseCBR(genProps.getProperty("cbrV",null));
 	}
 
+	/**
+	 * returns the originally imported set of weights
+	 * @return the weights for policy attributes
+	 */
 	public Properties getWeights() {
 		return origWeights;
 	}
 
-
+	/**
+	 * shows the database on the user interface, if the user interface exists and no user response is specied 
+	 * and there is no 'blanketAccept' option.
+	 */
 	public void showDatabase() {
-		userInterface.showDatabase(pdb);
-
+		if(userInterface!=null) //the user interface exists
+		{
+			if (!genProps.contains("userResponse")) // if we have no preknown user response
+			{	
+				if  (genProps.getProperty("blanketAccept",null)==null) //if we have no blanket accept
+				{
+					userInterface.showDatabase(pdb); //we must be running interactive
+				}
+			} 
+		}
+		
 	}
 
 
@@ -664,6 +678,10 @@ public class Gio {
 		return nr;
 	}
 
+	/**
+	 * gets the confidence level threshold from the configuration
+	 * @return the confidence threshold
+	 */
 	public double getConfLevel() {
 		return Double.parseDouble(genProps.getProperty("confidenceLevel","1.0"));
 	}

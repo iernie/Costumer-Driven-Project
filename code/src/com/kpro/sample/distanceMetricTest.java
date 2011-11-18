@@ -1,7 +1,8 @@
-package com.kpro.algorithm;
+package com.kpro.sample;
 
 import java.util.Properties;
 
+import com.kpro.algorithm.DistanceMetric;
 import com.kpro.dataobjects.Case;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.dataobjects.Purpose;

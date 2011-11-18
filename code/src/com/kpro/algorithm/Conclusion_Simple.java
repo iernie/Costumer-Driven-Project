@@ -6,7 +6,9 @@ import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
 
 /**
- * a very simple conclusion class. result is based on the closest object only.
+ * a very simple conclusion class. result is based on the closest objects only, as determined by the sum of inverse distances
+ * of the accepted versus rejected policies. confidences is the ratio of sum inverse distances of the chosen decision, versus the sum
+ * of all inverse distances.
  * 
  * @author ngerstle
  * @version 29.09.11.1
@@ -29,7 +31,10 @@ public class Conclusion_Simple extends ConclusionAlgorithm {
 	}
 
 	/**
-	 * makes a decision on the reduced set
+	 * makes a decision on the reduced set.
+	 * This class creates two lists, one for accepted policies and one for rejected. Assuming there are policies in both 
+	 * (easy decision otherwise), whether the policy is accepted or not will depend on the difference between the sum of inverse
+	 * distances of the list items (excluding zero-distances), with the smaller sum indicating the more relevent decision.
 	 * 
 	 * @author ngerstle
 	 * 

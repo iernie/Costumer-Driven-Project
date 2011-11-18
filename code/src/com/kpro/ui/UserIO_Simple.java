@@ -9,6 +9,8 @@ import com.kpro.datastorage.PolicyDatabase;
 
 
 /**
+ * This is a very simple commandline version of a user interface. It doesn't permit user configuration (of running options), 
+ * it has a ugly database display, but it works.
  * @author ngerstle
  * @author ulfnore
  */
@@ -36,6 +38,7 @@ public class UserIO_Simple extends UserIO {
 			System.out.println();
 			for(PolicyObject po : pdb)
 				System.out.println("\n\n"+po);		
+			System.out.println("Enter and character followed by <enter>");
 			sc.next(".|\\p{Print}|\\p{Space}|\n");
 		}
 
@@ -106,6 +109,11 @@ public class UserIO_Simple extends UserIO {
 		}
 	}
 	
+	/**
+	* converts a boolean to an 'accept'/'reject' suggestion.
+	* @param accepted true for result 'Accept', otherwise 'Reject'
+	* @return a string of 'Accept' or 'Reject'
+	*/
 	private String parseAcceptedToString(boolean accepted)
 	{
 		if(accepted)
@@ -127,6 +135,9 @@ public class UserIO_Simple extends UserIO {
 	public void closeResources() {}
 
 
+	/**
+	* This user interface doesn't actually let the user reconfigure anything. Would do so through the reference to Gio if necessary.
+	*/
 	@Override
 	public void user_init(Properties genProps) {
 		System.out.println("UserIO_Simple does not allowing the user to configure initialization settings at this time.");

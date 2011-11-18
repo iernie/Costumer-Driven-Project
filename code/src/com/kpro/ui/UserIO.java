@@ -1,11 +1,16 @@
 package com.kpro.ui;
+
 import java.util.ArrayList;
 import java.util.Properties;
-
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.datastorage.PolicyDatabase;
 
 
+/**
+* The UserIO provides an abstract model of all the methods a user interface method must implement. There are five essential portions: construction of the user interface if necessary, via the object constructor; user reconfiguration (of the same options found in configuration file or on the commandline); the ability to display the database and all loaded policies; user revision, in which the suggested solution is provided to the user so the user can accept or reject it; and shutdown/deconstruction of any resources needed for the interface.
+*
+*
+*/
 public abstract class UserIO {
 
 	public UserIO() {

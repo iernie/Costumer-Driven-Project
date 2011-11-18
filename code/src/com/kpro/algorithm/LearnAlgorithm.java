@@ -1,7 +1,6 @@
 package com.kpro.algorithm;
 
 import java.util.Properties;  //this is what the algorithm handles
-
 import com.kpro.main.Gio;
 
 /**

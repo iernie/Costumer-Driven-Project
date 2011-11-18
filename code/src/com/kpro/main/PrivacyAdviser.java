@@ -23,7 +23,6 @@ import com.kpro.dataobjects.PolicyObject;
 
 public class PrivacyAdviser {
 //TODO actually use logging
-//TODO provide junit tests for generic algorithms
 
 
 	static Gio theIO;									//interface to outside world

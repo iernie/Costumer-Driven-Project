@@ -4,14 +4,9 @@ import java.util.Properties;
 
 import com.kpro.dataobjects.PolicyObject;
 
-/**
- * Interface of a Distance metric class
- *
- * @author Dimitry Kongevold(dimitryk)
- * 
- */
 
 /**
+ * An abstract Distance metric class.
  * A DistanceMetric interface has to contain 3 methods
  * method for calculation of distance between Recipients, Purposes and Retentions
  * between cases
@@ -24,10 +19,10 @@ public abstract class DistanceMetric {
 	Properties weightsConfig;
 	
 	
-	
 	protected DistanceMetric(Properties weights){
 		this.weightsConfig = weights;
 	}
+	
 	/**
 	 * Calculates total distance between two policies
 	 * 

@@ -62,7 +62,7 @@ public class LearnAlgSimpler extends LearnAlgorithm{
 	}
 	
 	/**
-	 * Goes through the PolicyDatabaeses and their cases and checks if 
+	 * Goes through the PolicyObjects and their cases and checks if 
 	 * atleast one of them contains the parameter. And if it does, the
 	 * returned value is set to the % of the amount of the PolicyObjects 
 	 * (that contains this parameter) that have their actions accepted.

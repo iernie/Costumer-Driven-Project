@@ -289,11 +289,27 @@ import com.kpro.dataobjects.Retention;
 			return dis*Double.parseDouble(weightsConfig.getProperty("purpose"));// dis*weight later
 		}
 
+
+		/**
+		* Returns the distance between two cases a and b based on purpose, recipient, retention, and data.
+		* @author dimitryk
+		* @param a the 1st case 
+		* @param b the 2nd case
+		* @return the distance between cases 
+		*/
 		private double getSumDistance(Case a, Case b) {
 			
 			return getDistPurpose(a,b)+getDistRecip(a,b)+getDistReten(a,b)+getDistData(a,b);
 		}
 		
+		/**
+		* Returns the distance between two PolicyObjects, summing the minimum distance from B to A and 
+		* then the distance from A to B.
+		* @param a the 1st policy object
+		* @param b the second policy object
+		* @param time the direction to run- if not called from inside method, it should be 0
+		* @return the distance between the two policy objects
+		*/
 		private double getDistance(PolicyObject a, PolicyObject b, int time){
 			ArrayList<Case> CasesA, CasesB;
 			CasesA=a.getCases();
@@ -301,7 +317,7 @@ import com.kpro.dataobjects.Retention;
 			double minDist;
 			double Distance = 0;
 			if(time==0){
-				Distance+=getDistance(b, a, 1);  //firts B Vs A then A vs B
+				Distance+=getDistance(b, a, 1);  //first B Vs A then A vs B
 			}
 			
 			for(int i=0;i<CasesA.size();i++){
@@ -315,6 +331,12 @@ import com.kpro.dataobjects.Retention;
 			return Distance;
 		}
 		
+		/**
+		* Initializes weights and returns the distance between two PolicyObjects.
+		* @param a the 1st policy object
+		* @param b the second policy object
+		* @return the distance between the two policy objects
+		*/
 		@Override
 		public double getTotalDistance(PolicyObject a, PolicyObject b) {
 			setWeights();
