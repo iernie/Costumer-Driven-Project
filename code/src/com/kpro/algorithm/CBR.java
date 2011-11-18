@@ -127,7 +127,7 @@ public class CBR {
 
 	}
 
-	/**
+/**
 	*	Parses the CBR option to create the class and instantiate correct algorithms.
 	*
 	*	@param string the string from either configuration file or commandline
@@ -277,6 +277,5 @@ public class CBR {
 		}
 		return null;
 	}
-
 
 }

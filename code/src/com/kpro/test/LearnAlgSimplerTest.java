@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import com.kpro.algorithm.LearnAlgSimpler;
+import com.kpro.algorithm.LearnAlgStand;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Case;
 import com.kpro.dataobjects.Context;
@@ -42,7 +42,7 @@ public class LearnAlgSimplerTest extends TestCase {
  
 	private PolicyDatabase pdb;
 	private PolicyObject PO;
-	private LearnAlgSimpler ls;
+	private LearnAlgStand ls;
 	
 	/**
 	 * Sets up a PolicyDatabase with PolicyObjects and their cases

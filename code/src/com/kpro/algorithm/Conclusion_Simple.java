@@ -70,7 +70,7 @@ public class Conclusion_Simple extends ConclusionAlgorithm {
 			}
 		}
 
-		
+
 //		System.err.print("approveList \t"+approveList+"\t\t confidence \t"+ (appdistance/(appdistance+rejdistance)));
 //		System.err.print("rejectList \t"+rejectList+"\t\t confidence \t"+ (rejdistance/(appdistance+rejdistance)) );
 //		System.err.print("\t\t appdistance: "+appdistance +"\trejdistance"+rejdistance);

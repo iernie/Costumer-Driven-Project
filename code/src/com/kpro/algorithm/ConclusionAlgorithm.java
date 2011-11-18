@@ -25,7 +25,7 @@ public abstract class ConclusionAlgorithm {
 	 * @author ngerstle
 	 */
 	public ConclusionAlgorithm(){}
-	
+
 	/**
 	 * Provides an action recommendation for np based on the given set of objects
 	 * @param np the new policy
@@ -33,7 +33,7 @@ public abstract class ConclusionAlgorithm {
 	 * @return a recommended Action
 	 */
 	public abstract Action conclude(PolicyObject np, Iterable<PolicyObject> knearestns);
-	
-	
-	
+
+
+
 }

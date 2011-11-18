@@ -1,8 +1,6 @@
 package com.kpro.algorithm;
 
 import java.util.ArrayList; //used to store results
-import java.util.Collections;
-import java.util.Comparator;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.datastorage.PolicyDatabase;
 
@@ -14,11 +12,11 @@ import com.kpro.datastorage.PolicyDatabase;
  *
  */
 public class Reduction_KNN  extends ReductionAlgorithm{
-	
+
 	private DistanceMetric distanceMetric; // distance metric
 	private int k; // number of neighbors 
-	
-	
+
+
 	/**
 	 * creates a kNearestNeighbors algorithm to use
 	 * @param distanceMetric	the class defining distance between objects
@@ -32,7 +30,7 @@ public class Reduction_KNN  extends ReductionAlgorithm{
 		this.k=k;
 	}
 
-	
+
 	/**
 	 * the method that returns the closest k objects to the parameter.
 	 * works by sorting elements by distance from passed object, and passing the first
@@ -68,10 +66,10 @@ public class Reduction_KNN  extends ReductionAlgorithm{
 		for(PolicyObject i : all_pos.subList(0, k))
 			results.add(i);
 		*/
-		
+
 		//below is faster, as k is assumed to be << than n, the size of history. thus O(k*n) < O(nlog(n))
 		ArrayList<PolicyObject> results = new ArrayList<PolicyObject>();
-		
+
 		for(PolicyObject po : pdb)
 		{
 			if(results.size() < k)	//fill up the initial list
@@ -95,5 +93,5 @@ public class Reduction_KNN  extends ReductionAlgorithm{
 	}
 
 
-	
+
 }

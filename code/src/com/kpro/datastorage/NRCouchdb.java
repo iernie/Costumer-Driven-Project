@@ -1,19 +1,13 @@
 package com.kpro.datastorage;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.net.URL;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpRequestBase;
 import org.lightcouch.CouchDbClient;
 import org.lightcouch.Response;
-
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
 import com.google.gson.*;
