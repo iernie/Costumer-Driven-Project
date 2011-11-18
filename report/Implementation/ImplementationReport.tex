@@ -27,6 +27,8 @@ For testing purposes, we have implemented a very simple kNN that sorts the examp
 
 
 \subsubsection{Learning algorithms}\label{learnAlgos}
+The learning algorithm is used to update the weights that are used to calculate the distance between policies. These weights are updated when the user overrides a reccomandation from the system. This way the system learns from the users actions, and the next time the sustem runs it would return with an answer that reflects the users actions. As an example, let's say that the P3P policy of website X have a field that says that they are going to give the collected information about the user to 
+
 The learning algorithm updates the weighs that each property field is assigned in computing distances. The learning algorithm goes through the policies in the database and computes updated weights. The implemented learning algorithm is a simple one that for each weight goes through every policy and checks if it have been accepted or not. Then it returns the number of accepts divided by the number of policies for each weight.
 
 By updating the weights like this we make sure that the system to some degree learns what the user wants. Thus, hopefully the system would be able to make a different conclusion next time if the user didn't agree on the conclusion the system came up with this time.

@@ -1,8 +1,6 @@
 package com.kpro.algorithm;
 
 import java.util.ArrayList; //used to store results
-import java.util.Collections;
-import java.util.Comparator;
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.datastorage.PolicyDatabase;
 
