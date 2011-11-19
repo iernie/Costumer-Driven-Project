@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -200,30 +201,40 @@ public class PrivacyAdvisorGUI extends UserIO{
 	@Override
 	public PolicyObject userResponse(PolicyObject n) {
 		try {
+			Action policyAction = n.getAction();
 			
-			String description = n.getContextDomain();
-			String recommendation = n.getAction().getAccepted() == true ? "Accept." : "Reject.";
-			String reason = "\nReason:\n";
-			for (String str : n.getAction().getReasons()) reason += str + "\n";
-			reason += "\n";
-			String confidence = "\nWith Confidence: " + String.valueOf(n.getAction().getConfidence());
+			JDialog.setDefaultLookAndFeelDecorated(true);
 			
+			String reasons = "";
+			for (String str : n.getAction().getReasons())
+				reasons += str + "\n";
 			
-			int response = 2;
-			while(response == 2)
-				response = JOptionPane.showConfirmDialog(null, 
-						"For the policy: \n"+description+
-						"\nPrivacy Advisor recommends: "
-						+recommendation + reason + confidence + 
-						". \nAccept recommendation?",
-						"Privacy Advisor",
-						JOptionPane.YES_NO_OPTION);
+			String message = 
+					"For the policy: \n" +
+					n.getContextDomain() + "\n" + 
+					"Privacy Advisor recommends: " + policyAction.getAcceptedStr() + "\n" +
+					"Reason: \n" + 
+					reasons + "\n" +
+					"With confidence: " + Double.toString(policyAction.getConfidence()) + "\n\n" +
+					"Do you want to accept?";
 			
-			if(response == 1)// update
-			{ 
-				Action a = n.getAction();
-				a.setAccepted(!a.getAccepted());
-				a.setOverride(true);
+			int response = 
+					JOptionPane.showConfirmDialog(null,
+					message, 
+					"Privacy Advisor Recommendation", 
+					JOptionPane.YES_NO_OPTION, 
+					JOptionPane.QUESTION_MESSAGE);
+			
+			switch (response) {
+			case JOptionPane.YES_OPTION:
+				// Do Nothing
+				break;
+			case JOptionPane.NO_OPTION:
+				policyAction.setAccepted(!policyAction.getAccepted());
+				policyAction.setOverride(true);				
+				break;
+			default:
+				break;
 			}
 		} catch (NullPointerException e) {
 			println("No chosen policy to classify");
@@ -316,13 +327,8 @@ public class PrivacyAdvisorGUI extends UserIO{
 	
 	@Override
 	public void showDatabase(com.kpro.datastorage.PolicyDatabase pdb) {
-		//System.out.println("Printing pdb:");
-		//System.err.println(pdb == null);
-		//for(PolicyObject po : pdb) System.out.println(po);
-		//System.out.println(pdb.toString());
-		//println(pdb.toString());
 		buildTree(dataBaseTreeRoot, pdb);
-		println("Database successfully loaded.\n");
+		println("Database successfully loaded.");
 	}
 
 

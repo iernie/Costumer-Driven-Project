@@ -157,7 +157,9 @@ There is some variations in this method. You can use maximum/minimum distance be
 As the CBR model requires, data must be stored in a persistent fashion between cycles, and thus, while the program is not running. Furthermore, the ability to load raw cases (P3P policies, in this case), is needed not only to initialize a database, especially in a repeatable fashion, but also for establishing the new case under consideration. These requirements are handled by two distinct bodies of code- the P3P parsing class, and the policy database class. Furthermore, there is also the need for a centralized, multi-user database, accessed not locally but across a network, when the local database proves incapable of providing a satisfactory solution to the problem.
 
 \subsection{P3P Parsing}  %Flat File Storage} %% This is what was meant by flat file storage, right??
-%%TODO Einar
+The \texttt{P3PParser} is used to parse a P3P policy from an XML document to a Java object that can be used by the rest of the framework. The parser is located in the \texttt{parser} group and takes in the path to the xml document as argument. It is based on \texttt{org.xml.sax}, an internal, sequential XML parser in Java.
+
+What it does is sequentially go trough the document, and look at each tag, one by one, dealing only with the tags and attributes we are interested in. It collects information as it parses, and construct a \texttt{PolicyObject} and returns it. The parser also handles custom tags that can be added manually to P3P documents to pre-define action and context for the purpose of bulding a database.
 
 \subsection{Local Database}
 The provided local database class (\texttt{PDatabase}) is located in the \texttt{datastorage} group, and implements the abstract model \texttt{PolicyDatabase}. It enforces the singleton model, and is based on \texttt{java.io.serializable} for saving objects on disk, and stores objects in a private \texttt{ArrayList<PolicyObject>}. The methods function precisely as laid out in the Design section, and offer an example of how a PolicyDatabase should function.

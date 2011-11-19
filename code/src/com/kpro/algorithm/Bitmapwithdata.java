@@ -30,8 +30,8 @@ import com.kpro.dataobjects.Retention;
 		private double individual_analysis, individual_decision, contact, historical, telemarketing, other_purpose;
 		private double no_retention, stated_purpose, legal_requirement, business_practices, indefinitely;
 		
-		Bitmapwithdata(Properties weights){
-			super(weights);
+		Bitmapwithdata(Properties weights, String[] extraArgs){
+			super(weights, extraArgs);
 		}
 		
 		private void setWeights(){

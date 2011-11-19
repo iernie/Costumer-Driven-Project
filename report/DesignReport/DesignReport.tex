@@ -132,9 +132,11 @@ An overview of the CBR system is given in Figure~\ref{cbr_fig}...
 \subsubsection{P3P Policy Objects}
 An overview of the Policy Object is given in Figure~\ref{po_fig}...
 
+A P3P Policy Object consists of an \texttt{Action}, a \texttt{Context} and a list of different \texttt{Case} objects. The action object consists of the result from the comparison algorithm, stating if the policy is accepted as a good match, the reasons for this statement and with how much confidence this statement is correct.
 
-%TODO Einar
+The context objects holds most of the objects context, that is what domain the policy belongs to as well as when it was created, last accessed and when it will expire. The list of cases contains one case for each datatype within the policy. A datatype is what kind of information is collected, for example name or date of birth. Each case contains what the purpose for this information is, who are the recipients and the retention for this information. Each datatype has its own case as it simplified the comparison algorithm.
 
+The last thing a policy object contains is a hashmap of the entity data. This is the data that is included at the beginning of every policy document and contains information about the company in question.
 
 \begin{figure}[htbp]
 \begin{center}

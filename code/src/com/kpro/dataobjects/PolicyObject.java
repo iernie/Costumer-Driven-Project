@@ -133,7 +133,7 @@ public class PolicyObject implements Serializable, Iterable<Case>
 	
 	
 	/**
-	 * This is based on the debug_print and SHOULD BE TAKEN SERIOUSLY.
+	 * This is based on the debug_print
 	 * 
 	 * @author ulfnore
 	 */

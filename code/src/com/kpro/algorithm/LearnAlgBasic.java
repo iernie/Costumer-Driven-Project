@@ -21,9 +21,10 @@ public class LearnAlgBasic extends LearnAlgorithm{
 	/**
 	 * constructor
 	 * @param weightsConfig the weights
+	 * @param extraArgs from the config
 	 */
-	public LearnAlgBasic(Properties weightsConfig) {
-		super(weightsConfig);
+	public LearnAlgBasic(Properties weightsConfig, String[] extraArgs) {
+		super(weightsConfig, extraArgs);
 	}
 	/**
 	 * For every case it checks if it contains any of the purposes, retentions

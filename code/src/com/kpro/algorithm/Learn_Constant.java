@@ -18,10 +18,12 @@ public class Learn_Constant extends LearnAlgorithm {
 	 * constructor
 	 *
 	 * @param weightsConfig the weights configuration file
-	 * @author ngerstle
+	 * @param extraArgs from the config file
+	 * @author ngerstle, ernie
 	 */
-	public Learn_Constant(Properties weightsConfig) {
-		super(weightsConfig);
+
+	public Learn_Constant(Properties weightsConfig, String[] extraArgs) {
+		super(weightsConfig, extraArgs);
 	}
 
 

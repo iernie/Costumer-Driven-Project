@@ -17,10 +17,11 @@ import com.kpro.dataobjects.PolicyObject;
 public abstract class DistanceMetric {
 	
 	Properties weightsConfig;
+	String[] extraArgs = null;
 	
-	
-	protected DistanceMetric(Properties weights){
+	protected DistanceMetric(Properties weights, String[] extraArgs){
 		this.weightsConfig = weights;
+		this.extraArgs = extraArgs;
 	}
 	
 	/**

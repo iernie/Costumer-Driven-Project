@@ -14,20 +14,9 @@ import com.kpro.dataobjects.PolicyObject;
  * @version 29.09.11.1
  */
 public class Conclusion_Simple extends ConclusionAlgorithm {
-
-	private DistanceMetric distanceMetric; // distance metric to use for choosing
-
-
-	/**
-	 * a simple conclusion that just bases the result on the inverse distance of the policies,
-	 * and returns as a confidence the sum of inverse distances
-	 * 
-	 * @param knearestns
-	 * @return the action to take
-	 */
-	public Conclusion_Simple(DistanceMetric distanceMetric)
-	{
-		this.distanceMetric = distanceMetric;
+	
+	public Conclusion_Simple(DistanceMetric dm, String[] extraArgs) {
+		super(dm, extraArgs);
 	}
 
 	/**

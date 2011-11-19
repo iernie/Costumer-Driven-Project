@@ -1,7 +1,7 @@
 package com.kpro.ui;
 
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -32,11 +32,8 @@ abstract class ConfigEditor {
 
 	protected Properties genProps;
 	
-	
 	private String[] logLvlModel	=  	{"OFF", "FATAL", "ERROR", "WARN", 
 										 "INFO", "DEBUG", "TRACE"};
-	
-	
 	
 	/**
 	 * Initialize SWING components.
@@ -101,10 +98,6 @@ abstract class ConfigEditor {
 		// Add action listeners to all components
 		for(JCheckBox c : checkboxes.values())
 			c.addActionListener(new ConfEditorActionListener());
-		
-//		for(JTextField f : textfields.values())
-//			f.setEditable(false);
-		
 		for(JButton b : buttons.values())
 			b.addActionListener(new ConfEditorActionListener());
 		for(JComboBox b : comboboxes.values())
@@ -146,41 +139,79 @@ abstract class ConfigEditor {
 	private void InitFrame()
 	{
 		frame = new JFrame("Configure");
-		frame.setSize(400,600);
+		frame.setSize(700,600);
 		frame.setResizable(true);
 		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		panel = new JPanel();
 		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
-		panel.setLayout(new GridLayout(15, 3));
+		panel.setLayout(new GridBagLayout());
 		frame.add(panel);
+		
+		GridBagConstraints c = new GridBagConstraints();
+		
+		c.weightx = 1.0;
+		c.weighty = 1.0;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 1;
 		
 		for (String str : checkboxes.keySet())
 		{
-			panel.add(new JLabel(fieldNames.get(str)));
-			panel.add(checkboxes.get(str));
-			panel.add(new JLabel(""));
+			c.gridx = 0;
+			panel.add(new JLabel(fieldNames.get(str)), c);
+			
+			c.gridx = 1;
+			panel.add(checkboxes.get(str), c);
+			
+			c.gridy += 1;
 		}
+		
 		for (String str : comboboxes.keySet())
 		{
-			panel.add(new JLabel(fieldNames.get(str)));
-			panel.add(comboboxes.get(str));
-			panel.add(new JLabel(""));
+			c.gridx = 0;
+			c.gridwidth = 1;
+			panel.add(new JLabel(fieldNames.get(str)), c);
+			
+			c.gridx = 1;
+			c.gridwidth = 2;
+			panel.add(comboboxes.get(str), c);
+			
+			c.gridy += 1;
 		}
+		
 		for (String str : textfields.keySet())
 		{
-			panel.add(new JLabel(fieldNames.get(str)));
-			panel.add(textfields.get(str));
-			if(buttons.containsKey(str))
-				panel.add(buttons.get(str));
-			else 
-				panel.add(new JLabel(""));
+			c.gridx = 0;
+			c.gridwidth = 1;
+			panel.add(new JLabel(fieldNames.get(str)), c);
+			
+			c.gridx = 1;
+			c.gridwidth = 2;
+			if(buttons.containsKey(str)) {
+				panel.add(textfields.get(str), c);
+				
+				c.gridx = 2;
+				panel.add(buttons.get(str), c);
+			} else {
+				c.gridwidth = 3;
+				panel.add(textfields.get(str), c);
+			}
+			
+			c.gridy += 1;
 		}
 
-		panel.add(btnOk = new JButton("Ok"));
+		c.gridx = 2;
+		c.gridwidth = 2;
+		panel.add(btnOk = new JButton("Save"), c);
 		btnOk.addActionListener(new ConfEditorActionListener());
 		frame.setVisible(true);
 	}
 	
+	/**
+	 * To build and run the ConfigEditor
+	 */
 	public void run()
 	{
 		InitComponents();
@@ -271,6 +302,10 @@ abstract class ConfigEditor {
 	    return null;
 	}
 
+	/**
+	 * Returns the properties from the config editor
+	 * @return Properties genProps
+	 */
 	public Properties getGenProps() {
 		return genProps;
 	}

@@ -30,8 +30,8 @@ package com.kpro.algorithm;
 		private double individual_analysis, individual_decision, contact, historical, telemarketing, other_purpose;
 		private double no_retention, stated_purpose, legal_requirement, business_practices, indefinitely;
 		
-		public bitmapDistance(Properties weights){
-			super(weights);
+		public bitmapDistance(Properties weights, String[] extraArgs){
+			super(weights, extraArgs);
 		}
 		/**
 		 * Loads weight to speed upp run time
