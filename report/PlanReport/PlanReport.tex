@@ -51,7 +51,6 @@ Table \ref{riskTable} contains a sample risk table depicting how risks are descr
 
 
 \begin{table}[htdp]
-\caption{Risks explained}
 \begin{center}
 \begin{tabularx}{\textwidth}{| X | X |}
 \hline
@@ -74,6 +73,7 @@ Table \ref{riskTable} contains a sample risk table depicting how risks are descr
 \textbf{Responsible} & The group member responsible for the risk. \\
 \hline
 \end{tabularx}
+\caption{Risk characterization.}
 \end{center}
 \label{riskTable}
 \end{table}
@@ -84,38 +84,46 @@ Table \ref{riskTable} contains a sample risk table depicting how risks are descr
 
 As shown in Appendix \ref{riskAppendix}, three broad risk categories were identified:
 
-\begin{itemize}
-\item[Technical] These risks pertain mainly to the  implementation; that critical success factors are not met by the implemented software.
-\item[Communication] These are risks related to miscommunication, either within the project team or between the customer and the team.
-\item[Planning] The final category has to do with planning and decisions made early on in the project phase.
-\end{itemize}
+\begin{enumerate}
+\item \textbf{Technical}: These risks pertain mainly to the  implementation; that critical success factors are not met by the implemented software.
+\item \textbf{Communication} These are risks related to miscommunication, either within the project team or between the customer and the team.
+\item \textbf{Planning} The final category has to do with planning and decisions made early on in the project phase.
+\end{enumerate}
 
-In the technical era 
+Among the more critical risks identified were a potential failure to
+correctly parse policy documents as well as the risk of an improper
+choice of algorithms. Failure to properly parse P3P policies could
+impact progress as it would slow down and push the testing phase back
+in time. This will also impact the second risk factor above, as an
+early testing would reveal the weaknesses of algorithms in time.
 
-Appendix \ref{riskAppendix}, contains a full listing of the risk factors identified.
+An important issue to remedy these problems is a modular design, that
+is that these two pieces of functionality are to be isolated in
+separate code modules. This implies that if the initial choice of algorithms
+made by the project team, while important, are not critical, as they
+can be replaced during later development stages.
+
+Other risk factors identified include database and data storage
+issues, in particular pertaining to the collaborative filetering
+system, and disagreements within the project team. A full listing
+of the risk factors identified, and proposed measures to mitigate
+these is given in Appendix~\ref{riskAppendix}.
 
 
 \section{Measurement of project effects}
 The primary objective of this project is to build a research prototype that allows for parsing P3P policies and provide advice using CBR given a particular knowledge base. The advice is based on: 
 
 \begin{itemize}
-\item the user's previous actions
-\item community actions or what similar users have done
-\item context of use
+\item the user's previous actions.
+\item community actions or what similar users have done.
+\item context of use.
 \end{itemize}
    
 
 \section{Project Plan}
 As discussed in Section~\ref{phases}, the sequential part of the project is separated into six phases; pre-implementation research, requirement specification, design, implementation and documentation, evaluation, and report writing. The reporting started at the first day of the project and continues until project completion. 
 
-Implementation is scheduled to be complete at the end of week 42, which marks a shifting of focus to testing and evaluation. Some of the planning tools are outlined below.
+Implementation is scheduled to be complete at the end of week 42, which marks a shifting of focus to testing and evaluation. 
 
 \subsection{Project Milestones}
-
-
-
-
-\newpage
-\includepdf[pages={1}]{PlanReport/DetailedPlan}
-
 

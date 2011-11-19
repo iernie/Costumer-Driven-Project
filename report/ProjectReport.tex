@@ -8,6 +8,7 @@
 \usepackage{epstopdf}
 \usepackage{tabularx}
 \usepackage{minitoc}
+\usepackage{wrapfig}
 \usepackage{pdfpages}
 \usepackage{longtable}
 \usepackage{makeidx}
@@ -49,6 +50,8 @@ Einar Afiouni, Neshahvan Karunakaran, Amanpreet Kaur}
 
 \date{NTNU, Fall 2011}
 
+
+\makeindex
 \begin{document}
 
 
@@ -58,7 +61,7 @@ Einar Afiouni, Neshahvan Karunakaran, Amanpreet Kaur}
 \chapter*{\centering Abstract}
 %background
 This report details the design, development and implementation of the
-"Privacy Advisor" software in fulfilment of course TDT4290-Customer
+"Privacy Advisor" software in fulfillment of course TDT4290-Customer
 Driven Project. Privacy Advisor is developed as part of a larger project for SINTEF ICT, in
 order to investigate the applicability of machine learning to aid users in
 making internet privacy decisions. 
@@ -84,10 +87,12 @@ Privacy Advisor
 
 %more details in results?
 
-\dominitoc
+%\dominitoc
 
 \listoftables
+
 \listoffigures
+
 \tableofcontents \label{toc}
 
 \pagenumbering{arabic}
@@ -156,11 +161,10 @@ Finally, Part~\ref{p3} describes the testing and evaluation phase, and summarize
 \include{Appendix/TestCases}
 \include{Appendix/TestExecution}
 \include{Appendix/Templates}
-\include{Appendix/Glossary}
 \include{Appendix/References}
 
-%\bibliographystyle{plain-annote}
-%\bibliography{mybibliography}
+\bibliographystyle{plain-annote}
+\bibliography{mybibliography}
 
 
 \printindex
