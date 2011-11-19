@@ -18,14 +18,20 @@ import com.kpro.dataobjects.PolicyObject;
  */
 
 public abstract class ConclusionAlgorithm {
-
-	//constructor
+	
+	protected DistanceMetric distanceMetric; // distance metric to use for choosing
+	String[] extraArgs = null;
+	
 	/**
 	 * ConclustionAlgorithm constructor
-	 * @author ngerstle
+	 * @param distanceMetric 
+	 * @param extraArgs
 	 */
-	public ConclusionAlgorithm(){}
-	
+	public ConclusionAlgorithm(DistanceMetric dm, String[] extraArgs){
+		this.distanceMetric = dm;
+		this.extraArgs = extraArgs;
+	}
+
 	/**
 	 * Provides an action recommendation for np based on the given set of objects
 	 * @param np the new policy
@@ -33,7 +39,7 @@ public abstract class ConclusionAlgorithm {
 	 * @return a recommended Action
 	 */
 	public abstract Action conclude(PolicyObject np, Iterable<PolicyObject> knearestns);
-	
-	
-	
+
+
+
 }

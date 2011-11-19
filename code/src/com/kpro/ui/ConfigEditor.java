@@ -1,287 +1,313 @@
 package com.kpro.ui;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+import java.util.HashMap;
 import java.util.Properties;
 
-import javax.swing.JFileChooser;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-public class ConfigEditor extends Thread implements ActionListener{
+abstract class ConfigEditor {
 
 	private JFrame frame;
-	private JTextField inDBfileField;
-	private JTextField outDBfileField;
-	private JTextField inWeightsFileField;
-	private JTextField p3pFileField;
-	private JTextField newPolicyFileField;
-	private JTextField confFileField;
-	private JComboBox blankAccept_TrueFalse;
-	private JComboBox userInitBox;
-	private JComboBox cbrVerBox;
-	private JComboBox dbTypeBox;
-	private JComboBox logLvlBox;
-	private JButton btnOk;
-	private JButton btnSetInDBloc;
-	private JButton btnSetOutDBloc;
-	private JButton btnSetInWeightsLoc;
-	private JButton btnSetP3Ploc;
-	private JButton btnSetPolicyLoc;
-	private JButton btnSetAltConfLoc;
+	private JPanel panel;
 	
-	private Properties genProps;
+	private JButton btnOk;
+	
+	private HashMap<String,String> fieldNames; // config field descriptions
+	private HashMap<String, JButton> buttons; // mapping from config field names to buttons
+	private HashMap<String, JTextField> textfields; // etc
+	private HashMap<String, JComboBox> comboboxes;
+	private HashMap<String, JCheckBox> checkboxes;	
 
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					ConfigEditor window = new ConfigEditor();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
+	protected Properties genProps;
+	
+	private String[] logLvlModel	=  	{"OFF", "FATAL", "ERROR", "WARN", 
+										 "INFO", "DEBUG", "TRACE"};
+	
 	/**
-	 * Create the application.
+	 * Initialize SWING components.
 	 */
-	public ConfigEditor() {
-//		initialize();
+	private void InitComponents(){
+		// INitialize components
+		fieldNames = new HashMap<String, String>();
+		buttons = new HashMap<String, JButton>();
+		textfields = new HashMap<String, JTextField>();
+		comboboxes = new HashMap<String, JComboBox>();
+		checkboxes = new HashMap<String, JCheckBox>();
+			
+		fieldNames.put("loglevel", "Log level");
+		comboboxes.put("loglevel", new JComboBox(logLvlModel));
+		
+		fieldNames.put("newDB", "Build new DB");
+		checkboxes.put("newDB", new JCheckBox());
+		
+		fieldNames.put("policyDB", "DB Type");
+		textfields.put("policyDB", new JTextField());
+		
+		fieldNames.put("p3pLocation", "Add new P3P to DB");
+		textfields.put("p3pLocation", new JTextField());
+		buttons.put("p3pLocation", new JButton("Choose file"));
+		
+		fieldNames.put("p3pDirLocation", "Add P3P Dir to DB");
+		textfields.put("p3pDirLocation", new JTextField());
+		buttons.put("p3pDirLocation", new JButton("Choose file"));
+		
+		fieldNames.put("newPolicyLoc", "P3P to Evaluate");
+		textfields.put("newPolicyLoc", new JTextField());
+		buttons.put("newPolicyLoc", new JButton("Choose file"));
+		
+		fieldNames.put("inDBLoc", "Input DB Location");
+		textfields.put("inDBLoc", new JTextField());
+		buttons.put("inDBLoc", new JButton("Choose file"));
+		
+		fieldNames.put("outDBLoc", "Output DB Location");
+		textfields.put("outDBLoc", new JTextField());
+		buttons.put("outDBLoc", new JButton("Choose file"));
+		
+		fieldNames.put("inWeightsLoc", "Input Weights Location");
+		textfields.put("inWeightsLoc", new JTextField());
+		buttons.put("inWeightsLoc", new JButton("Choose file"));
+		
+		fieldNames.put("outWeightsLoc", "Output Weights Location");
+		textfields.put("outWeightsLoc", new JTextField());
+		buttons.put("outWeightsLoc", new JButton("Choose file"));
+		
+		fieldNames.put("cbrV", "CBR Version");
+		textfields.put("cbrV", new JTextField());
+		
+		fieldNames.put("NetworkRType", "Network Type");
+		textfields.put("NetworkRType", new JTextField());
+		
+		fieldNames.put("NetworkROptions", "Networking Options");
+		textfields.put("NetworkROptions", new JTextField());
+		
+		fieldNames.put("useNet", "Use Networking");
+		checkboxes.put("useNet", new JCheckBox());
+		
+		// Add action listeners to all components
+		for(JCheckBox c : checkboxes.values())
+			c.addActionListener(new ConfEditorActionListener());
+		for(JButton b : buttons.values())
+			b.addActionListener(new ConfEditorActionListener());
+		for(JComboBox b : comboboxes.values())
+			b.addActionListener(new ConfEditorActionListener());
+		
+		// Set SWING component values according to config file
+		if(genProps != null){
+			for (String str : textfields.keySet())
+				textfields.get(str).setText(genProps.getProperty(str));
+			for (String str : comboboxes.keySet())
+				comboboxes.get(str).setSelectedItem(genProps.getProperty(str));
+			for (String str : checkboxes.keySet())
+				checkboxes.get(str).setSelected(genProps.getProperty(str).equals("true"));
+		}
+		
 	}
+	
+	
+	
 	/**
-	 * Default constructor called from PrivacyAdvisorGUI.
+	 * Default constructor.
 	 * @param genProps
 	 */
-	public ConfigEditor(Properties genProps){
-		this.genProps = genProps;
-//		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 382, 406);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
-		
-		JLabel lblNewDb = new JLabel("New DB");
-		lblNewDb.setBounds(6, 6, 61, 16);
-		panel.add(lblNewDb);
-		
-		JLabel lblInDbLocation = new JLabel("In DB Location");
-		lblInDbLocation.setBounds(6, 34, 166, 16);
-		panel.add(lblInDbLocation);
-		
-		JLabel lblOutDbLocation = new JLabel("Out DB Location");
-		lblOutDbLocation.setBounds(6, 62, 166, 16);
-		panel.add(lblOutDbLocation);
-		
-		JLabel lblInWeightsLocation = new JLabel("In Weights Location");
-		lblInWeightsLocation.setBounds(6, 90, 166, 16);
-		panel.add(lblInWeightsLocation);
-		
-		JLabel lblPpLocation = new JLabel("P3P Location");
-		lblPpLocation.setBounds(6, 118, 166, 16);
-		panel.add(lblPpLocation);
-		
-		JLabel lblNewPolicyLocation = new JLabel("New Policy Location");
-		lblNewPolicyLocation.setBounds(6, 146, 166, 16);
-		panel.add(lblNewPolicyLocation);
-		
-		JLabel lblBlankAccept = new JLabel("Blank Accept");
-		lblBlankAccept.setBounds(6, 174, 166, 16);
-		panel.add(lblBlankAccept);
-		
-		JLabel lblUserInit = new JLabel("User Init");
-		lblUserInit.setBounds(6, 202, 166, 16);
-		panel.add(lblUserInit);
-		
-		JLabel lblCbrVersion = new JLabel("CBR Version");
-		lblCbrVersion.setBounds(6, 230, 166, 16);
-		panel.add(lblCbrVersion);
-		
-		JLabel lblAltConfig = new JLabel("Alt. Config Location");
-		lblAltConfig.setBounds(6, 258, 166, 16);
-		panel.add(lblAltConfig);
-		
-		JLabel lblDatabaseType = new JLabel("Database Type");
-		lblDatabaseType.setBounds(6, 286, 166, 16);
-		panel.add(lblDatabaseType);
-		
-		JLabel lblLogLevel = new JLabel("Log Level");
-		lblLogLevel.setBounds(6, 314, 166, 16);
-		panel.add(lblLogLevel);
-		
-		
-		
-		
-		///// Textfields
-		
-		inDBfileField = new JTextField();
-		inDBfileField.setText(genProps.getProperty("inDBLoc"));
-		inDBfileField.setBounds(184, 28, 134, 28);
-		panel.add(inDBfileField);
-		inDBfileField.setColumns(10);
-		
-		outDBfileField = new JTextField();
-		outDBfileField.setText(genProps.getProperty("outDBLoc"));
-		outDBfileField.setBounds(184, 56, 134, 28);
-		panel.add(outDBfileField);
-		outDBfileField.setColumns(10);
-		
-		inWeightsFileField = new JTextField();
-		inWeightsFileField.setText(genProps.getProperty("inWeightsLoc"));
-		inWeightsFileField.setBounds(184, 84, 134, 28);
-		panel.add(inWeightsFileField);
-		inWeightsFileField.setColumns(10);
-		
-		p3pFileField = new JTextField();
-		p3pFileField.setText(genProps.getProperty("p3pLocation"));
-		p3pFileField.setBounds(184, 112, 134, 28);
-		panel.add(p3pFileField);
-		p3pFileField.setColumns(10);
-		
-		newPolicyFileField = new JTextField();
-		newPolicyFileField.setText(genProps.getProperty("newPolicyLoc"));
-		newPolicyFileField.setBounds(184, 140, 134, 28);
-		panel.add(newPolicyFileField);
-		newPolicyFileField.setColumns(10);
-		
-		
-		
-		
-		//// Boxes
-		
-		JComboBox newDB_TrueFalse = new JComboBox();
-		newDB_TrueFalse.setBounds(184, 2, 132, 27);
-		panel.add(newDB_TrueFalse);
-		
-		blankAccept_TrueFalse = new JComboBox();
-		blankAccept_TrueFalse.setBounds(184, 170, 132, 27);
-		panel.add(blankAccept_TrueFalse);
-		
-		userInitBox = new JComboBox();
-		userInitBox.setBounds(184, 198, 132, 27);
-		panel.add(userInitBox);
-		
-		cbrVerBox = new JComboBox();
-		cbrVerBox.setBounds(184, 226, 132, 27);
-		panel.add(cbrVerBox);
-		
-		confFileField = new JTextField();
-		confFileField.setBounds(184, 252, 134, 28);
-		panel.add(confFileField);
-		confFileField.setColumns(10);
-		
-		dbTypeBox = new JComboBox();
-		dbTypeBox.setBounds(184, 282, 132, 27);
-		panel.add(dbTypeBox);
-		
-		logLvlBox = new JComboBox();
-		logLvlBox.setBounds(184, 310, 132, 27);
-		panel.add(logLvlBox);
-		
-		
-		
-		////// Buttons
-		
-		btnOk = new JButton("OK");
-		btnOk.setBounds(199, 349, 117, 29);
-		panel.add(btnOk);
-		
-		btnSetInDBloc = new JButton("Set");
-		btnSetInDBloc.setBounds(319, 29, 61, 29);
-		panel.add(btnSetInDBloc);
-		
-		btnSetOutDBloc = new JButton("Set");
-		btnSetOutDBloc.setBounds(319, 57, 61, 29);
-		panel.add(btnSetOutDBloc);
-		
-		btnSetInWeightsLoc = new JButton("Set");
-		btnSetInWeightsLoc.setBounds(319, 85, 61, 29);
-		panel.add(btnSetInWeightsLoc);
-		
-		btnSetP3Ploc = new JButton("Set");
-		btnSetP3Ploc.setBounds(319, 113, 61, 29);
-		panel.add(btnSetP3Ploc);
-		
-		btnSetPolicyLoc = new JButton("Set");
-		btnSetPolicyLoc.setBounds(319, 141, 61, 29);
-		panel.add(btnSetPolicyLoc);
-		
-		btnSetAltConfLoc = new JButton("Set");
-		btnSetAltConfLoc.setBounds(319, 253, 61, 29);
-		panel.add(btnSetAltConfLoc);
-	}
-
-	
-	@Override
-	public void actionPerformed(ActionEvent e) 
+	public ConfigEditor(Properties genProps)
 	{
-		String path;
-		if (e.getSource() == btnOk) // close dialog
-		{
-			frame.setVisible(false);
-		} else if (e.getSource() == btnSetInDBloc){
-			setProp("inDBLoc", inDBfileField.getText());
-		} else if (e.getSource() == btnSetOutDBloc){
-			setProp("outDBLoc", outDBfileField.getText());
-		} else if (e.getSource() == btnSetInWeightsLoc){
-			setProp("inWeightsLoc", inWeightsFileField.getText());
-		} else if (e.getSource() == btnSetP3Ploc){
-			// Can take a directory as input as well
-			JFileChooser jfc = new JFileChooser(p3pFileField.getText());
-			jfc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-			if (jfc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
-				File f = jfc.getSelectedFile();
-				if (f.isDirectory()) 
-					genProps.setProperty("p3pDirLocation", f.getAbsolutePath());
-				else 
-					genProps.setProperty("p3pLocation", f.getAbsolutePath());
-			}
-		} else if (e.getSource() == btnSetPolicyLoc){
-			setProp("newPolicyLoc",newPolicyFileField.getText());
-		} else if (e.getSource() == btnSetAltConfLoc){
-			setProp("genConfig",confFileField.getText());
-		}		
+		this.genProps = genProps;
+
 	}
+	
 	/**
-	 * Auxillary method in ConfigEditor. Opens a JFileChooser.
-	 * Accepts and returns a file path as a string.
+	 * Zero-arg constructor for testing.
+	 */
+	public ConfigEditor(){}
+	
+	
+	/**
+	 * Initalize frame window.
+	 */
+	private void InitFrame()
+	{
+		frame = new JFrame("Configure");
+		frame.setSize(700,600);
+		frame.setResizable(true);
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		panel = new JPanel();
+		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
+		panel.setLayout(new GridBagLayout());
+		frame.add(panel);
+		
+		GridBagConstraints c = new GridBagConstraints();
+		
+		c.weightx = 1.0;
+		c.weighty = 1.0;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		
+		for (String str : checkboxes.keySet())
+		{
+			c.gridx = 0;
+			panel.add(new JLabel(fieldNames.get(str)), c);
+			
+			c.gridx = 1;
+			panel.add(checkboxes.get(str), c);
+			
+			c.gridy += 1;
+		}
+		
+		for (String str : comboboxes.keySet())
+		{
+			c.gridx = 0;
+			c.gridwidth = 1;
+			panel.add(new JLabel(fieldNames.get(str)), c);
+			
+			c.gridx = 1;
+			c.gridwidth = 2;
+			panel.add(comboboxes.get(str), c);
+			
+			c.gridy += 1;
+		}
+		
+		for (String str : textfields.keySet())
+		{
+			c.gridx = 0;
+			c.gridwidth = 1;
+			panel.add(new JLabel(fieldNames.get(str)), c);
+			
+			c.gridx = 1;
+			c.gridwidth = 2;
+			if(buttons.containsKey(str)) {
+				panel.add(textfields.get(str), c);
+				
+				c.gridx = 2;
+				panel.add(buttons.get(str), c);
+			} else {
+				c.gridwidth = 3;
+				panel.add(textfields.get(str), c);
+			}
+			
+			c.gridy += 1;
+		}
+
+		c.gridx = 2;
+		c.gridwidth = 2;
+		panel.add(btnOk = new JButton("Save"), c);
+		btnOk.addActionListener(new ConfEditorActionListener());
+		frame.setVisible(true);
+	}
+	
+	/**
+	 * To build and run the ConfigEditor
+	 */
+	public void run()
+	{
+		InitComponents();
+		InitFrame();
+	}
+	
+	/**
+	 * Opens a JFileChooser to various input/output
+	 * paths for configuration parameters.
+	 * @param directory
 	 * @return path
 	 */
-	private void setProp(String prop,String path)
+	private String openFile(boolean directory)
 	{
-		JFileChooser jfc = new JFileChooser(path);
-		if (jfc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION){
+		String path = null;
+		JFileChooser jfc = new JFileChooser(System.getProperty("user.dir"));
+		if(directory)
+			jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		else
+			jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		
+		int retVal = jfc.showOpenDialog(null);
+		if (retVal == JFileChooser.APPROVE_OPTION)
 			path = jfc.getSelectedFile().getAbsolutePath();
-			genProps.setProperty(prop, path);
+		return path;
+	}
+	
+	/**
+	 * A standard {@link ActionListener} for {@link ConfigEditor}.
+	 * @author ulfnore
+	 */
+	private class ConfEditorActionListener implements ActionListener
+	{
+		/**
+		 * A standard ActionPerformed method.
+		 * See {@link ActionListener}.
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			if (e.getSource() instanceof JButton)
+			{
+				String key = getKeyByValue(buttons, (JButton)e.getSource());
+				if (key != null){
+					String path = null;
+					path = openFile(key.equals("p3pDirLocation") ? 
+									true : false);
+					textfields.get(key).setText(path);
+					updateProps();
+				}else if (e.getSource() ==  btnOk){
+					updateProps();
+					frame.setVisible(false);
+				}
+			}
+			else updateProps();
+			
 		}
+		
+	}
+	
+	/** 
+	 * Update local properties object according to
+	 * values in SWING components.
+	 */
+	protected void updateProps(){
+		if(genProps == null)
+			genProps = new Properties();
+		
+		for (String key : textfields.keySet())
+			genProps.setProperty(key, textfields.get(key).getText());
+		for (String key : comboboxes.keySet()) 
+			genProps.setProperty(key, (String)comboboxes.get(key).getSelectedItem());
+		for (String key : checkboxes.keySet())
+			genProps.setProperty(key, checkboxes.get(key).isSelected() ? "true" : "false");
+	}
+	
+	/**
+	 * Finds key corresponding to a value in 
+	 * an injective Map.
+	 * @param buttons
+	 * @param object
+	 * @return key
+	 */
+	public static String getKeyByValue(HashMap<String, JButton> buttons, JButton btn) {
+	    for (String s : buttons.keySet())
+	        if (buttons.get(s).equals(btn))
+	            return s;
+	    return null;
 	}
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		initialize();
-		frame.setVisible(true);
+	/**
+	 * Returns the properties from the config editor
+	 * @return Properties genProps
+	 */
+	public Properties getGenProps() {
+		return genProps;
 	}
 	
 }

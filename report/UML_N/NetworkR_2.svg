@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="13cm" height="15cm" viewBox="154 106 251 282" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="155" y="107" width="248.7" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="155" y="107" width="248.7" height="28"/>
+    <text style="fill: #000000;text-anchor:middle;font-size:16;font-family:sanserif;font-style:italic;font-weight:700" x="279.35" y="126">NetworkR</text>
+    <rect style="fill: #ffffff" x="155" y="135" width="248.7" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="155" y="135" width="248.7" height="36"/>
+    <text style="fill: #000000;text-anchor:start;font-size:12.8;font-family:monospace;font-style:normal;font-weight:normal" x="158" y="149">+type: String</text>
+    <text style="fill: #000000;text-anchor:start;font-size:12.8;font-family:monospace;font-style:normal;font-weight:normal" x="158" y="165">+location: String</text>
+    <rect style="fill: #ffffff" x="155" y="171" width="248.7" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="155" y="171" width="248.7" height="52"/>
+    <text style="fill: #000000;text-anchor:start;font-size:12.8;font-family:monospace;font-style:normal;font-weight:normal" x="158" y="185">+reqAct(a:PolicyObject): Action</text>
+    <text style="fill: #000000;text-anchor:start;font-size:12.8;font-family:monospace;font-style:normal;font-weight:normal" x="158" y="201">+saveObj(a:PolicyObject)</text>
+    <text style="fill: #000000;text-anchor:start;font-size:12.8;font-family:monospace;font-style:normal;font-weight:normal" x="158" y="217">+disconnect()</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="222" y="307" width="113.65" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="222" y="307" width="113.65" height="28"/>
+    <text style="fill: #000000;text-anchor:middle;font-size:16;font-family:sanserif;font-style:normal;font-weight:700" x="278.825" y="326">NRCouchdb</text>
+    <rect style="fill: #ffffff" x="222" y="335" width="113.65" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="222" y="335" width="113.65" height="52"/>
+    <text style="fill: #000000;text-anchor:start;font-size:12.8;font-family:monospace;font-style:normal;font-weight:normal" x="225" y="349">+reqAct()</text>
+    <text style="fill: #000000;text-anchor:start;font-size:12.8;font-family:monospace;font-style:normal;font-weight:normal" x="225" y="365">+saveObj()</text>
+    <text style="fill: #000000;text-anchor:start;font-size:12.8;font-family:monospace;font-style:normal;font-weight:normal" x="225" y="381">+disconnect()</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="279.35,242.243 279.35,265.001 278.825,265.001 278.825,305.995 "/>
+    <polygon style="fill: #ffffff" points="287.35,242.243 279.35,226.243 271.35,242.243 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="287.35,242.243 279.35,226.243 271.35,242.243 "/>
+  </g>
+</svg>

@@ -2,9 +2,10 @@ package com.kpro.algorithm;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList; //for moving between reduction and conclusion algorithms 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;	//for handling weights
-
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Context;
 import com.kpro.dataobjects.PolicyObject;
@@ -32,11 +33,11 @@ public class CBR {
 	/**
 	 * Our generic constructor.
 	 * 
-	 * @param theIO
-	 * @param weightsConfig
-	 * @param reduceAlg
-	 * @param conclusAlg
-	 * @param learnAlg
+	 * @param theIO    the GIO instance
+	 * @param weightsConfig		the weights to use for distance metric & learning algorithm
+	 * @param reduceAlg	the retrival algorithm- produce relevent cases from history
+	 * @param conclusAlg	the 'reuse' algorithm- produces a solution from relevant cases
+	 * @param learnAlg	the retain algorithm- modifies the 'weightsConfig' so the distance metric is more accurate
 	 * @author ngerstle
 	 */
 	public CBR(Gio theIO, Properties weightsConfig,
@@ -128,29 +129,48 @@ public class CBR {
 
 	}
 
+/**
+	*	Parses the CBR option to create the class and instantiate correct algorithms.
+	*
+	*	@param string the string from either configuration file or commandline
+	*	@return the CBR defined by the input string
+	*/
 	public CBR parse(String string) throws Exception {
-
+		//TODO change the parse so as to allow instantiated classes to know how to parse their own objects
 		String[] algorithms = string.split(",");
-
-		int k = 1; //size for k in knn algorithm
 
 		Properties weightsConfig = theIO.loadWeights();
 		DistanceMetric dm = getDistanceMetricAlgorithm(algorithms[0], weightsConfig);
 		PolicyDatabase pdb = theIO.getPDB();
 
-		ReductionAlgorithm reductionAlgorithm = getReductionAlgorihm(algorithms[1], dm, pdb, k); //TODO fix to accept the k specified by options, not k=1 from above
+		ReductionAlgorithm reductionAlgorithm = getReductionAlgorithm(algorithms[1],dm,pdb);
 		ConclusionAlgorithm conclusionAlgortihm = getConclusionAlgorihm(algorithms[2], dm);
 		LearnAlgorithm learnAlgorithm = getLearnAlgorihm(algorithms[3], weightsConfig);
 
 		return new CBR(theIO, weightsConfig, reductionAlgorithm, conclusionAlgortihm, learnAlgorithm);
 	}
 
+	/**
+	*	Parse the distance metric substring into a DistanceMetric object with the right attributes and values.
+	*
+	*	@param algorithm the string specifying which distancemetric algorithm to use
+	*	@param weightsConfig the weightsConfiguration file (load this from Gio)
+	*	@return the DistanceMetric class specified
+	*/
 	private DistanceMetric getDistanceMetricAlgorithm(String algorithm, Properties weightsConfig) throws ClassNotFoundException {
 		try {
-			Class<?> cls = Class.forName("com.kpro.algorithm."+algorithm);
+			String[] params = algorithm.split(":");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+params[0]);
 
-			Object[] argsList = new Object[1];
+			Object[] argsList = new Object[2];
 			argsList[0] = weightsConfig;
+			if (params.length > 1) {
+				List<String> list = new ArrayList<String>(Arrays.asList(params));
+				list.removeAll(Arrays.asList(params[0]));
+				argsList[1] = list.toArray(params);
+			} else {
+				argsList[1] = null;
+			}
 
 			return (DistanceMetric) cls.getDeclaredConstructors()[0].newInstance(argsList);
 		} catch (ClassNotFoundException e) {
@@ -169,14 +189,29 @@ public class CBR {
 		return null;
 	}
 
-	private ReductionAlgorithm getReductionAlgorihm(String algorithm, DistanceMetric dm, PolicyDatabase pdb, int k) throws ClassNotFoundException {
+	/**
+	*	Parse the reduction algorithm substring into a ReductionAlgorithm object with the right attributes and values.
+	*
+	*	@param algorithm the string specifying which reduction algorithm to use and number of relevant policies to include in format "algorithmName:k" where k is an integer
+	*	@param dm the distance metric to use 
+	*	@param pdb the policy database to run on
+	*	@return the ReductionAlgorithm class specified
+	*/
+	private ReductionAlgorithm getReductionAlgorithm(String algorithm, DistanceMetric dm, PolicyDatabase pdb) throws ClassNotFoundException {
 		try {
-			Class<?> cls = Class.forName("com.kpro.algorithm."+algorithm);
+			String[] params = algorithm.split(":");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+params[0]);
 
 			Object[] argsList = new Object[3];
 			argsList[0] = dm;
 			argsList[1] = pdb;
-			argsList[2] = k;
+			if (params.length > 1) {
+				List<String> list = new ArrayList<String>(Arrays.asList(params));
+				list.removeAll(Arrays.asList(params[0]));
+				argsList[2] = list.toArray(params);
+			} else {
+				argsList[2] = null;
+			}
 
 			return (ReductionAlgorithm) cls.getDeclaredConstructors()[0].newInstance(argsList);
 		} catch (ClassNotFoundException e) {
@@ -195,12 +230,27 @@ public class CBR {
 		return null;
 	}
 
+	/**
+	*	Parse the conclusion algorithm substring into a ConclusionAlgorithm obejct with the right attributes and values.
+	*
+	*	@param algorithm the string specifying which conclusion algorithm to use
+	*	@param dm the distance metric to use 
+	*	@return the ConclusionAlgorithm class specified
+	*/
 	private ConclusionAlgorithm getConclusionAlgorihm(String algorithm, DistanceMetric dm) throws ClassNotFoundException {
 		try {
-			Class<?> cls = Class.forName("com.kpro.algorithm."+algorithm);
+			String[] params = algorithm.split(":");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+params[0]);
 
-			Object[] argsList = new Object[1];
+			Object[] argsList = new Object[2];
 			argsList[0] = dm;
+			if (params.length > 1) {
+				List<String> list = new ArrayList<String>(Arrays.asList(params));
+				list.removeAll(Arrays.asList(params[0]));
+				argsList[1] = list.toArray(params);
+			} else {
+				argsList[1] = null;
+			}
 
 			return (ConclusionAlgorithm) cls.getDeclaredConstructors()[0].newInstance(argsList);
 		} catch (ClassNotFoundException e) {
@@ -219,12 +269,27 @@ public class CBR {
 		return null;
 	}
 
+	/**
+	*	Parse the learning algorithm substring into a LearningAlgorithm obejct with the right attributes and values.
+	*
+	*	@param algorithm the string specifying which learning algorithm to use
+	*	@param weightsConfig the weightsConfiguration file (load this from Gio)
+	*	@return the LearningAlgorithm class specified
+	*/
 	private LearnAlgorithm getLearnAlgorihm(String algorithm, Properties weightsConfig) throws ClassNotFoundException {
 		try {
-			Class<?> cls = Class.forName("com.kpro.algorithm."+algorithm);
+			String[] params = algorithm.split(":");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+params[0]);
 
-			Object[] argsList = new Object[1];
+			Object[] argsList = new Object[2];
 			argsList[0] = weightsConfig;
+			if (params.length > 1) {
+				List<String> list = new ArrayList<String>(Arrays.asList(params));
+				list.removeAll(Arrays.asList(params[0]));
+				argsList[1] = list.toArray(params);
+			} else {
+				argsList[1] = null;
+			}
 
 			return (LearnAlgorithm) cls.getDeclaredConstructors()[0].newInstance(argsList);
 		} catch (ClassNotFoundException e) {
@@ -242,6 +307,5 @@ public class CBR {
 		}
 		return null;
 	}
-
 
 }

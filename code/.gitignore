@@ -1,2 +1,4 @@
 bin/
 LOG.*
+log.*
+test.*

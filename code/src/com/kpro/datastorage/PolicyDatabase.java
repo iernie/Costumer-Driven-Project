@@ -1,9 +1,7 @@
 package com.kpro.datastorage;
-
 import java.util.ArrayList;
 import java.util.Collection; //for storing policies
 import java.util.Iterator; //for interating over the collection
-
 import com.kpro.dataobjects.PolicyObject;
 
 /**
@@ -66,11 +64,17 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	 */
 	public abstract void loadDB(String dLoc);
 
+
+	/**
+	* Adds a PolicyObject to the database
+	* @param n the policy to add to the database
+	*/
 	public void addPolicy(PolicyObject n) {
 		idb.add(n);
 	}
 
 	/**
+	 * provides an iterator over the database's PolicyObjects
 	 * @return an iterator over the internal collection
 	 */
 	@Override
@@ -78,17 +82,10 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 		return idb.iterator();
 	}
 
-	/**
-	 * shouldn't be needed, but implement for faster access in Reduction_KNN
-	 * @return
-	 */
-	public Collection<PolicyObject> getCollection()
-	{
-		return idb;
-	}
 	
 	/**
-	 * calls closeDB(PolicyDatabase.outlocation)
+	 * calls closeDB(PolicyDatabase.outlocation).
+	 * needed due to lack of a good destructor system, as far as java goes (according to google)
 	 */
 	public void closeDB()
 	{
@@ -123,7 +120,7 @@ public abstract class PolicyDatabase implements Iterable<PolicyObject> {
 	 */
 	@Override
 	public String toString(){
-		String outStr = "";
+		String outStr = this.getClass().toString() + " " + inLocation + " " + outLocation + "\n";
 		for(PolicyObject po : this)
 			outStr += po;
 		return outStr;

@@ -1,8 +1,13 @@
-\chapter{Test Plan}
+% Activate the following line by filling in the right side. If for example the name of the root file is Main.tex, write
+% "...root = Main.tex" if the chapter file is in the same directory, and "...root = ../Main.tex" if the chapter is in a subdirectory.
+ 
+%!TEX root =  
+
+\chapter{Test plan}
 
 \minitoc
 
-\subsection*{Test plan overview}
+\subsection*{Test plan}
 This is the test plan for the "Privacy Advisor" application requested by SINTEF ICT. This test plan is based on IEEE829-1998, the IEEE standard for software test documentation, with some adaptions to fit this project better. The purpose of testing is find bugs and errors and correct them, and to make sure the program is working as expected. The purpose of this test plan is to make sure the tests will be executed as planned, and that they are well documented.
 
 \setcounter{tocdepth}{1}
@@ -23,19 +28,19 @@ Our main focus will be on white-box testing. This is a program that is going to 
 			\begin{itemize}
 				\renewcommand{\labelitemi}{$\bullet$}
 					\item \textbf{Unit testing:} This will be used for testing the functionality of the modules, so that we can ensure that they are working as intended.
-					\item \textbf{Interface testing:} As our algorithm is based on case-based reasoning (CBR), it will be important to test that it is learning from new data.
+					\item \textbf{Learning of our algorithm:} As our algorithm is based on case-based reasoning (CBR), it will be important to test that it is learning from new data.
 			\end{itemize}
 
 		\subsection*{What will \underline{not} be tested:}
 			\begin{itemize}
 				\renewcommand{\labelitemi}{$\bullet$}
 					\item \textbf{Usability testing:} This program is intended for further research by the client, and not for use by customers. Since we are not delivering a program ready for users, there is no need to perform end-user tests to see how users interact with the 							program, and whether the product is accepted by users or not.
-					\item \textbf{Learning of our algorithm:} For the same reasons we will not perform any tests on the quality of the GUIs. The GUIs that will be included is there to make testing easier for the client, not to provide the best possible interaction with end-users.
+					\item \textbf{Interface testing:} For the same reasons we will not perform any tests on the quality of the GUIs. The GUIs that will be included is there to make testing easier for the client, not to provide the best possible interaction with end-users.
 					\item \textbf{Run time:} We will not do designated tests for checking and optimizing the run time. This is because the main classification algorithm can be easily changed. Run time will only be looked into if the program is very slow even for small data sets.
 			\end{itemize}
 		
 	\section{Test case overview}
-		Under is the test cases and their identifiers. The identifiers are named UNIT-XX, where XX is the number of the test case. 
+		This is the test cases and their identifiers. The identifiers are named UNIT-XX, where XX is the number of the test case.
 		\vspace{8 mm}
 		
 		\textbf{Unit tests:}
@@ -51,20 +56,20 @@ Our main focus will be on white-box testing. This is a program that is going to 
 		\end{itemize}
 
 		\vspace{8 mm}
-		Under is the test case template for the unit tests
+		This is the test case template for the unit tests.
 		\vspace{8 mm}
 
 		\begin{center}
-			\begin{tabular}{ |  p{3.5cm} | p{10cm} | }
+			\begin{tabular}{ |  p{4cm} | p{10cm} | }
 				\hline
-				Item & Description \\ [5pt] \hline \hline
-				Name & The name of the test \\  [5pt] \hline
-				Test identifier & The identifier of the test \\  [5pt] \hline
-				Person responsible & The person responsible for making sure the test is executed correctly and on time. \\  [5pt] \hline
-				Feature(s) to be tested & What kind of functionality that is being tested. \\  [5pt] \hline
-				Pre-conditions & What code and environment that has to be in place before the test can be executed. \\  [5pt] \hline
-				Execution steps & Stepwise explanation of how to perform the test. \\  [5pt] \hline
-				Expected result & The expected output/result for the test to be successful. \\  [5pt] \hline
+				Item & Description \\ [3pt] \hline \hline
+				Name & The name of the test \\  [3pt] \hline
+				Test identifier & The identifier of the test \\  [3pt] \hline
+				Person responsible & The person responsible for making sure the test is executed correctly and on time. \\  [3pt] \hline
+				Feature(s) to be tested & What kind of functionality that is being tested. \\  [3pt] \hline
+				Pre-conditions & What code and environment that has to be in place before the test can be executed. \\  [3pt] \hline
+				Execution steps & Stepwise explanation of how to perform the test. \\  [3pt] \hline
+				Expected result & The expected output/result for the test to be successful. \\  [3pt] \hline
 			\end{tabular}
 		\end{center}
 
@@ -75,19 +80,19 @@ Our main focus will be on white-box testing. This is a program that is going to 
 		A test is passed if the given execution steps and input produce the expected results. If they do not, the test is failed.
 
 	\section {Test schedule}
-		Under is the table with the scheduled execution dates of the unit tests.
+		This is the table for when the UNIT tests are scheduled to start.
 
 		\begin{center}
 			\begin{tabular}{ |  p{5cm} | p{5cm} | }
 				\hline
-				Test identifier & Execution date \\ [5pt] \hline \hline
-				UNIT-01 & Saturday 22.10 \\  [5pt] \hline
-				UNIT-02 & Saturday 22.10 \\  [5pt] \hline
-				UNIT-03 & To be determined \\  [5pt] \hline
-				UNIT-04 & To be determined \\  [5pt] \hline
-				UNIT-05 & To be determined \\  [5pt] \hline
-				UNIT-06 & To be determined \\  [5pt] \hline
-				UNIT-07 & To be determined \\  [5pt] \hline
+				Test identifier & Execution date \\ [3pt] \hline \hline
+				UNIT-01 & October 22nd \\  [3pt] \hline
+				UNIT-02 & October 24th \\  [3pt] \hline
+				UNIT-03 & October 26th \\  [3pt] \hline
+				UNIT-04 & October 29th \\  [3pt] \hline
+				UNIT-05 & October 29th \\  [3pt] \hline
+				UNIT-06 & October 29th \\  [3pt] \hline
+				UNIT-07 & November 12th \\  [3pt] \hline
 			\end{tabular}
 		\end{center}
 

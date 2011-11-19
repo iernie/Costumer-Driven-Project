@@ -2,29 +2,25 @@ package com.kpro.ui;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.GridLayout;
-import java.awt.MenuBar;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
-import javax.swing.JFileChooser;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JSplitPane;
 import javax.swing.JTree;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Properties;
 import javax.swing.JTextArea;
-import javax.swing.JButton;
 
-//import com.kpro.database.PolicyDatabase;
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Case;
 import com.kpro.dataobjects.Category;
@@ -34,13 +30,12 @@ import com.kpro.dataobjects.Recipient;
 import com.kpro.dataobjects.Retention;
 import com.kpro.datastorage.PolicyDatabase;
 import com.kpro.main.Gio;
+
 import javax.swing.JScrollPane;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreeNode;
-
-import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
 /**
  * Privacy Advisor GUI to run on top of 
  * @author ulfnore
@@ -49,17 +44,13 @@ import sun.reflect.ReflectionFactory.GetReflectionFactoryAction;
 public class PrivacyAdvisorGUI extends UserIO{
 
 	private JFrame frame;
-	private String weightsPath;
-	private String configPath;
-	private String dbPath;
-	private String p3pPolicyPath;
 	private Gio gio;
 
 	// textarea to hold output and 
 	// JTree to visualize pDatabase
 	private JTextArea outputArea;
-	private JTree leTree;
-	private DefaultMutableTreeNode top;
+	private JTree dataBaseTree, policyTree;
+	private DefaultMutableTreeNode dataBaseTreeRoot, policyTreeRoot;
 	
 	// menu bar
 	private JMenuBar menuBar;
@@ -69,12 +60,7 @@ public class PrivacyAdvisorGUI extends UserIO{
 	private JMenuItem runMenuItem;
 	private JMenuItem exitMenuItem;
 	
-	
-	// Properties object that is passed to GIO
-	private Properties props;
-	
-	private JScrollPane textScrollpane;
-	private JScrollPane treeScrollpane;
+	private JScrollPane outputAreaScrollPane, dataBaseTreeScrollPane, policyTreeScrollPane;
 	
 	/**
 	 * Launch the application.
@@ -99,43 +85,66 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	public PrivacyAdvisorGUI() {
 		initialize();
+		try {
+			gio = new Gio(null,this);
+			loadDB();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * GUI initializer:
 	 * Initialize the contents of the frame.
-	 * @author ulfnore
+	 * @author ulfnore, ernie
 	 */
 	private void initialize() {
 		
+		GridBagConstraints c = new GridBagConstraints();
+		
 		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 900, 700);
+		frame.setResizable(true);
+		frame.setMinimumSize(new Dimension(800, 600));
+		frame.setBounds(100, 100, 800, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel);
-		panel.setSize(frame.getSize());
-		panel.setLayout(new GridLayout(0,1));
-
+		JPanel panel = new JPanel(new GridBagLayout());
+		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
+		panel.setSize(new Dimension(frame.getWidth(), frame.getHeight()));
+		frame.add(panel);
 		
 		// Add text area + tree view
+		c.fill = GridBagConstraints.BOTH;
 		
-		textScrollpane = new JScrollPane();
-		treeScrollpane = new JScrollPane();
-		
-		outputArea = new JTextArea();
-		textScrollpane.setViewportView(outputArea);
-		top = new DefaultMutableTreeNode("Policy Database");
-		leTree = new JTree(top);
-		leTree.addTreeSelectionListener(new TListener());
-		treeScrollpane = new JScrollPane(leTree);
-
-		panel.add(textScrollpane);
-		panel.add(treeScrollpane);
+		c.weightx = 0.5;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		dataBaseTreeRoot = new DefaultMutableTreeNode("Policy Database");
+		dataBaseTree = new JTree(dataBaseTreeRoot);
+		dataBaseTree.addTreeSelectionListener(new TListener());
+		dataBaseTreeScrollPane = new JScrollPane(dataBaseTree);
+		panel.add(dataBaseTreeScrollPane, c);
 	
+		c.weightx = 0.5;
+		c.gridx = 1;
+		c.gridy = 0;
+		c.gridwidth = 1;
+		policyTreeRoot = new DefaultMutableTreeNode("New Policy");
+		policyTree = new JTree(policyTreeRoot);
+		policyTree.addTreeSelectionListener(new TListener());
+		policyTreeScrollPane = new JScrollPane(policyTree);
+		panel.add(policyTreeScrollPane, c);
 
-
+		c.gridx = 0;
+		c.gridy = 1;
+		c.weightx = 1;
+		c.weighty = 1;
+		c.gridwidth = 2;
+		outputAreaScrollPane = new JScrollPane();
+		outputArea = new JTextArea();
+		outputAreaScrollPane.setViewportView(outputArea);
+		panel.add(outputAreaScrollPane, c);
 		
 		
 		// Build menu
@@ -147,8 +156,8 @@ public class PrivacyAdvisorGUI extends UserIO{
 		frame.setJMenuBar(menuBar);
 		menuBar.add(menu);
 		
-		loadConfigMenuItem = new JMenuItem("Load Config File", KeyEvent.VK_C);
-		loadDBMenuItem= new JMenuItem("Load DB File", KeyEvent.VK_D);
+		loadConfigMenuItem = new JMenuItem("Configuration", KeyEvent.VK_C);
+		loadDBMenuItem= new JMenuItem("Reload Database", KeyEvent.VK_D);
 		runMenuItem = new JMenuItem("Run",KeyEvent.VK_R);
 		exitMenuItem = new JMenuItem("Exit", KeyEvent.VK_Q);
 		
@@ -159,43 +168,21 @@ public class PrivacyAdvisorGUI extends UserIO{
 		
 		menu.add(loadConfigMenuItem); menu.add(loadDBMenuItem);
 		menu.add(runMenuItem); menu.add(exitMenuItem);
-		
-		
-		
-		
-		// Add buttons and listeners
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(385, 287, 4, 4);
-		panel.add(scrollPane);
 	}
 
 	/**
 	 * Called from GIO. Takes default properties file as argument.
-	 * @author ulfnore
 	 */
 	@Override
-	public Properties user_init(Properties genProps){
-		ConfEditor ce= new ConfEditor(genProps);
-		ce.start();
-		try {
-			ce.join();
-		} catch (InterruptedException e) {
-
-			e.printStackTrace();
-		}
-		
-		return genProps;
+	public void user_init(Properties genProps){
+		PrivacyAdvisorConfigEditor configEditor = new PrivacyAdvisorConfigEditor(genProps);
+		configEditor.run();
 	}
 	
 	private void loadConfig(){
-		try {
-			gio = new Gio(null,this);
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		}
+		gio.configUI();
 	}
+	
 	
 
 	@Override
@@ -213,38 +200,52 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 */
 	@Override
 	public PolicyObject userResponse(PolicyObject n) {
-		String description = n.getContextDomain();
-		String recommendation = n.getAction().getAccepted() == true ? "Accept." : "Reject.";
-		String reason = "\nReason:\n";
-		for (String str : n.getAction().getReasons()) reason += str + "\n";
-		reason += "\n";
-		String confidence = "\nWith Confidence: " + String.valueOf(n.getAction().getConfidence());
-		
-		
-		int response = 2;
-		while(response == 2)
-			response = JOptionPane.showConfirmDialog(null, 
-						"For the policy: \n"+description+
-						"\nPrivacy Advisor recommends: "
-						+recommendation + reason + confidence + 
-						". \nAccept recommendation?",
-						"Privacy Advisor",
-						JOptionPane.YES_NO_OPTION);
-		
-		if(response == 1)// update
-		{ 
-			Action a = n.getAction();
-			a.setAccepted(!a.getAccepted());
-			a.setOverride(true);
+		try {
+			Action policyAction = n.getAction();
+			
+			JDialog.setDefaultLookAndFeelDecorated(true);
+			
+			String reasons = "";
+			for (String str : n.getAction().getReasons())
+				reasons += str + "\n";
+			
+			String message = 
+					"For the policy: \n" +
+					n.getContextDomain() + "\n" + 
+					"Privacy Advisor recommends: " + policyAction.getAcceptedStr() + "\n" +
+					"Reason: \n" + 
+					reasons + "\n" +
+					"With confidence: " + Double.toString(policyAction.getConfidence()) + "\n\n" +
+					"Do you want to accept?";
+			
+			int response = 
+					JOptionPane.showConfirmDialog(null,
+					message, 
+					"Privacy Advisor Recommendation", 
+					JOptionPane.YES_NO_OPTION, 
+					JOptionPane.QUESTION_MESSAGE);
+			
+			switch (response) {
+			case JOptionPane.YES_OPTION:
+				// Do Nothing
+				break;
+			case JOptionPane.NO_OPTION:
+				policyAction.setAccepted(!policyAction.getAccepted());
+				policyAction.setOverride(true);				
+				break;
+			default:
+				break;
+			}
+		} catch (NullPointerException e) {
+			println("No chosen policy to classify");
+			System.err.println("No chosen policy to clasify");
 		}
 		return n;
 	}
 
 	@Override
 	public void closeResources() {
-
 		gio.shutdown();
-		
 	}
 	
 	/**
@@ -265,13 +266,15 @@ public class PrivacyAdvisorGUI extends UserIO{
 	}
 	
 
-		
+	/**
+	 * 
+	 * 
+	 */
 	private void loadDB()
 	{
-//		gio = new Gio(null, this);
 		try
 		{
-//			System.err.println("gio.getPDB() == null:" + gio.getPDB() == null);
+			//System.err.println("gio.getPDB() == null:" + gio.getPDB() == null);
 			gio.loadDB();
 			showDatabase(gio.getPDB());
 		}
@@ -288,11 +291,12 @@ public class PrivacyAdvisorGUI extends UserIO{
 	 * @author ulfnore
 	 */
 	private void run()
-	{		
+	{
 		try
 		{
+			gio.loadPO();
 			gio.getCBR().run(gio.getPO());
-
+			buildTree(policyTreeRoot, gio.getPO());
 		}catch(NullPointerException e)
 		{
 			//TODO: something more relevant perhaps
@@ -323,18 +327,18 @@ public class PrivacyAdvisorGUI extends UserIO{
 	
 	@Override
 	public void showDatabase(com.kpro.datastorage.PolicyDatabase pdb) {
-//		System.out.println("Printing pdb:");
-//		System.err.println(pdb == null);
-//		for(PolicyObject po : pdb) System.out.println(po);
-//		System.out.println(pdb.toString());
-//		println(pdb.toString());
-		buildTree(pdb);
-		println("Database successfully loaded.\n");
+		buildTree(dataBaseTreeRoot, pdb);
+		println("Database successfully loaded.");
 	}
 
 
-	
-	private void buildTree(PolicyDatabase pdb)
+	/**
+	 * Builds the tree view of the knowledge base (ie. reference database).
+	 * 
+	 * @param root
+	 * @param pdb
+	 */
+	private void buildTree(DefaultMutableTreeNode root, PolicyDatabase pdb)
 	{
 		DefaultMutableTreeNode 	policyObj = null,
 								caseNode = null,
@@ -343,38 +347,87 @@ public class PrivacyAdvisorGUI extends UserIO{
 								retention = null,
 								category = null;
 		
-		
 		for (PolicyObject po : pdb){
 			policyObj = new DefaultMutableTreeNode(po.getContextDomain());
-			top.add(policyObj);
-			int case_id = 1;
 			
 			for (Case c : po){
-				policyObj.add(caseNode = 
-						new DefaultMutableTreeNode("Case " + String.valueOf(case_id++)));
+				caseNode = new DefaultMutableTreeNode(c.getDataType());
 				
-				caseNode.add(purpose = 
-						new DefaultMutableTreeNode("Purpose"));
-				caseNode.add(recipient = 
-						new DefaultMutableTreeNode("Recipient"));
-				caseNode.add(retention = 
-						new DefaultMutableTreeNode("Retention"));
-				caseNode.add(category = 
-						new DefaultMutableTreeNode("Category"));
-				
+				purpose = new DefaultMutableTreeNode("Purpose");
 				for (Purpose p : c.getPurposes())
-					purpose.add(new DefaultMutableTreeNode(p.toString()));				
+					purpose.add(new DefaultMutableTreeNode(p.toString() + (p.isOptional() ? " - Optional" : "")));
+				caseNode.add(purpose);
+				
+				recipient = new DefaultMutableTreeNode("Recipient");
 				for (Recipient r : c.getRecipients())
-					recipient.add(new DefaultMutableTreeNode(r.toString()));
+					recipient.add(new DefaultMutableTreeNode(r.toString() + (r.isOptional() ? " - Optional" : "")));
+				caseNode.add(recipient);
+				
+				retention = new DefaultMutableTreeNode("Retention");
 				for(Retention r : c.getRetentions())
 					retention.add(new DefaultMutableTreeNode(r.toString()));
-//				for(Category cat : c.getCategories())
-//					category.add(new DefaultMutableTreeNode(cat.toString()));
+				caseNode.add(retention);
 				
+				if (c.getCategories() != null) {
+					category = new DefaultMutableTreeNode("Category");
+					for (Category ca : c.getCategories())
+						category.add(new DefaultMutableTreeNode(ca.toString()));
+					caseNode.add(category);
+				}
+				
+				policyObj.add(caseNode);
 			}
-			policyObj.add(
-					new DefaultMutableTreeNode(po.getAction()));
+			policyObj.add(new DefaultMutableTreeNode(po.getAction()));
+			root.add(policyObj);
 		}	
+	}
+	
+	/**
+	 * Builds the tree view of the policy to be classified.
+	 * 
+	 * @param root
+	 * @param po
+	 */
+	private void buildTree(DefaultMutableTreeNode root, PolicyObject po)
+	{
+		DefaultMutableTreeNode 	policyObj = null,
+								caseNode = null,
+								purpose = null,
+								recipient = null, 
+								retention = null,
+								category = null;
+		
+		policyObj = new DefaultMutableTreeNode(po.getContextDomain());
+		
+		for (Case c : po){
+			caseNode = new DefaultMutableTreeNode(c.getDataType());
+			
+			purpose = new DefaultMutableTreeNode("Purpose");
+			for (Purpose p : c.getPurposes())
+				purpose.add(new DefaultMutableTreeNode(p.toString() + (p.isOptional() ? " - Optional" : "")));
+			caseNode.add(purpose);
+			
+			recipient = new DefaultMutableTreeNode("Recipient");
+			for (Recipient r : c.getRecipients())
+				recipient.add(new DefaultMutableTreeNode(r.toString() + (r.isOptional() ? " - Optional" : "")));
+			caseNode.add(recipient);
+			
+			retention = new DefaultMutableTreeNode("Retention");
+			for(Retention r : c.getRetentions())
+				retention.add(new DefaultMutableTreeNode(r.toString()));
+			caseNode.add(retention);
+			
+			if (c.getCategories() != null) {
+				category = new DefaultMutableTreeNode("Category");
+				for (Category ca : c.getCategories())
+					category.add(new DefaultMutableTreeNode(ca.toString()));
+				caseNode.add(category);
+			}
+			
+			policyObj.add(caseNode);
+		}
+		policyObj.add(new DefaultMutableTreeNode(po.getAction()));
+		root.add(policyObj);
 	}
 	
 	
@@ -391,5 +444,19 @@ public class PrivacyAdvisorGUI extends UserIO{
 			for(Object o: e.getPath().getPath())
 				System.out.println(o);
 		}
+	}
+	
+	private class PrivacyAdvisorConfigEditor extends ConfigEditor {
+		
+		public PrivacyAdvisorConfigEditor(Properties genProps) {
+			this.genProps = genProps;
+		}
+
+		@Override
+		protected void updateProps() {
+			super.updateProps();
+			gio.setGenProps(getGenProps());
+		}
+		
 	}
 }

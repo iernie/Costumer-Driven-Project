@@ -1,7 +1,6 @@
 package com.kpro.algorithm;
 
 import java.util.ArrayList; //storage structure for intermediate results
-
 import com.kpro.dataobjects.PolicyObject;
 import com.kpro.datastorage.PolicyDatabase;
 
@@ -18,18 +17,20 @@ import com.kpro.datastorage.PolicyDatabase;
 public abstract class ReductionAlgorithm {
 
 	protected PolicyDatabase pdb; //the history we are reducing
+	String[] extraArgs = null;
 	
 	/**
 	 * Constructor for a reductionAlgorithm
 	 * 
 	 * @param pdb
-	 * @author ngerstle
+	 * @param extraArgs
 	 */
-	public ReductionAlgorithm(PolicyDatabase pdb)
+	public ReductionAlgorithm(PolicyDatabase pdb, String[] extraArgs)
 	{
 		this.pdb = pdb;
+		this.extraArgs = extraArgs;
 	}
-	
+
 	/**
 	 * the reduce call. returns an arraylist of policies in the policydatabase relevent to newPO
 	 * 

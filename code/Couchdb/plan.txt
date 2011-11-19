@@ -1,3 +1,4 @@
+%TODO
 in simple:
 	a list, which serves as 'conclusion', producing an action from the reduce
 	a reduce, which returns the closest k results to the incomming object, grouping identical policies (by accepted/not)
@@ -6,3 +7,6 @@ in simple:
 regarding the query:
 	it will be http://localhost:5984/privacydb/_design/Couchdb/_list/test/testing?obj=$ID
 	for the testing one, where $ID is the id of an already save doc, to be later deleted
+
+Optimization:
+	add a 'on save' hook that increments the accept/reject count on an existing copy, so only one p3p object/document exists per unique p3p- the original version has one p3p document per save- inefficient.

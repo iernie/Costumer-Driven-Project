@@ -1,5 +1,4 @@
 package com.kpro.datastorage;
-
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
 

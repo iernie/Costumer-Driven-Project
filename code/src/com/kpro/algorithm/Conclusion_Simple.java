@@ -6,30 +6,24 @@ import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.PolicyObject;
 
 /**
- * a very simple conclusion class. result is based on the closest object only.
+ * a very simple conclusion class. result is based on the closest objects only, as determined by the sum of inverse distances
+ * of the accepted versus rejected policies. confidences is the ratio of sum inverse distances of the chosen decision, versus the sum
+ * of all inverse distances.
  * 
  * @author ngerstle
  * @version 29.09.11.1
  */
 public class Conclusion_Simple extends ConclusionAlgorithm {
-
-	private DistanceMetric distanceMetric; // distance metric to use for choosing
-
-
-	/**
-	 * a simple conclusion that just bases the result on the inverse distance of the policies,
-	 * and returns as a confidence the sum of inverse distances
-	 * 
-	 * @param knearestns
-	 * @return the action to take
-	 */
-	public Conclusion_Simple(DistanceMetric distanceMetric)
-	{
-		this.distanceMetric = distanceMetric;
+	
+	public Conclusion_Simple(DistanceMetric dm, String[] extraArgs) {
+		super(dm, extraArgs);
 	}
 
 	/**
-	 * makes a decision on the reduced set
+	 * makes a decision on the reduced set.
+	 * This class creates two lists, one for accepted policies and one for rejected. Assuming there are policies in both 
+	 * (easy decision otherwise), whether the policy is accepted or not will depend on the difference between the sum of inverse
+	 * distances of the list items (excluding zero-distances), with the smaller sum indicating the more relevent decision.
 	 * 
 	 * @author ngerstle
 	 * 
@@ -65,7 +59,7 @@ public class Conclusion_Simple extends ConclusionAlgorithm {
 			}
 		}
 
-		
+
 //		System.err.print("approveList \t"+approveList+"\t\t confidence \t"+ (appdistance/(appdistance+rejdistance)));
 //		System.err.print("rejectList \t"+rejectList+"\t\t confidence \t"+ (rejdistance/(appdistance+rejdistance)) );
 //		System.err.print("\t\t appdistance: "+appdistance +"\trejdistance"+rejdistance);

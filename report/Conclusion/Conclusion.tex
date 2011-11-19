@@ -5,4 +5,58 @@
 
 \chapter{Conclusion}\label{conclusion}
 
+\minitoc
+
+This project has designed and implemented a privacy agent based on the
+research ideas set forth by SINTEF. The Privacy Advisor software as it
+is today, is a case based reasoning engine that can provide advice
+with regard to P3P privacy policies given knowledge of previous user
+actions. Both the idea and the software are still work in progress,
+which is reflected by the system's user interface which are oriented
+towards testing. It is built in a modular fashion, so that the
+knowledge base, the retrieval algorithm and the similarity metrics, which are likely to be the
+parts of the system that require most of the tweaking, can
+be substituted without affecting the remainder of the software.
+
+\section{Future Development}
+
+To conclude this report, we look at the some important challenges that
+must be addressed in order to further the Privacy Advisor system to a
+end-user product.
+
+\subsection{Testing}
+For the Privacy Advisor system to be truly valuable, it has to be made
+available to end users; the most likely realization being in the
+form of a web-browser plugin. For this to occur, much testing is still
+required. This testing is a more involved type of testing than the standard
+unit testing that the Privacy Advisor system has been through at present.
+
+For the system to actually be successful it has to provide accurate predictions
+of users' Internet decisions so that it can provide good privacy protection
+without being invasive in the users' day-to-day Internet activities. This type
+of testing will require putting together a group of test users and monitoring their
+activities over a \emph{prolonged period of time}\footnote{The time aspect is stressed here
+as the system will need time to actually learn the user's preferences.}. 
+
+\subsection{Collaborative Filtering} %% TODO: Nicholas: verify
+One of the key improvements to the current Privacy Advisor system is the
+collaborative filtering/community portion of the system. While the interface
+for a networking system is well integrated in the CBR system, the current 
+network resource has limited features. Furthermore, this component of the system
+will also require a prolonged period of testing, as a substantial amount of data.
+
+% issues with duplicate policies on server, current state, proposed
+% fix, sintef solution and problems with storing per user basis
+
+\subsection{Distance Metrics}
+
+
+
+
+
+
+
+\subsection{The Current State of Internet Privacy Policies}
+
+
 

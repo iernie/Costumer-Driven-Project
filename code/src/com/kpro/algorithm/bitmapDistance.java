@@ -30,8 +30,8 @@ package com.kpro.algorithm;
 		private double individual_analysis, individual_decision, contact, historical, telemarketing, other_purpose;
 		private double no_retention, stated_purpose, legal_requirement, business_practices, indefinitely;
 		
-		public bitmapDistance(Properties weights){
-			super(weights);
+		public bitmapDistance(Properties weights, String[] extraArgs){
+			super(weights, extraArgs);
 		}
 		/**
 		 * Loads weight to speed upp run time
@@ -77,8 +77,6 @@ package com.kpro.algorithm;
 		 * @param list input arraylist of ReciPients for method...
 		 * @return Map as bitmap
 		 */
-		
-		
 		private double[] MakeRecipMap(ArrayList<Recipient> list){
 			double[] Map = new double[6];
 			for(int d=0;d<6;d++)Map[d]=0;
@@ -116,7 +114,6 @@ package com.kpro.algorithm;
 		 * @param list input arraylist of Purpose for method...
 		 * @return Map as bitmap
 		 */
-		
 		private double[] MakePurposeMap(ArrayList<Purpose> list){
 			double[] Map = new double[12];
 			for(int d=0;d<12;d++)Map[d]=0;
@@ -173,7 +170,6 @@ package com.kpro.algorithm;
 		 * @param list input arraylist of Purpose for method...
 		 * @return Map as bitmap
 		 */
-		
 		private double[] MakeRetentionMap(ArrayList<Retention> list){
 			double[] Map = new double[5];
 			for(int d=0;d<5;d++)Map[d]=0;
@@ -208,7 +204,6 @@ package com.kpro.algorithm;
 		 * @param b input case.
 		 * @return dis double for the distance between to.
 		 */
-		
 		private double getDistRecip(Case a, Case b) {
 			double[] MapA, MapB;
 			MapA = MakeRecipMap(a.getRecipients());
@@ -234,7 +229,6 @@ package com.kpro.algorithm;
 		 * @param b input case.
 		 * @return dis double for the distance between to.
 		 */
-
 		private double getDistReten(Case a, Case b) {
 			double[] MapA, MapB;
 			MapA = MakeRetentionMap(a.getRetentions());
@@ -326,7 +320,6 @@ package com.kpro.algorithm;
 		 * @param b input case.
 		 * @return dis double for the distance between to.
 		 */
-		
 		private double getDistPurpose(Case a, Case b) {
 			double[] MapA, MapB;
 			MapA = MakePurposeMap(a.getPurposes());
@@ -343,13 +336,13 @@ package com.kpro.algorithm;
 			
 			return dis*Double.parseDouble(weightsConfig.getProperty("purpose"));// dis*weight later
 		}
+		
 		/**
 		 * Returns sum of distances of all fields between case a and b
 		 * @param a Case
 		 * @param b Case
 		 * @return Sum
 		 */
-		
 		private double getSumDistance(Case a, Case b) {
 			
 			return getDistPurpose(a,b)+getDistRecip(a,b)+getDistReten(a,b)+getDistData(a,b);
@@ -363,7 +356,6 @@ package com.kpro.algorithm;
 		 * @param time
 		 * @return Distance
 		 */
-		
 		private double getDistance(PolicyObject a, PolicyObject b, int time){
 			ArrayList<Case> CasesA, CasesB;
 			CasesA=a.getCases();
@@ -384,6 +376,13 @@ package com.kpro.algorithm;
 			
 			return Distance;
 		}
+	
+                /**
+                * Initializes weights and returns the distance between two PolicyObjects.
+                * @param a the 1st policy object
+                * @param b the second policy object
+                * @return the distance between the two policy objects
+                */
 		//this is just a shell visible from interface
 		@Override
 		public double getTotalDistance(PolicyObject a, PolicyObject b) {

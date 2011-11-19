@@ -23,7 +23,6 @@ import com.kpro.dataobjects.PolicyObject;
 
 public class PrivacyAdviser {
 //TODO actually use logging
-//TODO provide junit tests for generic algorithms
 
 
 	static Gio theIO;									//interface to outside world
@@ -51,6 +50,7 @@ public class PrivacyAdviser {
 		//process the given case
 		if(!theIO.isBuilding()) //actually process an object
 		{
+			theIO.loadPO();
 			po = theIO.getPO();
 			/*int k = 1; //size for k in knn algorithm
 			DistanceMetric dm = new distanceMetricTest(weightsConfig);

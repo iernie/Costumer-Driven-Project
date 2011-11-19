@@ -7,7 +7,7 @@
 
 \minitoc
 
-\subsection*{Project Evaluation}
+
 The final phase of the project consists of evaluating the actual outcome of
 the project work and the processes that have led to the outcome. It
 seeks to answer questions such as:
@@ -19,21 +19,39 @@ seeks to answer questions such as:
 \item How well did planned resource use reflect actual resource use?
 \end{itemize}
 
+The first section evaluates the software system in terms of the
+objectives and requirements worked out prior to design and
+implementation.  Sections \ref{toolseval} and \ref{resourceUse}
+evaluate the appropriateness of the tools used in developing the
+system and the resources committed to the project in manhours relating
+to the original project plan. Finally, section \ref{courseEval}
+evaluates the course as a whole.
+
 \section{Software Evaluation}
 
+This section contains the project team's evaluation of the software
+system that has been produced.
+
+\subsection{Key Objectives}
+
+As discussed in Section~\ref{mandateObjectives}, the main objectives of the project were:
+
+\begin{enumerate}
+\item\label{itemTestFW} Implementing a testing framework of CBR based privacy agent that is able to make privacy decisions based on previous user behavior.
+\item\label{itemCollaborative} Implement the community system/collaborative filtering part of the agent.
+\item\label{itemExtend} Extend the system to other standards for machine readable privacy policies.
+\item\label{itemBrowser}Implement the system as a browser plugin. 
+\end{enumerate}
+
+Objective~\ref{itemTestFW} were considered the clearly most important for the project, being a prerequisite for the remaining objectives. The fuctional requirements section (Section~\ref{funcRequirements}) in requirements specification goes further in detail on what the first objective entails.
+
+\subesection{Evaluation}
+The project team realized quickly that there were insufficent resources to meet Objectives 3-4, so focus was shifted to the first objective while, there was planned for working towards the second objective at the end of the project period. With respect to the first objective, the \emph{current Privacy Advisor system provides all the features listed in the requirements specification}. The second objective is partially realized. The core Privacy Advisor system has functionality extending the CBR for networking, and work on a collaborative filtering system has been started on a server machine at NTNU. The features supported by this system is however limited.
 
 
+%%TODO: refer to testing results
 
-\section{Group Dynamics and Organization}
-The project team was slightly heterogenous, with two international
-students and the remaining seven Norwegian. For this reason, English
-was chosen as the offical language of the project. This may to some
-extent have impacted the degree of participation of some team members
-during meetings, and discussions came to be dominated by a minority. 
-
-
-
-\section{Tools}
+\section{Tools}\label{toolseval}
 
 Referring to choices discussed in section~\ref{DevTools}, the key
 software tools and languages used are Java, Git, and Google
@@ -60,7 +78,7 @@ were clearly vast differences in skill levels. This was the cause of
 some frustration and extra work. In retrospect, more time should have been spent
 on clarifying background and interests of each team member so as to
 better allocate workload. Some will also argue that a more
-"light-weigh'' programming language, such as Python, would have been a
+"light-weight'' programming language, such as Python, would have been a
 better choice, even despite the lack of previous experience.
 
 \subsubsection{Git/GitHub}
@@ -77,6 +95,9 @@ as agendas, status reports, drafts and so forth. All "major''
 documents were typeset in \LaTeX and stored at the GitHub repository.
 
 \subsubsection{Google Docs}
+There were no significant issues with Google Docs. It provided a good
+framework for sharing binary files such as spreadsheets, presentations and so forth which
+are not catered well for by most version control systems.
 
 
 \subsubsection{\LaTeX}
@@ -88,11 +109,12 @@ group members, causing frustration and extra work on a later stage
 in the project.
 
 
-\section{Resource Use}
+\section{Resource Use}\label{resourceUse}
 
 Figures~\ref{perActivity} and \ref{actualPlannedCuml} illustrate
 the discrepancies between actual and planned time use on all
-activities, both cumulative over time and over each phase of the project.
+activities, both cumulative over time and over each phase of the
+project. It is updated as by the end of the last week of the project.
 
 \begin{centering}
   \begin{figure}
@@ -101,6 +123,11 @@ activities, both cumulative over time and over each phase of the project.
     \label{perActivity}
   \end{figure}
 \end{centering}
+
+As shown in Figure~\ref{perActivity}, the percentage workload between activities was quite well anticipated with some exceptions. One key pattern to notice is that while the design and implementation related activitites required less time than initially planned, administrative work and planning required more work than planned. The overrun is most obvious for the administrative tasks part. One important lesson to take away from this is that a project team of a given size does need a major amount of administrative work. Another important reason for this overrun was initial probles with setting up the code repositories.
+
+With respect to the relatively fewer hours spent on designing and implementing the system, a portion of this can be explained by the fact that a major portion of the design was clear from the beginning given that the system was to be based on the CBR framework. This and the fact that Java was decided on early on as programming language, severely limited the possible designs available. The implementation phase also required fewer hours than expected. This was in part due to the fact that the team did not realize all the objectives that were set (networking is only partially complete), and that work was divided well among team members. Interfaces were also built quite early on in the project so that adding on modules to existing code proved simple.
+
 
 \begin{centering}
   \begin{figure}
@@ -122,11 +149,5 @@ storing P3P objects.
 
 Furthermore, the project has not proceded without any conflicts. While
 roles and responsibilities were agreed on early on in the project
-phase, it turned out that these assignments did not distribute the
-workload very evenly.
-
-
-\section{Course Evaluation - TDT4290}
-
-Finally, we include some notes on how well the objectives of the
-course \emph{TDT4290 - Customer Driven Project} itself have been met.
+phase, it turned out that these initial assignments did not distribute the
+workload very evenly. 

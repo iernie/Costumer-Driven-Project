@@ -1,3 +1,4 @@
+//list function that imitates Conclusion_Simple. reference notation may not be correct, but acts on the set via getRow() (assumed to be the k relevent policies), and sends an action (is intended to) in JSON
 function(head, req) {
 	var action = {"accepted": true, "reasonDomains": [], "override": false, "confidence": 0.0};
 	var accepted = [];

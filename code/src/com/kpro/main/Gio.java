@@ -6,6 +6,7 @@ import java.io.FileOutputStream;	//for writing the new weights config file
 import java.io.IOException;		//for configuration file functionality
 import java.io.InputStream;		//for configuration file functionality
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Date;
 import java.util.Properties;		//for configuration file functionality
 import java.util.logging.*;		//for logger functionality
@@ -20,11 +21,6 @@ import com.kpro.ui.*;
 
 
 
-/*  to load a new database from a folder, but not use cbr on a new object. overwrites old db (-n option)
- *  ./PrivacyAdvisor -b -f -n ./new_policy_history [-c config_file_location][-w weight_config_file_loc][-d db_file_location]
- *  to compare policy stored in p.txt, assuming config in default location is valid and used
- *  ./PrivacyAdvisor -T p.txt
- */
 
 
 /* Thinking:
@@ -51,6 +47,7 @@ public class Gio {
 	private UserIO userInterface = null;					/**means of interacting with the user*/
 	private PolicyDatabase pdb;								/**Policy database object*/
 	private NetworkR nr;									/** Network Resource (community advice database)*/
+	private PolicyObject po;								/** The new PolicyObject that is parsed **/
 
 	
 	/**
@@ -93,11 +90,7 @@ public class Gio {
 		logger = startLogger(genProps.getProperty("loglocation","./LOG.txt"),genProps.getProperty("loglevel","INFO"));
 		if(userInterface ==null)
 		{
-			selectUI(genProps.getProperty("UserIO"));
-		}
-		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")) && !(userInterface==null))
-		{
-			genProps = userInterface.user_init(genProps);
+			selectUI(genProps.getProperty("userIO"));
 		}
 		selectPDB(genProps.getProperty("policyDB"));
 
@@ -113,6 +106,21 @@ public class Gio {
 			nr = null;
 		}
 	}
+	
+
+	/**
+	* call the user interface's general configuration method if the userInit option is true, and a user interface exists
+	*/
+	public void configUI() {
+		if(Boolean.parseBoolean(genProps.getProperty("userInit","false")) && !(userInterface==null))
+		{
+			userInterface.user_init(genProps);
+		}
+	}
+	
+	public void setGenProps(Properties genProps) {
+		this.genProps = genProps;
+	}
 
 	/**
 	 * accepts the direct commandline options, then parses & implements them.
@@ -124,37 +132,37 @@ public class Gio {
 	{
 		Options options = new Options();
 
-//		System.err.println(genProps);
 		String[][] clolist= 
 			{
-				{"genConfig","true","general configuration file location"},
-				{"inWeightsLoc", "true", "input weights configuration file location"},
-				{"inDBLoc", "true", "input database file location"},
-				{"outWeightsLoc", "true", "output weights configuration file location"},
-				{"outDBLoc", "true", "output database file location"},
-				{"P3PLocation","true", "adding to DB: single policy file location"},
-				{"P3PDirLocation","true", "adding to DB: multiple policy directory location"},
-				{"newDB","true", "create new database in place of old one (doesn't check for existence of old one"},
-				{"newPolicyLoc","true", "the policy object to process"},
-				{"userResponse","true","response to specified policy"},
-				{"userIO","true","user interface"},
-				{"userInit","false","initialization via user interface"},
-				{"policyDB","true","PolicyDatabase backend"},
-				{"cbrV","true","CBR to use"},
-				{"blanketAccept","true","automatically accept the user suggestion"}, 
-				{"loglevel","true","level of things save to the log- see java logging details"},
-				{"policyDB","true","PolicyDatabase backend"},
-				{"networkRType","true","Network Resource type"},
-				{"networkROptions","true","Network Resource options"},
-				{"confidenceLevel","true","Confidence threshold for consulting a networked resource"},
-				{"useNet","true","use networking options"},
-				{"loglocation","true","where to save the log file"},
-				{"loglevel","true","the java logging level to use. See online documentation for enums."}
+				//{"variable/optionname", "description"},
+				{"genConfig","general configuration file location"},
+				{"inWeightsLoc", "input weights configuration file location"},
+				{"inDBLoc", "input database file location"},
+				{"outWeightsLoc", "output weights configuration file location"},
+				{"outDBLoc",  "output database file location"},
+				{"p3pLocation", "adding to DB: single policy file location"},
+				{"p3pDirLocation", "adding to DB: multiple policy directory location"},
+				{"newDB", "create new database in place of old one (doesn't check for existence of old one"},
+				{"newPolicyLoc", "the policy object to process"},
+				{"userResponse","response to specified policy"},
+				{"userIO","user interface"},
+				{"userInit","initialization via user interface"},
+				{"policyDB","PolicyDatabase backend"},
+				{"cbrV","CBR to use"},
+				{"blanketAccept","automatically accept the user suggestion"}, 
+				{"loglevel","level of things save to the log- see java logging details"},
+				{"policyDB","PolicyDatabase backend"},
+				{"NetworkRType","Network Resource type"},
+				{"NetworkROptions","Network Resource options"},
+				{"confidenceLevel","Confidence threshold for consulting a networked resource"},
+				{"useNet","use networking options"},
+				{"loglocation","where to save the log file"},
+				{"loglevel","the java logging level to use. See online documentation for enums."}
 			};
 
 		for(String[] i : clolist)
 		{
-			options.addOption(i[0], Boolean.parseBoolean(i[1]),i[2]);
+			options.addOption(i[0],true,i[1]);
 		}
 
 		CommandLineParser parser = new PosixParser();
@@ -165,24 +173,25 @@ public class Gio {
 		}
 		catch (ParseException e)
 		{
-			System.err.println("Error parsing commandline arguements.");
+			System.err.println("Error parsing commandline arguments.");
 			e.printStackTrace();
 			System.exit(3);
 		}
-
-//		for(String i : args)
-//		{
-//			System.err.println(i);
-//		}
+		/*
+		for(String i : args)
+		{
+			System.err.println(i);
+		}
+		*/
 		for(String[] i : clolist)
 		{
 			if(cmd.hasOption(i[0]))
 			{
-//				System.err.println("found option i: "+i);
+				System.err.println("found option i: "+i);
 				genProps.setProperty(i[0],cmd.getOptionValue(i[0]));
 			}
 		}
-//		System.err.println(genProps);
+		System.err.println(genProps);
 
 
 	}
@@ -215,8 +224,23 @@ public class Gio {
 	 * @return the policy database being used
 	 */
 	private void selectPDB(String optionValue) {
-		// TODO Add other PolicyDatabase classes, when other classes are made
-		pdb = PDatabase.getInstance(genProps.getProperty("inDBLoc"), genProps.getProperty("outDBLoc",genProps.getProperty("inDBLoc")));
+		try {
+			Class<?> cls = Class.forName("com.kpro.datastorage."+optionValue);
+			
+			@SuppressWarnings("rawtypes")
+			Class[] params = new Class[2];
+			params[0] = String.class;
+			params[1] = String.class;
+			Method m = cls.getDeclaredMethod("getInstance", params);
+			
+			Object[] argslist = new Object[2];
+			argslist[0] = genProps.getProperty("inDBLoc");
+			argslist[1] = genProps.getProperty("outDBLoc",genProps.getProperty("inDBLoc"));
+			pdb = (PolicyDatabase) m.invoke(null, argslist);
+		} catch (Exception e) {
+			System.err.println("Selected PolicyDatabase not found");
+		}
+
 		if(pdb==null)
 		{
 			System.err.println("pdb null in selectPDB");
@@ -230,8 +254,12 @@ public class Gio {
 	 * @return the user interface to use
 	 */
 	private void selectUI(String optionValue) {
-		// TODO Add other UserIO classes, when other classes are made
-		userInterface = new UserIO_Simple();
+		try {
+			Class<?> cls = Class.forName("com.kpro.ui."+optionValue);
+			userInterface = (UserIO) cls.newInstance();
+		} catch (Exception e) {
+			System.err.println("Selected UserIO not found");
+		}
 	}
 
 
@@ -242,7 +270,6 @@ public class Gio {
 	 * @return the action to apply to the new policy
 	 */
 	private Action parseAct(String optionValue) {
-		// TODO remove this later
 		return (optionValue == null)?(null):(new Action().parse(optionValue));
 	}
 
@@ -366,11 +393,20 @@ public class Gio {
 	 */
 	public void loadDB()
 	{
-		if(!Boolean.parseBoolean(genProps.getProperty("newDB")))
-		{
-			pdb.loadDB();
+		try {
+			//TODO what about if we want to create a new db?
+			if(!Boolean.parseBoolean(genProps.getProperty("newDB")))
+			{
+				pdb.loadDB();
+			}			
+		} catch (Exception e) {
+			System.err.println("Something wrong with loading DB");
 		}
-		loadCLPolicies();	
+		try {
+			loadCLPolicies();				
+		} catch (Exception e) {
+			System.err.println("Error. Probably wrong path to P3P folder");
+		}
 	}
 
 	/** 
@@ -394,18 +430,15 @@ public class Gio {
 			try
 			{
 				p = (new P3PParser()).parse(pLoc.getAbsolutePath());
-				if(p.getContext().getDomain()==null)
+				if(p.getContextDomain()==null)
 				{
-					if(p.getContext().getDomain()==null)
-					{
-						p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("p3pLocation")));
-					}
-					pdb.addPolicy(p);
+					p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("p3pLocation")));
 				}
+				pdb.addPolicy(p);
 			}
 			catch(Exception e)
 			{
-				System.err.println("Einar needs to fix a parsing error.");
+				System.err.println("Error with parsing or database");
 				e.printStackTrace();
 				//System.exit(5);
 			}
@@ -504,13 +537,13 @@ public class Gio {
 	 */
 	public PolicyObject userResponse(PolicyObject n) {
 		if((parseAct(genProps.getProperty("userResponse",null)) == null) && 
-				!Boolean.parseBoolean(genProps.getProperty("blanketAccept")))
+				!Boolean.parseBoolean(genProps.getProperty("blanketAccept", "false")))
 		{
 			return userInterface.userResponse(n);
 		}
 		else
 		{
-			if(Boolean.parseBoolean(genProps.getProperty("blanketAccept")))
+			if(Boolean.parseBoolean(genProps.getProperty("blanketAccept", "false")))
 			{
 				return n.setAction(n.getAction().setOverride(true));
 			}
@@ -527,28 +560,30 @@ public class Gio {
 	 * 
 	 * @return the policy object to be processed
 	 */
-	public PolicyObject getPO() {
+	public void loadPO() {
 
-		PolicyObject p = null;
 		if(genProps.getProperty("newPolicyLoc",null) == null)
-			System.err.println("newPolLoc == null in gio:getPO");
+			System.err.println("newPolLoc == null in gio:loadPO");
 		File pLoc = new File(genProps.getProperty("newPolicyLoc",null));
 		if(!pLoc.exists()){
 			System.err.println("no file found at p3p policy location specified by the new policy option");
 			System.exit(1);
 		}
 
-		p = (new P3PParser()).parse(pLoc.getAbsolutePath());
+		po = (new P3PParser()).parse(pLoc.getAbsolutePath());
 		//TODO make sure that the context is parsed if avaliable
-		if(p.getContext().getDomain()==null)
+		if(po.getContext().getDomain()==null)
 		{
-			p.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("newPolicyLoc")));
+			po.setContext(new Context(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()),genProps.getProperty("newPolicyLoc")));
 		}
-		return p;
+	}
+	
+	public PolicyObject getPO() {
+		return po;
 	}
 
 	/**
-	 * returns the -b option if present- whether or not to solely build a database, or build and call CBR.run()
+	 * returns the true if it should only build
 	 *  
 	 * @return true if a CBR should NOT be run
 	 */
@@ -577,14 +612,30 @@ public class Gio {
 		return parseCBR(genProps.getProperty("cbrV",null));
 	}
 
+	/**
+	 * returns the originally imported set of weights
+	 * @return the weights for policy attributes
+	 */
 	public Properties getWeights() {
 		return origWeights;
 	}
 
-
+	/**
+	 * shows the database on the user interface, if the user interface exists and no user response is specied 
+	 * and there is no 'blanketAccept' option.
+	 */
 	public void showDatabase() {
-		userInterface.showDatabase(pdb);
-
+		if(userInterface!=null) //the user interface exists
+		{
+			if (!genProps.contains("userResponse")) // if we have no preknown user response
+			{	
+				if  (genProps.getProperty("blanketAccept",null)==null) //if we have no blanket accept
+				{
+					userInterface.showDatabase(pdb); //we must be running interactive
+				}
+			} 
+		}
+		
 	}
 
 
@@ -627,10 +678,10 @@ public class Gio {
 		return nr;
 	}
 
-
-
-
-
+	/**
+	 * gets the confidence level threshold from the configuration
+	 * @return the confidence threshold
+	 */
 	public double getConfLevel() {
 		return Double.parseDouble(genProps.getProperty("confidenceLevel","1.0"));
 	}
