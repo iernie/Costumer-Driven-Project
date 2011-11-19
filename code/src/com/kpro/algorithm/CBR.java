@@ -2,7 +2,9 @@ package com.kpro.algorithm;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList; //for moving between reduction and conclusion algorithms 
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;	//for handling weights
 import com.kpro.dataobjects.Action;
 import com.kpro.dataobjects.Context;
@@ -157,10 +159,18 @@ public class CBR {
 	*/
 	private DistanceMetric getDistanceMetricAlgorithm(String algorithm, Properties weightsConfig) throws ClassNotFoundException {
 		try {
-			Class<?> cls = Class.forName("com.kpro.algorithm."+algorithm);
+			String[] params = algorithm.split(":");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+params[0]);
 
-			Object[] argsList = new Object[1];
+			Object[] argsList = new Object[2];
 			argsList[0] = weightsConfig;
+			if (params.length > 1) {
+				List<String> list = new ArrayList<String>(Arrays.asList(params));
+				list.removeAll(Arrays.asList(params[0]));
+				argsList[1] = list.toArray(params);
+			} else {
+				argsList[1] = null;
+			}
 
 			return (DistanceMetric) cls.getDeclaredConstructors()[0].newInstance(argsList);
 		} catch (ClassNotFoundException e) {
@@ -189,13 +199,19 @@ public class CBR {
 	*/
 	private ReductionAlgorithm getReductionAlgorithm(String algorithm, DistanceMetric dm, PolicyDatabase pdb) throws ClassNotFoundException {
 		try {
-			String[] parts = algorithm.split(":");
-			Class<?> cls = Class.forName("com.kpro.algorithm."+parts[0]);
+			String[] params = algorithm.split(":");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+params[0]);
 
 			Object[] argsList = new Object[3];
 			argsList[0] = dm;
 			argsList[1] = pdb;
-			argsList[2] = Integer.parseInt(parts[1]);
+			if (params.length > 1) {
+				List<String> list = new ArrayList<String>(Arrays.asList(params));
+				list.removeAll(Arrays.asList(params[0]));
+				argsList[2] = list.toArray(params);
+			} else {
+				argsList[2] = null;
+			}
 
 			return (ReductionAlgorithm) cls.getDeclaredConstructors()[0].newInstance(argsList);
 		} catch (ClassNotFoundException e) {
@@ -223,10 +239,18 @@ public class CBR {
 	*/
 	private ConclusionAlgorithm getConclusionAlgorihm(String algorithm, DistanceMetric dm) throws ClassNotFoundException {
 		try {
-			Class<?> cls = Class.forName("com.kpro.algorithm."+algorithm);
+			String[] params = algorithm.split(":");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+params[0]);
 
-			Object[] argsList = new Object[1];
+			Object[] argsList = new Object[2];
 			argsList[0] = dm;
+			if (params.length > 1) {
+				List<String> list = new ArrayList<String>(Arrays.asList(params));
+				list.removeAll(Arrays.asList(params[0]));
+				argsList[1] = list.toArray(params);
+			} else {
+				argsList[1] = null;
+			}
 
 			return (ConclusionAlgorithm) cls.getDeclaredConstructors()[0].newInstance(argsList);
 		} catch (ClassNotFoundException e) {
@@ -254,10 +278,18 @@ public class CBR {
 	*/
 	private LearnAlgorithm getLearnAlgorihm(String algorithm, Properties weightsConfig) throws ClassNotFoundException {
 		try {
-			Class<?> cls = Class.forName("com.kpro.algorithm."+algorithm);
+			String[] params = algorithm.split(":");
+			Class<?> cls = Class.forName("com.kpro.algorithm."+params[0]);
 
-			Object[] argsList = new Object[1];
+			Object[] argsList = new Object[2];
 			argsList[0] = weightsConfig;
+			if (params.length > 1) {
+				List<String> list = new ArrayList<String>(Arrays.asList(params));
+				list.removeAll(Arrays.asList(params[0]));
+				argsList[1] = list.toArray(params);
+			} else {
+				argsList[1] = null;
+			}
 
 			return (LearnAlgorithm) cls.getDeclaredConstructors()[0].newInstance(argsList);
 		} catch (ClassNotFoundException e) {

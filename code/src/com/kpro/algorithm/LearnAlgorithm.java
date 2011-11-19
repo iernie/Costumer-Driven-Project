@@ -17,17 +17,18 @@ public abstract class LearnAlgorithm {
 	/*while this is load early on, the 'learn' method is the only thing
 	 * to change the values, and should only be called immediatly before shutdown. 
 	 */
+	String[] extraArgs = null;
 	
 	/**
 	 * Constructor for a learning algorithm. accepts a weights configuration file.
 	 * 
 	 * @param weightsConfig  the weights configuration file
-	 * @author ngerstle
+	 * @param extraArgs extra arguments defined in configuration file
 	 */
-	public LearnAlgorithm(Properties weightsConfig)
+	public LearnAlgorithm(Properties weightsConfig, String[] extraArgs)
 	{
 		this.weightsConfig = weightsConfig;
-	
+		this.extraArgs = extraArgs;
 	}
 	
 	/**

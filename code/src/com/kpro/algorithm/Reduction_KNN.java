@@ -14,20 +14,20 @@ import com.kpro.datastorage.PolicyDatabase;
 public class Reduction_KNN  extends ReductionAlgorithm{
 
 	private DistanceMetric distanceMetric; // distance metric
-	private int k; // number of neighbors 
+	private int k = 1; // number of neighbors, default 1
 
 
 	/**
 	 * creates a kNearestNeighbors algorithm to use
 	 * @param distanceMetric	the class defining distance between objects
 	 * @param database	the database of objects to operate on
-	 * @param k the size of k
+	 * @param extraArgs from the config file
 	 * @author ngerstle, ulfnore
 	 */
-	public Reduction_KNN(DistanceMetric distanceMetric, PolicyDatabase database,int k) {
-		super(database);
+	public Reduction_KNN(DistanceMetric distanceMetric, PolicyDatabase database, String[] extraArgs) {
+		super(database, extraArgs);
 		this.distanceMetric = distanceMetric;
-		this.k=k;
+		this.k = Integer.parseInt(extraArgs[0]);
 	}
 
 

@@ -25,9 +25,10 @@ public class LearnAlgStand extends LearnAlgorithm{
 	/**
 	 * constructor
 	 * @param weightsConfig the weights
+	 * @param extraArgs from the config
 	 */
-	public LearnAlgStand(Properties weightsConfig) {
-		super(weightsConfig);
+	public LearnAlgStand(Properties weightsConfig, String[] extraArgs) {
+		super(weightsConfig, extraArgs);
 	}
 	
 	/**

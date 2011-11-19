@@ -29,8 +29,8 @@ public class bitmapDistanceWisOne extends DistanceMetric{
 	private double individual_analysis, individual_decision, contact, historical, telemarketing, other_purpose;
 	private double no_retention, stated_purpose, legal_requirement, business_practices, indefinitely;
 	
-	bitmapDistanceWisOne(Properties weights){
-		super(weights);
+	bitmapDistanceWisOne(Properties weights, String[] extraArgs){
+		super(weights, extraArgs);
 	}
 
 	/**
