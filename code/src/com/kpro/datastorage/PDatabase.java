@@ -62,7 +62,7 @@ public class PDatabase extends PolicyDatabase implements Serializable
 		}
 		catch(Exception e)
 		{
-			System.out.println("Exception deserializing PDatabase at " + dLoc +" .\n");
+			System.err.println("Exception deserializing PDatabase at " + dLoc +" .\n");
 			e.printStackTrace();
 			System.exit(3);
 		}

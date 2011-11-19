@@ -40,7 +40,7 @@ public class Action
 	 * @return a boolean that can be sent to the user with a accept/reject
 	 */
 	public String getAcceptedStr(){
-		return accepted ? "accepted" : "rejected";
+		return accepted ? "Accept" : "Reject";
 	}
 	
 	/**

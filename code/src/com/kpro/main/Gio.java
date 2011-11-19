@@ -438,7 +438,7 @@ public class Gio {
 			}
 			catch(Exception e)
 			{
-				System.err.println("Einar needs to fix a parsing error.");
+				System.err.println("Error with parsing or database");
 				e.printStackTrace();
 				//System.exit(5);
 			}
