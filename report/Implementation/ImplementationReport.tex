@@ -47,7 +47,7 @@ Some examples of commonly used metrics are the Eucldean, Mahalanobis, and the Ma
 %% Formulae must be inserted!!
 %%
 
-\subsubsection{Common Metrics}
+\subsubsection{Existing Metrics}
 
 \begin{itemize}
 \item \emph{Manhattan distance} is function computes the distance that would be travelled to get from one data point to the other if a grid-like path is followed. It can be written as. $\displaystyle\sum_{d=1}^n|x_d – y_d|$. Where d is dimensionality of the set.  
@@ -66,7 +66,7 @@ Another important topic is how system designers can apply domain knowledge to im
 \subsubsection{Bitmap Representation}
 A bitmap (or bit string) is a way of representing a set of objects. It simply translates values from a set to a vector of fixed length, where each value has a specific place. For example over language $L=\{a,b,c,d\}$ for a sets $\{a,b,c\}$ a bit-map will look like $[1 1 1 0]$ where 1st integer represents $a$ and last integer represents value $d$. This way it doesn't matter what order the values are arranged and how many values are so set $\{d,b\}$ over same language $L$ will be $[0 1 0 1]$ where 1st value still representing value $a$, or more correctly said, absence of value $a$. Calculating intersections or unions over bitmaps $A$ and $B$ uses bitwise Boolean operators. Where union can be easily written as $(A_i \vee B_i)$ where i is the position in the vector, and the intersection $(A_i \wedge B_i)$.
 
-Weighed bitmap is when each of the values is multiplied by its corresponding weight. Let us say on the language $L$ the weights are $a=1 b=2 c=4 d=3$, since bit-map over set $\{a,b,c\}$ is $[1 1 1 0]$ the weighed bit-map will be $[1*w_a 1*_b 1*_c 0*w_d]=[1 2 4 0]$. And for set $\{d,b\}$ it will be $[0 2 0 3]$.
+Weighed bitmap is when each of the values is multiplied by its corresponding weight.
 
 \subsubsection{Privacy Policy Representation}
 
@@ -90,7 +90,7 @@ It is possible to create a weight system so this algorithm will work like a full
 Weights are the key to learning and adjusting this algorithm. They are greatly used in previously mentioned implementation of Hamming distance and can give great results in data-type analysis.
 
 \subsubsection{ The global similarity }
-The global similarity part was not as easy as creating a bitmap. The number of cases a policy can be is undefined, and the similarity of those cases can differ a great deal. Your solution was sum of minimal distance of each Case to a case in the other policy. For instance a caseA from policyA have distance 2, 3, 1 to cases in policyB that mean the distance caseA will have distance 1 to policyB. 
+The global similarity part was not as easy as creating a bitmap. The number of cases a policy can be is undefined, and the similarity of those cases can differ a great deal. One of the solutions are the sum of minimal distance of each Case to a case in the other policy. For instance a caseA from policyA have distance 2, 3, 1 to cases in policyB that mean the distance caseA will have distance 1 to policyB. 
 
 \begin{figure}[htpb]
 
