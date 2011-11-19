@@ -12,7 +12,7 @@ This section describes the preliminary study phase of the project. It focuses on
 
 A large portion of this time was spent on investigating the proposed solution and the technologies involved, that is Case Based Reasoning (CBR) and the technologies used by it. As the customer, SINTEF ICT, is a research institution, and the project can somewhat simply be viewed as the "implementation" part of a larger research project, the customer could from the start provide relatively clear specification of the system that is envisioned\footnote{The system is outlined in broad terms in the article Inger Anne T{\o}ndel, {\AA}smund Ahlmann Nyre and Karin Bernsmed: \emph{"Learning Privacy Preferences"}, SINTEF ICT 2011.}. 
 
-Another critical work laid down in this phase were choices with respect to project scope and development model. As will become apparent, these choices are strongly related to the nature of the problem statement.
+Another critical work laid down in this phase were choices with respect to project scope and development model. As will become apparent, these choices are strongly related to the nature of the problem statement. The final piece of work in the preliminary study was to settle on the development and communication tools to be used for the project.
 
 \section{Internet Privacy Technology}
 
@@ -107,14 +107,66 @@ The waterfall model describes the development process as a linear process that s
 
 Another advantage of the waterfall model, which relates directly to the nature of this particular project, is the focus on design. Since the software product to be delivered is a very early prototype that is to be used in further research, and likely to be further modified in the future, providing solid modularity and interfaces so as to allow code reuse is critical. Properly documenting the program structure, as encouraged by the waterfall model, will also be highly beneficial to anyone who is later to modify the program.
 
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width = 1.0\textwidth]{PrelimStudy/workflow}
-\caption{The Waterfall Model.}
-\label{workflow}
-\end{center}
-\end{figure}
+\begin{wrapfigure}[r]{.5\textwidth}
+  \begin{center}
+    \includegraphics[width = .38\textwidth]{PrelimStudy/workflow}
+    \caption{The Waterfall Model.}
+    \label{workflow}
+  \end{center}
+\end{wrapfigure}
 
 A common criticism raised against the waterflow model is that development rarely occurs in completely distinct stages; it is often hard to completely finish one phase of the project before moving on to the next. For instance, in many projects, requirements may be subject to uncertainty or change, so that design in turn must be altered. While recognizing this and other inherent weaknesses in the waterflow model, we think that for this project, requirements are quite clear, and since its scope is limited, a slightly modified waterfall model will still serve the project well. 
 
 Among the modifications that we have made is, as indicated in Figure~\ref{workflow}, a slight overlap between the different phases. This is justified by the fact that some stages are not dependent entirely on the previous stage. For instance, given a detailed design, a test plan and testing procedures can be worked out independently, and testing of one module does not require the entire system to be integrated.
+
+
+Documentation/
+\section{Development Tools and Technologies}\label{DevTools}
+This section details some of the choices that were made regarding development tools and technologies for this project.
+
+\subsection{Documents and Source Code Repositories}
+For software projects of a certain scale, version control is an important technology that allows project members to work simultaneously against the same files without causing inconsistencies. Version control systems also allow for comparison with older versions, tracking changes and restoring previous copies in the case of errors.
+
+For source code repositories and version control, \textbf{Git} was selected. Git is a distributed, open source version control system that is available for all platforms. Git is also used for hosting the \LaTeX documents that comprise this report. For other documents such as meeting minutes, agendas, status reports, time reporting and certain planning documents, \textbf{Google Docs} is used.
+
+
+\subsection{Programming Languages}
+\textbf{Java} is chosen as the primary programming language for implementing the majority of the code. Java is an object oriented programming language providing a level of abstraction appropriate for the task at hand in addition to a rich set of libraries, including the SWING library for GUI programming, and several libraries for networking. It also simplifies writing a browser plugin as major browsers such as Google Chrome and Firefox employ Javascript as scripting language for plugin.
+
+Javascript was used in small measure for the use of a CouchDB community server.
+
+\subsection{Development Tools}
+Eclipse was used for all Java development, while standard text editors were used for Javascript and manual P3P policy editing. The CouchDB server was hosted on a VMware virtual machine, and was accessible via web interface on most standard web browsers.
+
+\subsection{Databases}
+For testing purposes, it has been decided on using flat file storage of privacy policy data using Java's \texttt{Serializable} interface. However, the output functionality is to be written in a generic fashion to simplify use of database systems such as MySQL, CouchDB and so forth. 
+
+For the collaborative filtering it was decided on doing further research along the lines of using either MySQL or CouchDB, but this work will be pushed forward in time as the key success factor for this project is the CBR engine. The collaborative filtering part will likely be worked on by spare resources in later project phases, and their background and competences will influence the choice of database platform.
+
+\subsection{Third Party Libraries}
+ 
+For developing the CBR as well as P3P parsing components of the Privacy Advisor, a decision had to be made regarding the usage of third party libraries, either for components or for the entire CBR system. Two options were considered with respect to the CBR system. The first was to use a full third party CBR system (jColibri). The alternative was to use a third party system for the retrieval component of the CBR system (i.e. a k Nearest Neighbors (kNN) implementation).
+
+
+\subsubsection{Third Party CBR System}
+
+The customer, SINTEF ICT, suggested looking into an open source CBR library developed at the Universidad Complutense de Madrid.
+ 
+jColibri is a CBR system that has been under development for well over 10 years and is a very comprehensive system allowing for database interfaces and several other features,  and is according to the customer, a popular choice in academia for CBR projects. It is also written in Java, which of course makes interfacing it simple from our own Java project.
+ 
+However, its comprehensiveness also means that it takes more reading to understand and properly apply to the project at hand, and due to its size and poor documentation, jColibri was ultimately deemed unfit for the Privacy Advisor project. Due to the limited time resources available to this project, the risks associated with spending a large amount of time on a third party library that eventually would not be running was to high.
+ 
+\subsubsection{Third Party k Nearest Neighbors Implementations}
+Since kNN is a standard classification algorithm, there are several open source implementations available. Limiting the search space to Java implementations, a library called \emph{The Java Machine Learning Library} (JavaML) was the primary candidate, as it provided a clean and simple interface and allowed for extracting confidence measures.
+ 
+The problem with this library relates to the nature of distance metrics used in classifying privacy policies which is compositional in a way that is non-trivial to handle in JavaML. Furthermore, JavaML seems to operate only on arrays of floating point numbers, which means the distance metric must be defined in two stages; first mapping from \emph{policy domain} to real numbers, then in terms of a metric on real vectors.
+
+\subsubsection{P3P/XML Parser}
+Looking for XML parsers on the Java platform, we found out that there are two different types of XML parsers we could use, the first being a DOM Parsers and the second one being a sequential access parser. The difference being that DOM parsers operate on the document as a whole, while sequential access parsers operates on each piece of the XML document sequentually.
+
+We ended up using SAXParser, an internal sequential access parsers in Java. The task from here was to implement it, making the policy as an object with the fields of our choosing. It works by sequentially going through all elements of the XML document, and with easy string comparison, checking if the element is of the wanted ones.
+
+
+
+\section{Standards}
+To achieve clean and reusable code, the project has adopted Oracle's Coding Conventions for the Java Programming Language\footnote{http://www.oracle.com/technetwork/java/codeconvtoc-136057.html}. This is mentioned in the requirements specification due to the high likelihood of the customer having to change the source code for later adaptations.
