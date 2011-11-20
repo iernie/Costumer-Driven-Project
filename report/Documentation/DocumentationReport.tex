@@ -180,10 +180,22 @@ Advisor can be called from the command line in the following fashion:
 graphical user interface, the configuration window can be set up
 similarly to that illustrated in figure[XXXX].
 
-
-
 \subsubsection{Loading and Viewing a Database}
 
+\textbf{CLI}: To view a database \texttt{p3pDB.db} privacy advisor can be called in the following fashion:
+
+\framebox[1.1\width]{\texttt{PrivacyAdvisor -newDB  false -outDBLoc new.db
+  -inDBLoc p3pDB.db}}
+
+Privacy Advisor will then display the following:
+
+\framebox[1.1\width]{\texttt{UserIO_Simple constructed!
+Would you like to see the database now? (y/[n])}}
+
+To view the database, confirm by pressig \texttt{y}.
+
+\textbf{GUI}: To view a database from the GUI, open the configuration editor and uncheck the \textbf{Build New Database} item and 
+navigate to the directory holding the new database. Select \textbf{Load Database} from the menu. The database can now be browsed in
+the left hand tree structure.
 
 
-\subsubsection{Parsing a P3P Policy}
