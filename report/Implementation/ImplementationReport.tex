@@ -55,10 +55,14 @@ For weights in database
 \end{figure}
 
 
-\subsection{Confidence Measure}\label{confidenceMeasure}%%TODO Dimitry
-%% maybe to be put in design
+\subsection{Confidence Measure}\label{confidenceMeasure}
+Confidence is a value representing the effect or the strength of taken decision. Every time the program takes a decision it also calculates the confidence of that choice. Confidence can be used to guide the learning of the program as well as it decision taking. The confidence measure can be also used to take different actions then choosing a decision, for example it can be used to take algorithm to the next step, like sending request to user or community server for a better answer.
+The way of calculating confidence of a choice and differ from application to application, and is very specific to the case. A choice taking based on difference in cars dimensions cannot be calculated in the same way like decision in a electronic English dictionary. When a CBR engine uses a specific distance-metric to calculate k nearest neighbour those distances can be used to calculate the confidence of the result. 
+One of the specific ways, of computing the confidence, that is most relative to this case, is based that actions can be grouped together by some attribute. Let's consider that action is binary, simple  \left'yes, no\right'' then we can group your set, given by KNN, into two factions. The action we take is  \left'yes\right'' for example. Then we can calculate confidence by counting number of objects that have same action as the decision and dividing it by total number of cases, producing a fraction between 0 and 1. If the confidence is 0 then there's no close neighbours, found by KNN, that have the same action, and the result is most likely wrong. As if the confidence is 1 then all of the close neighbours have the same action and the result is most likely right. 
+But what if the closest neighbour is the \left'' right one \right''  and others in given set from KNN are  \left'wrong\right'', how can we use distance to help us calculate confidence? One of the methods is using \textit{reverse distance}. It is simply as counting cases, the difference is we count the values of one divided by distance from target, object with an action we want to calculate confidence to, to the each object in the given set. Given that distance to all objects is known. This way the object that is closer to the target affects the confidence more.
 
-\subsection{Distance Measures}\label{SimilarityMeasures}%%TODO 
+
+\subsection{Distance Measures}\label{SimilarityMeasures} 
 
 This section discusses the distance measures implemented for comparing two P3P policies. First, it gives a brief overview over the mathematical theory behind distance measures and looks at some standard distance measures. It then looks at what adaptations need to be made to the standard approaches for them to fit the domain of P3P policies.
 
@@ -73,10 +77,7 @@ Some examples of commonly used metrics are the Eucldean, Mahalanobis, and the Ma
 \item Define a new metric that operates directly on privacy objects.
 \end{enumerate}
 
-%TODO 
-%% NBNBNBNB!!!!
-%% Formulae must be inserted!!
-%%
+
 
 \subsubsection{Existing Metrics}
 
