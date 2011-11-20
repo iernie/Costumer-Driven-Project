@@ -10,9 +10,15 @@
 
 This chapter describes the design phase of the program, where the program architecture is established. Several critical decisions are made in this phase and the design and architecture decisions impacts the way the implementation phase proceeds as it defines how the final software system is decomposed into modules, and how these modules behave and interact with each other. 
 
-\section{Overview}
-%http://www.cmcrossroads.com/bradapp/docs/sdd.html
-In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in T{\o}ndel and Nyre. Refinements needed to be made include data structures for storing policies, databases, choosing actual algorithms, and so forth. This section describes how the design in broad terms.
+In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in the paper by T{\o}ndel and Nyre. Given the broad structure in the CBR agent model, several details need to be fleshed out, including data structures for storing policies, databases, choosing actual algorithms, a user interface, and so forth. This chapter lays out the broad structure of the Privacy Advisor system. Implementation details are discussed in Chapter~\ref{Implementation}.
+
+%%
+%% This chapter should be organized as follows: 
+%% - overview
+%% - io/gui/cli
+%% - cbr engine
+%% - data objects storage
+
 
 \begin{figure}[htbp]
 \begin{center}
@@ -35,7 +41,7 @@ This section describes the architecture of the local CBR based system. The next 
 
 Figures~\ref{DesignFlowChart} and \ref{SystemOverview} illustrate the broad structure of the system; a policy object is passed to the CBR system from the user via the user interface. The CBR does a lookup on similar cases in the local database and makes a recommendation based on the similar cases and provides the user with the advice and the background for the advice through the user interface. The user can then give a feedback on the advice choosing to accept or reject it. The user feedback is then stored back to the database.
 
-\section{CLI and I/O}
+\section{User Interfaces and Input/Output}
 Privacy Advisor can be run using either a command line interface (CLI) or a graphical user interface (GUI). Both the CLI and the GUI are built on top of a "General Input/Output'' module, GIO. GIO creates the database objects and issues the proper commands to the CBR framework based on user input.
 
 \begin{figure}[htbp]
@@ -47,9 +53,7 @@ Privacy Advisor can be run using either a command line interface (CLI) or a grap
 \end{figure}
 
 
-
-
-\subsubsection{GUI} 
+\subsubsection{Graphical User Interface} 
 %TODO Einar
 
 \subsubsection{Weights and Configuration Files}
@@ -74,6 +78,8 @@ An overview of the CBR system is given in Figure~\ref{cbr_fig}...
 \end{center}
 \end{figure}
 
+
+\section{Data Objects and Storage}
 
 \subsubsection{P3P Policy Objects}\label{p3pPolObj}
 An overview of the Policy Object is given in Figure~\ref{po_fig}...
@@ -104,7 +110,6 @@ During the CBR cycle, it becomes necessary to check past cases for relevancy dur
 Finally, the CBR cycle concludes by saving the new case (using 'addpolicy(newpolicy)'), and closing the database using 'closeDB()' (which is when the cases would be saved to disk).
 
 An overview of the Policy Database is given in Figure~\ref{pd_fig}...
-%TODO
 
 
 
@@ -117,15 +122,6 @@ An overview of the Policy Database is given in Figure~\ref{pd_fig}...
 \end{figure}
 
 \subsection{Interfaces}
-
-% \begin{center}
-%   \begin{table}[htdp]
-%     \begin{tabularx}{\textwidth}{ | X | |}
-      
-%     \end{tabularx}
-%   \end{table}
-% \end{center}
-
 
 
 \begin{figure}[htbp]
