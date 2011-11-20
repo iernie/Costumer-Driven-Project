@@ -46,14 +46,6 @@ This document is organized as follows:
 \section{System Description}\label{sysDesc}
 The overall structure of the system is detailed in T{\o}ndel et al. (2011), and consists of the local CBR reasoning system, the remote/community collaborative filtering, both with their respective databases for storing information. This is in turn linked to an interface that is able to read and parse P3P policy files that are retrieved either from a local file (for the testing system) or by retrieving from the web.
 
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width = \textwidth]{DesignReport/uml/flowchart.png}
-\caption{Program Flow.}
-\label{ReqSpecFlow}
-\end{center}
-\end{figure}
-
 \subsection{User Interface}
 Because of the research nature of the project, the customer considers the user interface to be of small importance. As the underlying algorithm/methodology is in an early development phase, the core focus is placed on producing a system for model testing and evaluation rather than an end user interface. 
 
@@ -76,18 +68,18 @@ Secondly, the end user who will be using the software in the form of a browser p
 
 The first use case illustrates a research setting where calibration/testing interface allows the user to load in a dataset of P3P policies and test the performance of the underlying model. The last three use cases illustrate the potential application of the system as a browser plugin that runs in the background monitoring the users activities and the web sites he is visiting. As previously stressed, the success of testing according to the first use case determines the extent to which the system described in cases 2-4 is implemented.
 
-\subsection*{Case 1: Research/calibration}
+\subsection{Case 1: Research/calibration}
 In this case a researcher wants to test the properties of the underlying model. Using the Calibration GUI, he imports 50 P3P policies that are parsed. Further he designates that 40 of these are to be stored immediately in the knowledge base along with a corresponding action for each policy.
 
 The user now specifies the distance metric he wants to apply to each of the different components. Finally, he can either set the (importance) weights assigned to each of the policy components, or he can load the weights from a flat text file. Now that the configuration is complete, the ten policies withheld earlier from the sample can be classified. For each of the ten policies, the user can choose either to accept, or reject, and provide a reason for his rejection before proceeding to the next policy. 
 
-\subsection*{Case 2: End user - local query, recommendation accepted, site rejected}
+\subsection{Case 2: End user - local query, recommendation accepted, site rejected}
 A user visits a previously unvisited website. The privacy agent tries to retrieve machine-readable privacy information from the site. When the policy is obtained it is parsed and a context object, consisting of the policy, domain, time of visit, and other contextual information, is created. The context object is compared to the local database for similar contexts. Since the user has visited sites with a similar policy previously, the comparison succeeds and the site is blocked based on data from the local database. The user agrees with this decision and navigates away from the site.
 
-\subsection*{Case 3: End user - local query, site approved by recommender, recommendation accepted}
+\subsection{Case 3: End user - local query, site approved by recommender, recommendation accepted}
 A user visits a previously unvisited website. As before, the system fetches the necessary data to do a local query. This query indicates, with sufficient confidence, that the site's policy is acceptable. The user is then allowed to continue browsing with no intervention from the Privacy Agent.
 
-\subsection*{Case 4: End user - global query, recommendation overridden}
+\subsection{Case 4: End user - global query, recommendation overridden}
 As before, but in this case, no sufficiently similar cases are found locally. In this case the system will query the global server for similar users that have visited the same site to base its decision on this. In this case, site is blocked, but the user disagrees. He selects an override feature and gives a reason for why he overrides.
 
 \section{Specific Requirements}\label{specRec}
@@ -95,9 +87,8 @@ As before, but in this case, no sufficiently similar cases are found locally. In
 \subsection{Product perspective}
 As described in Section~\ref{reqScope}, as the main goal of the project is to develop a testing framework for the core reasoning system. The secondary goal is to implement a user interface that can work as a stand-alone application to allow for actual user testing.
 
-\subsection{Functional Requirements}
+\subsection{Functional Requirements}\label{funcRequirements}
 \begin{enumerate}
-
 \item The system should be able to parse a P3P file to instantiate the data as a privacy case/event/instance.
 \item Based on past history (knowledge base), it should retrieve the cases most similar to the one presented.
 \item Given the degree of similarity to past cases and the uniformity of action taken in the past, the system can either 
@@ -107,7 +98,7 @@ As described in Section~\ref{reqScope}, as the main goal of the project is to de
   \end{enumerate}
 \item If passed on to the CF, the system will query a server for the most similar users and use the data on their decisions in similar cases to make a recommendation (along with local/CBR recommendation) 
 \item Update the database with the recommendation.
-\item Allow the user to view the explanation for the recommendation
+\item Allow the user to view the explanation for the recommendation.
 \item Allow the user to overrule a recommendation. 
 \item When overruling a recommendation, the user must be allowed to explain why the decision is made, e.g. one time occurrence, permanent rule, etc.	
 \item Allow the user, if making a new general rule, to backtrack and alter previous cases
@@ -124,7 +115,7 @@ As described in Section~\ref{reqScope}, as the main goal of the project is to de
 \item Maintainability:
   \begin{enumerate}
   \item Code repositories and version control: github is used as code repository and for version control.
-  \item User documentation is to be produced.
+  \item User docupmentation is to be produced.
   \item A well documented API is to be designed	
   \item English (US) is to be used as language for naming convention for source code and filenames, and in code comments and documentation.
   \item The code is to be designed in a modular fashion.
@@ -145,6 +136,4 @@ As described in Section~\ref{reqScope}, as the main goal of the project is to de
   \item Two UIs are to be implemented: A command line interface (CLI) as well as a GUI is to be designed using Java/swing.
   \item These interfaces are meant to facilitate testing the model framework.
   \end{enumerate}
-
-
 \end{enumerate}
