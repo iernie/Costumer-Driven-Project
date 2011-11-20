@@ -8,12 +8,9 @@
 
 \minitoc
 
-\subsection*{Purpose}
-This chapter describes the design phase of the program, where the program architecture is established. Several critical decisions are made in this phase and the design and architecture decisions impacts the way the implementation phase proceeds as it defines how the final software system is decomposed into modules, and how these modules behave and interact with each other. Details regarding programming languages, algorithms, data structures, coding standards and other software engineering features must also be established prior to proceeding from this phase.
+This chapter describes the design phase of the program, where the program architecture is established. Several critical decisions are made in this phase and the design and architecture decisions impacts the way the implementation phase proceeds as it defines how the final software system is decomposed into modules, and how these modules behave and interact with each other. 
 
-
-
-\section{Architecture}
+\section{Overview}
 %http://www.cmcrossroads.com/bradapp/docs/sdd.html
 In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in T{\o}ndel and Nyre. Refinements needed to be made include data structures for storing policies, databases, choosing actual algorithms, and so forth. This section describes how the design in broad terms.
 
@@ -25,7 +22,7 @@ In implementing Privacy Advisor, a class structure is built around the CBR agent
 \end{center}
 \end{figure}
 
-\subsection{Design Overview}
+\section{Design Overview}
 This section describes the architecture of the local CBR based system. The next section gives an overview over the design of the server component using collaborative filtering and how it interfaces with the local system.  
 
 \begin{figure}[htbp]
@@ -38,7 +35,7 @@ This section describes the architecture of the local CBR based system. The next 
 
 Figures~\ref{DesignFlowChart} and \ref{SystemOverview} illustrate the broad structure of the system; a policy object is passed to the CBR system from the user via the user interface. The CBR does a lookup on similar cases in the local database and makes a recommendation based on the similar cases and provides the user with the advice and the background for the advice through the user interface. The user can then give a feedback on the advice choosing to accept or reject it. The user feedback is then stored back to the database.
 
-\subsubsection{CLI and I/O}
+\section{CLI and I/O}
 Privacy Advisor can be run using either a command line interface (CLI) or a graphical user interface (GUI). Both the CLI and the GUI are built on top of a "General Input/Output'' module, GIO. GIO creates the database objects and issues the proper commands to the CBR framework based on user input.
 
 \begin{figure}[htbp]
@@ -51,10 +48,9 @@ Privacy Advisor can be run using either a command line interface (CLI) or a grap
 
 
 
-=======
+
 \subsubsection{GUI} 
 %TODO Einar
-
 
 \subsubsection{Weights and Configuration Files}
 As an addition to passing command line arguments, GIO also reads a text based configuration file containing CBR and database settings. The configuration files are detailed in the User Documentation in table~\ref{configTable}. 
@@ -79,7 +75,7 @@ An overview of the CBR system is given in Figure~\ref{cbr_fig}...
 \end{figure}
 
 
-\subsubsection{P3P Policy Objects}
+\subsubsection{P3P Policy Objects}\label{p3pPolObj}
 An overview of the Policy Object is given in Figure~\ref{po_fig}...
 
 A P3P Policy Object consists of an \texttt{Action}, a \texttt{Context} and a list of different \texttt{Case} objects. The action object consists of the result from the comparison algorithm, stating if the policy is accepted as a good match, the reasons for this statement and with how much confidence this statement is correct.
