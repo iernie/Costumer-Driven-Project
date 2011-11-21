@@ -12,11 +12,25 @@
 \usepackage{pdfpages}
 \usepackage{longtable}
 \usepackage{makeidx}
+\usepackage{fancyhdr}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 \usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, 
             citecolor=blue, urlcolor=blue]{hyperref}
 
+
+%\pagestyle{fancy}
+
+\pagestyle{fancyplain}
+\setlength{\headheight}{15pt} 
+\fancyhf{} 
+\lhead{\fancyplain{}{\footnotesize\leftmark}}
+%\chead{\fancyplain{}{\footnotesize\chaptername}}
+\rhead{\fancyplain{}{\footnotesize\rightmark}}
+
+%\lfoot{\fancyplain{}{\footnotesize\thechapter}}
+\cfoot{\fancyplain{}{\footnotesize\thepage}}
+%\rfoot{\fancyplain{}{\footnotesize\thesection}}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -35,9 +49,6 @@
 \def\V{\ensuremath {\cal V}}
 \def\R{\ensuremath {\cal R}}
 \def\tr{\ensuremath {\mbox{tr}}}
-
-
-
 
 % ------------------- Title and Author -----------------------------
 \title{Project Report\\

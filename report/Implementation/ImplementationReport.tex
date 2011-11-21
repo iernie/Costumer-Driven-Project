@@ -19,14 +19,14 @@ are used to represent policies and how comparisons are done on these data struct
 
 \section{Algorithms}
 
-\subsection{K-Nearest Neighbors}\label{kNN}
+\subsection{K-Nearest Neighbors}\label{kNN}\index{k-nearest neighbors}\index{k-NN}
 
 \emph{K-Nearest Neighbors} (k-NN) is a \emph{lazy, non-parametric} algorithm for classifying objects based on the classification of the nearest examples in a given feature space. k-NN is one of the simplest machine learning algorithms as it decides the classification based on a majority vote of, that is, an object is classified according to the most common classification of its $k$ nearest neighbors. The most critical component for the success of the k-NN algorithms is the definition of distance. This is discussed in Section~\ref{SimilarityMeasures}. 
 
 For testing purposes, we have implemented a very simple kNN that sorts the example set (knowledge base) by distance from the object to be classified and returns the k nearest objects. This is obviously not an optimal approach being $O(n lg(n))$ where $n$ denotes the size of the knowledge base. This is not problematic for a small scale application such as ours where the knowledge contains less than 200 objects. If the system is to be scaled up, it would require a new kNN implementation, of which there are several available.
 
 
-\subsection{Learning algorithm}\label{learnAlgos}
+\subsection{Learning algorithm}\label{learnAlgos}\index{Learning algorithm}
 The learning algorithm is used to update the weights that are used to calculate the distance between policies. These weights are updated when the user overrides a reccomandation from the system. This way the system learns from the users actions, and the next time the system runs it would return with an answer that reflects the users actions more precisely. As an example, let's say that the P3P policy of website X have a field that says that they have the rights to give away the contact-information of their users. So the system reccomends the user to not accept this policy, but the user overrides the recommendation and accepts the policy. Then the learning algorithm is run, and the field(s) that are connected to contact-information are updated. 
 
 \subsubsection{Implemented learning algorithm}
@@ -55,10 +55,11 @@ For weights in database
 \end{figure}
 
 
-\subsection{Confidence Measure}\label{confidenceMeasure}%%TODO Dimitry
+\subsection{Confidence Measure}\label{confidenceMeasure}\index{Confidence measure} %%TODO Dimitry
 %% maybe to be put in design
+%% REMOVE INDEX IF THIS SECTION IS MOVED
 
-\subsection{Distance Measures}\label{SimilarityMeasures}%%TODO 
+\subsection{Distance Measures}\label{SimilarityMeasures}\index{Distance metrics} %%TODO 
 
 This section discusses the distance measures implemented for comparing two P3P policies. First, it gives a brief overview over the mathematical theory behind distance measures and looks at some standard distance measures. It then looks at what adaptations need to be made to the standard approaches for them to fit the domain of P3P policies.
 
@@ -66,7 +67,7 @@ This section discusses the distance measures implemented for comparing two P3P p
 
 Mathematically, a \emph{metric} or \emph{distance function} is a function that defines the \emph{distance} between two objects in a set. That is, it defines a notion of how far apart two objects are. In a purely mathematical sense, a distance function defined over a set $X$, $X\times X\longrightarrow \mathbb{R}$ that is required to obey the conditions of non-negativity, symmetry, sub-additivity (the triangle inequality) and identity of indiscernibles. 
 
-Some examples of commonly used metrics are the Eucldean, Mahalanobis, and the Manhattan distance measures. These along with a few others are defined in the next section. These metrics have all in common that $\mathbb{R}^n\times \mathbb{R}^n\longrightarrow \mathbb{R}$, which in the case of comparing privacy policies and corresponding context information, is problematic as these, in their raw form contain large amounts of textual data. Two remedies could be proposed for this situation:
+Some examples of commonly used metrics are the Euclidean, Mahalanobis, and the Manhattan distance measures. These along with a few others are defined in the next section. These metrics have all in common that $\mathbb{R}^n\times \mathbb{R}^n\longrightarrow \mathbb{R}$, which in the case of comparing privacy policies and corresponding context information, is problematic as these, in their raw form contain large amounts of textual data. Two remedies could be proposed for this situation:
 
 \begin{enumerate}
 \item Provide a function to map privacy objects (P3P policies and context info) to real vectors.
@@ -79,7 +80,7 @@ Some examples of commonly used metrics are the Eucldean, Mahalanobis, and the Ma
 %%
 
 \subsubsection{Common Metrics}
-
+\index{Distance metrics}\index{Distance metrics!Manhattan}\index{Distance metrics!Hamming}\index{Distance metrics!Levenshtein}\index{Distance metrics!Ontology}
 \begin{itemize}
 \item \emph{Manhattan distance} is function computes the distance that would be travelled to get from one data point to the other if a grid-like path is followed. 
 \item \emph{Hamming distance} is defined as number of positions in which a source and target vector disagrees.
@@ -94,7 +95,7 @@ Another important topic is how system designers can apply domain knowledge to im
 
 \subsection{Implementation}
 
-\subsubsection{Bitmap Representation}
+\subsubsection{Bitmap Representation}\index{Bitmap}
 A bitmap (or bitstring) is a way of representing a set of objects. It is a mapping from a set to a vector of fixed length, where each member of the set corresponds to a particular entity in the vector. For example over a language $L=\{a,b,c,d\}$ for a sets $\{a,b,c\}$ a bitmap representation will look like $[1, 1, 1, 0]$ where first integer represents $a$ and last integer represents value $d$. This way it doesn't matter what order the values are arranged and how many values are so set $\{d,b\}$ over same language $L$ will be $[0, 1, 0, 1]$ where first value still representing value $a$, or in this case, absence of the item $a$. Calculating intersections or unions over bitmaps $A$ and $B$ uses bitwise Boolean operators. Union can be easily written as $(A_i \vee B_i)$ where $i$ is the position in the vector, and the intersection $(A_i \wedge B_i)$.
 
 Weighed bitmap is when each of the values is multiplied by its corresponding weight. For the language $L$, consider the weights $w_a=1, w_b=2, w_c=4, w_d=3$. Since the bitmap representation of the set $\{a,b,c\}$ is $[1, 1, 1, 0]$, the weighed bit-map will be $[1*w_a, 1*_b, 1*_c, 0*w_d]=[1, 2, 4, 0]$. For another set $\{d,b\}$, it will be $[0, 2, 0, 3]$.
@@ -124,7 +125,7 @@ Each statement contains of four fields: the type of data collected, purpose, rec
 
 We then see that a \texttt{Case} contains the purpose, recipient and retention, but a Case can only have one unique data type; this results that one statement can be translated to many cases. \texttt{policyObject} has a list of all its \texttt{Case}s and additional information that we find useful like time of the visit, location of the domain, and action decided upon by the CBR system or the user. Based on SINTEFs proposal the two levels of similarity, local and global are accounted for in implementation. 
 
-\subsubsection{Bitmap Distance}
+\subsubsection{Bitmap Distance}\index{Bitmap}
 
 The distance function is to be a highly modular component of the CBR system. The default distance function implemented uses the bitmap data structure mentioned above, and is henceforth referred to as "Bitmap Distance". For the local similarity Bitmap Distance generates bitmaps for fields, retention, purpose, and recipient. This eliminates the problem that these fields can have a differing number of attributes.  Prior to computing the Hamming distance the bit-map is transformed into weighed bit-map by multiplying every attribute by its weight. Since data-type is a string value the bitmap representation would be impossible. The distance between data-types can be calculated by either string comparison or ontological tree. The Hamming distance for weighed bitmap is easy to implement it can be represented by Boolean expressions. With creation of bitmaps is a fast algorithm with a linear run-time. The easy way of predicting the result and fast run-time is the strengths of this implementation.
 
@@ -183,17 +184,17 @@ The \texttt{P3PParser} is used to parse a P3P policy from an XML document to a J
 
 What it does is sequentially go trough the document, and look at each tag, one by one, dealing only with the tags and attributes we are interested in. It collects information as it parses, and construct a \texttt{PolicyObject} and returns it. The parser also handles custom tags that can be added manually to P3P documents to pre-define action and context for the purpose of bulding a database.
 
-\subsection{Local Database}
+\subsection{Local Database}\index{Datastorage}\index{Datastorage!Local database}
 The provided local database class (\texttt{PDatabase}) is located in the \texttt{datastorage} group, and implements the abstract model \texttt{PolicyDatabase}. It enforces the singleton model, and is based on \texttt{java.io.serializable} for saving objects on disk, and stores objects in a private \texttt{ArrayList<PolicyObject>}. The methods function precisely as laid out in the Design section, and offer an example of how a PolicyDatabase should function.
 
 Please note the lack of direct access to the internal object storage- thus enabling the use of MySQL, or some other data storage format for not only saving the case history between CBR cycles, but also during the cycle itself, provided that a policy can be added and an iterator provided over the dataset. As with all of the modular classes (algorithms, policy databases, network resources, and user interfaces), the class used to load, interface with, and save the local database can easily be switched out by setting the appropriate  option to the qualified class name in either the configuration file or on command line (in this case, the option is \texttt{policyDB}).
 
-\subsection{Remote Databases}  %network is going here
+\subsection{Remote Databases}\index{Datastorage!Community database}  %network is going here
 Access to a community server or network resource is contingent on two things- a remote server, and the class used to interface with said server. In the framework provided, the two classes provide access to a distinct dataset- in fact, while it is possible to create a local substitute providing identical functionality to the existing PolicyDatabase and CBR algorithms, the Java NetworkR class providing the abstract implementation does not provide access to the same case history. Responsibility for providing a reasonable solution in this combined 'retrieve-reuse' phase (the execution of algorithms in a similar model to those used in the local CBR) is intended to reside on the server side, as the resources consumed in transmitting the much larger community case history to a local client are far more significant than those required to run the query locally, and provided only a suggested solution.
 
 Provided in the code is an implementation using a CouchDB database, and a class. The Java code uses several third party libraries (CouchLight and gson, described above) to communicate with a CouchDB database located on a virtual machine provided for the project by NTNU IDI.
 
-\subsubsection{CouchDB server}
+\subsubsection{CouchDB server}\index{CouchDB}
 The virtual machine hosting the CouchDB server is located at vm-6113.idi.ntnu.no, with the server using port 5984 for communication. All test queries and preliminary code was developed using a set of tools known as \texttt{couchapp} in javascript. The queries can be broken down into two distinct parts: the map-reduce, and the view. 
 
 In CouchDB, a map-reduce operates on a dataset to produce a direct report of the result, with minimal formatting (formatting is possible, but not used in this case). A  map-reduce is composed of a 'map' javascript function, which is applied to every document in the database and can be used to reveal the useful attributes of the document (e.g., the value of an attribute or sum of attributes). This resulting list can be sorted, range-limited, etc. The reduce function is applied to initial results of the associated map function (required), and combines the results in a recursive fashion- the function will be applied to the initial results, then the combined results of the first set of reduce operations, then the second, and so on. 
