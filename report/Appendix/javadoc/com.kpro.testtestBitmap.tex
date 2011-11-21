@@ -1,0 +1,75 @@
+\begin{jdclass}[class]{testBitmap}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.test}
+\jdinherits{\jdtypesimple{Object}\jdinh \jdtypesimple{Assert}\jdinh \jdtypesimple{TestCase}}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{int} countTestCases(  )}{TestCase}
+ \jdInhEntry{\jdtypesimple{TestResult} createResult(  )}{TestCase}
+ \jdInhEntry{\jdtypesimple{String} getName(  )}{TestCase}
+ \jdInhEntry{\jdtypesimple{TestResult} run(  )}{TestCase}
+ \jdInhEntry{\jdtypesimple{void} run( \jdtypesimple{TestResult} )}{TestCase}
+ \jdInhEntry{\jdtypesimple{void} runBare(  )}{TestCase}
+ \jdInhEntry{\jdtypesimple{void} runTest(  )}{TestCase}
+ \jdInhEntry{\jdtypesimple{void} setName( \jdtypesimple{String} )}{TestCase}
+ \jdInhEntry{\jdtypesimple{void} setUp(  )}{TestCase}
+ \jdInhEntry{\jdtypesimple{void} tearDown(  )}{TestCase}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{TestCase}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{String}, \jdtypesimple{Object}, \jdtypesimple{Object} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{Object}, \jdtypesimple{Object} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{String}, \jdtypesimple{String}, \jdtypesimple{String} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{String}, \jdtypesimple{String} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{String}, \jdtypesimple{double}, \jdtypesimple{double}, \jdtypesimple{double} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{double}, \jdtypesimple{double}, \jdtypesimple{double} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{String}, \jdtypesimple{float}, \jdtypesimple{float}, \jdtypesimple{float} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{float}, \jdtypesimple{float}, \jdtypesimple{float} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{String}, \jdtypesimple{long}, \jdtypesimple{long} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{long}, \jdtypesimple{long} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{String}, \jdtypesimple{boolean}, \jdtypesimple{boolean} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{boolean}, \jdtypesimple{boolean} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{String}, \jdtypesimple{byte}, \jdtypesimple{byte} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{byte}, \jdtypesimple{byte} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{String}, \jdtypesimple{char}, \jdtypesimple{char} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{char}, \jdtypesimple{char} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{String}, \jdtypesimple{short}, \jdtypesimple{short} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{short}, \jdtypesimple{short} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{String}, \jdtypesimple{int}, \jdtypesimple{int} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertEquals( \jdtypesimple{int}, \jdtypesimple{int} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertFalse( \jdtypesimple{String}, \jdtypesimple{boolean} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertFalse( \jdtypesimple{boolean} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertNotNull( \jdtypesimple{Object} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertNotNull( \jdtypesimple{String}, \jdtypesimple{Object} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertNotSame( \jdtypesimple{String}, \jdtypesimple{Object}, \jdtypesimple{Object} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertNotSame( \jdtypesimple{Object}, \jdtypesimple{Object} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertNull( \jdtypesimple{Object} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertNull( \jdtypesimple{String}, \jdtypesimple{Object} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertSame( \jdtypesimple{String}, \jdtypesimple{Object}, \jdtypesimple{Object} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertSame( \jdtypesimple{Object}, \jdtypesimple{Object} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertTrue( \jdtypesimple{String}, \jdtypesimple{boolean} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} assertTrue( \jdtypesimple{boolean} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} fail( \jdtypesimple{String} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} fail(  )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} failNotEquals( \jdtypesimple{String}, \jdtypesimple{Object}, \jdtypesimple{Object} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} failNotSame( \jdtypesimple{String}, \jdtypesimple{Object}, \jdtypesimple{Object} )}{Assert}
+ \jdInhEntry{\jdtypesimple{void} failSame( \jdtypesimple{String} )}{Assert}
+ \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\end{jdconstructor}
+\begin{jdmethod}{testDistance}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\end{jdmethod}
+\end{jdclass}

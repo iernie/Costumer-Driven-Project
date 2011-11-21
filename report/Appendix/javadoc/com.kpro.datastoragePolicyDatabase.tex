@@ -1,0 +1,80 @@
+\begin{jdclass}[class]{PolicyDatabase}
+\begin{jdclassheader}
+
+\jdabstract \jdpublic 
+\jdpackage{com.kpro.datastorage}
+\jdimplements{Iterable}
+\jdinherits{\jdtypesimple{Object}}
+\JDtext{This is abstract class for databases. All policy 
+ databases must implement this interface. Auto-generated
+ via eclipse from PDatabase.java, then made abstract.
+ Does enforce singleton-ness here. need to do it in each subclass.}
+\JDauthor{ngerstle}
+\JDversion{29.09.11.1}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdmethod}{loadDB}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDtext{Loads database from a file dLoc}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\begin{jdmethod}{loadDB}
+\jdpublic \jdabstract 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{String}}{dLoc}{the inlocation of the database file on disk}
+\JDtext{Loads database from a file dLoc
+ we have this public just in case we want to be able to load
+ a db from a file other than where we plan to store it.}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\begin{jdmethod}{addPolicy}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{PolicyObject}}{n}{the policy to add to the database}
+\JDtext{Adds a PolicyObject to the database}
+\end{jdmethod}
+\begin{jdmethod}{iterator}
+\jdpublic 
+\jdtype{\jdtypesimple{Iterator}}
+\JDtext{provides an iterator over the database's PolicyObjects}
+\JDreturn{an iterator over the internal collection}
+\end{jdmethod}
+\begin{jdmethod}{closeDB}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDtext{calls closeDB(PolicyDatabase.outlocation).
+ needed due to lack of a good destructor system, as far as java goes (according to google)}
+\end{jdmethod}
+\begin{jdmethod}{closeDB}
+\jdpublic \jdabstract 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{String}}{dLoc}{the inlocation to save the data}
+\JDtext{should implement writing the information contained by the PolicyDatabase to a file/disk}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\begin{jdmethod}{getDomain}
+\jdpublic \jdabstract 
+\jdtype{\jdtypesimple{ArrayList}}
+\JDpara{\jdtypesimple{String}}{domain}{the domain to look for}
+\JDtext{This class should return all policys for the given domain.}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\begin{jdmethod}{toString}
+\jdpublic 
+\jdtype{\jdtypesimple{String}}
+\JDtext{Standard toString method}
+\JDauthor{ulfnore}
+\end{jdmethod}
+\end{jdclass}

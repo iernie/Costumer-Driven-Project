@@ -10,7 +10,7 @@
 
 This chapter describes the design phase of the program, where the program architecture is established. Several critical decisions are made in this phase and the design and architecture decisions impacts the way the implementation phase proceeds as it defines how the final software system is decomposed into modules, and how these modules behave and interact with each other. 
 
-In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in the paper by T{\o}ndel and Nyre. Given the broad structure in the CBR agent model, several details need to be fleshed out, including data structures for storing policies, databases, choosing actual algorithms, a user interface, and so forth. This chapter lays out the broad structure of the Privacy Advisor system. Implementation details are discussed in Chapter~\ref{Implementation}.
+In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in the paper by T{\o}ndel and Nyre. Given the broad structure in the CBR agent model, several details need to be fleshed out, including data structures for storing policies, databases, choosing actual algorithms, a user interface, and so forth. This chapter lays out the broad structure of the Privacy Advisor system. Implementation details are discussed in Chapter~\ref{impl}.
 
 \subsection{Documents and Source Code Repositories}\index{GitHub}
 For software projects of a certain scale, version control is an important technology that allows project members to work simultaneously against the same files without causing inconsistencies. Version control systems also allow for comparison with older versions, tracking changes and restoring previous copies in the case of errors.
@@ -76,7 +76,7 @@ In implementing Privacy Advisor, a class structure is built around the CBR agent
 \begin{center}
 \includegraphics[width = \textwidth]{DesignReport/uml/flowchart.png}
 \caption{Program Flow.}
-\label{DesignFlowChrt}
+\label{DesignFlowChart}
 \end{center}
 \end{figure}
 
@@ -105,6 +105,9 @@ Figures~\ref{DesignFlowChart} and \ref{SystemOverview} seek to provide a broad o
 \end{figure}
 
 
+\subsection{Top Level Structure}
+[Discuss figure \ref{gioFig}.]
+
 \section{User Interfaces and Input/Output}
 Privacy Advisor can be run using either a command line interface (CLI) or a graphical user interface (GUI). Both the CLI and the GUI are built on top of a "General Input/Output'' module, GIO. GIO creates the database objects and issues the proper commands to the CBR framework based on user input. The GIO class is shown in Figure~\ref{gioFig}. 
 
@@ -118,7 +121,9 @@ Privacy Advisor can be run using either a command line interface (CLI) or a grap
 
 
 \subsubsection{Graphical User Interface} 
-%TODO Einar
+The Graphical User Interface is used to get a graphical overview over the database, as well as change configurations and run the framework itself. The database is shown in a tree structure so that one can easily click through it and have a look at it. Configurations, reloading of the database and running the program can all be done from the PrivacyAdvisor drop-down menu.
+
+After the program is run, a view of the new policy can be seen for reference in another view, also in a tree structure.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -150,16 +155,9 @@ An overview of the CBR system is given in Figure~\ref{cbr_fig}...
 \end{center}
 \end{figure}
 
-
-<<<<<<< HEAD
-\subsubsection{P3P Policy Objects}\index{P3P}
-=======
-
-
 \section{Data Objects and Storage}
 
-\subsection{P3P Policy Objects}\label{p3pPolObj}
->>>>>>> da740c988e5b599cd412b83d7260e8cabc60ef87
+\subsection{P3P Policy Objects}\label{p3pPolObj}\index{P3P}
 An overview of the Policy Object is given in Figure~\ref{po_fig}...
 
 A P3P Policy Object consists of an \texttt{Action}, a \texttt{Context} and a list of different \texttt{Case} objects. The action object consists of the result from the comparison algorithm, stating if the policy is accepted as a good match, the reasons for this statement and with how much confidence this statement is correct.

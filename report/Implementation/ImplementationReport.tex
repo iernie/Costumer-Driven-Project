@@ -65,18 +65,10 @@ Two important critiques can be raised against the current learning algorithm:
 \subsection{Confidence Measure}\label{confidenceMeasure}
 The term confidence refers to the notion of certainty about a decision or a hypothesis. For Privacy Advisor it is important to attach a confidence number to a recommendation to give some idea of how certain the reasoning engine is in that it is the correct decision. Therefore, every time Privacy Advisor computes an advice, it also calculates the confidence in that advice. Confidence can be used to guide the learning of the program as well as its decision taking. The confidence measure is also used to determine which steps to take after the initial retrieval from the local database; given a sufficient confidence in the result, it will present an advice to the user. Otherwise it will query the community database.
 
-<<<<<<< HEAD
 \subsection{Confidence Measure}\label{confidenceMeasure}\index{Confidence measure} %%TODO Dimitry
-%% maybe to be put in design
-%% REMOVE INDEX IF THIS SECTION IS MOVED
-
-\subsection{Distance Measures}\label{SimilarityMeasures}\index{Distance metrics} %%TODO 
-=======
 The confidence measure implemented in Privacy Advisor is closely linked to the retrieval algorithm, that is, to the reduction kNN algorithm which picks out the k most similar cases to the one at hand and the similarity metric used to compare policies. Since the decision considered here is binary - the policy is either rejected or accepted - the k most similar cases can be split in two. If the conclusion is to accept the policy, one possible measure of confidence could be the fraction of the k nearest neighbors in which the policy has been accepted. While there is a clear rationale for this approach it is flawed in the sense that it does not take into account that some of the k most similar policies may be \emph{much} nearer than the others. To account for this, the confidence measure weights each of the neighbors by the inverse of its distance from the policy that is to be classified
 
-
-\subsection{Distance Measures}\label{SimilarityMeasures} 
->>>>>>> da740c988e5b599cd412b83d7260e8cabc60ef87
+\subsection{Distance Measures}\label{SimilarityMeasures}\index{Distance metrics} %%TODO 
 
 This section discusses the distance measures implemented for comparing two P3P policies. First, it gives a brief overview over the mathematical theory behind distance measures and looks at some standard distance measures. It then looks at what adaptations need to be made to the standard approaches for them to fit the domain of P3P policies.
 
@@ -91,18 +83,8 @@ Some examples of commonly used metrics are the Euclidean, Mahalanobis, and the M
 \item Define a new metric that operates directly on privacy objects.
 \end{enumerate}
 
-<<<<<<< HEAD
-%TODO 
-%% NBNBNBNB!!!!
-%% Formulae must be inserted!!
-%%
+\subsubsection{Existing Metrics}\index{Distance metrics}\index{Distance metrics!Manhattan}\index{Distance metrics!Hamming}\index{Distance metrics!Levenshtein}\index{Distance metrics!Ontology}
 
-\subsubsection{Common Metrics}
-\index{Distance metrics}\index{Distance metrics!Manhattan}\index{Distance metrics!Hamming}\index{Distance metrics!Levenshtein}\index{Distance metrics!Ontology}
-=======
-\subsubsection{Existing Metrics}
-
->>>>>>> da740c988e5b599cd412b83d7260e8cabc60ef87
 \begin{itemize}
 \item \emph{Manhattan distance} is function computes the distance that would be travelled to get from one data point to the other if a grid-like path is followed. 
 \item \emph{Hamming distance} is defined as number of positions in which a source and target vector disagrees.
@@ -211,20 +193,12 @@ As the CBR model requires, data must be stored in a persistent fashion between c
 
 The extended CBR with collaborative filtering needs to support \emph{two} databases - one local and one global global multi-user database that is accessed across a network whenever the local database proves incapable of providing a satisfactory solution to the problem.
 
-<<<<<<< HEAD
-\subsection{Local Database}\index{Datastorage}\index{Datastorage!Local database}
-=======
-\subsubsection{Local Database}
->>>>>>> da740c988e5b599cd412b83d7260e8cabc60ef87
+\subsubsection{Local Database}\index{Datastorage}\index{Datastorage!Local database}
 The provided local database class (\texttt{PDatabase}) is located in the \texttt{datastorage} group, and implements the abstract model \texttt{PolicyDatabase}. It enforces the singleton model, and is based on \texttt{java.io.serializable} for saving objects on disk, and stores objects in a private \texttt{ArrayList<PolicyObject>}. The methods function precisely as laid out in the Design section, and offer an example of how a PolicyDatabase should function.
 
 Please note the lack of direct access to the internal object storage- thus enabling the use of MySQL, or some other data storage format for not only saving the case history between CBR cycles, but also during the cycle itself, provided that a policy can be added and an iterator provided over the dataset. As with all of the modular classes (algorithms, policy databases, network resources, and user interfaces), the class used to load, interface with, and save the local database can easily be switched out by setting the appropriate  option to the qualified class name in either the configuration file or on command line (in this case, the option is \texttt{policyDB}).
 
-<<<<<<< HEAD
-\subsection{Remote Databases}\index{Datastorage!Community database}  %network is going here
-=======
-\subsubsection{Remote Databases}  
->>>>>>> da740c988e5b599cd412b83d7260e8cabc60ef87
+\subsubsection{Remote Databases}  \index{Datastorage!Community database}
 Access to a community server or network resource is contingent on two things- a remote server, and the class used to interface with said server. In the framework provided, the two classes provide access to a distinct dataset- in fact, while it is possible to create a local substitute providing identical functionality to the existing PolicyDatabase and CBR algorithms, the Java NetworkR class providing the abstract implementation does not provide access to the same case history. Responsibility for providing a reasonable solution in this combined 'retrieve-reuse' phase (the execution of algorithms in a similar model to those used in the local CBR) is intended to reside on the server side, as the resources consumed in transmitting the much larger community case history to a local client are far more significant than those required to run the query locally, and provided only a suggested solution.
 
 Provided in the code is an implementation using a CouchDB database, and a class. The Java code uses several third party libraries (CouchLight and gson, described above) to communicate with a CouchDB database located on a virtual machine provided for the project by NTNU IDI.
@@ -248,8 +222,9 @@ As with all of the modular classes (algorithms, policy databases, network resour
 
 \subsection{CLI} \index{Interfaces}\index{Interfaces!Command line interface (CLI)} %%TODO Nicholas
 
+\subsection{GUI}  \index{Interfaces}\index{Interfaces!Graphical user interface (GUI)}
+The GUI inherits from the \texttt{UserIO} class and implements a graphical user interface with the use of Java's own graphical library \texttt{SWING}. The main view is a split view of the database and the new policy that is being reviewed. Both shown via a tree view for easy overview.
 
+Configure, reload database and run are the three options available to choose from the drop-down menu in the main view. Each run their own function to either start up the configure editor, reload the database or run the framework. An exit option is also available.
 
-
-\subsection{GUI} \index{Interfaces}\index{Interfaces!Graphical user interface (GUI)} %%TODO Einar
-
+The configuration editor is an abstract class which builds the appropriate textfields and checkboxes for editing, and then sends them back to \texttt{GIO} when done. This class is inherited in a subclass inside the \texttt{PrivacyAdviserGUI} class and called upon when needed.

@@ -1,0 +1,55 @@
+\begin{jdclass}[class]{CBR}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.algorithm}
+\jdinherits{\jdtypesimple{Object}}
+\JDtext{Case based reason. This is a working CBR class that handles process flow between init and shutdown.
+ Should be easy to extend and overload various features, but should work for most cases as is.}
+\JDauthor{ngerstle}
+\JDversion{29.09.11.1}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\JDpara{\jdtypesimple{Gio}}{theIO}{the GIO instance}
+\JDpara{\jdtypesimple{Properties}}{weightsConfig}{the weights to use for distance metric \&{} learning algorithm}
+\JDpara{\jdtypesimple{ReductionAlgorithm}}{reduceAlg}{the retrival algorithm- produce relevent cases from history}
+\JDpara{\jdtypesimple{ConclusionAlgorithm}}{conclusAlg}{the 'reuse' algorithm- produces a solution from relevant cases}
+\JDpara{\jdtypesimple{LearnAlgorithm}}{learnAlg}{the retain algorithm- modifies the 'weightsConfig' so the distance metric is more accurate}
+\JDtext{Our generic constructor.}
+\JDauthor{ngerstle}
+\end{jdconstructor}
+\begin{jdconstructor}
+\jdpublic 
+\JDpara{\jdtypesimple{Gio}}{theIO}{}
+\JDtext{constructor that so we can call cbr.parse(string)}
+\JDauthor{ngerstle}
+\end{jdconstructor}
+\begin{jdmethod}{run}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{PolicyObject}}{newpol}{}
+\JDtext{runs through CBR with selected algorithms}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\begin{jdmethod}{parse}
+\jdpublic 
+\jdtype{\jdtypesimple{CBR}}
+\JDpara{\jdtypesimple{String}}{string}{the string from either configuration file or commandline}
+\JDthrows{Exception}{}
+\JDtext{Parses the CBR option to create the class and instantiate correct algorithms.}
+\JDreturn{the CBR defined by the input string}
+\end{jdmethod}
+\end{jdclass}

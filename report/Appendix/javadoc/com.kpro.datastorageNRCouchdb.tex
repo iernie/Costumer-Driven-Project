@@ -1,0 +1,60 @@
+\begin{jdclass}[class]{NRCouchdb}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.datastorage}
+\jdinherits{\jdtypesimple{Object}\jdinh \jdtypesimple{NetworkR}}
+\JDtext{The network resource class for working with a couchDB server cross network at the specified location.}
+\JDauthor{ngerstle}
+\JDversion{17.10.11.1}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{void} disconnect(  )}{NetworkR}
+ \jdInhEntry{\jdtypesimple{String} getInfo(  )}{NetworkR}
+ \jdInhEntry{\jdtypesimple{void} parseNOptions( \jdtypesimple{String} )}{NetworkR}
+ \jdInhEntry{\jdtypesimple{Action} reqAct( \jdtypesimple{PolicyObject} )}{NetworkR}
+ \jdInhEntry{\jdtypesimple{void} saveObj( \jdtypesimple{PolicyObject} )}{NetworkR}
+ \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdfield}{type}
+\jdpublic \jdfinal 
+\jdtype{\jdtypesimple{String}}
+\end{jdfield}
+\begin{jdfield}{LVquerybase}
+\jdpublic \jdfinal 
+\jdtype{\jdtypesimple{String}}
+\JDtext{Couchlight object- holds connection to database}
+\end{jdfield}
+\begin{jdconstructor}
+\jdpublic 
+\JDpara{\jdtypesimple{String}}{options}{}
+\JDtext{The view, and the list to pass through when requesting: append jsonated object as key/value}
+\end{jdconstructor}
+\begin{jdmethod}{reqAct}
+\jdpublic 
+\jdtype{\jdtypesimple{Action}}
+\JDpara{\jdtypesimple{PolicyObject}}{a}{}
+\end{jdmethod}
+\begin{jdmethod}{saveObj}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{PolicyObject}}{a}{the PolicyObject to save}
+\JDtext{Saves the policy object to the database}
+\JDreturn{void}
+\end{jdmethod}
+\begin{jdmethod}{disconnect}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDtext{closes/deletes any remaing resources}
+\JDreturn{void}
+\end{jdmethod}
+\end{jdclass}

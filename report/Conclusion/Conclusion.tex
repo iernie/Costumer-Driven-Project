@@ -7,16 +7,20 @@
 
 \minitoc
 
+\section{Summary and Final Remarks}
+
 This project has designed and implemented a privacy agent based on the
 research ideas set forth by SINTEF. The Privacy Advisor software as it
 is today, is a case based reasoning engine that can provide advice
 with regard to P3P privacy policies given knowledge of previous user
-actions. Both the idea and the software are still work in progress,
-which is reflected by the system's user interface which are oriented
+actions. Both the idea and the software remain work in progress,
+which is reflected by the system's user interface which is oriented
 towards testing. It is built in a modular fashion, so that the
 knowledge base, the retrieval algorithm and the similarity metrics, which are likely to be the
 parts of the system that require most of the tweaking, can
 be substituted without affecting the remainder of the software.
+
+
 
 \section{Future Development}
 
@@ -38,6 +42,10 @@ of testing will require putting together a group of test users and monitoring th
 activities over a \emph{prolonged period of time}\footnote{The time aspect is stressed here
 as the system will need time to actually learn the user's preferences.}. 
 
+The project team feels that most important and time consuming part of future development lies
+in this area. Designing appropriate measures and testing routines for evaluating the performance
+of the CBR agent is probably the main obstacle on the way towards realizing the design.
+
 \subsection{Collaborative Filtering} %% TODO: Nicholas: verify
 One of the key improvements to the current Privacy Advisor system is the
 collaborative filtering/community portion of the system. While the interface
@@ -48,15 +56,20 @@ will also require a prolonged period of testing, as a substantial amount of data
 % issues with duplicate policies on server, current state, proposed
 % fix, sintef solution and problems with storing per user basis
 
-\subsection{Distance Metrics}
-
-
-
-
-
+\subsection{Distance Metrics and Algorithms}
 
 
 \subsection{The Current State of Internet Privacy Policies}
+Finally, some words about the current state of Internet privacy policies. While P3P represents
+an effort towards a machine readable standard for privacy policies, it is far from being adopted
+universally. At present several standards seem to coexist, so a finalized system would have to
+be able to handle several different standards.
 
+Also posing significant problems to the effectiveness of privacy enhancement software is fact 
+that there are little in the way of legal regulations of privacy protection online\footnote{See for instance:
+http://www.nytimes.com/2011/11/20/opinion/sunday/a-push-for-online-privacy.html?_r=1&ref=opinion.}.
+At present, businesses are free to arbitrarily change their privacy policies without noticing users,
+and very little effort has been made towards verification or enforcement of policies. This means that currently,
+the privacy policies cannot be the only input to a \emph{truly} trustworthy privacy enhancement software.
 
 

@@ -1,0 +1,643 @@
+\ProvidesClass{javadoc}[2008/05/11 Package for documentation of Java source code. Package is under GNU GENERAL PUBLIC LICENSE]%
+
+% Uses the Package Longtable to print the Table of inheritance
+\RequirePackage{longtable}%
+
+% Options for the hierarchy of the output structure
+% Defines whether the chapter, the section or the subsection represents the highest structure level
+\newif\ifjdbool@HierarchieChapter \jdbool@HierarchieChapterfalse%
+\newif\ifjdbool@HierarchieSection \jdbool@HierarchieSectiontrue%
+\newif\ifjdbool@HierarchieSubSection \jdbool@HierarchieSubSectionfalse%
+
+\DeclareOption{chapter}{\jdbool@HierarchieChaptertrue \jdbool@HierarchieSectionfalse \jdbool@HierarchieSubSectionfalse}%
+\DeclareOption{section}{\jdbool@HierarchieSectiontrue \jdbool@HierarchieChapterfalse \jdbool@HierarchieSubSectionfalse} %Default
+\DeclareOption{subsection}{\jdbool@HierarchieSubSectiontrue \jdbool@HierarchieChapterfalse \jdbool@HierarchieSectionfalse}%
+
+% Options for the output related to the toc
+% Defines whether the chapter, the section or the elementnames will be part of the toc.
+% Differences are realized with chapter and chapter* and their (sub)section variants
+\newif\ifjdbool@TocChapter \jdbool@TocChaptertrue%
+\newif\ifjdbool@TocSection \jdbool@TocSectionfalse%
+\newif\ifjdbool@TocNames \jdbool@TocNamesfalse%
+
+\DeclareOption{toc}{\jd@TocDepth@drei}%
+\DeclareOption{notoc}{\jd@TocDepth@null}%
+\DeclareOption{toc0}{\jd@TocDepth@null}%
+\DeclareOption{toc1}{\jd@TocDepth@eins} %Default
+\DeclareOption{toc2}{\jd@TocDepth@zwei}%
+\DeclareOption{toc3}{\jd@TocDepth@drei}%
+
+% Command that sets the level to which the toc will be generated. Sets the 3 variables above
+\def\jd@TocDepth@null{ \jdbool@TocChapterfalse \jdbool@TocSectionfalse \jdbool@TocNamesfalse }%
+\def\jd@TocDepth@eins{ \jdbool@TocChaptertrue \jdbool@TocSectionfalse \jdbool@TocNamesfalse }%
+\def\jd@TocDepth@zwei{ \jdbool@TocChaptertrue \jdbool@TocSectiontrue \jdbool@TocNamesfalse }%
+\def\jd@TocDepth@drei{ \jdbool@TocChaptertrue \jdbool@TocSectiontrue \jdbool@TocNamestrue }%
+
+%Options to choose the language (def is English)
+%Only the words are translated, there is no further config like babel or encodings
+\newif\ifjdbool@lang@GermanOption \jdbool@lang@GermanOptionfalse%
+\DeclareOption{deutsch}{\jdbool@lang@GermanOptiontrue}%
+
+%Options to choose pdf-intern-links
+\newif\ifjdbool@pdf \jdbool@pdffalse%
+\DeclareOption{hyperref}{\jdbool@pdftrue}%
+
+\ProcessOptions%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Language-definitions
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifjdbool@lang@GermanOption%
+%Deutsch
+	\def\jd@lang@fullname{Vollständige Deklaration}%
+	\def\jd@lang@package{Paket}%
+	\def\jd@lang@inherits{Vererbt}%
+	\def\jd@lang@implements{Implementiert}%
+	\def\jd@lang@outerclass{Enthaltende Klasse}%
+	\def\jd@lang@author{Autor}%
+	\def\jd@lang@category{Kategory}%
+	\def\jd@lang@deprecated{Veraltet}%
+	\def\jd@lang@see{Siehe auch}%
+	\def\jd@lang@serial{Serial}%
+	\def\jd@lang@serialData{SerialData}%
+	\def\jd@lang@serialField{SerialField}%
+	\def\jd@lang@parameter{Parameter}%
+	\def\jd@lang@since{Seit}%
+	\def\jd@lang@return{Rückgabewert}%
+	\def\jd@lang@throws{Ausnahmen}%
+	\def\jd@lang@version{Version}%
+	\def\jd@lang@field{Felder}%
+	\def\jd@lang@method{Methoden}%
+	\def\jd@lang@constr{Konstruktoren}%
+	\def\jd@lang@elementname{Element}%
+	\def\jd@lang@inheritOf{Vererbt von}% 
+	\def\jd@lang@inheritancetable{Tabelle mit geerbten Elementen}% 
+\else%
+%English
+	\def\jd@lang@fullname{Full name}%
+	\def\jd@lang@package{Package}%
+	\def\jd@lang@inherits{Inherits}%
+	\def\jd@lang@implements{Implements}%
+	\def\jd@lang@outerclass{Outer class}%
+	\def\jd@lang@author{Author}%
+	\def\jd@lang@category{Category}%
+	\def\jd@lang@deprecated{Ddeprecated}%
+	\def\jd@lang@see{See also}%
+	\def\jd@lang@serial{Serial}%
+	\def\jd@lang@serialData{SerialData}%
+	\def\jd@lang@serialField{SerialField}%
+	\def\jd@lang@parameter{Parameter}%
+	\def\jd@lang@since{Since}%
+	\def\jd@lang@return{Return}%
+	\def\jd@lang@throws{Exceptions}%
+	\def\jd@lang@version{Version}%
+	\def\jd@lang@field{Fields}%
+	\def\jd@lang@method{Methods}%
+  \def\jd@lang@constr{Construktors}%
+	\def\jd@lang@elementname{Element}%
+	\def\jd@lang@inheritOf{Inherited from}% 
+	\def\jd@lang@inheritancetable{Inheritancetable}% 
+\fi%
+
+% For internal links, the hyperref package is used
+\ifjdbool@pdf%
+	\RequirePackage{hyperref}%
+\fi%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Commands to write the headings and subheadings
+
+% First decision:  the actual hierarchie level
+% Second decision: which variant to use (with or without *)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\jd@Heading#1{%
+	\ifjdbool@HierarchieChapter%
+		\ifjdbool@TocChapter%
+				\chapter[#1]{\ifjdbool@pdf\protect\hypertarget{lab:jd:#1:}{#1}\else#1\fi }%
+		\else%
+				\chapter*{\ifjdbool@pdf\protect\hypertarget{lab:jd:#1:}{#1}\else#1\fi}%
+		\fi%
+	\fi%
+	\ifjdbool@HierarchieSection%
+		\ifjdbool@TocChapter%
+			\section[#1]{\ifjdbool@pdf\protect\hypertarget{lab:jd:#1:}{#1}\else#1\fi}%
+		\else%
+			\section*{\ifjdbool@pdf\protect\hypertarget{lab:jd:#1:}{#1}\else#1\fi}%
+		\fi%
+	\fi%
+	\ifjdbool@HierarchieSubSection%
+		\ifjdbool@TocChapter%
+			\subsection[#1]{\ifjdbool@pdf\protect\hypertarget{lab:jd:#1:}{#1}\else#1\fi}%
+		\else%
+			\subsection*{\ifjdbool@pdf\protect\hypertarget{lab:jd:#1:}{#1}\else#1\fi}%
+		\fi%
+	\fi%
+}%
+
+\def\jd@SubHeading#1{%
+	\ifjdbool@HierarchieChapter%
+		\ifjdbool@TocSection%
+			\section{#1}%
+		\else%
+			\section*{#1}%
+		\fi%
+	\fi%
+	\ifjdbool@HierarchieSection%
+		\ifjdbool@TocSection%
+			\subsection{#1}%
+		\else%
+			\subsection*{#1}%
+		\fi%
+	\fi%
+	\ifjdbool@HierarchieSubSection%
+		\ifjdbool@TocSection%
+			\subsubsection{#1}%
+		\else%
+			\subsubsection*{#1}%
+		\fi%
+	\fi%
+}%
+
+\def\jd@SubSubHeading[#1]#2{%
+	\def\JDtemp@para{#1}%
+	\ifjdbool@HierarchieChapter%
+		\ifjdbool@TocNames%
+			\ifx\JDtemp@para\@empty	\subsection{#2} \else \subsection[#1]{#2} \fi%
+		\else%
+			\subsection*{#2}%
+		\fi%
+	\fi%
+	\ifjdbool@HierarchieSection%
+		\ifjdbool@TocNames%
+			\ifx\JDtemp@para\@empty	\subsubsection{#2} \else \subsubsection[#1]{#2} \fi%
+		\else%
+			\subsubsection*{#2}%
+		\fi%
+	\fi%
+	\ifjdbool@HierarchieSubSection%
+		\ifjdbool@TocNames%
+			\ifx\JDtemp@para\@empty	\paragraph{#2} \else \paragraph[#1]{#2} \fi%
+		\else%
+			\paragraph*{#2}%
+		\fi%
+	\fi%
+}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Commands to design the output 
+% Command for truetype font and for inheritarrow
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\jdcode#1{\texttt{#1}}%
+\def\jdinh{$\leftarrow$}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% One class
+% Possible obtions: class, interface
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{jdclass}[2][class]{% 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% Resets all local variables
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\gdef\jd@letallempty{%
+		\global\jdbool@JDItemsfalse%
+		
+		\global\jdbool@ModifierPublicfalse%
+		\global\jdbool@ModifierPrivatefalse%
+		\global\jdbool@ModifierProtectedfalse%
+		\global\jdbool@ModifierStaticfalse%
+		\global\jdbool@ModifierAbstractfalse%
+		\global\jdbool@ModifierFinalfalse%
+		\global\jdbool@ModifierVolatilefalse%
+		\global\jdbool@ModifierTransientfalse%
+		
+		\global\let\jd@package\@empty%
+		\global\let\jd@implements\@empty%
+		\global\let\jd@inherits\@empty%
+		\global\let\jd@outerclass\@empty%
+		\global\let\jd@type\@empty%
+		
+		\global\let\JD@authors\@empty%
+		\global\let\JD@category\@empty%
+		\global\let\JD@serial\@empty%
+		\global\let\JD@sees\@empty%
+		\global\let\JD@since\@empty%
+		\global\let\JD@version\@empty%
+		\global\let\JD@deprecated\@empty%
+		\global\let\JD@text\@empty%
+		\global\let\JD@serialData\@empty%
+		\global\let\JD@serialField\@empty%
+		\global\let\JD@return\@empty%
+		\global\let\JD@params\@empty%
+		\global\let\JD@throws\@empty%
+				
+		\global\let\jd@exceplist\@empty%
+		\global\let\jd@paralist\@empty%
+	}%
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% Decision, if the subheadings are already written
+	% Will be set after first method, field, ...
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newif\ifjdbool@HeadingInhTable \jdbool@HeadingInhTabletrue%
+	\newif\ifjdbool@HeadingFields \jdbool@HeadingFieldstrue%
+	\newif\ifjdbool@HeadingConstr \jdbool@HeadingConstrtrue%
+	\newif\ifjdbool@HeadingMethod \jdbool@HeadingMethodtrue%
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% Are there Entries of Javadocs?
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newif\ifjdbool@JDItems \jdbool@JDItemsfalse%
+		
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% Linkpossibilities
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\def\jdtypesimple##1{\ifjdbool@pdf\protect\hyperlink{lab:jd:##1:}{##1}\else ##1\fi}%
+	\def\jdtypearray##1##2{\ifjdbool@pdf\protect\hyperlink{lab:jd:##1:}{##1}\else ##1\fi ##2}%
+	\def\jdtypegeneric##1##2{ \ifjdbool@pdf\protect\hyperlink{lab:jd:##1:}{##1}\else ##1\fi < ##2 > }%
+			
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+	% Entries for the modifier if they were called
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newif\ifjdbool@ModifierPublic \jdbool@ModifierPublicfalse%
+	\newif\ifjdbool@ModifierPrivate \jdbool@ModifierPrivatefalse%
+	\newif\ifjdbool@ModifierProtected \jdbool@ModifierProtectedfalse%
+	\newif\ifjdbool@ModifierStatic \jdbool@ModifierStaticfalse%
+	\newif\ifjdbool@ModifierAbstract \jdbool@ModifierAbstractfalse%
+	\newif\ifjdbool@ModifierFinal \jdbool@ModifierFinalfalse%
+	\newif\ifjdbool@ModifierTransient \jdbool@ModifierTransientfalse%
+	\newif\ifjdbool@ModifierVolatile \jdbool@ModifierVolatilefalse%
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% Setter for the modifier
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\def\jdpublic{\jdbool@ModifierPublictrue}%
+	\def\jdstatic{ \jdbool@ModifierStatictrue }%
+	\def\jdabstract{ \jdbool@ModifierAbstracttrue }%
+	\def\jdfinal{ \jdbool@ModifierFinaltrue }%
+	\def\jdprivate{ \jdbool@ModifierPrivatetrue }%
+	\def\jdprotected{ \jdbool@ModifierProtectedtrue }%
+	\def\jdtransient{ \jdbool@ModifierTransienttrue }%
+	\def\jdvolatile{ \jdbool@ModifierVolatiletrue }%
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% Combination of all called modifier
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\gdef\jd@modifier{ \ifjdbool@ModifierPublic{} public\fi \ifjdbool@ModifierProtected{} protected\fi \ifjdbool@ModifierPrivate{} private\fi \ifjdbool@ModifierStatic{} static\fi \ifjdbool@ModifierAbstract{} abstract\fi \ifjdbool@ModifierFinal{} final\fi \ifjdbool@ModifierTransient{} transient\fi \ifjdbool@ModifierVolatile{} volatile\fi}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% Macros for code-based elements (package, inherits, interfaces, outerclasses, objecttype
+		
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Klasseninfo
+	\def\jdpackage##1{\long\gdef\jd@package{##1}}%
+	\def\jdinherits##1{\long\gdef\jd@inherits{##1}}%
+	\def\jdouterclass##1{\long\gdef\jd@outerclass{##1}}%
+	% Methoden- und Feldinfo
+	\def\jdtype##1{ \long\gdef\jd@type{##1} }%
+	
+	% Mehrfachfeld für Interfaces
+	\def\jdimplements##1{\ifx\@empty\jd@implements \long\gdef\jd@implements{\jdtypesimple{##1}} \else \g@addto@macro\jd@implements{ \\ \jdtypesimple{##1} } \fi }
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% Macros for the javadoc-based elements
+		
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\def\JDcategory{\jdbool@JDItemstrue \long\gdef\JD@category}%
+	\def\JDdeprecated{ \jdbool@JDItemstrue \long\gdef\JD@deprecated}%
+	\def\JDserial{ \jdbool@JDItemstrue \long\gdef\JD@serial}%
+	\def\JDserialData{ \jdbool@JDItemstrue \long\gdef\JD@serialData}%
+	\def\JDserialField{ \jdbool@JDItemstrue \long\gdef\JD@serialField}%
+	\def\JDsince{ \jdbool@JDItemstrue \long\gdef\JD@since}%
+	\def\JDtext{\long\gdef\JD@text}%	
+	\def\JDversion{\jdbool@JDItemstrue \long\gdef\JD@version}%
+	\def\JDreturn{\jdbool@JDItemstrue \long\gdef\JD@return}%
+	
+	\def\JDauthor##1{%
+		\ifx\@empty\JD@authors 	 \gdef\JD@authors{ ##1 }%
+			 \else \g@addto@macro\JD@authors{ \\ ##1}%
+		\fi  \jdbool@JDItemstrue 	}%
+	\def\JDsee##1{%
+		\ifx\@empty\JD@sees 	 \gdef\JD@sees{ ##1 }%
+			 \else \g@addto@macro\JD@sees{ \\ ##1 }%
+		\fi  \jdbool@JDItemstrue 	}%
+
+	\def\JDpara##1##2##3{%
+		\ifx\@empty\JD@params 	 \gdef\JD@params{ ##1 ##2 & ##3  }%
+			 \else \g@addto@macro\JD@params{ \\ ##1 ##2 & ##3}%
+		\fi%
+		\ifx\@empty\jd@paralist 	 \gdef\jd@paralist{ ##1 ##2}%
+			 \else \g@addto@macro\jd@paralist{, ##1 ##2}%
+		\fi%
+		 \jdbool@JDItemstrue 	}%
+	\def\JDthrows##1##2{%
+		\ifx\@empty\JD@throws \gdef\JD@throws{\jdtypesimple{##1} & ##2 }%
+			\else \g@addto@macro\JD@throws{ \\ \jdtypesimple{##1} & ##2 }%
+		\fi%
+		\ifx\@empty\jd@exceplist \gdef\jd@exceplist{\jdtypesimple{##1}}%
+			\else \g@addto@macro\jd@exceplist{, \jdtypesimple{##1}}%
+		\fi%
+		 \jdbool@JDItemstrue 	}%
+
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% Start of the class-environment: Heading
+		
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\jd@letallempty%
+
+	\jd@Heading{#2}%
+	\gdef\jd@classtitle{#2}%
+	\gdef\jd@ClassOrInterface{#1}%
+}%
+{ \center%
+		\rule{14cm}{2pt}%
+	\endcenter%
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	% End of the class-environment: delete of all variable
+		
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\jd@letallempty
+	
+	\global\jdbool@HeadingInhTabletrue
+	\global\jdbool@HeadingFieldstrue
+	\global\jdbool@HeadingConstrtrue
+	\global\jdbool@HeadingMethodtrue
+	\gdef\jd@classtitle{\@empty}
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Environment for the class-information
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\jdclassheader{}%
+\def\endjdclassheader{%
+\ifjdbool@HeadingInhTable%
+	\else%
+	\errmessage{Headers mustn't follow to the inheritancetable.}%
+\fi%
+\ifjdbool@HeadingFields%
+	\else%
+	\errmessage{Headers mustn't follow to fields.}%
+\fi%
+\ifjdbool@HeadingConstr%
+	\else%
+	\errmessage{Headers mustn't follow to constructors.}%
+\fi%
+\ifjdbool@HeadingMethod%
+	\else%
+	\errmessage{Headers mustn't follow to methods.}%
+\fi%
+
+% code-based elements
+\begin{description}%
+	\item[\jd@lang@fullname:] \protect\jdcode{\jd@modifier{} \jd@ClassOrInterface{} \jd@classtitle }%
+	\ifx\@empty\jd@package \else \item[\jd@lang@package] \jd@package \fi%
+	\ifx\@empty\jd@inherits \else \item[\jd@lang@inherits] \jd@inherits \fi%
+	\ifx\@empty\jd@implements	\else \item[\jd@lang@implements] \tabular[t]{p{11cm}} \jd@implements \endtabular \fi%
+	\ifx\@empty\jd@outerclass \else \item[\jd@lang@outerclass] \jd@outerclass \fi%
+\end{description}%
+
+% javadoc-based elements
+\par \JD@text%
+
+\ifjdbool@JDItems%
+\description%
+	\ifx\JD@authors\@empty \else \item[\jd@lang@author]  \tabular[t]{p{11cm}} \JD@authors \endtabular  \fi%
+	\ifx\JD@category\@empty \else \item[\jd@lang@category] \JD@category  \fi%
+	\ifx\JD@deprecated\@empty \else \item[\jd@lang@deprecated] \JD@deprecated  \fi%
+	\ifx\JD@sees\@empty \else \item[\jd@lang@see]   \tabular[t]{p{11cm}} \JD@sees \endtabular \fi%
+	\ifx\JD@serial\@empty \else \item[\jd@lang@serial] \JD@serial \fi%
+	\ifx\JD@since\@empty \else \item[\jd@lang@since] \JD@since \fi%
+	\ifx\JD@version\@empty \else \item[\jd@lang@version] \JD@version \fi%
+\enddescription%
+\fi%
+
+% reset
+\jd@letallempty%
+}%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Environment for one field
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\jdfield#1{%
+\ifjdbool@HeadingConstr%
+	\else%
+	\errmessage{Fields mustn't follow to constructors.}%
+\fi%
+\ifjdbool@HeadingMethod%
+	\else%
+	\errmessage{Fields mustn't follow to methods.}%
+\fi%
+% Writing the Heading
+\ifjdbool@HeadingFields%
+	\jd@SubHeading{\jd@lang@field}%
+	\global\jdbool@HeadingFieldsfalse%
+\fi%
+
+\def\jd@localtitle{#1}%
+}
+\def\endjdfield{%
+% Writing this field-heading
+\jd@SubSubHeading[ \jd@type{} \jd@localtitle ]{\jd@modifier{} \jd@type{} \jd@localtitle}%
+
+% javadoc-based elements
+\par \JD@text%
+\ifjdbool@JDItems%
+\begin{description}%
+	\ifx\JD@authors\@empty \else \item[\jd@lang@author]  \tabular[t]{p{11cm}} \JD@authors \endtabular  \fi%
+	\ifx\JD@category\@empty \else \item[\jd@lang@category] \JD@category  \fi%
+	\ifx\JD@deprecated\@empty \else \item[\jd@lang@deprecated] \JD@deprecated  \fi%
+	\ifx\JD@sees\@empty \else \item[\jd@lang@see]   \tabular[t]{p{11cm}} \JD@sees \endtabular \fi%
+	\ifx\JD@serial\@empty \else \item[\jd@lang@serial] \JD@serial \fi%
+	\ifx\JD@serialField\@empty \else \item[\jd@lang@serialField] \JD@serialField \fi%
+	\ifx\JD@since\@empty \else \item[\jd@lang@since] \JD@since \fi%
+\end{description}%
+\fi%
+% reset
+\begin{center}%
+	\rule{12cm}{1pt}%
+\end{center}%
+
+\jd@letallempty%
+}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Environment for one constructor
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\jdconstructor{%
+\ifjdbool@HeadingMethod%
+	\else%
+	\errmessage{Constructors mustn't follow to methods.}%
+\fi%
+
+% Writing the heading
+\ifjdbool@HeadingConstr%
+	\jd@SubHeading{\jd@lang@constr}%
+	\global\jdbool@HeadingConstrfalse%
+\fi%
+}
+\def\endjdconstructor{%
+% Writing this constructor-heading
+\jd@SubSubHeading[\jd@classtitle{}( \ifx\@empty\jd@paralist \else \jd@paralist \fi{} )]{\jd@modifier{} \jd@classtitle{}( \ifx\@empty\jd@paralist \else \jd@paralist \fi{} ) \ifx\@empty\jd@exceplist \else throws \jd@exceplist \fi }%
+
+% javadoc-based elements
+\par \JD@text%
+\ifjdbool@JDItems%
+\begin{description}%
+	\ifx\JD@authors\@empty \else \item[\jd@lang@author]  \tabular[t]{p{11cm}} \JD@authors \endtabular  \fi%
+	\ifx\JD@category\@empty \else \item[\jd@lang@category] \JD@category  \fi%
+	\ifx\JD@deprecated\@empty \else \item[\jd@lang@deprecated] \JD@deprecated  \fi%
+	\ifx\JD@sees\@empty \else \item[\jd@lang@see]   \tabular[t]{p{11cm}} \JD@sees \endtabular \fi%
+	\ifx\JD@serial\@empty \else \item[\jd@lang@serial] \JD@serial \fi%
+	\ifx\JD@serialData\@empty \else \item[\jd@lang@serialData] \JD@serialData \fi%
+	\ifx\JD@since\@empty \else \item[\jd@lang@since] \JD@since \fi%
+	\ifx\JD@return\@empty \else \item[\jd@lang@return] \JD@return \fi%
+	\ifx\JD@params\@empty \else \item[\jd@lang@parameter]  \tabular[t]{p{4.5cm}p{6.5cm}} \JD@params \endtabular \fi%
+	\ifx\JD@throws\@empty \else \item[\jd@lang@throws]  \tabular[t]{p{4.5cm}p{6.5cm}} \JD@throws \endtabular \fi%
+\end{description}%
+\fi%
+
+\begin{center}%
+	\rule{12cm}{1pt}%
+\end{center}%
+
+% reset
+\jd@letallempty%
+}%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Environment for one method
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\jdmethod#1{%
+% Writing the heading
+\ifjdbool@HeadingMethod%
+	\jd@SubHeading{\jd@lang@method}%
+	\global\jdbool@HeadingMethodfalse%
+\fi%
+
+\def\jd@localtitle{#1}%
+}%
+\def\endjdmethod{%
+% writing this method heading
+\ifx\@empty\jd@type \gdef\jd@type{void} \fi%if no type is given, void is used
+
+\jd@SubSubHeading[ \jd@type{} \jd@localtitle{}( \ifx\@empty\jd@paralist \else \jd@paralist \fi{} )]{\jd@modifier{} \jd@type{} \jd@localtitle{}( \ifx\@empty\jd@paralist \else \jd@paralist \fi{} ) \ifx\@empty\jd@exceplist \else throws \jd@exceplist \fi }%
+
+% javadoc-based elements
+\par \JD@text%
+\ifjdbool@JDItems%
+\begin{description}%
+	\ifx\JD@authors\@empty \else \item[\jd@lang@author]  \tabular[t]{p{11cm}} \JD@authors \endtabular  \fi%
+	\ifx\JD@category\@empty \else \item[\jd@lang@category] \JD@category  \fi%
+	\ifx\JD@deprecated\@empty \else \item[\jd@lang@deprecated] \JD@deprecated  \fi%
+	\ifx\JD@sees\@empty \else \item[\jd@lang@see]   \begin{itemize} \JD@sees \end{itemize} \fi%
+	\ifx\JD@serial\@empty \else \item[\jd@lang@serial] \JD@serial \fi%	
+	\ifx\JD@serialData\@empty \else \item[\jd@lang@serialData] \JD@serialData \fi%
+	\ifx\JD@since\@empty \else \item[\jd@lang@since] \JD@since \fi%
+	\ifx\JD@return\@empty \else \item[\jd@lang@return] \JD@return \fi%
+	\ifx\JD@params\@empty \else \item[\jd@lang@parameter]  \tabular[t]{p{4.5cm}p{6.5cm}} \JD@params \endtabular \fi%
+	\ifx\JD@throws\@empty \else \item[\jd@lang@throws]  \tabular[t]{p{4.5cm}p{6.5cm}} \JD@throws \endtabular \fi%
+\end{description}%
+\fi%
+
+\begin{center}%
+	\rule{12cm}{1pt}%
+\end{center}%
+
+% reset
+\jd@letallempty%
+}
+
+\def\jdinheritancetable{%
+	\ifjdbool@HeadingFields%
+		\else%
+		\errmessage{The Inheritancetable mustn't follow to fields.}%
+	\fi%
+	\ifjdbool@HeadingConstr%
+		\else%
+		\errmessage{The Inheritancetable mustn't follow to constructors.}%
+	\fi%
+	\ifjdbool@HeadingMethod%
+		\else%
+		\errmessage{The Inheritancetable mustn't follow to methods.}%
+	\fi%
+	
+	\ifjdbool@HeadingMethod%
+		\jd@SubHeading{\jd@lang@inheritancetable}%
+		\global\jdbool@HeadingInhTablefalse%
+	\fi%
+		
+	% Definition einer Zeile der Tabelle
+	\def\jdInhEntry##1##2{ ##1 & \jdtypesimple{##2} \\ \hline }%
+	
+	\center%
+	\longtable{|l|l|}%
+	\hline%
+	\jd@lang@elementname & \jd@lang@inheritOf \\ \hline%
+}%
+\def\endjdinheritancetable{%
+	\endlongtable%
+	\endcenter%
+}%
