@@ -1,0 +1,45 @@
+\begin{jdclass}[class]{PrivacyAdviser}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.main}
+\jdinherits{\jdtypesimple{Object}}
+\JDtext{Main class.}
+\JDversion{29.09.11.1}
+\JDauthor{ngerstle}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\end{jdconstructor}
+\begin{jdmethod}{main}
+\jdpublic \jdstatic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypearray{String}{\lbrack{}\rbrack{}}}{args}{accepts optional command line arguments, including location of general config file (default pwd)}
+\JDthrows{Exception}{}
+\JDtext{Program in following sequence- init, load stuff for cbr, run cbr, shutdown.
+ should alter for more flexible cbr options (different algorithms, selected by switch
+ statement on ReduceChoice, ConclusionChoice, LearnChoice, etc, once those are in the
+ config file/cli}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\begin{jdmethod}{init}
+\jdpublic \jdstatic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypearray{String}{\lbrack{}\rbrack{}}}{args}{accepts optional command line arguments, including location of general config file (default pwd)}
+\JDthrows{Exception}{}
+\JDtext{Initializes the program- loads general configuration, starts logger, loads weights, loads database}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\end{jdclass}

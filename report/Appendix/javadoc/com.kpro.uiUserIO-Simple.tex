@@ -1,0 +1,67 @@
+\begin{jdclass}[class]{UserIO\_Simple}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.ui}
+\jdinherits{\jdtypesimple{Object}\jdinh \jdtypesimple{UserIO}}
+\JDtext{This is a very simple commandline version of a user interface. It doesn't permit user configuration (of running options), 
+ it has a ugly database display, but it works.}
+\JDauthor{ngerstle}
+\JDauthor{ulfnore}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{void} closeResources(  )}{UserIO}
+ \jdInhEntry{\jdtypesimple{ArrayList} loadHistory(  )}{UserIO}
+ \jdInhEntry{\jdtypesimple{void} showDatabase( \jdtypesimple{PolicyDatabase} )}{UserIO}
+ \jdInhEntry{\jdtypesimple{PolicyObject} userResponse( \jdtypesimple{PolicyObject} )}{UserIO}
+ \jdInhEntry{\jdtypesimple{void} user\_init( \jdtypesimple{Properties} )}{UserIO}
+ \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\end{jdconstructor}
+\begin{jdmethod}{showDatabase}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{PolicyDatabase}}{pdb}{}
+\JDtext{does nothing}
+\JDsee{UserIO\#{}showDatabase(PolicyDatabase)}
+\end{jdmethod}
+\begin{jdmethod}{loadHistory}
+\jdpublic 
+\jdtype{\jdtypesimple{ArrayList}}
+\JDtext{does nothing}
+\JDsee{UserIO\#{}loadHistory()}
+\end{jdmethod}
+\begin{jdmethod}{userResponse}
+\jdpublic 
+\jdtype{\jdtypesimple{PolicyObject}}
+\JDpara{\jdtypesimple{PolicyObject}}{n}{the policy display}
+\JDtext{A super simple, static user display of the result on command line. does not wait for user response}
+\JDreturn{the policy given}
+\JDauthor{ngerstle}
+\JDauthor{ulfnore}
+\JDsee{UserIO\#{}userResponse(PolicyObject)}
+\end{jdmethod}
+\begin{jdmethod}{closeResources}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDtext{nothing to close}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\begin{jdmethod}{user\_init}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Properties}}{genProps}{}
+\JDtext{This user interface doesn't actually let the user reconfigure anything. Would do so through the reference to Gio if necessary.}
+\end{jdmethod}
+\end{jdclass}

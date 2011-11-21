@@ -1,0 +1,68 @@
+\begin{jdclass}[class]{PrivacyAdvisorGUI}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.ui}
+\jdinherits{\jdtypesimple{Object}\jdinh \jdtypesimple{UserIO}}
+\JDtext{Privacy Advisor GUI to run on top of}
+\JDauthor{ulfnore}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{void} closeResources(  )}{UserIO}
+ \jdInhEntry{\jdtypesimple{ArrayList} loadHistory(  )}{UserIO}
+ \jdInhEntry{\jdtypesimple{void} showDatabase( \jdtypesimple{PolicyDatabase} )}{UserIO}
+ \jdInhEntry{\jdtypesimple{PolicyObject} userResponse( \jdtypesimple{PolicyObject} )}{UserIO}
+ \jdInhEntry{\jdtypesimple{void} user\_init( \jdtypesimple{Properties} )}{UserIO}
+ \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\JDtext{Default no-arg constructor}
+\JDauthor{ulfnore}
+\end{jdconstructor}
+\begin{jdmethod}{main}
+\jdpublic \jdstatic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypearray{String}{\lbrack{}\rbrack{}}}{args}{}
+\JDtext{Launch the application.}
+\JDauthor{ulfnore}
+\end{jdmethod}
+\begin{jdmethod}{user\_init}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Properties}}{genProps}{}
+\JDtext{Called from GIO. Takes default properties file as argument.}
+\end{jdmethod}
+\begin{jdmethod}{loadHistory}
+\jdpublic 
+\jdtype{\jdtypesimple{ArrayList}}
+\end{jdmethod}
+\begin{jdmethod}{userResponse}
+\jdpublic 
+\jdtype{\jdtypesimple{PolicyObject}}
+\JDpara{\jdtypesimple{PolicyObject}}{n}{}
+\JDtext{Shows recommendation and prompts for user action
+ 
+ Needs improvement to allow for giving reasons as for why  
+ recommendation is not accepted.}
+\JDauthor{ulfnore}
+\end{jdmethod}
+\begin{jdmethod}{closeResources}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\end{jdmethod}
+\begin{jdmethod}{showDatabase}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{PolicyDatabase}}{pdb}{}
+\end{jdmethod}
+\end{jdclass}

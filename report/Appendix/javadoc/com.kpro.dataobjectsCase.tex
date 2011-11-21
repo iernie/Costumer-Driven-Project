@@ -1,0 +1,136 @@
+\begin{jdclass}[class]{Case}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.dataobjects}
+\jdimplements{Comparable}
+\jdinherits{\jdtypesimple{Object}}
+\JDtext{A class that contains a single datatype from a PolicyObject.}
+\JDauthor{ernie}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\end{jdconstructor}
+\begin{jdconstructor}
+\jdpublic 
+\JDpara{\jdtypesimple{ArrayList}}{purpose}{}
+\JDpara{\jdtypesimple{ArrayList}}{retention}{}
+\JDpara{\jdtypesimple{ArrayList}}{recipients}{}
+\JDpara{\jdtypesimple{ArrayList}}{categories}{}
+\JDpara{\jdtypesimple{String}}{datatype}{}
+\end{jdconstructor}
+\begin{jdmethod}{addPurpose}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Purpose}}{p}{}
+\JDtext{Adds a purpose to the case}
+\end{jdmethod}
+\begin{jdmethod}{addRetention}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Retention}}{t}{}
+\JDtext{Adds a retention to the case}
+\end{jdmethod}
+\begin{jdmethod}{addRecipient}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Recipient}}{r}{}
+\JDtext{Adds a recipient to the case}
+\end{jdmethod}
+\begin{jdmethod}{addCategory}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Category}}{c}{}
+\JDtext{Adds a category to the case}
+\end{jdmethod}
+\begin{jdmethod}{setDataType}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{String}}{s}{}
+\JDtext{Sets the datatype to the case}
+\end{jdmethod}
+\begin{jdmethod}{getPurposes}
+\jdpublic 
+\jdtype{\jdtypesimple{ArrayList}}
+\JDtext{Gets the purposes}
+\JDreturn{ArrayList<Purpose>}
+\end{jdmethod}
+\begin{jdmethod}{getPurpose}
+\jdpublic 
+\jdtype{\jdtypesimple{Purpose}}
+\JDpara{\jdtypesimple{int}}{i}{}
+\JDtext{Returns the ith purpose}
+\JDreturn{Purpose}
+\end{jdmethod}
+\begin{jdmethod}{getRetentions}
+\jdpublic 
+\jdtype{\jdtypesimple{ArrayList}}
+\JDtext{Gets the retentions}
+\JDreturn{ArrayList<Retention>}
+\end{jdmethod}
+\begin{jdmethod}{getRetention}
+\jdpublic 
+\jdtype{\jdtypesimple{Retention}}
+\JDpara{\jdtypesimple{int}}{i}{}
+\JDtext{Returns the ith retention}
+\JDreturn{Retention}
+\end{jdmethod}
+\begin{jdmethod}{getRecipients}
+\jdpublic 
+\jdtype{\jdtypesimple{ArrayList}}
+\JDtext{Gets the recipients}
+\JDreturn{ArrayList<Recipient>}
+\end{jdmethod}
+\begin{jdmethod}{getRecipient}
+\jdpublic 
+\jdtype{\jdtypesimple{Recipient}}
+\JDpara{\jdtypesimple{int}}{i}{}
+\JDtext{Returns the ith recipient}
+\JDreturn{Recipient}
+\end{jdmethod}
+\begin{jdmethod}{getCategories}
+\jdpublic 
+\jdtype{\jdtypesimple{ArrayList}}
+\JDtext{Gets the categories}
+\JDreturn{ArrayList<Category>}
+\end{jdmethod}
+\begin{jdmethod}{getCategory}
+\jdpublic 
+\jdtype{\jdtypesimple{Category}}
+\JDpara{\jdtypesimple{int}}{i}{}
+\JDtext{Returns the ith category}
+\JDreturn{Category}
+\end{jdmethod}
+\begin{jdmethod}{getDataType}
+\jdpublic 
+\jdtype{\jdtypesimple{String}}
+\JDtext{Returns the datatype}
+\JDreturn{String}
+\end{jdmethod}
+\begin{jdmethod}{toString}
+\jdpublic 
+\jdtype{\jdtypesimple{String}}
+\JDtext{Based on debug.print}
+\JDauthor{ulfnore}
+\end{jdmethod}
+\begin{jdmethod}{compareTo}
+\jdpublic 
+\jdtype{\jdtypesimple{int}}
+\JDpara{\jdtypesimple{Object}}{o}{}
+\JDtext{to allow comparision of cases, primarily for white/blacklisting.}
+\JDreturn{-1 if this > other, 0 if equal, else 1}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\end{jdclass}

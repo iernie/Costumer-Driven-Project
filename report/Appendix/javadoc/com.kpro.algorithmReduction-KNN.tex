@@ -1,0 +1,44 @@
+\begin{jdclass}[class]{Reduction\_KNN}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.algorithm}
+\jdinherits{\jdtypesimple{Object}\jdinh \jdtypesimple{ReductionAlgorithm}}
+\JDtext{A k-nearest-neighbors algorithm class. create it and call run on it to
+ get the nearest k neighbors to the object passed to run().}
+\JDauthor{ngerstle}
+\JDversion{29.09.11.1}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{PolicyDatabase} pdb}{ReductionAlgorithm}
+ \jdInhEntry{\jdtypesimple{ArrayList} reduce( \jdtypesimple{PolicyObject} )}{ReductionAlgorithm}
+ \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\JDpara{\jdtypesimple{DistanceMetric}}{distanceMetric}{the class defining distance between objects}
+\JDpara{\jdtypesimple{PolicyDatabase}}{database}{the database of objects to operate on}
+\JDpara{\jdtypearray{String}{\lbrack{}\rbrack{}}}{extraArgs}{from the config file}
+\JDtext{creates a kNearestNeighbors algorithm to use}
+\JDauthor{ngerstle, ulfnore}
+\end{jdconstructor}
+\begin{jdmethod}{reduce}
+\jdpublic 
+\jdtype{\jdtypesimple{ArrayList}}
+\JDpara{\jdtypesimple{PolicyObject}}{newPO}{the new PolicyObject the thing to find the neighbors of}
+\JDtext{the method that returns the closest k objects to the parameter.
+ works by sorting elements by distance from passed object, and passing the first
+ k elements.}
+\JDreturn{ArrayList<PolicyObject> an arraylist of size k of the nearest neighbors}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\end{jdclass}
