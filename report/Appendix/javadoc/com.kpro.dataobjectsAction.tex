@@ -1,0 +1,97 @@
+\begin{jdclass}[class]{Action}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.dataobjects}
+\jdinherits{\jdtypesimple{Object}}
+\JDtext{holds results of a algorithmic comparison- t/f on approve, with the nearest neighbor, as well as a string \&{} enum for exception, if it is one}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\end{jdconstructor}
+\begin{jdconstructor}
+\jdpublic 
+\JDpara{\jdtypesimple{boolean}}{accept}{}
+\JDpara{\jdtypesimple{ArrayList}}{domains}{}
+\JDpara{\jdtypesimple{double}}{confidence}{}
+\JDpara{\jdtypesimple{boolean}}{override}{}
+\end{jdconstructor}
+\begin{jdmethod}{getReason}
+\jdpublic 
+\jdtype{\jdtypesimple{ArrayList}}
+\end{jdmethod}
+\begin{jdmethod}{setReason}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{ArrayList}}{reason}{}
+\end{jdmethod}
+\begin{jdmethod}{getAcceptedStr}
+\jdpublic 
+\jdtype{\jdtypesimple{String}}
+\JDtext{converts the internal accept/reject values to a String}
+\JDreturn{a boolean that can be sent to the user with a accept/reject}
+\end{jdmethod}
+\begin{jdmethod}{getAccepted}
+\jdpublic 
+\jdtype{\jdtypesimple{boolean}}
+\JDtext{Returns true if the action was accepted, and false otherwise.}
+\JDreturn{boolean}
+\end{jdmethod}
+\begin{jdmethod}{setAccepted}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{boolean}}{accept}{}
+\JDtext{Sets the accepted state of the action.}
+\end{jdmethod}
+\begin{jdmethod}{getReasons}
+\jdpublic 
+\jdtype{\jdtypesimple{ArrayList}}
+\JDreturn{an arraylist that verbalizes why the policy was accepted or rejected}
+\end{jdmethod}
+\begin{jdmethod}{isOverridden}
+\jdpublic 
+\jdtype{\jdtypesimple{boolean}}
+\JDtext{Returns true if the action is manually overridden.}
+\JDreturn{boolean}
+\end{jdmethod}
+\begin{jdmethod}{setConfidence}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{double}}{confidence}{}
+\JDtext{Sets the confidence, with checks on the value: if confidence = abs(input) if 1>=input>=-1, else negative infinity}
+\end{jdmethod}
+\begin{jdmethod}{getConfidence}
+\jdpublic 
+\jdtype{\jdtypesimple{double}}
+\end{jdmethod}
+\begin{jdmethod}{parse}
+\jdpublic 
+\jdtype{\jdtypesimple{Action}}
+\JDpara{\jdtypesimple{String}}{optionValue}{the option string- see above. must have 3 commas, no spaces}
+\JDtext{Parse a comma-seperated string into an Action. The string needs to have four comma-seperated tokens (thus three commas) and no spaces. The format is accept,domains,confidence,override where accept is 'accept' if accept==true, or anything else if accept!=true; domains is a semi-colon seperated string list of domains (no commas, no spaces, etc), eg 'www.google.com;www.yahoo.com;domain3;domain4' ; confidence is a double that is the confidence (parsed by parseDouble), and override is a boolean (parsed by parseBoolean).}
+\JDreturn{an Action parsed from above}
+\end{jdmethod}
+\begin{jdmethod}{setOverride}
+\jdpublic 
+\jdtype{\jdtypesimple{Action}}
+\JDpara{\jdtypesimple{boolean}}{b}{}
+\end{jdmethod}
+\begin{jdmethod}{toString}
+\jdpublic 
+\jdtype{\jdtypesimple{String}}
+\JDtext{Overriden toString. format: ('Accepted.'|'Rejected.')('Override.'|'No Override.')("Confidences: %f")\lbrack{}"reasonDomain: \lbrack{}" (" string,")+\rbrack{}.}
+\JDreturn{fancy string version see above. eg "Accepted. Override. Confidence: 0.5 reasonDomain: \lbrack{} google.com"}
+\end{jdmethod}
+\end{jdclass}

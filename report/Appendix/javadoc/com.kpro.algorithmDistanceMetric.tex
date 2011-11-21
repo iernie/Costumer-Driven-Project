@@ -1,0 +1,36 @@
+\begin{jdclass}[class]{DistanceMetric}
+\begin{jdclassheader}
+
+\jdabstract \jdpublic 
+\jdpackage{com.kpro.algorithm}
+\jdinherits{\jdtypesimple{Object}}
+\JDtext{An abstract Distance metric class.
+ A DistanceMetric interface has to contain 3 methods
+ method for calculation of distance between Recipients, Purposes and Retentions
+ between cases
+ and distance for data-type string}
+\JDversion{160911.1}
+\JDauthor{dimitryk}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdmethod}{getTotalDistance}
+\jdpublic \jdabstract 
+\jdtype{\jdtypesimple{double}}
+\JDpara{\jdtypesimple{PolicyObject}}{a}{input PolicyObject}
+\JDpara{\jdtypesimple{PolicyObject}}{b}{input PolicyObject}
+\JDtext{Calculates total distance between two policies}
+\JDauthor{dimitryk}
+\JDreturn{double 0 if cases are similar and positive integer if they are not}
+\end{jdmethod}
+\end{jdclass}

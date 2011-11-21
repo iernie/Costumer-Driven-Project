@@ -1,0 +1,148 @@
+\begin{jdclass}[class]{Gio}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.main}
+\jdinherits{\jdtypesimple{Object}}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\JDpara{\jdtypearray{String}{\lbrack{}\rbrack{}}}{args}{}
+\JDthrows{Exception}{Mostly from loadWeights, but should also happen for loadFromConfig}
+\JDtext{Constructor fo gio class. There should only be one. Consider this a singleton instance to call I/O messages on.
+ Constructs and parses command line arguements as well.}
+\end{jdconstructor}
+\begin{jdconstructor}
+\jdpublic 
+\JDpara{\jdtypearray{String}{\lbrack{}\rbrack{}}}{args}{any commandline arguements}
+\JDpara{\jdtypesimple{UserIO}}{ui}{the known UserIO object}
+\JDthrows{Exception}{Mostly from loadWeights, but should also happen for loadFromConfig}
+\JDtext{A constructor permitting a user interface class to launch everything and be in control.}
+\end{jdconstructor}
+\begin{jdmethod}{configUI}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDtext{call the user interface's general configuration method if the userInit option is true, and a user interface exists}
+\end{jdmethod}
+\begin{jdmethod}{setGenProps}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Properties}}{genProps}{}
+\end{jdmethod}
+\begin{jdmethod}{loadFromConfig}
+\jdpublic 
+\jdtype{\jdtypesimple{Properties}}
+\JDpara{\jdtypesimple{String}}{fileLoc}{}
+\JDtext{Loads the general configuration file, either from provided string, or default location (./PrivacyAdviser.cfg)}
+\JDreturn{properties object corresponding to given configuration file}
+\end{jdmethod}
+\begin{jdmethod}{loadWeights}
+\jdpublic 
+\jdtype{\jdtypesimple{Properties}}
+\JDthrows{Exception}{if there's an issue reading the file (if it doesn't exist, or has an IO error)}
+\JDtext{Loads the weights configuration file, from the provided location}
+\JDreturn{properties object corresponding to given configuration file}
+\end{jdmethod}
+\begin{jdmethod}{startLogger}
+\jdpublic 
+\jdtype{\jdtypesimple{Logger}}
+\JDpara{\jdtypesimple{String}}{logLoc}{location of the output log file- a string}
+\JDpara{\jdtypesimple{String}}{logLevel}{logging level (is parsed by level.parse())}
+\JDtext{startLogger initializes and returns a file at logLoc with the results of logging at level logLevel.}
+\JDreturn{Logger object to log to.}
+\end{jdmethod}
+\begin{jdmethod}{loadDB}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDtext{Loads the case history into cache. 
+ This is where the background database chosen.}
+\end{jdmethod}
+\begin{jdmethod}{getPDB}
+\jdpublic 
+\jdtype{\jdtypesimple{PolicyDatabase}}
+\JDtext{returns the only policy database}
+\JDreturn{the policy database}
+\end{jdmethod}
+\begin{jdmethod}{shutdown}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDtext{closes resources and write everything to file}
+\end{jdmethod}
+\begin{jdmethod}{userResponse}
+\jdpublic 
+\jdtype{\jdtypesimple{PolicyObject}}
+\JDpara{\jdtypesimple{PolicyObject}}{n}{the processed policy object}
+\JDtext{Generates handles response. This is were we would pass stuff to cli or gui, etc}
+\JDreturn{the policyObjected as accepted by user (potentially modified}
+\end{jdmethod}
+\begin{jdmethod}{loadPO}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDtext{returns the policy object from the policyObject option}
+\JDreturn{the policy object to be processed}
+\end{jdmethod}
+\begin{jdmethod}{getPO}
+\jdpublic 
+\jdtype{\jdtypesimple{PolicyObject}}
+\end{jdmethod}
+\begin{jdmethod}{isBuilding}
+\jdpublic 
+\jdtype{\jdtypesimple{boolean}}
+\JDtext{returns the true if it should only build}
+\JDreturn{true if a CBR should NOT be run}
+\end{jdmethod}
+\begin{jdmethod}{setWeights}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Properties}}{newWeightP}{the new weights file to save}
+\JDtext{saves the new weights to a buffer variable before writing in the shutdown call}
+\end{jdmethod}
+\begin{jdmethod}{getCBR}
+\jdpublic 
+\jdtype{\jdtypesimple{CBR}}
+\JDthrows{Exception}{}
+\JDtext{returns the CBR to use}
+\JDreturn{the cbr to use}
+\end{jdmethod}
+\begin{jdmethod}{getWeights}
+\jdpublic 
+\jdtype{\jdtypesimple{Properties}}
+\JDtext{returns the originally imported set of weights}
+\JDreturn{the weights for policy attributes}
+\end{jdmethod}
+\begin{jdmethod}{showDatabase}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDtext{shows the database on the user interface, if the user interface exists and no user response is specied 
+ and there is no 'blanketAccept' option.}
+\end{jdmethod}
+\begin{jdmethod}{fileExists}
+\jdpublic 
+\jdtype{\jdtypesimple{boolean}}
+\JDpara{\jdtypesimple{String}}{filepath}{path of the file to check}
+\JDtext{GUI classes should use this to ensure the user passes valid files to load.}
+\JDreturn{true if the file exists, else false}
+\end{jdmethod}
+\begin{jdmethod}{getNR}
+\jdpublic 
+\jdtype{\jdtypesimple{NetworkR}}
+\end{jdmethod}
+\begin{jdmethod}{getConfLevel}
+\jdpublic 
+\jdtype{\jdtypesimple{double}}
+\JDtext{gets the confidence level threshold from the configuration}
+\JDreturn{the confidence threshold}
+\end{jdmethod}
+\end{jdclass}

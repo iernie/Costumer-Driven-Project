@@ -1,0 +1,76 @@
+\begin{jdclass}[class]{Context}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.dataobjects}
+\jdinherits{\jdtypesimple{Object}}
+\JDtext{Holds domain (from p3p), time, and other contextual information that applies to an entire p3p policy.}
+\JDauthor{ngerstle, iernie}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\JDpara{\jdtypesimple{Date}}{accessTime}{}
+\JDpara{\jdtypesimple{Date}}{creationTime}{}
+\JDpara{\jdtypesimple{String}}{domain}{}
+\end{jdconstructor}
+\begin{jdmethod}{getAccessTime}
+\jdpublic 
+\jdtype{\jdtypesimple{Date}}
+\JDtext{Gets the date of when the object was last accessed}
+\JDreturn{Date}
+\end{jdmethod}
+\begin{jdmethod}{setAccessTime}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Date}}{accessTime}{}
+\JDtext{Sets the date of when the object was last accessed}
+\end{jdmethod}
+\begin{jdmethod}{getCreationTime}
+\jdpublic 
+\jdtype{\jdtypesimple{Date}}
+\JDtext{Gets the date of when the object was created}
+\JDreturn{Date}
+\end{jdmethod}
+\begin{jdmethod}{setCreationTime}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Date}}{creationTime}{}
+\JDtext{Sets the date of when the object was created}
+\end{jdmethod}
+\begin{jdmethod}{getExpiryDate}
+\jdpublic 
+\jdtype{\jdtypesimple{Date}}
+\JDtext{Gets the date of when the object is to expire}
+\JDreturn{Date}
+\end{jdmethod}
+\begin{jdmethod}{setExpiryDate}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Date}}{expiryDate}{}
+\JDtext{Sets the date of when the object is to expire}
+\end{jdmethod}
+\begin{jdmethod}{getDomain}
+\jdpublic 
+\jdtype{\jdtypesimple{String}}
+\JDtext{Gets the specific domain for this context}
+\JDreturn{String}
+\end{jdmethod}
+\begin{jdmethod}{setDomain}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{String}}{domain}{}
+\JDtext{Sets the specific domain for this contact}
+\end{jdmethod}
+\end{jdclass}

@@ -1,0 +1,68 @@
+\begin{jdclass}[class]{PDatabase}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.datastorage}
+\jdimplements{Serializable}
+\jdinherits{\jdtypesimple{Object}\jdinh \jdtypesimple{PolicyDatabase}}
+\JDtext{This singleton class will store all past P3P/contexts instances in a hashmap, and is saved on disk via java.io.serializable.}
+\JDauthor{Nicholas Gerstle, Henrik Knutsen, Aman Kaur}
+\JDversion{1.0}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{PolicyDatabase} i}{PolicyDatabase}
+ \jdInhEntry{\jdtypesimple{Collection} idb}{PolicyDatabase}
+ \jdInhEntry{\jdtypesimple{String} inLocation}{PolicyDatabase}
+ \jdInhEntry{\jdtypesimple{String} outLocation}{PolicyDatabase}
+ \jdInhEntry{\jdtypesimple{void} addPolicy( \jdtypesimple{PolicyObject} )}{PolicyDatabase}
+ \jdInhEntry{\jdtypesimple{void} closeDB(  )}{PolicyDatabase}
+ \jdInhEntry{\jdtypesimple{void} closeDB( \jdtypesimple{String} )}{PolicyDatabase}
+ \jdInhEntry{\jdtypesimple{ArrayList} getDomain( \jdtypesimple{String} )}{PolicyDatabase}
+ \jdInhEntry{\jdtypesimple{Iterator} iterator(  )}{PolicyDatabase}
+ \jdInhEntry{\jdtypesimple{void} loadDB(  )}{PolicyDatabase}
+ \jdInhEntry{\jdtypesimple{void} loadDB( \jdtypesimple{String} )}{PolicyDatabase}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{PolicyDatabase}
+ \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdmethod}{loadDB}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{String}}{dLoc}{the location of the database file on disk}
+\JDtext{See PolicyDatabase.java. implements loading/closing the db via a serialize PDatabase object.
+ WILL overwrite existing database if called more than once.}
+\JDauthor{ngerstle}
+\JDsee{PolicyDatabase\#{}closeDB()}
+\end{jdmethod}
+\begin{jdmethod}{closeDB}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{String}}{dLoc}{}
+\JDtext{See PolicyDatabase.java. implements loading/closing the db via a serialize PDatabase object.}
+\JDsee{PolicyDatabase\#{}closeDB()}
+\end{jdmethod}
+\begin{jdmethod}{getDomain}
+\jdpublic 
+\jdtype{\jdtypesimple{ArrayList}}
+\JDpara{\jdtypesimple{String}}{domain}{}
+\JDtext{returns a list of all policies from a given domain.}
+\JDreturn{an arraylist of policies from given domain}
+\JDauthor{ngerstle}
+\JDsee{PolicyDatabase\#{}getDomain()}
+\end{jdmethod}
+\begin{jdmethod}{getInstance}
+\jdpublic \jdstatic 
+\jdtype{\jdtypesimple{PolicyDatabase}}
+\JDpara{\jdtypesimple{String}}{inloc}{where the database should be loaded from (on disc)}
+\JDpara{\jdtypesimple{String}}{outloc}{where the database should be saved to (on disc)}
+\JDtext{returns an instance of the database.}
+\end{jdmethod}
+\end{jdclass}

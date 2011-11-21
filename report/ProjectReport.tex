@@ -12,10 +12,17 @@
 \usepackage{pdfpages}
 \usepackage{longtable}
 \usepackage{makeidx}
+
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
 \usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, 
             citecolor=blue, urlcolor=blue]{hyperref}
+            
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[subsection,toc3]{javadoc}
 
 
 \newtheorem{theorem}{Theorem}
@@ -162,6 +169,74 @@ contains a chapter evaluating the project as a whole and a summary.
 \include{Appendix/TestCases}
 \include{Appendix/TestExecution}
 \include{Appendix/Templates}
+
+\makeatletter\@openrightfalse
+\chapter{Javadoc}
+
+\section{Main}
+\include{Appendix/javadoc/com.kpro.mainGio}
+\include{Appendix/javadoc/com.kpro.mainPrivacyAdviser}
+
+\section{Algorithm}
+\include{Appendix/javadoc/com.kpro.algorithmCBR}
+\include{Appendix/javadoc/com.kpro.algorithmReductionAlgorithm}
+\include{Appendix/javadoc/com.kpro.algorithmReduction-KNN}
+\include{Appendix/javadoc/com.kpro.algorithmDistanceMetric}
+\include{Appendix/javadoc/com.kpro.algorithmBitmapwithdata}
+\include{Appendix/javadoc/com.kpro.algorithmbitmapDistanceWisOne}
+\include{Appendix/javadoc/com.kpro.algorithmbitmapDistance}
+\include{Appendix/javadoc/com.kpro.algorithmConclusionAlgorithm}
+\include{Appendix/javadoc/com.kpro.algorithmConclusion-Simple}
+\include{Appendix/javadoc/com.kpro.algorithmLearnAlgorithm}
+\include{Appendix/javadoc/com.kpro.algorithmLearn-Constant}
+\include{Appendix/javadoc/com.kpro.algorithmLearnAlgBasic}
+\include{Appendix/javadoc/com.kpro.algorithmLearnAlgStand}
+
+\section{Datastorage}
+\include{Appendix/javadoc/com.kpro.datastoragePolicyDatabase}
+\include{Appendix/javadoc/com.kpro.datastoragePDatabase}
+\include{Appendix/javadoc/com.kpro.datastorageNRCouchdb}
+\include{Appendix/javadoc/com.kpro.datastorageNetworkR}
+
+\section{Dataobjects}
+\include{Appendix/javadoc/com.kpro.dataobjectsPolicyObject}
+\include{Appendix/javadoc/com.kpro.dataobjectsContext}
+\include{Appendix/javadoc/com.kpro.dataobjectsAction}
+\include{Appendix/javadoc/com.kpro.dataobjectsCase}
+\include{Appendix/javadoc/com.kpro.dataobjectsRetention}
+\include{Appendix/javadoc/com.kpro.dataobjectsRecipient}
+\include{Appendix/javadoc/com.kpro.dataobjectsPurpose}
+\include{Appendix/javadoc/com.kpro.dataobjectsCategory}
+
+\section{Parser}
+\include{Appendix/javadoc/com.kpro.parserP3PParser}
+
+\section{UI}
+\include{Appendix/javadoc/com.kpro.uiPrivacyAdvisorGUI}
+\include{Appendix/javadoc/com.kpro.uiUserIO}
+\include{Appendix/javadoc/com.kpro.uiUserIO-Simple}
+\include{Appendix/javadoc/com.kpro.uiIO-Listing}
+
+\section{Test}
+\include{Appendix/javadoc/com.kpro.testrestReduction-KNN}
+\include{Appendix/javadoc/com.kpro.testtestConclusion-Simple}
+\include{Appendix/javadoc/com.kpro.testtestBitmap}
+\include{Appendix/javadoc/com.kpro.testLearnAlgSimplerTest}
+
+\section{Sample}
+\include{Appendix/javadoc/com.kpro.sampleTemplateClass}
+\include{Appendix/javadoc/com.kpro.sampleSerializationDemo}
+\include{Appendix/javadoc/com.kpro.samplereadWeightConfig}
+\include{Appendix/javadoc/com.kpro.samplemsgBox}
+\include{Appendix/javadoc/com.kpro.samplejlistest}
+\include{Appendix/javadoc/com.kpro.samplejfilechoosertest}
+\include{Appendix/javadoc/com.kpro.sampleGioTest}
+\include{Appendix/javadoc/com.kpro.sampledummy}
+\include{Appendix/javadoc/com.kpro.sampledistanceMetricTest}
+\include{Appendix/javadoc/com.kpro.sampleDeserializationDemo}
+
+\@openrighttrue\makeatother
+
 \include{Appendix/References}
 
 \bibliographystyle{plain-annote}

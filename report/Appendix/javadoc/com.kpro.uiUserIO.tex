@@ -1,0 +1,61 @@
+\begin{jdclass}[class]{UserIO}
+\begin{jdclassheader}
+
+\jdabstract \jdpublic 
+\jdpackage{com.kpro.ui}
+\jdinherits{\jdtypesimple{Object}}
+\JDtext{The UserIO provides an abstract model of all the methods a user interface method must implement. There are five essential portions: construction of the user interface if necessary, via the object constructor; user reconfiguration (of the same options found in configuration file or on the commandline); the ability to display the database and all loaded policies; user revision, in which the suggested solution is provided to the user so the user can accept or reject it; and shutdown/deconstruction of any resources needed for the interface.}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\end{jdconstructor}
+\begin{jdmethod}{user\_init}
+\jdpublic \jdabstract 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Properties}}{genProps}{the default values for all commandline arguments}
+\JDtext{returns a modified Properties to use init on.}
+\JDreturn{the values to initialize the program with- same as usual args from main}
+\end{jdmethod}
+\begin{jdmethod}{showDatabase}
+\jdpublic \jdabstract 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{PolicyDatabase}}{pdb}{the database to display}
+\JDtext{display the contents of the database}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\begin{jdmethod}{loadHistory}
+\jdpublic \jdabstract 
+\jdtype{\jdtypesimple{ArrayList}}
+\JDtext{gets any policies not already provided for the history}
+\JDdeprecated{}
+\JDreturn{an arraylist of policy objects to be added to history prior to the CBR run.}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\begin{jdmethod}{userResponse}
+\jdpublic \jdabstract 
+\jdtype{\jdtypesimple{PolicyObject}}
+\JDpara{\jdtypesimple{PolicyObject}}{n}{the policy display}
+\JDtext{Displays recommended action for policyObject, and returns used accept verion-
+ same thing if no change, or altered if user disagrees.}
+\JDreturn{the policy given}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\begin{jdmethod}{closeResources}
+\jdpublic \jdabstract 
+\jdtype{\jdtypesimple{void}}
+\JDtext{closes all resources used by UserIO - windows, files, streams, etc}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\end{jdclass}

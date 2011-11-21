@@ -1,0 +1,33 @@
+\begin{jdclass}[class]{P3PParser}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.parser}
+\jdinherits{\jdtypesimple{Object}}
+\JDtext{Parser that parses a P3P policy and makes it into a PolicyObject}
+\JDauthor{ernie}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\end{jdconstructor}
+\begin{jdmethod}{parse}
+\jdpublic 
+\jdtype{\jdtypesimple{PolicyObject}}
+\JDpara{\jdtypesimple{String}}{p3p}{input String}
+\JDtext{Parses a P3P Policy by URL}
+\JDauthor{ernie}
+\JDreturn{Parsed P3P Policy as PolicyObject}
+\end{jdmethod}
+\end{jdclass}

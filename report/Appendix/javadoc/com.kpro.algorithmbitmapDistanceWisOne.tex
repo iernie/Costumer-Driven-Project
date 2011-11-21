@@ -1,0 +1,33 @@
+\begin{jdclass}[class]{bitmapDistanceWisOne}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.algorithm}
+\jdinherits{\jdtypesimple{Object}\jdinh \jdtypesimple{DistanceMetric}}
+\JDtext{A distance metric that calculates distance based on 
+ weighed union of a bit map interception}
+\JDversion{240911.01}
+\JDauthor{dimitryk}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{double} getTotalDistance( \jdtypesimple{PolicyObject}, \jdtypesimple{PolicyObject} )}{DistanceMetric}
+ \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdmethod}{getTotalDistance}
+\jdpublic 
+\jdtype{\jdtypesimple{double}}
+\JDpara{\jdtypesimple{PolicyObject}}{a}{the 1st policy object}
+\JDpara{\jdtypesimple{PolicyObject}}{b}{the second policy object}
+\JDtext{Initializes weights (to one)  and returns the distance between two PolicyObjects.}
+\JDreturn{the distance between the two policy objects}
+\end{jdmethod}
+\end{jdclass}

@@ -1,0 +1,116 @@
+\begin{jdclass}[class]{PolicyObject}
+\begin{jdclassheader}
+
+\jdpublic 
+\jdpackage{com.kpro.dataobjects}
+\jdimplements{Serializable}
+\jdimplements{Iterable}
+\jdinherits{\jdtypesimple{Object}}
+\JDtext{The PolicyObject class acts to hold all the relevent information for a given policy. This informations is broken into 'cases' (see the 'case' class- different items, indexed by datatype), the context (see the 'context' class- holds information that applies to whole policy), and action (see the 'action' class- holds the action taken).}
+\JDauthor{ernie, ngerstle}
+\end{jdclassheader}
+\begin{jdinheritancetable} \jdInhEntry{\jdtypesimple{Object} clone(  )}{Object}
+ \jdInhEntry{\jdtypesimple{boolean} equals( \jdtypesimple{Object} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} finalize(  )}{Object}
+ \jdInhEntry{\jdtypesimple{Class} getClass(  )}{Object}
+ \jdInhEntry{\jdtypesimple{int} hashCode(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notify(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} notifyAll(  )}{Object}
+ \jdInhEntry{\jdtypesimple{String} toString(  )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait( \jdtypesimple{long}, \jdtypesimple{int} )}{Object}
+ \jdInhEntry{\jdtypesimple{void} wait(  )}{Object}
+\end{jdinheritancetable}
+\begin{jdconstructor}
+\jdpublic 
+\JDtext{This is the constructor
+ The constructor initializes the variables within the class when you make a new instance of it}
+\JDauthor{ernie}
+\end{jdconstructor}
+\begin{jdmethod}{getContext}
+\jdpublic 
+\jdtype{\jdtypesimple{Context}}
+\end{jdmethod}
+\begin{jdmethod}{setContext}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Context}}{context}{}
+\end{jdmethod}
+\begin{jdmethod}{getAction}
+\jdpublic 
+\jdtype{\jdtypesimple{Action}}
+\end{jdmethod}
+\begin{jdmethod}{setAction}
+\jdpublic 
+\jdtype{\jdtypesimple{PolicyObject}}
+\JDpara{\jdtypesimple{Action}}{action}{}
+\end{jdmethod}
+\begin{jdmethod}{addCase}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{Case}}{c}{input Case}
+\JDtext{Adds a case to the policy}
+\JDauthor{ernie}
+\end{jdmethod}
+\begin{jdmethod}{addEntityData}
+\jdpublic 
+\jdtype{\jdtypesimple{void}}
+\JDpara{\jdtypesimple{String}}{key}{input String}
+\JDpara{\jdtypesimple{String}}{value}{input String}
+\JDtext{Adds a data to the entity hashmap of the policy}
+\JDauthor{ernie}
+\end{jdmethod}
+\begin{jdmethod}{getCase}
+\jdpublic 
+\jdtype{\jdtypesimple{Case}}
+\JDpara{\jdtypesimple{int}}{i}{input int}
+\JDtext{Returns a specific case for the policy}
+\JDauthor{ernie}
+\JDreturn{Case}
+\end{jdmethod}
+\begin{jdmethod}{getCases}
+\jdpublic 
+\jdtype{\jdtypesimple{ArrayList}}
+\JDtext{Returns all cases for the policy}
+\JDauthor{ernie}
+\JDreturn{ArrayList<Case>}
+\end{jdmethod}
+\begin{jdmethod}{getEntities}
+\jdpublic 
+\jdtype{\jdtypesimple{HashMap}}
+\JDtext{Returns the entity for the policy}
+\JDauthor{ernie}
+\JDreturn{HashMap<String, String>}
+\end{jdmethod}
+\begin{jdmethod}{getEntity}
+\jdpublic 
+\jdtype{\jdtypesimple{String}}
+\JDpara{\jdtypesimple{String}}{key}{input String}
+\JDtext{Returns the entity data for a specific key}
+\JDauthor{ernie}
+\end{jdmethod}
+\begin{jdmethod}{getContextDomain}
+\jdpublic 
+\jdtype{\jdtypesimple{String}}
+\JDtext{returns domain of policy (URL) as string.}
+\JDreturn{the domain/url from which the policy came.}
+\JDauthor{ngerstle}
+\end{jdmethod}
+\begin{jdmethod}{toString}
+\jdpublic 
+\jdtype{\jdtypesimple{String}}
+\JDtext{This is based on the debug\_print}
+\JDauthor{ulfnore}
+\end{jdmethod}
+\begin{jdmethod}{equalsCases}
+\jdpublic 
+\jdtype{\jdtypesimple{boolean}}
+\JDpara{\jdtypesimple{PolicyObject}}{newpol}{the policy to compare 'this' to}
+\JDtext{A simple true/false check to see if policies are identical- if all the strings inside them are, then the policies are.}
+\JDreturn{boolean; true if getContextDomains are equal and getCases() are equal (two string comparisons) else false.}
+\end{jdmethod}
+\begin{jdmethod}{iterator}
+\jdpublic 
+\jdtype{\jdtypesimple{Iterator}}
+\end{jdmethod}
+\end{jdclass}
