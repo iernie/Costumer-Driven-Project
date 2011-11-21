@@ -12,13 +12,65 @@ This chapter describes the design phase of the program, where the program archit
 
 In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in the paper by T{\o}ndel and Nyre. Given the broad structure in the CBR agent model, several details need to be fleshed out, including data structures for storing policies, databases, choosing actual algorithms, a user interface, and so forth. This chapter lays out the broad structure of the Privacy Advisor system. Implementation details are discussed in Chapter~\ref{impl}.
 
+\subsection{Documents and Source Code Repositories}\index{GitHub}
+For software projects of a certain scale, version control is an important technology that allows project members to work simultaneously against the same files without causing inconsistencies. Version control systems also allow for comparison with older versions, tracking changes and restoring previous copies in the case of errors.
+
+For source code repositories and version control, \textbf{Git} was selected. Git is a distributed, open source version control system that is available for all platforms. Git is also used for hosting the \LaTeX documents that comprise this report. For other documents such as meeting minutes, agendas, status reports, time reporting and certain planning documents, \textbf{Google Docs} is used.
+
+
+\subsection{Programming Languages}\index{Java}
+\textbf{Java} is chosen as the primary programming language for implementing the majority of the code. Java is an object oriented programming language providing a level of abstraction appropriate for the task at hand in addition to a rich set of libraries, including the SWING library for GUI programming, and several libraries for networking. It also simplifies writing a browser plugin as major browsers such as Google Chrome and Firefox employ Javascript as scripting language for plugin.
+
+Javascript was used in small measure for the use of a CouchDB community server.
+
+\subsection{Development Tools}
+Eclipse was used for all Java development, while standard text editors were used for Javascript and manual P3P policy editing. The CouchDB server was hosted on a VMware virtual machine, and was accessible via web interface on most standard web browsers.
+
+\subsection{Databases}\index{MySQL}\index{CouchDB} %Assuming [Discuss community server here] is actually done here
+For testing purposes, it has been decided on using flat file storage of privacy policy data using Java's \texttt{Serializable} interface. However, the output functionality is to be written in a generic fashion to simplify use of database systems such as MySQL, CouchDB and so forth. 
+
+%[Discuss community server here]
+[Discuss community server here]
+
+\subsection{Third Party Libraries}
+ 
+For developing the CBR as well as P3P parsing components of the Privacy Advisor, a decision had to be made regarding the usage of third party libraries, either for components or for the entire CBR system. Two options were considered with respect to the CBR system. The first was to use a full third party CBR system (jColibri). The alternative was to use a third party system for the retrieval component of the CBR system (i.e. a k Nearest Neighbors (kNN) implementation).
+
+
+\subsubsection{Third Party CBR System}\index{jColibri}
+
+The customer, SINTEF ICT, suggested looking into an open source CBR library developed at the Universidad Complutense de Madrid.
+ 
+jColibri is a CBR system that has been under development for well over 10 years and is a very comprehensive system allowing for database interfaces and several other features,  and is according to the customer, a popular choice in academia for CBR projects. It is also written in Java, which of course makes interfacing it simple from our own Java project.
+ 
+However, its comprehensiveness also means that it takes more reading to understand and properly apply to the project at hand, and due to its size and poor documentation, jColibri was ultimately deemed unfit for the Privacy Advisor project. Due to the limited time resources available to this project, the risks associated with spending a large amount of time on a third party library that eventually would not be running was to high.
+ 
+\subsubsection{Third Party k Nearest Neighbors Implementations}\index{The Java Machine Learning Library (JavaML)} 
+Since kNN is a standard classification algorithm, there are several open source implementations available. Limiting the search space to Java implementations, a library called \emph{The Java Machine Learning Library} (JavaML) was the primary candidate, as it provided a clean and simple interface and allowed for extracting confidence measures.
+ 
+The problem with this library relates to the nature of distance metrics used in classifying privacy policies which is compositional in a way that is non-trivial to handle in JavaML. Furthermore, JavaML seems to operate only on arrays of floating point numbers, which means the distance metric must be defined in two stages; first mapping from \emph{policy domain} to real numbers, then in terms of a metric on real vectors.
+
+\subsubsection{P3P/XML Parser}\index{P3P XML parsers}\index{P3P XML parsers!DOM}\index{P3P XML parsers!SAX}
+Looking for XML parsers on the Java platform, we found out that there are two different types of XML parsers we could use, the first being a DOM Parsers and the second one being a sequential access parser. The difference being that DOM parsers operate on the document as a whole, while sequential access parsers operates on each piece of the XML document sequentually.
+
+We ended up using SAXParser, an internal sequential access parsers in Java. The task from here was to implement it, making the policy as an object with the fields of our choosing. It works by sequentially going through all elements of the XML document, and with easy string comparison, checking if the element is of the wanted ones.
+
+
+
+\section{Standards}\index{Oracle's Coding Conventions}
+To achieve clean and reusable code, the project has adopted Oracle's Coding Conventions for the Java Programming Language\footnote{http://www.oracle.com/technetwork/java/codeconvtoc-136057.html}. This is mentioned in the requirements specification due to the high likelihood of the customer having to change the source code for later adaptations.
+
+
+\section{Architecture}
+%http://www.cmcrossroads.com/bradapp/docs/sdd.html
+In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in T{\o}ndel and Nyre. Refinements needed to be made include data structures for storing policies, databases, choosing actual algorithms, and so forth. This section describes how the design in broad terms.
+
 %%
 %% This chapter should be organized as follows: 
 %% - overview
 %% - io/gui/cli
 %% - cbr engine
 %% - data objects storage
-
 
 \begin{figure}[htbp]
 \begin{center}
@@ -103,12 +155,9 @@ An overview of the CBR system is given in Figure~\ref{cbr_fig}...
 \end{center}
 \end{figure}
 
-
-
-
 \section{Data Objects and Storage}
 
-\subsection{P3P Policy Objects}\label{p3pPolObj}
+\subsection{P3P Policy Objects}\label{p3pPolObj}\index{P3P}
 An overview of the Policy Object is given in Figure~\ref{po_fig}...
 
 A P3P Policy Object consists of an \texttt{Action}, a \texttt{Context} and a list of different \texttt{Case} objects. The action object consists of the result from the comparison algorithm, stating if the policy is accepted as a good match, the reasons for this statement and with how much confidence this statement is correct.
@@ -156,7 +205,7 @@ An overview of the Policy Database is given in Figure~\ref{pd_fig}...
 
 
 
-\subsection{Community Server} %%TODO needs rewrite- focuse here is on design not implementation. mention query should be server-side
+\subsection{Community Server}\index{Datastorage}\index{Datastorage!Community database} %%TODO needs rewrite- focuse here is on design not implementation. mention query should be server-side
 The community knowledge repository is implemented using a public CouchDB (no-SQL server), which is accessed using standard Java to JSON java libraries. The client program (end-user java application) communicates with the server at two points- when the application has insufficient knowledge, or confidence in its knowledge, to make a suggestion as to the acceptance of a new P3P policy; and after the user has confirmed or overridden the policy.
 
 In the first instance, the new policy under consideration is converted to JSON using GSON (the Google Json libraries), and transmitted to the database, which parses the new policy and replies with a JSON encoded suggested Action.
