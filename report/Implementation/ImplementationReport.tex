@@ -226,5 +226,9 @@ As with all of the modular classes (algorithms, policy databases, network resour
 
 
 
-\subsection{GUI}%%TODO Einar
+\subsection{GUI}
+The GUI inherits from the \texttt{UserIO} class and implements a graphical user interface with the use of Java's own graphical library \texttt{SWING}. The main view is a split view of the database and the new policy that is being reviewed. Both shown via a tree view for easy overview.
 
+Configure, reload database and run are the three options available to choose from the drop-down menu in the main view. Each run their own function to either start up the configure editor, reload the database or run the framework. An exit option is also available.
+
+The configuration editor is an abstract class which builds the appropriate textfields and checkboxes for editing, and then sends them back to \texttt{GIO} when done. This class is inherited in a subclass inside the \texttt{PrivacyAdviserGUI} class and called upon when needed.
