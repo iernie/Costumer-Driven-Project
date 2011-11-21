@@ -11,7 +11,7 @@
 
 \minitoc
 
-\subsection*{Purpose}
+
 This chapter explains the implementation phase of the project it provides a more detailed description of particular key
 details that were not decided on in the design phase. This relates in particular to choices regarding the particular CBR algorithms
 (k-Nearest Neighbors) and the similarity measures describing how "equal'' two cases are. It also details the data structures that
@@ -19,18 +19,17 @@ are used to represent policies and how comparisons are done on these data struct
 
 \section{Algorithms}
 
-\subsection{K-Nearest Neighbors}\label{kNN}\index{k-nearest neighbors}\index{k-NN}
+\subsection{K-Nearest Neighbors}\label{kNN}\index{K-nearest neighbors}\index{KNN}
 
-\emph{K-Nearest Neighbors} (k-NN) is a \emph{lazy, non-parametric} algorithm for classifying objects based on the classification of the nearest examples in a given feature space. k-NN is one of the simplest machine learning algorithms as it decides the classification based on a majority vote of, that is, an object is classified according to the most common classification of its $k$ nearest neighbors. The most critical component for the success of the k-NN algorithms is the definition of distance. This is discussed in Section~\ref{SimilarityMeasures}. 
+\emph{K-Nearest Neighbors} (k-NN) is a \emph{lazy, non-parametric} algorithm for classifying objects based on the classification of the nearest examples in a given feature space. KNN is one of the simplest machine learning algorithms as it decides the classification based on a majority vote of, that is, an object is classified according to the most common classification of its $k$ nearest neighbors. The most critical component for the success of the k-NN algorithms is the definition of distance. This is discussed in Section~\ref{SimilarityMeasures}. 
 
 For testing purposes, we have implemented a very simple kNN that sorts the example set (knowledge base) by distance from the object to be classified and returns the k nearest objects. This is obviously not an optimal approach being $O(n lg(n))$ where $n$ denotes the size of the knowledge base. This is not problematic for a small scale application such as ours where the knowledge contains less than 200 objects. If the system is to be scaled up, it would require a new kNN implementation, of which there are several available.
 
-
 \subsection{Learning algorithm}\label{learnAlgos}\index{Learning algorithm}
-The learning algorithm is used to update the weights that are used to calculate the distance between policies. These weights are updated when the user overrides a reccomandation from the system. This way the system learns from the users actions, and the next time the system runs it would return with an answer that reflects the users actions more precisely. As an example, let's say that the P3P policy of website X have a field that says that they have the rights to give away the contact-information of their users. So the system reccomends the user to not accept this policy, but the user overrides the recommendation and accepts the policy. Then the learning algorithm is run, and the field(s) that are connected to contact-information are updated. 
+A learning algorithm is used to update the weights that are used to calculate the distance between policies. These weights are updated when the user overrides a recommendation from the system. This way the system learns from the users actions, and the next time the system runs it would return with an answer that reflects the users actions more precisely. As an example, let's say that the P3P policy of website X have a field that says that they have the rights to give away the contact-information of their users. So the system reccomends the user to not accept this policy, but the user overrides the recommendation and accepts the policy. Then the learning algorithm is run, and the field(s) that are connected to contact-information are updated. 
 
 \subsubsection{Implemented learning algorithm}
-The implemented learning algorithm is a simple one that for each weight-field goes through every policy in the database. And for every policy it checks whether any of its cases have that weight-field. If a policy have that weight-field a counter is incremeted. Then it returns the number of policies (that is accepted) that have this weight-field, divided by the number of total policies. This is as mentioned, done for every weight-field. In figure \ref{pseudoLearnAlg} we have a simplified pseudocode of the learning algorithm.
+The current learning algorithm implementation considers each possible weight field for every policy in the database and checks wether a case in the database contains that particular field. If a policy does indeed contain that field a counter is incremeted. Then it returns the proportion of policies containing the particular field. In figure \ref{pseudoLearnAlg} we have a simplified pseudocode of the learning algorithm. The key assumption behind this algorithm is that the most important fields are present in the majority of policies.
  
 \begin{figure}[htpb]
 
@@ -48,18 +47,36 @@ For weights in database
       countYes++
     Else
       countNo++
-    newWeight=countYes/(counYes+countNo)	
+newWeight=countYes/(counYes+countNo)	
 \end{verbatim}
 \caption{Pseudocode for the implemented learning algorithm.}
 \label{pseudoLearnAlg}
 \end{figure}
 
+\subsubsection{Potential Improvements}
+Two important critiques can be raised against the current learning algorithm:
 
+\begin{enumerate}
+\item It does not update weights incrementally. This means that for small databases the weights may be subject to "jumps".
+\item A large presence of a field may not indicate that it is more important.
+\end{enumerate}
+
+
+\subsection{Confidence Measure}\label{confidenceMeasure}
+The term confidence refers to the notion of certainty about a decision or a hypothesis. For Privacy Advisor it is important to attach a confidence number to a recommendation to give some idea of how certain the reasoning engine is in that it is the correct decision. Therefore, every time Privacy Advisor computes an advice, it also calculates the confidence in that advice. Confidence can be used to guide the learning of the program as well as its decision taking. The confidence measure is also used to determine which steps to take after the initial retrieval from the local database; given a sufficient confidence in the result, it will present an advice to the user. Otherwise it will query the community database.
+
+<<<<<<< HEAD
 \subsection{Confidence Measure}\label{confidenceMeasure}\index{Confidence measure} %%TODO Dimitry
 %% maybe to be put in design
 %% REMOVE INDEX IF THIS SECTION IS MOVED
 
 \subsection{Distance Measures}\label{SimilarityMeasures}\index{Distance metrics} %%TODO 
+=======
+The confidence measure implemented in Privacy Advisor is closely linked to the retrieval algorithm, that is, to the reduction kNN algorithm which picks out the k most similar cases to the one at hand and the similarity metric used to compare policies. Since the decision considered here is binary - the policy is either rejected or accepted - the k most similar cases can be split in two. If the conclusion is to accept the policy, one possible measure of confidence could be the fraction of the k nearest neighbors in which the policy has been accepted. While there is a clear rationale for this approach it is flawed in the sense that it does not take into account that some of the k most similar policies may be \emph{much} nearer than the others. To account for this, the confidence measure weights each of the neighbors by the inverse of its distance from the policy that is to be classified
+
+
+\subsection{Distance Measures}\label{SimilarityMeasures} 
+>>>>>>> da740c988e5b599cd412b83d7260e8cabc60ef87
 
 This section discusses the distance measures implemented for comparing two P3P policies. First, it gives a brief overview over the mathematical theory behind distance measures and looks at some standard distance measures. It then looks at what adaptations need to be made to the standard approaches for them to fit the domain of P3P policies.
 
@@ -74,6 +91,7 @@ Some examples of commonly used metrics are the Euclidean, Mahalanobis, and the M
 \item Define a new metric that operates directly on privacy objects.
 \end{enumerate}
 
+<<<<<<< HEAD
 %TODO 
 %% NBNBNBNB!!!!
 %% Formulae must be inserted!!
@@ -81,12 +99,17 @@ Some examples of commonly used metrics are the Euclidean, Mahalanobis, and the M
 
 \subsubsection{Common Metrics}
 \index{Distance metrics}\index{Distance metrics!Manhattan}\index{Distance metrics!Hamming}\index{Distance metrics!Levenshtein}\index{Distance metrics!Ontology}
+=======
+\subsubsection{Existing Metrics}
+
+>>>>>>> da740c988e5b599cd412b83d7260e8cabc60ef87
 \begin{itemize}
 \item \emph{Manhattan distance} is function computes the distance that would be travelled to get from one data point to the other if a grid-like path is followed. 
 \item \emph{Hamming distance} is defined as number of positions in which a source and target vector disagrees.
 \item \emph{Levenshtein distance} is based on Hamming distance but adds also operands as insertion, deletion and substitution. 
 \item \emph{Ontology distances} are more based on compute semantic similarity of objects rather than their textual representation. For example distance between apple and orange is less then between apple and house. To calculate this distance you need some sort of logical tool like ontological tree. Where every leaf has a logical ancestor for example ancestor for apple will be fruit.
 \end{itemize}
+
 \subsubsection{Customer Advice}
 
 In the paper "Towards a Similarity Metric for Comparing Machine Readable Privacy Policies", some of the problems of defining a similarity metric for privacy policies is discussed. A key topic is how the calculation of similarity between online 3P3 policies can be subdivided in two parts, \emph{local similarity} and \emph{global similarity}. This way, known metrics such as Levenshtein distance  can be applied to local distance. And for global similarity we can calculate a simple or weighted average of local distances, where the second one allows for amplifying the importance of particular attributes.
@@ -98,9 +121,10 @@ Another important topic is how system designers can apply domain knowledge to im
 \subsubsection{Bitmap Representation}\index{Bitmap}
 A bitmap (or bitstring) is a way of representing a set of objects. It is a mapping from a set to a vector of fixed length, where each member of the set corresponds to a particular entity in the vector. For example over a language $L=\{a,b,c,d\}$ for a sets $\{a,b,c\}$ a bitmap representation will look like $[1, 1, 1, 0]$ where first integer represents $a$ and last integer represents value $d$. This way it doesn't matter what order the values are arranged and how many values are so set $\{d,b\}$ over same language $L$ will be $[0, 1, 0, 1]$ where first value still representing value $a$, or in this case, absence of the item $a$. Calculating intersections or unions over bitmaps $A$ and $B$ uses bitwise Boolean operators. Union can be easily written as $(A_i \vee B_i)$ where $i$ is the position in the vector, and the intersection $(A_i \wedge B_i)$.
 
-Weighed bitmap is when each of the values is multiplied by its corresponding weight. For the language $L$, consider the weights $w_a=1, w_b=2, w_c=4, w_d=3$. Since the bitmap representation of the set $\{a,b,c\}$ is $[1, 1, 1, 0]$, the weighed bit-map will be $[1*w_a, 1*_b, 1*_c, 0*w_d]=[1, 2, 4, 0]$. For another set $\{d,b\}$, it will be $[0, 2, 0, 3]$.
+A bitmap said to be \emph{weighted} is when each of the values is multiplied by a corresponding weight. For the language $L$, consider the weights $w_a=1, w_b=2, w_c=4, w_d=3$. Since the bitmap representation of the set $\{a,b,c\}$ is $[1, 1, 1, 0]$, the weighed bitmap will be $[1*w_a, 1*_b, 1*_c, 0*w_d]=[1, 2, 4, 0]$. For the set $\{d,b\}$, it will be $[0, 2, 0, 3]$.
 
-\subsubsection{Privacy Policy Representation}
+
+\subsubsection{Privacy Policy Representation}\label{privPolRep}
 
 This section describes the data structures used to represent policies. On the top level, \texttt{policyObject}s contain P3P policy and context information (URL + time etc.). A P3P policy can have a varying number of \emph{statements}, some of them greatly differ from each other, and others are very similar. The privacy policy of www.ticketmaster.com, as displayed in \emph{Privacy Advisor} is shown in Figure~\ref{p3pPol}. In the TicketMaster example, the data items concerned in the policy are the user's name, birth date, home and business contact information as well as a few "technical items". For every of these data items that being described in a policy, we create a \texttt{Case} object inside the \texttt{policyObject}. So in the TicketMaster example, \texttt{user.name} and \texttt{user.bdate} are cases.
 
@@ -141,7 +165,7 @@ It is possible to create a weight system so this algorithm will work like a full
 Weights are the key to learning and adjusting this algorithm. They are greatly used in previously mentioned implementation of Hamming distance and can give great results in data-type analysis.
 
 \subsubsection{ The global similarity }
-The global similarity part was not as easy as creating a bitmap. The number of cases a policy can be is undefined, and the similarity of those cases can differ a great deal. Your solution was sum of minimal distance of each Case to a case in the other policy. For instance a caseA from policyA have distance 2, 3, 1 to cases in policyB that mean the distance caseA will have distance 1 to policyB. 
+The global similarity part was not as easy as creating a bitmap. The number of cases a policy can be is undefined, and the similarity of those cases can differ a great deal. One of the solutions are the sum of minimal distance of each Case to a case in the other policy. For instance a caseA from policyA have distance 2, 3, 1 to cases in policyB that mean the distance caseA will have distance 1 to policyB. 
 
 \begin{figure}[htpb]
 
@@ -169,27 +193,38 @@ The weakness of computing this way is that some of the distances will be counted
 
 There is some variations in this method. You can use maximum/minimum distance between cases or average of the sum. We choose minimum because this way we always try to find a best match between cases and policies. With an algorithm that will minimize error from computing twice, from a to b and b to a, minimum distance will give the best results. But in total picture if you use same algorithm that considers every case for every policy in your database the results will be proportional.
 
-
-
-
-\section{Data Storage}
-
-
-\subsection{Databases}
-
-As the CBR model requires, data must be stored in a persistent fashion between cycles, and thus, while the program is not running. Furthermore, the ability to load raw cases (P3P policies, in this case), is needed not only to initialize a database, especially in a repeatable fashion, but also for establishing the new case under consideration. These requirements are handled by two distinct bodies of code- the P3P parsing class, and the policy database class. Furthermore, there is also the need for a centralized, multi-user database, accessed not locally but across a network, when the local database proves incapable of providing a satisfactory solution to the problem.
-
-\subsection{P3P Parsing}  %Flat File Storage} %% This is what was meant by flat file storage, right??
+\section{P3P Parsing}\label{parseImpl}
 The \texttt{P3PParser} is used to parse a P3P policy from an XML document to a Java object that can be used by the rest of the framework. The parser is located in the \texttt{parser} group and takes in the path to the xml document as argument. It is based on \texttt{org.xml.sax}, an internal, sequential XML parser in Java.
 
 What it does is sequentially go trough the document, and look at each tag, one by one, dealing only with the tags and attributes we are interested in. It collects information as it parses, and construct a \texttt{PolicyObject} and returns it. The parser also handles custom tags that can be added manually to P3P documents to pre-define action and context for the purpose of bulding a database.
 
+\section{Data Objects and Storage}
+
+For the Privacy Advisor CBR engine there are two central defining data storage; the first is the representation of a P3P policy, being the cases on which the CBR engine operates. The second is the knowledge base that holds the cases along with the recommended action. In the collaborative filtering augmented CBR model, two different knowledge bases are required, one local representing the knowledge about the user's previous actions, and one global with knowledge of all users.
+
+\subsection{P3P Policies}  
+A P3P privacy policy is represented by the \texttt{PolicyObject} class. This class is detailed in Section~\ref{p3pPolObj}. A sample view of a \texttt{PolicyObject} is shown in Figure~\ref{privPolRep}.
+
+\subsection{Databases}
+
+As the CBR model requires, data must be stored in a persistent fashion between cycles, and thus, while the program is not running. Furthermore, the ability to load raw cases (P3P policies, in this case), is needed not only to initialize a database, especially in a repeatable fashion, but also for establishing the new case under consideration. These requirements are handled by several distinct bodies of code - the P3P parsing class, discussed in the Section~\ref{parseImpl}, the internal Java representation of policies and the database classes holding the databases. 
+
+The extended CBR with collaborative filtering needs to support \emph{two} databases - one local and one global global multi-user database that is accessed across a network whenever the local database proves incapable of providing a satisfactory solution to the problem.
+
+<<<<<<< HEAD
 \subsection{Local Database}\index{Datastorage}\index{Datastorage!Local database}
+=======
+\subsubsection{Local Database}
+>>>>>>> da740c988e5b599cd412b83d7260e8cabc60ef87
 The provided local database class (\texttt{PDatabase}) is located in the \texttt{datastorage} group, and implements the abstract model \texttt{PolicyDatabase}. It enforces the singleton model, and is based on \texttt{java.io.serializable} for saving objects on disk, and stores objects in a private \texttt{ArrayList<PolicyObject>}. The methods function precisely as laid out in the Design section, and offer an example of how a PolicyDatabase should function.
 
 Please note the lack of direct access to the internal object storage- thus enabling the use of MySQL, or some other data storage format for not only saving the case history between CBR cycles, but also during the cycle itself, provided that a policy can be added and an iterator provided over the dataset. As with all of the modular classes (algorithms, policy databases, network resources, and user interfaces), the class used to load, interface with, and save the local database can easily be switched out by setting the appropriate  option to the qualified class name in either the configuration file or on command line (in this case, the option is \texttt{policyDB}).
 
+<<<<<<< HEAD
 \subsection{Remote Databases}\index{Datastorage!Community database}  %network is going here
+=======
+\subsubsection{Remote Databases}  
+>>>>>>> da740c988e5b599cd412b83d7260e8cabc60ef87
 Access to a community server or network resource is contingent on two things- a remote server, and the class used to interface with said server. In the framework provided, the two classes provide access to a distinct dataset- in fact, while it is possible to create a local substitute providing identical functionality to the existing PolicyDatabase and CBR algorithms, the Java NetworkR class providing the abstract implementation does not provide access to the same case history. Responsibility for providing a reasonable solution in this combined 'retrieve-reuse' phase (the execution of algorithms in a similar model to those used in the local CBR) is intended to reside on the server side, as the resources consumed in transmitting the much larger community case history to a local client are far more significant than those required to run the query locally, and provided only a suggested solution.
 
 Provided in the code is an implementation using a CouchDB database, and a class. The Java code uses several third party libraries (CouchLight and gson, described above) to communicate with a CouchDB database located on a virtual machine provided for the project by NTNU IDI.
@@ -208,13 +243,13 @@ The remote database class provided is entitled \texttt{NRCouchdb}. This class im
 
 As with all of the modular classes (algorithms, policy databases, network resources, and user interfaces), the fallback resource (usually on a remote server) can easily be switched out by setting the appropriate  option to the qualified class name in either the configuration file or on command line (in this case, the option is \texttt{NetworkRType}).
 
-\section{User Interface} %%TODO 
+\section{User Interface}\index{Interfaces} %%TODO 
 
 
-\subsection{CLI}%%TODO Nicholas
+\subsection{CLI} \index{Interfaces}\index{Interfaces!Command line interface (CLI)} %%TODO Nicholas
 
 
 
 
-\subsection{GUI}%%TODO Einar
+\subsection{GUI} \index{Interfaces}\index{Interfaces!Graphical user interface (GUI)} %%TODO Einar
 

@@ -1,12 +1,14 @@
 Todo list for project report
 ----------------------------
-  
+- abstract, intro
+- quotes facing the wrong way, e.g. introduction
 - page nums on blank pages
 - references inside document
 - bibliography
-- remove evaluation section
+
 - table in planning, remove separation
 - figures
+
 - new program flow figure, simplify first figure, more detail in design
 - planning document
 - risk tables -> appendix, write summary to keep in the report
@@ -15,6 +17,7 @@ Todo list for project report
 - Project Plan -> Milestones: wording, explanation, why when etc
 - Parts numbering
 - bullet lists in specific requirements -> numbered
+
 - evaluate requirements at the end
 - LaTeX to bold in design
 - Tools from design -> planning/prestudy (tosin email)
@@ -33,7 +36,6 @@ Todo list for project report
 
 - testing: usability testing instead of interface testing
 - unit test, double tables
-- evaluation chapter -> stuff on software, remove stuff on group/blabla
 - add google docs section in evaluation
 - update time stuff
 - remove course evaluation
