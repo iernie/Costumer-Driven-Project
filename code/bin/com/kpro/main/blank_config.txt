@@ -1,3 +1,8 @@
+This file contains all of the configuration options- the name, what is expected, and what it is used for. It 'may' be out of date/inconsistent (I don't think so, and it should have been caught by testing, but it may have been missed). 
+For commandline options, see the clolist array in 'loadCLO'- as the code notes, it holds all options avaliable as commandline arguements when launching the program.
+Original author: ngerstle
+
+
 loglocation				-> string/filepath				-: where the log is written to. can't be changed once the UI is called
 loglevel				-> string/logging level			-: what level to log at
 inDBLoc					-> string/filepath				-: where to read the past history from
