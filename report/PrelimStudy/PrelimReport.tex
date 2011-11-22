@@ -46,13 +46,11 @@ Bernsmed et al. mentions a few other examples of available and suggested approac
 
 \subsection{How Machine Learning Can Improve Privacy Advice}\index{Machine Learning}
 
-% NBNBNB! Expand on this section. See article by SINTEF.
-[This section is to be expanded on]
-% NBNBNB! Expand on this section. See article by SINTEF.
+As mentioned above, there are two key issues with current privacy enhancement technology; firstly, most programs require a substantial amount of user knowledge about internet privacy issues as well as their preferences. While users may have a clear idea about what they would accept in a given situation, these rules may be hard to generalize. This means that the user has to put a large amount of effort into configuring the program. Furthermore, many of these programs may be to vocal in the sense that they interrupt the user in his Internet activities. The aim of this project is to move towards a privacy enhancement system that is easy to configure and intervenes as little as possible. There are several reasons to believe that the introduction of machine learning techniques may be helpful in acheiving this goal.
 
-The novel feature of this project is to introduce an intelligent system that \emph{learns} the user's preferences, seeking to limit the amount of user interference.
+A successful machine learning system will be able to predict user behavior in a given scenario based on knowledge of previous behavior. The system can learn both \emph{supervised} for instance by being fed a set of cases that are not accepted, and by \emph{reinforcement learning}, that is when the user corrects its behavior. The first case may be applicable to initial configuration and for adding "black lists" of sites that are clearly harmful. The second is necessary for the system to adapt to the complex preferences of the user to minimize the misclassifications.
 
-SINTEF suggests the use of CBR agent that can look at previous examples of user choices in similar situations. A particular advantage of the CBR approach is the feedback loop where the system can actually \emph{explain} its choice in terms of similar cases which sets CBR apart from alternative reasoning models such as artificial neural networks. It also allows for better tuning to user response in those cases that the user disagrees with the recommendation.
+In a research article, SINTEF indicates the appropriateness of the CBR approach for this problem. A particular advantage of the CBR approach is the feedback loop where the system can actually \emph{explain} its choice in terms of similar cases which sets CBR apart from alternative reasoning models such as artificial neural networks. It also allows for better tuning to user response in those cases that the user disagrees with the recommendation.
 
 \section{Case Based Reasoning}\index{Case Based Reasoning}\index{CBR}
 Being, the core part of the system to be developed, some time needed to be spent on looking into CBR. In vague terms, CBR is problem solving based on past solutions to previous problems. This approach is similar in many ways to the way humans solve problems, both as domain experts, and in their daily life. For instance, a software engineer, faced with a particular problem, may identify similarities to a problem he has previously solved, using for instance a factory design pattern, so he adopts this solution to the new problem with some modifications. Similarly, a NTNU student, hungry for a late night snack, recalling past experience with favorable opening hours and culinary excellency, heads off to Sesam.
@@ -120,7 +118,7 @@ A common criticism raised against the waterflow model is that development rarely
 Among the modifications that we have made is, as indicated in Figure~\ref{workflow}, a slight overlap between the different phases. This is justified by the fact that some stages are not dependent entirely on the previous stage. For instance, given a detailed design, a test plan and testing procedures can be worked out independently, and testing of one module does not require the entire system to be integrated.
 
 
-Documentation/
+
 \section{Development Tools and Technologies}\label{DevTools}
 This section details some of the choices that were made regarding development tools and technologies for this project.
 
