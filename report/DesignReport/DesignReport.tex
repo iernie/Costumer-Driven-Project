@@ -8,69 +8,14 @@
 
 \minitoc
 
-This chapter describes the design phase of the program, where the program architecture is established. Several critical decisions are made in this phase and the design and architecture decisions impacts the way the implementation phase proceeds as it defines how the final software system is decomposed into modules, and how these modules behave and interact with each other. 
+This chapter details the organization and interaction between the different program components and the rationale for their design. The implementation of the framework is directly dependent on the design presented here, but the design is independent of programming languages and tools used in implementation
 
-In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in the paper by T{\o}ndel and Nyre. Given the broad structure in the CBR agent model, several details need to be fleshed out, including data structures for storing policies, databases, choosing actual algorithms, a user interface, and so forth. This chapter lays out the broad structure of the Privacy Advisor system. Implementation details are discussed in Chapter~\ref{impl}.
-
-\subsection{Documents and Source Code Repositories}\index{GitHub}
-For software projects of a certain scale, version control is an important technology that allows project members to work simultaneously against the same files without causing inconsistencies. Version control systems also allow for comparison with older versions, tracking changes and restoring previous copies in the case of errors.
-
-For source code repositories and version control, \textbf{Git} was selected. Git is a distributed, open source version control system that is available for all platforms. Git is also used for hosting the \LaTeX documents that comprise this report. For other documents such as meeting minutes, agendas, status reports, time reporting and certain planning documents, \textbf{Google Docs} is used.
+The structure of the program follows the CBR agent model discussed in the paper by T{\o}ndel, Nyre and Bernsmed (2011)\footnote{\emph{Inger Anne T{\o}ndel \& {\AA}smund Ahlmann Nyre \& Karin Bernsmed}: "Learning Privacy Preferences", SINTEF ICT, 2011.}. Given the broad structure of the model, several details need to be fleshed out, including data structures for storing policies, databases, choosing actual algorithms, a user interface, and so forth. This chapter lays out the broad structure of the Privacy Advisor system. Implementation details are discussed in Chapter~\ref{impl}. The Section~\ref{desOverview} provides an overview over core functionality, including algorithms as well as program flow. The remaining sections cover data storage and user interfaces.
 
 
-\subsection{Programming Languages}\index{Java}
-\textbf{Java} is chosen as the primary programming language for implementing the majority of the code. Java is an object oriented programming language providing a level of abstraction appropriate for the task at hand in addition to a rich set of libraries, including the SWING library for GUI programming, and several libraries for networking. It also simplifies writing a browser plugin as major browsers such as Google Chrome and Firefox employ Javascript as scripting language for plugin.
+\section{Core Functionality}\label{desOverview}
+In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in T{\o}ndel and Nyre. Refinements which must be made include data structures for storing policies, databases, choosing actual algorithms, and so forth. This section describes how the design in broad terms. 
 
-Javascript was used in small measure for the use of a CouchDB community server.
-
-\subsection{Development Tools}
-Eclipse was used for all Java development, while standard text editors were used for Javascript and manual P3P policy editing. The CouchDB server was hosted on a VMware virtual machine, and was accessible via web interface on most standard web browsers.
-
-\subsection{Databases}\index{MySQL}\index{CouchDB} %Assuming [Discuss community server here] is actually done here
-For testing purposes, it has been decided on using flat file storage of privacy policy data using Java's \texttt{Serializable} interface. However, the output functionality is to be written in a generic fashion to simplify use of database systems such as MySQL, CouchDB and so forth. 
-
-%[Discuss community server here]
-[Discuss community server here]
-
-\subsection{Third Party Libraries}
- 
-For developing the CBR as well as P3P parsing components of the Privacy Advisor, a decision had to be made regarding the usage of third party libraries, either for components or for the entire CBR system. Two options were considered with respect to the CBR system. The first was to use a full third party CBR system (jColibri). The alternative was to use a third party system for the retrieval component of the CBR system (i.e. a k Nearest Neighbors (kNN) implementation).
-
-
-\subsubsection{Third Party CBR System}\index{jColibri}
-
-The customer, SINTEF ICT, suggested looking into an open source CBR library developed at the Universidad Complutense de Madrid.
- 
-jColibri is a CBR system that has been under development for well over 10 years and is a very comprehensive system allowing for database interfaces and several other features,  and is according to the customer, a popular choice in academia for CBR projects. It is also written in Java, which of course makes interfacing it simple from our own Java project.
- 
-However, its comprehensiveness also means that it takes more reading to understand and properly apply to the project at hand, and due to its size and poor documentation, jColibri was ultimately deemed unfit for the Privacy Advisor project. Due to the limited time resources available to this project, the risks associated with spending a large amount of time on a third party library that eventually would not be running was to high.
- 
-\subsubsection{Third Party k Nearest Neighbors Implementations}\index{The Java Machine Learning Library (JavaML)} 
-Since kNN is a standard classification algorithm, there are several open source implementations available. Limiting the search space to Java implementations, a library called \emph{The Java Machine Learning Library} (JavaML) was the primary candidate, as it provided a clean and simple interface and allowed for extracting confidence measures.
- 
-The problem with this library relates to the nature of distance metrics used in classifying privacy policies which is compositional in a way that is non-trivial to handle in JavaML. Furthermore, JavaML seems to operate only on arrays of floating point numbers, which means the distance metric must be defined in two stages; first mapping from \emph{policy domain} to real numbers, then in terms of a metric on real vectors.
-
-\subsubsection{P3P/XML Parser}\index{P3P XML parsers}\index{P3P XML parsers!DOM}\index{P3P XML parsers!SAX}
-Looking for XML parsers on the Java platform, we found out that there are two different types of XML parsers we could use, the first being a DOM Parsers and the second one being a sequential access parser. The difference being that DOM parsers operate on the document as a whole, while sequential access parsers operates on each piece of the XML document sequentually.
-
-We ended up using SAXParser, an internal sequential access parsers in Java. The task from here was to implement it, making the policy as an object with the fields of our choosing. It works by sequentially going through all elements of the XML document, and with easy string comparison, checking if the element is of the wanted ones.
-
-
-
-\section{Standards}\index{Oracle's Coding Conventions}
-To achieve clean and reusable code, the project has adopted Oracle's Coding Conventions for the Java Programming Language\footnote{http://www.oracle.com/technetwork/java/codeconvtoc-136057.html}. This is mentioned in the requirements specification due to the high likelihood of the customer having to change the source code for later adaptations.
-
-
-\section{Architecture}
-%http://www.cmcrossroads.com/bradapp/docs/sdd.html
-In implementing Privacy Advisor, a class structure is built around the CBR agent model discussed in T{\o}ndel and Nyre. Refinements needed to be made include data structures for storing policies, databases, choosing actual algorithms, and so forth. This section describes how the design in broad terms.
-
-%%
-%% This chapter should be organized as follows: 
-%% - overview
-%% - io/gui/cli
-%% - cbr engine
-%% - data objects storage
 
 \begin{figure}[htbp]
 \begin{center}
@@ -80,8 +25,6 @@ In implementing Privacy Advisor, a class structure is built around the CBR agent
 \end{center}
 \end{figure}
 
-\section{Design Overview}
-This section describes the architecture of the local CBR based system. The next section gives an overview over the design of the server component using collaborative filtering and how it interfaces with the local system.  
 
 \begin{figure}[htbp]
 \begin{center}
@@ -92,68 +35,46 @@ This section describes the architecture of the local CBR based system. The next 
 \end{figure}
 
 \subsection{Program Flow}
-Figures~\ref{DesignFlowChart} and \ref{SystemOverview} seek to provide a broad overview of the structure of the Privacy Advisor system. The program flow is given by Figure~\ref{DesignFlowChart}: a policy object is passed to the CBR system from the user, either through the CLI or GUI. The CBR does a lookup on similar cases in the local database and computes an initial recommendation based on the similar cases retrieved. If the confidence in this recommendation is above a given threshold, it provides the user with the advice and the background for the advice through the user interface. If the confidence is not sufficient, the system will query the community system for an advice, which then is combined with the initial recommendation for a final advice which is presented to the user. The user can then give a feedback on the advice choosing to accept or reject it. The user feedback is then stored back to the database.
+The discussion in this chapter focuses on the program flow for the command line version of Privacy Advisor. The GUI version follows a similar, but slightly more complex flow. The discussion is based on the standard flow where a database is already compiled and the user 
+
+Figures~\ref{DesignFlowChart} and \ref{SystemOverview} seek to provide a broad overview of the structure of the Privacy Advisor system. The program flow is given by Figure~\ref{DesignFlowChart}: a policy object is passed to the CBR system from the user, either through the CLI or GUI. The CBR does a lookup on similar cases in the local database and computes an initial recommendation based on the similar cases retrieved. 
+
+If the confidence in this recommendation is above a given threshold, it provides the user with the advice and the background for the advice through the user interface. If the confidence is not sufficient, the system will query the community system for an advice, which then is combined with the initial recommendation for a final advice which is presented to the user. The user can then provide feedback on the proposed solution, choosing to accept or reject it. The case along with the modified solution is subsequently retained in the knowledge base.
 
 
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width = \textwidth]{DesignReport/uml/gio.png}
-\caption{Input/output and user interfaces.}
-\label{UserIO}
+\includegraphics[width = \textwidth]{DesignReport/uml/main_2.png}
+\caption{Privacy Advisor system overview.}
+\label{overviewFig}
 \end{center}
 \end{figure}
 
 
-\subsection{Top Level Structure}
-[Discuss figure \ref{gioFig}.]
-
-\section{User Interfaces and Input/Output}
-Privacy Advisor can be run using either a command line interface (CLI) or a graphical user interface (GUI). Both the CLI and the GUI are built on top of a "General Input/Output'' module, GIO. GIO creates the database objects and issues the proper commands to the CBR framework based on user input. The GIO class is shown in Figure~\ref{gioFig}. 
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width = \textwidth]{DesignReport/uml/gio.png}
-\caption{working of system.}
-\label{gioFig}
-\end{center}
-\end{figure}
+\subsection{Top Level Design}
 
 
-\subsubsection{Graphical User Interface} 
-The Graphical User Interface is used to get a graphical overview over the database, as well as change configurations and run the framework itself. The database is shown in a tree structure so that one can easily click through it and have a look at it. Configurations, reloading of the database and running the program can all be done from the PrivacyAdvisor drop-down menu.
-
-After the program is run, a view of the new policy can be seen for reference in another view, also in a tree structure.
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[width = \textwidth]{DesignReport/uml/policyadvisorgui}
-\caption{GUI interfaces.}
-\label{GUI_interface}
-\end{center}
-\end{figure}
-
-\subsubsection{Weights and Configuration Files}
-As an addition to passing command line arguments, GIO also reads a text based configuration file containing CBR and database settings. The configuration files are detailed in the User Documentation in table~\ref{configTable}. 
-
-\subsubsection{CBR} % TODO Nicholas: Why PDatabase is not connected directly to CBR
-Input from the UI is passed on to the CBR framework. CBR in turn references three other key modules, a \emph{reduction} algorithm, a \emph{conclusion} algorithm, and finally, a \emph{learning} algorithm.
-
-The reduction algorithm searches the database to find the most similar cases to the new case presented. The canonical reduction algorithm is k Nearest Neighbors, discussed in section~\ref{kNN}. The conclusion algorithm looks at the set of cases returned by the reduction, and decides on the most appropriate action for the novel case. It also returns a measure of confidence in the conclusion reached.
-
-Finally, a learning algorithm allows for automatically tuning the parameters used for distance calculations. This is discussed further in section~\ref{learnAlgos}.
-
-An overview of the CBR system is given in Figure~\ref{cbr_fig}...
-% comment reduction, learning, conclusion, KNN
+Figure \ref{overviewFig} is a UML class diagram of the high level structure of the program. When called, \texttt{PrivacyAdvisor} will call \texttt{Gio} to parse command line arguments. 
 
 
-\begin{figure}[htbp]
+
+
+\subsubsection{CBR} 
+Input from the UI is passed on to the CBR framework. CBR in turn references three other key modules, a \emph{reduction} algorithm, a \emph{conclusion} algorithm, and finally, a \emph{learning} algorithm. An overview of the CBR system is given in Figure~\ref{cbr_fig}.
+
+\begin{figure}[h!]
 \begin{center}
 \includegraphics[width = \textwidth]{DesignReport/uml/CBR.png}
 \caption{CBR System.}
 \label{cbr_fig}
 \end{center}
 \end{figure}
+
+The reduction algorithm, which in CBR terminology often is referred to as the \emph{retrieval algorithm} searches the database to find the most similar cases to the new case presented. The standard reduction algorithm is k Nearest Neighbors (kNN). kNN is discussed in section~\ref{kNN}. The conclusion algorithm looks at the set of cases returned by the reduction, and decides on the most appropriate action for the novel case. It also returns a measure of confidence in the conclusion reached. In CBR terms, this corresponds to the \emph{revise} phase.
+
+Finally, a learning algorithm allows for automatically tuning the parameters used for distance calculations. The rationale for this augmenting of the classical CBR framework is the high dimensionality of the data. Without a manual learning approach it is hard to tell the system which fields in a policy is important in determining the similarity between two policies. Learning algorithms are discussed further in section~\ref{learnAlgos}.
+
 
 \section{Data Objects and Storage}
 
@@ -197,12 +118,6 @@ An overview of the Policy Database is given in Figure~\ref{pd_fig}...
 \end{center}
 \end{figure}
 
-\subsection{Interfaces}
-
-
-
-
-
 
 
 \subsection{Community Server}\index{Datastorage}\index{Datastorage!Community database} %%TODO needs rewrite- focuse here is on design not implementation. mention query should be server-side
@@ -213,3 +128,27 @@ In the first instance, the new policy under consideration is converted to JSON u
 In the second instance, the final policy (including the action taken on it) is sent to the CouchDB server, and the server proceeds to store the object.
 On the database end, there are two essential interfaces (beyond any standard initialization and shutdown procedures). As seem above, these two interfaces are the suggestion provider, which includes a query to find the most similar policies and actions on them by the community, and a interface to simply save the new policy to the appropriate database.
 The database is easily replaceable, requiring only the construction of a new class implementing 'NetworkR', the abstract class detailing the methods called by the PrivacyAdvisor framework. The selection between available 'NetworkR' implementations in made by setting the 'NetworkRType' configuration variable during initialization to the full classname.
+
+
+
+
+
+\section{User Interfaces}
+Privacy Advisor can be run using either a command line interface (CLI) or a graphical user interface (GUI). Both the CLI and the GUI are built on top of a "General Input/Output'' module, GIO. GIO creates the database objects and issues the proper commands to the CBR framework based on user input. The GIO class is shown in Figure~\ref{gioFig}. 
+
+
+\subsubsection{Graphical User Interface} 
+The Graphical User Interface is used to get a graphical overview over the database, as well as change configurations and run the framework itself. The database is shown in a tree structure so that one can easily click through it and have a look at it. Configurations, reloading of the database and running the program can all be done from the PrivacyAdvisor drop-down menu.
+
+After the program is run, a view of the new policy can be seen for reference in another view, also in a tree structure.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width = \textwidth]{DesignReport/uml/policyadvisorgui}
+\caption{GUI interfaces.}
+\label{GUI_interface}
+\end{center}
+\end{figure}
+
+\subsubsection{Weights and Configuration Files}
+As an addition to passing command line arguments, GIO also reads a text based configuration file containing CBR and database settings. The configuration files are detailed in the User Documentation in table~\ref{configTable}. 
