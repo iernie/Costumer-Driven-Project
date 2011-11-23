@@ -26,16 +26,16 @@ The simplest way to make the program run as a stand-alone program on a Java Virt
 \subsubsection{Open Export Wizard}
 This can be done by right clicking the project in Eclipse, choosing \texttt{Export}, type in \texttt{jar} in the new window that opens up and choose \textbf{Runnable Jar File}, before clicking \textbf{Next}. These steps are shown in the two figures \ref{exportFirstStep} and \ref{exportSecondStep}.
 
-\begin{wrapfigure}{r}{0.4\textwidth}
+\begin{figure}[h!]
   \vspace{-10pt}
   \begin{centering}
-    \includegraphics[width = .38\textwidth]{Documentation/export.png}
+    \includegraphics[width = .6\textwidth]{Documentation/export.png}
     \vspace{-10pt}
     \caption{First step: right click and choose "export".}
     \vspace{-10pt}
     \label{exportFirstStep}
     \end{centering}
-  \end{wrapfigure}
+  \end{figure}
 
   \subsubsection{Select GUI or CLI}
   The next step is to select which class file is to be the main class\footnote{Privacy Advisor has two files containing a main method. One is for running the CLI version, one for the GUI version.}; in the \textbf{Launch configuration} dropdown select either \texttt{PrivacyAdvisor} or \texttt{PrivacyAdvisorGUI}.
@@ -43,30 +43,30 @@ This can be done by right clicking the project in Eclipse, choosing \texttt{Expo
 \texttt{PrivacyAdvisor} is selected to compile the command line version, and the \texttt{PrivacyAdvisorGUI} is selected for command line. Then choose the export destination, and choose \texttt{Package requires libraries into generated JAR} as the library handling. Pressing finish to start exporting the program. These steps are shown in figure \ref{exportLastStep}.
 
 
-  \begin{wrapfigure}{l}{0.5\textwidth}
+  \begin{figure}[h!]
     \begin{centering}
       \vspace{-10pt}
-      \includegraphics[width = .48\textwidth]{Documentation/export_jar.png}
+      \includegraphics[width = .6\textwidth]{Documentation/export_jar.png}
       \vspace{-10pt}
       \caption{Second step: choose runnable jar.}
       \vspace{-10pt}
       \label{exportSecondStep}
     \end{centering}
-  \end{wrapfigure}
+  \end{figure}
 
 \subsubsection{Configuration File}
 Before running the program PrivacyAdviser.cfg has to be put in the same folder as the exported jar file. If the database file and the weights file at the same folder, their location have to be specified in the PrivacyAdviser.cfg file. 
 
-\begin{wrapfigure}{l}{0.5\textwidth}
+\begin{figure}[h!]
   \begin{centering}
     \vspace{-10pt}
-    \includegraphics[width = .48\textwidth]{Documentation/export_last.png}
+    \includegraphics[width = .6\textwidth]{Documentation/export_last.png}
     \vspace{-10pt}
     \caption{Third step: choose launch config, destination and library handling.}
     \vspace{-10pt}
     \label{exportLastStep}
   \end{centering}
-\end{wrapfigure}
+\end{figure}
 
 
 \subsubsection{Sample Run}
@@ -76,7 +76,7 @@ To run the program, navigate to the folder where the jar file is stored and type
 
 Now the program should start (even if it's the cli or gui version). This is shown in figure \ref{runProgram}.
 
-\begin{figure}
+\begin{figure}[h!]
   \begin{centering}
     \includegraphics{Documentation/cli.png}
     \caption{Running the program.}
@@ -118,17 +118,17 @@ When the GUI is stared, it automatically loads the database file, and displays t
 
 If we want to change the location of the database, the new policy or anything else we can press the \texttt{Configuration} button and make the changes in the \texttt{Configuration Editor} window that shows up. This Configuration Editor window is showed in figure\ref{guiConfig}.
 
- \begin{wrapfigure}{r}{0.5\textwidth}
-     \includegraphics[width = .48\textwidth]{Documentation/gui.png}
+ \begin{figure}[h!]
+     \includegraphics[width = .6\textwidth]{Documentation/gui.png}
      \caption{The GUI.}
    \label{guiFigure}
- \end{wrapfigure}
+ \end{figure}
 
-   \begin{wrapfigure}{r}{0.5\textwidth}
-     \includegraphics[width = .48\textwidth]{Documentation/gui_config.png}
+   \begin{figure}[h!]
+     \includegraphics[width = .6\textwidth]{Documentation/gui_config.png}
      \caption{The GUI configuration editor.}
    \label{guiFigure}
- \end{wrapfigure}
+ \end{figure}
 
 
 \subsubsection{Configuration Files}
@@ -197,5 +197,3 @@ To view the database, confirm by pressing \texttt{y}.
 \textbf{GUI}: To view a database from the GUI, open the configuration editor and uncheck the \textbf{Build New Database} item and 
 navigate to the directory holding the new database. Select \textbf{Load Database} from the menu. The database can now be browsed in
 the left hand tree structure.
-
-
