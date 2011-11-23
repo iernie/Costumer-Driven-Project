@@ -175,6 +175,16 @@ The weakness of computing this way is that some of the distances will be counted
 
 There is some variations in this method. You can use maximum/minimum distance between cases or average of the sum. We choose minimum because this way we always try to find a best match between cases and policies. With an algorithm that will minimize error from computing twice, from a to b and b to a, minimum distance will give the best results. But in total picture if you use same algorithm that considers every case for every policy in your database the results will be proportional.
 
+
+\subsection{Conclusion Algorithm}
+
+The conclusion algorithm implements the 'reuse' phase of the Case Based Reasoning process, producing a testable solution based on relevent past cases. In 'Conclusion_Simple', an 'action' object is created for the new policy, containing whether or not to accept a policy, the confidence in the suggestion, and the cases (domains of past policies) that led to the suggestion.
+
+Concretely, the relevent cases are sorted in two lists based on whether they have been accepted. The nverse of the sum of distance for each relevent policy is calculated, and compared. Whichever list (of relevent policies accepted or rejected), has a smaller inverse distance, is the closer solution, and provides the suggested action. Thus, if there are three policies (A,B,C), with respective distances (1,2,3) and two policies (A,C) were accepted, then the new policy would also be accepted (1/(1+3) < 1/(2)).
+
+The implemented conclusion algorithm also provides a confidence in the suggestion in provides. The confidence is a function of the proportion of policies with the calculated suggestion from the relevent policies. This function does not take into account uncertainties due to a small sample size, which may require a constant found through trial and error. The list of relevant cases is simple the same list that produced the solution- namely, the domains of policies in the list with the smallest inverse-sum-distances. 
+
+
 \section{P3P Parsing}\label{parseImpl}
 The \texttt{P3PParser} is used to parse a P3P policy from an XML document to a Java object that can be used by the rest of the framework. The parser is located in the \texttt{parser} group and takes in the path to the xml document as argument. It is based on \texttt{org.xml.sax}, an internal, sequential XML parser in Java.
 
@@ -218,9 +228,12 @@ The remote database class provided is entitled \texttt{NRCouchdb}. This class im
 As with all of the modular classes (algorithms, policy databases, network resources, and user interfaces), the fallback resource (usually on a remote server) can easily be switched out by setting the appropriate  option to the qualified class name in either the configuration file or on command line (in this case, the option is \texttt{NetworkRType}).
 
 \section{User Interface}\index{Interfaces} %%TODO 
-
+As discussed in the previous chapter, Privacy Advisor has two different user interfaces serving different purposes. This section gives a brief overview over their implementation.
 
 \subsection{CLI} \index{Interfaces}\index{Interfaces!Command line interface (CLI)} %%TODO Nicholas
+
+The command-line implementation of UserIO is the simplest version, requiring only access to the standard input and output. While more difficult to interpert the items in the case history/database, it requres minimal resource use, and is simple to run as a batch job, once testing criteria are known. The command-line implementation (UserIO_Simple) does not implement a configuration editor, as all options can be configured from command line, the same interface the program uses to interact with the user. 
+
 
 \subsection{GUI}  \index{Interfaces}\index{Interfaces!Graphical user interface (GUI)}
 The GUI inherits from the \texttt{UserIO} class and implements a graphical user interface with the use of Java's own graphical library \texttt{SWING}. The main view is a split view of the database and the new policy that is being reviewed. Both shown via a tree view for easy overview.
