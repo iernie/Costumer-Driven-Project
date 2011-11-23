@@ -165,6 +165,7 @@ Looking for XML parsers on the Java platform, we found out that there are two di
 We ended up using SAXParser, an internal sequential access parsers in Java. The task from here was to implement it, making the policy as an object with the fields of our choosing. It works by sequentially going through all elements of the XML document, and with easy string comparison, checking if the element is of the wanted ones.
 
 \subsubsection{Networking Software}
+The CouchLight and Gson library were selected for creating the connection to the CouchDB database, and parsing objects to and from the JSON required for transmission. The Gson library, created by Google, is a standard JSON to Java library, used in multiple CouchDB libraries and applications, including CouchLight. CouchLight was selected for ease of use over other CouchDB connection libraries, as well as for its current development- many of the CouchDB Java libraries are no longer supported and being updated.
 
 \subsubsection{Third Party Licences}
 All the third party libraries used by the Privacy Advisor Project use the Apache v2 licence\footnote{See: http://www.apache.org/licenses/LICENSE-2.0.html.}.
