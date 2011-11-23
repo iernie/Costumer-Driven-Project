@@ -53,7 +53,8 @@ If the confidence in this recommendation is above a given threshold, it provides
 
 
 \subsection{Top Level Design}
-
+The program follows the general Case Based Reasoning cycle by first loading and initializing all components, then applying the relevent 'retreive' and 'reuse' algorithms, providing the suggestion to the user and waiting for a response during the 'revise' phase, and finally, saving the new case to the database and improving the distance metrics during the 'retain' phase (all seen in the \ref{DesignFlowChart}).
+This is implement in several different types of classes. The PrivacyAdviser 'main' class directs the flow from initialization and loading the the local history to the full CBR cycle, and if modified, alls the cycle to be reinitiated. The 'Gio' class handles the specifics of initilizing most of the variables and classes- including the PolicyDatabase, which is then called to load according to its own design. CBR contains the control flow of the CBR cycle itself, creating and running the algorithms at the appropriate times, interacting through 'Gio' to access the local and remote database, as well as any necessary variables. The seperation of the CBR class from the 'main' class allows for an alternative machine learning algorithm, if one can be implemented such that it uses the provided interface. The 'Gio' class also holds the only reference to the user interface, which must provide a call for modifying the start-up variables, an interaction with the user, and the ability to display the dataabse. Unless the user interface ('UserIO') is also the 'main' class, the program flow is strictly dictated and of finite length.
 
 Figure \ref{overviewFig} is a UML class diagram of the high level structure of the program. When called, \texttt{PrivacyAdvisor} will call \texttt{Gio} to parse command line arguments. 
 
