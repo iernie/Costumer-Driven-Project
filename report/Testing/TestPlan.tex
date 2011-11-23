@@ -19,7 +19,7 @@ There are two main types of software testing: black-box testing and white-box te
 This is a method that test the functionality of an application. For this type of testing, knowledge about the application's code and structure is not required. The test cases are based on external descriptions of the software, e.g. specifications, functional requirements or designs. Black-box tests are usually functional, but they can also be non-functional. This type of testing can be applied to all levels of software testing.
 		
 \subsection{White-box testing}\index{Test methods}\index{Test methods!White-box testing}
-This method is used for testing internal structures of an application. For white-box testing it is required to have both knowledge about the code and structure of the application, as well as knowledge about programming to design the test cases. This type of testing is normally 	done at unit level where it can test paths within a unit or paths between units, but it can also be used at integration and system levels of testing. This method can uncover many errors and problems, but it is not a good test method for finding out whether the program is fulfilling the requirements or not.
+This method is used for testing internal structures of an application. For white-box testing it is required to have both knowledge about the code and structure of the application, as well as knowledge about programming to design the test cases. This type of testing is normally done at unit level where it can test paths within a unit or paths between units, but it can also be used at integration and system levels of testing. This method can uncover many errors and problems, but it is not a good test method for finding out whether the program is fulfilling the requirements or not.
 
 \section{Testing approach}
 Our main focus will be on white-box testing. This is a program that is going to be used for research, which means that black-box testing will not be very useful as the client want to work on and test algorithms themselves. Our main task is to deliver a good framework with the necessary tools, and a working, learning algorithm so that further testing can be done with ease. Since one of the system requirements is high modularity, it will be a goal to have the tests be as little dependent on other modules as possible. There will be no training needs, as the testers are also involved in the programming.
@@ -55,11 +55,9 @@ Our main focus will be on white-box testing. This is a program that is going to 
 				\item UNIT-07: Packet passing through network to community database
 		\end{itemize}
 
-		\vspace{8 mm}
-		This is the test case template for the unit tests.
-		\vspace{8 mm}
-
+		Under is the template for the UNIT tests.
 		\begin{center}
+			%\begin{table}[h!]
 			\begin{tabular}{ |  p{4cm} | p{10cm} | }
 				\hline
 				Item & Description \\ [3pt] \hline \hline
@@ -71,18 +69,24 @@ Our main focus will be on white-box testing. This is a program that is going to 
 				Execution steps & Stepwise explanation of how to perform the test. \\  [3pt] \hline
 				Expected result & The expected output/result for the test to be successful. \\  [3pt] \hline
 			\end{tabular}
+			%\caption{Template for unit tests}
+			%\end{table}
 		\end{center}
 
 	\section{Test cases}
-		See the appendix for the test cases.
+		See appendix C for the test cases.
+
+	\section{Test case execution}
+		See appendix D for the test case execution documentation.
 
 	\section{Test pass / fail criteria}
 		A test is passed if the given execution steps and input produce the expected results. If they do not, the test is failed.
 
 	\section {Test schedule}
-		This is the table for when the UNIT tests are scheduled to start.
+		Under is the table for when testing for each of the UNIT tests are scheduled to start.
 
 		\begin{center}
+			%\begin{table}[h!]
 			\begin{tabular}{ |  p{5cm} | p{5cm} | }
 				\hline
 				Test identifier & Execution date \\ [3pt] \hline \hline
@@ -94,6 +98,8 @@ Our main focus will be on white-box testing. This is a program that is going to 
 				UNIT-06 & October 29th \\  [3pt] \hline
 				UNIT-07 & November 8th \\  [3pt] \hline
 			\end{tabular}
+			%\caption{Scheduled start dates for the UNIT tests}
+			%\end{table}
 		\end{center}
 
 \section{Risks and contingencies}

@@ -14,16 +14,16 @@
 
 This chapter explains the implementation phase of the project it provides a more detailed description of particular key
 details that were not decided on in the design phase. This relates in particular to choices regarding the particular CBR algorithms
-(k-Nearest Neighbors) and the similarity measures describing how "equal'' two cases are. It also details the data structures that
+(k-Nearest Neighbors) and the similarity measures describing how "equal" two cases are. It also details the data structures that
 are used to represent policies and how comparisons are done on these data structures.
 
 \section{Algorithms}
 
 \subsection{K-Nearest Neighbors}\label{kNN}\index{K-nearest neighbors}\index{KNN}
 
-\emph{K-Nearest Neighbors} (k-NN) is a \emph{lazy, non-parametric} algorithm for classifying objects based on the classification of the nearest examples in a given feature space. KNN is one of the simplest machine learning algorithms as it decides the classification based on a majority vote of, that is, an object is classified according to the most common classification of its $k$ nearest neighbors. The most critical component for the success of the k-NN algorithms is the definition of distance. This is discussed in Section~\ref{SimilarityMeasures}. 
+\emph{K-Nearest Neighbors} (kNN) is a \emph{lazy, non-parametric} algorithm for classifying objects based on the classification of the nearest examples in a given feature space. kNN is one of the simplest machine learning algorithms as it decides the classification based on a majority vote of, that is, an object is classified according to the most common classification of its $k$ nearest neighbors. The most critical component for the success of the kNN algorithms is the definition of distance. This is discussed in Section~\ref{SimilarityMeasures}. 
 
-For testing purposes, we have implemented a very simple kNN that sorts the example set (knowledge base) by distance from the object to be classified and returns the k nearest objects. This is obviously not an optimal approach being $O(n lg(n))$ where $n$ denotes the size of the knowledge base. This is not problematic for a small scale application such as ours where the knowledge contains less than 200 objects. If the system is to be scaled up, it would require a new kNN implementation, of which there are several available.
+For testing purposes, we have implemented a very simple kNN that sorts the example set (knowledge base) by distance from the object to be classified and returns the k nearest objects. This is obviously not an optimal approach being $O(n lg(n))$ where $n$ denotes the size of the knowledge base. This is not problematic for a small scale application such as ours where the knowledge contains less than 200\footnote{This is a rough estimate of a probable limit for an end user} objects. If the system is to be scaled up, it would require a new kNN implementation, of which there are several available.
 
 \subsection{Learning algorithm}\label{learnAlgos}\index{Learning algorithm}
 A learning algorithm is used to update the weights that are used to calculate the distance between policies. These weights are updated when the user overrides a recommendation from the system. This way the system learns from the users actions, and the next time the system runs it would return with an answer that reflects the users actions more precisely. As an example, let's say that the P3P policy of website X have a field that says that they have the rights to give away the contact-information of their users. So the system reccomends the user to not accept this policy, but the user overrides the recommendation and accepts the policy. Then the learning algorithm is run, and the field(s) that are connected to contact-information are updated. 

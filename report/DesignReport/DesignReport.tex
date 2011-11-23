@@ -10,7 +10,7 @@
 
 This chapter details the organization and interaction between the different program components and the rationale for their design. The implementation of the framework is directly dependent on the design presented here, but the design is independent of programming languages and tools used in implementation
 
-The structure of the program follows the CBR agent model discussed in the paper by T{\o}ndel, Nyre and Bernsmed (2011)\footnote{\emph{Inger Anne T{\o}ndel \& {\AA}smund Ahlmann Nyre \& Karin Bernsmed}: "Learning Privacy Preferences", SINTEF ICT, 2011.}. Given the broad structure of the model, several details need to be fleshed out, including data structures for storing policies, databases, choosing actual algorithms, a user interface, and so forth. This chapter lays out the broad structure of the Privacy Advisor system. Implementation details are discussed in Chapter~\ref{impl}. The Section~\ref{desOverview} provides an overview over core functionality, including algorithms as well as program flow. The remaining sections cover data storage and user interfaces.
+The structure of the program follows the CBR agent model discussed in the paper by T{\o}ndel, Nyre and Bernsmed (2011)\footnote{\emph{Inger Anne T{\o}ndel \& {\AA}smund Ahlmann Nyre \& Karin Bernsmed}: "Learning Privacy Preferences", SINTEF ICT, 2011.}. Given the broad structure of the model, several details need to be fleshed out, including data structures for storing policies, databases, choosing actual algorithms, a user interface, and so forth. This chapter lays out the broad structure of the Privacy Advisor system. Implementation details are discussed in the next chapter. The Section~\ref{desOverview} provides an overview over core functionality, including algorithms as well as program flow. The remaining sections cover data storage and user interfaces.
 
 
 \section{Core Functionality}\label{desOverview}
@@ -19,7 +19,7 @@ In implementing Privacy Advisor, a class structure is built around the CBR agent
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[width = 0.57G \textwidth ]{DesignReport/uml/flowchart.png}
+\includegraphics[width = 0.50 \textwidth ]{DesignReport/uml/flowchart.png}
 \caption{Program Flow.}
 \label{DesignFlowChart}
 \end{center}
@@ -51,7 +51,7 @@ If the confidence in this recommendation is above a given threshold, it provides
 
 
 \subsection{Top Level Design}
-The program follows the general Case Based Reasoning cycle by first loading and initializing all components, then applying the relevent 'retreive' and 'reuse' algorithms, providing the suggestion to the user and waiting for a response during the 'revise' phase, and finally, saving the new case to the database and improving the distance metrics during the 'retain' phase (all seen in the \ref{DesignFlowChart}).
+The program follows the general Case Based Reasoning cycle by first loading and initializing all components, then applying the relevent 'retreive' and 'reuse' algorithms, providing the suggestion to the user and waiting for a response during the 'revise' phase, and finally, saving the new case to the database and improving the distance metrics during the 'retain' phase (all seen in the figure \ref{DesignFlowChart}).
 This is implement in several different types of classes. The PrivacyAdviser 'main' class directs the flow from initialization and loading the the local history to the full CBR cycle, and if modified, alls the cycle to be reinitiated. The 'Gio' class handles the specifics of initilizing most of the variables and classes- including the PolicyDatabase, which is then called to load according to its own design. CBR contains the control flow of the CBR cycle itself, creating and running the algorithms at the appropriate times, interacting through 'Gio' to access the local and remote database, as well as any necessary variables. The seperation of the CBR class from the 'main' class allows for an alternative machine learning algorithm, if one can be implemented such that it uses the provided interface. The 'Gio' class also holds the only reference to the user interface, which must provide a call for modifying the start-up variables, an interaction with the user, and the ability to display the dataabse. Unless the user interface ('UserIO') is also the 'main' class, the program flow is strictly dictated and of finite length.
 
 Figure \ref{overviewFig} is a UML class diagram of the high level structure of the program. When called, \texttt{PrivacyAdvisor} will call \texttt{Gio} to parse command line arguments. 
@@ -75,6 +75,8 @@ Finally, a learning algorithm allows for automatically tuning the parameters use
 
 \section{Data Objects and Storage}
 
+The Privacy Advisor framework uses two key types of data storage that needs to be specified, one for storing the privacy policies and one for the databases holding the policies.
+
 \subsection{P3P Policy Objects}\label{p3pPolObj}\index{P3P}
 A P3P Policy Object consists of an \texttt{Action}, a \texttt{Context} and a list of different \texttt{Case} objects. The action object consists of the result from the comparison algorithm, stating if the policy is accepted as a good match, the reasons for this statement and with how much confidence this statement is correct. An overview of the Policy Object is given in Figure~\ref{po_fig}.
 
@@ -94,7 +96,7 @@ The last thing a policy object contains is a hashmap of the entity data. This is
 The local case history, maintained in a local database, is stored via a concrete class implementing 'PolicyDatabase'. This abstract class details the required methods for a local policy database: a singleton constructor for the database object; a call to load the database once constructed, from disk; a method adding a single policy to the database; a method returning a Java iterator over the stored PolicyObjects, and a call to return all policies from a given domain. An overview of the Policy Database is given in Figure~\ref{pd_fig}.
 
 In order to ensure consistency, the local policy database enforces singletonness. The database object itself is constructed without the actual history, requiring a seperate parameter-less 'loadDB' call on it to load policies from disk to the class, if necessary.
-
+o 
 During the CBR cycle, it becomes necessary to check past cases for relevancy during the 'retrieve' phase. This is accomplished by using the standard java Iterator return by \texttt{getiterator()}.
 Finally, the CBR cycle concludes by saving the new case (using 'addpolicy(newpolicy)'), and closing the database using 'closeDB()' (which is when the cases would be saved to disk).
 
@@ -124,7 +126,7 @@ The database is easily replaceable, requiring only the construction of a new cla
 
 
 \section{User Interfaces}
-Privacy Advisor can be run using either a command line interface (CLI) or a graphical user interface (GUI). Both the CLI and the GUI are built on top of a "General Input/Output'' module, GIO. GIO creates the database objects and issues the proper commands to the CBR framework based on user input. The GIO class is shown in Figure~\ref{gioFig}. 
+Privacy Advisor can be run using either a command line interface (CLI) or a graphical user interface (GUI). Both the CLI and the GUI are built on top of a "General Input/Output'' module, GIO. GIO creates the database objects and issues the proper commands to the CBR framework based on user input. The GIO class is shown in Figure~\ref{GUI_interface}. 
 
 
 \subsubsection{Graphical User Interface} 
